@@ -1,0 +1,13 @@
+= Neo4j Doc Manager
+:doctype: book
+:level: Intermediate
+:page-level: Intermediate
+:asciidoctor-source: https://raw.githubusercontent.com/neo4j-contrib/neo4j_doc_manager/master/docs/
+:author: Neo4j
+:category: integrations
+:tags: integrations, mongodb, document, tools, libraries
+
+
+The Neo4j Doc Manger project facilitates real time data synchronization from MongoDB to Neo4j.
+
+include::{asciidoctor-source}/neo4j_doc_manager_doc.adoc[]

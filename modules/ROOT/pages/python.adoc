@@ -1,0 +1,135 @@
+= Using Neo4j from Python
+:level: Intermediate
+:page-level: Intermediate
+:author: Neo4j
+:programming-language: python
+:category: drivers
+:tags: python, official-driver, app-development, applications
+
+.Goals
+[abstract]
+This guide provides an overview of how to connecting to Neo4j from Python.
+While it is not comprehensive, it aims to introduce the available drivers and links to other relevant resources.
+
+.Prerequisites
+[abstract]
+* You should be familiar with link:/developer/graph-database/[graph database concepts] and the property graph model.
+* You should have link:/download/[installed Neo4j] and made yourself familiar with our link:/developer/cypher-query-language/[Cypher query language].
+* We also recommend installing and becoming familiar with both https://pip.pypa.io/[pip^] and https://virtualenv.pypa.io/[virtualenv^] before working on a Python project.
+
+[role=expertise {level}]
+{level}
+
+[#neo4j-python]
+== Neo4j and Python
+
+image::{img}python-logo.png[width=300,float="right"]
+
+Neo4j can be installed on any system and then accessed via its binary and HTTP APIs. 
+
+You can use the official binary driver for Python (neo4j-python-driver) or connect via HTTP with any of our community drivers.
+
+[#python-driver]
+== Neo4j Python Driver
+
+include::./_includes/python-driver.adoc[]
+
+include::./_includes/sample_project.adoc[]
+
+include::./_includes/community-driver-notice.adoc[]
+
+For anyone working with https://www.python.org/[Python^], the Neo4j community have contributed a range of driver options.
+These range from lightweight to comprehensive driver packages as well as libraries designed for use with web frameworks such as https://www.djangoproject.com/[Django^].
+
+While Python 3 is preferred, some drivers still support Python 2, please check with the individual project if you need it.
+
+While we do not provide a specific web framework recommendation, both the lightweight http://flask.pocoo.org/[Flask^] and the more comprehensive https://www.djangoproject.com/[Django^] frameworks are known to work well.
+
+[#py2neo-lib]
+=== Py2neo
+
+image::{img}py2neo.200x200.png[float="right",width=100]
+
+Py2neo is a client library and comprehensive toolkit for working with Neo4j from within Python applications and from the command line.
+It has been carefully designed to be easy and intuitive to use.
+
+[cols="1,4"]
+|===
+| icon:user[] Author         | https://twitter.com/technige[Nigel Small^]
+| icon:gift[] Package        | https://pypi.python.org/pypi/py2neo
+| icon:github[] Source       | https://github.com/nigelsmall/py2neo
+
+| icon:play-circle[] Example | {examples}/movies-python-py2neo
+| icon:book[] Docs           | http://py2neo.org/
+| icon:code-fork[] Python    | 2.7 / 3.4+
+| Protocols | Bolt, Http
+|===
+
+.Installation
+[source,bash]
+----
+pip install py2neo
+----
+
+.Example
+[source,python]
+----
+from py2neo import Graph
+graph = Graph()
+
+tx = graph.begin()
+for name in ["Alice", "Bob", "Carol"]:
+    tx.append("CREATE (person:Person {name:{name}}) RETURN person", name=name)
+alice, bob, carol = [result.one for result in tx.commit()]
+----
+
+[#neomodel-lib]
+=== Neomodel
+
+image::{img}neomodel.200x80.png[float="right",width=100]
+
+An Object Graph Mapper built on top of the Neo4j python driver. 
+Familiar Django style node definitions with a powerful query API, thread safe and full transaction support. 
+A Django plugin https://github.com/neo4j-contrib/django-neomodel[django_neomodel^] is also available.
+
+[cols="1,4"]
+|===
+| icon:user[] Author         | Athanasios Anastasiou and Robin Edwards
+| icon:gift[] Package        | https://pypi.python.org/pypi/neomodel
+| icon:github[] Source       | http://github.com/neo4j-contrib/neomodel
+
+| icon:book[] Docs           | http://neomodel.readthedocs.org/
+| icon:code-fork[] Python    | 2.7 / 3.3+
+| Protocols | Bolt
+|===
+
+.Installation
+[source,bash]
+----
+pip install neomodel
+----
+
+.Example
+[source,python]
+----
+from neomodel import StructuredNode, StringProperty, RelationshipTo, RelationshipFrom, config
+
+config.DATABASE_URL = 'bolt://neo4j:test@localhost:7687'
+
+class Book(StructuredNode):
+    title = StringProperty(unique_index=True)
+    author = RelationshipTo('Author', 'AUTHOR')
+
+class Author(StructuredNode):
+    name = StringProperty(unique_index=True)
+    books = RelationshipFrom('Book', 'AUTHOR')
+
+harry_potter = Book(title='Harry potter and the..').save()
+rowling =  Author(name='J. K. Rowling').save()
+harry_potter.author.connect(rowling)
+----
+
+== Resources
+
+* link:{drivermanual}[Docs: Driver Manual^]
+* https://medium.com/neo4j/neo4j-python-4-0-driver-the-latest-driver-for-the-next-gen-database-a5be6ecd481f[Blog post: Python 4.0 driver^]

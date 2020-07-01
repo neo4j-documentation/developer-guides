@@ -1,0 +1,37 @@
+
+
+
+The Neo4j .NET driver is *officially supported* by Neo4j and connects to the database using the binary protocol.
+It aims to be minimal, while being idiomatic to .NET.
+
+[source, subs=attributes]
+----
+PM> Install-Package Neo4j.Driver-{dotnet-driver-version}
+----
+
+[source, clike]
+----
+include::https://raw.githubusercontent.com/neo4j/neo4j-dotnet-driver/{dotnet-driver-version}/Neo4j.Driver/Neo4j.Driver.Tests.Integration/Examples.cs[tag=hello-world,indent=0]
+----
+
+
+include::./driver-warning.adoc[]
+
+[cols="3*"]
+|===
+| Name
+| icon:tag[] Version
+| icon:user[] Authors
+
+| Neo4jDotNetDriver
+| {dotnet-driver-version}
+| The Neo4j Team, http://twitter.com/cskardon[Chris Skardon], https://twitter.com/IngvarKofoed[Martin Jensen]
+
+| http://www.nuget.org/packages/Neo4j.Driver[icon:gift[] Package]
+| {examples}//movies-dotnet-bolt[icon:play-circle[] Example]
+| https://community.neo4j.com/c/drivers-stacks/NET[Neo4j Online Community^]
+
+| {drivermanual}[icon:book[] Docs^]
+| link:/docs/api/dotnet-driver/current/[icon:code[] API]
+| http://github.com/neo4j/neo4j-dotnet-driver[icon:github[] Source]
+|===

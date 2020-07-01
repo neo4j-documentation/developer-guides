@@ -1,0 +1,83 @@
+= Neo4j from JavaScript
+:level: Intermediate
+:page-level: Intermediate
+:author: Neo4j
+:programming-language: javascript
+:category: drivers
+:tags: javascript, official-driver, app-development, applications
+
+.Goals
+[abstract]
+If you are a JavaScript developer, this guide provides an overview of options for connecting to Neo4j.
+While this guide is not comprehensive it will introduce the different Drivers and link to the relevant resources.
+
+.Prerequisites
+[abstract]
+You should be familiar with link:/developer/get-started/graph-database[graph database concepts] and the property graph model.
+You should have link:/download[installed Neo4j] and made yourself familiar with our link:/developer/cypher[Cypher Query language].
+
+[role=expertise {level}]
+{level}
+
+[#neo4j-javascript]
+== Neo4j for JavaScript Developers
+
+image::{img}nodejs.png[float=right,width=300]
+
+Neo4j can be installed on any system and then accessed via its binary and HTTP APIs. 
+
+You can use the official driver for JavaScript (neo4j-driver) or connect via HTTP using the `request` module or any of our community drivers.
+
+
+[#javascript-driver]
+== Neo4j Javascript Driver
+
+include::./_includes/javascript-driver.adoc[]
+
+include::./_includes/sample_project.adoc[]
+
+include::./_includes/community-driver-notice.adoc[]
+
+[#js2neo-lib]
+=== js2neo
+
+As a demonstration of a minimal JavaScript based bolt driver, Nigel Small put together http://js2neo.org/[js2neo^].
+
+[#js-http-endpoint]
+== Using the HTTP-Endpoint directly
+
+You can use something as simple as the `request` node-module to send queries to and receive responses from Neo4j.
+The endpoint protocol and formats are explained in detail in the link:/docs/http-api/current/introduction/[Neo4j Manual^].
+It enables you do to much more, e.g. sending many statements per request or keeping transactions open across multiple requests.
+
+Here is a very simple example:
+
+.Simple Function Accessing the Remote Endpoint
+[source, javascript]
+----
+var r=require("request");
+var txUrl = "http://localhost:7474/db/data/transaction/commit";
+function cypher(query,params,cb) { 
+  r.post({uri:txUrl,
+          json:{statements:[{statement:query,parameters:params}]}},
+         function(err,res) { cb(err,res.body)}) 
+}
+----
+
+.Running the Function
+[source, javascript]
+---- 
+var query="MATCH (n:User) RETURN n, labels(n) as l LIMIT {limit}"
+var params={limit: 10}
+var cb=function(err,data) { console.log(JSON.stringify(data)) }
+ 
+cypher(query,params,cb)
+ 
+{"results":[
+  {"columns":["n","l"],
+   "data":[
+     {"row":[{"name":"Aran"},["User"]]}
+    ]
+  }],
+ "errors":[]}
+----

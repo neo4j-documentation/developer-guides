@@ -1,0 +1,151 @@
+= Use Neo4j Bloom with Aura Database
+:level: Beginner
+:page-level: Beginner
+:author: Jennifer Reif
+:neo4j-versions: 3.5
+:category: cloud
+:tags: aura, bloom, dbaas, visualization
+
+.Goals
+[abstract]
+We will learn how to connect Neo4j Bloom with a Neo4j cloud Aura instance.
+
+.Prerequisites
+[abstract]
+We should have created and started a Neo4j Aura database instance.
+If we have not already, we can follow the instructions in the link:https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-Aura[getting started guide^] to step through the process.
+
+[role=expertise {level}]
+{level}
+
+****
+[NOTE]
+For a step-by-step walkthrough of Bloom functionality with screenshots, visit the link:/developer/neo4j-bloom/[Bloom guide].
+Throughout this guide, we will also link to relevant sections of that guide for more detailed information on how to execute the steps, if needed.
+****
+
+****
+[NOTE, role="strong-bloom"]
+Bloom is now available directly from Aura. *Aura supports Bloom version 1.3 and later*
+****
+
+++++
+<style>
+.single-developer #content div.strong-bloom td.content strong {
+  font-weight: 600;
+}
+</style>
+++++
+
+[#aura-movie-graph]
+== Load the Movie Graph
+
+If you have worked with Neo4j previously, you may already be familiar with the movie graph used in other tutorials and examples.
+This graph is a small data set of movie and person entities and the relationships between them for people who acted in or directed the films.
+
+Neo4j has already set up a script and guide to help users import this data into Neo4j.
+To access it, we can open a Neo4j Browser window. 
+
+In the Neo4j Aura console (console.neo4j.io), choose the blue button at the right of the instance for `Open with` and choose `Neo4j Browser`.
+
+image::{img}aura_console_browser_1.jpg[link="{img}aura_console_browser_1.jpg",role="popup-link"]
+
+Once we have Neo4j Browser open, we can click in the command line input at the top, type in `:play movie-graph`, then click the `play` button to the right of the input.
+
+image::{img}browser_command_line.jpg[link="{img}browser_command_line.jpg",role="popup-link"]
+
+A slideshow will appear beneath the command line, and we can use the next button to see the next page of the Browser guide.
+
+image::{img}load_movie_graph.jpg[link="{img}load_movie_graph.jpg",role="popup-link"]
+
+Click on the Cypher statement (in grey dotted lines on the right).
+This will copy it to the command line above, and then we can click the `play` button again to run that statement.
+It will return a piece of the graph and display it in another result pane that appears below the command line.
+
+image::{img}movie_graph_return.jpg[link="{img}movie_graph_return.jpg",role="popup-link"]
+
+****
+[NOTE]
+Colors for your results may differ slightly, as each session can choose different color combinations.
+****
+
+We will also need to add indexes for the Person and Movie labels, which we will do by running the following two Cypher statements:
+
+`CREATE INDEX ON :Person(name);`
+
+`CREATE INDEX ON :Movie(title);`
+
+Copy each one into the command line, running each one by clicking the `play` button.
+
+image::{img}add_indexes.jpg[link="{img}add_indexes.jpg",role="popup-link"]
+
+[#bloom-explore]
+== Explore the data with Neo4j Bloom
+
+Let's explore the movie data with Neo4j Bloom!
+
+First, we launch our Bloom application by clicking again on the `Open with` button on the Neo4j Aura console, selecting `Neo4j Bloom` this time. 
+
+image::{img}aura_console_browser_1.jpg[link="{img}aura_console_browser_1.jpg",role="popup-link"]
+
+We will need to provide the username and password for our Aura instance before we can continue.
+
+image::{img}aura_bloom_login.jpg[link="{img}aura_bloom_login.jpg",role="popup-link"]
+
+It will then ask us to link:/developer/neo4j-bloom/#bloom-perspective[choose a perspective], which we will allow Bloom to do for us by clicking on the `Create Perspective`, and then the `Generate Perspective` button.
+This will create a new perspective that we will then choose - select by clicking on the `Use Perspective` button.
+
+To view some data, we can type in `Movie Person` in the link:/developer/neo4j-bloom/#bloom-search[search bar] and click on the first suggestion that appears underneath it.
+
+image::{img}aurabloom_movieperson_1.jpg[link="{img}aurabloom_movieperson_1.jpg",role="popup-link"]
+
+That will show us all the `Movie` nodes who have `Person` nodes connected to them.
+
+image::{img}aurabloom_movie_results_1.jpg[link="{img}aurabloom_movie_results_1.jpg",role="popup-link"]
+
+We can zoom in (using the `+` and `-` icons in the lower right) to view more details about all of the nodes, and we can move about the graph by clicking in an empty space in the scene and dragging it around.
+
+This is quite a bit more data than we probably want to start with, so let us query something with a bit narrower scope.
+We can link:/developer/neo4j-bloom/#clearing-scene[clear the scene] by right-mouse clicking on an empty space in the scene and choosing the `Clear Scene` option in the menu.
+
+Next, we can write a query to look for a specific movie and the people who are connected to it.
+To do this, type `The Polar Express Person` into the search bar and click on the first suggestion that appears beneath it.
+
+image::{img}aurabloom_polarexpress_1.jpg[link="{img}aurabloom_polarexpress_1.jpg",role="popup-link"]
+
+This will display the results of the query in the scene and allow us to explore a bit more.
+
+image::{img}aurabloom_polarexp_results_1.jpg[link="{img}aurabloom_polarexp_results_1.jpg",role="popup-link"]
+
+We can see that there are two people connected to this movie in our dataset - `Tom Hanks` and `Robert Zemeckis`.
+We can find out if these two `Person` nodes have any other connections by link:/developer/neo4j-bloom/#expand-nodes[expanding those nodes].
+For this, click on one of the persons where a white border appears around the node.
+Then right-mouse click and choose the `Expand`, and then `All` options from the menu.
+
+image::{img}aurabloom_expand_node_1.jpg[link="{img}aurabloom_expand_node_1.jpg",role="popup-link"]
+
+Once complete for both `Robert Zemeckis` and `Tom Hanks`, we can see that both people were also involved in the `Cast Away` movie.
+Both times, Robert directed the movies and Tom Hanks acted in them (relationship types `ACTED_IN` and `DIRECTED`).
+
+image::{img}aurabloom_expanded_graph_1.jpg[link="{img}aurabloom_expanded_graph_1.jpg",role="popup-link"]
+
+****
+[NOTE]
+To learn about more of Neo4j Bloom's capabilities, visit the link:/developer/neo4j-bloom/[Bloom guide] or the link:/docs/bloom-user-guide/current/[Bloom documentation^].
+****
+
+[#aura-help]
+== Help and Questions
+
+Helpful guides and support are available on the https://aura.support.neo4j.com/hc/en-us[Aura support^] pages.
+
+You can also ask questions and connect with other people launching Neo4j Aura at the
+https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].
+
+If you have questions or problems with Bloom, you can post in the dedicated https://community.neo4j.com/c/neo4j-graph-platform/neo4j-bloom/91[Bloom topic on the Community Site^].
+
+[#resources]
+== Resources
+
+* Guide: Explore more functionality in link:/developer/neo4j-bloom/[Neo4j Bloom]
+* Documentation: Learn more about link:/docs/bloom-user-guide/current/[Neo4j Bloom^]

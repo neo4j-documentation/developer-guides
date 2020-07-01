@@ -1,0 +1,62 @@
+= Neo4j Community Driver for Clojure Developers
+:level: Intermediate
+:page-level: Intermediate
+:author: Neo4j
+:programming-language: clojure
+:category: drivers
+:tags: clojure, app-development, applications
+
+.Goals
+[abstract]
+If you are a Clojure developer, this guide provides an overview of options for connecting to Neo4j. While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
+
+.Prerequisites
+[abstract]
+You should be familiar with link:/developer/get-started/graph-database[graph database concepts] and the property graph model. You should have link:/download[installed Neo4j] and made yourself familiar with our link:/developer/cypher[Cypher Query language].
+
+[role=expertise {level}]
+{level}
+
+include::./_includes/community-driver-notice.adoc[]
+
+[#neo4j-clojure]
+== Neo4j Clojure Drivers
+
+image::{img}clojure.png[float=right]
+
+Clojure drivers either support Neo4j embedded on the JVM or use Neo4j Server via its HTTP or Bolt APIs.
+
+Members of the Clojure community have invested a lot of time and love to develop all these drivers, so if you use them please provide feedback to the authors.
+
+include::./_includes/sample_project.adoc[]
+
+[#clj-lib]
+=== Neo4j-clj
+
+Clojure bindings for Bolt / the Java Neo4j driver, complete with Joplin support for managing database migrations. 
+
+[cols="1,4"]
+|===
+| icon:user[] Authors | Christian Betz
+| icon:play-circle[] Example Project | https://github.com/gorillalabs/neo4j-clj/blob/master/example/src/example/core.clj
+| icon:article[] Article | https://medium.com/neo4j/neo4j-clj-a-new-neo4j-library-for-clojure-2df1a2a45783
+| icon:github[] Source | https://github.com/gorillalabs/neo4j-clj
+| icon:book[] Docs | https://raw.githack.com/gorillalabs/neo4j-clj/master/docs/uberdoc.html
+| icon:video[] Video | https://www.youtube.com/watch?v=vIgoemc2kNM
+|===
+
+// https://clojars.org/gorillalabs/neo4j-clj
+
+[#neocons-lib]
+=== Neocons
+
+An idiomatic, feature-rich Clojure client which supports the Http and Bolt APIs.
+
+[cols="1,4"]
+|===
+| icon:user[] Authors | Michael Klishin, Rohit Aggarwal
+| icon:play-circle[] Example Project | {examples}/movies-clojure-neocons
+| icon:gift[] Package | https://clojars.org/clojurewerkz/neocons
+| icon:github[] Source | https://github.com/michaelklishin/neocons
+| icon:book[] Docs | http://clojureneo4j.info/
+|===

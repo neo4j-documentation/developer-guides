@@ -1,0 +1,47 @@
+= Using Neo4j from Java
+:level: Intermediate
+:page-level: Intermediate
+:author: Neo4j
+:programming-language: java
+:category: drivers
+:tags: java, project, official-driver, app-development, applications
+
+.Goals
+[abstract]
+If you are a Java developer, this guide provides an overview of options for connecting to Neo4j.
+While this guide is not comprehensive, it will introduce the different APIs and link to the relevant resources.
+
+.Prerequisites
+[abstract]
+You should be familiar with the link:/developer/get-started/graph-database[graph database concepts] and the property graph model.
+Having link:/download[installed Neo4j] and tried out our link:/developer/cypher[Cypher Query language] helps too.
+When developing with Neo4j, please use Java 8 or 11 and your favorite IDE.
+
+[role=expertise {level}]
+{level}
+
+[#neo4j-java]
+== Neo4j for Java Developers
+
+image::{img}java.jpg[float=right,width=200]
+
+Neo4j offers a rich set of integration possibilities for developers using Java or other JVM-languages.
+
+The standalone Neo4j Server can be installed on any machine and then accessed via its *binary "Bolt" protocol* through our official driver or any bolt-enabled drivers.
+
+You can also extend Neo4j by implementing *user defined procedures for Cypher* in Java or other JVM languages.
+
+****
+[NOTE]
+Please note the minimum version compatibilities: +
+Neo4j Server 3.x - Java 8 +
+Neo4j Server 4.x - Java 11
+****
+
+include::./_includes/sample_project.adoc[]
+
+
+[#java-driver]
+== Neo4j Java Driver
+
+include::./_includes/java-driver.adoc[]

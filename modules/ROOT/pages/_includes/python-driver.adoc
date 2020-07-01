@@ -1,0 +1,40 @@
+
+++++
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/python/python.min.js"></script>
+++++
+
+The Neo4j Python driver is *officially supported* by Neo4j and connects to the database using the binary protocol.
+It aims to be minimal, while being idiomatic to Python.
+
+WARNING: Support for Python 2 will be removed in the upcoming 2.0 release of the driver.
+
+[source, shell, subs=attributes,specialcharacters]
+----
+pip install neo4j
+----
+
+[source, python, subs=attributes]
+----
+include::https://github.com/neo4j/neo4j-python-driver/raw/{python-driver-version}/test/examples/hello_world_example.py[tag=hello-world-import]
+
+include::https://github.com/neo4j/neo4j-python-driver/raw/{python-driver-version}/test/examples/hello_world_example.py[tag=hello-world,indent=0]
+----
+
+[cols="3*"]
+|===
+| Name
+| icon:tag[] Version
+| icon:user[] Authors
+
+| neo4j-driver
+| {python-driver-version}
+| The Neo4j Team, https://twitter.com/technige[Nigel Small^]
+
+| https://pypi.python.org/pypi/neo4j[icon:gift[] Package]
+|
+| https://community.neo4j.com/c/drivers-stacks/python[Neo4j Online Community^]
+
+| {drivermanual}[icon:book[] Docs^]
+| link:/docs/api/python-driver/current/[icon:code[] API]
+| https://github.com/neo4j/neo4j-python-driver[icon:github[] Source]
+|===

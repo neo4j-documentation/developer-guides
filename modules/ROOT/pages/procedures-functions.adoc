@@ -1,0 +1,291 @@
+= User Defined Procedures and Functions
+:level: Intermediate
+:page-level: Intermediate
+:author: Neo4j
+:category: cypher
+:tags: cypher, queries, extend-cypher, procedures, functions, custom-development
+
+.Goals
+[abstract]
+This guide explains how to use, create and deploy user defined procedures and functions, the extension mechanism of Cypher, Neo4j's query language.
+It also covers existing, widely used procedure libraries
+
+.Prerequisites
+[abstract]
+You should have learned to read and write statements in link:/developer/cypher/cypher-query-language/[Cypher] and seen the need for additional capabilities.
+
+[role=expertise {level}]
+{level}
+
+[#cypher-extension]
+== Extending Cypher
+
+Cypher is a quite powerful and expressive language, with first class graph pattern and collection support.
+
+But sometimes you need to do more than it currently offers, like additional graph algorithms, parallelization or custom conversions.
+
+That's why the ability to extend Cypher with User Defined Procedures and Functions was added to the Neo4j 3.0 and 3.1 releases.
+But not only users, even Neo4j itself provides and utilizes custom procedures.
+Many of the monitoring, introspection and security features exposed by Neo4j-Browser are implemented using procedures.
+
+image::{img}procedures-functions-bolt.jpg[width=600]
+
+[#procedures-functions]
+== What are Procedures and Functions?
+
+* Functions are simple computations / conversions and return a single value
+* Functions can be used in any expression or predicate
+
+* Procedures are more complex operations and generate streams of results.
+* Procedures must be used within the `CALL` clause and `YIELD` their result columns
+* They can generate, fetch or compute data to make it available to later processing steps in your Cypher query
+
+[#cypher-list-extension]
+== Listing & Using Functions and Procedures
+
+There are a {opsmanual}/reference/procedures/[number of built in procedures^], two of which are used to list available functions and procedures.
+
+Run the following statements along to get a hang of the usage and see their results.
+
+[source,cypher]
+----
+CALL dbms.procedures() 
+----
+
+Call `dbms.functions()` to list functions.
+
+Each procedure returns one or more columns of data.
+With `yield` these columns can be selected and also aliased and are then available in your Cypher statement.
+
+[source,cypher]
+----
+CALL dbms.procedures() 
+YIELD name, signature, description as text
+WHERE name STARTS WITH 'db.'
+RETURN * ORDER BY name ASC
+----
+
+Of course you can also process the result columns with other Cypher clauses. 
+Here we group them by package.
+
+[source,cypher]
+----
+CALL dbms.procedures()
+YIELD name, signature, description
+WITH split(name,".") AS parts
+RETURN parts[0..-1] AS package,  count(*) AS count,
+       collect(parts[-1]) AS names
+ORDER BY count DESC
+----
+
+[options=header]
+|===
+|package             |count  |names
+|["dbms","security"] |16     |["activateUser","addRoleToUser","changePassword",....]     
+|["apoc","refactor"] |11     |["categorize","cloneNodes","from"....]                     
+|["apoc","load"]     |9      |["csv","driver","jdbc","jdbcParams","json","jsoe"]         
+|["db"]              |9      |["awaitIndex","constraints","indexes","labels",..,"schema"]
+|["dbms"]            |9      |["components","functions","queries","procedures",...]      
+|===
+
+As of Neo4j 3.1, all functions available are directly part of the Cypher implementation, so User Defined Functions would only come from installed libraries.
+
+You can take any procedure library and deploy it to your server to make additional procedures and functions available.
+
+Please also have a look at the link:/docs/java-reference/current/extending-neo4j/procedures-and-functions/introduction/[procedure section in the Neo4j Manual^].
+
+[#deploy-extension]
+== Deploying Procedures & Functions
+
+If you built your own procedures or downloaded them from an community project, they are packaged in a jar-file.
+You can copy that file into the `$NEO4J_HOME/plugins` directory of your Neo4j server and restart.
+
+[WARNING] 
+*A word of caution.*
+As procedures and functions use the low level Java API they can access all Neo4j internals as well as the file system and machine. 
+That's why you should know which procedures you deploy and why. 
+Only install procedures from trusted sources. 
+If they are open source, check their source-code and best build them yourself.
+
+[#procedure-function-gallery]
+== Procedure and Function Gallery
+
+In our link:/labs/[Neo4j Labs projects], we provide an impressive set of libraries built by our community and staff.
+Check it out to see what's already there.
+Many of your needs will already be covered by those, for example:
+
+* graph algorithms
+* index operations
+* database/api integration
+* graph refactorings
+* import and export
+* spatial index lookup
+* rdf import and export
+* and many more
+
+Here are two cool examples of what you can do:
+
+A procedure to load data from another database:
+
+[source,cypher]
+-----
+WITH "jdbc:mysql://localhost:3306/northwind?user=root" as url
+CALL apoc.load.jdbc(url,"products") YIELD row
+RETURN row 
+ORDER BY row.UnitPrice DESC
+LIMIT 20
+-----
+
+image::https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/3.2/docs/img/apoc-load-jdbc.jpg[]
+
+Functions to format and parse timestamps of different resolutions:
+
+[source,cypher]
+----
+RETURN apoc.date.format(timestamp()) as time, 
+       apoc.date.format(timestamp(),'ms','yyyy-MM-dd') as date,
+       apoc.date.parse('13.01.1975','s','dd.MM.yyyy') as unixtime, 
+       apoc.date.parse('2017-01-05 13:03:07') as millis
+----
+
+[options="header,autowidth"]
+|===
+|time                 |date        |unixtime  |millis
+|"2017-01-05 13:06:39"|"2017-01-05"|158803200 |1483621387000
+|===
+
+[#custom-extension]
+== Developing your own Procedures and Functions
+
+// === Writing your first Function
+
+You can find details on writing and testing procedures in the link:/docs/java-reference/current/extending-neo4j/procedures-and-functions/introduction/[Neo4j Manual^].
+
+There is even an https://github.com/neo4j-examples/neo4j-procedure-template[example GitHub repository] with detailed documentation and comments that you can clone directly and use as a starting point.
+
+Here are just some initial tips:
+
+User-defined functions are simpler, so let's start with them:
+
+* `@UserFunction` are annotated, public Java methods in a class
+* their default name is package-name.method-name
+* they return a single value
+* are read only
+
+User defined procedures are similar:
+
+* `@Procedure` annotated, Java methods
+* with an additional `mode` attribute (`READ, WRITE, DBMS`)
+* return a Java 8 `Stream` of simple objects with `public` fields
+* these fields names are turned into result columns available for `YIELD`
+
+These things are valid for both:
+
+* take `@Name` annotated parameters (with optional default values)
+* can use an injected `@Context public GraphDatabaseService`
+* run within transaction of the Cypher statement
+* supported types for parameters and results are: `Long, Double, Boolean, String, Node, Relationship, Path, Object`
+
+////
+User-defined functions are simpler, so let's look at one here:
+
+* `@UserFunction` annotated, named Java Methods
+** default name is `class package + "." +  method-name`
+* take `@Name`'ed parameters (with optional default values)
+* return a single value
+* are read only
+* can use `@Context` injected `GraphDatabaseService` etc
+* run within Transaction of the Cypher Statement
+
+.simple user defined `create.uuid` function in Java
+[source,java]
+----
+@UserFunction("create.uuid")
+@Description("creates an UUID (universally unique id)")
+public String uuid() {
+   return UUID.randomUUID().toString();
+}
+----
+////
+
+////
+cp $GROOVY_HOME/lib/groovy-2.*.jar $NEO4J_HOME/plugins/
+$GROOVY_HOME/groovyc function.groovy && jar cf $NEO4J_HOME/plugins/uuid.jar UDF.class
+
+@Grab(value="org.neo4j:neo4j:3.1.0-BETA1",initClass=false)
+
+class UDF {
+   @UserFunction("create.uuid")
+   @Description("creates an UUID")
+   def String uuid() { UUID.randomUUID().toString() }
+}
+////
+
+////
+.use the function like this
+[source,cypher]
+----
+CREATE (p:Person {id: create.uuid(), name:{name}})
+----
+
+=== Testing the Function
+
+The Neo4j testing library `neo4j-harness` enables you to spin up a Neo4j server, provide fixtures for data setup and register your functions and procedures.
+
+You then call and test test the function via the bolt - `neo4j-java-driver`.
+
+[source,java]
+----
+@Rule
+public Neo4jRule neo4j = new Neo4jRule()
+                         .withFunction( UUIDs.class );
+...
+
+try( Driver driver = GraphDatabase.driver( neo4j.boltURI() , config ) {
+    Session session = driver.session();
+    String uuid = session.run("RETURN create.uuid() AS uuid")
+                         .single().get( 0 ).asString();
+    assertThat( uuid,....);
+}
+----
+
+=== Writing a Procedure
+
+User defined procedures are similar:
+
+* `@Procedure` annotated, Java methods
+* with an additional `mode` attribute (`Read, Write, Dbms`)
+* return a `Stream` of value objects (DTO) with `public` fields
+* value object fields are turned into result columns to be `YIELD`ed
+
+.Expose dijkstra algoritm from the Java API to Cypher
+[source,java]
+----
+@Procedure(mode = Write)
+@Description("apoc.algo.dijkstra(startNode, endNode, 'KNOWS', 'distance') YIELD path," +
+       " weight - run dijkstra with relationship property name as cost function")
+public Stream<WeightedPathResult> dijkstra(
+       @Name("startNode") Node startNode,
+       @Name("endNode") Node endNode,
+       @Name("type") String type,
+       @Name("costProperty") String costProperty) {
+
+
+   PathFinder<WeightedPath> algo = GraphAlgoFactory.dijkstra(
+           PathExpanders.forType(RelationshipType.withName(type)),
+           costProperty);
+   Iterable<WeightedPath> allPaths = algo.findAllPaths(startNode, endNode);
+   return Iterables.asCollection(allPaths).stream()
+           .map(WeightedPathResult::new);
+}
+
+public static class WeightedPathResult {
+   public final Path path;
+   public final double weight;
+   public WeightedPathResult(WeightedPath wp) { this.path = wp; this.weight = wp.weight(); }
+}
+----
+
+Use a build tool (like maven, gradle, ant) to package your code into a jar-file and copy that into `$NEO4J_HOME/plugins`
+Make sure required dependencies are added as well, either to your jar or the plugins directory.
+////

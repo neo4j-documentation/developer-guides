@@ -1,0 +1,82 @@
+= Connect to Neo4j Aura with Neo4j Desktop
+:level: Beginner
+:page-level: Beginner
+:author: Jennifer Reif
+:neo4j-versions: 3.5
+:category: cloud
+:tags: aura, dbaas, desktop, remote-connection
+
+.Goals
+[abstract]
+In this page, we will learn how to connect the Neo4j Desktop application to an instance in Neo4j Aura.
+This gives us the opportunity to have a single portal for interacting with all instances of Neo4j, whether local databases or databases located in various clouds.
+
+.Prerequisites
+[abstract]
+We should have created and started a Neo4j Aura database instance.
+If we have not already, we can follow the instructions in the https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-Aura[getting started guide^] to step through the process.
+We should also have downloaded and installed the Neo4j Desktop application.
+If you have not already, you can link:/download/[download it^] and follow the installation instructions that appear once you click to download.
+
+[role=expertise {level}]
+{level}
+
+[#aura-desktop]
+== Desktop Remote Instance
+
+When we create a new graph in Neo4j Desktop, we have the option to create a local graph or a remote graph. Because the Neo4j Aura instance is hosted remotely, we will be connecting to a remote instance. We can do this with a few steps.
+
+
+1. Navigate to the https://console.neo4j.io[Neo4j Aura Console^] and confirm your instance is running. Take note of the URL (or use the copy button next to it to copy it to your clipboard), as we will need to use it later.
++
+image::{img}1desktopConnect_cloud_confirm_running.jpg[link="{img}1desktopConnect_cloud_confirm_running.jpg",role="popup-link"]
+
+2. Choose the Projects tab in Neo4j Desktop [1], then choose or create a project [2], and click `Add Database` [3] in the right pane.
++
+image::{img}2desktopConnect_create_graph.jpg[link="{img}2desktopConnect_create_graph.jpg",role="popup-link"]
+
+3. Choose the option to connect to a Remote Graph
++
+image::{img}3desktopConnect_remote_graph.jpg[link="{img}3desktopConnect_remote_graph.jpg",role="popup-link"]
+
+4. Enter a name for the database (can match name in cloud or can be different) and copy/paste the URL from the Neo4j Aura console (see Step 1) to the second input. Once complete, click `Next`.
++
+image::{img}4desktopConnect_name_url.jpg[link="{img}4desktopConnect_name_url.jpg",role="popup-link"]
+
+5. Now we need to choose an authentication method.
+Neo4j Aura instances require username and password authentication, so click the `Username/password` button.
++
+image::{img}5desktopConnect5_auth.jpg[link="{img}5desktopConnect5_auth.jpg",role="popup-link"]
+
+
+6. On this screen, we enter our credentials.
+By default, the username for your Neo4j Aura database will be `neo4j` and unless you have changed it, the password will be the one generated for you when you created your Aura database.
+If you have created another user for your Aura database, you can use this instead.
+Aura databases require an encrypted connection, so ensure the box is checked for `Use encrypted connection` before clicking `Next`.
++
+image::{img}6desktopConnect_enter_user_pass.jpg[link="{img}6desktopConnect_enter_user_pass.jpg",role="popup-link"]
+
+7. If the connection succeeds, we will see our database name and url. To activate the connection, click the `Connect` button in lower right.
+Once activated, we can disconnect with the same button, open Neo4j Browser with the `Open` button to the left or open a link:/developer/graph-app-development/[Graph App] using the dropdown menu next to the Open button.
++
+image::{img}7desktopConnect_connected_remote.jpg[link="{img}7desktopConnect_connected_remote.jpg",role="popup-link"]
+
+Neo4j Desktop only allows 1 connection at a time to a database (local or remote).
+
+****
+[NOTE]
+**Note:** Deactivating in Neo4j Desktop will not shut down or stop the remote instance - only temporarily close the connection to it in Neo4j Desktop.
+****
+
+[#aura-desktop-interact]
+== Interacting with the database
+
+Just as with other databases in Neo4j Desktop, you can https://install.graphapp.io[install graphapps^] for monitoring and other functionality. To do this, we can follow the same process to install the graph application that you need and open it from Neo4j Desktop or a web browser with the running and activated Neo4j Aura instance.
+
+[#aura-help]
+== Help and Questions
+
+Helpful guides and support are available on the https://aura.support.neo4j.com/hc/en-us[Aura support^] pages.
+
+You can also ask questions and connect with other people launching Neo4j Aura at the
+https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].

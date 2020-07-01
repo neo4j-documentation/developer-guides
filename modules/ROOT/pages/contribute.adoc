@@ -1,0 +1,124 @@
+= Contributing to Neo4j
+:author: Neo4j
+:category: development
+:tags: community, contributions, share
+
+[#neo4j-contribute]
+Looking for a place to contribute to the Neo4j ecosystem?
+This is a great place to start.
+Here you will find guides from Neo4j’s community of contributors.
+
+[#finding-help]
+== Help Others in the Community
+
+Want to help others?
+There are a number of great resources the Neo4j community uses to get quick help from graph database experts.
+Don't hesitate to ask when you’re stuck and looking for help.  Also, if you're familiar with a particular topic area, please jump in and lend a hand for your fellow graphistas.
+
+The primary home for the Neo4j Community is our https://community.neo4j.com[Neo4j Online Community^] site and forum.
+
+We also have some other places the community asks questions.
+
+* http://stackoverflow.com/questions/tagged/neo4j[Neo4j on StackOverflow^]
+* http://twitter.com/neo4j[Social: Neo4j on Twitter^]
+* http://neo4j.com/slack[Chat: Neo4j-Users Slack^]
+* http://www.quora.com/Neo4j[Neo4j on Quora^]
+* http://github.com/neo4j/neo4j/issues[Raise Issues: GitHub Issues^]
+* link:https://groups.google.com/group/neo4j[Neo4j Google Group^], link:https://groups.google.com/group/neo4jfr[(Français)^], link:https://groups.google.com/group/neo4jes[(Español)^], link:https://groups.google.com/group/neo4j-biotech[(biotech)^], link:https://groups.google.com/group/graph-software-analytics[(graph-software-analytics)^],
+
+[#ask-question-tips]
+== Tips for Asking Good Questions
+
+If you have technical questions, we would love to help you find the answers to them! Please help us help you by following the guidelines below.
+
+*Write a title that summarizes the specific problem* +
+The title may be the first and the last thing that potential viewers see of your post.
+Make it count. Make it describe the problem, not your current state of mind.
+ALL CAPS and lots of question and exclamation marks are an indication that you wear your underwear on your head ??? not that you have an urgent problem !!!
+
+*Choose the correct "category" and add the relevant "tags"* +
+Both of these serve to narrow down the problem area.
+A database creation error on the "Neo4j Desktop" is quite possible, it is almost impossible if installed with a Yum package.
+For installation questions specifying the OS is definitely useful. And so on.
+
+*Explain First* +
+What do you want to accomplish? What is the problem?
+What have you tried (you have tried something, right...right?)?
+Can you reproduce the situation? Which steps need to be followed to get there?
+
+*Code Second* +
+For some weird reason, Verdana 12pt does horrible things to code.
+There are a ton of ways to add readable code in your posts, the easiest is to select it and use the </> preformatted text icon.
+Reading hundreds of lines of code and Cypher-queries is the favorite hobby of most of the visitors of the forum.
+Just in case it is one of the others that is trying to help you, provide the code that demonstrates the issue and no more.
+
+*Proofread* +
+Are you ready to press "Create"? Take a deep breath. Exhale.
+Go once more over what you've just written. Does it look like the kind of question you could answer?
+
+*I'm not sure my English is good enough...can I get help?* +
+Just do the best you can! While technical questions should be in English, there are Local Groups on the forum.
+Not only are those good for finding out about local activities, but there might be somebody else there that knows (for example) South-West England English and can help you translate it into six o'clock news English!
+
+*Be Patient - Be Friendly - Be Polite - Help someone else in turn* +
+Somebody is going to spend some of the single most valuable resources for a human on your question. Time.
+Giving an indication that you understand the value of that is the least you can do.
+
+[#speaking]
+== Sharing your Love of Graphs
+
+No matter where you live in the world, there are plenty of ways to share your love of graphs
+and help others understand the importance of relationships.
+
+With thousands of technology and business *conferences* occuring every year around the world, 
+you can present to your peers and become a recognized expert in your field.  Neo4j, via the
+link:/speaker-program/[*Neo4j Speaker Program*], can also help and reimburse
+travel expenses for community members speaking at many of the top conferences.
+
+There are also hundreds of face-to-face https://www.meetup.com/[*Neo4j meetup groups*] in communities
+around the world.  Many of these meetup groups regularly look for speakers to share their stories.
+
+The https://www.meetup.com/Neo4j-Online-Meetup/[*Neo4j Online Meetup*] is a way for you to meet the global community online and share your story. 
+
+We select talks for the Online Meetup and stories for our link:/tag/twin4j/[*Developer Newsletter*] from https://community.neo4j.com/[*Neo4j Community site*]. To submit your story, post it in the `Projects & Collaboration` (if including a link to github or website) or `Community Content & Blogs` (if linking to a blog post,
+slideshow, video, or article) categories.
+
+[#contributing]
+== Other Ways to Contribute
+
+The Neo4j project is an open source effort to bring fast, complex data storage and processing to life.
+Every form of help is highly appreciated by the community.
+Note that you can contribute to Neo4j also by providing documentation or giving feedback on the current documentation.
+Basically, in all the places where you can get help, there is also room for contributions.
+
+* link:/developer/contributing-code/[Contributing Code^]
+* link:/developer/cla/[Contributors License Agreement^]
+* GitHub http://github.com/neo4j/neo4j/issues[Issues^] and http://github.com/neo4j/neo4j/pulls[Pull Requests^]
+* See the https://github.com/neo4j/neo4j/graphs/contributors[list of contributors^]
+
+[#develop-neo4j]
+== Tools for Developing Neo4j
+
+We are happy users of the following tools that we use daily to develop Neo4j.
+
+* IDE: https://www.jetbrains.com/idea/[IntelliJ Idea by JetBrains^] - *Thank you so much for the https://www.jetbrains.com/idea/buy/choose_edition.jsp?license=OPEN_SOURCE[OSS license^]!* and Eclipse
+* Build System: https://www.jetbrains.com/teamcity/[TeamCity by JetBrains^] - *Thank you so much for the https://www.jetbrains.com/teamcity/buy/choose_edition.jsp?license=OPEN_SOURCE[OSS license^]!*
+* Profiler: Yourkit, VisualVM, jvmtop, Java Mission Control, Flight Recorder
+* Version Control: Git & http://github.com/neo4j[GitHub^]
+* Issue Management: Trello and http://github.com/neo4j/neo4j/issues[GitHub issues^]
+* Team Communication: Neo4j Community Site, Slack, Google Hangouts, and Skype
+* Pair Programming: Team Viewer, join.me
+* Documents: Google Docs
+* Manual, GraphGists, Presentations: http://asciidoctor.org[AsciiDoctor^]
+* Programming Language: Java, Build-Tool - Maven
+* Libraries - JVM: Scala, Parboiled, Google Collections, JMH, Jetty, Jersey, Jackson, Apache Commons, JUnit
+* Libs & Tools: Javascript: D3.js, Angular.js, Grunt, Bower
+
+[#integration-dev]
+== Tools, Libraries, and Drivers
+
+Neo4j is supported by a rich ecosystem of libraries, tools, drivers and guides provided by partners, users and community contributors.
+We want to give an overview about what is available and link to the original sources.
+We try to focus on the freely available solutions here and provide links to commercial options where appropriate.
+
+Read more about it in our link:/developer/integration/[Integrations section].

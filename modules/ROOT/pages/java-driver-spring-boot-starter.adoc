@@ -1,0 +1,14 @@
+= Neo4j Java Driver Spring Boot Starter
+:doctype: book
+:level: Intermediate
+:page-level: Intermediate
+:manualIncludeDir: https://raw.githubusercontent.com/neo4j/neo4j-java-driver-spring-boot-starter/master/
+:gh_base: https://github.com/neo4j/neo4j-java-driver-spring-boot-starter
+:author: Neo4j
+:programming-language: java
+:category: drivers
+:tags: java, spring, spring-boot, app-development, applications
+
+
+
+include::{manualIncludeDir}docs/manual/getting-started.adoc[lines=3..-1]
