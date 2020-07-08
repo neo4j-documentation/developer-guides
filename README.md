@@ -1,6 +1,6 @@
 # Neo4j Developer Guides
 
-image::(https://github.com/neo4j-documentation/developer-guides/workflows/Trigger%20Publish/badge.svg)[Trigger Publish]
+image::https://github.com/neo4j-documentation/developer-guides/workflows/Trigger%20Publish/badge.svg[Trigger Publish]
 
 Built with [Antora](https://antora.org/).
 
