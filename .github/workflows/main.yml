@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Repository Dispatch
+      - name: Trigger Developer Event
         uses: peter-evans/repository-dispatch@master
         with:
           token: ${{ secrets.BUILD_ACCESS_TOKEN }}
