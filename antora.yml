@@ -26,4 +26,4 @@ asciidoc:
     opsmanual: 'http://neo4j.com/docs/operations-manual/current'
     github: 'https://github.com/neo4j-contrib/developer-resources/tree/gh-pages'
 
-    page-cdn: https://www.neo4j.com/static/assets/
+    page-cdn: /static/assets
