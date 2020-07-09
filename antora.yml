@@ -25,3 +25,5 @@ asciidoc:
     drivermanual: 'https://neo4j.com/docs/driver-manual/current'
     opsmanual: 'http://neo4j.com/docs/operations-manual/current'
     github: 'https://github.com/neo4j-contrib/developer-resources/tree/gh-pages'
+
+    page-cdn: https://www.neo4j.com/static/assets/
