@@ -1,12 +1,8 @@
 name: developer
 version: master
 title: Developer Guides
-start_page: ROOT:get-started.adoc
 nav:
 - modules/ROOT/nav.adoc
-# - modules/get-started/nav.adoc
-pub:
-- url: foo
 
 asciidoc:
   attributes:
