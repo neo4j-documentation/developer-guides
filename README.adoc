@@ -1,4 +1,4 @@
-# Neo4j Developer Guides
+= Neo4j Developer Guides
 
 image::https://github.com/neo4j-documentation/developer-guides/workflows/Trigger%20Publish/badge.svg[Trigger Publish]
 
@@ -6,3 +6,16 @@ Built with link:https://antora.org/[Antora^].
 
 - link:https://docs.antora.org/antora/2.3/standard-directories/[Standard File and Directory Set^]
 - link:https://docs.antora.org/antora/2.3/module-directories/[Module Directories and Modules^]
+
+== Publishing
+
+Pushing to the `publish` branch of this repo will trigger a rebuild of the HTML and CSS files in the link:https://github.com/neo4j-documentation/docs-refresh[Docs Refresh^] repo using a Github Action.
+
+
+[source,sh]
+git clone https://github.com/neo4j-documentation/developer-guides
+git add .
+git commit -m "My changes"
+git push origin HEAD:publish
+
+At the end of the build process, the files are uploaded to the `static-content.neo4j.com` S3 Bucket.  From there, they are synced up to the Neo4j.com server once an hour, on the hour by a cronjob.

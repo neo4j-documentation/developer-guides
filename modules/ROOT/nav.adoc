@@ -54,6 +54,7 @@
 ** xref:graph-search-algorithms.adoc[Graph Search Algorithms Overview]
 ** xref:path-finding-graph-algorithms.adoc[Path Finding Algorithms Overview]
 ** xref:centrality-graph-algorithms.adoc[Centrality Algorithms Overview]
+** xref:community-detection-graph-algorithms.adoc[Community Detection Algorithms Overview]
 ** xref:graph-embeddings.adoc[Graph Embeddings Overview]
 ** xref:applied-graph-embeddings.adoc[Applied Graph Embeddings]
 ** xref:nlp.adoc[Natural Language Processing (NLP)]
