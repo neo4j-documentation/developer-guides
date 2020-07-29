@@ -19,3 +19,4 @@ git commit -m "My changes"
 git push origin HEAD:publish
 
 At the end of the build process, the files are uploaded to the `static-content.neo4j.com` S3 Bucket.  From there, they are synced up to the Neo4j.com server once an hour, on the hour by a cronjob.
+
