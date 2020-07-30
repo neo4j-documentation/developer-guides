@@ -5,6 +5,7 @@
 :category: graph-data-science
 :tags: graph-data-science, graph-algorithms, graph-search, graph-apps
 :description: NEuler is the Graph Data Science Playground, a no-code way of learning how to use Neo4j's graph algorithms.
+:page-ogimage: {imagesdir}/graph-algorithms/youtube-neuler.png
 
 .Goals
 [abstract]
@@ -12,7 +13,7 @@ In this guide, we will learn about NEuler: The Graph Data Science Playground, a 
 
 .Prerequisites
 [abstract]
-Please have link:/download[Neo4j^] (version 4.0 or later) and the link:/download-center/#algorithms[Graph Data Science Library^] downloaded and installed to use graph search algorithms.
+Please have link:/download[Neo4j^] (version 4.0 or later) downloaded and installed to use NEuler.
 
 [role=expertise]
 {level}
@@ -48,8 +49,13 @@ image::https://dist.neo4j.com/wp-content/uploads/20200729015450/graph-apps-galle
 We can see the Graph Data Science Playground on the first row and, if we're using Mac or Windows, we can install it automatically by clicking on the 'Install' button.
 
 If we're using a Linux based Operating System we'll need to install it manually.
-We can get the installation link by clicking on the image:https://dist.neo4j.com/wp-content/uploads/20200729020212/get-link.png[width="30px"] button.
-Copy that link (https://neo.jfrog.io/neo/api/npm/npm/neuler) onto the clipboard and then paste it into the 'Install' section of the image:https://dist.neo4j.com/wp-content/uploads/20200729022217/graph-apps-button.png[width="25px"] sub menu:
+We can get the installation link by clicking on the image:graph-algorithms/get-link.png[width="20px"] button.
+Copy that link onto the clipboard and then paste it into the 'Install' section of the image:graph-algorithms/graph-apps-button.png[width="20px"] sub menu:
+
+[NOTE]
+====
+The installation link is https://neo.jfrog.io/neo/api/npm/npm/neuler[https://neo.jfrog.io/neo/api/npm/npm/neuler^] in case you don't want to get it via the Graph Apps Gallery!
+====
 
 .Installing NEuler, The Graph Data Science Playground
 image::https://dist.neo4j.com/wp-content/uploads/20200729021819/install-gds.png[Installing NEuler, The Graph Data Science Playground, link="https://dist.neo4j.com/wp-content/uploads/20200729021819/install-gds.png",role="popup-link"]

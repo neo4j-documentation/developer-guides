@@ -51,15 +51,17 @@
 * Neo4j Graph Data Science
   ** xref:graph-data-science.adoc[Graph Data Science Overview]
   ** xref:graph-algorithms.adoc[Graph Algorithms]
+  ** xref:neuler-no-code-graph-algorithms.adoc[NEuler: No-code Graph Algorithms]
+  ** xref:nlp.adoc[Natural Language Processing (NLP)]
+  ** Tutorials
+    *** xref:applied-graph-embeddings.adoc[Graph Embeddings]
   ** Concepts
     *** xref:graph-search-algorithms.adoc[Graph Search Algorithms]
     *** xref:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
     *** xref:centrality-graph-algorithms.adoc[Centrality Algorithms]
     *** xref:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
     *** xref:graph-embeddings.adoc[Graph Embeddings]
-  ** Tutorials
-    *** xref:applied-graph-embeddings.adoc[Graph Embeddings]
-  ** xref:nlp.adoc[Natural Language Processing (NLP)]
+
 
 * Graph Visualization
 ** xref:graph-visualization.adoc[Visualization Overview]
