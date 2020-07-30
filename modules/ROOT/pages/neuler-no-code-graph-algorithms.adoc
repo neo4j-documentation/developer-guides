@@ -36,6 +36,11 @@ We will use the terms 'Neuler' and 'The Graph Data Science Playground' interchan
 == Installing NEuler
 
 NEuler is a link:/developer/graph-apps/[Graph Application] (Graph App) that can be installed from the Graph App Gallery that comes installed by default on the link:developer/neo4j-desktop/[Neo4j Desktop].
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Th22Z_BfT-Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
 We can launch the Graph Apps Gallery by clicking on the right hand side of the 'Open' menu underneath a running database:
 
 .Launching the Graph Apps Gallery (Neo4j Desktop 1.3.3)
