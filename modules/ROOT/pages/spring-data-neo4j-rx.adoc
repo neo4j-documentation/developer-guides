@@ -7,13 +7,14 @@
 :programming-language: java
 :category: drivers
 :tags: spring, spring-data, sdn-rx, reactive, app-development, applications
+:description: For Java developers who use the Spring Framework or Spring Boot and want to take advantage of reactive development principles, this guide introduces Spring integration through the Spring Data Neo4j Reactive (SDN-RX) library.
 
 
 include::{manualIncludeDir}README.adoc[tags=properties]
 
 .Goals
 [abstract]
-For Java developers who use the Spring Framework or Spring Boot and want to take advantage of reactive development principles, this guide introduces Spring integration through the Spring Data Neo4j Reactive (SDN-RX) library.
+{description}
 The library provides all the capabilities of the Spring Data Neo4j library, but with added reactive support and other improvements.
 
 .Prerequisites

@@ -4,10 +4,11 @@
 :author: Neo4j
 :category: cypher
 :tags: cypher, queries, graph-queries, movie-graph, cypher-example
+:description: This guide explains the basic concepts of Cypher, Neo4j's query language, including how to create and query graphs.
 
 .Goals
 [abstract]
-This guide explains the basic concepts of Cypher, Neo4j's query language, including how to create and query graphs.
+{description}
 You should be able to read and understand Cypher queries after finishing this guide.
 
 .Prerequisites

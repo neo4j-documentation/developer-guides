@@ -4,10 +4,11 @@
 :author: Jennifer Reif
 :category: import-export
 :tags: data-import, import-csv, graph-import, load-csv, admin-import, kettle
+:description: This article demonstrates different approaches to importing CSV data into Neo4j and solutions to potential issues that might arise during the process.
 
 .Goals
 [abstract]
-This article demonstrates different approaches to importing CSV data into Neo4j and solutions to potential issues that might arise during the process.
+{description}
 
 .Prerequisites
 [abstract]

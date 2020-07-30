@@ -4,10 +4,11 @@
 :author: Mark Needham
 :category: performance
 :tags: memory, configuration, transaction, limit, queries
+:description: In this guide, we will learn how to both measure and restrict memory usage in Neo4j.
 
 .Goals
 [abstract]
-In this guide, we will learn how to both measure and restrict memory usage in Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

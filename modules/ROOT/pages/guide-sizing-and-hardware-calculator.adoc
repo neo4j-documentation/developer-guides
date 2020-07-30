@@ -4,11 +4,11 @@
 :author: Neo4j
 :category: performance
 :tags: administration, sizing, hardware, calculator
+:description: This guide explains Neo4j sizing and hardware calculation tips and best practices.  It details what you need to make Neo4j fly.
 
 .Goals
 [abstract]
-This guide explains Neo4j sizing and hardware calculation tips and best practices.
-It details what you need to make Neo4j fly.
+{description}
 
 .Prerequisites
 [abstract]

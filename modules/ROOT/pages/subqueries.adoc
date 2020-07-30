@@ -5,11 +5,11 @@
 :neo4j-version: 4.0
 :category: cypher
 :tags: cypher, queries, graph-queries, subqueries, compare-queries
+:description: Building on the previous Cypher guides, this guide shows how to write subqueries. Upon finishing this guide, you should be able to write and understand queries using this capability.
 
 .Goals
 [abstract]
-Building on the previous Cypher guides, this guide shows how to write subqueries.
-Upon finishing this guide, you should be able to write and understand queries using this capability.
+{description}
 
 .Prerequisites
 [abstract]
@@ -81,7 +81,7 @@ Let's next write a subquery that does more powerful filtering than what we can a
 
 Imagine that we want to find the people who:
 
-* work for a company whose name starts with 'Company' and 
+* work for a company whose name starts with 'Company' and
 * like at least one technology that's liked by 3 or more people
 
 We aren't interested in knowing what those technologies are.
@@ -113,7 +113,7 @@ Let's instead move the two `AND` statements into an `EXISTS {}` block, resulting
 ----
 MATCH (person:Person)-[:WORKS_FOR]->(company)
 WHERE company.name STARTS WITH "Company"
-AND EXISTS { 
+AND EXISTS {
   MATCH (person)-[:LIKES]->(t:Technology)
   WHERE size((t)<-[:LIKES]-()) >= 3
 }
@@ -124,9 +124,9 @@ Now we're able to successfully execute the query, which returns the following re
 
 [options="header"]
 |===
-| person    | company    
-| "Melissa" | "CompanyA" 
-| "Diana"   | "CompanyX" 
+| person    | company
+| "Melissa" | "CompanyA"
+| "Diana"   | "CompanyX"
 |===
 
 If we recall the graph visualisation from the start of this guide, Ryan is the only other person who works for a company whose name starts with "Company".
@@ -135,7 +135,7 @@ He's been filtered out in this query because the only `Technology` that he likes
 [#result-returning-subqueries]
 == Result returning subqueries
 
-So far we've learnt how to use subqueries to filter out results, but this doesn't fully show case their power. 
+So far we've learnt how to use subqueries to filter out results, but this doesn't fully show case their power.
 We can also use subqueries to return results as well.
 
 Let's say we want to write a query that finds people who like Java or have more than one friend.
@@ -148,7 +148,7 @@ MATCH (p:Person)-[:LIKES]->(:Technology {type: "Java"})
 RETURN p.name AS person, p.birthdate AS dob
 ORDER BY dob DESC
 
-UNION 
+UNION
 
 MATCH (p:Person)
 WHERE size((p)-[:IS_FRIENDS_WITH]->()) > 1
@@ -160,10 +160,10 @@ If we run that query, we'll see the following output:
 
 [options="header"]
 |===
-| person     | dob        
-| "Jennifer" | 1988-01-01 
-| "John"     | 1985-04-04 
-| "Joe"      | 1988-08-08 
+| person     | dob
+| "Jennifer" | 1988-01-01
+| "John"     | 1985-04-04
+| "Joe"      | 1988-08-08
 |===
 
 We've got the correct people, but the `UNION` approach only lets us sort results per `UNION` clause, not for all rows.
@@ -195,10 +195,10 @@ If we run that query, we'll get the following output:
 
 [options="header"]
 |===
-| person     | dob        
-| "Joe"      | 1988-08-08 
-| "Jennifer" | 1988-01-01 
-| "John"     | 1985-04-04 
+| person     | dob
+| "Joe"      | 1988-08-08
+| "Jennifer" | 1988-01-01
+| "John"     | 1985-04-04
 |===
 
 This approach works, but it's more difficult to write, and we have to keep passing through parts of state to the next part of the query.
@@ -215,8 +215,8 @@ Our query using the `CALL {}` clause looks like this:
 CALL {
 	MATCH (p:Person)-[:LIKES]->(:Technology {type: "Java"})
 	RETURN p
-  
-	UNION 
+
+	UNION
 
 	MATCH (p:Person)
 	WHERE size((p)-[:IS_FRIENDS_WITH]->()) > 1
@@ -230,10 +230,10 @@ If we run that query, we'll get the following output:
 
 [options="header"]
 |===
-| person     | dob        
-| "Joe"      | 1988-08-08 
-| "Jennifer" | 1988-01-01 
-| "John"     | 1985-04-04 
+| person     | dob
+| "Joe"      | 1988-08-08
+| "Jennifer" | 1988-01-01
+| "John"     | 1985-04-04
 |===
 
 We could extend our query further to return the technologies that these people like, and the  friends that they have.
@@ -244,14 +244,14 @@ The following query shows how to do this:
 CALL {
 	MATCH (p:Person)-[:LIKES]->(:Technology {type: "Java"})
 	RETURN p
-  
-	UNION 
+
+	UNION
 
 	MATCH (p:Person)
 	WHERE size((p)-[:IS_FRIENDS_WITH]->()) > 1
 	RETURN p
 }
-WITH p, 
+WITH p,
      [(p)-[:LIKES]->(t) | t.type] AS technologies,
      [(p)-[:IS_FRIENDS_WITH]->(f) | f.name] AS friends
 
@@ -261,22 +261,22 @@ ORDER BY dob DESC;
 
 [options="header"]
 |===
-| person     | dob        | technologies                        | friends                                     
-| "Joe"      | 1988-08-08 | ["Query Languages"]                 | ["Mark", "Diana"]                           
-| "Jennifer" | 1988-01-01 | ["Graphs", "Java"]                  | ["Sally", "Mark", "John", "Ann", "Melissa"] 
-| "John"     | 1985-04-04 | ["Java", "Application Development"] | ["Sally"]                                   
+| person     | dob        | technologies                        | friends
+| "Joe"      | 1988-08-08 | ["Query Languages"]                 | ["Mark", "Diana"]
+| "Jennifer" | 1988-01-01 | ["Graphs", "Java"]                  | ["Sally", "Mark", "John", "Ann", "Melissa"]
+| "John"     | 1985-04-04 | ["Java", "Application Development"] | ["Sally"]
 |===
 
 We can also apply aggregation functions to the results of our subquery.
-The following query returns the youngest and oldest of the people who like Java or have more than one friend 
+The following query returns the youngest and oldest of the people who like Java or have more than one friend
 
 [source,cypher]
 ----
 CALL {
 	MATCH (p:Person)-[:LIKES]->(:Technology {type: "Java"})
 	RETURN p
-  
-	UNION 
+
+	UNION
 
 	MATCH (p:Person)
 	WHERE size((p)-[:IS_FRIENDS_WITH]->()) > 1
@@ -287,8 +287,8 @@ RETURN min(p.birthdate) AS oldest, max(p.birthdate) AS youngest
 
 [options="header"]
 |===
-| oldest     | youngest   
-| 1985-04-04 | 1988-08-08 
+| oldest     | youngest
+| 1985-04-04 | 1988-08-08
 |===
 
 [#cypher-next-steps]
@@ -302,5 +302,5 @@ In the next section, we will learn how to use aggregation in Cypher and how to d
 
 * link:/docs/cypher-manual/current/clauses/where/#existential-subqueries[Neo4j Cypher Manual: Using existential subqueries in WHERE^]
 * link:/docs/cypher-manual/current/clauses/call-subquery/[Neo4j Cypher Manual: CALL {} (subquery)^]
-             
+
 

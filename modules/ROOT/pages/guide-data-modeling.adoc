@@ -4,11 +4,11 @@
 :author: Jennifer Reif
 :category: modeling
 :tags: graph-modeling, data-model, schema, model-process, model-domain
+:description: This guide is designed to walk you through the graph data modeling lifecycle of Neo4j. You will be introduced to the basic process of designing a graph data model that can answer a wide range of business questions across a variety of domains.
 
 .Goals
 [abstract]
-This guide is designed to walk you through the graph data modeling lifecycle of Neo4j.
-You will be introduced to the basic process of designing a graph data model that can answer a wide range of business questions across a variety of domains.
+{description}
 
 .Prerequisites
 [abstract]

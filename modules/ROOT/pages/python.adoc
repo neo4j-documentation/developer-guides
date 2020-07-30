@@ -5,10 +5,11 @@
 :programming-language: python
 :category: drivers
 :tags: python, official-driver, app-development, applications
+:description: This guide provides an overview of how to connecting to Neo4j from Python.
 
 .Goals
 [abstract]
-This guide provides an overview of how to connecting to Neo4j from Python.
+{description}
 While it is not comprehensive, it aims to introduce the available drivers and links to other relevant resources.
 
 .Prerequisites
@@ -25,7 +26,7 @@ While it is not comprehensive, it aims to introduce the available drivers and li
 
 image::{img}python-logo.png[width=300,float="right"]
 
-Neo4j can be installed on any system and then accessed via its binary and HTTP APIs. 
+Neo4j can be installed on any system and then accessed via its binary and HTTP APIs.
 
 You can use the official binary driver for Python (neo4j-python-driver) or connect via HTTP with any of our community drivers.
 
@@ -88,8 +89,8 @@ alice, bob, carol = [result.one for result in tx.commit()]
 
 image::{img}neomodel.200x80.png[float="right",width=100]
 
-An Object Graph Mapper built on top of the Neo4j python driver. 
-Familiar Django style node definitions with a powerful query API, thread safe and full transaction support. 
+An Object Graph Mapper built on top of the Neo4j python driver.
+Familiar Django style node definitions with a powerful query API, thread safe and full transaction support.
 A Django plugin https://github.com/neo4j-contrib/django-neomodel[django_neomodel^] is also available.
 
 [cols="1,4"]

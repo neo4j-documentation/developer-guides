@@ -5,11 +5,11 @@
 :programming-language: dotnet
 :category: drivers
 :tags: dotnet, project, official-driver, app-development, applications
+:description: If you are a .NET developer, this guide provides an overview of options for connecting to Neo4j. While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
 
 .Goals
 [abstract]
-If you are a .NET developer, this guide provides an overview of options for connecting to Neo4j. 
-While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
+{description}
 
 .Prerequisites
 [abstract]
@@ -68,8 +68,8 @@ It also supports basic CRUD and legacy indexing.
 
 A .NET API for the Neo4j HTTP Transactional Endpoint (v2.0.0) exposes a strongly-typed Graph Query API based on the Neo4j Cypher query language.
 
-[cols="1,5"]                   
-|===                           
+[cols="1,5"]
+|===
 | icon:github[] Source       |   https://github.com/mtranter/CypherNet
 | icon:user[] Authors        |   Mark Tranter
 | icon:rss[] Blog            |   http://mtranter.com/2013/09/21/cypher-net-a-neo4j-cypher-api

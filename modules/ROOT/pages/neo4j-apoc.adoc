@@ -6,6 +6,7 @@
 :author: Jennifer Reif
 :category: labs
 :tags: graph-platform, apoc, utilities, libraries, procedures, functions
+:description: Through this guide, you will learn about one of Neo4j's extension libraries - APOC.
 
 ====
 [NOTE]
@@ -16,7 +17,7 @@ To learn more, visit the https://neo4j.com/labs/apoc/[APOC^] Labs page.
 
 .Goals
 [abstract]
-Through this guide, you will learn about one of Neo4j's extension libraries - APOC.
+{description}
 You will understand why the library was created and how to use it to extend the functionality of the database and Cypher for use in applications, querying, loading/exporting data, and nearly any other functionality you could imagine.
 
 .Prerequisites

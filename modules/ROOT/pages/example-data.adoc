@@ -6,10 +6,11 @@
 :author: Michael Hunger
 :category: import-export
 :tags: graph-data, data-sets, import-data, graph-examples, sandboxes, graph-gallery
+:description: This Guide introduces different example datasets for Neo4j and demonstrates how to import and explore them.
 
 .Goals
 [abstract]
-This Guide introduces different example datasets for Neo4j and demonstrates how to import and explore them.
+{description}
 
 .Prerequisites
 [abstract]
@@ -52,12 +53,12 @@ image::{img}neo4j-sandboxes.png[link=https://neo4j.com/sandbox/?ref=developer-ex
 
 Except for the "blank" sandbox, all other sandboxes come prepopulated with the domain data and focus on use-case specific queries.
 
-The use-cases range from 
+The use-cases range from
 
-* movie recommendations, 
-* network management, 
-* investigative data from the ICIJ Panama Papers to 
-* crime investigation and 
+* movie recommendations,
+* network management,
+* investigative data from the ICIJ Panama Papers to
+* crime investigation and
 * social networks optionally using your own Twitter account.
 
 [#guide-examples]
@@ -103,10 +104,10 @@ image::{img}graph-examples.png[link=https://install.graphapp.io]
 The most reliable way to get a dataset into Neo4j is to import it from the raw sources.
 Then you are independent of database versions, which you otherwise might have to upgrade.
 That's why we provided raw data (CSV, JSON, XML) for several of the datasets, accompanied by import scripts in Cypher.
-	
+
 You would run the Cypher script using a command-line client like `cypher-shell`.
 
-image::{img}cypher-import-shell.png[]					
+image::{img}cypher-import-shell.png[]
 
 .Run Cypher Shell from the "Terminal" tab of your Graph in Neo4j Desktop
 [source, shell]
@@ -143,7 +144,7 @@ Then you might need to configure Neo4j to upgrade your database automatically, b
 === Stack Overflow
 
 This is a graph-import of the Stack Overflow archive with 16.4M questions, 52k tags and 8.9M users (http://example-data.neo4j.org/so.dump[Stack Overflow Dump (6.2GB)]).
-This graph is pretty big, for best full scale querying you'd need a page-cache and heap of 
+This graph is pretty big, for best full scale querying you'd need a page-cache and heap of
 
 Here is an https://towardsdatascience.com/tagoverflow-correlating-tags-in-stackoverflow-66e2b0e1117b[article explaining the data model] and some exploratory analysis we ran on the data.
 
@@ -196,7 +197,7 @@ You can find the free ebook for the O'Reilly book here:
 * [LDBC Large Dataset Generator]
 
 ////
-	
+
 [#data-import-articles]
 == Articles on Neo4j Example Datasets
 

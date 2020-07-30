@@ -5,10 +5,11 @@
 :programming-language: java
 :category: drivers
 :tags: java, project, official-driver, app-development, applications
+:description: If you are a Java developer, this guide provides an overview of options for connecting to Neo4j.
 
 .Goals
 [abstract]
-If you are a Java developer, this guide provides an overview of options for connecting to Neo4j.
+{description}
 While this guide is not comprehensive, it will introduce the different APIs and link to the relevant resources.
 
 .Prerequisites

@@ -6,6 +6,7 @@
 :author: Jennifer Reif
 :category: import-export
 :tags: graph-platform, etl, tools, integrations, relational, graph, load, import, connect, data
+:description: Through this guide, you will learn how to take your data from a relational database or table format and import to Neo4j.
 
 ====
 [NOTE]
@@ -16,7 +17,7 @@ To learn more, visit the link:/labs/etl-tool/[Neo4j ETL Tool^] Labs page.
 
 .Goals
 [abstract]
-Through this guide, you will learn how to take your data from a relational database or table format and import to Neo4j.
+{description}
 You will understand how the data model is transformed behind-the-scenes and how to connect different types of data formats for loading.
 
 .Prerequisites
@@ -50,12 +51,12 @@ image:{img}etl1c_verify_graph_app.jpg[link="{img}etl1c_verify_graph_app.jpg",rol
 
 Now you should have access, and you can load the application 2 different ways.
 
-.Option a 
+.Option a
 In the `Graph applications` pane on the left, you can click the icon to the right of the ETL Tool to open the application.
 This will not be specific to any project or database, and a database does not have to be running to load the graph app this way.
 
 .Option b
-If you go back to your `Projects` icon along the left, you can choose the project you want to work within and start the database you want to use. 
+If you go back to your `Projects` icon along the left, you can choose the project you want to work within and start the database you want to use.
 The grayed out `Open` button with its dropdown on the left side of the database instance activates once the instance starts.
 Clicking the dropdown next to open shows a list of graph apps you can use.
 Click on the `Neo4j ETL Tool` option to load the app.
@@ -205,10 +206,10 @@ image::{img}etl10e_save_mapping.jpg[link="{img}etl10e_save_mapping.jpg",role="po
 There are a couple of different ways that the ETL Tool can import data to Neo4j, depending on the status of your graph database.
 Each method has certain requirements and advantages, which are listed below.
 
-* a. If database is running (works for both local and remote instances, including Neo4j Aura) - 
+* a. If database is running (works for both local and remote instances, including Neo4j Aura) -
 ** 1. Online Direct: runs via BOLT connection for import, turning SQL results into Cypher parameters.
 ** 2. Online Batch: uses CSV files from mapping stage to import over BOLT connection in batches.
-* b. If database is shut down - 
+* b. If database is shut down -
 ** 1. Bulk Import: fast loader for initial load with offline import (running neo4j-admin import tool).
 
 image::{img}etl11_import_modes.jpg[link="{img}etl11_import_modes.jpg",role="popup-link"]

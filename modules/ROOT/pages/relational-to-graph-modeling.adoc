@@ -4,10 +4,11 @@
 :author: Jennifer Reif
 :category: modeling
 :tags: graph-modeling, data-model, schema, relational-to-graph, translating-model
+:description: For those with a background in relational data modeling, this guide will help transfer your existing knowledge of the processes and components used for relational data modeling into graph data modeling.
 
 .Goals
 [abstract]
-For those with a background in relational data modeling, this guide will help transfer your existing knowledge of the processes and components used for relational data modeling into graph data modeling.
+{description}
 It will help to compare and contrast the steps of each process and help you identify where the data modeling is similar or different for each type of database.
 
 .Prerequisites

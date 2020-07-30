@@ -4,10 +4,11 @@
 :author: David Allen
 :category: cloud
 :tags: cloud, virtual-machine, configuration, deployment
+:description: This guide describes how Neo4j deployed in cloud virtual machines operate, and how they differ from other installation platforms for Neo4j.
 
 .Goals
 [abstract]
-This guide describes how Neo4j deployed in cloud virtual machines operate, and how they differ from other installation platforms for Neo4j.
+{description}
 
 [#cloud-vms]
 == Basics and File Locations
@@ -56,5 +57,5 @@ For more information or help, feel free to reach out to us on the the https://co
 [#cloudvm-resources]
 == Questions?
 
-You can ask questions and connect with other people launching Neo4j in the cloud at the 
+You can ask questions and connect with other people launching Neo4j in the cloud at the
 https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].

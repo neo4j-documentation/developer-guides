@@ -6,10 +6,11 @@
 :author: Jennifer Reif
 :category: desktop
 :tags: graph-platform, desktop, activation, graph, manage-graph, database
+:description: This article demonstrates how to use Neo4j Desktop for managing instances of Neo4j locally for development.
 
 .Goals
 [abstract]
-This article demonstrates how to use Neo4j Desktop for managing instances of Neo4j locally for development.
+{description}
 
 .Prerequisites
 [abstract]

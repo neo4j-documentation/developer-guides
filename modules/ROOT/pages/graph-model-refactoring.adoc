@@ -4,11 +4,11 @@
 :author: Mark Needham
 :category: modeling
 :tags: graph-modeling, data-model, schema, refactoring, apoc
+:description: Building on the Cypher Basics guides, this guide provides a worked example of changing a graph model. Upon finishing this guide, you should be able to evolve your graph model based on changing requirements.
 
 .Goals
 [abstract]
-Building on the Cypher Basics guides, this guide provides a worked example of changing a graph model.
-Upon finishing this guide, you should be able to evolve your graph model based on changing requirements.
+{description}
 
 .Prerequisites
 [abstract]
@@ -115,7 +115,7 @@ RETURN count(*)
 |===
 
 If we have a lot of relationships to update, we may get an OutOfMemory exception if we try to refactor them all in one transaction.
-We can therefore process them in batches using the https://neo4j.com/docs/labs/apoc/current/graph-updates/periodic-execution/#commit-batching[`apoc.periodic.iterate`^] procedure. 
+We can therefore process them in batches using the https://neo4j.com/docs/labs/apoc/current/graph-updates/periodic-execution/#commit-batching[`apoc.periodic.iterate`^] procedure.
 The following query does this for the `cancelled` and `reverted` properties in the same query:
 
 [source,cypher]
@@ -147,9 +147,9 @@ When we run this query we'll see the following output:
 .Results
 [opts="header"]
 |===
-| propertyToDelete | batches 
-| "cancelled"      | 10 
-| "reverted"       | 10 
+| propertyToDelete | batches
+| "cancelled"      | 10
+| "reverted"       | 10
 |===
 
 Once we've done this, we can write the following query to return all cancelled connections:
@@ -158,10 +158,10 @@ Once we've done this, we can write the following query to return all cancelled c
 ----
 MATCH (origin:Airport)-[connectedTo:CONNECTED_TO]->(destination)
 WHERE connectedTo.cancelled
-RETURN origin.code AS origin, 
-       destination.code AS destination, 
-       connectedTo.date AS date, 
-       connectedTo.departure AS departure, 
+RETURN origin.code AS origin,
+       destination.code AS destination,
+       connectedTo.date AS date,
+       connectedTo.departure AS departure,
        connectedTo.arrival AS arrival
 ----
 
@@ -169,18 +169,18 @@ RETURN origin.code AS origin,
 [opts="header"]
 |===
 | origin | destination | date | departure | arrival
-| "LAS"  | "OAK"       | 2008-01-03 | 07:00     | 08:30 
-| "LAX"  | "SFO"       | 2008-01-03 | 09:05     | 10:25   
-| "LAX"  | "OAK"       | 2008-01-03 | 11:00     | 12:15   
-| "LAX"  | "SJC"       | 2008-01-03 | 19:30     | 20:35   
-| "LAX"  | "SFO"       | 2008-01-03 | 16:20     | 17:40   
-| "MDW"  | "STL"       | 2008-01-03 | 11:10     | 12:15   
-| "MDW"  | "BDL"       | 2008-01-03 | 08:45     | 11:40   
-| "MDW"  | "DTW"       | 2008-01-03 | 06:00     | 08:05   
-| "MDW"  | "STL"       | 2008-01-03 | 14:45     | 15:50   
-| "MDW"  | "BNA"       | 2008-01-03 | 19:25     | 20:45   
-| "OAK"  | "BUR"       | 2008-01-03 | 13:10     | 14:15   
-| "OAK"  | "BUR"       | 2008-01-03 | 17:05     | 18:10                                                    
+| "LAS"  | "OAK"       | 2008-01-03 | 07:00     | 08:30
+| "LAX"  | "SFO"       | 2008-01-03 | 09:05     | 10:25
+| "LAX"  | "OAK"       | 2008-01-03 | 11:00     | 12:15
+| "LAX"  | "SJC"       | 2008-01-03 | 19:30     | 20:35
+| "LAX"  | "SFO"       | 2008-01-03 | 16:20     | 17:40
+| "MDW"  | "STL"       | 2008-01-03 | 11:10     | 12:15
+| "MDW"  | "BDL"       | 2008-01-03 | 08:45     | 11:40
+| "MDW"  | "DTW"       | 2008-01-03 | 06:00     | 08:05
+| "MDW"  | "STL"       | 2008-01-03 | 14:45     | 15:50
+| "MDW"  | "BNA"       | 2008-01-03 | 19:25     | 20:45
+| "OAK"  | "BUR"       | 2008-01-03 | 13:10     | 14:15
+| "OAK"  | "BUR"       | 2008-01-03 | 17:05     | 18:10
 |===
 
 [#create-node-from-relationship]
@@ -198,11 +198,11 @@ The following query does this refactoring:
 ----
 CALL apoc.periodic.iterate(
   "MATCH (origin:Airport)-[connected:CONNECTED_TO]->(destination:Airport) RETURN origin, connected, destination",
-  "CREATE (flight:Flight { 
-     date: connected.date, 
-     airline: connected.airline, 
+  "CREATE (flight:Flight {
+     date: connected.date,
+     airline: connected.airline,
      number: connected.flightNumber,
-     departure: connected.departure, 
+     departure: connected.departure,
      arrival: connected.arrival,
      cancelled: connected.cancelled,
      diverted: connected.diverted
@@ -225,8 +225,8 @@ If we execute the query we'll see the following output:
 .Results
 [opts="header"]
 |===
-| batches | total | timeTaken | committedOperations | failedOperations | failedBatches | retries | errorMessages | batch                                           | operations                                      | wasTerminated 
-| 10      | 1000  | 0         | 1000                | 0                | 0             | 0       | {}            | {total: 10, committed: 10, failed: 0, errors: {}} | {total: 1000, committed: 1000, failed: 0, errors: {}} | FALSE                                                                   
+| batches | total | timeTaken | committedOperations | failedOperations | failedBatches | retries | errorMessages | batch                                           | operations                                      | wasTerminated
+| 10      | 1000  | 0         | 1000                | 0                | 0             | 0       | {}            | {total: 10, committed: 10, failed: 0, errors: {}} | {total: 1000, committed: 1000, failed: 0, errors: {}} | FALSE
 |===
 
 
@@ -235,7 +235,7 @@ We can also do this refactoring using the https://neo4j.com/docs/labs/apoc/curre
 [source,cypher]
 ----
 CALL apoc.periodic.iterate(
-  "MATCH (origin:Airport)-[connected:CONNECTED_TO]->(destination:Airport) 
+  "MATCH (origin:Airport)-[connected:CONNECTED_TO]->(destination:Airport)
    RETURN origin, connected, destination",
   "CALL apoc.refactor.extractNode([connected], ['Flight'], 'DESTINATION', 'ORIGIN')
    YIELD input, output, error
@@ -249,8 +249,8 @@ If we run this query we'll see the following output:
 .Results
 [opts="header"]
 |===
-| batches | total | timeTaken | committedOperations | failedOperations | failedBatches | retries | errorMessages | batch                                           | operations                                      | wasTerminated 
-| 10      | 1000  | 0         | 1000                | 0                | 0             | 0       | {}            | {total: 10, committed: 10, failed: 0, errors: {}} | {total: 1000, committed: 1000, failed: 0, errors: {}} | FALSE                                                                
+| batches | total | timeTaken | committedOperations | failedOperations | failedBatches | retries | errorMessages | batch                                           | operations                                      | wasTerminated
+| 10      | 1000  | 0         | 1000                | 0                | 0             | 0       | {}            | {total: 10, committed: 10, failed: 0, errors: {}} | {total: 1000, committed: 1000, failed: 0, errors: {}} | FALSE
 |===
 
 
@@ -264,7 +264,7 @@ We can make it easier, and more efficient, to write this query by creating a nod
 
 image::{img}airline.png[link="{img}airline.png",role="popup-link"]
 
-Let's first create a constraint on the `Airline` label and `name` property so that we don't create duplicate airline nodes: 
+Let's first create a constraint on the `Airline` label and `name` property so that we don't create duplicate airline nodes:
 
 [source,cypher]
 ----
@@ -283,7 +283,7 @@ And now we can execute the following query to do the refactoring:
 ----
 CALL apoc.periodic.iterate(
    'MATCH (flight:Flight) RETURN flight',
-   'MERGE (airline:Airline {name:flight.airline}) 
+   'MERGE (airline:Airline {name:flight.airline})
     MERGE (flight)-[:AIRLINE]->(airline)
     REMOVE flight.airline',
    {batchSize:10000, iterateList:true, parallel:false}
@@ -300,8 +300,8 @@ If we run this query we'll see the following output:
 .Results
 [opts="header"]
 |===
-| batches | total | timeTaken | committedOperations | failedOperations | failedBatches | retries | errorMessages | batch                                           | operations                                      | wasTerminated 
-| 1       | 1000  | 0         | 1000                | 0                | 0             | 0       | {}            | {total: 1, committed: 1, failed: 0, errors: {}} | {total: 1000, committed: 1000, failed: 0, errors: {}} | FALSE                                                                
+| batches | total | timeTaken | committedOperations | failedOperations | failedBatches | retries | errorMessages | batch                                           | operations                                      | wasTerminated
+| 1       | 1000  | 0         | 1000                | 0                | 0             | 0       | {}            | {total: 1, committed: 1, failed: 0, errors: {}} | {total: 1000, committed: 1000, failed: 0, errors: {}} | FALSE
 |===
 
 We can then write the following query to find the airlines and number of flights involving each:
@@ -319,7 +319,7 @@ If we run this query we'll see the following output:
 [opts="header"]
 |===
 | airline | numberOfFlights
-| "WN" | 1000                                                                
+| "WN" | 1000
 |===
 
 

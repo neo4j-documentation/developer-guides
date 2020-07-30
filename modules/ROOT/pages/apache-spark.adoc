@@ -4,10 +4,11 @@
 :author: Neo4j
 :category: integrations
 :tags: integrations, spark, tools
+:description: There are various ways to beneficially use Neo4j with http://spark.apache.org[Apache Spark], here we will list some approaches and point to solutions that enable you to leverage your Spark infrastructure with Neo4j.
 
 .Goals
 [abstract]
-There are various ways to beneficially use Neo4j with http://spark.apache.org[Apache Spark], here we will list some approaches and point to solutions that enable you to leverage your Spark infrastructure with Neo4j.
+{description}
 
 .Prerequisites
 [abstract]
@@ -24,16 +25,16 @@ Apache Spark is a clustered, in-memory data processing solution that scales proc
 You can integrate with Spark in a variety of ways.
 Either to pre-process (aggregate, filter, convert) your raw data to be imported into Neo4j.
 
-Spark can also serve as external Graph Compute solution, where you 
+Spark can also serve as external Graph Compute solution, where you
 
-1. export data of selected subgraphs from Neo4j to Spark, 
+1. export data of selected subgraphs from Neo4j to Spark,
 2. compute the analytic aspects, and
-3.  write the results back to Neo4j 
+3.  write the results back to Neo4j
 4. to be used in your Neo4j operations and Cypher queries.
 
 [NOTE]
 Neo4j itself is capable of running graph processing on medium to large graphs quickly.
-For instance the https://github.com/maxdemarzi/graph_processing[graph-processing] project demonstrates that we can run PageRank (5 iterations) on the dbpedia dataset (10M nodes, 125M relationships) in 20 seconds as a Neo4j server extension or http://neo4j-contrib.github.io/neo4j-apoc-procedures/#_pagerank_algorithm[user defined procedure]. 
+For instance the https://github.com/maxdemarzi/graph_processing[graph-processing] project demonstrates that we can run PageRank (5 iterations) on the dbpedia dataset (10M nodes, 125M relationships) in 20 seconds as a Neo4j server extension or http://neo4j-contrib.github.io/neo4j-apoc-procedures/#_pagerank_algorithm[user defined procedure].
 Spark might be better suited for larger datasets or more intensive compute operations.
 
 [#spark-connector]
@@ -82,7 +83,7 @@ rdd.count
 // inferred schema
 rdd.first.schema.fieldNames
 //   => ["id"]
-rdd.first.schema("id") 
+rdd.first.schema("id")
 //   => StructField(id,LongType,true)
 
 neo.cypher("MATCH (n:Person) RETURN id(n)").loadRdd[Long].mean
@@ -118,7 +119,7 @@ val ranked = pageRankFrame.vertices
 ranked.printSchema()
 
 val top3 = ranked.orderBy(ranked.col("pagerank").desc).take(3)
-//     => top3: Array[org.apache.spark.sql.Row] 
+//     => top3: Array[org.apache.spark.sql.Row]
 //     => Array([236716,70,0.62285...], [236653,7,0.62285...], [236658,12,0.62285])
 ----
 
@@ -163,7 +164,7 @@ More details can be found on the project's http://github.com/neo4j-contrib/neo4j
 [#spark-data]
 == Spark for Data Preprocessing
 
-One example of pre-processing raw data (Chicago Crime dataset) into a format that's well suited for import into Neo4j, was demonstrated by http://twitter.com/markhneedham[Mark Needham]. 
+One example of pre-processing raw data (Chicago Crime dataset) into a format that's well suited for import into Neo4j, was demonstrated by http://twitter.com/markhneedham[Mark Needham].
 He combined a number of functions into a Spark-job that takes the existing data, cleans and aggregates it and outputs fragments which are recombined later to larger files.
 
 The approach is detailed in his blog post: http://www.markhneedham.com/blog/2015/04/14/spark-generating-csv-files-to-import-into-neo4j/["Spark: Generating CSV Files to import into Neo4j"].

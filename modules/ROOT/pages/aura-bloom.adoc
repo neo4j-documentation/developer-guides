@@ -5,10 +5,11 @@
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, bloom, dbaas, visualization
+:description: We will learn how to connect Neo4j Bloom with a Neo4j cloud Aura instance.
 
 .Goals
 [abstract]
-We will learn how to connect Neo4j Bloom with a Neo4j cloud Aura instance.
+{description}
 
 .Prerequisites
 [abstract]
@@ -44,7 +45,7 @@ If you have worked with Neo4j previously, you may already be familiar with the m
 This graph is a small data set of movie and person entities and the relationships between them for people who acted in or directed the films.
 
 Neo4j has already set up a script and guide to help users import this data into Neo4j.
-To access it, we can open a Neo4j Browser window. 
+To access it, we can open a Neo4j Browser window.
 
 In the Neo4j Aura console (console.neo4j.io), choose the blue button at the right of the instance for `Open with` and choose `Neo4j Browser`.
 
@@ -84,7 +85,7 @@ image::{img}add_indexes.jpg[link="{img}add_indexes.jpg",role="popup-link"]
 
 Let's explore the movie data with Neo4j Bloom!
 
-First, we launch our Bloom application by clicking again on the `Open with` button on the Neo4j Aura console, selecting `Neo4j Bloom` this time. 
+First, we launch our Bloom application by clicking again on the `Open with` button on the Neo4j Aura console, selecting `Neo4j Bloom` this time.
 
 image::{img}aura_console_browser_1.jpg[link="{img}aura_console_browser_1.jpg",role="popup-link"]
 

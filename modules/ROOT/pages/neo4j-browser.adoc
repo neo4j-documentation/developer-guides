@@ -6,10 +6,11 @@
 :author: Jennifer Reif
 :category: browser
 :tags: graph-platform, web, desktop, guides, styling, queries, configuration, visualization
+:description: This article demonstrates how to use the Neo4j Browser for querying, visualization, and data interaction.
 
 .Goals
 [abstract]
-This article demonstrates how to use the Neo4j Browser for querying, visualization, and data interaction.
+{description}
 
 .Prerequisites
 [abstract]
@@ -26,14 +27,14 @@ It also helps if you have read the section on link:/developer/get-started/graph-
 ++++
 
 [#install-neo4j-browser]
-If you haven't already, link:/download/[download^] Neo4j. 
+If you haven't already, link:/download/[download^] Neo4j.
 Using the provided instructions (shown when downloading), follow Step 1 to install and start the Neo4j Desktop application.
 Alternatively, after downloading the zipped server-only package, instructions can also be found in the readme (`bin/neo4j start`) after unzipping the downloaded file.
 Step 2 on the download page instructions shows you how to set up your first project and database and how to open the Neo4j Browser.
 
 ****
 [NOTE]
-Please remember the password. 
+Please remember the password.
 If you forget it, you have to remove the credentials file in `data/dbms/authorization`.
 ****
 
@@ -126,7 +127,7 @@ image::{img}style_actedin_relationship.png[]
 |===
 |Shortcut |Purpose
 
-m|:help 
+m|:help
 |Help System
 
 m|:help commands
@@ -184,7 +185,7 @@ image::{img}enable_multiline_queries.jpg[width=300,link="{img}enable_multiline_q
 You can switch between `Graph`, `Table`, `Text`, and `Code` views to see the results in various formats by clicking the icons on the left of each pane.
 
 ****
-[NOTE] 
+[NOTE]
 Don't worry if you don't see any output.
 You might just be in Graph mode, but had your query return tabular/scalar data.
 To see the results, just switch the mode to the Table view.

@@ -4,10 +4,11 @@
 :author: David Allen
 :category: cloud
 :tags: cloud, azure, cluster, setup, virtual-machine, deployment
+:description: This guide explains how to deploy a Neo4j Enterprise Causal Cluster via Microsoft Azure.
 
 .Goals
 [abstract]
-This guide explains how to deploy a Neo4j Enterprise Causal Cluster via Microsoft Azure.
+{description}
 
 .Prerequisites
 [abstract]
@@ -46,7 +47,7 @@ We recommend creating a new resource group to hold the artifacts of your deploym
 Once complete, click "OK".
 
 In the next section, you need to choose a password for the Neo4j user.
-You also select the number of core and read replica nodes in your cluster, along with the VM size, disk size/type, and IP allocation method.  
+You also select the number of core and read replica nodes in your cluster, along with the VM size, disk size/type, and IP allocation method.
 
 The cluster size (core and read replica nodes, along with VM size) is the largest cost driver of the cluster.
 You will be billed for Azure resource time only.
@@ -122,7 +123,7 @@ configure all aspects of your cluster
 [#terminate-cluster]
 == Terminating your Cluster
 
-Should you need to, you can tear down the infrastructure created by deleting the entire resource group you created as part of the deployment. 
+Should you need to, you can tear down the infrastructure created by deleting the entire resource group you created as part of the deployment.
 
 [#azure-resources]
 == Questions?

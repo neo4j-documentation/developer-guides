@@ -5,10 +5,11 @@
 :neo4j-version: 4.0
 :category: cluster
 :tags: administration, multi-database, fabric, sharding, multi-tenancy, apoc
+:description: In this guide, we will learn how to do multi tenancy in Neo4j.
 
 .Goals
 [abstract]
-In this guide, we will learn how to do multi tenancy in Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

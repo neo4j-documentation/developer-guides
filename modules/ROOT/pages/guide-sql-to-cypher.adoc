@@ -4,11 +4,11 @@
 :author: Neo4j
 :category: cypher
 :tags: cypher, queries, graph-queries, sql-cypher, northwind-graph
+:description: This guide teaches anyone familiar with SQL how to write the equivalent, efficient Cypher statements. We'll use the well-known Northwind database to explain the concepts and work through the queries from simple to advanced.
 
 .Goals
 [abstract]
-This guide teaches anyone familiar with SQL how to write the equivalent, efficient Cypher statements.
-We'll use the well-known Northwind database to explain the concepts and work through the queries from simple to advanced.
+{description}
 
 .Prerequisites
 [abstract]

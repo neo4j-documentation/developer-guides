@@ -4,10 +4,11 @@
 :author: Mark Needham
 :category: import-export
 :tags: data-import, graph-import, import-json, pagination, api
+:description: This article demonstrates some techniques for loading data from JSON-based REST APIs into Neo4j.
 
 .Goals
 [abstract]
-This article demonstrates some techniques for loading data from JSON-based REST APIs into Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

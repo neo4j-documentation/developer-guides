@@ -5,10 +5,11 @@
 :neo4j-version: 4.0
 :category: cluster
 :tags: administration, fabric, sharding, graph-sharding, architecture, examples
+:description: This guide will discuss the concept of sharding graph data using Neo4j Fabric.
 
 .Goals
 [abstract]
-This guide will discuss the concept of sharding graph data using Neo4j Fabric.
+{description}
 
 .Prerequisites
 [abstract]

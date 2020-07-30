@@ -4,10 +4,11 @@
 :author: Jennifer Reif
 :category: bloom
 :tags: graph-platform, server, desktop, sandbox, perspective, graph, visualization, data
+:description: This article shows how to use Neo4j Bloom for exploring graph data in Neo4j.
 
 .Goals
 [abstract]
-This article shows how to use Neo4j Bloom for exploring graph data in Neo4j.
+{description}
 
 .Prerequisites
 [abstract]
@@ -63,7 +64,7 @@ We will use the Northwind data, which is a fictional retail system of orders, pr
 With Bloom, we will see how to navigate and explore the data to gather business value and insights.
 
 To load this data, we can start our instance in Neo4j Desktop and open Neo4j Browser by going to `localhost:7474` in a web browser.
-Then, in the Cypher command bar, type `:play northwind-graph` and run it for the Browser guide to appear in a pane below the command line. 
+Then, in the Cypher command bar, type `:play northwind-graph` and run it for the Browser guide to appear in a pane below the command line.
 Click on and run the Cypher queries in the slides to load all of the Northwind data into the graph.
 When finished, we can run `CALL db.schema()` in the command line, and the data model should match the one shown below.
 
@@ -184,7 +185,7 @@ We choose the `Dismiss other nodes` option from the list, and the other nodes (e
 image::{img}bloom_dismiss_others_1.jpg[link="{img}bloom_dismiss_others_1.jpg",role="popup-link"]
 
 Next, we can expand this node to see all of the relationships it has with other nodes.
-We right-click (keyboard:`ctrl/cmd key + click`) on the node to bring up the option menu again, then choose `Expand`. You can either expand by a specific relationship type, or you can expand all of the relationships. 
+We right-click (keyboard:`ctrl/cmd key + click`) on the node to bring up the option menu again, then choose `Expand`. You can either expand by a specific relationship type, or you can expand all of the relationships.
 You also see the number of nodes it will add to the scene in that option, so we know how much data we are adding and how many connections the node has. Select `All`.
 
 image::{img}bloom_expand_node_1.jpg[link="{img}bloom_expand_node_1.jpg",role="popup-link"]

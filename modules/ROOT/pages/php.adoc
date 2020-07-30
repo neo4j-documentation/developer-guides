@@ -5,10 +5,11 @@
 :programming-language: php
 :category: drivers
 :tags: php, ogm, app-development, applications
+:description: If you are a PHP developer, this guide provides an overview of options for connecting to Neo4j.
 
 .Goals
 [abstract]
-If you are a PHP developer, this guide provides an overview of options for connecting to Neo4j.
+{description}
 While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
 
 .Prerequisites
@@ -34,7 +35,7 @@ Whether you're using frameworks like Symfony and Laravel or you're developing wi
 If you have any questions, you can always find a community member around on the https://community.neo4j.com[Neo4j Online Community^].
 
 [#php-tutorials]
-== Getting started tutorials 
+== Getting started tutorials
 
 * link:http://www.sitepoint.com/discover-graph-databases-neo4j-php/[Discover Graph Database with Neo4j and PHP^]
 * link:http://www.sitepoint.com/adding-social-network-features-php-app-neo4j/[Adding social newtork features to a PHP application with Neo4j^]
@@ -158,7 +159,7 @@ class Movie
 ----
 
 [source, php]
----- 
+----
 <?php
 
 $user = new User('cypher666');
@@ -167,7 +168,7 @@ $movie = $em->getRepository(Movie::class)->findOneBy('title', 'The Matrix');
 $user->rateMovie($movie, '4.5');
 $em->persist($user);
 $em->flush();
----- 
+----
 
 [cols="1,4"]
 |===
@@ -180,21 +181,21 @@ $em->flush();
 [#neo4j-symfony]
 == Neo4j Symfony Bundle
 
-To provide a smooth integration between Neo4j and Symfony we’ve created the SymfonyNeo4jBundle. 
-It wraps the excellent PHP community client by Graphaware and creates a solid Symfony experience. 
-Thanks to the WebProfiler integration, you will see all your database calls, all the queries and their results, exceptions and statistics. 
+To provide a smooth integration between Neo4j and Symfony we’ve created the SymfonyNeo4jBundle.
+It wraps the excellent PHP community client by Graphaware and creates a solid Symfony experience.
+Thanks to the WebProfiler integration, you will see all your database calls, all the queries and their results, exceptions and statistics.
 
-The bundle also integrates the client events with the Symfony event dispatcher. 
-It is not opinionated in how you are using Neo4j and using the OGM is optional. 
+The bundle also integrates the client events with the Symfony event dispatcher.
+It is not opinionated in how you are using Neo4j and using the OGM is optional.
 Advanced Neo4j users will have full control over the client and what Cypher gets executed.
 
 [cols="1,4"]
 |===
-| icon:user[] Authors | http://twitter.com/tobiasnyholm[Tobias Nyholm^], http://twitter.com/PandawanTech[Xavier Coureau^] 
+| icon:user[] Authors | http://twitter.com/tobiasnyholm[Tobias Nyholm^], http://twitter.com/PandawanTech[Xavier Coureau^]
 | icon:github[] Source | https://github.com/neo4j-contrib/neo4j-symfony
 | icon:book[] Docs | https://github.com/neo4j-contrib/neo4j-symfony/blob/master/README.md
 | icon:play-circle[] | https://github.com/neo4j-examples/movies-symfony-php-bolt
-| icon:book[] Blog | https://www.sitepoint.com/introducing-the-neo4j-symfony-bundle/ 
+| icon:book[] Blog | https://www.sitepoint.com/introducing-the-neo4j-symfony-bundle/
 |===
 
 [#neoeloquent-lib]

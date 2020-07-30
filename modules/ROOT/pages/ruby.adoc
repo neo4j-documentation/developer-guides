@@ -5,11 +5,11 @@
 :programming-language: ruby
 :category: drivers
 :tags: ruby, gem, app-development, applications
+:description: This guide provides an overview of options for connecting to Neo4j using Ruby. It will introduce the different drivers and link to relevant resources.
 
 .Goals
 [abstract]
-This guide provides an overview of options for connecting to Neo4j using Ruby.
-It will introduce the different drivers and link to relevant resources.
+{description}
 
 .Prerequisites
 [abstract]

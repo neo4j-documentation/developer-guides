@@ -5,10 +5,11 @@
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, monitoring, operations
+:description: In this page, we will learn how to monitor our Neo4j Aura database.
 
 .Goals
 [abstract]
-In this page, we will learn how to monitor our Neo4j Aura database.
+{description}
 
 .Prerequisites
 [abstract]

@@ -5,10 +5,11 @@
 :author: Neo4j
 :category: documentation
 :tags: resources, browser, custom-guide, community, examples
+:description: This guide explains how to create a walkthrough (in slideshow format) for the Neo4j Browser that enables your audience to explore your database and model interactively.
 
 .Goals
 [abstract]
-This guide explains how to create a walkthrough (in slideshow format) for the Neo4j Browser that enables your audience to explore your database and model interactively.
+{description}
 
 .Prerequisites
 [abstract]

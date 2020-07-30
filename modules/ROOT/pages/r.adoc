@@ -5,10 +5,11 @@
 :programming-language: r
 :category: drivers
 :tags: r, app-development, applications
+:description: If you are an R developer or data scientist, this guide provides an overview of options for connecting from R to Neo4j and even using Neo4j from within R-Studio.
 
 .Goals
 [abstract]
-If you are an R developer or data scientist, this guide provides an overview of options for connecting from R to Neo4j and even using Neo4j from within R-Studio.
+{description}
 
 .Prerequisites
 [abstract]
@@ -29,7 +30,7 @@ image::{img}Rlogo.jpg[float=right]
 
 The goal of {neo4r} is to provide a modern and flexible Neo4J driver for R.
 
-It’s modern in the sense that the results are returned as tibbles whenever possible, it relies on modern tools, and it is designed to work with pipes. 
+It’s modern in the sense that the results are returned as tibbles whenever possible, it relies on modern tools, and it is designed to work with pipes.
 Our goal is to provide a driver that can be easily integrated in a data analysis workflow, especially by providing an API working smoothly with other data analysis (`{dplyr}` or `{purrr}`) and graph packages (`{igraph}`, `{ggraph}`, `{visNetwork}`…).
 
 It was developed by https://thinkr.fr/[ThinkR], led by Colin Fay.
@@ -39,7 +40,7 @@ Currently it connects to Neo4j via Http but we plan to integrate it with the C-c
 [cols="1,4"]
 |===
 | icon:user[] Author         | https://twitter.com/_ColinFay[Colin Fay]
-| icon:gift[] Package        | 
+| icon:gift[] Package        |
 | icon:github[] Source       | https://github.com/neo4j-rstats/neo4r
 | icon:github[] Neo4j-Rstats | https://github.com/neo4j-rstats/
 | icon:comments[] Neo4j Online Community | https://community.neo4j.com/c/drivers-stacks/r
@@ -59,8 +60,8 @@ Nicole also detailed the usage in a number of blog posts and applications.
 
 [cols="3*"]
 |===
-| Name 
-| icon:tag[] Version 
+| Name
+| icon:tag[] Version
 | icon:user[] Authors
 
 | RNeo4j

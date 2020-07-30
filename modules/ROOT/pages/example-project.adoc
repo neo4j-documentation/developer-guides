@@ -4,10 +4,11 @@
 :author: Neo4j
 :category: drivers
 :tags: examples, app-development, project, applications
+:description: This guide explains the example application we use to introduce the different Neo4j drivers in detail.
 
 .Goals
 [abstract]
-This guide explains the example application we use to introduce the different Neo4j drivers in detail.
+{description}
 
 .Prerequisites
 [abstract]
