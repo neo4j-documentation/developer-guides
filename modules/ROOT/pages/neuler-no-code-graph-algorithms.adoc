@@ -109,7 +109,7 @@ The output from running the PageRank algorithm against a projected graph of the 
 image::https://dist.neo4j.com/wp-content/uploads/20200729030629/pagerank-results.png[Running the PageRank algorithm against Season 1 of Game of Thrones, link="https://dist.neo4j.com/wp-content/uploads/20200729030629/pagerank-results.png",role="popup-link"]
 
 We can see that Ned is the most important character in the show in the early days.
-If we want to compute the results for another season, we can easily do that by changing the 'Relationship Type'.
+If we want to compute the results for another season, we can do that by changing the 'Relationship Type'.
 
 We can also view the results in chart or graph visualization formats.
 We can see the chart representation of PageRank run against the Game of Thrones graph in the screenshot below:
