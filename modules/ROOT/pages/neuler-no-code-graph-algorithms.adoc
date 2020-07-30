@@ -25,6 +25,10 @@ image:https://dist.neo4j.com/wp-content/uploads/20200729014057/220px-Leonhard_Eu
 NEuler is a no-code UI that helps users onboard with the https://neo4j.com/graph-data-science-library[Neo4j Graph Data Science Library^].
 It supports running each of the graph algorithms in the library, viewing the results, and also provides the Cypher queries to reproduce the results.
 
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/h9FQtMtL9_A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
 We will use the terms 'Neuler' and 'The Graph Data Science Playground' interchangeably in this guide.
 
 [#installing-neuler]
