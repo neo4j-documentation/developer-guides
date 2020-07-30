@@ -49,15 +49,17 @@
 ** xref:example-data.adoc[Example Datasets]
 
 * Neo4j Graph Data Science
-** xref:graph-data-science.adoc[Graph Data Science Overview]
-** xref:graph-algorithms.adoc[Graph Algorithms]
-** xref:graph-search-algorithms.adoc[Graph Search Algorithms Overview]
-** xref:path-finding-graph-algorithms.adoc[Path Finding Algorithms Overview]
-** xref:centrality-graph-algorithms.adoc[Centrality Algorithms Overview]
-** xref:community-detection-graph-algorithms.adoc[Community Detection Algorithms Overview]
-** xref:graph-embeddings.adoc[Graph Embeddings Overview]
-** xref:applied-graph-embeddings.adoc[Applied Graph Embeddings]
-** xref:nlp.adoc[Natural Language Processing (NLP)]
+  ** xref:graph-data-science.adoc[Graph Data Science Overview]
+  ** xref:graph-algorithms.adoc[Graph Algorithms]
+  ** xref:nlp.adoc[Natural Language Processing (NLP)]
+  ** Concepts
+    *** xref:graph-search-algorithms.adoc[Graph Search Algorithms]
+    *** xref:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
+    *** xref:centrality-graph-algorithms.adoc[Centrality Algorithms]
+    *** xref:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
+    *** xref:graph-embeddings.adoc[Graph Embeddings]
+  ** Tutorials
+    *** xref:applied-graph-embeddings.adoc[Graph Embeddings]
 
 * Graph Visualization
 ** xref:graph-visualization.adoc[Visualization Overview]
@@ -134,4 +136,3 @@
 ** link:/speaker-program/[Speaker Program: Share your Story^]
 ** xref:cla.adoc[Contributor License Agreement]
 ** xref:contributing-code.adoc[Code Contributions]
-
