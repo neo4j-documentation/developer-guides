@@ -4,10 +4,11 @@
 :author: Adam Cowley
 :category: desktop
 :tags: graph-apps, app-development, integrations, community, graphql, drivers, deployment
+:description: This guide explains what a Graph Application is for Neo4j.
 
 .Goals
 [abstract]
-This guide explains what a Graph Application is for Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

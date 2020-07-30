@@ -4,10 +4,11 @@
 :author: David Allen
 :category: cloud
 :tags: cloud, aws, setup, virtual-machine, deployment
+:description: This guide explains how to deploy a single instance of Neo4j on Amazon's EC2 platform.
 
 .Goals
 [abstract]
-This guide explains how to deploy a single instance of Neo4j on Amazon's EC2 platform.
+{description}
 
 .Prerequisites
 [abstract]
@@ -70,7 +71,7 @@ To start the instance, we'll need the ID of an Amazon Machine Image (AMI).
 
 Neo4j publishes many different versions, and the AMI ID depends on which region you want to launch in.
 AMI IDs are specific to regions, so you need to locate the right ID for your version and region needs.
-For that reason, in the instructions below we will provide just a placeholder AMI of `ami-XYZ`.  
+For that reason, in the instructions below we will provide just a placeholder AMI of `ami-XYZ`.
 
 To get the right AMI ID, you can follow these instructions:
 
@@ -81,7 +82,7 @@ To get the right AMI ID, you can follow these instructions:
 * As an example: Neo4j Enterprise 3.5.1 is AMI ID `ami-009272c7ac939919d` in `region us-west-2`.
 As new versions are published, they will be mentioned in the https://community.neo4j.com/c/neo4j-graph-platform/cloud[Cloud topic^] on the Neo4j community site.
 
-If you would like to use the CLI to do this same step, the following command locates all image 
+If you would like to use the CLI to do this same step, the following command locates all image
 IDs and names for the images Neo4j publishes in `us-east-1` region.
 By changing the region, you can find AMI IDs near you.
 

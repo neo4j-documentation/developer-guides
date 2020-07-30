@@ -4,11 +4,11 @@
 :author: Jennifer Reif
 :category: cypher
 :tags: cypher, queries, aggregation, chaining, loops, order-by, distinct, limit
+:description: Building on the previous Cypher guides, this guide shows how to handle returning results in various ways, aggregating data, and using Cypher functions. Upon finishing this guide, you should be able to write and understand queries using these capabilities.
 
 .Goals
 [abstract]
-Building on the previous Cypher guides, this guide shows how to handle returning results in various ways, aggregating data, and using Cypher functions.
-Upon finishing this guide, you should be able to write and understand queries using these capabilities.
+{description}
 
 .Prerequisites
 [abstract]

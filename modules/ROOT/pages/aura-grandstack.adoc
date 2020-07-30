@@ -5,10 +5,11 @@
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, grandstack, drivers, applications, labs
+:description: In this page, we will learn how to build and deploy a GRANDstack application with Neo4j Aura.
 
 .Goals
 [abstract]
-In this page, we will learn how to build and deploy a GRANDstack application with Neo4j Aura.
+{description}
 
 .Prerequisites
 [abstract]

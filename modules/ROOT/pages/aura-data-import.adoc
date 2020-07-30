@@ -5,10 +5,11 @@
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, import, etl
+:description: In this guide, we will see how Neo4j Aura imports data differently from other Neo4j instances and how to navigate those differences.
 
 .Goals
 [abstract]
-In this guide, we will see how Neo4j Aura imports data differently from other Neo4j instances and how to navigate those differences.
+{description}
 
 [role=expertise {level}]
 {level}

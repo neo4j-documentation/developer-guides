@@ -5,11 +5,11 @@
 :programming-language: golang
 :category: drivers
 :tags: golang, go, app-development, applications
+:description: If you are a Go developer, this guide provides an overview of options for connecting to Neo4j. While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
 
 .Goals
 [abstract]
-If you are a Go developer, this guide provides an overview of options for connecting to Neo4j.
-While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
+{description}
 
 .Prerequisites
 [abstract]
@@ -24,7 +24,7 @@ You should have link:/download[installed Neo4j] and made yourself familiar with 
 
 image::{img}GO.jpg[width=150,float=right]
 
-You can use the official driver for Go (neo4j-go-driver) or connect via Bolt or HTTP with any of our community drivers. 
+You can use the official driver for Go (neo4j-go-driver) or connect via Bolt or HTTP with any of our community drivers.
 
 [#go-driver]
 == Neo4j Go Driver

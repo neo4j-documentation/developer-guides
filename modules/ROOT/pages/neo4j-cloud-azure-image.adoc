@@ -4,10 +4,11 @@
 :author: David Allen
 :category: cloud
 :tags: cloud, azure, instance, setup, virtual-machine, deployment
+:description: This guide explains how to deploy a single instance of Neo4j on Microsoft Azure.
 
 .Goals
 [abstract]
-This guide explains how to deploy a single instance of Neo4j on Microsoft Azure.
+{description}
 
 .Prerequisites
 [abstract]
@@ -31,7 +32,7 @@ In the https://azuremarketplace.microsoft.com/en-us/marketplace/[Azure Marketpla
 For single-node instances, the correct one is called https://azuremarketplace.microsoft.com/en-us/marketplace/apps/neo4j.neo4j-enterprise?tab=Overview[Neo4j Enterprise VM^].
 
 Navigate to the Marketplace entry in the link above, and click "Get it Now".
-The marketplace will prompt you to click "Continue" after providing some basic version and publisher information. 
+The marketplace will prompt you to click "Continue" after providing some basic version and publisher information.
 Click "Continue".
 
 image::{img}azure-launch-page.png[]
@@ -105,7 +106,7 @@ $ sudo systemctl status neo4j
       CPU: 20.690s
    CGroup: /system.slice/neo4j.service
            ├─1290 /bin/bash /etc/neo4j/pre-neo4j.sh
-           └─1430 /usr/bin/java -cp /var/lib/neo4j/plugins:/etc/neo4j:/usr/share/neo4j/lib/*:/var/lib/neo4j/plugins/* -server -XX:+UseG1GC 
+           └─1430 /usr/bin/java -cp /var/lib/neo4j/plugins:/etc/neo4j:/usr/share/neo4j/lib/*:/var/lib/neo4j/plugins/* -server -XX:+UseG1GC
 ----
 
 [#vm-workings]

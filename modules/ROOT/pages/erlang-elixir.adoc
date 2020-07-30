@@ -5,11 +5,11 @@
 :programming-language: erlang-elixir
 :category: drivers
 :tags: erlang, elixir, app-development, applications
+:description: If you are an Erlang, or today an Elixir developer, this guide provides an overview of options for connecting to Neo4j. While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
 
 .Goals
 [abstract]
-If you are an Erlang, or today an Elixir developer, this guide provides an overview of options for connecting to Neo4j.
-While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
+{description}
 
 .Prerequisites
 [abstract]

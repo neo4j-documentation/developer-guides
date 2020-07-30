@@ -5,12 +5,11 @@
 :programming-language: java
 :category: drivers
 :tags: ogm, object-graph-map, app-development, applications
-
-
+:description: For Java developers that require a simple mechanism to manage their domain objects with Neo4j, this guide introduces the Neo4j Object Graph Mapping (OGM) library.   This is the same library that powers Spring Data Neo4j but can also be used independently of Spring as well.
 
 .Goals
 [abstract]
-For Java developers that require a simple mechanism to manage their domain objects with Neo4j, this guide introduces the Neo4j Object Graph Mapping (OGM) library.   This is the same library that powers Spring Data Neo4j but can also be used independently of Spring as well.
+{description}
 
 .Prerequisites
 [abstract]

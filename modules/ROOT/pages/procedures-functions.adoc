@@ -4,11 +4,11 @@
 :author: Neo4j
 :category: cypher
 :tags: cypher, queries, extend-cypher, procedures, functions, custom-development
+:description: This guide explains how to use, create and deploy user defined procedures and functions, the extension mechanism of Cypher, Neo4j's query language. It also covers existing, widely used procedure libraries
 
 .Goals
 [abstract]
-This guide explains how to use, create and deploy user defined procedures and functions, the extension mechanism of Cypher, Neo4j's query language.
-It also covers existing, widely used procedure libraries
+{description}
 
 .Prerequisites
 [abstract]
@@ -49,7 +49,7 @@ Run the following statements along to get a hang of the usage and see their resu
 
 [source,cypher]
 ----
-CALL dbms.procedures() 
+CALL dbms.procedures()
 ----
 
 Call `dbms.functions()` to list functions.
@@ -59,13 +59,13 @@ With `yield` these columns can be selected and also aliased and are then availab
 
 [source,cypher]
 ----
-CALL dbms.procedures() 
+CALL dbms.procedures()
 YIELD name, signature, description as text
 WHERE name STARTS WITH 'db.'
 RETURN * ORDER BY name ASC
 ----
 
-Of course you can also process the result columns with other Cypher clauses. 
+Of course you can also process the result columns with other Cypher clauses.
 Here we group them by package.
 
 [source,cypher]
@@ -81,11 +81,11 @@ ORDER BY count DESC
 [options=header]
 |===
 |package             |count  |names
-|["dbms","security"] |16     |["activateUser","addRoleToUser","changePassword",....]     
-|["apoc","refactor"] |11     |["categorize","cloneNodes","from"....]                     
-|["apoc","load"]     |9      |["csv","driver","jdbc","jdbcParams","json","jsoe"]         
+|["dbms","security"] |16     |["activateUser","addRoleToUser","changePassword",....]
+|["apoc","refactor"] |11     |["categorize","cloneNodes","from"....]
+|["apoc","load"]     |9      |["csv","driver","jdbc","jdbcParams","json","jsoe"]
 |["db"]              |9      |["awaitIndex","constraints","indexes","labels",..,"schema"]
-|["dbms"]            |9      |["components","functions","queries","procedures",...]      
+|["dbms"]            |9      |["components","functions","queries","procedures",...]
 |===
 
 As of Neo4j 3.1, all functions available are directly part of the Cypher implementation, so User Defined Functions would only come from installed libraries.
@@ -100,11 +100,11 @@ Please also have a look at the link:/docs/java-reference/current/extending-neo4j
 If you built your own procedures or downloaded them from an community project, they are packaged in a jar-file.
 You can copy that file into the `$NEO4J_HOME/plugins` directory of your Neo4j server and restart.
 
-[WARNING] 
+[WARNING]
 *A word of caution.*
-As procedures and functions use the low level Java API they can access all Neo4j internals as well as the file system and machine. 
-That's why you should know which procedures you deploy and why. 
-Only install procedures from trusted sources. 
+As procedures and functions use the low level Java API they can access all Neo4j internals as well as the file system and machine.
+That's why you should know which procedures you deploy and why.
+Only install procedures from trusted sources.
 If they are open source, check their source-code and best build them yourself.
 
 [#procedure-function-gallery]
@@ -131,7 +131,7 @@ A procedure to load data from another database:
 -----
 WITH "jdbc:mysql://localhost:3306/northwind?user=root" as url
 CALL apoc.load.jdbc(url,"products") YIELD row
-RETURN row 
+RETURN row
 ORDER BY row.UnitPrice DESC
 LIMIT 20
 -----
@@ -142,9 +142,9 @@ Functions to format and parse timestamps of different resolutions:
 
 [source,cypher]
 ----
-RETURN apoc.date.format(timestamp()) as time, 
+RETURN apoc.date.format(timestamp()) as time,
        apoc.date.format(timestamp(),'ms','yyyy-MM-dd') as date,
-       apoc.date.parse('13.01.1975','s','dd.MM.yyyy') as unixtime, 
+       apoc.date.parse('13.01.1975','s','dd.MM.yyyy') as unixtime,
        apoc.date.parse('2017-01-05 13:03:07') as millis
 ----
 

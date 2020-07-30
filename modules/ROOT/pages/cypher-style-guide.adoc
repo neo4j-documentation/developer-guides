@@ -4,11 +4,11 @@
 :author: Jennifer Reif
 :category: cypher
 :tags: cypher, queries, graph-queries, syntax-style, model-style, write-cypher, syntax
+:description: This guide will show some of the syntax recommendations for building clean, easy-to-read Cypher queries. At the end of this page, you will know how to improve readability of keywords, properties, labels, clauses, and other components.
 
 .Goals
 [abstract]
-This guide will show some of the syntax recommendations for building clean, easy-to-read Cypher queries.
-At the end of this page, you will know how to improve readability of keywords, properties, labels, clauses, and other components.
+{description}
 
 .Prerequisites
 [abstract]
@@ -30,7 +30,7 @@ Formatting nodes, relationships, labels, and properties help to make queries cle
 If each of these components has a different style, then it is easy to pick out these items in a query and visually separate each to understand the syntax better.
 Let us look at each recommendation.
 
-=== Node Labels 
+=== Node Labels
 
 Node labels are styled in CamelCase where the first letter of each word begins with a capital letter.
 They are also case-sensitive.

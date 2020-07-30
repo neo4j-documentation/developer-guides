@@ -4,10 +4,11 @@
 :author: David Allen
 :category: cloud
 :tags: cloud, gcp, setup, gcp-cluster, virtual-machine, deployment
+:description: This guide explains how to deploy a Neo4j Enterprise Causal Cluster via GCP Marketplace.
 
 .Goals
 [abstract]
-This guide explains how to deploy a Neo4j Enterprise Causal Cluster via GCP Marketplace.
+{description}
 
 .Prerequisites
 [abstract]

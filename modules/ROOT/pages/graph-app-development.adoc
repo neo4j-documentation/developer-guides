@@ -4,10 +4,11 @@
 :author: Adam Cowley
 :category: desktop
 :tags: graph-apps, app-development, drivers
+:description: This guide explains how to develop a Graph App for Neo4j Desktop.
 
 .Goals
 [abstract]
-This guide explains how to develop a Graph App for Neo4j Desktop.
+{description}
 
 .Prerequisites
 [abstract]

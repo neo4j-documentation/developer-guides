@@ -4,12 +4,11 @@
 :author: Neo4j
 :category: integrations
 :tags: integrations, tools, hadoop
+:description: Hadoop is well established as large scale data processing platform.  It can easily pre-process huge datasets and information streams to extract and project the high quality data vectors that enrich your graph model with relevant new information. Here we want to demonstrate some approaches that used Hadoop jobs to prepare data for ingestion into Neo4j.
 
 .Goals
 [abstract]
-Hadoop is well established as large scale data processing platform.
-It can easily pre-process huge datasets and information streams to extract and project the high quality data vectors that enrich your graph model with relevant new information.
-Here we want to demonstrate some approaches that used Hadoop jobs to prepare data for ingestion into Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

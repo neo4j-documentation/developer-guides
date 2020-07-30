@@ -5,10 +5,11 @@
 :programming-language: swift
 :category: drivers
 :tags: swift, app-development, applications
+:description: If you are an iOS, macOS or Linux developer using Swift, this guide provides instructions for how to use the https://github.com/GraphStory/neo4j-ios[Theo^] framework to interact with Neo4j.
 
 .Goals
 [abstract]
-If you are an iOS, macOS or Linux developer using Swift, this guide provides instructions for how to use the https://github.com/GraphStory/neo4j-ios[Theo^] framework to interact with Neo4j. 
+{description}
 
 .Prerequisites
 [abstract]
@@ -89,7 +90,7 @@ fetch a node
 
 [source, swift]
 ----
-theo.fetchNode("IDToFetch", completionBlock: { (node, error) in    
+theo.fetchNode("IDToFetch", completionBlock: { (node, error) in
     print("meta in success \(node!.meta) node \(node) error \(error)")
 })
 ----
@@ -100,7 +101,7 @@ do a cypher query
 ----
 let cypherQuery: String = "MATCH (node1:Label1)-->(node2:Label2) WHERE node1.propertyA = {value} RETURN node2.propertyA, node2.propertyB"
 let cypherParams: Dictionary<String, AnyObject> = ["value" : "someValue"]
-		
+
 theo.executeCypher(cypherQuery, params: cypherParams, completionBlock: { (cypher, error) in
     println("response from cypher \(cypher)")
 })
@@ -110,7 +111,7 @@ or a transaction
 
 [source, swift]
 ----
-let createStatement: String = "CREATE ( bike:Bike { weight: 10 } ) CREATE ( frontWheel:Wheel { spokes: 3 } ) CREATE ( backWheel:Wheel { spokes: 32 } ) CREATE p1 = bike -[:HAS { position: 1 } ]-> frontWheel CREATE p2 = bike -[:HAS { position: 2 } ]-> backWheel RETURN bike, p1, p2"        
+let createStatement: String = "CREATE ( bike:Bike { weight: 10 } ) CREATE ( frontWheel:Wheel { spokes: 3 } ) CREATE ( backWheel:Wheel { spokes: 32 } ) CREATE p1 = bike -[:HAS { position: 1 } ]-> frontWheel CREATE p2 = bike -[:HAS { position: 2 } ]-> backWheel RETURN bike, p1, p2"
 let resultDataContents: Array<String> = ["row", "graph"]
 let statement: Dictionary <String, AnyObject> = ["statement" : createStatement, "resultDataContents" : resultDataContents]
 let statements: Array<Dictionary <String, AnyObject>> = [statement]

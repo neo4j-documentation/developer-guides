@@ -4,11 +4,11 @@
 :author: Jennifer Reif
 :category: import-export
 :tags: data-import, graph-import, northwind-graph, relational-graph, load-csv
+:description: This guide will teach you the process for exporting data from a relational database (PostgreSQL) and importing into a graph database (Neo4j). You will learn how to take data from the relational system and to the graph by translating the schema and using import tools.
 
 .Goals
 [abstract]
-This guide will teach you the process for exporting data from a relational database (PostgreSQL) and importing into a graph database (Neo4j).
-You will learn how to take data from the relational system and to the graph by translating the schema and using import tools.
+{description}
 This example uses a specific data set, but the principles in this guide can be applied and reused with any data domain.
 
 .Prerequisites

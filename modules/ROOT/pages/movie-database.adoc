@@ -5,11 +5,11 @@
 :author: Michael Hunger
 :category: import-export
 :tags: graph-data, data-sets, import-data, graph-examples, app-development
+:description: There are lots of example datasets for Neo4j.  This guide outlines some of them.
 
 .Goals
 [abstract]
-There's lots of example datasets for Neo4j.
-This guide outlines some of them.
+{description}
 
 .Prerequisites
 [abstract]
@@ -26,7 +26,7 @@ It could be extended with Genres, Publishers, Ratings and more.
 [NOTE]
 You find a similar, but smaller dataset in the Neo4j-Browser of your Neo4j installation by entering `:play movie graph` in the commandline.
 
-This dataset was sourced from link:TheMovieDB.org. 
+This dataset was sourced from link:TheMovieDB.org.
 Thanks so much to them for allowing us to use it for educational purposes.
 It was originally used for the link:/developer/language-guides/spring-data-neo4j[Spring Data Neo4j] tutorial project Cineasts.
 
@@ -56,7 +56,7 @@ Installation in Detail:
 * Stop your Neo4j server with `bin/neo4j stop` or your control app
 * Unzip the downloaded file
 * Override `graph.db` in `/path/to/neo/data`
-* Start the server again with `bin/neo4j start` 
+* Start the server again with `bin/neo4j start`
 * Open the Neo4j Web Interface on http://localhost:7474
 * Read about the Cypher Query Language
 * Follow the source links for some example Cypher queries

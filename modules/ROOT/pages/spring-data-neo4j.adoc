@@ -5,7 +5,7 @@
 :programming-language: java
 :category: drivers
 :tags: spring, spring-data, sdn, app-development, applications
-
+:description:  For Java developers who use the Spring Framework or Spring Boot, this guide introduces Spring integration through the Spring Data Neo4j library.
 
 
 [NOTE]
@@ -16,7 +16,7 @@ All new and future projects should use the link:/developer/spring-data-neo4j-rx/
 
 .Goals
 [abstract]
-For Java developers who use the Spring Framework or Spring Boot, this guide introduces Spring integration through the Spring Data Neo4j library.
+{description}
 The library provides convenient access to Neo4j including object mapping, Spring Data repositories, conversion, transaction handling, and more.
 
 .Prerequisites

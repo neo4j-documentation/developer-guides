@@ -4,10 +4,11 @@
 :author: Neo4j
 :category: integrations
 :tags: integrations, tools, elasticsearch, extensions, libraries
+:description: There are various ways to integrate Neo4j with ElasticSearch, here we will list some approaches and point to solutions that enable you to reuse your existing ES infrastructure with Neo4j.
 
 .Goals
 [abstract]
-There are various ways to integrate Neo4j with ElasticSearch, here we will list some approaches and point to solutions that enable you to reuse your existing ES infrastructure with Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

@@ -5,10 +5,11 @@
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, cypher, tools
+:description: In this page, we will learn how to connect to our Neo4j Aura database using the Cypher Shell command line tool.
 
 .Goals
 [abstract]
-In this page, we will learn how to connect to our Neo4j Aura database using the Cypher Shell command line tool.
+{description}
 
 .Prerequisites
 [abstract]

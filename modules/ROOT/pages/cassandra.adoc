@@ -4,11 +4,11 @@
 :author: Neo4j
 :category: integrations
 :tags: integrations, cassandra, tools
+:description: The goal of this guide is to export data from Cassandra, convert to a property graph model and insert into Neo4j. To accomplish this we will use the Neo4j Cassandra data import tool, a prototype command line application that enables translation from a column-oriented data model to a property graph data model.
 
 .Goals
 [abstract]
-The goal of this guide is to export data from Cassandra, convert to a property graph model and insert into Neo4j.
-To accomplish this we will use the Neo4j Cassandra data import tool, a prototype command line application that enables translation from a column-oriented data model to a property graph data model.
+{description}
 
 [NOTE]
 The Neo4j Cassandra data import tool is in its infancy and currently has many limitations.

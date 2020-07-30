@@ -4,11 +4,11 @@
 :author: Jennifer Reif
 :category: cypher
 :tags: cypher, queries, graph-queries, syntax, patterns, keywords, aliases
+:description: This guide explains the basic concepts of Cypher, Neo4j's graph query language. You should be able to read and understand Cypher queries after finishing this guide.
 
 .Goals
 [abstract]
-This guide explains the basic concepts of Cypher, Neo4j's graph query language.
-You should be able to read and understand Cypher queries after finishing this guide.
+{description}
 
 .Prerequisites
 [abstract]

@@ -16,7 +16,7 @@
 
 .Goals
 [abstract]
-In this guide, we will learn how to apply graph embeddings to an example dataset in Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

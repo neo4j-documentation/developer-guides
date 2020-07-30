@@ -5,11 +5,11 @@
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, desktop, remote-connection
+:description: In this page, we will learn how to connect the Neo4j Desktop application to an instance in Neo4j Aura. This gives us the opportunity to have a single portal for interacting with all instances of Neo4j, whether local databases or databases located in various clouds.
 
 .Goals
 [abstract]
-In this page, we will learn how to connect the Neo4j Desktop application to an instance in Neo4j Aura.
-This gives us the opportunity to have a single portal for interacting with all instances of Neo4j, whether local databases or databases located in various clouds.
+{description}
 
 .Prerequisites
 [abstract]

@@ -4,11 +4,11 @@
 :author: Jennifer Reif
 :category: modeling
 :tags: graph-modeling, data-model, schema, model-tips, model-queries
+:description: In this guide, you will find some helpful information to designing a data model for your domain.  Optimizing the model will help developers to maximize performance of the system and queries.
 
 .Goals
 [abstract]
-In this guide, you will find some helpful information to designing a data model for your domain.
-Optimizing the model will help developers to maximize performance of the system and queries.
+{description}
 
 .Prerequisites
 [abstract]

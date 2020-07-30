@@ -5,10 +5,11 @@
 :programming-language: clojure
 :category: drivers
 :tags: clojure, app-development, applications
+:description: If you are a Clojure developer, this guide provides an overview of options for connecting to Neo4j. While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
 
 .Goals
 [abstract]
-If you are a Clojure developer, this guide provides an overview of options for connecting to Neo4j. While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
+{description}
 
 .Prerequisites
 [abstract]
@@ -33,7 +34,7 @@ include::./_includes/sample_project.adoc[]
 [#clj-lib]
 === Neo4j-clj
 
-Clojure bindings for Bolt / the Java Neo4j driver, complete with Joplin support for managing database migrations. 
+Clojure bindings for Bolt / the Java Neo4j driver, complete with Joplin support for managing database migrations.
 
 [cols="1,4"]
 |===

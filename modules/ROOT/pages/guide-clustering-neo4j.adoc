@@ -4,11 +4,11 @@
 :author: Neo4j
 :category: cluster
 :tags: administration, causal-cluster, backup, ha, setup
+:description: This guide describes how to configure a high availability cluster of Neo4j Enterprise. It includes topics such as data synchronization, mending procedures, configuring an arbiter, and slave-only mode configuration.
 
 .Goals
 [abstract]
-This guide describes how to configure a high availability cluster of Neo4j Enterprise.
-It includes topics such as data synchronization, mending procedures, configuring an arbiter, and slave-only mode configuration.
+{description}
 
 .Prerequisites
 [abstract]

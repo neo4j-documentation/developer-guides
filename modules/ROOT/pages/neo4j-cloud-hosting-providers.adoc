@@ -4,10 +4,11 @@
 :author: Neo4j
 :category: cloud
 :tags: cloud, hosting, deployment, partners
+:description: This guide introduces Neo4j's cloud-hosting partners.
 
 .Goals
 [abstract]
-This guide introduces Neo4j's cloud-hosting partners.
+{description}
 
 .Prerequisites
 [abstract]

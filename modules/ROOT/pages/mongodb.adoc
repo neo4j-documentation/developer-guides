@@ -4,10 +4,11 @@
 :author: Neo4j
 :category: integrations
 :tags: integrations, mongodb, document, tools, libraries
+:description: Taking advantage of the strengths of multiple database technologies is the concept of polyglot persistence.
 
 .Goals
 [abstract]
-Taking advantage of the strengths of multiple database technologies is the concept of polyglot persistence.
+{description}
 For example, a product catalog application might use a document database (such as MongoDB) to power browsing / searching for products along with a graph database (such as Neo4j) to provide real time personalized product recommendations.
 To enable polyglot persistence the application needs to store data in multiple databases, each with its own data model (graph vs. document).
 Being able to connect MongoDB to Neo4j and synchronize data automatically makes this process much simpler.

@@ -8,7 +8,7 @@
 
 .Goals
 [abstract]
-In this guide, we will learn about community detection graph algorithms.
+{description}
 
 .Prerequisites
 [abstract]

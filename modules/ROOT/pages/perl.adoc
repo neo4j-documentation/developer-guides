@@ -5,10 +5,11 @@
 :programming-language: perl
 :category: drivers
 :tags: perl, project, app-development, applications
+:description: This guide provides an overview of options for connecting to Neo4j using the Perl programming language.
 
 .Goals
 [abstract]
-This guide provides an overview of options for connecting to Neo4j using the Perl programming language. 
+{description}
 While this guide is not comprehensive, it will introduce some prominent drivers and link to the relevant resources.
 
 .Prerequisites

@@ -5,10 +5,11 @@
 :programming-language: haskell
 :category: drivers
 :tags: haskell, app-development, applications
+:description: If you are a Haskell developer, this guide provides an overview of options for connecting from Haskell to Neo4j.
 
 .Goals
 [abstract]
-If you are a Haskell developer, this guide provides an overview of options for connecting from Haskell to Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

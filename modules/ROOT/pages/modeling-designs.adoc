@@ -4,11 +4,11 @@
 :author: Jennifer Reif
 :category: modeling
 :tags: graph-modeling, data-model, schema, model-design, modeling-decisions
+:description: In this section, you will learn how to represent graph data using a variety of modeling decisions. How you construct your data model can impact your queries and performance.
 
 .Goals
 [abstract]
-In this section, you will learn how to represent graph data using a variety of modeling decisions.
-How you construct your data model can impact your queries and performance.
+{description}
 Our goal is to show you how to evaluate your model and make appropriate changes, so you can define the best solution for your use case and maximize the performance of your queries.
 
 .Prerequisites

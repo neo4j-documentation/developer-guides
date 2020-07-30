@@ -5,10 +5,11 @@
 :programming-language: c
 :category: drivers
 :tags: c, app-development, applications
+:description: If you are a C or pass:[C++] developer, this guide provides an overview of options for connecting from C and pass:[C++] to Neo4j.
 
 .Goals
 [abstract]
-If you are a C or pass:[C++] developer, this guide provides an overview of options for connecting from C and pass:[C++] to Neo4j.
+{description}
 
 .Prerequisites
 [abstract]

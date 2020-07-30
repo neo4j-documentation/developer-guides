@@ -4,10 +4,11 @@
 :author: David Allen
 :category: cloud
 :tags: cloud, orchestration, mesosphere, kubernetes, deployment
+:description: This guide explains how to run Neo4j on orchestration frameworks such as Mesosphere DC/OS and Kubernetes.
 
 .Goals
 [abstract]
-This guide explains how to run Neo4j on orchestration frameworks such as Mesosphere DC/OS and Kubernetes.
+{description}
 
 .Prerequisites
 [abstract]

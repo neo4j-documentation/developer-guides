@@ -4,10 +4,11 @@
 :author: Jennifer Reif
 :category: documentation
 :tags: get-started, introduction, relational, graph, compare, concepts
+:description: This guide explores the concepts of graph databases from a relational developer's point of view.
 
 .Goals
 [abstract]
-This guide explores the concepts of graph databases from a relational developer's point of view.
+{description}
 It aims to explain the conceptual differences between relational and graph database structures and data models.
 It also gives a high-level overview of how working with each database type is similar or different - from the relational and graph query languages to interacting with the database from applications.
 
@@ -31,7 +32,7 @@ These operations are compute-heavy and memory-intensive and have an exponential 
 When many-to-many relationships occur in the model, you must introduce a _JOIN_ table (or associative entity table) that holds foreign keys of both the participating tables, further increasing join operation costs.
 The image below shows this concept of connecting a Person (from Person table) to a Department (in Department table) by creating a Person-Department join table that contains the ID of the person in one column and the ID of the associated department in the next column.
 
-As you can probably see, this makes understanding the connections very cumbersome because you must know the person ID and department ID values (performing additional lookups to find them) in order to know which person connects to which departments. 
+As you can probably see, this makes understanding the connections very cumbersome because you must know the person ID and department ID values (performing additional lookups to find them) in order to know which person connects to which departments.
 Those types of costly join operations are often addressed by denormalizing the data to reduce the number of joins necessary, therefore breaking the data integrity of a relational database.
 
 .Relational Model (click to zoom)
