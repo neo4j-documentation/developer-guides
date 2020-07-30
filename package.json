@@ -1,0 +1,37 @@
+{
+  "name": "developer-guides",
+  "version": "1.0.0",
+  "description": "= Neo4j Developer Guides",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "preview": "antora preview.yml",
+    "dev": "npm start & npm-watch preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo4j-documentation/developer-guides.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neo4j-documentation/developer-guides/issues"
+  },
+  "homepage": "https://github.com/neo4j-documentation/developer-guides#readme",
+  "dependencies": {
+    "@antora/cli": "^2.3.3",
+    "@antora/site-generator-default": "^2.3.3",
+    "express": "^4.17.1",
+    "npm-watch": "^0.6.0"
+  },
+  "watch": {
+    "preview": {
+      "patterns": [
+        "modules"
+      ],
+      "extensions": "adoc"
+    }
+  }
+}
