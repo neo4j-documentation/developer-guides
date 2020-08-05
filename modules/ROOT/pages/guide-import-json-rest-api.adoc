@@ -5,6 +5,8 @@
 :category: import-export
 :tags: data-import, graph-import, import-json, pagination, api
 :description: This article demonstrates some techniques for loading data from JSON-based REST APIs into Neo4j.
+:page-pagination:
+:page-comments:
 
 .Goals
 [abstract]

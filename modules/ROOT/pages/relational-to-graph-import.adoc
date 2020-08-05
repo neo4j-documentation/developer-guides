@@ -5,6 +5,8 @@
 :category: import-export
 :tags: data-import, graph-import, relational-graph, load-csv, apoc, etl-tool, kettle, driver-import
 :description: This guide shows the different ways you can import data from a relational database to Neo4j. Completing this guide will give you the tools to choose how to import your relational data and transform it to the graph.
+:page-pagination:
+:page-comments:
 
 .Goals
 [abstract]
