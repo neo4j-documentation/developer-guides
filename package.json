@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "preview": "antora preview.yml",
-    "dev": "npm start & npm-watch preview"
+    "dev": "npm start & npm-watch preview",
+    "publish": "git push origin HEAD:publish"
   },
   "repository": {
     "type": "git",

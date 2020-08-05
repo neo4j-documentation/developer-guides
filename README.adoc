@@ -5,6 +5,7 @@ image::https://github.com/neo4j-documentation/docs-refresh/workflows/Publish%20D
 
 Built with link:https://antora.org/[Antora^].
 
+- link:https://docs.antora.org/antora/latest/install/install-antora/[Install Antora]
 - link:https://docs.antora.org/antora/2.3/standard-directories/[Standard File and Directory Set^]
 - link:https://docs.antora.org/antora/2.3/module-directories/[Module Directories and Modules^]
 
