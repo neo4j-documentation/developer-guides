@@ -5,6 +5,9 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, syntax-style, model-style, write-cypher, syntax
 :description: This guide will show some of the syntax recommendations for building clean, easy-to-read Cypher queries. At the end of this page, you will know how to improve readability of keywords, properties, labels, clauses, and other components.
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:cypher-style-guide.adoc
 
 .Goals
 [abstract]
@@ -12,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should be familiar with link:/developer/cypher/cypher-query-language/[cypher patterns] and link:/developer/cypher/filtering-query-results/[filtering queries].
+You should be familiar with xref:index.adoc[cypher patterns] and xref:filtering-query-results.adoc[filtering queries].
 
 [role=expertise {level}]
 {level}

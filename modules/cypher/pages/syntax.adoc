@@ -1,10 +1,13 @@
-= Cypher Basics I
+= Cypher Basic Syntax
 :level: Beginner
 :page-level: Beginner
 :author: Jennifer Reif
 :category: cypher
 :tags: cypher, queries, graph-queries, syntax, patterns, keywords, aliases
 :description: This guide explains the basic concepts of Cypher, Neo4j's graph query language. You should be able to read and understand Cypher queries after finishing this guide.
+:page-comments:
+:page-aliases: ROOT:cypher-basics-i.adoc
+:page-pagination:
 
 .Goals
 [abstract]
@@ -12,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should be familiar with link:/developer/get-started/graph-database[graph database] concepts and the link:/developer/get-started/graph-database#property-graph[property graph model].
+You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:get-started.adoc#property-graph[property graph model].
 
 [role=expertise {level}]
 {level}

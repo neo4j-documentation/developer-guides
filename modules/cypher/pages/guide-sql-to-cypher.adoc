@@ -5,6 +5,9 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, sql-cypher, northwind-graph
 :description: This guide teaches anyone familiar with SQL how to write the equivalent, efficient Cypher statements. We'll use the well-known Northwind database to explain the concepts and work through the queries from simple to advanced.
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:guide-sql-to-cypher.adoc
 
 .Goals
 [abstract]
@@ -12,9 +15,9 @@
 
 .Prerequisites
 [abstract]
-You should have a basic understanding of the link:/developer/get-started/graph-database#property-graph[property graph model].
+You should have a basic understanding of the xref:ROOT:get-started.adoc#property-graph[property graph model].
 Having link:/download[downloaded] and installed Neo4j helps you code along with the examples.
-Importing the data is covered in our link:/developer/working-with-data/guide-importing-data-and-etl[data import guide].
+Importing the data is covered in our xref:ROOT:guide-importing-data-and-etl.adoc[data import guide].
 
 [role=expertise {level}]
 {level}
@@ -81,9 +84,9 @@ Those files can come from single tables, but might also represent a set of joine
 
 They can be imported by using Cypher's `LOAD CSV` capability, which we explain in detail in these guides:
 
-* link:/developer/guide-importing-data-and-etl/["Guide: Data Import",role=guide]
+* xref:ROOT:guide-importing-data-and-etl.adoc["Guide: Data Import",role=guide]
 * http://watch.neo4j.org/video/112447027["Webinar: Data Import",role=video]
-* link:/developer/guide-import-csv/["Guide CSV Import",role=guide]
+* xref:ROOT:guide-import-csv.adoc["Guide CSV Import",role=guide]
 
 If you are a developer you can also just connect to the relational database with your regular driver, load the data from there with SQL.
 And directly create the graph structure by using a Neo4j driver for your stack to send the equivalent, parametrized Cypher update statements to Neo4j.
@@ -453,7 +456,7 @@ If you are intrigued by the possibilities and want to try and learn more, just l
 
 Learn Cypher:
 
-* link:/developer/cypher/cypher-query-language/[Cypher Intro Guide]
+* xref:index.adoc[Cypher Intro Guide]
 * link:/online-course/[Interactive Online Course]
 * {cyphermanual}[Cypher Manual^]
 * link:/docs/cypher-refcard/current/[Reference Card^]

@@ -2,6 +2,9 @@
 :author: Jennifer Reif
 :category: cypher
 :tags: cypher, queries, graph-queries, resources, documentation, cypher-training, cypher-help
+:page-comments:
+:page-pagination: previous
+:page-aliases: ROOT:cypher-resources.adoc
 
 == Cypher Resources
 

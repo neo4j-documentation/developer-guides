@@ -2,6 +2,10 @@
 :author: Jennifer Reif
 :category: cypher
 :tags: cypher, queries, graph-queries, query-language, learn-cypher
+:page-comments:
+:page-aliases: ROOT:cypher-query-language.adoc, cypher-query-language.adoc
+:page-pagination: next
+
 
 [#about-cypher]
 Cypher is Neo4j's graph query language that allows users to store and retrieve data from the graph database.
@@ -40,8 +44,8 @@ It focuses on the clarity of expressing what to retrieve from a graph, not on ho
 We will discuss the keywords for each CRUD operation and how to specify nodes, relationships, and properties in the query language.
 Learning how to specify patterns and filter data results will allow you to traverse the graph or add and remove data.
 
-link:/developer/cypher-basics-i/[Cypher Basics I] +
-link:/developer/cypher-basics-ii/[Cypher Basics II]
+xref:syntax.adoc[Cypher Basics I: Syntax] +
+xref:reading-writing.adoc[Cypher Basics II: Reading and Writing]
 
 [#cypher-filter]
 == Filtering Query Results
@@ -55,7 +59,7 @@ Being able to trim out results that are unwanted and only retrieve certain data 
 In this guide, we will walk through many of the ways you can limit your query results to what you need and control how they are returned to output.
 Much of the syntax and functionality for these clauses is similar to SQL and will probably be familiar to most developers with data querying experience.
 
-link:/developer/filtering-query-results/[Filtering Cypher Query Results]
+xref:filtering-query-results.adoc[Filtering Cypher Query Results]
 
 [#cypher-func-agg]
 == Cypher Functions and Aggregations
@@ -66,7 +70,7 @@ Functionality such as counting results, grouping data by values, and finding min
 Cypher also includes these functions to perform mathematical, aggregation, and other utility operations needed within queries.
 This guide will show you what is possible within Cypher and show you how to structure the syntax.
 
-link:/developer/aggregation-returns-functions/[Cypher Functions and Aggregations]
+xref:aggregation-returns-functions.adoc[Cypher Functions and Aggregations]
 
 [#cypher-dates]
 == Cypher Dates, Datetimes, & Durations
@@ -76,7 +80,7 @@ Working with dates, datetimes, timezones, and durations is a necessary part of d
 
 From converting certain values to dates, creating instants, or calculating durations, this guide will cover the basics in using Cypher for Neo4j native date types.
 
-link:/developer/dates-datetimes-durations/[Cypher Dates]
+xref:dates-datetimes-durations.adoc[Cypher Dates]
 
 [#cypher-subqueries]
 == Subqueries in Cypher
@@ -88,7 +92,7 @@ We can use existential subqueries to filter more complex scenarios like patterns
 We can also use result-returning subqueries to sort and order filtered results.
 While organizing filtered results was previously possible in Cypher, providing subquery support allows us to simplify the syntax and avoid using APOC procedures or additional Cypher clauses to pass and sort values along the way.
 
-link:/developer/sub-queries/[Cypher Subqueries]
+xref:subqueries.adoc[Cypher Subqueries]
 
 [#cypher-syntax-guide]
 == Cypher Syntax Guide
@@ -97,7 +101,7 @@ Some syntax in Cypher requires a specific style or casing, while other Cypher sy
 In either case, we have compiled some of the recommended and required styling for writing Cypher queries.
 This guide will walk through various components of typical syntax to help you write logical and readable Cypher queries.
 
-link:/developer/cypher-style-guide/[Cypher Style Guide]
+xref:style-guide.adoc[Cypher Style Guide]
 
 [#cypher-sql-dev]
 == Cypher for a SQL Developer
@@ -110,7 +114,7 @@ SQL developers will see certain keywords and constructs that are the same or ver
 This guide was written with SQL developers in mind to bridge the gap and bring existing knowledge across to learning Cypher.
 Through examples of both languages, you will see the logic structures and syntax of each and how each was designed for their purpose.
 
-link:/developer/guide-sql-to-cypher/[From SQL to Cypher]
+xref:guide-sql-to-cypher.adoc[From SQL to Cypher]
 
 ////
 == Optimizing Performance
@@ -141,7 +145,7 @@ This guide will show you how to create custom add-ons and how to compile them so
 Before we get too carried away with creating all of our functionality custom, though, we will also talk about how certain libraries and functionality have already been developed to work seamlessly with Neo4j.
 Learn where you can look to find out if code already exists for your capability or if you need to write your own custom functionality!
 
-link:/developer/procedures-functions/[User-Defined Procedures and Functions] +
+xref:procedures-functions.adoc[User-Defined Procedures and Functions] +
 link:/labs/apoc/[APOC: Neo4j's Standard Utility Library^]
 
 [#recommendation-engine]
@@ -151,7 +155,7 @@ With Cypher structure and syntax learned so far, you can dive into building your
 
 This guide will walk through using queries and filtering that takes advantage of the relationships in a graph in order to lend insight into habits and hidden connections and provide valuable recommendations.
 
-link:/developer/guide-build-a-recommendation-engine/[Tutorial: Build a Recommendation Engine]
+xref:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation Engine]
 
 ////
 == Cypher Examples
@@ -164,4 +168,4 @@ link:/developer/guide-build-a-recommendation-engine/[Tutorial: Build a Recommend
 Find out where else you can learn Cypher or increase your depth of knowledge from experts and solutions.
 There are a variety of training opportunities, blogs, videos, and more for taking the next steps in your Cypher (and Neo4j) journey!
 
-link:/developer/cypher-resources/[Cypher Resources]
+xref:resources.adoc[Cypher Resources]

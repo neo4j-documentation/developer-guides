@@ -5,6 +5,9 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, filtering, where, value-ranges, existence, optional-patterns
 :description: Building on the Cypher Basics I and II guides, this guide continues with additional concepts of Cypher for filtering and query criteria. Upon finishing this guide, you should be able to filter results on properties and patterns for ranges and other expanded searches.
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:filtering-query-results.adoc
 
 .Goals
 [abstract]
@@ -12,8 +15,8 @@
 
 .Prerequisites
 [abstract]
-You should be familiar with link:/developer/get-started/graph-database[graph database] concepts and the link:/developer/get-started/graph-database#property-graph[property graph model].
-This guide is a continuation of the link:/developer/cypher/cypher-query-language[Cypher Basics I] and link:/developer/cypher/cypher-basics-ii/[Cypher Basics II] sections.
+You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:get-started.adoc#property-graph[property graph model].
+This guide is a continuation of the xref:index.adoc[Cypher Syntax] and xref:reading-writing.adoc[Read and Write Operations] sections.
 You should be familiar with those concepts before walking through this guide.
 
 [role=expertise {level}]
