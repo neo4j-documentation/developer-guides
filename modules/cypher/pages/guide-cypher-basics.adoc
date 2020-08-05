@@ -5,6 +5,8 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, movie-graph, cypher-example
 :description: This guide explains the basic concepts of Cypher, Neo4j's query language, including how to create and query graphs.
+:page-comments:
+:page-aliases: ROOT:guide-cypher-basics.adoc
 
 .Goals
 [abstract]
@@ -13,7 +15,7 @@ You should be able to read and understand Cypher queries after finishing this gu
 
 .Prerequisites
 [abstract]
-You should have familiarized yourself with link:/developer/get-started/graph-database[Graph Databases] and the link:/developer/get-started/graph-database#property-graph[Property Graph Model].
+You should have familiarized yourself with xref:ROOT:get-started.adoc[Graph Databases] and the xref:ROOT:get-started.adoc#property-graph[Property Graph Model].
 
 [role=expertise {level}]
 {level}

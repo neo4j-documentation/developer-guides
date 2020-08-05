@@ -6,6 +6,9 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, dates, times, compare-dates, calculate-duration
 :description: Building on the Cypher Basics guides, this guide covers the temporal date types introduced in Neo4j 3.4. Upon finishing this guide, you should be able to create, compare, and format these values.
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:dates-datetimes-durations.adoc
 
 .Goals
 [abstract]
@@ -13,9 +16,9 @@
 
 .Prerequisites
 [abstract]
-You should be familiar with link:/developer/get-started/graph-database[graph database] concepts and the link:/developer/get-started/graph-database#property-graph[property graph model].
+You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:get-started.adoc#property-graph[property graph model].
 This guide is a continuation of the concepts discussed in the previous Cypher sections.
-You should be familiar with link:/developer/cypher/cypher-query-language[MATCH], link:/developer/cypher/cypher-basics-ii/[Create/Update/Delete], and link:/developer/cypher/filtering-query-results/[Filtering] concepts before walking through this guide.
+You should be familiar with xref:index.adoc[MATCH], xref:reading-writing.adoc[Create/Update/Delete], and xref:filtering-query-results.adoc[Filtering] concepts before walking through this guide.
 
 [role=expertise {level}]
 {level}
@@ -282,7 +285,7 @@ RETURN article.title AS title,
 
 
 [#cypher-resources]
-=== Resources
+== Resources
 
 This guide has shown how to work more effectively with temporal types using the APOC libary.
 Below are some resources for learning more about using Temporal types in Neo4j:

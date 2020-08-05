@@ -6,6 +6,9 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, subqueries, compare-queries
 :description: Building on the previous Cypher guides, this guide shows how to write subqueries. Upon finishing this guide, you should be able to write and understand queries using this capability.
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:subqueries.adoc
 
 .Goals
 [abstract]
@@ -14,9 +17,9 @@
 .Prerequisites
 [abstract]
 Please have link:/download[Neo4j^] (version 4.0 or later) downloaded and installed.
-You should be familiar with link:/developer/get-started/graph-database[graph database] concepts and the link:/developer/get-started/graph-database#property-graph[property graph model].
+You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:get-started.adoc#property-graph[property graph model].
 This guide is a continuation of the concepts discussed in the previous Cypher sections.
-You should be familiar with link:/developer/cypher/cypher-query-language[MATCH], link:/developer/cypher/cypher-basics-ii/[Create/Update/Delete], and link:/developer/cypher/filtering-query-results/[Filtering] concepts before walking through this guide.
+You should be familiar with xref:index.adoc[MATCH], xref:reading-writing.adoc[Create/Update/Delete], and xref:filtering-query-results.adoc[Filtering] concepts before walking through this guide.
 
 [role=expertise {level}]
 {level}

@@ -5,6 +5,9 @@
 :category: cypher
 :tags: cypher, queries, recommendations, tutorial, filtering, paths
 :description: This guide shows how to use the relationships in your data to gather insights and recommend new entities that do not currently have a direct relationship based on the other relationships and network in the graph.
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:guide-build-a-recommendation-engine.adoc
 
 .Goals
 [abstract]
@@ -12,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should have a basic understanding of the link:/developer/get-started/graph-database#property-graph[property graph model]. Having Neo4j Desktop link:/download[downloaded^] and installed will allow you code along with the examples.
+You should have a basic understanding of the xref:ROOT:get-started.adoc#property-graph[property graph model]. Having Neo4j Desktop link:/download[downloaded^] and installed will allow you code along with the examples.
 
 [role=expertise {level}]
 {level}

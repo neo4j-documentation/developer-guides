@@ -5,6 +5,9 @@
 :category: cypher
 :tags: cypher, queries, extend-cypher, procedures, functions, custom-development
 :description: This guide explains how to use, create and deploy user defined procedures and functions, the extension mechanism of Cypher, Neo4j's query language. It also covers existing, widely used procedure libraries
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:procedures-functions.adoc
 
 .Goals
 [abstract]
@@ -12,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should have learned to read and write statements in link:/developer/cypher/cypher-query-language/[Cypher] and seen the need for additional capabilities.
+You should have learned to read and write statements in xref:index.adoc[Cypher] and seen the need for additional capabilities.
 
 [role=expertise {level}]
 {level}
