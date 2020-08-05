@@ -38,6 +38,7 @@ Pushing to the `publish` branch of this repo will trigger a rebuild of the HTML 
 
 
 [source,sh]
+====
 # clone the repo
 git clone https://github.com/neo4j-documentation/developer-guides
 # stage the commit
@@ -49,6 +50,7 @@ git commit -m "My changes"
 git pull origin master
 # Push the HEAD of the branch to the publish branch
 git push origin HEAD:publish
+====
 
 At the end of the build process, the files are uploaded to the `static-content.neo4j.com` S3 Bucket.  From there, they are synced up to the Neo4j.com server once an hour, on the hour by a cronjob.
 
