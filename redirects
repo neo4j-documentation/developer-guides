@@ -1,0 +1,18 @@
+# Just to keep track of the redirects
+# Add these to github.com/neo-technology/neo4j.com => /src/nginx/includes/neo4j.com.redirects
+
+rewrite ^/guides/basic-cypher/*$ /developer/guide-cypher-basics/ permanent;
+rewrite ^/guides/cypher/*$ /developer/guide-cypher-basics/ permanent;
+
+rewrite ^/developer/cypher-query-language/$ /developer/cypher/ permanent;
+rewrite ^/developer/cypher-basics-i/$  /developer/cypher/syntax/ permanent;
+rewrite ^/developer/cypher-basics-ii/$  /developer/cypher/reading-writing/ permanent;
+rewrite ^/developer/filtering-query-results/$  /developer/cypher/filtering-query-results/ permanent;
+rewrite ^/developer/subqueries/$  /developer/cypher/subqueries/ permanent;
+rewrite ^/developer/aggregation-returns-functions/$  /developer/cypher/aggregation-returns-functions/ permanent;
+rewrite ^/developer/cypher-style-guide/$  /developer/cypher/style-guide/ permanent;
+rewrite ^/developer/guide-sql-to-cypher/$  /developer/cypher/guide-sql-to-cypher/ permanent;
+rewrite ^/developer/procedures-functions/$  /developer/cypher/procedures-functions/ permanent;
+rewrite ^/developer/dates-datetimes-durations/$  /developer/cypher/dates-datetimes-durations/ permanent;
+rewrite ^/developer/guide-build-a-recommendation-engine/$  /developer/cypher/guide-build-a-recommendation-engine/ permanent;
+rewrite ^/developer/cypher-resources/$  /developer/cypher/cypher-resources/ permanent;

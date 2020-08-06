@@ -1,13 +1,11 @@
-* Getting Started
-** xref:get-started.adoc[Getting Started]
+* xref:get-started.adoc[Getting Started]
 ** xref:graph-database.adoc[What is a Graph Database?]
 ** xref:intro-videos.adoc[Intro to Graph DBs Video Series]
 ** xref:graph-db-vs-rdbms.adoc[Concepts: RDBMS to Graph]
 ** xref:graph-db-vs-nosql.adoc[Concepts: NoSQL to Graph]
 ** xref:getting-started-resources.adoc[Getting Started Resources]
 
-* Neo4j Graph Platform
-** xref:graph-platform.adoc[Graph Platform Overview]
+* xref:graph-platform.adoc[Neo4j Graph Platform]
 ** xref:neo4j-database.adoc[Neo4j Database]
 ** xref:neo4j-desktop.adoc[Neo4j Desktop Intro]
 ** xref:neo4j-browser.adoc[Neo4j Browser Intro]
@@ -16,22 +14,21 @@
 ** xref:neo4j-apoc.adoc[Neo4j APOC Library]
 ** xref:graphql.adoc[Neo4j &amp; GraphQL]
 
-* Cypher Query Language
-** xref:cypher:index.adoc[Cypher Overview]
-** xref:cypher:syntax.adoc[Basic Syntax]
-** xref:cypher:reading-writing.adoc[Read and Write Operations]
-** xref:cypher:filtering-query-results.adoc[Filtering Query Results]
-** xref:cypher:subqueries.adoc[Sub Queries]
-** xref:cypher:aggregation-returns-functions.adoc[Aggregation, Returns, &amp; Functions]
+* xref:cypher:index.adoc[Cypher Query Language]
+** xref:cypher:syntax.adoc[Syntax]
+*** xref:cypher:reading-writing.adoc[Read and Write Operations]
+*** xref:cypher:filtering-query-results.adoc[Filtering Query Results]
+*** xref:cypher:subqueries.adoc[Sub Queries]
+*** xref:cypher:aggregation-returns-functions.adoc[Aggregation, Returns, &amp; Functions]
+*** xref:cypher:dates-datetimes-durations.adoc[Dates, Datetimes, and Durations]
 ** xref:cypher-style-guide.adoc[Cypher Style Guide]
+** Tutorials
 ** xref:cypher:guide-sql-to-cypher.adoc[From SQL to Cypher]
-** xref:cypher:procedures-functions.adoc[User Defined Procedures &amp; Functions]
-** xref:cypher:dates-datetimes-durations.adoc[Tutorial: Dates, Datetimes, and Durations]
 ** xref:cypher:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation Engine]
+** xref:cypher:procedures-functions.adoc[User Defined Procedures &amp; Functions]
 ** xref:cypher:resources.adoc[Cypher Resources]
 
-* Graph Data Modeling
-** xref:data-modeling.adoc[Graph Modeling Overview]
+* xref:data-modeling.adoc[Graph Data Modeling]
 ** xref:guide-data-modeling.adoc[Graph Modeling Guidelines]
 ** xref:relational-to-graph-modeling.adoc[Modeling: RDBMS to Graph]
 ** xref:modeling-designs.adoc[Modeling Designs]
@@ -39,8 +36,7 @@
 ** xref:graph-model-refactoring.adoc[Tutorial: Refactoring a graph model]
 ** xref:graphgist.adoc[Interactive Graph Models]
 
-* Data Import
-** xref:data-import.adoc[Import Overview]
+* xref:data-import.adoc[Data Import]
 ** xref:guide-import-csv.adoc[Importing CSV]
 ** xref:guide-import-json-rest-api.adoc[Importing API Data]
 ** xref:relational-to-graph-import.adoc[Import: RDBMS to Graph]
@@ -48,8 +44,7 @@
 ** xref:desktop-csv-import.adoc[How-To: Desktop CSV Import]
 ** xref:example-data.adoc[Example Datasets]
 
-* Neo4j Graph Data Science
-  ** xref:graph-data-science.adoc[Graph Data Science Overview]
+* xref:graph-data-science.adoc[Neo4j Graph Data Science]
   ** xref:graph-algorithms.adoc[Graph Algorithms]
   ** xref:neuler-no-code-graph-algorithms.adoc[NEuler: No-code Graph Algorithms]
   ** xref:nlp.adoc[Natural Language Processing (NLP)]
@@ -63,20 +58,18 @@
     *** xref:graph-embeddings.adoc[Graph Embeddings]
 
 
-* Graph Visualization
-** xref:graph-visualization.adoc[Visualization Overview]
+* xref:graph-visualization.adoc[Graph Visualization]
 ** xref:tools-graph-visualization.adoc[Visualization Tools]
 ** xref:other-graph-visualizations.adoc[Other Visualizations]
 
-* Drivers &amp; Language Guides
-** xref:language-guides.adoc[Drivers Overview]
+* xref:language-guides.adoc[Drivers &amp; Language Guides]
 ** xref:java.adoc[Java]
-** xref:java-driver-spring-boot-starter.adoc[Java Driver Spring Boot Starter]
-** xref:neo4j-ogm.adoc[Neo4j Object Graph Mapper]
-** xref:spring-data-neo4j.adoc[Spring Data Neo4j]
-** xref:spring-data-neo4j-rx.adoc[Spring Data Neo4j RX]
-** xref:java-procedures.adoc[Procedures and Functions]
-** xref:java-third-party.adoc[Third-party libraries]
+*** xref:java-driver-spring-boot-starter.adoc[Java Driver Spring Boot Starter]
+*** xref:neo4j-ogm.adoc[Neo4j Object Graph Mapper]
+*** xref:spring-data-neo4j.adoc[Spring Data Neo4j]
+*** xref:spring-data-neo4j-rx.adoc[Spring Data Neo4j RX]
+*** xref:java-procedures.adoc[Procedures and Functions]
+*** xref:java-third-party.adoc[Third-party libraries]
 ** xref:dotnet.adoc[.NET]
 ** xref:javascript.adoc[JavaScript]
 ** xref:python.adoc[Python]
@@ -86,15 +79,13 @@
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
 ** xref:perl.adoc[Perl]
 
-* Neo4j Tools &amp; Integrations
-** xref:integration.adoc[Integrations Overview]
+* xref:integration.adoc[Neo4j Tools &amp; Integrations]
 ** xref:apache-spark.adoc[Apache Spark]
 ** xref:elastic-search.adoc[Elastic-Search]
 ** xref:mongodb.adoc[MongoDB]
 ** xref:cassandra.adoc[Cassandra]
 
-* Neo4j Aura DBaaS
-** xref:aura-cloud-dbaas.adoc[Aura DBaaS Overview]
+* xref:aura-cloud-dbaas.adoc[Neo4j Aura DBaaS]
 ** xref:aura-connect-neo4j-desktop.adoc[Connect from Neo4j Desktop]
 ** xref:aura-connect-cypher-shell.adoc[Connect from Cypher Shell]
 ** xref:aura-connect-driver.adoc[Connect from your application]
@@ -103,12 +94,10 @@
 ** xref:aura-bloom.adoc[Bloom Visualization with Aura]
 ** xref:aura-monitoring.adoc[Monitoring]
 
-* Graph Apps
-** xref:graph-apps.adoc[Graph Apps Overview]
+* xref:graph-apps.adoc[Graph Apps]
 ** xref:graph-app-development.adoc[Building Graph Apps]
 
-* Neo4j Administration
-** xref:in-production.adoc[Administration Overview]
+* xref:in-production.adoc[Neo4j Administration]
 ** xref:memory-management.adoc[How-To: Memory Management]
 ** xref:manage-multiple-databases.adoc[Tutorial: Managing Multiple Databases]
 ** xref:multi-tenancy-worked-example.adoc[Tutorial: Multi Tenancy Worked Example]
@@ -119,21 +108,18 @@
 ** link:/startup-program/[Startups: Free Neo4j Enterprise^]
 ** link:/graphacademy/online-training/neo4j-administration/[Online Course: Neo4j Administration^]
 
-* Neo4j in the Cloud
-** xref:guide-cloud-deployment.adoc[Cloud Overview]
+* xref:guide-cloud-deployment.adoc[Neo4j in the Cloud]
 ** xref:guide-orchestration.adoc[Orchestration Tools]
 ** xref:neo4j-google-cloud-launcher.adoc[Tutorial: Deploy Neo4j Cluster on GCP]
 
-* Documentation &amp; Resources
-** xref:resources.adoc[Resource Overview]
+* xref:resources.adoc[Documentation &amp; Resources]
 ** xref:about-graphacademy.adoc[Learn through GraphAcademy]
 ** xref:guide-create-neo4j-browser-guide.adoc[Tutorial: Create Custom Browser Guide]
 ** xref:ruby-course.adoc[How-To: Build with Ruby &amp; Neo4j]
 ** xref:browser-guide-list.adoc[Available Neo4j Browser Guides]
 ** link:/docs/[Neo4j Documentation^]
 
-* Contributing to Neo4j
-** xref:contribute.adoc[Contributing Overview]
+* xref:contribute.adoc[Contributing to Neo4j]
 ** link:https://community.neo4j.com/[Help on Community Forums^]
 ** link:/speaker-program/[Speaker Program: Share your Story^]
 ** xref:cla.adoc[Contributor License Agreement]
