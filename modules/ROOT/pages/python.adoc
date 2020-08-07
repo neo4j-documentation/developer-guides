@@ -58,7 +58,7 @@ It has been carefully designed to be easy and intuitive to use.
 |===
 | icon:user[] Author         | https://twitter.com/technige[Nigel Small^]
 | icon:gift[] Package        | https://pypi.python.org/pypi/py2neo
-| icon:github[] Source       | https://github.com/nigelsmall/py2neo
+| icon:github[] Source       | https://github.com/technige/py2neo
 
 | icon:play-circle[] Example | {examples}/movies-python-py2neo
 | icon:book[] Docs           | http://py2neo.org/

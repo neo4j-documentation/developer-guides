@@ -44,6 +44,11 @@ It provides a common interface for underlying text processors as well as a Domai
 The library supports text extraction, key word extraction, TextRank summarization, word embeddings using Word2Vec, and more.
 It is available as an open sourced community version as well as an enterprise version via the https://graphaware.com/products/hume/[Hume Graph-Powered Insights Engine^].
 
+[NOTE]
+====
+Only the enterprise version of the library is being actively developed and supported. 
+====
+
 This library is very powerful, but also has a steeper learning curve.
 It is a good choice if you're doing a serious graph based NLP project.
 
