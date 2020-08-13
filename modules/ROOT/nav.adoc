@@ -23,8 +23,8 @@
 *** xref:cypher:dates-datetimes-durations.adoc[Dates, Datetimes, and Durations]
 ** xref:cypher-style-guide.adoc[Cypher Style Guide]
 ** Tutorials
+*** xref:cypher:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation Engine]
 ** xref:cypher:guide-sql-to-cypher.adoc[From SQL to Cypher]
-** xref:cypher:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation Engine]
 ** xref:cypher:procedures-functions.adoc[User Defined Procedures &amp; Functions]
 ** xref:cypher:resources.adoc[Cypher Resources]
 
