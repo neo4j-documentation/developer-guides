@@ -28,6 +28,8 @@ go get github.com/neo4j/neo4j-go-driver/neo4j
 include::https://raw.githubusercontent.com/neo4j/neo4j-go-driver/{go-driver-version}/neo4j/test-integration/examples_test.go[tag=hello-world,indent=0]
 ----
 
+include::./driver-warning.adoc[]
+
 [cols="3*"]
 |===
 | Name
