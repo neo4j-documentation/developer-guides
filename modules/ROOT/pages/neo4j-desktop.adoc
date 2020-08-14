@@ -6,7 +6,7 @@
 :author: Jennifer Reif
 :category: desktop
 :tags: graph-platform, desktop, activation, graph, manage-graph, database
-:description: This article demonstrates how to use Neo4j Desktop for managing instances of Neo4j locally for development.
+:description: This article demonstrates how to use the Neo4j Desktop GUI for managing instances of Neo4j locally for development.
 
 .Goals
 [abstract]
@@ -14,10 +14,16 @@
 
 .Prerequisites
 [abstract]
-It helps if you have read the section on link:/developer/get-started/graph-database/[graph databases].
+It helps if you have read the section on link:/developer/get-started/graph-database/[graph databases] or tried Neo4j in our https://neo4j.com/sandbox/?ref=developer-neo4j-desktop[Sandbox^].
 
 [role=expertise {level}]
 {level}
+
+[#install-neo4j-desktop]
+link:link:/download/?ref=developer-neo4j-desktop[If you haven't already, download Neo4j Desktop Now^, role="button feature-box_button"]
+Instructions for setting up the application will be shown after you click the download.
+
+NOTE: The activation key will be displayed at the top of the instruction page. Copy it as you need it for the installation.
 
 ++++
 <div class="responsive-embed">
@@ -25,26 +31,30 @@ It helps if you have read the section on link:/developer/get-started/graph-datab
 </div>
 ++++
 
-[#install-neo4j-desktop]
-If you haven't already, link:/download/[download^] Neo4j.
-Instructions for setting up the application will be shown after you click the download.
-
-****
-[NOTE]
-Your activation key will be displayed at the top of the instruction page.
-We recommend copying it to a safe place, just in case.
-If lost, another will need to be requested by contacting Neo4j.
-****
-
 Using the provided instructions, follow Step 1 to install and start the Neo4j Desktop application.
-Step 2 on the download page instructions shows you how to set up your first project and database and how to open the Neo4j in the browser, but we want to cover this step in more detail.
+Step 2 on the download page instructions shows you how to set up your first project and database and how to open the Neo4j in the browser, but we want to cover this step in more detail here.
+
+[#what-is-neo4j-desktop]
+== What is Neo4j Desktop
+
+Neo4j Desktop is a Developer IDE or Management Environment for Neo4j instances similar to Enterprise Manager, but better. 
+You can manage as many projects and database servers locally as you like and also connect to remote Neo4j servers.
+Neo4j Desktop comes with an free Developer License of Neo4j Enterprise Edition, the Java Runtime is also bundled.
+
+Each database server managed through desktop can be configured, upgraded and maintained through the UI, no command line needed.
+You can install popular Neo4j extensions like link:/labs/apoc[APOC^] or the link:/developer/graph-data-science[Graph Data Science^] library with a single click.
+
+Similar to IDE plugins, link:/developer/graph-apps[Graph Apps^] are helper web applications that make interacting with Neo4j easier.
+They cover visualization and querying with Neo4j Browser and Bloom, import tools for relational databases, monitoring tools to query log analyzers.
+
+Both Neo4j Desktop as well as Graph Apps offer automatic updates.
 
 [#desktop-activate]
 == Opening Neo4j Desktop for the First Time
 
 If you are opening Neo4j Desktop for the first time, it should ask you to register the software with an activation key.
-This activation key is generated when you first download Neo4j Desktop and will be displayed on the download confirmation page.
-While we can copy it to the clipboard and paste it into the provided input in Neo4j Desktop, we also recommend copying it to a safe place as a backup (local file, password vault, or another method).
+This activation key is generated when you first download Neo4j Desktop and will be displayed on the download confirmation page. 
+Keep it somewhere safe.
 
 image::{img}desktop_registration_may2020.jpg[link="{img}desktop_registration_may2020.jpg",float="right"]
 
