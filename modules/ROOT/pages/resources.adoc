@@ -37,18 +37,18 @@ There are a link:/books[number of books^] available - the most popular of which 
 * link:/books/practical-neo4j/[Practical Neo4j^] by Greg Jordan
 * link:/books/learning-cypher/[Learning Cypher^] by Onofrio Panzarino
 * https://neo4j.com/books/beginning-neo4j/[Beginning Neo4j^] by Chris Kemper
-* https://www.d-booker.fr/neo4j2-en/583-neo4j-a-graph-project-story.html[]
+* https://www.d-booker.fr/neo4j2-en/583-neo4j-a-graph-project-story.html[Neo4j : A Graph Project Story^] by Nicolas Mervaillie, Sylvain Roussy, Nicolas Rouyer, Frank Kutzler
 
 [#docs-manuals]
 == Neo4j Documentation
 
-Our https://neo4j.com/docs/[reference manuals^] are vey comprehensive and the https://neo4j.com/docs/cypher-refcard/current/[Cypher sreference card^] is good to keep handy if you're learning and using our query language.
+Our https://neo4j.com/docs/[reference manuals^] are vey comprehensive and the https://neo4j.com/docs/cypher-refcard/current/[Cyphers reference card^] is good to keep handy if you're learning and using our query language.
 
 * https://neo4j.com/docs/getting-started/current/[Getting Started Guides^]
 * https://neo4j.com/docs/cypher-manual/current/[Cypher Manual^]
 * https://neo4j.com/docs/cypher-refcard/current/[Cypher Reference Card^]
 * https://neo4j.com/docs/driver-manual/current/[Drivers Manual^]
-* https://neo4j.com/docs/graph-algorithms/current/[Graph Algorithms^]
+* https://neo4j.com/docs/graph-data-science/current/[Graph Algorithms^]
 * https://neo4j.com/docs/java-reference/current/[Extending Neo4j^]
 * https://neo4j.com/docs/operations-manual/current/[Neo4j Operations Manual^]
 
@@ -78,11 +78,12 @@ The in-person training classes give you access to Neo4j expert trainers:
 The online course are a great way to get started in a self-paced fashion:
 
 * https://neo4j.com/graphacademy/online-training/[Neo4j Online Training Courses^]
-** https://neo4j.com/graphacademy/online-course-getting-started/[Getting Started with Neo4j Course^]
+** https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Getting Started with Neo4j Course^]
+** https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling^]
 ** https://neo4j.com/graphacademy/online-training/applied-graph-algorithms/[Applied Graph Algorithms^]
 ** https://neo4j.com/graphacademy/online-training/data-science/[Data Science with Neo4j^]
-** https://neo4j.com/graphacademy/online-training/neo4j-administration/[Neo4j Administration^]
-** https://neo4j.com//developer/ruby-course/[Getting Started with Neo4j and Ruby Course^]
+** https://neo4j.com/graphacademy/online-training/basic-neo4j-admin-40/[Neo4j Administration^]
+// ** https://neo4j.com//developer/ruby-course/[Getting Started with Neo4j and Ruby Course^]
 
 [#external-tutorials]
 == External Neo4j Tutorials
@@ -91,6 +92,7 @@ Provided by members of our community these courses on Neo4j cover different aspe
 
 * https://learning.oreilly.com/learning-paths/learning-path-graph/9781492053620[O'Reilly Graph Algorithms by Mark Needham^]
 * https://www.lynda.com/Neo-j-training-tutorials/2055-0.html[Lynda.com Neo4j Training by Will Lyon^]
+* https://subscription-staging.packtpub.com/video/application_development/9781838555580[Packt Graph Algorithms by Estelle Scifo^]
 * https://www.udemy.com/topic/neo4j/[15 Neo4j Courses on Udemy from Intro to Data Science^]
 * https://www.pluralsight.com/courses/graph-databases-neo4j-introduction[Introduction to Neo4j on Pluralsight by Roland Guijt^]
 * https://egghead.io/courses/build-a-neo4j-graphql-api[GraphQL APIs with Neo4j EggHead by Matt Ross^]
@@ -103,6 +105,7 @@ Provided by members of our community these courses on Neo4j cover different aspe
 * https://graphqlpatterns.simplecast.com/episodes/neo4j-and-graphql[GraphQL & Neo4j William Lyon^]
 * https://neo4j.com/blog/graphcast-emil-eifrem-exponential-view-podcast-azeem-azhar/[Exponential View Emil Eifrem^]
 * http://www.se-radio.net/2013/05/episode-194-michael-hunger/[Neo4j on Software Engineering Radio with Michael Hunger^]
+* https://programmierbar.buzzsprout.com/176239/3674173-folge-61-graphdatenbanken-mit-michael-hunger-von-neo4j[ProgrammierBar with Michael Hunger (german)^]
 * http://blog.tatham.oddie.com.au/2014/02/11/podcast-graph-databases-and-neo4j-with-richard-and-carl-from-net-rocks/[Podcast .Net Rocks with Tatham Oddie^]
 * http://www.infoq.com/interviews/jim-webber-neo4j-and-graph-database-use-cases[Jim Webber on Neo4J and Graph Database Use Cases^]	
 
@@ -113,13 +116,15 @@ We have a wide range of videos available which you can watch on your own time.
 Those videos support the learning experience and can deepen your understanding of certain topics.
 
 * http://youtube.com/neo4j[Neo4j Video Collection^]
-* https://neo4j.com/graphtour/videos/[GraphTour Videos^]
+* https://neo4j.com/nodes-2019/[NODES 2019 Videos^]
 * https://neo4j.com/graphconnect-2018/[GraphConnect 2018 Videos^]
+* https://neo4j.com/graphtour/videos/[GraphTour Videos^]
 
+* https://www.youtube.com/watch?v=2b38TVg9ixg&list=PL9Hl4pk2FsvXjk0hrerr78pLN-477pDLo[Neo4j Live Streams^]
 * https://www.youtube.com/playlist?list=PL9Hl4pk2FsvVnz4oi0F8UXiD3nMNqsRO2[Neo4j Online Meetups^]
 * https://www.youtube.com/watch?v=5Tl8WcaqZoc&list=PL9Hl4pk2FsvWM9GWaguRhlCQ-pa-ERd4U[Neo4j Intro Series by Ryan Boyd^]
 * https://www.youtube.com/watch?v=V1DTBjetIfk&list=PL9Hl4pk2FsvXEww23lDX_owoKoqqBQpdq[APOC Series by Michael Hunger^]
-* https://www.packtpub.com/catalogsearch/result/?q=Neo4j&product_type_filter=Video&released=Available[3 Neo4j Vsideos from Packt]
+* https://www.packtpub.com/catalogsearch/result/?q=Neo4j&product_type_filter=Video&released=Available[3 Neo4j Videos from Packt]
 
 * http://watch.neo4j.org/video/105896138[Graphs R Cool by Nicole White^]
 * http://watch.neo4j.org/video/112447027[Real World LOAD CSV by Nicole White^]
