@@ -54,8 +54,8 @@ image::https://dist.neo4j.com/wp-content/uploads/20200729015450/graph-apps-galle
 We can see the Graph Data Science Playground on the first row and, if we're using Mac or Windows, we can install it automatically by clicking on the 'Install' button.
 
 If we're using a Linux based Operating System we'll need to install it manually.
-We can get the installation link by clicking on the image:graph-algorithms/get-link.png[width="20px"] button.
-Copy that link onto the clipboard and then paste it into the 'Install' section of the image:graph-algorithms/graph-apps-button.png[width="20px"] sub menu:
+We can get the installation link by clicking on the image:get-link.png[width="20px"] button.
+Copy that link onto the clipboard and then paste it into the 'Install' section of the image:graph-apps-button.png[width="20px"] sub menu:
 
 [NOTE]
 ====
