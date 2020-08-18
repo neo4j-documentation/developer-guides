@@ -44,18 +44,18 @@
 ** xref:desktop-csv-import.adoc[How-To: Desktop CSV Import]
 ** xref:example-data.adoc[Example Datasets]
 
-* xref:graph-data-science.adoc[Neo4j Graph Data Science]
-  ** xref:graph-algorithms.adoc[Graph Algorithms]
-  ** xref:neuler-no-code-graph-algorithms.adoc[NEuler: No-code Graph Algorithms]
-  ** xref:nlp.adoc[Natural Language Processing (NLP)]
+* xref:graph-data-science:index.adoc[Neo4j Graph Data Science]
+  ** xref:graph-data-science:graph-algorithms.adoc[Graph Algorithms]
+  ** xref:graph-data-science:neuler-no-code-graph-algorithms.adoc[NEuler: No-code Graph Algorithms]
+  ** xref:graph-data-science:nlp.adoc[Natural Language Processing (NLP)]
   ** Tutorials
-    *** xref:applied-graph-embeddings.adoc[Graph Embeddings]
+    *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
   ** Concepts
-    *** xref:graph-search-algorithms.adoc[Graph Search Algorithms]
-    *** xref:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
-    *** xref:centrality-graph-algorithms.adoc[Centrality Algorithms]
-    *** xref:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
-    *** xref:graph-embeddings.adoc[Graph Embeddings]
+    *** xref:graph-data-science:graph-search-algorithms.adoc[Graph Search Algorithms]
+    *** xref:graph-data-science:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
+    *** xref:graph-data-science:centrality-graph-algorithms.adoc[Centrality Algorithms]
+    *** xref:graph-data-science:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
+    *** xref:graph-data-science:graph-embeddings.adoc[Graph Embeddings]
 
 
 * xref:graph-visualization.adoc[Graph Visualization]
