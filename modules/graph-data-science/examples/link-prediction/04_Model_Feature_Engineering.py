@@ -75,10 +75,10 @@ def apply_graphy_features(data, rel_type):
              relationshipQuery: $relType}) AS tn
     """
     pairs = [{"node1": node1, "node2": node2}  for node1,node2 in data[["node1", "node2"]].values.tolist()]
-
+    
     with driver.session(database="neo4j") as session:
         result = session.run(query, {"pairs": pairs, "relType": rel_type})
-        features = pd.DataFrame([dict(record) for record in result])
+        features = pd.DataFrame([dict(record) for record in result])    
     return pd.merge(data, features, on = ["node1", "node2"])
 # end::graphy-features[]
 
@@ -113,7 +113,7 @@ CALL gds.triangleCount.write({
 
 with driver.session(database="neo4j") as session:
     result = session.run(query)
-# end::train-triangles[]
+# end::train-triangles[]    
     df = pd.DataFrame([dict(record) for record in result])
 df
 
@@ -134,9 +134,9 @@ CALL gds.triangleCount.write({
 
 with driver.session(database="neo4j") as session:
     result = session.run(query)
-# end::test-triangles[]
+# end::test-triangles[]    
     df = pd.DataFrame([dict(record) for record in result])
-df
+df    
 
 # +
 # tag::train-coefficient[]
@@ -197,8 +197,8 @@ def apply_triangles_features(data, triangles_prop, coefficient_prop):
     apoc.coll.max([p1[$trianglesProp], p2[$trianglesProp]]) AS maxTriangles,
     apoc.coll.min([p1[$coefficientProp], p2[$coefficientProp]]) AS minCoefficient,
     apoc.coll.max([p1[$coefficientProp], p2[$coefficientProp]]) AS maxCoefficient
-    """
-    pairs = [{"node1": node1, "node2": node2}  for node1,node2 in data[["node1", "node2"]].values.tolist()]
+    """    
+    pairs = [{"node1": node1, "node2": node2}  for node1,node2 in data[["node1", "node2"]].values.tolist()]    
     params = {
     "pairs": pairs,
     "trianglesProp": triangles_prop,
@@ -207,8 +207,8 @@ def apply_triangles_features(data, triangles_prop, coefficient_prop):
 
     with driver.session(database="neo4j") as session:
         result = session.run(query, params)
-        features = pd.DataFrame([dict(record) for record in result])
-
+        features = pd.DataFrame([dict(record) for record in result])       
+    
     return pd.merge(data, features, on = ["node1", "node2"])
 # end::triangles-coefficient-features[]
 
@@ -226,7 +226,7 @@ df_test_under.sample(5)
 #
 # Community detection algorithms evaluate how a group is clustered or partitioned. Nodes are considered more similar to nodes that fall in their community than to nodes in other communities.
 #
-# We'll run two community detection algorithms over the train and test sub graphs - Label Propagation and Louvain. First up, Label Propagation:
+# We'll run two community detection algorithms over the train and test sub graphs - Label Propagation and Louvain. First up, Label Propagation: 
 
 # +
 # tag::train-lpa[]
@@ -254,7 +254,7 @@ with driver.session(database="neo4j") as session:
     result = session.run(query)
 # end::train-lpa[]
     df = pd.DataFrame([dict(record) for record in result])
-df
+df    
 
 # +
 # tag::test-lpa[]
@@ -273,9 +273,12 @@ CALL gds.labelPropagation.write({
 
 with driver.session(database="neo4j") as session:
     result = session.run(query)
-# end::test-lpa[]
+# end::test-lpa[]    
     df = pd.DataFrame([dict(record) for record in result])
-df
+df    
+# -
+
+# And now Louvain. The Louvain algorithm returns intermediate communities, which are useful for finding fine grained communities that exist in a graph. We'll add a property to each node containing the community revealed on the first iteration of the algorithm:
 
 # +
 # tag::train-louvain[]
@@ -297,7 +300,7 @@ SET node.louvainTrain = smallestCommunity;
 
 with driver.session(database="neo4j") as session:
     display(session.run(query).consume().counters)
-# end::train-louvain[]
+# end::train-louvain[]    
 
 # +
 # tag::test-louvain[]
@@ -319,7 +322,7 @@ SET node.louvainTest = smallestCommunity;
 
 with driver.session(database="neo4j") as session:
     display(session.run(query).consume().counters)
-# end::test-louvain[]
+# end::test-louvain[]    
 # -
 
 # tag::community-features[]
@@ -330,7 +333,7 @@ def apply_community_features(data, partition_prop, louvain_prop):
     MATCH (p2) WHERE id(p2) = pair.node2
     RETURN pair.node1 AS node1,
     pair.node2 AS node2,
-    gds.alpha.linkprediction.sameCommunity(p1, p2, $partitionProp) AS sp,
+    gds.alpha.linkprediction.sameCommunity(p1, p2, $partitionProp) AS sp,    
     gds.alpha.linkprediction.sameCommunity(p1, p2, $louvainProp) AS sl
     """
     pairs = [{"node1": node1, "node2": node2}  for node1,node2 in data[["node1", "node2"]].values.tolist()]
@@ -339,11 +342,11 @@ def apply_community_features(data, partition_prop, louvain_prop):
     "partitionProp": partition_prop,
     "louvainProp": louvain_prop
     }
-
+    
     with driver.session(database="neo4j") as session:
         result = session.run(query, params)
         features = pd.DataFrame([dict(record) for record in result])
-
+    
     return pd.merge(data, features, on = ["node1", "node2"])
 # end::community-features[]
 
