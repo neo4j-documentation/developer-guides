@@ -4,7 +4,7 @@
 :author: Mark Needham
 :category: graph-data-science
 :tags: graph-data-science, machine-learning, link-prediction
-:description: This guide explains concepts related to link prediction.
+:description: This guide explains concepts related to link prediction, which is used to predict missing or future links in graphs.
 
 .Goals
 [abstract]

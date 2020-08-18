@@ -1,0 +1,20 @@
+= Link Prediction with GDSL and scikit-learn
+:level: Intermediate
+:page-level: Intermediate
+:author: Mark Needham
+:category: graph-data-science
+:tags: graph-data-science, machine-learning, link-prediction
+:description: This guide explains how to solve a link prediction problem using a scikit-learn binary classifier.
+
+.Goals
+[abstract]
+In this guide, we will learn how to solve a link prediction problem using a scikit-learn binary classifier.
+
+.Prerequisites
+[abstract]
+Please have link:/download[Neo4j^] (version 4.0 or later) and link:/download-center/#algorithms[Graph Data Science Library^] downloaded and installed.
+You will also need to install the Python https://scikit-learn.org/[scikit-learn^] library.
+For background reading on link prediction, see the xref:link-prediction/index.adoc[] guide.
+
+[role=expertise {level}]
+{level}

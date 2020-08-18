@@ -73,7 +73,7 @@ image:noun_recipe_3127171.png[float="right", width="100px"]
 
 The recipes show how to use the Graph Data Science Library to solve common problems.
 
-*
+* xref:graph-data-science:link-prediction/scikit-learn.adoc[]
 
 
 [#explanation]
@@ -81,7 +81,7 @@ The recipes show how to use the Graph Data Science Library to solve common probl
 
 image:https://dist.neo4j.com/wp-content/uploads/20200721070004/noun_Book_100734.png[float="right", width="100px"]
 
-The following guides provide more details and background for various parts of the Graph Data Science Library.
+The following guides provide more details and background for parts of the Graph Data Science Library and related topics.
 
 * xref:graph-data-science:graph-search-algorithms.adoc[]
 * xref:graph-data-science:path-finding-graph-algorithms.adoc[]
