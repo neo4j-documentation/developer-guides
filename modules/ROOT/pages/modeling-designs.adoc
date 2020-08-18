@@ -206,3 +206,4 @@ If so, being able to use more than one data model is a great solution!
 * https://maxdemarzi.com/2018/07/11/building-a-dating-site-with-neo4j-part-one/[Blog post series: Building a Dating Site^]
 * https://maxdemarzi.com/2017/03/30/building-a-twitter-clone-with-neo4j-part-one/[Blog series: Building a Twitter Clone^]
 * https://community.neo4j.com/[Ask Questions on the Neo4j Community Site!^]
+* https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Free online training course: Graph Data Modeling for Neo4j]

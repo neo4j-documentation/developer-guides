@@ -238,3 +238,4 @@ A walkthrough of designs for different use cases is in our link:/developer/model
 * link:/blog/data-modeling-basics/[Blog post: Graph Data Modeling Basics^]
 * link:/graphgists/[GraphGists: Graph Model Examples^]
 * link:/blog/data-modeling-pitfalls/[Blog post: Data Modeling Pitfalls to Avoid^]
+* https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Free online training course: Graph Data Modeling for Neo4j]
