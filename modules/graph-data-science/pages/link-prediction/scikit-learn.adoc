@@ -361,8 +361,7 @@ The diagram below, taken from the O’Reilly Graph Algorithms Book, explains how
 image::model-evaluation.png[]
 
 scikit-learn has built in functions that we can use for this.
-We can also return the importance of each feature used in our model.
-The following functions will help with this:
+The following function will help with this:
 
 [source,python]
 ----
