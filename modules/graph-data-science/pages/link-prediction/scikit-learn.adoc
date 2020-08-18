@@ -54,11 +54,11 @@ The code below creates a `CO_AUTHOR` relationship between authors that have coll
 
 [source,python]
 ----
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/02_Co-Author_Graph.py[tag="imports"]
+include::example$link-prediction/02_Co-Author_Graph.py[tag="imports"]
 
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/02_Co-Author_Graph.py[tag="driver"]
+include::example$link-prediction/02_Co-Author_Graph.py[tag="driver"]
 
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/02_Co-Author_Graph.py[tag="data-import"]
+include::example$link-prediction/02_Co-Author_Graph.py[tag="data-import"]
 ----
 
 We create only one `CO_AUTHOR` relationship between authors that have collaborated, even if they’ve collaborated on multiple articles.
@@ -82,9 +82,9 @@ Let’s have a look at the distribution of the first year that co-authors collab
 
 [source,python]
 ----
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="imports"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="imports"]
 
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="determine-split"]
+include::example$link-prediction//03_Train_Test_Split.py[tag="determine-split"]
 ----
 
 .Chart showing distribution of year of collaboration
@@ -98,7 +98,7 @@ The following code will create these relationships for us:
 
 [source,python]
 ----
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="sub-graphs"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="sub-graphs"]
 ----
 
 This split leaves us with 81,096 relationships in the early graph, and 74,128 in the late one.
@@ -114,14 +114,14 @@ We can generate these pairs by running the following code:
 
 [source,python]
 ----
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="positive-negative-examples"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="positive-negative-examples"]
 ----
 
 Let's combine the `train_existing_links` and `train_missing_links` DataFrames and check how many positive and negative examples we have:
 
 [source,python]
 ----
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="count-positive-negative"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="count-positive-negative"]
 ----
 
 [source, text]
@@ -144,7 +144,7 @@ We can downsample the negative examples using the following code:
 
 [source,python]
 ----
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="down-sample"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="down-sample"]
 ----
 
 [source, text]
@@ -159,11 +159,11 @@ We'll now do the same thing for the test data, using the following code:
 
 [source,python]
 ----
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="test-positive-negative-examples"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="test-positive-negative-examples"]
 
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="count-test-positive-negative"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="count-test-positive-negative"]
 
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="down-sample-test"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="down-sample-test"]
 ----
 
 [source, text]
@@ -182,9 +182,9 @@ Before we move on, let's have a look at the contents of our train and test DataF
 
 [source,python]
 ----
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="train-preview"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="train-preview"]
 
-include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="test-preview"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="test-preview"]
 ----
 
 .Train
@@ -209,27 +209,183 @@ include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master
 |	140178 | 	179280 |	0
 |===
 
-[#selecting-model]
-== Model Selection
-
-We’ll create a random forest classifier.
-This method is well suited as our data set will be comprised of a mix of strong and weak features.
-While the weak features will sometimes be helpful, the random forest method will ensure we don’t create a model that over fits our training data.
-
 [#feature-engineering]
 == Feature Engineering
 
+Now it’s time to engineer some features which we’ll use to train our model.
+We're going to create three types of features:
 
+* Link prediction measures - features from running the link prediction algorithms
+* Triangles and Clustering Coefficient - features from running the triangles and clustering coefficient algorithms
+* Community Detection - features from running the Louvain and Label Propagation algorithms
 
 [#link-prediction-features]
 === Link prediction measures
 
+We’ll start by creating some features using https://neo4j.com/docs/graph-data-science/current/algorithms/linkprediction/[link prediction^] functions.
+We can do this by applying the following function over the test and train DataFrames:
+
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="graphy-features"]
+
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="apply-graphy-features"]
+----
+
+This function adds three columns to the train and test DataFrames:
+
+* `cn` - common neighbors score
+* `pa` - preferential attachment score
+* `tn` - total neighbors score
+
+For the training DataFrame we compute these metrics based only on the early graph, whereas for the test DataFrame we’ll compute them across the whole graph.
+
 [#triangles-clustering-coefficient]
 === Triangles and Clustering Coefficient
+
+Now we’re going to add some new features that are generated using the https://neo4j.com/docs/graph-data-science/current/algorithms/triangle-count/[triangles^] and https://neo4j.com/docs/graph-data-science/current/algorithms/local-clustering-coefficient/[clustering coefficient^] algorithms, where:
+
+* Triangle count computer the number of triangles that each node forms.
+* Clustering coefficient computes the likelihood that its neighbors are also connected.
+
+We can compute these metrics for the nodes by running the following code:
+
+.Triangles
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-triangles"]
+
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-triangles"]
+----
+
+.Clustering Coefficient
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-coefficient"]
+
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-coefficient"]
+----
+
+And we can add the metrics to our test and train DataFrames by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="triangles-coefficient-features"]
+
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="apply-triangles-coefficient-features"]
+----
+
+[NOTE]
+====
+These measures are different than the ones we’ve used so far, because rather than being computed based on the pair of nodes, they are node specific measures.
+We can’t simply add these values to our DataFrame as `node1Triangles` or `node1Coeff` because we have no guarantee over the order of nodes in the pair.
+We need to come up with an approach that is agnostic of the order
+We can do this by taking the average of the values, the product of the values, or by computing the minimum and maximum value, as we do here.
+====
 
 [#community-detection]
 === Community Detection
 
+Finally we'll add features based on community detection algorithms.
+Community detection algorithms evaluate how a group is clustered or partitioned.
+Nodes are considered more similar to nodes that fall in their community than to nodes in other communities.
+
+We'll run two community detection algorithms over the train and test sub graphs - Label Propagation and Louvain.
+First, Label Propagation:
+
+.Label Propagation
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-lpa"]
+
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-lpa"]
+----
+
+And now Louvain.
+The Louvain algorithm returns intermediate communities, which are useful for finding fine grained communities that exist in a graph.
+We'll add a property to each node containing the community revealed on the first iteration of the algorithm:
+
+.Louvain
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-louvain"]
+
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-louvain"]
+----
+
+And we can check whether a pair of nodes are in the same community and add the result to our test and train DataFrames by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="community-features"]
+
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="apply-community-features"]
+----
+
+[#selecting-model]
+== Model Selection
+
+Now that we've generated all our features, it's time to create our classifier.
+We're going to create a random forest.
+
+This method is well suited as our data set will be comprised of a mix of strong and weak features.
+While the weak features will sometimes be helpful, the random forest method will ensure we don’t create a model that over fits our training data.
+
+We can create this model with the following code:
+
+[source,python]
+----
+include::example$link-prediction/05_Train_Evaluate_Model.py[tag="imports"]
+
+include::example$link-prediction/05_Train_Evaluate_Model.py[tag="create-classifier"]
+----
+
+[#train-model]
+== Model Training
+
+Now let's build a model based on all these features.
+We can train the random forest model against the train set by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/05_Train_Evaluate_Model.py[tag="train-model"]
+----
 
 [#evaluate-model]
-== Model Training and Evaluation
+== Model Evaluation
+
+We’re going to compute the model's accuracy, precision, and recall.
+The diagram below, taken from the O’Reilly Graph Algorithms Book, explains how each of these metrics are computed.
+
+.Accuracy measures
+image::model-evaluation.png[]
+
+scikit-learn has built in functions that we can use for this.
+We can also return the importance of each feature used in our model.
+The following functions will help with this:
+
+[source,python]
+----
+include::example$link-prediction/05_Train_Evaluate_Model.py[tag="evaluation-imports"]
+
+include::example$link-prediction/05_Train_Evaluate_Model.py[tag="evaluation-functions"]
+----
+
+We can evaluate our model by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/05_Train_Evaluate_Model.py[tag="test-model"]
+----
+
+.Results
+[opts=header, cols="3,2"]
+|===
+| Measure | Score
+|	Accuracy	| 0.964
+| Precision	| 0.961
+| Recall	| 0.967
+|===
+
+.Feature importance
+image::feature-importance.png[]
