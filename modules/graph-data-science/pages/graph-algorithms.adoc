@@ -66,18 +66,29 @@ The following guides provide hands on examples of the different algorithms in th
 
 * link:/developer/applied-graph-embeddings[Applied Graph Embeddings]
 
+[#how-to-guides]
+== How-To Guides
+
+image:noun_recipe_3127171.png[float="right", width="100px"]
+
+The recipes show how to use the Graph Data Science Library to solve common problems.
+
+*
+
+
 [#explanation]
-== Explanation
+== Concepts
 
 image:https://dist.neo4j.com/wp-content/uploads/20200721070004/noun_Book_100734.png[float="right", width="100px"]
 
 The following guides provide more details and background for various parts of the Graph Data Science Library.
 
-* link:/developer/graph-search-algorithms[Graph Search Algorithms]
-* link:/developer/path-finding-graph-algorithms[Path Finding Algorithms]
-* link:/developer/centrality-graph-algorithms[Centrality Algorithms]
-* link:/developer/community-detection-graph-algorithms[Community Detection Algorithms]
-* link:/developer/graph-embeddings[Graph Embeddings]
+* xref:graph-data-science:graph-search-algorithms.adoc[]
+* xref:graph-data-science:path-finding-graph-algorithms.adoc[]
+* xref:graph-data-science:centrality-graph-algorithms.adoc[]
+* xref:graph-data-science:community-detection-graph-algorithms.adoc[]
+* xref:graph-data-science:graph-embeddings.adoc[]
+* xref:graph-data-science:link-prediction/index.adoc[]
 
 
 [#graph-algorithms-resources]

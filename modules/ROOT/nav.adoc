@@ -56,6 +56,8 @@
     *** xref:graph-data-science:centrality-graph-algorithms.adoc[Centrality Algorithms]
     *** xref:graph-data-science:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
     *** xref:graph-data-science:graph-embeddings.adoc[Graph Embeddings]
+    *** xref:graph-data-science:link-prediction/index.adoc[Link Prediction]
+
 
 
 * xref:graph-visualization.adoc[Graph Visualization]
