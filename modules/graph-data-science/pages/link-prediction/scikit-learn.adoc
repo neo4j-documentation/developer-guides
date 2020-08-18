@@ -8,13 +8,62 @@
 
 .Goals
 [abstract]
-In this guide, we will learn how to solve a link prediction problem using a scikit-learn binary classifier.
+In this guide, we will learn how to solve a link prediction problem using a scikit-learn binary classifier and the Graph Data Science Library.
 
 .Prerequisites
 [abstract]
-Please have link:/download[Neo4j^] (version 4.0 or later) and link:/download-center/#algorithms[Graph Data Science Library^] downloaded and installed.
+Please have link:/download[Neo4j^] (version 4.0 or later) and the link:/download-center/#algorithms[Graph Data Science Library^] downloaded and installed.
 You will also need to install the Python https://scikit-learn.org/[scikit-learn^] library.
-For background reading on link prediction, see the xref:link-prediction/index.adoc[] guide.
 
 [role=expertise {level}]
 {level}
+
+// ++++
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/5tuWnq_18Qw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+// ++++
+
+Link Prediction techniques are used to predict future or missing links in graphs.
+In this guide we're going to use these techniques predict future co-authorships using scikit-learn and link prediction algorithms from the Graph Data Science Library.
+
+[NOTE]
+====
+The code examples used in this guide can be found in the https://github.com/neo4j-examples/link-prediction[neo4j-examples/link-prediction^] GitHub repository.
+For background reading on link prediction, see the xref:link-prediction/index.adoc[] guide.
+====
+
+[#citation-graph]
+== Citation Graph
+
+In this guide, we’re going to use data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
+The full dataset is very large, but we're going to use a subset that contains data from a few Software Development Conferences.
+
+.Citation Networks
+image::citation-graph.png[]
+
+
+[#co-author-graph]
+=== Building a co-author graph
+
+[#train-test-datasets]
+== Train and test datasets
+
+[#selecting-model]
+== Model Selection
+
+[#feature-engineering]
+== Feature Engineering
+
+
+
+[#link-prediction-features]
+=== Link prediction measures
+
+[#triangles-clustering-coefficient]
+=== Triangles and Clustering Coefficient
+
+[#community-detection]
+=== Community Detection
+
+
+[#evaluate-model]
+== Model Training and Evaluation
