@@ -40,15 +40,181 @@ The full dataset is very large, but we're going to use a subset that contains da
 .Citation Networks
 image::citation-graph.png[]
 
+You can find https://github.com/neo4j-examples/link-prediction/blob/master/notebooks/01_DataLoading.ipynb[instructions for importing the data^] in the project repository.
+The following diagram shows what the data looks like once we’ve imported into Neo4j:
+
+.Diagram showing Citation Network in Neo4j
+image::citation-graph-imported.svg[]
 
 [#co-author-graph]
 === Building a co-author graph
 
+The dataset doesn’t contain relationships between authors describing their collaborations, but we can infer them based on finding articles authored by multiple people.
+The code below creates a `CO_AUTHOR` relationship between authors that have collaborated on at least one article:
+
+[source,python]
+----
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/02_Co-Author_Graph.py[tag="imports"]
+
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/02_Co-Author_Graph.py[tag="driver"]
+
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/02_Co-Author_Graph.py[tag="data-import"]
+----
+
+We create only one `CO_AUTHOR` relationship between authors that have collaborated, even if they’ve collaborated on multiple articles.
+We create a couple of properties on these relationships:
+
+* a `year` property that indicates the publication year of the first article on which the authors collaborated
+* a `collaborations` property that indicates how many articles on which the authors have collaborated
+
+.The co-authors graph
+image::co-author-graph.svg[]
+
 [#train-test-datasets]
 == Train and test datasets
 
+To avoid data leakage, we need to split our graph into training and test sub graphs.
+We are lucky that our citation graph contains time information that we can split on.
+We will create training and test graphs by splitting the data on a particular year.
+
+But which year should we split on?
+Let’s have a look at the distribution of the first year that co-authors collaborated:
+
+[source,python]
+----
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="imports"]
+
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="determine-split"]
+----
+
+.Chart showing distribution of year of collaboration
+image::determine-split.png[]
+
+It looks like 2006 would act as a good year on which to split the data, because it will give us a reasonable amount of data for each of our sub graphs.
+We’ll take all the co-authorships from 2005 and earlier as our training graph, and everything from 2006 onwards as the test graph.
+
+Let’s create explicit `CO_AUTHOR_EARLY` and `CO_AUTHOR_LATE` relationships in our graph based on that year.
+The following code will create these relationships for us:
+
+[source,python]
+----
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="sub-graphs"]
+----
+
+This split leaves us with 81,096 relationships in the early graph, and 74,128 in the late one.
+This is a split of 52–48.
+That’s a higher percentage of values than we’d usually have in our test graph, but it should be ok.
+The relationships in these sub graphs will act as the **positive examples** in our train and test sets, but we need some negative examples as well. The negative examples are needed so that our model can learn to distinguish nodes that should have a link between them and nodes that should not.
+
+As is often the case in link prediction problems, there are a lot more negative examples than positive ones.
+Instead of using almost all possible pairs, we’ll use pairs of nodes that are **between 2 and 3 hops away** from each other.
+This will give us a much more manageable amount of data to work with.
+
+We can generate these pairs by running the following code:
+
+[source,python]
+----
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="positive-negative-examples"]
+----
+
+Let's combine the `train_existing_links` and `train_missing_links` DataFrames and check how many positive and negative examples we have:
+
+[source,python]
+----
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="count-positive-negative"]
+----
+
+[source, text]
+----
+Negative examples: 973019
+Positive examples: 81096
+----
+
+We have more than 10 times as many negative examples as positive ones.
+So we still have a big class imbalance.
+To solve this issue we can either up sample the positive examples or down sample the negative examples.
+
+[NOTE]
+====
+The advantages and disadvantages of each approach are described in https://www.kaggle.com/rafjaa/resampling-strategies-for-imbalanced-datasets[Resampling strategies for imbalanced datasets^].
+====
+
+We’re going to go with the downsampling approach.
+We can downsample the negative examples using the following code:
+
+[source,python]
+----
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="down-sample"]
+----
+
+[source, text]
+----
+Random downsampling:
+1    81096
+0    81096
+Name: label, dtype: int64
+----
+
+We'll now do the same thing for the test data, using the following code:
+
+[source,python]
+----
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="test-positive-negative-examples"]
+
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="count-test-positive-negative"]
+
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="down-sample-test"]
+----
+
+[source, text]
+----
+Negative examples: 1265118
+Positive examples: 74128
+
+Random downsampling:
+1    74128
+0    74128
+Name: label, dtype: int64
+----
+
+
+Before we move on, let's have a look at the contents of our train and test DataFrames:
+
+[source,python]
+----
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="train-preview"]
+
+include::https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/03_Train_Test_Split.py[tag="test-preview"]
+----
+
+.Train
+[opts=header, cols="2,2,1"]
+|===
+| node1 | node2 | label
+| 	258481	 | 43721| 	0
+|	20077	| 20078	| 1
+| 	59156	| 59157	| 1
+| 	235904	| 238579 |	1
+| 18502	| 96395 |	1
+|===
+
+.Test
+[opts=header, cols="2,2,1"]
+|===
+| node1 | node2 | label
+|	135211 |	227759 |	0
+|	200876 | 	65004	| 0
+|	106952 |	205610 |	1
+|	20550 |	52460 | 	0
+|	140178 | 	179280 |	0
+|===
+
 [#selecting-model]
 == Model Selection
+
+We’ll create a random forest classifier.
+This method is well suited as our data set will be comprised of a mix of strong and weak features.
+While the weak features will sometimes be helpful, the random forest method will ensure we don’t create a model that over fits our training data.
 
 [#feature-engineering]
 == Feature Engineering
