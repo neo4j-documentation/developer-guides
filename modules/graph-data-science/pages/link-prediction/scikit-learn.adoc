@@ -385,6 +385,3 @@ include::example$link-prediction/05_Train_Evaluate_Model.py[tag="test-model"]
 | Precision	| 0.961
 | Recall	| 0.967
 |===
-
-.Feature importance
-image::feature-importance.png[]

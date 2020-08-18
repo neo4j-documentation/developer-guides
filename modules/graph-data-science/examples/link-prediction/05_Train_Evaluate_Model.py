@@ -78,6 +78,18 @@ def evaluate_model(predictions, actual):
     })
 # end::evaluation-functions[]
 
+def feature_importance(columns, classifier):        
+    display("Feature Importance")
+    df = pd.DataFrame({
+        "Feature": columns,
+        "Importance": classifier.feature_importances_
+    })
+    df = df.sort_values("Importance", ascending=False)    
+    ax = df.plot(kind='bar', x='Feature', y='Importance', legend=None)
+    ax.xaxis.set_label_text("")
+    plt.tight_layout()
+    plt.show()
+
 
 # +
 # tag::test-model[]
@@ -86,3 +98,5 @@ y_test = df_test_under["label"]
 
 display(evaluate_model(predictions, y_test))
 # end::test-model[]
+
+feature_importance(columns, classifier)
