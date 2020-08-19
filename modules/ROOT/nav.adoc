@@ -50,12 +50,16 @@
   ** xref:graph-data-science:nlp.adoc[Natural Language Processing (NLP)]
   ** Tutorials
     *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
+  ** How-To Guides
+    *** xref:graph-data-science:link-prediction/scikit-learn.adoc[]
   ** Concepts
     *** xref:graph-data-science:graph-search-algorithms.adoc[Graph Search Algorithms]
     *** xref:graph-data-science:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
     *** xref:graph-data-science:centrality-graph-algorithms.adoc[Centrality Algorithms]
     *** xref:graph-data-science:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
     *** xref:graph-data-science:graph-embeddings.adoc[Graph Embeddings]
+    *** xref:graph-data-science:link-prediction/index.adoc[Link Prediction]
+
 
 
 * xref:graph-visualization.adoc[Graph Visualization]

@@ -8,7 +8,8 @@
     "start": "node server.js",
     "preview": "antora preview.yml",
     "dev": "npm start & npm-watch preview",
-    "publish": "git push origin HEAD:publish"
+    "publish": "git push origin HEAD:publish",
+    "downloadNotebooks": "node scripts/download-lp-notebooks.js"
   },
   "repository": {
     "type": "git",

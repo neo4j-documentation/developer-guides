@@ -5,7 +5,7 @@ site:
 content:
   sources:
   - url: ./
-    branches: master
+    branches: link-prediction
     exclude:
     - '!**/_includes/*'
     - '!**/readme.adoc'
