@@ -4,7 +4,7 @@
 :author: Mark Needham
 :category: graph-data-science
 :tags: graph-platform, graph-data-science, labs, book, resources, path-finding, centrality, community-detection, similarity, link-prediction
-
+:page-aliases: ROOT:graph-algorithms.adoc
 
 [#graph-algorithms]
 Graph algorithms provide one of the most potent approaches to analyzing connected data because their mathematical calculations are specifically built to operate on relationships.

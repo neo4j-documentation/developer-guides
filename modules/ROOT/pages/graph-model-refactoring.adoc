@@ -332,3 +332,4 @@ Below are some resources for learning more about refactoring in Neo4j:
 
 * link:https://neo4j.com/developer/neo4j-apoc/[APOC Library^]
 ** https://neo4j.com/docs/labs/apoc/current/graph-updates/graph-refactoring/[Graph Refactoring Procedures^]
+* https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[Free online training course: Implementing Graph Data Models in Neo4j 4.0]

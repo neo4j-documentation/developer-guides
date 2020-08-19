@@ -52,3 +52,15 @@ Based on your use case or industry, you can find some projects that could aid yo
 Visit our link:/graphgists/[GraphGists page^] and explore the many examples the Neo4j user community created!
 
 link:/developer/graphgist/[Interactive Graph Models]
+
+[#Online-training]
+== Online training
+
+There are two free online training courses that cover graph data modeling:
+
+
+* Graph Data Modeling for Neo4j
+* Implementing Graph Data Models in Neo4j 4.0
+
+Each of these courses will take about 4 hours to complete and can be found at
+https://neo4j.com/graphacademy/online-training[Neo4j GraphAcademy]
