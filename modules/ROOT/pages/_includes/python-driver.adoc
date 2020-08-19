@@ -15,37 +15,10 @@ pip install neo4j
 
 [source, python, subs=attributes]
 ----
-from neo4j import GraphDatabase
+include::https://github.com/neo4j/neo4j-python-driver/raw/{python-driver-version}/tests/integration/examples/test_hello_world_example.py[tag=hello-world-import]
 
-class HelloWorldExample:
-
-    def __init__(self, uri, user, password):
-        self.driver = GraphDatabase.driver(uri, auth=(user, password))
-
-    def close(self):
-        self.driver.close()
-
-    def print_greeting(self, message):
-        with self.driver.session() as session:
-            greeting = session.write_transaction(self._create_and_return_greeting, message)
-            print(greeting)
-
-    @staticmethod
-    def _create_and_return_greeting(tx, message):
-        result = tx.run("CREATE (a:Greeting) "
-                        "SET a.message = $message "
-                        "RETURN a.message + ', from node ' + id(a)", message=message)
-        return result.single()[0]
-
-
-if __name__ == "__main__":
-    greeter = HelloWorldExample("bolt://localhost:7687", "neo4j", "password")
-    greeter.print_greeting("hello, world")
-    greeter.close()
+include::https://github.com/neo4j/neo4j-python-driver/raw/{python-driver-version}/tests/integration/examples/test_hello_world_example.py[tag=hello-world,indent=0]
 ----
-// TODO: Driver import not working correctly, fix when the next version is out
-// include::https://github.com/neo4j/neo4j-python-driver/raw/{python-driver-version}/tests/integration/examples/test_hello_world_example.py[tag=hello-world-import]
-// include::https://github.com/neo4j/neo4j-python-driver/raw/{python-driver-version}tests/integration/examples/test_hello_world_example.py[tag=hello-world,indent=0]
 
 include::./driver-warning.adoc[]
 
