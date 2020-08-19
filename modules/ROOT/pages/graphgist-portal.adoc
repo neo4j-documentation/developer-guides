@@ -42,7 +42,7 @@ To see the expressive power of this approach, here are some winners of our past 
 * **Infrastructure** {graphgist}roads-nodes-and-automobiles[Roads, Nodes and Automobiles^] by http://www.jacqui.tk[@tekiegirl^]
 * **Recommendation** {graphgist}movie-recommendations-with-k-nearest-neighbors-and-cosine-similarity[Movie Recommendations with k-NN and Cosine Similarity^] by http://twitter.com/_nicolemargaret[@_nicolemargaret^]
 * **Fun** {graphgist}tic-tac-toe[Tic Tac Toe^] by https://twitter.com/sylvainroussy[@sylvainroussy^]
-* **Many more** examples can be found in the link:{graphgists}[GraphGist Collection^]
+* **Many more** examples can be found in the link:{graphgists_list}[GraphGist Collection^]
 
 [#graphgist-info]
 == Getting Started
