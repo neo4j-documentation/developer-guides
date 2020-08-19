@@ -1,13 +1,14 @@
 = What is the Neo4j GraphGist Project?
 :level: Beginner
 :page-level: Beginner
-:graphgist: https://neo4j.com/graphgists/
+:graphgist: https://neo4j.com/graphgist/
 :graphgists_list: https://neo4j.com/graphgists/
 :graphgist_portal: http://portal.graphgist.org/
 :author: Neo4j
 :category: modeling
 :tags: graph-modeling, data-model, graphgist, example-graph
 :description: This article introduces the GraphGist project and guides the reader through the process of creating and submitting a simple GraphGist.
+:page-aliases: graphgist.adoc
 
 .Goals
 [abstract]
@@ -32,18 +33,20 @@ To see the expressive power of this approach, here are some winners of our past 
 == Examples
 
 [none]
-* **Finance** {graphgist}/?github-neo4j-contrib%2Fgists%2F%2Fother%2FBankFraudDetection.adoc[Bank Fraud Detection] by https://twitter.com/kennybastani[@kennybastani^]
-* **Sports** {graphgist}/?8019511[Alpine Skiing seasons] by https://twitter.com/pac_19[@pac_19^]
-* **Life Science** {graphgist}/?7968633[Pharmaceutical Drugs and their Targets] by https://twitter.com/joshkunken[@joshkunken^]
-* **Resources** {graphgist}/?8141937[Piping Water] by https://twitter.com/shaundaley1[@shaundaley1^]
-* **Retail** {graphgist}/?8139605[Single Malt Scotch Whisky] by https://twitter.com/patbaumgartner[@patbaumgartner^]
-* **Telecommunications** {graphgist}/?8526106[Amazon Web Services Global Infrastructure Graph] by https://twitter.com/aidanjcasey[@aidanjcasey^]
-* **Infrastructure** {graphgist}/?8635758[Roads, Nodes and Automobiles] by http://www.jacqui.tk[@tekiegirl^]
-* **Recommendation** {graphgist}/?8173017[Movie Recommendations with k-NN and Cosine Similarity] by http://twitter.com/_nicolemargaret[@_nicolemargaret^]
-* **Fun** {graphgist}/?6506717[Chess Games and Positions] by https://twitter.com/wefreema[@wefreema^]
-* **Many more** examples can be found in the https://github.com/neo4j-contrib/graphgist/wiki[GraphGist Collection^]
+* **Finance** {graphgist}bank-fraud-detection[Bank Fraud Detection^] by https://twitter.com/kennybastani[@kennybastani^]
+* **Sports** {graphgist}fis-alpine-skiing-seasons[Alpine Skiing seasons^] by https://twitter.com/pac_19[@pac_19^]
+* **Life Science** {graphgist}pharmaceutical-drugs-and-their-targets[Pharmaceutical Drugs and their Targets^] by https://twitter.com/joshkunken[@joshkunken^]
+// * **Resources** {graphgist}/?8141937[Piping Water]^ by https://twitter.com/shaundaley1[@shaundaley1^]
+* **Retail** {graphgist}northwind-recommendation-engine[Northwind Recommendation Engine^] by https://twitter.com/adamcowley[@adamcowley^]
+* **Telecommunications** {graphgist}amazon-web-services-global-infrastructure-graph[Amazon Web Services Global Infrastructure Graph^] by https://twitter.com/aidanjcasey[@aidanjcasey^]
+* **Infrastructure** {graphgist}roads-nodes-and-automobiles[Roads, Nodes and Automobiles^] by http://www.jacqui.tk[@tekiegirl^]
+* **Recommendation** {graphgist}movie-recommendations-with-k-nearest-neighbors-and-cosine-similarity[Movie Recommendations with k-NN and Cosine Similarity^] by http://twitter.com/_nicolemargaret[@_nicolemargaret^]
+* **Fun** {graphgist}tic-tac-toe[Tic Tac Toe^] by https://twitter.com/sylvainroussy[@sylvainroussy^]
+* **Many more** examples can be found in the link:{graphgists}[GraphGist Collection^]
 
 [#graphgist-info]
 == Getting Started
 
 More information on getting started building your own GraphGist is available on the {graphgist_portal}[GraphGist Portal^].
+You can also explore the full range of GraphGists from xref:neo4j-desktop.adoc[Neo4j Desktop] using the *Graph Gallery* Graph App.
+You can install the Graph App with a single click at https://install.graphapp.io[install.graphapp.io^]

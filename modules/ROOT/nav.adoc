@@ -34,7 +34,7 @@
 ** xref:modeling-designs.adoc[Modeling Designs]
 ** xref:modeling-tips.adoc[Graph Modeling Tips]
 ** xref:graph-model-refactoring.adoc[Tutorial: Refactoring a graph model]
-** xref:graphgist.adoc[Interactive Graph Models]
+** xref:graphgist-portal.adoc[Interactive Graph Models]
 
 * xref:data-import.adoc[Data Import]
 ** xref:guide-import-csv.adoc[Importing CSV]
