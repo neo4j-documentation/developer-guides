@@ -34,8 +34,12 @@ For background reading on link prediction, see the xref:link-prediction/index.ad
 [#citation-graph]
 == Citation Graph
 
+image:noun_citation_2276559.png[float="right", width="100px"]
+
 In this guide, we’re going to use data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
 The full dataset is very large, but we're going to use a subset that contains data from a few Software Development Conferences.
+
+A screenshot of the available datasets is shown below:
 
 .Citation Networks
 image::citation-graph.png[]
@@ -73,6 +77,8 @@ image::co-author-graph.svg[]
 [#train-test-datasets]
 == Train and test datasets
 
+image::noun_Data_3403843.png[width="100px", float="right"]
+
 To avoid data leakage, we need to split our graph into training and test sub graphs.
 We are lucky that our citation graph contains time information that we can split on.
 We will create training and test graphs by splitting the data on a particular year.
@@ -84,7 +90,7 @@ Let’s have a look at the distribution of the first year that co-authors collab
 ----
 include::example$link-prediction/03_Train_Test_Split.py[tag="imports"]
 
-include::example$link-prediction//03_Train_Test_Split.py[tag="determine-split"]
+include::example$link-prediction/03_Train_Test_Split.py[tag="determine-split"]
 ----
 
 .Chart showing distribution of year of collaboration
@@ -212,12 +218,14 @@ include::example$link-prediction/03_Train_Test_Split.py[tag="test-preview"]
 [#feature-engineering]
 == Feature Engineering
 
+image:noun_engineer_94087.png[float="right", width="100px"]
+
 Now it’s time to engineer some features which we’ll use to train our model.
 We're going to create three types of features:
 
-* Link prediction measures - features from running the link prediction algorithms
-* Triangles and Clustering Coefficient - features from running the triangles and clustering coefficient algorithms
-* Community Detection - features from running the Louvain and Label Propagation algorithms
+<<#link-prediction-features,Link prediction measures>> :: features from running the link prediction algorithms
+<<#triangles-clustering-coefficient, Triangles and Clustering Coefficient>> :: features from running the triangles and clustering coefficient algorithms
+<<#community-detection,Community Detection>> :: features from running the Louvain and Label Propagation algorithms
 
 [#link-prediction-features]
 === Link prediction measures
@@ -325,6 +333,8 @@ include::example$link-prediction/04_Model_Feature_Engineering.py[tag="apply-comm
 [#selecting-model]
 == Model Selection
 
+image:noun_Random Forest_1503830.png[float="right", width="100px"]
+
 Now that we've generated all our features, it's time to create our classifier.
 We're going to create a random forest.
 
@@ -354,8 +364,10 @@ include::example$link-prediction/05_Train_Evaluate_Model.py[tag="train-model"]
 [#evaluate-model]
 == Model Evaluation
 
-We’re going to compute the model's accuracy, precision, and recall.
-The diagram below, taken from the O’Reilly Graph Algorithms Book, explains how each of these metrics are computed.
+image:noun_evaluation_2404409.png[float="right", width="100px"]
+
+We’re going to evaluate the quality of our model by computing its accuracy, precision, and recall.
+The diagram below, taken from the https://neo4j.com/graph-algorithms-book/[O’Reilly Graph Algorithms Book^], explains how each of these metrics are computed.
 
 .Accuracy measures
 image::model-evaluation.png[]
