@@ -14,10 +14,16 @@ const download = function(url, dest, cb) {
   });
 };
 
-const remotePrefix = "https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/notebooks/"
+const remotePrefix = "https://raw.githubusercontent.com/neo4j-examples/link-prediction/master/"
 const localPrefix = "modules/graph-data-science/examples/link-prediction/"
 
-const files = ["03_Train_Test_Split.py", "04_Model_Feature_Engineering.py", "05_Train_Evaluate_Model.py",
-               "data/model-eval.csv", "data/df_test_under_sample.csv", "data/df_train_under_sample.csv",
-               "data/df_test_under_basic_sample.csv", "data/df_train_under_basic_sample.csv"]
+const files = ["py/02_Co-Author_Graph.py",
+               "py/03_Train_Test_Split.py",
+               "py/04_Model_Feature_Engineering.py",
+               "py/05_Train_Evaluate_Model.py",
+               "notebooks/data/model-eval.csv",
+               "notebooks/data/df_test_under_sample.csv",
+               "notebooks/data/df_train_under_sample.csv",
+               "notebooks/data/df_test_under_basic_sample.csv",
+               "notebooks/data/df_train_under_basic_sample.csv"]
 files.forEach(value => download(remotePrefix + value, localPrefix + value))

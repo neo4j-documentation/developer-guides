@@ -240,15 +240,21 @@ print(df_test_under.label.value_counts())
 # Before we move on, let's have a look at the contents of our train and test DataFrames:
 
 # tag::train-preview[]
-df_train_under.sample(5)
+df_train_under.sample(5, random_state=42)
 # end::train-preview[]
 
 # tag::test-preview[]
-df_test_under.sample(5)
+df_test_under.sample(5, random_state=42)
 # end::test-preview[]
 
 # +
 # Save our DataFrames to CSV files for use in the next notebook
 
-df_train_under.to_csv("data/df_train_under.csv", index=False)
-df_test_under.to_csv("data/df_test_under.csv", index=False)
+# df_train_under.to_csv("data/df_train_under.csv", index=False)
+# df_test_under.to_csv("data/df_test_under.csv", index=False)
+
+df_train_under = pd.read_csv("data/df_train_under.csv")
+df_test_under = pd.read_csv("data/df_test_under.csv")
+
+df_train_under.sample(5, random_state=42).to_csv("data/df_train_under_basic_sample.csv", index=False)
+df_test_under.sample(5, random_state=42).to_csv("data/df_test_under_basic_sample.csv", index=False)

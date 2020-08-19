@@ -58,11 +58,11 @@ The code below creates a `CO_AUTHOR` relationship between authors that have coll
 
 [source,python]
 ----
-include::example$link-prediction/02_Co-Author_Graph.py[tag="imports"]
+include::example$link-prediction/py/02_Co-Author_Graph.py[tag="imports"]
 
-include::example$link-prediction/02_Co-Author_Graph.py[tag="driver"]
+include::example$link-prediction/py/02_Co-Author_Graph.py[tag="driver"]
 
-include::example$link-prediction/02_Co-Author_Graph.py[tag="data-import"]
+include::example$link-prediction/py/02_Co-Author_Graph.py[tag="data-import"]
 ----
 
 We create only one `CO_AUTHOR` relationship between authors that have collaborated, even if they’ve collaborated on multiple articles.
@@ -88,9 +88,9 @@ Let’s have a look at the distribution of the first year that co-authors collab
 
 [source,python]
 ----
-include::example$link-prediction/03_Train_Test_Split.py[tag="imports"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="imports"]
 
-include::example$link-prediction/03_Train_Test_Split.py[tag="determine-split"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="determine-split"]
 ----
 
 .Chart showing distribution of year of collaboration
@@ -104,7 +104,7 @@ The following code will create these relationships for us:
 
 [source,python]
 ----
-include::example$link-prediction/03_Train_Test_Split.py[tag="sub-graphs"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="sub-graphs"]
 ----
 
 This split leaves us with 81,096 relationships in the early graph, and 74,128 in the late one.
@@ -120,14 +120,14 @@ We can generate these pairs by running the following code:
 
 [source,python]
 ----
-include::example$link-prediction/03_Train_Test_Split.py[tag="positive-negative-examples"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="positive-negative-examples"]
 ----
 
 Let's combine the `train_existing_links` and `train_missing_links` DataFrames and check how many positive and negative examples we have:
 
 [source,python]
 ----
-include::example$link-prediction/03_Train_Test_Split.py[tag="count-positive-negative"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="count-positive-negative"]
 ----
 
 [source, text]
@@ -150,7 +150,7 @@ We can downsample the negative examples using the following code:
 
 [source,python]
 ----
-include::example$link-prediction/03_Train_Test_Split.py[tag="down-sample"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="down-sample"]
 ----
 
 [source, text]
@@ -165,11 +165,11 @@ We'll now do the same thing for the test data, using the following code:
 
 [source,python]
 ----
-include::example$link-prediction/03_Train_Test_Split.py[tag="test-positive-negative-examples"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="test-positive-negative-examples"]
 
-include::example$link-prediction/03_Train_Test_Split.py[tag="count-test-positive-negative"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="count-test-positive-negative"]
 
-include::example$link-prediction/03_Train_Test_Split.py[tag="down-sample-test"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="down-sample-test"]
 ----
 
 [source, text]
@@ -188,25 +188,25 @@ Before we move on, let's have a look at the contents of our train and test DataF
 
 [source,python]
 ----
-include::example$link-prediction/03_Train_Test_Split.py[tag="train-preview"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="train-preview"]
 ----
 
 .Train
 [opts=header, cols="2,2,1", format="csv"]
 |===
-include::example$link-prediction/data/df_train_under_basic_sample.csv[]
+include::example$link-prediction/notebooks/data/df_train_under_basic_sample.csv[]
 |===
 
 [source,python]
 ----
-include::example$link-prediction/03_Train_Test_Split.py[tag="test-preview"]
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="test-preview"]
 ----
 
 
 .Test
 [opts=header, cols="2,2,1", format="csv"]
 |===
-include::example$link-prediction/data/df_train_under_basic_sample.csv[]
+include::example$link-prediction/notebooks/data/df_train_under_basic_sample.csv[]
 |===
 
 [#feature-engineering]
@@ -229,9 +229,9 @@ We can do this by applying the following function over the test and train DataFr
 
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="graphy-features"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="graphy-features"]
 
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="apply-graphy-features"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="apply-graphy-features"]
 ----
 
 This function adds three columns to the train and test DataFrames:
@@ -255,26 +255,26 @@ We can compute these metrics for the nodes by running the following code:
 .Triangles
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-triangles"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-triangles"]
 
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-triangles"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-triangles"]
 ----
 
 .Clustering Coefficient
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-coefficient"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-coefficient"]
 
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-coefficient"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-coefficient"]
 ----
 
 And we can add the metrics to our test and train DataFrames by running the following code:
 
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="triangles-coefficient-features"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="triangles-coefficient-features"]
 
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="apply-triangles-coefficient-features"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="apply-triangles-coefficient-features"]
 ----
 
 [NOTE]
@@ -298,9 +298,9 @@ First, Label Propagation:
 .Label Propagation
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-lpa"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-lpa"]
 
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-lpa"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-lpa"]
 ----
 
 And now Louvain.
@@ -310,42 +310,42 @@ We'll add a property to each node containing the community revealed on the first
 .Louvain
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-louvain"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-louvain"]
 
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-louvain"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-louvain"]
 ----
 
 And we can check whether a pair of nodes are in the same community and add the result to our test and train DataFrames by running the following code:
 
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="community-features"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="community-features"]
 
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="apply-community-features"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="apply-community-features"]
 ----
 
 We've now added all of the features, so let's have a look at the contents of our Train and Test DataFrames:
 
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-after-features"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-after-features"]
 ----
 
 .Train DataFrame
 [opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
 |===
-include::example$link-prediction/data/df_train_under_sample.csv[]
+include::example$link-prediction/notebooks/data/df_train_under_sample.csv[]
 |===
 
 [source,python]
 ----
-include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-after-features"]
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-after-features"]
 ----
 
 .Test DataFrame
 [opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
 |===
-include::example$link-prediction/data/df_test_under_sample.csv[]
+include::example$link-prediction/notebooks/data/df_test_under_sample.csv[]
 |===
 
 [#selecting-model]
@@ -363,9 +363,9 @@ We can create this model with the following code:
 
 [source,python]
 ----
-include::example$link-prediction/05_Train_Evaluate_Model.py[tag="imports"]
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="imports"]
 
-include::example$link-prediction/05_Train_Evaluate_Model.py[tag="create-classifier"]
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="create-classifier"]
 ----
 
 [#train-model]
@@ -376,7 +376,7 @@ We can train the random forest model against the train set by running the follow
 
 [source,python]
 ----
-include::example$link-prediction/05_Train_Evaluate_Model.py[tag="train-model"]
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="train-model"]
 ----
 
 [#evaluate-model]
@@ -395,22 +395,22 @@ The following function will help with this:
 
 [source,python]
 ----
-include::example$link-prediction/05_Train_Evaluate_Model.py[tag="evaluation-imports"]
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="evaluation-imports"]
 
-include::example$link-prediction/05_Train_Evaluate_Model.py[tag="evaluation-functions"]
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="evaluation-functions"]
 ----
 
 We can evaluate our model by running the following code:
 
 [source,python]
 ----
-include::example$link-prediction/05_Train_Evaluate_Model.py[tag="test-model"]
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="test-model"]
 ----
 
 .Results
 [opts=header, format="csv"]
 |===
-include::example$link-prediction/data/model-eval.csv[]
+include::example$link-prediction/notebooks/data/model-eval.csv[]
 |===
 
 Our model has done pretty well at predicting whether there is likely to be a co-authorship between a pair of authors.
@@ -418,3 +418,10 @@ It scores above 96% on all of the evaluation metrics.
 
 [#next-steps]
 == Next Steps
+
+We've already got a good model, but can we do better?
+
+Perhaps we could try using a different algorithm, or even the same algorithm with different hyper-parameters.
+Or maybe we can add more features based on the results of other algorithms.
+
+If you have any ideas or questions, please create an issue or PR on the https://github.com/neo4j-examples/link-prediction[neo4j-examples/link-prediction^] GitHub repository.
