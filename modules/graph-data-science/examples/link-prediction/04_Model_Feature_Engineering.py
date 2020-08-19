@@ -357,15 +357,30 @@ df_test_under = apply_community_features(df_test_under, "partitionTest", "louvai
 # end::apply-community-features[]
 
 # tag::train-after-features[]
-df_train_under.sample(5)
+df_train_under.drop(columns=["node1", "node2"]).sample(5, random_state=42)
 # end::train-after-features[]
 
 # tag::test-after-features[]
-df_test_under.sample(5)
+df_test_under.drop(columns=["node1", "node2"]).sample(5, random_state=42)
 # end::test-after-features[]
 
 # +
+# Re-order so that label is last
+df_train_under = df_train_under.reindex(columns=sorted(df_train_under.columns))
+df_train_under = df_train_under.reindex(columns=(list([a for a in df_train_under.columns if a != 'label']) + ['label'] ))
+
+df_test_under = df_test_under.reindex(columns=sorted(df_test_under.columns))
+df_test_under = df_test_under.reindex(columns=(list([a for a in df_test_under.columns if a != 'label']) + ['label'] ))
+
+
 # Save our DataFrames to CSV files for use in the next notebook
 
 df_train_under.to_csv("data/df_train_under_all.csv", index=False)
 df_test_under.to_csv("data/df_test_under_all.csv", index=False)
+
+# df_train_under = pd.read_csv("data/df_train_under_all.csv")
+# df_test_under = pd.read_csv("data/df_test_under_all.csv")
+
+# Save the samples as CSV files as well
+df_train_under.drop(columns=["node1", "node2"]).sample(5, random_state=42).to_csv("data/df_train_under_sample.csv", index=False, float_format='%g')
+df_test_under.drop(columns=["node1", "node2"]).sample(5, random_state=42).to_csv("data/df_test_under_sample.csv", index=False, float_format='%g')

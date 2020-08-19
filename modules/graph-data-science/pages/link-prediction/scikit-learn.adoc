@@ -330,6 +330,30 @@ include::example$link-prediction/04_Model_Feature_Engineering.py[tag="community-
 include::example$link-prediction/04_Model_Feature_Engineering.py[tag="apply-community-features"]
 ----
 
+We've now added all of the features, so let's have a look at the contents of our Train and Test DataFrames:
+
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="train-after-features"]
+----
+
+.Train DataFrame
+[opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
+|===
+include::example$link-prediction/data/df_train_under_sample.csv[]
+|===
+
+[source,python]
+----
+include::example$link-prediction/04_Model_Feature_Engineering.py[tag="test-after-features"]
+----
+
+.Test DataFrame
+[opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
+|===
+include::example$link-prediction/data/df_test_under_sample.csv[]
+|===
+
 [#selecting-model]
 == Model Selection
 
@@ -390,10 +414,13 @@ include::example$link-prediction/05_Train_Evaluate_Model.py[tag="test-model"]
 ----
 
 .Results
-[opts=header, cols="3,2"]
+[opts=header, format="csv"]
 |===
-| Measure | Score
-|	Accuracy	| 0.964
-| Precision	| 0.961
-| Recall	| 0.967
+include::example$link-prediction/data/model-eval.csv[]
 |===
+
+Our model has done pretty well at predicting whether there is likely to be a co-authorship between a pair of authors.
+It scores above 96% on all of the evaluation metrics.
+
+[#next-steps]
+== Next Steps

@@ -2,7 +2,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: py:light,ipynb
+#     formats: ipynb,py:light
 #     text_representation:
 #       extension: .py
 #       format_name: light
@@ -96,7 +96,10 @@ def feature_importance(columns, classifier):
 predictions = classifier.predict(df_test_under[columns])
 y_test = df_test_under["label"]
 
-display(evaluate_model(predictions, y_test))
+evaluate_model(predictions, y_test)
 # end::test-model[]
+# -
+
+evaluate_model(predictions, y_test).to_csv("data/model-eval.csv", index=False)
 
 feature_importance(columns, classifier)
