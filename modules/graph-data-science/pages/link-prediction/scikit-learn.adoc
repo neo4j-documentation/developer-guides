@@ -189,30 +189,24 @@ Before we move on, let's have a look at the contents of our train and test DataF
 [source,python]
 ----
 include::example$link-prediction/03_Train_Test_Split.py[tag="train-preview"]
-
-include::example$link-prediction/03_Train_Test_Split.py[tag="test-preview"]
 ----
 
 .Train
-[opts=header, cols="2,2,1"]
+[opts=header, cols="2,2,1", format="csv"]
 |===
-| node1 | node2 | label
-| 	258481	 | 43721| 	0
-|	20077	| 20078	| 1
-| 	59156	| 59157	| 1
-| 	235904	| 238579 |	1
-| 18502	| 96395 |	1
+include::example$link-prediction/data/df_train_under_basic_sample.csv[]
 |===
 
+[source,python]
+----
+include::example$link-prediction/03_Train_Test_Split.py[tag="test-preview"]
+----
+
+
 .Test
-[opts=header, cols="2,2,1"]
+[opts=header, cols="2,2,1", format="csv"]
 |===
-| node1 | node2 | label
-|	135211 |	227759 |	0
-|	200876 | 	65004	| 0
-|	106952 |	205610 |	1
-|	20550 |	52460 | 	0
-|	140178 | 	179280 |	0
+include::example$link-prediction/data/df_train_under_basic_sample.csv[]
 |===
 
 [#feature-engineering]
