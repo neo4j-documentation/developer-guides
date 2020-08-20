@@ -4,7 +4,7 @@
 :author: Mark Needham
 :category: graph-data-science
 :tags: graph-data-science, machine-learning, link-prediction
-:description: This guide explains how to solve a link prediction problem using Neo4j GDSL and scikit-learn.
+:description: This guide explains how to solve a link prediction problem using a scikit-learn binary classifier.
 
 .Goals
 [abstract]
@@ -31,22 +31,12 @@ The code examples used in this guide can be found in the https://github.com/neo4
 For background reading on link prediction, see the xref:link-prediction/index.adoc[] guide.
 ====
 
-[#install-dependencies]
-== Install Dependencies
-
-We're going to use several Python libraries in this guide, so let's get those installed by running the following command:
-
-[source, bash]
-----
-pip install neo4j pandas matplotlib sklearn
-----
-
 [#citation-graph]
 == Citation Graph
 
 image:noun_citation_2276559.png[float="right", width="100px"]
 
-We'll be using data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
+In this guide, we’re going to use data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
 The full dataset is very large, but we're going to use a subset that contains data from a few Software Development Conferences.
 
 A screenshot of the available datasets is shown below:
@@ -359,7 +349,7 @@ include::example$link-prediction/notebooks/data/df_test_under_sample.csv[]
 |===
 
 [#selecting-model]
-== Create Model
+== Model Selection
 
 image:noun_Random Forest_1503830.png[float="right", width="100px"]
 
@@ -379,7 +369,7 @@ include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="create-class
 ----
 
 [#train-model]
-== Train Model
+== Model Training
 
 Now let's build a model based on all these features.
 We can train the random forest model against the train set by running the following code:
@@ -390,7 +380,7 @@ include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="train-model"
 ----
 
 [#evaluate-model]
-== Evaluate Model
+== Model Evaluation
 
 image:noun_evaluation_2404409.png[float="right", width="100px"]
 
