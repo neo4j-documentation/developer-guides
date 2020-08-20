@@ -51,7 +51,8 @@
   ** Tutorials
     *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
   ** How-To Guides
-    *** xref:graph-data-science:link-prediction/scikit-learn.adoc[]
+    *** xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn]
+    *** xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[Link Prediction with AWS AutoML]
   ** Concepts
     *** xref:graph-data-science:graph-search-algorithms.adoc[Graph Search Algorithms]
     *** xref:graph-data-science:path-finding-graph-algorithms.adoc[Path Finding Algorithms]

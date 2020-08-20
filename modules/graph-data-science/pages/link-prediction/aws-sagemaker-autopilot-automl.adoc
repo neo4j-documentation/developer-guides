@@ -1,0 +1,112 @@
+= Link Prediction with GDSL and AWS SageMaker Autopilot (AutoML)
+:level: Intermediate
+:page-level: Intermediate
+:author: Mark Needham
+:category: graph-data-science
+:tags: graph-data-science, machine-learning, link-prediction, automl
+:description: This guide explains how to solve a link prediction problem using Neo4j GDSL and the AWS SageMaker Autopilot AutoML tool.
+
+.Goals
+[abstract]
+In this guide, we will learn how to solve a link prediction problem using the AWS SageMaker Autopilot AutoML tool and the Graph Data Science Library.
+
+.Prerequisites
+[abstract]
+Please have link:/download[Neo4j^] (version 4.0 or later) and the link:/download-center/#algorithms[Graph Data Science Library^] downloaded and installed.
+You will also need to have an AWS account.
+
+[role=expertise {level}]
+{level}
+
+Link Prediction techniques are used to predict future or missing links in graphs.
+In this guide we're going to use these techniques predict future co-authorships using AWS SageMaker Autopilot and link prediction algorithms from the Graph Data Science Library.
+
+[NOTE]
+====
+The code examples used in this guide can be found in the https://github.com/neo4j-examples/link-prediction[neo4j-examples/link-prediction^] GitHub repository.
+For background reading on link prediction, see the xref:link-prediction/index.adoc[] guide.
+====
+
+[#install-dependencies]
+== Install Dependencies
+
+We're going to use several Python libraries in this guide, so let's get those installed by running the following command:
+
+[source, bash]
+----
+pip install pandas sagemaker
+----
+
+[#citation-graph]
+== Citation Graph
+
+image:noun_citation_2276559.png[float="right", width="100px"]
+
+We'll be using data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
+The dataset doesn’t contain relationships between authors describing their collaborations, but we can infer them based on finding articles authored by multiple people.
+
+.The co-authors graph
+image::co-author-graph.svg[]
+
+[#train-test-features]
+== Train and test datasets
+
+We're going to use the train and test DataFrames that we created in the xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn] developer guide.
+In that guide we split the citation graph into test and train sub graphs and engineered features using graph algorithms.
+
+We can import those DataFrames from CSV files using the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/05_SageMaker.py[tag="load-csv-files"]
+----
+
+And now let's have a look at the features that we're going to be working with:
+
+[source,python]
+----
+include::example$link-prediction/py/05_SageMaker.py[tag="train-features"]
+----
+
+.Train DataFrame
+[opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
+|===
+include::example$link-prediction/notebooks/data/df_train_under_sample.csv[]
+|===
+
+[source,python]
+----
+include::example$link-prediction/py/05_SageMaker.py[tag="test-features"]
+----
+
+.Test DataFrame
+[opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
+|===
+include::example$link-prediction/notebooks/data/df_test_under_sample.csv[]
+|===
+
+[#prerequistes]
+== Setup AWS prerequisites
+
+[source,python]
+----
+include::example$link-prediction/py/05_SageMaker.py[tag="prerequisites"]
+----
+
+[#upload-to-s3]
+== Upload dataset to S3
+
+[#setup-sagemaker-autopilot]
+== Set up SageMaker Autopilot Job
+
+[#launch-sagemaker-autopilot]
+== Launch SageMaker Autopilot Job
+
+[#analyze-candidates]
+== Analyze Candidates
+
+[#create-model]
+== Create Model
+
+[#evaluate-model]
+== Evaluate Model
