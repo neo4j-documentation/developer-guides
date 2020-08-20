@@ -26,5 +26,6 @@ const files = ["py/02_Co-Author_Graph.py",
                "notebooks/data/df_test_under_sample.csv",
                "notebooks/data/df_train_under_sample.csv",
                "notebooks/data/df_test_under_basic_sample.csv",
-               "notebooks/data/df_train_under_basic_sample.csv"]
+               "notebooks/data/df_train_under_basic_sample.csv",
+               "notebooks/data/autopilot_candidates.csv"]
 files.forEach(value => download(remotePrefix + value, localPrefix + value))

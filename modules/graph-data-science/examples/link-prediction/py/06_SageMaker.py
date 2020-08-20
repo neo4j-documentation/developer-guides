@@ -31,6 +31,7 @@ import pandas as pd
 import sagemaker
 import boto3
 import os
+from time import gmtime, strftime, sleep
 # end::imports[]
 # -
 
@@ -83,7 +84,7 @@ train_data_s3_path = session.upload_data(path=train_file, key_prefix=prefix + "/
 print('Train data uploaded to: ' + train_data_s3_path)
 
 test_file = 'data/upload/test_data.csv';
-df_test_under.to_csv(test_file, index=False, header=False)
+df_test_under.drop(columns=["label"]).to_csv(test_file, index=False, header=False)
 test_data_s3_path = session.upload_data(path=test_file, key_prefix=prefix + "/test")
 print('Test data uploaded to: ' + test_data_s3_path)
 # end::upload-dataset-s3[]
@@ -131,8 +132,6 @@ output_data_config = {
 
 # +
 # tag::autopilot-launch[]
-from time import gmtime, strftime, sleep
-
 timestamp_suffix = strftime('%Y-%m-%d-%H-%M-%S', gmtime())
 auto_ml_job_name = 'automl-link-' + timestamp_suffix
 print('AutoMLJobName: ' + auto_ml_job_name)
@@ -173,6 +172,127 @@ while job_run_status not in ('Failed', 'Completed', 'Stopped'):
 # end::autopilot-track-progress[]
 
 # +
+# tag::autopilot-all-candidates[]
+candidates = sm.list_candidates_for_auto_ml_job(
+    AutoMLJobName=auto_ml_job_name, 
+    SortBy='FinalObjectiveMetricValue')['Candidates']
+
+candidates_df = pd.DataFrame({
+    "name": [c["CandidateName"] for c in candidates],
+    "score": [c["FinalAutoMLJobObjectiveMetric"]["Value"] for c in candidates]
+})
+candidates_df
+# end::autopilot-all-candidates[]
+
+display(candidates_df)
+candidates_df.to_csv("data/autopilot_candidates.csv", index=False, float_format='%g')
+
+# +
+# tag::autopilot-best-candidate[]
+best_candidate = sm.describe_auto_ml_job(
+    AutoMLJobName=auto_ml_job_name)['BestCandidate']
+
+best_df = pd.DataFrame({
+    "name": [best_candidate['CandidateName']],
+    "metric": [best_candidate['FinalAutoMLJobObjectiveMetric']['MetricName']],
+    "score": [best_candidate['FinalAutoMLJobObjectiveMetric']['Value']]
+})
+best_df
+# end::autopilot-best-candidate[]
+
+display(best_df)
+best_df.to_csv("data/autopilot_best_candidate.csv", index=False, float_format='%g')
+# -
+
+# ### Perform batch inference using the best candidate
+#
+# Now that we have successfully completed the SageMaker Autopilot job on the dataset, create a model from any of the candidates by using [Inference Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipelines.html). 
+
+# +
+timestamp_suffix = "automl-link-2020-08-20-09-25-03"
+
+# tag::autopilot-create-model[]
+model_name = 'automl-link-pred-model-' + timestamp_suffix
+
+model = sm.create_model(Containers=best_candidate['InferenceContainers'],
+                            ModelName=model_name,
+                            ExecutionRoleArn=role)
+
+print('Model ARN corresponding to the best candidate is : {}'.format(model['ModelArn']))
+# end::autopilot-create-model[]
+
+# +
+# test_data_s3_path = "s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide/test/test_data.csv"
+
+# tag::autopilot-create-transform-job[]
+transform_job_name = 'automl-link-pred-transform-job-' + timestamp_suffix
+
+transform_input = {
+        'DataSource': {
+            'S3DataSource': {
+                'S3DataType': 'S3Prefix',
+                'S3Uri': test_data_s3_path
+            }
+        },
+        'ContentType': 'text/csv',
+        'CompressionType': 'None',
+        'SplitType': 'Line'
+    }
+
+transform_output = {
+        'S3OutputPath': 's3://{}/{}/inference-results'.format(bucket,prefix),
+    }
+
+transform_resources = {
+        'InstanceType': 'ml.m5.4xlarge',
+        'InstanceCount': 1
+    }
+
+sm.create_transform_job(TransformJobName = transform_job_name,
+                        ModelName = model_name,
+                        TransformInput = transform_input,
+                        TransformOutput = transform_output,
+                        TransformResources = transform_resources
+)
+# end::autopilot-create-transform-job[]
+
+# +
+print ('JobStatus')
+print('----------')
+
+# tag::autopilot-track-transform-job[]
+describe_response = sm.describe_transform_job(TransformJobName = transform_job_name)
+job_run_status = describe_response['TransformJobStatus']
+print (job_run_status)
+
+while job_run_status not in ('Failed', 'Completed', 'Stopped'):
+    describe_response = sm.describe_transform_job(TransformJobName = transform_job_name)
+    job_run_status = describe_response['TransformJobStatus']
+    print (job_run_status)
+    sleep(30)
+# end::autopilot-track-transform-job[]    
+
+print(describe_response)
+# -
+
+# ### Evaluating the model
+#
+# Now let's view the results of the transform job:
+
+# +
+# tag::autopilot-transform-job-results[]
+s3_output_key = '{}/inference-results/test_data_link-pred-ordered.csv.out'.format(prefix);
+local_inference_results_path = 'inference_results_link-pred-ordered.csv'
+
+inference_results_bucket = boto_session.resource("s3").Bucket(session.default_bucket())
+
+inference_results_bucket.download_file(s3_output_key, local_inference_results_path);
+
+data = pd.read_csv(local_inference_results_path, sep=';', header=None)
+data.sample(10, random_state=42)
+# end::autopilot-transform-job-results[]
+
+# +
 # tag::evaluation-imports[]
 from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
@@ -204,10 +324,10 @@ def feature_importance(columns, classifier):
 
 # +
 # tag::test-model[]
-predictions = classifier.predict(df_test_under[columns])
-y_test = df_test_under["label"]
+predictions = data[0]
+y_test = test_df["label"]
 
-evaluate_model(predictions, y_test)
+evaluate_model(y_test, predictions)
 # end::test-model[]
 # -
 
