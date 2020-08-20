@@ -122,7 +122,10 @@ Now for the **negative examples**.
 The simplest approach would be to use all pair of nodes that don’t have a relationship. The problem with this approach is that there are significantly more examples of pairs of nodes that don’t have a relationship than there are pairs of nodes that do.
 The maximum number of negative examples is equal to:
 
-> # negative examples = (# nodes)² - (# relationships) - (# nodes)
+[NOTE]
+====
+# negative examples = (# nodes)² - (# relationships) - (# nodes)
+====
 
 i.e. the number of nodes squared, minus the relationships that the graph has, minus self relationships.
 
