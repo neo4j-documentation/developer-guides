@@ -5,7 +5,7 @@
 :category: graph-data-science
 :tags: graph-data-science, graph-algorithms, graph-search, graph-apps
 :description: NEuler is the Graph Data Science Playground, a no-code way of learning how to use Neo4j's graph algorithms.
-:page-ogimage: {imagesdir}/youtube-neuler.png
+:page-ogimage: https://neo4j.com/developer/graph-data-science/_images/youtube-neuler.png
 :page-aliases: ROOT:neuler-no-code-graph-algorithms.adoc
 
 .Goals
