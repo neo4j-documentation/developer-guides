@@ -89,6 +89,7 @@ The following guides provide more details and background for parts of the Graph 
 * xref:graph-data-science:community-detection-graph-algorithms.adoc[]
 * xref:graph-data-science:graph-embeddings.adoc[]
 * xref:graph-data-science:link-prediction/index.adoc[]
+* xref:graph-data-science:connected-feature-extraction.adoc[]
 
 
 [#graph-algorithms-resources]
