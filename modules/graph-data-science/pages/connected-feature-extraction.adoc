@@ -1,0 +1,81 @@
+= Connected Feature Extraction
+:level: Beginner
+:page-level: Beginner
+:author: Mark Needham
+:category: graph-data-science
+:tags: graph-data-science, machine-learning, feature-extraction, connected-feature-extraction
+:description: This guide explains concepts related to connected feature extraction.
+
+.Goals
+[abstract]
+In this guide, we will learn about concepts related to connected feature extraction, a technique that is used to improve the performance of Machine Learning models.
+
+[role=expertise {level}]
+{level}
+
+At a high level, machine learning algorithms take input data and create some sort of output.
+The input data comprises features, where a feature could be an attribute or property.
+
+Examples of features could be the number of rooms or size of the garden in meters squared, if we were building a model to predict house prices.
+
+[#feature-engineering]
+== Feature Engineering
+
+The process of generating and selecting appropriate features is called *feature engineering*.
+
+[quote, Discover Feature Engineering: How to Engineer Features and How to Get Good at It, 'link:https://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/[machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/^]']
+____
+Feature engineering is the process of transforming raw data into features that better represent the underlying problem to the predictive models, resulting in improved model accuracy on unseen data.
+____
+
+[#feature-extraction]
+== Feature Extraction
+
+Feature extraction is one of the sub problems of feature engineering.
+It describes the process of how we change the shape or format of our raw data so that it can be used in a machine learning pipeline.
+
+It can be thought of as a dimensionality reduction process, where raw variables are reduced to more manageable groups (features), while still accurately describing the original data set.
+
+.Feature Extraction
+image::feature-extraction.png[]
+
+These features are often derived from data stored in tables in a relational database.
+
+[#connected-feature-extraction]
+== Connected Feature Extraction
+
+Connected feature extraction is the process of **changing the shape or format of graph data** so that it is usable in a machine learning pipeline.
+
+.Connected Feature Extraction
+image::connected-feature-extraction.png[]
+
+Connected features can be generated in two main ways:
+
+Running local graph queries ::
+These work best when we know what we're trying to find. For example, counting the number of fraudulent users up to 3 degrees away from a person in a fraud graph
+
+Running global graph algorithms ::
+These are used when we know the general structure that we want, but not the exact pattern. For example, computing the PageRank score of all users as an indicator of potentially fraudulent behavior.
+
+In a talk from the ML4ALL 2019 conference, https://www.linkedin.com/in/amyhodler[Amy Hodler^] explained how connected features can be used to improve machine learning predictions.
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yhD2ksHPzWY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
+You can also read more articles on this topic in Amy's https://neo4j.com/blog/ai-graph-technology-connections-improve-accuracy/[AI & Graph Technology blog series^].
+
+[NOTE]
+====
+For a practical example of how connected features can be used to train a machine learning model, see the xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn] developer guide.
+====
+
+[#use-cases-connected-features]
+== Use Cases for Connected Features
+
+Connected features are used in many industries and have been particularly helpful for investigating financial crimes like fraud and money laundering.
+In these scenarios, criminals often try to hide activities through multiple layers of obfuscation and network relationships.
+
+Traditional feature extraction methods may be unable to detect such behavior, and this is where graph extracted features work well.
+
+Amy Hodler's https://neo4j.com/whitepapers/artificial-intelligence-graph-technology/[Artificial Intelligence & Graph Technology: Enhancing AI with Context & Connections^] white paper goes into the uses for connected features in more detail.
