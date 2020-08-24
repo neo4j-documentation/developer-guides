@@ -8,9 +8,12 @@
 :category: drivers
 :tags: spring, spring-data, sdn-rx, reactive, app-development, applications
 :description: For Java developers who use the Spring Framework or Spring Boot and want to take advantage of reactive development principles, this guide introduces Spring integration through the Spring Data Neo4j Reactive (SDN-RX) library.
-
-
 include::{manualIncludeDir}README.adoc[tags=properties]
+// TODO: New release coming in October - this page will be rebuilt
+:neo4j-version: 4.0.4
+:spring-boot-version: 2.3.0.RELEASE
+:spring-data-neo4j-rx-version: 1.1.1
+:spring-data-neo4j-rx.version: 1.1.1
 
 .Goals
 [abstract]
@@ -166,7 +169,7 @@ More information on the testing functionality can be found in the https://neo4j.
 <dependency>
 	<groupId>org.neo4j.springframework.data</groupId>
 	<artifactId>spring-data-neo4j-rx-spring-boot-test-autoconfigure</artifactId>
-	<version>${spring-data-neo4j-rx.version}</version>
+	<version>{spring-data-neo4j-rx-version}</version>
 	<scope>test</scope>
 	<exclusions>
 		<exclusion>
@@ -469,13 +472,13 @@ For the last method definition, we want to allow users to delete a movie from ou
 
 [source,java]
 ----
-@DeleteMapping("/{id}")
+@DeleteMapping("/\{id\}")
 Mono<Void> delete(@PathVariable String id) {
 	return movieRepository.deleteById(id);
 }
 ----
 
-We use the `@DeleteMapping` annotation and specify the subpath endpoint as `/movies/{id}` (where id stands for the id of the movie we want to delete).
+We use the `@DeleteMapping` annotation and specify the subpath endpoint as `/movies/\{id\}` (where id stands for the id of the movie we want to delete).
 We only want one movie to be deleted at a time, and we don't expect an object to return (since it will be deleted and no longer in the database), so we specify the `Mono<Void>` as the return type.
 The method is defined and passes in a path variable (where user input defines the url path) for the id of the movie to delete, then calls the movie repository with the out-of-the-box `deleteById()` method and the movie id.
 
@@ -525,7 +528,7 @@ curl http://localhost:8080/movies/by-title\?title\=Aeon%20Flux
 
 Results: retrieve information about specific movie (in this query, `Aeon Flux`)
 
-* `localhost:8080/movies/{id}` for delete() method
+* `localhost:8080/movies/\{id\}` for delete() method
 
 [source,bash]
 ----

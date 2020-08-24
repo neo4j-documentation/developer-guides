@@ -84,7 +84,7 @@ A simple HTTP Cypher request, executable in the Neo4j Browser would look like th
 [source, json]
 ----
 :POST /db/data/transaction/commit {"statements":[
-      {"statement":"CREATE (p:Person {firstName:{name}}) RETURN p",
+      {"statement":"CREATE (p:Person {firstName: $name}) RETURN p",
        "parameters":{"name":"Daniel"}}
     ]}
 ----

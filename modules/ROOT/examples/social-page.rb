@@ -20,8 +20,8 @@ session.query(insert_query, pairs: data)
 # Friends of a friend
 
 foaf_query = """
-MATCH (person:Person)-[:KNOWS]-(friend)-[:KNOWS]-(foaf) 
-WHERE person.name = {name}
+MATCH (person:Person)-[:KNOWS]-(friend)-[:KNOWS]-(foaf)
+WHERE person.name = $name
   AND NOT (person)-[:KNOWS]-(foaf)
 RETURN foaf.name AS name
 """

@@ -8,7 +8,7 @@
 :programming-language: java
 :category: drivers
 :tags: java, spring, spring-boot, app-development, applications
-
-
+:neo4j-version: FOO
+include::{manualIncludeDir}README.adoc[tags=properties]
 
 include::{manualIncludeDir}docs/manual/getting-started.adoc[lines=3..-1]

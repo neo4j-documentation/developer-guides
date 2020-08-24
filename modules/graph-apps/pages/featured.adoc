@@ -1,0 +1,117 @@
+= Featured Graph Apps
+:page-pagination:
+
+This page contains a list of featured Graph Apps built by link:/labs[Neo4j Labs^], link:/partners[Partners^] and the Neo4j Community. A comprehensive list of published graph apps for Neo4j is provided on our https://install.graphapp.io/[Graph App Gallery^].
+
+
+// == Developer Tools
+
+// * Neo4j Browser
+// * Bloom
+
+== Educational
+
+
+=== Graph Gallery
+
+[.graph-app]
+image:graph-gallery-logo.png[Graph Gallery Logo,width=48,role=rounded graph-app-logo]
+image:graph-gallery-screenshot.jpg[Graph Gallery Screenshot]
+
+If you are new to Graph Databases then the Graph Gallery is a good place to look for inspiration.
+The Graph Gallery features a curation of over a hundred example graphs categorised by use case and industry.
+Each entry includes a **Play as Browser Guide** button, allowing you to walk through the example step-by-step in xref:ROOT:neo4j-browser[Neo4j Browser].
+
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/graph-gallery[Install Graph Gallery in Neo4j Desktop,role=button]
+
+=== Graph Data Science Playground
+
+image:https://install.graphapp.io/images/neuler.png[GraphQL Architect Logo,width=48,float=right,role=rounded]
+The **Graph Data Science Playground** allows you to explore the Graph Algorithms available in the xref:graph-data-science:index.adoc[Neo4j Graph Data Science] library.
+The UI allows you to tweak configuration and preview the effects of each on your data set without writing any code.
+
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/graph-gallery[Install Graph Data Science Playground in Neo4j Desktop,role=button]
+
+=== GraphQL Architect
+
+image:graphql-architect-logo.png[GraphQL Architect Logo,width=48,float=right,role=rounded]
+link:https://medium.com/neo4j/introducing-graphql-architect-19b0f2035e21[GraphQL Architect^] is a graph app for Neo4j Desktop that enables developers to build, query, and deploy GraphQL APIs backed by the Neo4j graph database, all from within Neo4j Desktop.
+
+link:neo4j-desktop://graphapps/install?url=https://registry.npmjs.org/@grandstack/graphql-architect[Install GraphQL Architect in Neo4j Desktop,role=button]
+
+
+=== Neosemantics
+
+image:https://install.graphapp.io/images/neosemantics-icon.png[Neosemantics Logo,width=48,float=right,role=rounded]
+The **Neosemantics Graph App** is a Graph App that will teach you to use the link:/labs/neosemantics[Neosemantics RDF toolkit for Neo4j] .
+Neosemantics integrates RDF and Linked Data with Neo4j.
+The Graph App guides you through the process of preparing your graph to import RDF data and allows you to create mappings from RDF schemas and preview the results before importing the data.
+
+link:neo4j-desktop://graphapps/install?url=https://registry.npmjs.org/@graphapps/neosemantics[Install the Neosemantics Graph App in Neo4j Desktop,role=button]
+
+
+== Montoring
+
+// tag::featured[]
+===  Halin
+
+[.graph-app]
+image:halin-logo.png[Halin Logo,role=rounded graph-app-logo]
+image:halin-screenshot.png[Halin Screenshot]
+
+Halin is a Graph App for monitoring Neo4j.  It shows you how your system is functioning and using system resources like CPU and Memory, and helps you diagnose common configuration and performance problems.
+
+// video::halin.mov[]
+
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/halin[Install Halin in Neo4j Desktop,role=button]
+// end::featured[]
+
+=== Query Log Analyser
+
+image:https://install.graphapp.io/images/qloganalyzer_icon.png[Query Log Analyser Logo,width=48,float=right,role=rounded]
+The **Query Log Analyser** is a tool that helps make sense of the link:https://neo4j.com/docs/operations-manual/current/monitoring/logging/query-logging/[query log file^] produced by a Neo4j Enterprise server.
+The Graph App scans through the log file, highlighting any long running queries and provides insights on how to improve them.
+
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/query-log-analyzer[Install Neo4j-Etl in Neo4j Desktop, role=button]
+
+
+== Developer Tools
+
+=== Neo4j-ETL Tool
+
+image:https://install.graphapp.io/images/etl.png[ETL-Tool Logo,width=48,float=right,role=rounded]
+The link:/labs/etl-tool[Neo4j-ETL Tool^] provides a User Interface for importing data from relational databases into Neo4j.
+The link:/labs/etl-tool[Neo4j-ETL Tool^] makes this easy by inferring a graph model from the relational meta model that you can then adapt to fit your needs.
+Given that transformation, this tool also handles the actual import for you.
+
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neo4j-etl-ui[Install Halin in Neo4j Desktop,role=button]
+
+=== Neo4j Cloud Tool
+
+image:https://install.graphapp.io/images/cloud-icon.png[Neo4j Cloud Tool Logo,width=48,float=right,role=rounded]
+The Neo4j Cloud Tool provides the functionality required to load your local Neo4j Instances into a xref:ROOT:aura-cloud-dbaas[Neo4j Aura] instance.  Neo4j Aura is a fully-managed cloud database service.
+
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neo4j-cloud-ui[Install Neo4j-Etl in Neo4j Desktop, role=button]
+
+
+// * Neo4j Db Analyzer
+
+
+
+== Visualisation
+
+=== NeoMap
+
+image:https://install.graphapp.io/images/neomap.png[NeoMap Logo,width=48,float=right,role=rounded]
+NeoMap is a React based Graph App built by Community Member link:https://twitter.com/st3llasia[Estelle Scifo^].
+NeoMap allows you to build up a map visualisation consisting of layers.
+Data points can be rendered on a map as markers, polylines, heatmaps or clusters.
+
+link:neo4j-desktop://graphapps/install?url=https://registry.npmjs.org/neomap[Install NeoMap in Neo4j Desktop,role=button]
+
+// * GraphXR
+// * yWorks Neo4j Explorer
+
+== Build Your Own
+
+If you are interested in building your own graph app, you can follow our xref:building-a-graph-app[Building Graph Apps Guide].

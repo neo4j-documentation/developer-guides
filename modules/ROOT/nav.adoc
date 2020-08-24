@@ -98,8 +98,9 @@
 ** xref:aura-bloom.adoc[Bloom Visualization with Aura]
 ** xref:aura-monitoring.adoc[Monitoring]
 
-* xref:graph-apps.adoc[Graph Apps]
-** xref:graph-app-development.adoc[Building Graph Apps]
+* xref:graph-apps:index.adoc[Graph Apps]
+** xref:graph-apps:featured.adoc[Featured Graph Apps]
+** xref:graph-apps:building-a-graph-app.adoc[Building Graph Apps]
 
 * xref:in-production.adoc[Neo4j Administration]
 ** xref:memory-management.adoc[How-To: Memory Management]
