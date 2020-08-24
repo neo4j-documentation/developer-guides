@@ -52,5 +52,8 @@ To see the expressive power of this approach, here are some winners of our past 
 More information on getting started building your own GraphGist is available on the {graphgist_portal}[GraphGist Portal^].
 You can also explore the full range of GraphGists from xref:neo4j-desktop.adoc[Neo4j Desktop] using the *Graph Gallery* Graph App.
 You can install the Graph App with a single click at https://install.graphapp.io[install.graphapp.io^]
+<<<<<<< HEAD
 
 image::{img}GraphGallery.jpg[link="{img}GraphGallery.jpg",role="popup-link"]
+=======
+>>>>>>> fd7bec32bce46f2b3d11c3d5a31556994b99d557

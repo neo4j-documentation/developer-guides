@@ -198,7 +198,7 @@ image::{img}custom_guide_test.jpg[link="{img}custom_guide_test.jpg",role="popup-
 
  [source,cypher,subs=attributes]
  ----
- MATCH (db:Database {name:{name}})
+ MATCH (db:Database {name: $name})
  RETURN db
  ----
 
@@ -271,7 +271,7 @@ id=${1-"1HY3AX6dvd8UtJhp5XAsyFsQ0oyC6Z0pbwJvkyr4WHtM"}
 name=${2-network}
 
 #use your full plain-text download link format here
-url="https://docs.google.com/a/neotechnology.com/document/export?format=txt&id=${id}"
+url="https://docs.google.com/a/neotechnology.com/document/export?format=txt&id=$\{id\}"
 
 curl -sL "$url" -o adoc/$name.adoc
 ./run.sh adoc/$name.adoc html/$name.html

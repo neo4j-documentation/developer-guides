@@ -41,7 +41,7 @@ The source code for all the different language examples is available on https://
 
 [source,cypher]
 ----
-(:Person {name})-[:ACTED_IN {roles}]->(:Movie {title,released})
+(:Person {name: string})-[:ACTED_IN {roles: [string]}]->(:Movie {title: string, released: number})
 ----
 
 [#app-project-webpage]

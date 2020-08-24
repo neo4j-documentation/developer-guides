@@ -228,7 +228,7 @@ class UDF {
 .use the function like this
 [source,cypher]
 ----
-CREATE (p:Person {id: create.uuid(), name:{name}})
+CREATE (p:Person {id: create.uuid(), name: $name})
 ----
 
 === Testing the Function
