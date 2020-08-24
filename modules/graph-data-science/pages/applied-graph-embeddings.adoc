@@ -34,10 +34,10 @@ In this guide we'll learn how to use these algorithms to generate embeddings and
 
 [NOTE]
 ====
+The code examples used in this guide can be found in the https://github.com/neo4j-examples/graph-embeddings[neo4j-examples/graph-embeddings^] GitHub repository.
 For background reading about graph embeddings, see the link:/developer/graph-embeddings[Graph Embeddings] Developer Guide.
 ====
 
-The code examples used in this guide can be found in the https://github.com/neo4j-examples/graph-embeddings[neo4j-examples/graph-embeddings^] GitHub repository.
 
 [#eroads-dataset]
 == European Roads dataset

@@ -33,7 +33,7 @@ session.query(insert_query)
 
 transitive_query = """
 MATCH (n:Person)-[*]-(o)
-WHERE n.name = {name}
+WHERE n.name = $name
 RETURN DISTINCT o.name AS other
 """
 

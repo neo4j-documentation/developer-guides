@@ -50,12 +50,16 @@
   ** xref:graph-data-science:nlp.adoc[Natural Language Processing (NLP)]
   ** Tutorials
     *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
+  ** How-To Guides
+    *** xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn]
   ** Concepts
     *** xref:graph-data-science:graph-search-algorithms.adoc[Graph Search Algorithms]
     *** xref:graph-data-science:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
     *** xref:graph-data-science:centrality-graph-algorithms.adoc[Centrality Algorithms]
     *** xref:graph-data-science:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
     *** xref:graph-data-science:graph-embeddings.adoc[Graph Embeddings]
+    *** xref:graph-data-science:link-prediction/index.adoc[Link Prediction]
+    *** xref:graph-data-science:connected-feature-extraction.adoc[Connected Feature Extraction]
 
 
 * xref:graph-visualization.adoc[Graph Visualization]
@@ -94,8 +98,9 @@
 ** xref:aura-bloom.adoc[Bloom Visualization with Aura]
 ** xref:aura-monitoring.adoc[Monitoring]
 
-* xref:graph-apps.adoc[Graph Apps]
-** xref:graph-app-development.adoc[Building Graph Apps]
+* xref:graph-apps:index.adoc[Graph Apps]
+** xref:graph-apps:featured.adoc[Featured Graph Apps]
+** xref:graph-apps:building-a-graph-app.adoc[Building Graph Apps]
 
 * xref:in-production.adoc[Neo4j Administration]
 ** xref:memory-management.adoc[How-To: Memory Management]

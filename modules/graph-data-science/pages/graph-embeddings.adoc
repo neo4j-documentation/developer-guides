@@ -9,7 +9,7 @@
 
 .Goals
 [abstract]
-:description: In this guide, we will learn about graph embeddings.
+In this guide, we will learn about graph embeddings.
 
 .Prerequisites
 [abstract]

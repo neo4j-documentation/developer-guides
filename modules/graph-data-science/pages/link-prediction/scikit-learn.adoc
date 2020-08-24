@@ -1,0 +1,427 @@
+= Link Prediction with GDSL and scikit-learn
+:level: Intermediate
+:page-level: Intermediate
+:author: Mark Needham
+:category: graph-data-science
+:tags: graph-data-science, machine-learning, link-prediction
+:description: This guide explains how to solve a link prediction problem using a scikit-learn binary classifier.
+
+.Goals
+[abstract]
+In this guide, we will learn how to solve a link prediction problem using a scikit-learn binary classifier and the Graph Data Science Library.
+
+.Prerequisites
+[abstract]
+Please have link:/download[Neo4j^] (version 4.0 or later) and the link:/download-center/#algorithms[Graph Data Science Library^] downloaded and installed.
+You will also need to install the Python https://scikit-learn.org/[scikit-learn^] library.
+
+[role=expertise {level}]
+{level}
+
+// ++++
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/5tuWnq_18Qw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+// ++++
+
+Link Prediction techniques are used to predict future or missing links in graphs.
+In this guide we're going to use these techniques predict future co-authorships using scikit-learn and link prediction algorithms from the Graph Data Science Library.
+
+[NOTE]
+====
+The code examples used in this guide can be found in the https://github.com/neo4j-examples/link-prediction[neo4j-examples/link-prediction^] GitHub repository.
+For background reading on link prediction, see the xref:link-prediction/index.adoc[] guide.
+====
+
+[#citation-graph]
+== Citation Graph
+
+image:noun_citation_2276559.png[float="right", width="100px"]
+
+In this guide, we’re going to use data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
+The full dataset is very large, but we're going to use a subset that contains data from a few Software Development Conferences.
+
+A screenshot of the available datasets is shown below:
+
+.Citation Networks
+image::citation-graph.png[]
+
+You can find https://github.com/neo4j-examples/link-prediction/blob/master/notebooks/01_DataLoading.ipynb[instructions for importing the data^] in the project repository.
+The following diagram shows what the data looks like once we’ve imported into Neo4j:
+
+.Diagram showing Citation Network in Neo4j
+image::citation-graph-imported.svg[]
+
+[#co-author-graph]
+=== Building a co-author graph
+
+The dataset doesn’t contain relationships between authors describing their collaborations, but we can infer them based on finding articles authored by multiple people.
+The code below creates a `CO_AUTHOR` relationship between authors that have collaborated on at least one article:
+
+[source,python]
+----
+include::example$link-prediction/py/02_Co-Author_Graph.py[tag="imports"]
+
+include::example$link-prediction/py/02_Co-Author_Graph.py[tag="driver"]
+
+include::example$link-prediction/py/02_Co-Author_Graph.py[tag="data-import"]
+----
+
+We create only one `CO_AUTHOR` relationship between authors that have collaborated, even if they’ve collaborated on multiple articles.
+We create a couple of properties on these relationships:
+
+* a `year` property that indicates the publication year of the first article on which the authors collaborated
+* a `collaborations` property that indicates how many articles on which the authors have collaborated
+
+.The co-authors graph
+image::co-author-graph.svg[]
+
+[#train-test-datasets]
+== Train and test datasets
+
+image::noun_Data_3403843.png[width="100px", float="right"]
+
+To avoid data leakage, we need to split our graph into training and test sub graphs.
+We are lucky that our citation graph contains time information that we can split on.
+We will create training and test graphs by splitting the data on a particular year.
+
+But which year should we split on?
+Let’s have a look at the distribution of the first year that co-authors collaborated:
+
+[source,python]
+----
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="imports"]
+
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="determine-split"]
+----
+
+.Chart showing distribution of year of collaboration
+image::determine-split.png[]
+
+It looks like 2006 would act as a good year on which to split the data, because it will give us a reasonable amount of data for each of our sub graphs.
+We’ll take all the co-authorships from 2005 and earlier as our training graph, and everything from 2006 onwards as the test graph.
+
+Let’s create explicit `CO_AUTHOR_EARLY` and `CO_AUTHOR_LATE` relationships in our graph based on that year.
+The following code will create these relationships for us:
+
+[source,python]
+----
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="sub-graphs"]
+----
+
+This split leaves us with 81,096 relationships in the early graph, and 74,128 in the late one.
+This is a split of 52–48.
+That’s a higher percentage of values than we’d usually have in our test graph, but it should be ok.
+The relationships in these sub graphs will act as the **positive examples** in our train and test sets, but we need some negative examples as well. The negative examples are needed so that our model can learn to distinguish nodes that should have a link between them and nodes that should not.
+
+As is often the case in link prediction problems, there are a lot more negative examples than positive ones.
+Instead of using almost all possible pairs, we’ll use pairs of nodes that are **between 2 and 3 hops away** from each other.
+This will give us a much more manageable amount of data to work with.
+
+We can generate these pairs by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="positive-negative-examples"]
+----
+
+Let's combine the `train_existing_links` and `train_missing_links` DataFrames and check how many positive and negative examples we have:
+
+[source,python]
+----
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="count-positive-negative"]
+----
+
+[source, text]
+----
+Negative examples: 973019
+Positive examples: 81096
+----
+
+We have more than 10 times as many negative examples as positive ones.
+So we still have a big class imbalance.
+To solve this issue we can either up sample the positive examples or down sample the negative examples.
+
+[NOTE]
+====
+The advantages and disadvantages of each approach are described in https://www.kaggle.com/rafjaa/resampling-strategies-for-imbalanced-datasets[Resampling strategies for imbalanced datasets^].
+====
+
+We’re going to go with the downsampling approach.
+We can downsample the negative examples using the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="down-sample"]
+----
+
+[source, text]
+----
+Random downsampling:
+1    81096
+0    81096
+Name: label, dtype: int64
+----
+
+We'll now do the same thing for the test data, using the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="test-positive-negative-examples"]
+
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="count-test-positive-negative"]
+
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="down-sample-test"]
+----
+
+[source, text]
+----
+Negative examples: 1265118
+Positive examples: 74128
+
+Random downsampling:
+1    74128
+0    74128
+Name: label, dtype: int64
+----
+
+
+Before we move on, let's have a look at the contents of our train and test DataFrames:
+
+[source,python]
+----
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="train-preview"]
+----
+
+.Train
+[opts=header, cols="2,2,1", format="csv"]
+|===
+include::example$link-prediction/notebooks/data/df_train_under_basic_sample.csv[]
+|===
+
+[source,python]
+----
+include::example$link-prediction/py/03_Train_Test_Split.py[tag="test-preview"]
+----
+
+
+.Test
+[opts=header, cols="2,2,1", format="csv"]
+|===
+include::example$link-prediction/notebooks/data/df_train_under_basic_sample.csv[]
+|===
+
+[#feature-engineering]
+== Feature Engineering
+
+image:noun_engineer_94087.png[float="right", width="100px"]
+
+Now it’s time to engineer some features which we’ll use to train our model.
+We're going to create three types of features:
+
+<<#link-prediction-features,Link prediction measures>> :: features from running the link prediction algorithms
+<<#triangles-clustering-coefficient, Triangles and Clustering Coefficient>> :: features from running the triangles and clustering coefficient algorithms
+<<#community-detection,Community Detection>> :: features from running the Louvain and Label Propagation algorithms
+
+[#link-prediction-features]
+=== Link prediction measures
+
+We’ll start by creating some features using https://neo4j.com/docs/graph-data-science/current/algorithms/linkprediction/[link prediction^] functions.
+We can do this by applying the following function over the test and train DataFrames:
+
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="graphy-features"]
+
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="apply-graphy-features"]
+----
+
+This function adds three columns to the train and test DataFrames:
+
+* `cn` - common neighbors score
+* `pa` - preferential attachment score
+* `tn` - total neighbors score
+
+For the training DataFrame we compute these metrics based only on the early graph, whereas for the test DataFrame we’ll compute them across the whole graph.
+
+[#triangles-clustering-coefficient]
+=== Triangles and Clustering Coefficient
+
+Now we’re going to add some new features that are generated using the https://neo4j.com/docs/graph-data-science/current/algorithms/triangle-count/[triangles^] and https://neo4j.com/docs/graph-data-science/current/algorithms/local-clustering-coefficient/[clustering coefficient^] algorithms, where:
+
+* Triangle count computer the number of triangles that each node forms.
+* Clustering coefficient computes the likelihood that its neighbors are also connected.
+
+We can compute these metrics for the nodes by running the following code:
+
+.Triangles
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-triangles"]
+
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-triangles"]
+----
+
+.Clustering Coefficient
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-coefficient"]
+
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-coefficient"]
+----
+
+And we can add the metrics to our test and train DataFrames by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="triangles-coefficient-features"]
+
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="apply-triangles-coefficient-features"]
+----
+
+[NOTE]
+====
+These measures are different than the ones we’ve used so far, because rather than being computed based on the pair of nodes, they are node specific measures.
+We can’t simply add these values to our DataFrame as `node1Triangles` or `node1Coeff` because we have no guarantee over the order of nodes in the pair.
+We need to come up with an approach that is agnostic of the order
+We can do this by taking the average of the values, the product of the values, or by computing the minimum and maximum value, as we do here.
+====
+
+[#community-detection]
+=== Community Detection
+
+Finally we'll add features based on community detection algorithms.
+Community detection algorithms evaluate how a group is clustered or partitioned.
+Nodes are considered more similar to nodes that fall in their community than to nodes in other communities.
+
+We'll run two community detection algorithms over the train and test sub graphs - Label Propagation and Louvain.
+First, Label Propagation:
+
+.Label Propagation
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-lpa"]
+
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-lpa"]
+----
+
+And now Louvain.
+The Louvain algorithm returns intermediate communities, which are useful for finding fine grained communities that exist in a graph.
+We'll add a property to each node containing the community revealed on the first iteration of the algorithm:
+
+.Louvain
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-louvain"]
+
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-louvain"]
+----
+
+And we can check whether a pair of nodes are in the same community and add the result to our test and train DataFrames by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="community-features"]
+
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="apply-community-features"]
+----
+
+We've now added all of the features, so let's have a look at the contents of our Train and Test DataFrames:
+
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="train-after-features"]
+----
+
+.Train DataFrame
+[opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
+|===
+include::example$link-prediction/notebooks/data/df_train_under_sample.csv[]
+|===
+
+[source,python]
+----
+include::example$link-prediction/py/04_Model_Feature_Engineering.py[tag="test-after-features"]
+----
+
+.Test DataFrame
+[opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
+|===
+include::example$link-prediction/notebooks/data/df_test_under_sample.csv[]
+|===
+
+[#selecting-model]
+== Model Selection
+
+image:noun_Random Forest_1503830.png[float="right", width="100px"]
+
+Now that we've generated all our features, it's time to create our classifier.
+We're going to create a random forest.
+
+This method is well suited as our data set will be comprised of a mix of strong and weak features.
+While the weak features will sometimes be helpful, the random forest method will ensure we don’t create a model that over fits our training data.
+
+We can create this model with the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="imports"]
+
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="create-classifier"]
+----
+
+[#train-model]
+== Model Training
+
+Now let's build a model based on all these features.
+We can train the random forest model against the train set by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="train-model"]
+----
+
+[#evaluate-model]
+== Model Evaluation
+
+image:noun_evaluation_2404409.png[float="right", width="100px"]
+
+We’re going to evaluate the quality of our model by computing its accuracy, precision, and recall.
+The diagram below, taken from the https://neo4j.com/graph-algorithms-book/[O’Reilly Graph Algorithms Book^], explains how each of these metrics are computed.
+
+.Accuracy measures
+image::model-evaluation.png[]
+
+scikit-learn has built in functions that we can use for this.
+The following function will help with this:
+
+[source,python]
+----
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="evaluation-imports"]
+
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="evaluation-functions"]
+----
+
+We can evaluate our model by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="test-model"]
+----
+
+.Results
+[opts=header, format="csv"]
+|===
+include::example$link-prediction/notebooks/data/model-eval.csv[]
+|===
+
+Our model has done pretty well at predicting whether there is likely to be a co-authorship between a pair of authors.
+It scores above 96% on all of the evaluation metrics.
+
+[#next-steps]
+== Next Steps
+
+We've already got a good model, but can we do better?
+
+Perhaps we could try using a different algorithm, or even the same algorithm with different hyper-parameters.
+Or maybe we can add more features based on the results of other algorithms.
+
+If you have any ideas or questions, please create an issue or PR on the https://github.com/neo4j-examples/link-prediction[neo4j-examples/link-prediction^] GitHub repository.

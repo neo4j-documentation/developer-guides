@@ -1,0 +1,112 @@
+= Graph Applications Overview
+:level: Beginner
+:page-level: Beginner
+:author: Adam Cowley
+:category: desktop
+:tags: graph-apps, app-development, integrations, community, graphql, drivers, deployment
+:description: This guide provides an introduction to Graph Apps for Neo4j Desktop.
+:page-pagination: next
+
+.Goals
+[abstract]
+{description}
+
+.Prerequisites
+[abstract]
+It helps if you have read the section on link:/developer/graph-database/[graph databases], as well as have downloaded and are familiar with link:/developer/neo4j-desktop/[Neo4j Desktop].
+
+[#what-are-graphapps]
+== What are Graph Apps?
+
+A Graph app is a Single Page Application (SPA) built with HTML and JavaScript which interact with Neo4j databases through link:/desktop/[Neo4j Desktop^].
+They can be developed by anyone - community members, partners, enterprises, and more - and are a convenient way of trying out ideas or building useful tools with Neo4j databases.
+A developer could take an existing SPA and package it into a graph app or start from scratch with a new idea.
+
+[#available-graphapps]
+== Available Graph Apps
+
+A full list of published graph apps for Neo4j is provided on our https://install.graphapp.io/[Graph App Gallery^].
+You can also open the Graph App Gallery within Neo4j Desktop by navigating to the **Graph Apps Pane** using the four square icon on the left hand menu.
+
+
+
+=== Installation
+
+Each Graph App in the https://install.graphapp.io/[Graph App Gallery^] has it's own installation link.
+Provided you have link:/desktop/[Neo4j Desktop^] installed, the Graph App Gallery will open a deep-link into Neo4j Desktop instructing it to download and install the Graph App.
+
+
+==== Installation from Package Managers & NPM
+
+You can instruct Neo4j Desktop to install a Graph App by using a deep link with the `neo4j-desktop://` scheme.  The URL to the Graph App should be passed as a URL parameter.  The full link is: `neo4j-desktop://graphapps/install?url=[URL to NPM style repository Remote Graph App]`.
+
+For example, to install GraphQL Architect, you could use the following URL:
+
+[source]
+neo4j-desktop://graphapps/install?url=https://registry.npmjs.org/@grandstack/graphql-architect
+
+
+==== Installing a Remote Graph App
+
+Any website can be installed as a Graph App, these are referred to as **Remote Graph Apps**.
+An example is link:/labs/halin[Halin^], which can either be installed as a standalone Graph App or as a Remote Graph App which is hosted remotely at link:https://halin.graphapp.io[halin.graphapp.io].
+
+To install a Remote Graph App, enter the URL of the Graph App into the **File or URL** input box at the bottom of the Graph Apps Pane.
+Once installed you should receive a confirmation message.
+
+// TODO: Video?
+
+
+
+== Launching a Graph App
+
+image:graph-apps-pane.png[Open the Graph Apps Pane using the Graph Apps icon, float=right]
+
+=== From the Graph App Pane
+
+All available Graph Apps are listed in the Graph Apps Pane located on the left hand menu in Neo4j Desktop.
+The Graph Apps are listed in alphabetical order.
+You can launch a Graph App by clicking the icon
+
+
+++++
+<div style="clear:both"></div>
+++++
+
+=== From the Action Bar
+image::launch-graph-app-action-bar.png[Launching a Graph app from the Action Bar]
+
+Graph Apps can also be launched from the Action Bar.
+As you type the name of the Graph App you wish to open, the list of suggestions will filter.
+You can use the arrow keys to select the appropriate entry from the list of suggestions and press enter to execute the command.
+
+[TIP]
+====
+The Action Bar can be opened by clicking the Magnifying Glass icon in the top right hand corner of the UI or using the keyboard shortcut: `Ctrl` + `K` on Windows or `Cmd` + `K` on Mac.
+====
+
+
+=== Uninstalling a Graph App
+
+To uninstall a Graph App, you can click the downward arrow under the Graph App name and clicking the **Delete App** button.
+You will be asked to confirm that you wish to delete the Graph App, click **Remove** to confirm.
+
+== Featured Graph App
+
+[discrete]
+include::featured.adoc[tags=featured]
+
+xref:featured.adoc[View more featured Graph Apps,width=120,role=more information]
+
+[#build-graphapp]
+== How Can I Build my own Graph App?
+
+We have a guide to step through the process of building your own graph app, so you can provide your own unique tool on top of Neo4j.
+We cannot wait to see what you build!
+
+xref:building-a-graph-app.adoc[Build a Graph Application]
+
+[#graphapp-community]
+== Graph App Topic on Neo4j Community
+
+If you have any questions, comments, or would like to show off your own Graph App then there is a dedicated https://community.neo4j.com/c/neo4j-graph-platform/graph-apps/95[Graph Apps^] category on the https://community.neo4j.com/[Neo4j Community site^].

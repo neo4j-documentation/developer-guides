@@ -243,7 +243,7 @@ You can edit this stylesheet offline, save the file as a .grass file, and drag i
 You can reset to the default styles with `:style reset`.
 
 Within the GRASS file, you can change colors, fonts, sizes, outlines, and titles per node label and relationship type.
-It is also possible to combine multiple properties into a caption with `caption: '{name}, born in {born}';`
+It is also possible to combine multiple properties into a caption with `caption: '\{name\}, born in \{born\}';`
 
 image::{img}style_sheet_grass.png[]
 
