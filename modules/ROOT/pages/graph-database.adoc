@@ -93,4 +93,4 @@ Learn more about different use cases and companies using them in the video below
 * https://www.youtube.com/watch?v=5Tl8WcaqZoc&list=PL9Hl4pk2FsvWM9GWaguRhlCQ-pa-ERd4U[Video Series: Intro to Graph Databases^]
 * https://neo4j.com/graph-databases-book/[Free eBook: O'Reilly Graph Databases^]
 * https://dzone.com/articles/graph-databases-for-beginners-native-vs-non-native[DZone: Graph Databases for Beginners^]
-* https://neo4j.com/graphacademy/online-training/getting-started-graph-databases-using-neo4j/[Training: Online Intro Course^]
+* https://neo4j.com/graphacademy/online-training/online-training/introduction-to-neo4j-40/[Training: Online Intro Course^]

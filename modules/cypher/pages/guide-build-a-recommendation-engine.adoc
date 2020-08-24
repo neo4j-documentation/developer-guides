@@ -178,6 +178,6 @@ Other factors that can be easily integrated in this query are favorites, allergi
 == Resources
 * https://www.youtube.com/channel/UCvze3hU6OZBkB1vkhH2lH9Q/search?query=recommendation[Neo4j Videos: Building Recommendation Engines^]
 * link:/use-cases/real-time-recommendation-engine/[Recommendation Use Cases^]
-* link:/graphacademy/online-training/[Online Training: Learn Cypher with Intro to Neo4j^]
+* link:/graphacademy/online-training/online-training/introduction-to-neo4j-40/[Online Training: Learn Cypher with Intro to Neo4j^]
 * http://www.slideshare.net/bachmanm/recommendations-with-neo4j[Michal Bachman Slides: Recommendation Engines with Neo4j^]
 * link:/graphgists/?category=real-time-recommendations[GraphGists: Recommendation Engine Examples^]
