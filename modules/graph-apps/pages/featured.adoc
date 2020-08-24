@@ -26,11 +26,11 @@ link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/
 
 === Graph Data Science Playground
 
-image:https://install.graphapp.io/images/neuler.png[GraphQL Architect Logo,width=48,float=right,role=rounded]
+image:https://install.graphapp.io/images/neuler.png[Graph Data Science Playground Logo,width=48,float=right,role=rounded]
 The **Graph Data Science Playground** allows you to explore the Graph Algorithms available in the xref:graph-data-science:index.adoc[Neo4j Graph Data Science] library.
 The UI allows you to tweak configuration and preview the effects of each on your data set without writing any code.
 
-link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/graph-gallery[Install Graph Data Science Playground in Neo4j Desktop,role=button]
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neuler[Install Graph Data Science Playground in Neo4j Desktop,role=button]
 
 === GraphQL Architect
 
@@ -72,7 +72,7 @@ image:https://install.graphapp.io/images/qloganalyzer_icon.png[Query Log Analyse
 The **Query Log Analyser** is a tool that helps make sense of the link:https://neo4j.com/docs/operations-manual/current/monitoring/logging/query-logging/[query log file^] produced by a Neo4j Enterprise server.
 The Graph App scans through the log file, highlighting any long running queries and provides insights on how to improve them.
 
-link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/query-log-analyzer[Install Neo4j-Etl in Neo4j Desktop, role=button]
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/query-log-analyzer[Install Query Log Analyser in Neo4j Desktop, role=button]
 
 
 == Developer Tools
@@ -84,18 +84,16 @@ The link:/labs/etl-tool[Neo4j-ETL Tool^] provides a User Interface for importing
 The link:/labs/etl-tool[Neo4j-ETL Tool^] makes this easy by inferring a graph model from the relational meta model that you can then adapt to fit your needs.
 Given that transformation, this tool also handles the actual import for you.
 
-link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neo4j-etl-ui[Install Halin in Neo4j Desktop,role=button]
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neo4j-etl-ui[Install ETL-Tool in Neo4j Desktop,role=button]
 
 === Neo4j Cloud Tool
 
 image:https://install.graphapp.io/images/cloud-icon.png[Neo4j Cloud Tool Logo,width=48,float=right,role=rounded]
 The Neo4j Cloud Tool provides the functionality required to load your local Neo4j Instances into a xref:ROOT:aura-cloud-dbaas[Neo4j Aura] instance.  Neo4j Aura is a fully-managed cloud database service.
 
-link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neo4j-cloud-ui[Install Neo4j-Etl in Neo4j Desktop, role=button]
-
+link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neo4j-cloud-ui[Install Neo4j Cloud Tool in Neo4j Desktop, role=button]
 
 // * Neo4j Db Analyzer
-
 
 
 == Visualisation
