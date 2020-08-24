@@ -23,3 +23,5 @@ asciidoc:
   - "@neo4j-documentation/macros"
   attributes:
     page-theme: developer
+    page-disabletracking: true
+

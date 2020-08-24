@@ -28,10 +28,10 @@ image::{img}Rlogo.jpg[float=right]
 
 === Neo4R
 
-The goal of {neo4r} is to provide a modern and flexible Neo4J driver for R.
+The goal of \{neo4r\} is to provide a modern and flexible Neo4J driver for R.
 
 It’s modern in the sense that the results are returned as tibbles whenever possible, it relies on modern tools, and it is designed to work with pipes.
-Our goal is to provide a driver that can be easily integrated in a data analysis workflow, especially by providing an API working smoothly with other data analysis (`{dplyr}` or `{purrr}`) and graph packages (`{igraph}`, `{ggraph}`, `{visNetwork}`…).
+Our goal is to provide a driver that can be easily integrated in a data analysis workflow, especially by providing an API working smoothly with other data analysis (`\{dplyr\}` or `\{purrr\}`) and graph packages (`\{igraph}`, `\{ggraph\}`, `\{visNetwork\}`…).
 
 It was developed by https://thinkr.fr/[ThinkR], led by Colin Fay.
 

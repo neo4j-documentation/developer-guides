@@ -86,9 +86,9 @@ NEO4J CREDENTIALS (url {}, user {}, password {})
 
 Note the __{}__. It's possible to fill them up with the following options:
 
-* _p_, for regular node property (fill with __{p}__),
-* __r__ for relationship (fill with __{r}__),
-* __u__ for unique constraint field (fill with __{u}__)
+* _p_, for regular node property (fill with __\{p\}__),
+* __r__ for relationship (fill with __\{r\}__),
+* __u__ for unique constraint field (fill with __\{u\}__)
 
 For example:
 
@@ -131,7 +131,7 @@ For this first version, we do not have a strong error handling. So please be awa
 
 * If you populate a field as a relationship between two nodes, please map the field with __r__ in both table. In the example above, note that __artist__ is mapped as __r__ in both tables, __playlist.track_by_artist__ and __playlist.track_by_id__. In this initial version keys must have the same name to indicate a relationship.
 
-* Regarding unique constraints: be sure that you will not have more than one node with the property that you selected for creating this constraint. __u__ is going to work **only** for lines that have been marked with __PRIMARY KEY__. For example: `PRIMARY KEY (first_letter {p}, artist {u})` This example denotes that __artist__ is selected to be a constraint. We cannot have more than one node with the same artist.
+* Regarding unique constraints: be sure that you will not have more than one node with the property that you selected for creating this constraint. __u__ is going to work **only** for lines that have been marked with __PRIMARY KEY__. For example: `PRIMARY KEY (first_letter \{p\}, artist \{u\})` This example denotes that __artist__ is selected to be a constraint. We cannot have more than one node with the same artist.
 
 * To avoid performance issues, try to promote fields to constraints if you notice that it would reduce the number of reduced nodes (of course considering the meaningfulness of the modelling).
 
