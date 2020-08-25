@@ -111,7 +111,8 @@
 ** xref:docker.adoc[Docker &amp; Neo4j]
 ** xref:docker-run-neo4j.adoc[How-To: Run Neo4j in Docker]
 ** link:/startup-program/[Startups: Free Neo4j Enterprise^]
-** link:/graphacademy/online-training/neo4j-administration/[Online Course: Neo4j Administration^]
+** link:/graphacademy/online-training/neo4j-administration/[Online Course: Neo4j 3.5 Administration^]
+** link:/graphacademy/online-training/basic-neo4j-admin-40/[Online Course: Basic Neo4j 4.0 Administration]
 
 * xref:guide-cloud-deployment.adoc[Neo4j in the Cloud]
 ** xref:guide-orchestration.adoc[Orchestration Tools]

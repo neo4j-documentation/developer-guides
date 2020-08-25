@@ -151,7 +151,7 @@ All of the study materials and resources are accessible from our website, but ex
 The test is free, and you will receive a certificate and t-shirt after passing the test to become a Neo4j Certified Professional!
 Visit our GraphAcademy pages to learn more and to take the exam.
 
-link:/graphacademy/[Neo4j GraphAcademy^, role="button feature-box_button"]
+link:/developer/about-graphacademy/[Neo4j GraphAcademy^, role="button feature-box_button"]
 
 [#contribute-neo4j]
 == Contributing in Neo4j

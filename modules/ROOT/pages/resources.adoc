@@ -75,7 +75,7 @@ The in-person training classes give you access to Neo4j expert trainers:
 
 * link:https://neo4j.com/events/world/training/[Neo4j Classroom Training^]
 
-The online course are a great way to get started in a self-paced fashion:
+The online course are a great way to get started in a self-paced mode:
 
 * https://neo4j.com/graphacademy/online-training/[Neo4j Online Training Courses^]
 ** https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Getting Started with Neo4j Course^]
