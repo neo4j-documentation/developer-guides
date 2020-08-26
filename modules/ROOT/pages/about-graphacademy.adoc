@@ -29,6 +29,7 @@ Here is our current list of online courses:
 ** Introduction to Neo4j 4.0
 ** Graph Data Modeling
 ** Implementing Graph Data Models in Neo4j 4.0
+** Cypher Query Tuning in Neo4j 4.0
 ** Basic Neo4j 4.0 Administration
 * Neo4j 3.5:
 ** Graph Data Modeling
