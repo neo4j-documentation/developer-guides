@@ -8,6 +8,7 @@
 :page-comments:
 :page-pagination:
 :page-aliases: ROOT:guide-build-a-recommendation-engine.adoc
+:page-type: Tutorial
 
 .Goals
 [abstract]

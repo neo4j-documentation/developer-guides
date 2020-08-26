@@ -5,6 +5,7 @@
 :category: cloud
 :tags: cloud, gcp, setup, gcp-cluster, virtual-machine, deployment
 :description: This guide explains how to deploy a Neo4j Enterprise Causal Cluster via GCP Marketplace.
+:page-type: Tutorial
 
 .Goals
 [abstract]
@@ -12,9 +13,9 @@
 
 .Prerequisites
 [abstract]
-. You have a Neo4j Enterprise license
-. You should have familiarity with link:/docs/operations-manual/current/clustering/causal-clustering/introduction/[causal cluster architecture^].
-. Knowledge of link:/developer/language-guides[remote drivers] to access Neo4j from your application helps you connect to your cloud-hosted database.
+* You have a Neo4j Enterprise license
+* You should have familiarity with link:/docs/operations-manual/current/clustering/causal-clustering/introduction/[causal cluster architecture^].
+* Knowledge of link:/developer/language-guides[remote drivers] to access Neo4j from your application helps you connect to your cloud-hosted database.
 
 [#gcloud-launch]
 Let's get started!

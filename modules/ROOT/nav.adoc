@@ -23,7 +23,7 @@
 *** xref:cypher:dates-datetimes-durations.adoc[Dates, Datetimes, and Durations]
 ** xref:cypher-style-guide.adoc[Cypher Style Guide]
 ** Tutorials
-*** xref:cypher:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation Engine]
+*** xref:cypher:guide-build-a-recommendation-engine.adoc[Build a Recommendation Engine]
 ** xref:cypher:guide-sql-to-cypher.adoc[From SQL to Cypher]
 ** xref:cypher:procedures-functions.adoc[User Defined Procedures &amp; Functions]
 ** xref:cypher:resources.adoc[Cypher Resources]
@@ -33,7 +33,7 @@
 ** xref:relational-to-graph-modeling.adoc[Modeling: RDBMS to Graph]
 ** xref:modeling-designs.adoc[Modeling Designs]
 ** xref:modeling-tips.adoc[Graph Modeling Tips]
-** xref:graph-model-refactoring.adoc[Tutorial: Refactoring a graph model]
+** xref:graph-model-refactoring.adoc[Refactoring a graph model]
 ** xref:graphgist-portal.adoc[Interactive Graph Models]
 
 * xref:data-import.adoc[Data Import]
@@ -104,8 +104,9 @@
 
 * xref:in-production.adoc[Neo4j Administration]
 ** xref:memory-management.adoc[How-To: Memory Management]
-** xref:manage-multiple-databases.adoc[Tutorial: Managing Multiple Databases]
-** xref:multi-tenancy-worked-example.adoc[Tutorial: Multi Tenancy Worked Example]
+** Tutorials
+*** xref:manage-multiple-databases.adoc[Managing Multiple Databases]
+*** xref:multi-tenancy-worked-example.adoc[Multi Tenancy Worked Example]
 ** xref:neo4j-fabric-sharding.adoc[Sharding Graphs with Fabric]
 ** xref:guide-performance-tuning.adoc[Performance Tuning]
 ** xref:docker.adoc[Docker &amp; Neo4j]

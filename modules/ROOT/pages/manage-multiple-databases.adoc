@@ -6,6 +6,7 @@
 :category: cluster
 :tags: administration, multi-database, commands, cypher, system-database, manage-databases
 :description: In this guide, we will walk through how to manage multiple database within the Neo4j DBMS.
+:page-type: Tutorial
 
 .Goals
 [abstract]
