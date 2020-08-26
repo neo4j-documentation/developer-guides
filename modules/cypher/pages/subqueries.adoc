@@ -1,4 +1,4 @@
-= Sub Queries
+= Subqueries
 :level: Beginner
 :page-level: Beginner
 :author: Mark Needham

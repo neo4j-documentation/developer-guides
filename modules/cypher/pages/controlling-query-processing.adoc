@@ -1,4 +1,4 @@
-= Aggregation, Returns, & Functions
+= Controlling Query Processing
 :level: Beginner
 :page-level: Beginner
 :author: Jennifer Reif

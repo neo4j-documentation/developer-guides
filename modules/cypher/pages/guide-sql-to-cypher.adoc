@@ -1,4 +1,4 @@
-= From SQL to Cypher - A hands-on Guide
+= Comparing SQL with Cypher
 :level: Beginner
 :page-level: Beginner
 :author: Neo4j

@@ -1,17 +1,17 @@
-= Guide to Cypher Basics
+= Tutorial: Getting Started with Cypher
 :level: Beginner
 :page-level: Beginner
 :author: Neo4j
 :category: cypher
 :tags: cypher, queries, graph-queries, movie-graph, cypher-example
-:description: This guide explains the basic concepts of Cypher, Neo4j's query language, including how to create and query graphs.
+:description: This tutorial explains the basic concepts of Cypher, Neo4j's query language, including how to create and query graphs.
 :page-comments:
 :page-aliases: ROOT:guide-cypher-basics.adoc
 
 .Goals
 [abstract]
 {description}
-You should be able to read and understand Cypher queries after finishing this guide.
+You should be able to read and understand Cypher queries after finishing this tutorial.
 
 .Prerequisites
 [abstract]
@@ -26,7 +26,7 @@ _The Movie Graph_ is a mini graph application containing actors and directors th
 It is available in your Neo4j Browser if you execute `:play movie-graph`.
 It is helpful if you run the queries as you go along, but you should understand them even so.
 
-This guide will show you how to:
+This tutorial will show you how to:
 
 1. Create: insert movie data into the graph
 2. Find: retrieve individual movies and actors

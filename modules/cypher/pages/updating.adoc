@@ -1,4 +1,4 @@
-= Read and Write Operations with Cypher
+= Updating with Cypher
 :level: Beginner
 :page-level: Beginner
 :author: Jennifer Reif
@@ -7,7 +7,7 @@
 :description: Building on the Cypher Basics I guide, this guide covers more introductory concepts of Cypher, Neo4j's graph query language. Upon finishing this guide, you should be able to read and write Cypher queries for standard CRUD operations.
 :page-comments:
 :page-pagination:
-:page-aliases: ROOT:cypher-basics-ii.adoc
+:page-aliases: ROOT:cypher-basics-iii.adoc
 
 .Goals
 [abstract]
