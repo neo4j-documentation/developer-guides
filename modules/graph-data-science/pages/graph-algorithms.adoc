@@ -64,7 +64,8 @@ image:https://dist.neo4j.com/wp-content/uploads/20200727025435/noun_tutorial_328
 
 The following guides provide hands on examples of the different algorithms in the Graph Data Science Library.
 
-* link:/developer/applied-graph-embeddings[Applied Graph Embeddings]
+* xref:graph-data-science:applied-graph-embeddings.adoc[Applied Graph Embeddings]
+* xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph using NLP and Ontologies]
 
 [#how-to-guides]
 == How-To Guides

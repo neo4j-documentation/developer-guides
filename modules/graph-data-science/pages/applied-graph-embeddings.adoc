@@ -7,6 +7,7 @@
 :gds-version: 1.3-preview
 :description: This guide provides a hands on walk through of the node2Vec graph embedding algorithm in the Neo4j Data Science Library.
 :page-aliases: ROOT:applied-graph-embeddings.adoc
+:page-comments:
 :page-type: Tutorial
 
 ++++

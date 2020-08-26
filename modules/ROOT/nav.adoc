@@ -50,6 +50,7 @@
   ** xref:graph-data-science:nlp.adoc[Natural Language Processing (NLP)]
   ** Tutorials
     *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
+    *** xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph with NLP and Ontologies]
   ** How-To Guides
     *** xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn]
   ** Concepts
