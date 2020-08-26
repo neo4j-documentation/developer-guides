@@ -88,7 +88,7 @@ As one of our customers said of graph visualization, "I can look at a graph of t
 Neo4j offers methods for visualizing data, such as Neo4j Browser for developers, Neo4j Bloom for analysts and others looking for natural language search, and libraries for developers to embed graphs directly into their applications.
 We also have several partners providing additional options in this space to fit a variety of visualization needs.
 
-xref:graph-visualization.adoc[Learn More: Graph Visualization ^, role="button feature-box_button"]
+link:/developer/graph-visualization/[Learn More: Graph Visualization^, role="button feature-box_button"]
 
 === Data Import
 

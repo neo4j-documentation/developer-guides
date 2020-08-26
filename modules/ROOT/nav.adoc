@@ -35,7 +35,7 @@
 ** xref:relational-to-graph-modeling.adoc[Modeling: RDBMS to Graph]
 ** xref:modeling-designs.adoc[Modeling Designs]
 ** xref:modeling-tips.adoc[Graph Modeling Tips]
-** xref:graph-model-refactoring.adoc[Tutorial: Refactoring a graph model]
+** xref:graph-model-refactoring.adoc[Refactoring a graph model]
 ** xref:graphgist-portal.adoc[Interactive Graph Models]
 
 * xref:data-import.adoc[Data Import]
@@ -52,6 +52,7 @@
   ** xref:graph-data-science:nlp.adoc[Natural Language Processing (NLP)]
   ** Tutorials
     *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
+    *** xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph with NLP and Ontologies]
   ** How-To Guides
     *** xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn]
   ** Concepts
@@ -106,8 +107,9 @@
 
 * xref:in-production.adoc[Neo4j Administration]
 ** xref:memory-management.adoc[How-To: Memory Management]
-** xref:manage-multiple-databases.adoc[Tutorial: Managing Multiple Databases]
-** xref:multi-tenancy-worked-example.adoc[Tutorial: Multi Tenancy Worked Example]
+** Tutorials
+*** xref:manage-multiple-databases.adoc[Managing Multiple Databases]
+*** xref:multi-tenancy-worked-example.adoc[Multi Tenancy Worked Example]
 ** xref:neo4j-fabric-sharding.adoc[Sharding Graphs with Fabric]
 ** xref:guide-performance-tuning.adoc[Performance Tuning]
 ** xref:docker.adoc[Docker &amp; Neo4j]
