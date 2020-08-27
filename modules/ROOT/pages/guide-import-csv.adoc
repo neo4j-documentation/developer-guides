@@ -92,7 +92,7 @@ For more information about access related to online file imports, see this link:
 [source,cypher]
 ----
 //Example 1 - website
-LOAD CSV FROM 'https://neo4j.com/docs/cypher-manual/3.5/csv/artists.csv'
+LOAD CSV FROM 'https://data.neo4j.com/northwind/customers.csv'
 
 //Example 2 - Google
 LOAD CSV WITH HEADERS FROM 'https://docs.google.com/spreadsheets/d/<yourFilePath>'
@@ -115,35 +115,65 @@ These are extremely useful for handling missing data or splitting a field into m
 First, remember that Neo4j does not store null values.
 Null or empty fields in a CSV files can be skipped or replaced with default values in `LOAD CSV`.
 
-.Example
+Suppose we have this CSV file:
+
+.companies.csv
+[source]
+----
+Id,Name,Location,Email,BusinessType
+1,Neo4j,San Mateo,contact@neo4j.com,P
+2,AAA,,info@aaa.com,
+3,BBB,Chicago,,G
+----
+
+Here are some examples of importing this data.
+
+.Examples
 [source,cypher]
 ----
 //skip null values
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
-WITH row WHERE row.Company IS NOT NULL
-MERGE (c:Company {companyId: row.Id})
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
+WITH row WHERE row.Id IS NOT NULL
+MERGE (c:Company {companyId: row.Id});
+
+// clear data
+MATCH (n:Company) DELETE n;
 
 //set default for null values
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
 MERGE (c:Company {companyId: row.Id, hqLocation: coalesce(row.Location, "Unknown")})
 
+// clear data
+MATCH (n:Company) DELETE n;
+
 //change empty strings to null values (not stored)
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
 MERGE (c:Company {companyId: row.Id})
 SET c.emailAddress = CASE trim(row.Email) WHEN "" THEN null ELSE row.Email END
 ----
 
 Next, if you have a field in the CSV that is a list of items that you want to split, you can use the Cypher `split()` function to separate arrays in a cell.
 
+Suppose we have this CSV file:
+
+.employees.csv
+[source]
+----
+Id,Name,Skills,Email
+1,Joe Smith,Cypher:Java:JavaScript,joe@neo4j.com
+2,Mary Jones,Java,mary@neo4j.com
+3,Trevor Scott,Java:JavaScript,trevor@neo4j.com
+----
+
 .Example
 [source,cypher]
 ----
-//split string of employee skills into separate nodes
-LOAD CSV FROM 'file:///data.csv' AS row
-MERGE (e:Employee {employeeId: row.Id})
-UNWIND split(row.skills, ',') AS skill
+LOAD CSV WITH HEADERS FROM 'file:///employees.csv' AS row
+MERGE (e:Employee {employeeId: row.Id, email: row.Email})
+WITH e, row
+UNWIND split(row.Skills, ':') AS skill
 MERGE (s:Skill {name: skill})
-MERGE (e)-[r:HAS_EXPERIENCE]->(s);
+MERGE (e)-[r:HAS_EXPERIENCE]->(s)
 ----
 
 Conditional conversions can be achieved with `CASE`.
@@ -152,15 +182,20 @@ You saw one example of this when we were checking for null values or empty strin
 .Example
 [source,cypher]
 ----
+// clear data
+MATCH (n:Company) DELETE n;
+
 //set businessType property based on shortened value in CSV
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
+WITH row WHERE row.Id IS NOT NULL
 WITH row,
 (CASE row.BusinessType
  WHEN 'P' THEN 'Public'
  WHEN 'R' THEN 'Private'
  WHEN 'G' THEN 'Government'
  ELSE 'Other' END) AS type
-MERGE (c:Company {companyId: row.CompanyId})
+MERGE (c:Company {companyId: row.Id, hqLocation: coalesce(row.Location, "Unknown")})
+SET c.emailAddress = CASE trim(row.Email) WHEN "" THEN null ELSE row.Email END
 SET c.businessType = type
 RETURN *
 ----

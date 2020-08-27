@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa13a674-8b47-4a31-82a2-0e82a57ea5c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/AfterLoadMovieGraph.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/AfterLoadMovieGraphTable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/CloudAtlasRelationships.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/ConnectResultNodesSetting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/DetachDelete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/DirectorsCloudAtlas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/EnableMultiStatement.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/KevinBaconToMegRyan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/ThreeDegreesKevinBacon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/TomsCoActors.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/TomsCoActorsTable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/TypesVSProperties.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/ZeroNodes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/findCloudAtlas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/findCloudAtlasTable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/findNinetiesMovies.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/findTenPeople.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/findTom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/findTomHanksMovies.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/findTomHanksMoviesTable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/cypher/images/findTomTable.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/cypher/pages/guide-cypher-basics.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/modules/cypher/pages/guide-cypher-basics.adoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,11 +18,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/cypher/pages/index.adoc">
+        <entry file="file://$PROJECT_DIR$/README.adoc">
           <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="242">
-                <caret line="55" selection-start-line="55" selection-end-line="55" />
+              <first_editor relative-caret-position="460">
+                <caret line="49" selection-start-line="49" selection-end-line="49" />
               </first_editor>
               <second_editor />
             </state>
@@ -51,45 +30,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-cypher-basics.adoc">
+        <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc">
           <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="275">
-                <caret line="349" column="47" selection-start-line="349" selection-start-column="47" selection-end-line="349" selection-end-column="47" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/graph-data-science/pages/neuler-no-code-graph-algorithms.adoc">
-          <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-243" />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/graph-data-science/pages/build-knowledge-graph-nlp-ontologies.adoc">
-          <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="239">
-                <caret line="64" selection-start-line="64" selection-end-line="64" selection-end-column="109" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/cypher/pages/querying.adoc">
-          <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-575">
-                <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+              <first_editor relative-caret-position="251">
+                <caret line="228" column="26" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
               </first_editor>
               <second_editor />
             </state>
@@ -154,12 +99,13 @@
         <option value="$PROJECT_DIR$/modules/cypher/pages/index.adoc" />
         <option value="$PROJECT_DIR$/modules/ROOT/nav.adoc" />
         <option value="$PROJECT_DIR$/modules/cypher/pages/guide-cypher-basics.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="85" />
-    <option name="y" value="168" />
+    <option name="x" value="499" />
+    <option name="y" value="102" />
     <option name="width" value="1855" />
     <option name="height" value="845" />
   </component>
@@ -185,52 +131,6 @@
               <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
               <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="cypher" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
-              <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="cypher" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
-              <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="cypher" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
-              <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="graph-apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
-              <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="graph-data-science" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
-              <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="graph-data-science" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
-              <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="graph-data-science" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
-              <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="ROOT" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -238,7 +138,7 @@
               <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="ROOT" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
@@ -303,15 +203,15 @@
       <workItem from="1597764142065" duration="1738000" />
       <workItem from="1597775658099" duration="2237000" />
       <workItem from="1597855460731" duration="568000" />
-      <workItem from="1598276639691" duration="30984000" />
+      <workItem from="1598276639691" duration="37755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41071000" />
+    <option name="totallyTimeSpent" value="47842000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="85" y="168" width="1855" height="845" extended-state="0" />
+    <frame x="499" y="102" width="1855" height="845" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28516272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -330,7 +230,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Graph Database Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.500664" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36918992" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -502,16 +402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/about-graphacademy.adoc">
-      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="211">
-            <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-build-a-recommendation-engine.adoc">
       <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
         <state split_layout="SPLIT">
@@ -562,16 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.adoc">
-      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="273">
-            <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-sql-to-cypher.adoc">
       <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
         <state split_layout="SPLIT">
@@ -612,20 +492,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/querying.adoc">
-      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-575">
-            <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/graph-data-science/pages/centrality-graph-algorithms.adoc">
       <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="-1837" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-cypher-basics.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="275">
+            <caret line="349" column="47" selection-start-line="349" selection-start-column="47" selection-end-line="349" selection-end-column="47" />
+          </first_editor>
           <second_editor />
         </state>
       </provider>
@@ -648,11 +528,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-cypher-basics.adoc">
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/querying.adoc">
       <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="275">
-            <caret line="349" column="47" selection-start-line="349" selection-start-column="47" selection-end-line="349" selection-end-column="47" />
+          <first_editor relative-caret-position="-575">
+            <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/about-graphacademy.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="211">
+            <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/data-import.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-152" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="460">
+            <caret line="49" selection-start-line="49" selection-end-line="49" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="251">
+            <caret line="228" column="26" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
           </first_editor>
           <second_editor />
         </state>
