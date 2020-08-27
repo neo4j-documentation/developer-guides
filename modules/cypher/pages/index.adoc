@@ -35,17 +35,26 @@ Feel free to check out our other Cypher learning tools, as well!
 image::{img}cypher_learning.jpg[link="{img}cypher_learning.jpg",role="popup-link"]
 
 [#cypher-intro]
-== Intro to Cypher Syntax
+== Introduction to Cypher
 
-The first two guides will explain the basic concepts of Cypher query syntax, including how to create and query data.
+Cypher is used to query the graph, as well as update the graph.
 Cypher is based on ASCII art, so the syntax is easily understood and makes queries more self-explanatory.
 It focuses on the clarity of expressing what to retrieve from a graph, not on how to retrieve it.
 
-We will discuss the keywords for each CRUD operation and how to specify nodes, relationships, and properties in the query language.
+To support CRUD operations you will learn how to specify nodes, relationships, and properties in the query language.
 Learning how to specify patterns and filter data results will allow you to traverse the graph or add and remove data.
 
-xref:syntax.adoc[Cypher Basics I: Syntax] +
-xref:reading-writing.adoc[Cypher Basics II: Reading and Writing]
+First, you will learn what Cypher is and some important concepts related to Cypher and a Neo4j graph:
+
+xref:intro-cypher.adoc[Getting Started with Cypher]
+
+Next, you will learn how to write Cypher code to query the graph:
+
+xref:querying.adoc[Querying with Cypher]
+
+Then, you will learn how to update the graph:
+
+xref:updating.adoc[Updating with Cypher]
 
 [#cypher-filter]
 == Filtering Query Results
