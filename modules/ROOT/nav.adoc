@@ -7,9 +7,9 @@
 
 * xref:graph-platform.adoc[Neo4j Graph Platform]
 ** xref:neo4j-database.adoc[Neo4j Database]
-** xref:neo4j-desktop.adoc[Neo4j Desktop Intro]
-** xref:neo4j-browser.adoc[Neo4j Browser Intro]
-** xref:neo4j-bloom.adoc[Neo4j Bloom Intro]
+** xref:neo4j-desktop.adoc[Neo4j Desktop]
+** xref:neo4j-browser.adoc[Neo4j Browser]
+** xref:neo4j-bloom.adoc[Neo4j Bloom]
 ** xref:neo4j-etl.adoc[How-To: Neo4j ETL Tool]
 ** xref:neo4j-apoc.adoc[Neo4j APOC Library]
 ** xref:graphql.adoc[Neo4j &amp; GraphQL]
