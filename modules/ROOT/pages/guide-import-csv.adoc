@@ -214,6 +214,8 @@ For best performance, always `MATCH` and `MERGE` on a single label with the inde
 You should also separate node and relationship creation into separate statements.
 For instance, instead of the following:
 
+// Elaine resume here - need to come up with a sample csv file that will work for this example
+
 [source,cypher]
 ----
 MERGE (e:Employee {employeeId: row.employeeId})
