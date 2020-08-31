@@ -27,6 +27,8 @@
 *** xref:cypher:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation Engine]
 ** xref:cypher:guide-sql-to-cypher.adoc[Comparing SQL and Cypher]
 ** xref:cypher:procedures-functions.adoc[User Defined Procedures &amp; Functions]
+** xref:cypher:filtering-show.adoc[Filtering SHOW commands]
+** xref:cypher:replanning.adoc[Cypher Runtime and Replanning]
 ** xref:cypher-style-guide.adoc[Cypher Style Guide]
 ** xref:cypher:resources.adoc[Cypher Resources]
 

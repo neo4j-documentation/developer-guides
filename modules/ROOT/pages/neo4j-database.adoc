@@ -8,7 +8,7 @@ Neo4j's primary product and focus is our graph database that stores data in the 
 It handles both transactional and/or analytics workloads and is optimized for traversing paths through the data using the relationships in the graph to find connections between entities.
 
 [#neo4j-features]
-== Features of the graph database
+== New 4.x features
 
 With each update of Neo4j, the database improves performance and features (plus bug fixes, too!).
 It can be difficult to locate which features and improvements belong to which releases, as well as the best resources for learning and using them.
@@ -38,7 +38,15 @@ Cypher is a graph query language that allows you to read and write data to the g
 It is a very visual, yet powerful, way to interact with nodes and relationships.
 Consistent improvements for built-in functions, syntax, and performance are announced nearly every release.
 
+
 link:/developer/cypher/subqueries/[Developer Guide: Cypher Subqueries]
+
+Some of the significant improvements include:
+
+link:/developer/cypher/subqueries/[Developer Guide: Cypher Subqueries] +
+link:/developer/cypher/filtering-show/[Developer Guide: Filtering SHOW commands] +
+link:/developer/cypher/replanning/[Developer Guide: Cypher Runtime and Replanning]
+
 
 === Data access controls
 

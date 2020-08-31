@@ -1,0 +1,105 @@
+= Query Runtime and Replanning
+:level: Intermediate
+:page-level: Intermediate
+:author: Elaine Rosenberg
+:neo4j-version: 4.1
+:category: cypher
+:tags: cypher, queries, execution plan, planner, replan
+:description: This guide describes improvements made for query replanning in Neo4j 4.1.
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:replanning.adoc
+
+.Goals
+[abstract]
+{description}
+
+.Prerequisites
+[abstract]
+You should be familiar with how queries work in Neo4j
+[role=expertise {level}]
+{level}
+
+
+[#pipelined-runtime]
+== New: Pipelined runtime
+
+In Neo4j 4.0, Cypher introduced the pipelined runtime to optimize query planning.
+In 4.1, we have added even more READ operators to the pipelined Cypher runtime.
+These new operators include:
+
+[square]
+* NestedPlanExpression
+* OptionalExpandAdd
+* OrderedAggregation
+* PartialSort
+* PartialTop
+* RollUpApply
+* SemiApply
+* AntiSemiApply
+* Skip
+* Union
+* ValueHashJoin
+
+That brings to a total of operators for pipelined runtime to 48 that we have implemented.
+We have just 8 operators that need to be implemented to fully support read in the pipelined runtime.
+
+Pipelined read operators have improved READ performance by 11-50% in 4.1.
+
+If you have extremely small queries (micro-second level), using slotted runtime will still be faster than pipelined.
+
+
+[#query-planning]
+== Query planning options
+
+In 4.0, Cypher had these options:
+
+----
+CYPHER x.y <query>
+----
+
+Where you could specify, for example 4.0 or 3.5 for the version of Cypher.
+
+----
+CYPHER runtime=<runtime-type> <query>
+----
+
+Where the options for <runtime-type> were:
+
+[square]
+* *interpreted* (slower, used in Community Edition)
+* *slotted*	(more optimized interpreted)
+* *pipelined* (replaced compiled in 3.x; more optimizations)
+
+== New: Query replanning options
+
+In 4.1, Cypher has added a `replan` option to help you control if the query will be recompiled.
+Sometimes recompilation is desired, especially if the statistics that affect query planning have changed.
+However, there are also times when you do not want the plan to change because you are measuring queries that you have previously cached and you do not want the expense of recompilation.
+
+----
+CYPHER replan=<replan-type> <query>
+----
+
+Where the options for <replan-type> are:
+
+[square]
+* *force* (to recompile the query, whether it is in the cache or not)
+* *skip* (recompile only if the query is not in the cache)
+
+In general, if you want to force a replan, then you would do something like this:
+
+----
+CYPHER replan=force EXPLAIN <query>
+----
+
+This will cause the query to be recompiled and placed in the cache with the latest statistics.
+
+
+[#cypher-resources]
+=== Resources
+
+* link:https://neo4j.com/docs/cypher-manual/current/query-tuning/[Docs: Cypher query tuning].
+* link:https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/.[Online Course: Cypher Query Tuning in Neo4j 4.0].
+
+
