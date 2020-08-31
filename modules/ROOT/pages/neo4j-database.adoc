@@ -19,7 +19,7 @@ This guide will provide some insight into the highlights and where to go for mor
 This capability allows you to operate and manage multiple databases within a single installation of the Neo4j DBMS.
 The data can be segmented by use case, sensitivity, or business applications into different databases.
 
-link:/developer/manage-databases/[Developer Guide: Multiple Databases] +
+link:/developer/manage-multiple-databases/[Developer Guide: Multiple Databases] +
 link:{cyphermanual}/administration/databases/[Docs: Cypher commands to manage databases^] +
 link:{opsmanual}/manage-databases/introduction/[Docs: Multi-database concepts^]
 
@@ -38,7 +38,7 @@ Cypher is a graph query language that allows you to read and write data to the g
 It is a very visual, yet powerful, way to interact with nodes and relationships.
 Consistent improvements for built-in functions, syntax, and performance are announced nearly every release.
 
-link:/developer/sub-queries/[Developer Guide: Cypher Subqueries]
+link:/developer/cypher/subqueries/[Developer Guide: Cypher Subqueries]
 
 === Data access controls
 

@@ -75,7 +75,7 @@ However, if you need to access files in other locations, you can find out which 
 Default import folder paths shown in link:/developer/kb/import-csv-locations/[this article^].
 
 .Examples
-[source,cypher, role= nocopy noplay]
+[source,cypher]
 ----
 //Example 1 - file directly placed in import directory (import/data.csv)
 LOAD CSV FROM "file:///data.csv"
@@ -89,7 +89,7 @@ However, permissions must be set so that an external source can read the file.
 For more information about access related to online file imports, see this link:/developer/kb/import-csv-locations/[knowledge base article^].
 
 .Examples
-[source,cypher, role= nocopy noplay]
+[source,cypher, role=noplay]
 ----
 //Example 1 - website
 LOAD CSV FROM 'https://data.neo4j.com/northwind/customers.csv'
@@ -229,7 +229,7 @@ employeeId,Name,Company
 You should also separate node and relationship creation into separate processing.
 For instance, instead of the following:
 
-[source,cypher,role=noplay nocopy]
+[source,cypher,role=noplay]
 ----
 MERGE (e:Employee {employeeId: row.employeeId})
 MERGE (c:Company {companyId: row.companyId})
@@ -277,7 +277,7 @@ This clause can be added before the `LOAD CSV` clause to tell Cypher to only pro
 For more information, see the link:/docs/cypher-manual/current/query-tuning/using/#query-using-periodic-commit-hint[manual page^] on `PERIODIC COMMIT`.
 +
 .Example
-[source,cypher, role= nocopy noplay]
+[source,cypher, role=noplay]
 ----
 :auto USING PERIODIC COMMIT 500
 LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
