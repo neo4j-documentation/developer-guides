@@ -21,41 +21,74 @@ You should have familiarized yourself with xref:ROOT:get-started.adoc[Graph Data
 {level}
 
 [#cypher-basics]
-== Pop-Cultural Connections
+== Pop culture connections
+
 _The Movie Graph_ is a mini graph application containing actors and directors that are related through the movies they've collaborated on.
-It is available in your Neo4j Browser if you execute `:play movie-graph`.
-It is helpful if you run the queries as you go along, but you should understand them even so.
+
+It is helpful if you run the queries and cypher code to create data as you follow this tutorial.
 
 This tutorial will show you how to:
 
-1. Create: insert movie data into the graph
-2. Find: retrieve individual movies and actors
-3. Query: discover related actors and directors
-4. Solve: the Bacon Path
+1. Create: Insert movie data into the graph.
+2. Find: Retrieve individual movies and actors.
+3. Query: Find patterns in the graph.
+4. Solve: Answer some questions about the graph.
 
 [#cypher-movie-create]
-== Create
+== Create the movie graph
 
-Hidden below this text is a giant code block containing a single Cypher query statement composed of multiple `CREATE` clauses.
-This will create the movie graph.
+. Create and start a new Neo4j database.
+.. Create a blank sandbox at https://sandbox.neo4j.com or..
+.. Create a new database in Neo4j Desktop:
+... Create a new project.
+... Add a database to the project.
+... Start the database.
+. Open Neo4j Browser.
+. Set the browser settings to allow multi-statements:
 
-(You can unfold it with the little [role='icon-plus-sign-alt']plus button)
+image::EnableMultiStatement.png[Enable Multi-statement, link="{imagesdir}/EnableMultiStatement.png",role="popup-link"]
 
-<<CYPHER,+:help Cypher+>>, <<CREATE,+:help CREATE+>>
+[start=4]
+. Enter `:play movie graph` in the query pane and click the "Play" button on the right. A new window opens below the query pane with the browser guide.
+. Go to page 2 of the browser guide.
+. Click on the Cypher code block which will bring it into the query pane and click the "Play" button.
+
+This is what you should see in Neo4j Browser after loading the movie graph:
+
+image::AfterLoadMovieGraph.png[Loaded Movie Graph, link="{imagesdir}/AfterLoadMovieGraph.png",role="popup-link"]
+
+This is the graph view of some of the data returned.
+
+If you want to see the table view of the data returned, you click the table icon on the left:
+
+image::AfterLoadMovieGraphTable.png[Loaded Movie Graph as Table, link="{imagesdir}/AfterLoadMovieGraphTable.png",role="popup-link"]
+
+How you view the results will also depend on the data returned. If the query returns nodes, then you can view the data as a graph. If the query returns property values, you can only view the data as a table.
+
+If you need help:
+
+`:help cypher`
+
+[NOTE]
+When you run Cypher code in the query pane, it always creates a new pane with the results below the query pane.
 
 [#cypher-movie-find]
-== Find
+== Find actors and movies
 
-Example queries for finding individual nodes.
+Next, you will learn about queries for finding individual nodes.
 
 1. Look at every query example
 2. Run the query with the play button
 3. Notice the syntax pattern
 4. Try looking for other movies or actors
 
-<<MATCH,+:help MATCH+>>, <<WHERE,+:help WHERE+>>, <<RETURN,+:help RETURN+>>
+If you need help with syntax:
 
-=== Find the Person Named "Tom Hanks"...
+`:help MATCH`, `:help WHERE`, and `:help RETURN`
+
+=== Find the person named "Tom Hanks"...
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -64,10 +97,19 @@ WHERE tom.name = "Tom Hanks"
 RETURN tom
 ----
 
-//graph_result
-//table
+The graph result should look as follows:
 
-=== Find the Movie Titled "Cloud Atlas"...
+image::findTom.png[Find Tom Hanks, link="{imagesdir}/findTom.png",role="popup-link"]
+
+You can also view the properties of the node with the table view:
+
+image::findTomTable.png[Find Tom Hanks Table, link="{imagesdir}/findTomTable.png",role="popup-link"]
+
+=== Find the movie titled "Cloud Atlas"...
+
+Here we filter the query a different way where we specify the value in the node specification, rather than using a `WHERE` clause.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -75,11 +117,19 @@ MATCH (cloudAtlas:Movie {title: "Cloud Atlas"})
 RETURN cloudAtlas
 ----
 
-//graph_result
+Here is the result of this query:
 
-//table
+image::findCloudAtlas.png[Find Cloud Atlas, link="{imagesdir}/findCloudAtlas.png",role="popup-link"]
 
-=== Find 10 People...
+And here is the table view:
+
+image::findCloudAtlasTable.png[Find Cloud Atlas Table, link="{imagesdir}/findCloudAtlasTable.png",role="popup-link"]
+
+=== Find 10 people...
+
+Next we want to find the names of 10 people in the graph. This code finds all _Person_ nodes in the graph but just returns the _name_ property value for 10 of them.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -87,9 +137,17 @@ MATCH (people:Person)
 RETURN people.name LIMIT 10
 ----
 
-// table
+Here is the result of this query:
 
-=== Find Movies Released in the 1990s...
+image::findTenPeople.png[Find 10 People, link="{imagesdir}/findTenPeople.png",role="popup-link"]
+
+For this query, property values are returned and you can only view the results as a table.
+
+=== Find movies released in the 1990s...
+
+Here is a query where we specify a range of values for selecting the _Movie_ nodes to retrieve. Then we return the titles of these _Movie_ nodes.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -98,21 +156,27 @@ WHERE nineties.released > 1990 AND nineties.released < 2000
 RETURN nineties.title
 ----
 
-//table
+Here is the result of this query:
+
+image::findNinetiesMovies.png[Find 1990's Movies, link="{imagesdir}/findNinetiesMovies.png",role="popup-link"]
+
 
 [#cypher-movie-query]
-== Query
+== Find patterns in the graph
 
-Finding patterns within the graph.
+Thus far, you have queried the graph for nodes. Next, you will gain experience retrieving related nodes.
 
-1. Actors are people who acted in movies
-2. Directors are people who directed a movie
+You will execute Cypher code to find patterns within the graph.
+
+1. Actors are people who acted in movies.
+2. Directors are people who directed a movie.
 3. What other relationships exist?
 
-<<MATCH,+:help MATCH+>>
+=== List all Tom Hanks movies...
 
+Here is a query where we want to return the _Person_ node for the actor Tom Hanks and we also want to return all _Movie_ nodes that have the _ACTED_IN_ relationship to Tom Hanks. That is, all movies that Tom Hanks acted in.
 
-=== List All Tom Hanks Movies...
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -120,12 +184,24 @@ MATCH (tom:Person {name: "Tom Hanks"})-[:ACTED_IN]->(tomHanksMovies)
 RETURN tom,tomHanksMovies
 ----
 
-//graph_result
+Here is the result of this query:
 
-//table
+image::findTomHanksMovies.png[Find Tom Hanks Movies, link="{imagesdir}/findTomHanksMovies.png",role="popup-link"]
+
+Notice here that we also see the _DIRECTED_ relationships between the Tom Hanks node and the _Movie_ nodes. This is because we have a setting in our Neo4j Browser where result nodes will be connected:
+
+image::ConnectResultNodesSetting.png[Connected Nodes, link="{imagesdir}/ConnectResultNodesSetting.png",role="popup-link"]
+
+And here is the table view:
+
+image::findTomHanksMoviesTable.png[Find Tom Hanks Movies Table, link="{imagesdir}/findTomHanksMoviesTable.png",role="popup-link"]
 
 
-=== Who Directed "Cloud Atlas"?
+=== Who directed "Cloud Atlas"?
+
+Here is a query where we want to return the nodes that have the _DIRECTED_ relationship to the Cloud Atlas _Movie_ node. It will return the names of the people who directed the movie.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -133,10 +209,16 @@ MATCH (cloudAtlas:Movie {title: "Cloud Atlas"})<-[:DIRECTED]-(directors)
 RETURN directors.name
 ----
 
-//table
+Here is the result of this query:
+
+image::DirectorsCloudAtlas.png[Directors of Cloud Atlas, link="{imagesdir}/DirectorsCloudAtlas.png",role="popup-link"]
 
 
-=== Tom Hanks' Co-Actors...
+=== Tom Hanks' co-actors...
+
+Next, we want to find all movies that Tom Hanks acted in and for each movie retrieved, also find the people who acted in that movie.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -144,48 +226,68 @@ MATCH (tom:Person {name:"Tom Hanks"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors)
 RETURN tom, m, coActors
 ----
 
-//graph_result
+Here is the result of this query:
 
-//table
+image::TomsCoActors.png[CoActors of Tom Hanks, link="{imagesdir}/TomsCoActors.png",role="popup-link"]
+
+And here is the table view:
+
+image::TomsCoActorsTable.png[CoActors of Tom Hanks Table, link="{imagesdir}/TomsCoActorsTable.png",role="popup-link"]
 
 
-=== How People are Related to "Cloud Atlas"...
+=== How people are related to "Cloud Atlas"...
+
+Here is a query where we want to return information about the relationships to and from the Cloud Atlas movie. We find the related nodes and then we return the name of the person, the type of relationship, and the properties for that relationship.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
 MATCH (people:Person)-[relatedTo]-(:Movie {title: "Cloud Atlas"})
-RETURN people.name, Type(relatedTo), relatedTo
+RETURN people.name, type(relatedTo), relatedTo
 ----
 
-//table
+Here is the result of this query:
+
+image::CloudAtlasRelationships.png[Cloud Atlas Relationships, link="{imagesdir}/CloudAtlasRelationships.png",role="popup-link"]
+
 
 [#cypher-paths]
-== Solve the Six Degrees Question
+== Answer some questions about the graph
 
-You've heard of the classic "Six Degrees of Kevin Bacon"?
-That is simply a shortest path query called the "Bacon Path".
+You've heard of the classic "Six Degrees of Kevin Bacon"? That is, find all people who are up to 6 hops away from Kevin Bacon in the graph.
+This is simply a shortest path query called the "Bacon Path".
+To perform this type of query, you need to specify:
 
-1. Variable length patterns
-2. Built-in shortestPath() algorithm
-
+* Variable length patterns:
 {cyphermanual}/syntax/patterns/#cypher-pattern-varlength[variable length relationships^]
+* Built-in shortestPath() algorithm:
 {cyphermanual}/execution-plans/shortestpath-planning/[shortestPath^]
 
 
-=== Movies and Actors up to Three Hops Away from Kevin Bacon
+=== Movies and actors up to 3 hops away from Kevin Bacon
+
+In our first query, we want to find all movies and/or people who are up to 3 hops away from Kevin Bacon in the graph.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
 MATCH (bacon:Person {name:"Kevin Bacon"})-[*1..3]-(hollywood)
-RETURN DISTINCT hollywood
+RETURN DISTINCT bacon, hollywood
 ----
 
-//graph_result
+Here is the result of this query:
 
-//table
+image::ThreeDegreesKevinBacon.png[3 Hops from Kevin Bacon, link="{imagesdir}/ThreeDegreesKevinBacon.png",role="popup-link"]
 
 
-=== The Bacon Path to Meg Ryan
+=== Find the Bacon Path to Meg Ryan
+
+What is the shortest path between Kevin Bacon and Meg Ryan in the graph?
+In this Cypher,, we are returning the path that includes nodes and relationships.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -195,37 +297,45 @@ MATCH p=shortestPath(
 RETURN p
 ----
 
-//graph_result
+Before you execute the query, you will see a warning that a relationship of '*' could take a long time to execute. Our movie graph is small, so you can ignore this warning.
 
-//table
+Here is the result of this query:
+
+image::KevinBaconToMegRyan.png[Kevin Bacon to Meg Ryan, link="{imagesdir}/KevinBaconToMegRyan.png",role="popup-link"]
+
 
 [#cypher-movie-cleanup]
-== Clean Up
+== Clean up
 
 When you're done experimenting, you can remove the movie data set.
 
 [NOTE]
-1. Nodes can't be deleted if relationships to them exist
-2. Delete both nodes and relationships together
+1. Nodes can't be deleted if relationships to them exist.
+2. Delete both nodes and relationships together.
 
 [WARNING]
-This will remove all Person and Movie nodes!
+This will remove all nodes and relationships in the graph!
 
-* <<DELETE,+:help DELETE+>>
-
-
-=== Delete All Movie and Person Nodes and their Relationships
-
-//output
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
-MATCH (a:Person),(m:Movie)
-OPTIONAL MATCH (a)-[r1]-(), (m)-[r2]-()
-DELETE a,r1,m,r2
+MATCH (n)
+DETACH DELETE n
 ----
 
-=== Prove that the Movie Graph is Gone
+Here is the result of this query:
+
+image::DetachDelete.png[Delete all Nodes, link="{imagesdir}/DetachDelete.png",role="popup-link"]
+
+Notice that although the database information in the left panel shows no nodes or relationships in the graph, the property key names remain.
+
+
+=== Verify that the movie graph data is gone
+
+If you perform this query to retrieve all nodes in the graph and return the count, you should see a value of 0 returned.
+
+Copy and paste this code into the query pane and execute it:
 
 [source, cypher]
 ----
@@ -233,4 +343,8 @@ MATCH (n)
 RETURN count(*)
 ----
 
-//table
+Here is the result of this query:
+
+image::ZeroNodes.png[Zero Nodes, link="{imagesdir}/ZeroNodes.png",role="popup-link"]
+
+*Congratulations!* You have learned how to use Cypher to query a Neo4j database.

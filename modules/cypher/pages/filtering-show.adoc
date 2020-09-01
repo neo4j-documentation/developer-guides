@@ -1,0 +1,85 @@
+= Filtering SHOW results
+:level: Beginner
+:page-level: Beginner
+:author: Elaine Rosenberg
+:neo4j-version: 4.1
+:category: cypher
+:tags: cypher, queries, show, filter, database, user
+:description: This guide shows how to better utilize results of the `SHOW` command.
+:page-comments:
+:page-pagination:
+:page-aliases: ROOT:filtering-show.adoc
+
+.Goals
+[abstract]
+{description}
+
+.Prerequisites
+[abstract]
+You should be familiar with xref:ROOT:manage-multiple-databases.adoc[managing databases].
+You should also be familiar with the commands to link:{opsmanual}/authentication-authorization/[Docs: Manage Users].
+
+[role=expertise {level}]
+{level}
+
+
+[#show-commands]
+== SHOW commands in Neo4j 4.0
+
+In Neo4j 4.0, we introduced these commands to help you manage a Neo4j instance and users.
+Note that in 4.0, these commands had to be issued from the system database.
+
+----
+SHOW DATABASES
+SHOW DATABASE [DEFAULT DATABASE] | [<database-name>]
+----
+
+----
+SHOW USERS
+SHOW USER <user-name>
+----
+
+----
+SHOW [ALL | POPULATED] ROLES [WITH USERS}
+SHOW ROLE <role-name> PRIVILEGES
+----
+
+----
+SHOW PRIVILEGES
+----
+
+[#yield-for-show-commands]
+== Using SHOW commands in Neo4j 4.1
+
+In 4.1, these commands have been enhanced so you can filter results to display.
+You can specify specific columns that you want to return or filter.
+In addition, you need not run these commands using the system database.
+
+For example:
+
+----
+SHOW DATABASES
+YIELD name, currentStatus
+WHERE name CONTAINS 'test' AND currentStatus = 'online';
+----
+
+image::show-databases-example.jpg[Using SHOW DATABASES, link="{imagesdir}/show-databases-example.jpg",role="popup-link"]
+
+Here is another example:
+
+----
+SHOW ROLE reader PRIVILEGES
+YIELD access, resource, segment, action
+WHERE access = 'GRANTED'  AND action = 'match';
+----
+
+image::show-roles-example.jpg[Using SHOW ROLES, link="{imagesdir}/show-roles-example.jpg",role="popup-link"]
+
+
+[#cypher-resources]
+=== Resources
+
+* link:https://neo4j.com/docs/cypher-manual/current/administration/databases/[Docs: Cypher commands to manage databases].
+* link:https://neo4j.com/docs/operations-manual/current/authentication-authorization/[Docs: Manage Users].
+
+

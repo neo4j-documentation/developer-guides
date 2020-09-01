@@ -19,7 +19,7 @@ Operating in the changing environment requires some knowledge and training of th
 
 Various guides throughout this section will cover topics on key operational features and how they work.
 
-link:/developer/manage-databases/[Manage Multiple Databases] +
+link:/developer/manage-multiple-databases/[Manage Multiple Databases] +
 link:/developer/multi-tenancy/[Multi-Tenancy: A Worked Example] +
 link:/developer/neo4j-fabric-sharding/[Sharding Graph Data]
 

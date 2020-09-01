@@ -7,9 +7,9 @@
 
 * xref:graph-platform.adoc[Neo4j Graph Platform]
 ** xref:neo4j-database.adoc[Neo4j Database]
-** xref:neo4j-desktop.adoc[Neo4j Desktop Intro]
-** xref:neo4j-browser.adoc[Neo4j Browser Intro]
-** xref:neo4j-bloom.adoc[Neo4j Bloom Intro]
+** xref:neo4j-desktop.adoc[Neo4j Desktop]
+** xref:neo4j-browser.adoc[Neo4j Browser]
+** xref:neo4j-bloom.adoc[Neo4j Bloom]
 ** xref:neo4j-etl.adoc[How-To: Neo4j ETL Tool]
 ** xref:neo4j-apoc.adoc[Neo4j APOC Library]
 ** xref:graphql.adoc[Neo4j &amp; GraphQL]
@@ -27,6 +27,8 @@
 *** xref:cypher:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation Engine]
 ** xref:cypher:guide-sql-to-cypher.adoc[Comparing SQL and Cypher]
 ** xref:cypher:procedures-functions.adoc[User Defined Procedures &amp; Functions]
+** xref:cypher:filtering-show.adoc[Filtering SHOW commands]
+** xref:cypher:replanning.adoc[Cypher Runtime and Replanning]
 ** xref:cypher-style-guide.adoc[Cypher Style Guide]
 ** xref:cypher:resources.adoc[Cypher Resources]
 

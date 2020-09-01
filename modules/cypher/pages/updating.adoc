@@ -16,7 +16,7 @@
 .Prerequisites
 [abstract]
 You should be familiar with xref:ROOT:graph-database.adoc[graph database] concepts and the xref:ROOT:graph-database.adoc#property-graph[property graph model].
-This guide is a continuation of the xref:syntax.adoc[Cypher Syntax] section.
+This guide is a continuation of the xref:intro-cypher.adoc[Cypher Syntax] section.
 You will need to read that guide before continuing with the current section.
 
 [role=expertise {level}]

@@ -89,10 +89,10 @@ However, permissions must be set so that an external source can read the file.
 For more information about access related to online file imports, see this link:/developer/kb/import-csv-locations/[knowledge base article^].
 
 .Examples
-[source,cypher]
+[source,cypher, role=noplay]
 ----
 //Example 1 - website
-LOAD CSV FROM 'https://neo4j.com/docs/cypher-manual/3.5/csv/artists.csv'
+LOAD CSV FROM 'https://data.neo4j.com/northwind/customers.csv'
 
 //Example 2 - Google
 LOAD CSV WITH HEADERS FROM 'https://docs.google.com/spreadsheets/d/<yourFilePath>'
@@ -115,52 +115,90 @@ These are extremely useful for handling missing data or splitting a field into m
 First, remember that Neo4j does not store null values.
 Null or empty fields in a CSV files can be skipped or replaced with default values in `LOAD CSV`.
 
-.Example
-[source,cypher]
+Suppose we have this CSV file:
+
+.companies.csv
+[source]
+----
+Id,Name,Location,Email,BusinessType
+1,Neo4j,San Mateo,contact@neo4j.com,P
+2,AAA,,info@aaa.com,
+3,BBB,Chicago,,G
+----
+
+[NOTE]
+The default location for CSV files for import is the *import* directory for your Neo4j instance.
+
+Here are some examples of importing this data.
+
+.Examples
+[source,cypher,role=noplay]
 ----
 //skip null values
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
-WITH row WHERE row.Company IS NOT NULL
-MERGE (c:Company {companyId: row.Id})
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
+WITH row WHERE row.Id IS NOT NULL
+MERGE (c:Company {companyId: row.Id});
+
+// clear data
+MATCH (n:Company) DELETE n;
 
 //set default for null values
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
 MERGE (c:Company {companyId: row.Id, hqLocation: coalesce(row.Location, "Unknown")})
 
+// clear data
+MATCH (n:Company) DELETE n;
+
 //change empty strings to null values (not stored)
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
 MERGE (c:Company {companyId: row.Id})
 SET c.emailAddress = CASE trim(row.Email) WHEN "" THEN null ELSE row.Email END
 ----
 
 Next, if you have a field in the CSV that is a list of items that you want to split, you can use the Cypher `split()` function to separate arrays in a cell.
 
-.Example
-[source,cypher]
+Suppose we have this CSV file:
+
+.employees.csv
+[source]
 ----
-//split string of employee skills into separate nodes
-LOAD CSV FROM 'file:///data.csv' AS row
-MERGE (e:Employee {employeeId: row.Id})
-UNWIND split(row.skills, ',') AS skill
+Id,Name,Skills,Email
+1,Joe Smith,Cypher:Java:JavaScript,joe@neo4j.com
+2,Mary Jones,Java,mary@neo4j.com
+3,Trevor Scott,Java:JavaScript,trevor@neo4j.com
+----
+
+.Example
+[source,cypher,role=noplay]
+----
+LOAD CSV WITH HEADERS FROM 'file:///employees.csv' AS row
+MERGE (e:Employee {employeeId: row.Id, email: row.Email})
+WITH e, row
+UNWIND split(row.Skills, ':') AS skill
 MERGE (s:Skill {name: skill})
-MERGE (e)-[r:HAS_EXPERIENCE]->(s);
+MERGE (e)-[r:HAS_EXPERIENCE]->(s)
 ----
 
 Conditional conversions can be achieved with `CASE`.
 You saw one example of this when we were checking for null values or empty strings, but let us look at another example.
 
 .Example
-[source,cypher]
+[source,cypher,role=noplay]
 ----
+// clear data
+MATCH (n:Company) DELETE n;
+
 //set businessType property based on shortened value in CSV
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
+WITH row WHERE row.Id IS NOT NULL
 WITH row,
 (CASE row.BusinessType
  WHEN 'P' THEN 'Public'
  WHEN 'R' THEN 'Private'
  WHEN 'G' THEN 'Government'
  ELSE 'Other' END) AS type
-MERGE (c:Company {companyId: row.CompanyId})
+MERGE (c:Company {companyId: row.Id, hqLocation: coalesce(row.Location, "Unknown")})
+SET c.emailAddress = CASE trim(row.Email) WHEN "" THEN null ELSE row.Email END
 SET c.businessType = type
 RETURN *
 ----
@@ -176,10 +214,22 @@ To improve inserting or updating unique entities into your graph (using `MERGE` 
 For best performance, always `MATCH` and `MERGE` on a single label with the indexed primary-key property.
 --
 
-You should also separate node and relationship creation into separate statements.
+Suppose we use the above *companies.csv* file, and we now have a file that contains people and which companies they work for:
+
+.people.csv
+[source]
+----
+employeeId,Name,Company
+1,Bob Smith,1
+2,Joe Jones,3
+3,Susan Scott,2
+4,Karen White,1
+----
+
+You should also separate node and relationship creation into separate processing.
 For instance, instead of the following:
 
-[source,cypher]
+[source,cypher,role=noplay]
 ----
 MERGE (e:Employee {employeeId: row.employeeId})
 MERGE (c:Company {companyId: row.companyId})
@@ -188,21 +238,34 @@ MERGE (e)-[r:WORKS_FOR]->(c)
 
 You can write it like this:
 
-[source,cypher]
+[source,cypher,role=noplay]
 ----
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
-MERGE (e:Employee {employeeId: row.employeeId})
+// clear data
+MATCH (n)
+DETACH DELETE n;
+// load Employee nodes
+LOAD CSV WITH HEADERS FROM 'file:///people.csv' AS row
+MERGE (e:Employee {employeeId: row.employeeId, name: row.Name})
 RETURN count(e);
-
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
-MERGE (c:Company {companyId: row.companyId})
+// load Company nodes
+LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
+WITH row WHERE row.Id IS NOT NULL
+WITH row,
+(CASE row.BusinessType
+ WHEN 'P' THEN 'Public'
+ WHEN 'R' THEN 'Private'
+ WHEN 'G' THEN 'Government'
+ ELSE 'Other' END) AS type
+MERGE (c:Company {companyId: row.Id, hqLocation: coalesce(row.Location, "Unknown")})
+SET c.emailAddress = CASE trim(row.Email) WHEN "" THEN null ELSE row.Email END
+SET c.businessType = type
 RETURN count(c);
-
-LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
+// create relationships
+LOAD CSV WITH HEADERS FROM 'file:///people.csv' AS row
 MATCH (e:Employee {employeeId: row.employeeId})
-MATCH (c:Company {companyId: row.companyId})
-MERGE (e)-[r:WORKS_FOR]->(c)
-RETURN count(*);
+MATCH (c:Company {companyId: row.Company})
+MERGE (e)-[:WORKS_FOR]->(c)
+RETURN *;
 ----
 
 This way, the load is only doing one piece of the import at a time and can move through large amounts of data quickly and efficiently, reducing heavy processing.
@@ -214,14 +277,11 @@ This clause can be added before the `LOAD CSV` clause to tell Cypher to only pro
 For more information, see the link:/docs/cypher-manual/current/query-tuning/using/#query-using-periodic-commit-hint[manual page^] on `PERIODIC COMMIT`.
 +
 .Example
-[source,cypher]
+[source,cypher, role=noplay]
 ----
-USING PERIODIC COMMIT 500
+:auto USING PERIODIC COMMIT 500
 LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
-MERGE (pet:Pet {petId: row.PetId})
-MERGE (owner:Owner {ownerId: row.OwnerId})
- ON CREATE SET owner.name = row.OwnerName
-MERGE (pet)-[r:OWNED_BY]->(owner)
+...
 ----
 
 2. Avoid the EAGER operator.
@@ -239,72 +299,85 @@ To help handle larger volumes of transactions, you can increase some configurati
 * link:/docs/cypher-manual/current/clauses/load-csv/[Cypher Manual: LOAD CSV^]
 * link:/developer/guide-importing-data-and-etl/[Example: Import Northwind Data Set]
 * link:https://youtu.be/Eh_79goBRUk[Video: LOAD CSV in the Real World^]
+* link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0: Using LOAD CSV for Import]
 
 [#batch-importer]
 == Bulk Importer For Large Datasets
 
 `LOAD CSV` is great for importing small- or medium-sized data (up to 10M records).
-For data sets larger than this, we have access to a command line bulk importer.
+For datasets larger than this, you can use the command line bulk importer.
 The `neo4j-admin import` tool allows you to import CSV data to an empty database by specifying node files and relationship files.
 
-We want to use it to import order data into Neo4j: _customers, orders, and ordered products_.
+Suppose you want to this tool it to import order data into Neo4j. Here are the CSV files.
+Notice that some of the include headers and some will have separate header files.
+If you want to perform the import, you place them in the *import* folder for your Neo4j instance.
 
-The tool is located in `<neo4j-home>/bin/neo4j-admin` and is used as follows:
+.customers.csv
+[source]
+----
+customerId:ID(customer-reference), name
+23, Delicatessen Inc
+42, Delicious Bakery
+----
+
+.products.csv
+[source]
+----
+productId:ID(product-reference), name, price, :LABEL
+11,Chocolate,10,Product;Food
+----
+
+.orders_header.csv
+[source]
+----
+orderId:ID(order-reference),date,total,customerId:IGNORE
+----
+
+.customer_orders_header.csv
+[source]
+----
+:END_ID(order-reference),date:IGNORE,total:IGNORE,:START_ID(customer-reference)
+----
+
+.orders1.csv
+[source]
+----
+1041,2020-05-10,130,23
+----
+
+.orders2.csv
+[source]
+----
+1042,2020-05-12,20,42
+----
+
+.order_details.csv
+[source]
+----
+:START_ID(order-reference),amount,price,:END_ID(product-reference)
+1041,13,130,11
+1042,2,20,11
+----
+
+The tool is located in `<neo4j-instance-location>/bin/neo4j-admin` and you run it in a terminal window where you have navigated to the *import* folder for your Neo4j instance.
+
+Here is an example of importing the above CSV files in Neo4j 4.x. You must specify the name of the database. In this case we specify *orders*.
 
 [source, shell]
 ----
-bin/neo4j-admin import --id-type=STRING \
-                       --nodes=Customer=customers.csv --nodes=products.csv  \
-                       --nodes="orders_header.csv,orders1.csv,orders2.csv" \
-                       --relationships:CONTAINS=order_details.csv \
-                       --relationships:ORDERED="customer_orders_header.csv,orders1.csv,orders2.csv"
+../bin/neo4j-admin import --database orders
+     --nodes=Customer=customers.csv
+     --nodes=products.csv
+     --nodes=Order="orders_header.csv,orders1.csv,orders2.csv"
+     --relationships=CONTAINS=order_details.csv
+     --relationships=ORDERED="customer_orders_header.csv,orders1.csv,orders2.csv"
+     --trim-strings=true
 ----
 
-The first few rows of data used for this import look like this:
-
-.customers.csv
-[options="header"]
-|===
-| customerId:ID(Customer) | name
-| 23 | Delicatessen Inc
-| 42 | Delicous Bakery
-|===
-
-.products.csv
-[options="header"]
-|===
-| productId:ID(Product) | name | price | :LABEL
-| 11 | Chocolate | 10 | Product;Food
-|===
-
-.orders_header.csv,orders1.csv,orders2.csv
-[options="header"]
-|===
-| orderId:ID(Order) | date | total | customerId:IGNORE
-| 1041 | 2015-05-10 | 130 | 23
-| 1042 | 2015-05-12 | 20 | 42
-|===
-
-.order_details.csv
-[options="header"]
-|===
-| :START_ID(Order) | amount | price | :END_ID(Product)
-| 1041 | 13 | 130 | 11
-| 1042 | 2 | 20 | 11
-|===
-
-.customer_orders_header.csv,orders1.csv,orders2.csv
-[options="header"]
-|===
-| :END_ID(Order) | date:IGNORE | total:IGNORE | :START_ID(Customer)
-| 1041 | 2015-05-10 | 130 | 23
-| 1042 | 2015-05-12 | 20 | 42
-|===
-
---
 [NOTE]
-If you call the `bin/neo4j-admin import` without parameters it will list a comprehensive help page.
---
+You must specify the parameters to this script on a *single* line. Line feeds are shown here for readability.
+
+When you execute this command, it creates a new database named *orders*.
 
 The repeated `--nodes` and `--relationships` parameters are groups of multiple (potentially split) CSV files of the same entity, i.e. with the same column structure.
 
@@ -325,15 +398,17 @@ There is specific markup on specific columns, which we will explain.
 
 * `name:ID` - global id column used to look up the node later reconnecting.
 ** if the property name is left off, it will be not stored (temporary), which is what the `--id-type` refers to.
-** if you have repeated IDs across entities, you have to provide the entity (id-group) in parentheses like `:ID(Order)`.
+** if you have repeated IDs across entities, you have to provide the entity (id-group) in parentheses like `:ID(order-reference)`.
 ** if your IDs are globally unique, you can leave that off.
 * `:LABEL` - label column for nodes. Multiple labels can be separated by delimiter.
-* `:START_ID`, `:END_ID` - relationship file columns referring to the node ids. For id-groups, use `:END_ID(Order)`.
+* `:START_ID`, `:END_ID` - relationship file columns referring to the node ids. For id-groups, use `:END_ID(order-reference)`.
 * `:TYPE` - column to specify relationship-type.
 * All other columns are treated as properties but skipped if empty or annotated with `:IGNORE`.
 * Type conversion is possible by suffixing the name with indicators like `:INT`, `:BOOLEAN`, etc.
 
 For more details on this header format and the tool, see the documentation in the {opsmanual}/tools/import/[Neo4j Manual^] and the accompanying {opsmanual}/tutorial/import-tool/[tutorial^].
+
+There is also a lesson in the link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0_ online course] that covers using the neo4j-admin import tool.
 
 [#data-load-quality]
 == CSV Data Quality
@@ -388,7 +463,7 @@ You can upload the file or provide an URL to load it.
 * link:/developer/desktop-csv-import/#inspect-files[Cypher] - what Cypher sees is what will be imported, so you can use that to your advantage.
 Using `LOAD CSV` without creating graph structure will just output samples, counts, or distributions to make it possible to detect incorrect header column counts, delimiters, quotes, escapes, or header name spellings.
 
-[source, cypher]
+[source, cypher, role= nocopy noplay]
 ----
 // assert correct line count
 LOAD CSV FROM "file-url" AS line

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa13a674-8b47-4a31-82a2-0e82a57ea5c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/modules/ROOT/pages/modeling-designs.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ROOT/pages/modeling-designs.adoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +21,8 @@
         <entry file="file://$PROJECT_DIR$/README.adoc">
           <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="114">
-                <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <first_editor relative-caret-position="460">
+                <caret line="49" selection-start-line="49" selection-end-line="49" />
               </first_editor>
               <second_editor />
             </state>
@@ -30,36 +30,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/modeling-designs.adoc">
+        <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc">
           <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-15">
-                <caret line="115" column="87" selection-start-line="115" selection-start-column="87" selection-end-line="115" selection-end-column="87" />
+              <first_editor relative-caret-position="251">
+                <caret line="228" column="26" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
               </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/antora.yml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/site/_/css/site.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="2117" selection-start-line="1" selection-start-column="2117" selection-end-line="1" selection-end-column="2117" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/ROOT/nav.adoc">
-          <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor />
               <second_editor />
             </state>
           </provider>
@@ -72,10 +48,25 @@
       <find>course</find>
       <find>advanced</find>
       <find>glossary</find>
+      <find>intermediary</find>
+      <find>graphgist</find>
+      <find>online-training</find>
+      <find>github</find>
+      <find>Introduction to</find>
+      <find>graphacademy</find>
+      <find>about-graph</find>
+      <find>cypher-basics</find>
+      <find>cypher-ba</find>
+      <find>guide</find>
+      <find>pagerank-chart</find>
+      <find>apoc-plugin</find>
     </findStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/modules</dir>
       <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/modules/ROOT</dir>
+      <dir>$PROJECT_DIR$/modules/ROOT/pages</dir>
+      <dir>$PROJECT_DIR$/modules</dir>
+      <dir>$PROJECT_DIR$/modules/graph-data-science/pages</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -85,20 +76,45 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/modules/ROOT/pages/modeling-designs.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/modeling-tips.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/guide-data-modeling.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/relational-to-graph-modeling.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/graph-model-refactoring.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/data-modeling.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/graphgist.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/graphgist-portal.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/resources.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/graph-database.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/about-graphacademy.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/getting-started-resources.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/resources.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/get-started.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/guide-build-a-recommendation-engine.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/guide-sql-to-cypher.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/updating.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/querying.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/intro-cypher.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/controlling-query-processing.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/subqueries.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/index.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/nav.adoc" />
+        <option value="$PROJECT_DIR$/modules/cypher/pages/guide-cypher-basics.adoc" />
+        <option value="$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="121" />
-    <option name="y" value="96" />
-    <option name="width" value="1367" />
-    <option name="height" value="869" />
+    <option name="x" value="499" />
+    <option name="y" value="102" />
+    <option name="width" value="1855" />
+    <option name="height" value="845" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,20 +140,39 @@
               <item name="ROOT" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="developer-guides" type="b2602c69:ProjectViewProjectNode" />
+              <item name="developer-guides" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/modules/cypher/pages" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/modules/ROOT/pages/graphgist.adoc" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/cypher/pages" />
+      <recent name="$PROJECT_DIR$/modules/ROOT/images/_cdn/data-modeling/graphgist-portal" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/cypher/images" />
+      <recent name="$PROJECT_DIR$/modules/ROOT/images/_cdn/data-modeling/graphgist-portal/img" />
+      <recent name="$PROJECT_DIR$/modules/ROOT/images/_cdn/data-modeling/graphgist-portal" />
+      <recent name="$PROJECT_DIR$/modules/ROOT/images/_cdn/data-modeling/interactive-graph-models" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -164,17 +199,21 @@
       <updated>1597695050603</updated>
       <workItem from="1597695051795" duration="2557000" />
       <workItem from="1597754153947" duration="229000" />
-      <workItem from="1597755537507" duration="2305000" />
+      <workItem from="1597755537507" duration="2758000" />
+      <workItem from="1597764142065" duration="1738000" />
+      <workItem from="1597775658099" duration="2237000" />
+      <workItem from="1597855460731" duration="568000" />
+      <workItem from="1598276639691" duration="37755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5091000" />
+    <option name="totallyTimeSpent" value="47842000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="121" y="96" width="1367" height="869" extended-state="0" />
+    <frame x="499" y="102" width="1855" height="845" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27773586" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28516272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -191,7 +230,37 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Graph Database Console" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37065637" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36918992" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Graph Database" order="4" weight="0.32917705" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="SciView" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22821577" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Learn" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Graph Database Console" order="10" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.5040107" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -202,30 +271,12 @@
       <window_info anchor="right" id="SciView" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-sql-to-cypher.adoc">
-      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="335">
-            <caret line="472" selection-start-line="472" selection-end-line="472" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ROOT/nav.adoc">
-      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/aura-connect-cypher-shell.adoc">
       <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
         <state split_layout="SPLIT">
@@ -234,16 +285,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/about-graphacademy.adoc">
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/relational-to-graph-modeling.adoc">
       <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor />
+          <first_editor relative-caret-position="1800">
+            <caret line="120" selection-start-line="119" selection-end-line="120" />
+          </first_editor>
           <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/antora.yml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/build/site/_/css/site.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -252,21 +302,275 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.adoc">
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/data-modeling.adoc">
       <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="114">
-            <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <first_editor relative-caret-position="271">
+            <caret line="60" selection-start-line="60" selection-end-line="60" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/graphgist.adoc" />
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/graph-model-refactoring.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="391">
+            <caret line="335" selection-start-line="335" selection-end-line="335" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/modeling-tips.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1147">
+            <caret line="92" selection-start-line="90" selection-end-line="92" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/antora.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/modeling-designs.adoc">
       <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-15">
-            <caret line="115" column="87" selection-start-line="115" selection-start-column="87" selection-end-line="115" selection-end-column="87" />
+          <first_editor relative-caret-position="349">
+            <caret line="49" selection-start-line="49" selection-end-line="49" selection-end-column="98" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/Readme.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/site/developer/graphgist-portal/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11603" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redirects">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/guide-data-modeling.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3476">
+            <caret line="241" selection-start-line="241" selection-end-line="241" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/resources.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="138">
+            <caret line="28" column="73" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="73" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/graphgist-portal.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-82">
+            <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/getting-started-resources.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="415">
+            <caret line="45" column="72" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="72" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-build-a-recommendation-engine.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="154">
+            <caret line="40" column="42" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="42" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/updating.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="101">
+            <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/controlling-query-processing.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="30" selection-start-column="30" selection-end-column="30" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/subqueries.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-287">
+            <caret column="6" selection-start-column="6" selection-end-column="6" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/nav.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="228">
+            <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-sql-to-cypher.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="27" selection-start-column="27" selection-end-column="27" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/get-started.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="2295">
+            <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/intro-cypher.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-380">
+            <caret column="29" selection-start-column="29" selection-end-column="29" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/index.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="242">
+            <caret line="55" selection-start-line="55" selection-end-line="55" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/graph-data-science/pages/centrality-graph-algorithms.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1837" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/guide-cypher-basics.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="275">
+            <caret line="349" column="47" selection-start-line="349" selection-start-column="47" selection-end-line="349" selection-end-column="47" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/graph-data-science/pages/neuler-no-code-graph-algorithms.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-243" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/graph-data-science/pages/build-knowledge-graph-nlp-ontologies.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="239">
+            <caret line="64" selection-start-line="64" selection-end-line="64" selection-end-column="109" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/cypher/pages/querying.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-575">
+            <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/about-graphacademy.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="211">
+            <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/data-import.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-152" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="460">
+            <caret line="49" selection-start-line="49" selection-end-line="49" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ROOT/pages/guide-import-csv.adoc">
+      <provider selected="true" editor-type-id="split-provider[text-editor;AsciiDocPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="251">
+            <caret line="228" column="26" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
           </first_editor>
           <second_editor />
         </state>
