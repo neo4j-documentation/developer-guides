@@ -64,6 +64,13 @@ We can install APOC from the plugins section of a database in the Neo4j Desktop:
 .Installing APOC
 image::apoc-plugin-install.png[Installing APOC, link="{imagesdir}/apoc-plugin-install.png",role="popup-link"]
 
+We'll also need to install the APOC NLP Dependencies jar from GitHub releases.
+At the time of writing, the latest version of APOC is 4.0.0.18, so we need to download `apoc-nlp-dependencies-4.0.0.18.jar` from the https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/tag/4.0.0.18[4.0.0.18 release page^].
+Once we've downloaded that file, we need to place it in the `plugins` directory:
+
+.Installing APOC NLP Dependencies
+image::apoc-dependencies.png[Installing APOC NLP Depedencies, link="{imagesdir}/apoc-dependencies.png",role="popup-link"]
+
 [#neosemantics]
 === neosemantics (n10s)
 
