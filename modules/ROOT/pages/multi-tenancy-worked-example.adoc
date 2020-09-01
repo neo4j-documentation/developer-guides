@@ -1,6 +1,6 @@
 = Multi Tenancy in Neo4j: A Worked Example
 :level: Beginner
-:page-level: Beginner
+:page-level: Advanced
 :author: Mark Needham
 :neo4j-version: 4.0
 :category: cluster
