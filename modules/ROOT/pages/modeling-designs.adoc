@@ -13,8 +13,7 @@ Our goal is to show you how to evaluate your model and make appropriate changes,
 
 .Prerequisites
 [abstract]
-You should understand link:/developer/get-started/graph-database[what a graph database is] and know the components of the link:/developer/get-started/guide-data-modeling[property graph data model].
-
+You should understand link:/developer/graph-database/[what a graph database is] and know the components of the link:/developer/graph-database#property-graph[property graph data model]
 [role=expertise {level}]
 {level}
 
