@@ -18,13 +18,40 @@ To install the dependencies run:
 [source,sh]
 npm install
 
+== Contributing
+
+To make changes to this repository, please create a new branch to stage your changes.
+Your branch should be prefixed with the type of change, for example `content/new-cypher-guide` or `fix/broken-links`.
+
+**When you are finished with your changes push the branch to the remote repository and create a Pull Request.**
+Please add at least one approver.
+
+The changes will be merged into the `publish` branch, which will in turn trigger a rebuild of the content in the link:https://github.com/neo4j-documentation/docs-refresh[docs-refresh^] repository.
+
+[source,sh]
+----
+# check out a new branch
+git checkout -b content/my-fix
+
+# Make some changes to the repo
+touch modules/ROOT/pages/new-guide.adoc
+
+# State the changes
+git add modules/ROOT/pages/new-guide.adoc
+
+# Commit the changes
+git commit -m "Added a new guide"
+
+# Push to the remote repository
+git push -u origin content/my-fix
+----
 
 == Live Preview
 
-To preview the docs, run:
+To preview the docs run:
 
 [source,sh]
-npm run dev
+npm start
 
 
 This will build a set of HTML files in `build/site` and then serve them through an express server at http://localhost:8000.
@@ -34,7 +61,8 @@ You'll still need to refresh the page to view the changes.
 
 == Publishing
 
-Pushing to the `publish` branch of this repo will trigger a rebuild of the HTML and CSS files in the link:https://github.com/neo4j-documentation/docs-refresh[Docs Refresh^] repo using a Github Action.
+Merging changes into the `publish` branch of this repo will trigger a rebuild of the HTML and CSS files in the link:https://github.com/neo4j-documentation/docs-refresh[Docs Refresh^] repo using a link:.github/[Github Action].
+
 
 
 [source,sh]

@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "preview": "antora preview.yml",
-    "dev": "npm start & npm-watch preview",
+    "start": "npm run serve & npm-watch build",
+    "serve": "node server.js",
+    "build": "antora --stacktrace preview.yml",
     "publish": "git push origin HEAD:publish",
     "downloadNotebooks": "node scripts/download-lp-notebooks.js"
   },
@@ -31,7 +31,7 @@
     "npm-watch": "^0.6.0"
   },
   "watch": {
-    "preview": {
+    "build": {
       "patterns": [
         "modules"
       ],
