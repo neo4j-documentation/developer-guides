@@ -270,6 +270,17 @@ A PHP adapter for Neo4j REST API Cypher endpoint.
 * Author: https://github.com/endyjasmi[Endy Jasmi^]
 ////
 
+[#bolt]
+=== Bolt
+
+Bolt protocol library over TCP socket.
+
+[cols="1,4"]
+|===
+| icon:user[] Author | https://www.linkedin.com/in/michalstefanak/[Michal Stefanak^]
+| icon:github[] Source | https://github.com/stefanak-michal/Bolt
+|===
+
 [#apps-neo4jphp]
 == Applications built with PHP and Neo4j
 
