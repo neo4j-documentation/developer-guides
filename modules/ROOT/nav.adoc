@@ -88,6 +88,8 @@
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
 ** xref:perl.adoc[Perl]
 
+// * xref:building-applications:index.adoc[Building Applications]
+
 * xref:integration.adoc[Neo4j Tools &amp; Integrations]
 ** xref:apache-spark.adoc[Apache Spark]
 ** xref:elastic-search.adoc[Elastic-Search]

@@ -1,0 +1,494 @@
+= Building Applications on Neo4j
+:author: Adam Cowley
+:description: In the Building Applications section we discuss how to build an application on Neo4j.
+:uri: bolt://localhost:7687
+:username: neo4j
+:password: letmein
+:database: northwind
+
+{description}
+The guides contained in this section will explain how an application can be built on top of Neo4j using the official driver.
+
+For more detailed information on each language you can visit the Developer Guide: +
+xref:ROOT:java.adoc[Java] |
+xref:ROOT:dotnet.adoc[.NET] |
+xref:ROOT:javascript.adoc[JavaScript] |
+xref:ROOT:python.adoc[Python] |
+xref:ROOT:go.adoc[Go,title="Go Programming Language"]
+
+
+In the 3.0 release of Neo4j, a set of Official Drivers were released with the aim of standardising the way that applications are built on top of Neo4j.
+Aside from a few language specific variations the process of connecting to Neo4j and querying the data using Cypher should be similar.
+The process, regardless of language will be as follows:
+
+1. xref:driver[Create an instance of the Driver]
+2. xref:session[Opening a Session]
+3. xref:transaction[Start a Transaction]
+4. xref:cypher[Running Cypher Queries]
+5. xref:close[Closing the Driver]
+
+
+
+
+[#driver]
+== Instantiating the Driver
+
+All interaction with Neo4j will take place using a Driver, communicating with a Neo4j Server of cluster using the Bolt Protocol.
+
+You should create a single instance of the driver which can then be shared across the application.
+The Driver is a thread-safe object.
+
+// The code within your application will remain the same whether you are using Neo4j Community Edition or Enterprise Edition, and will be the same regardless of whether you are connecting to a single instance or a xref:ROOT:guide-clustering-neo4j[Causal Cluster].
+
+
+The driver accepts two arguments:
+
+* A connection string which represents the scheme, URI of the server and port number
+* An authentication method
+// — by default this will be a *basic* authentication token but Neo4j also supports link:https://neo4j.com/docs/add-on/kerberos/current/[Kerberos tokens^]
+
+
+=== Connection Strings
+
+Regardless of whether you are connecting to a single instance of Neo4j or a xref:ROOT:guide-clustering-neo4j[Causal Cluster] your application code will remain the same - the only difference will be the connection string.
+
+A connection string consists of a **scheme** and the URI and port of the Neo4j instance.  For example, by default a connection to a Neo4j Desktop instance will be:
+
+[source,text,role=noheader]
+neo4j://localhost:7687
+
+==== Scheme
+
+The following table should help you to to choose the appropriate scheme to prepend to your query string.
+
+// This allows you to switch between development, test and production environments easily using configuration files or environment variables.
+
+include::ROOT:page$_includes/driver-warning.adoc[tags=table]
+
+==== URI
+
+For single instances of Neo4j the address should be the IP address or domain name of the Neo4j instance.
+For Causal Clusters you can provide the address of any member of the cluster.
+
+
+=== Auth Tokens
+
+If you are connecting to Neo4j using native link:https://neo4j.com/docs/operations-manual/current/authentication-authorization/[Users and Roles^] or using LDAP, you will connect using a **Basic** auth token.
+This token accepts a username (or principal) and password (or credentials).
+
+If you are using Kerberos, the auth token accepts a single parameter representing the Base 64 encoded token.
+
+[TIP]
+link:https://neo4j.com/aura/[Neo4j Aura] users can find their connection string in the link:https://console.neo4j.io[Neo4j Aura Console].
+
+=== Basic Driver Example
+
+[.tabs]
+[source,Java]
+----
+import org.neo4j.driver.GraphDatabase;
+import org.neo4j.driver.AuthTokens;
+
+Driver driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
+----
+
+.JavaScript (ES5)
+[source,javascript]
+----
+const neo4j = require('neo4j-driver')
+
+const driver = neo4j.driver( uri, neo4j.auth.basic( username, password ) )
+----
+
+.JavaScript (ES6)
+[source,javascript]
+----
+import neo4j from 'neo4j-driver'
+
+const driver = neo4j.driver( uri, neo4j.auth.basic( username, password ) )
+----
+
+[source,Python]
+----
+from neo4j import GraphDatabase
+
+driver = GraphDatabase.driver(uri, auth=(user, password))
+----
+
+[source,DotNet]
+----
+using Neo4j.Driver.Internal;
+
+driver = GraphDatabase.Driver(uri, AuthTokens.Basic(user, password));
+----
+
+[source,Go]
+----
+import (
+    "github.com/neo4j/neo4j-go-driver/neo4j"
+)
+
+neo4j.NewDriver(uri, neo4j.BasicAuth("user", "password", ""))
+----
+
+
+=== Verifying the connection
+
+To verify the connection details passed to the driver you can call the `.verifyConnectivity()` method.
+If the server address or credentials are incorrect, an error or exception will be thrown.
+
+[source,Java]
+----
+driver.verifyConnectivity()
+----
+
+[source,JavaScript]
+----
+driver.verifyConnectivity()
+----
+
+[source,Python]
+----
+driver.verifyConnectivity()
+----
+
+[source,DotNet]
+----
+driver.verifyConnectivity()
+----
+
+[source,Go]
+----
+driver.verifyConnectivity()
+----
+
+[#session]
+== Opening a Session
+
+From the driver you can open up many sessions.
+Sessions are lightweight objects that can be opened and closed freely.
+
+
+[.tabs]
+[source,Java]
+----
+try ( Session session = driver.session() ) {
+  // ...
+}
+----
+
+[source,JavaScript]
+----
+const session = driver.session()
+----
+
+[source,Python]
+----
+// ...
+----
+
+[source,DotNet]
+----
+// ...
+----
+
+[source,Go]
+----
+// ...
+----
+
+
+Sessions can also be used provide additional context to any queries run within it, for example the Default Access Mode or which database the query should be executed against.
+
+
+=== Default Access Mode
+
+The Default Access Mode defines the way in which the session should interact with the database.
+When the driver is connected to a Causal Cluster all write queries will be directed to the **leader** of the cluster while read queries will be distributed across the cluster.
+
+[.tabs]
+[source,Java]
+----
+Session writeSession = driver.session( builder().withDefaultAccessMode( AccessMode.WRITE ).build() )
+----
+
+[source,JavaScript]
+----
+const writeSession = driver.session({
+  defaultAccessMode: neo4j.session.WRITE
+})
+----
+
+[source,Python]
+----
+// ...
+----
+
+[source,DotNet]
+----
+// ...
+----
+
+[source,Go]
+----
+// ...
+----
+
+If you do not specify a Default Access Mode it will default to a `READ` session.
+
+=== Database
+
+Since version 4.0, Neo4j has supported xref:ROOT:manage-multiple-databases[multiple databases].
+In order to query a specific database, this must be defined when creating a new session.
+Otherwise the query will be executed on the default database (set to `neo4j` by default and defined in neo4j.conf as `dbms.default_database`).
+
+[.tabs]
+[source,Java]
+----
+SessionConfig sessionConfig = SessionConfig.builder()
+        .withDatabase( "northwind" )
+        .withDefaultAccessMode( AccessMode.READ )
+        .build();
+try ( Session session = driver.session( sessionConfig ) )
+{
+  // ...
+}
+----
+
+[source,JavaScript]
+----
+const session = driver.session({
+  database: 'northwind',
+  defaultAccessMode: neo4j.session.READ
+})
+----
+
+[source,Python]
+----
+// ...
+----
+
+[source,DotNet]
+----
+// ...
+----
+
+[source,Go]
+----
+// ...
+----
+
+You must create a new session for each database when using multiple databases.
+
+
+== Creating a Transaction
+
+Neo4j is an link:https://neo4j.com/top-ten-reasons/[ACID Compliant Database] which values data integrity above all else.
+As such all interactions with Neo4j take place within the context of a **Transaction**.
+// A Transaction is a single, atomic, consistent, isolated and durable unit of work.
+Transactions allow you to complete an entire unit of work, committing once all statements have succeeded, or performing roll back should anything go wrong, leaving the database in it’s original state.
+
+Running multiple queries within the same transaction will ensure that the data you receive is not modified by any other processes.
+This will also reduce the number of transactions are committed to the database, each of which have an overhead.
+
+There are three types of transaction.
+
+
+=== Auto-commit Transactions
+
+Auto-commit transactions are run directly against the session.
+Within the session a new transaction is opened, the query executed and the transaction committed.
+If Neo4j encounters any errors while processing this query, the transaction will be automatically rolled back, leaving the database in it's initial state.
+
+[.tabs]
+[source,Java]
+----
+String cypher = "CREATE (t:Test {id: $id}) RETURN t";
+Map<String, Object> params = new HashMap<>();
+map.put("id", 1)
+
+Result res = session.run(cypher, params);
+Node node = res.single().get("t");
+----
+
+[source,JavaScript]
+----
+const cypher = "CREATE (t:Test {id: $id}) RETURN t";
+const params = { id: neo4j.int(1) };
+
+session.run(cypher, params)
+  .then(result => {
+    const node = res.records[0].get('t')
+  })
+----
+
+[source,Python]
+----
+// ...
+----
+
+[source,DotNet]
+----
+// ...
+----
+
+[source,Go]
+----
+// ...
+----
+
+
+[CAUTION]
+These transactions are useful for running small samples or simple queries but can struggle at high volumes.
+It is recommended that you create a specific read or write transaction when building a production-ready application.
+
+// The Default Access Mode of the session becomes important when using Auto-commit transactions.
+// Attempting to run a query that writes data against a Causal Cluster within a `READ` transaction will cause Neo4j to throw an error.
+
+
+=== Read Transactions
+
+If you only wish to read data from Neo4j, you can open a read transaction.
+In a clustered environment the driver will distribute read queries across the cluster.
+
+
+[TIP]
+Opening a specific read or write transaction will override the Default Access Mode set when initialising the query.
+
+
+
+[.tabs]
+[source,Java]
+----
+Transaction readTx = session.readTransaction()
+----
+
+[source,JavaScript]
+----
+const readTx = session.beginTransaction()
+----
+
+[source,Python]
+----
+// ...
+----
+
+[source,DotNet]
+----
+// ...
+----
+
+[source,Go]
+----
+// ...
+----
+
+
+=== Write Transactions
+
+When writing data to Neo4j you should open a write transaction.
+In a clustered environment the driver will direct all write queries to the leader of the cluster, which then becomes responsible for committing the transaction and distributing the changes to the other cluster members.
+
+[.tabs]
+[source,Java]
+----
+Transaction writeTx = session.writeTransaction()
+----
+
+[source,JavaScript]
+----
+// Open the session
+const writeTx = session.writeTransaction()
+----
+
+[source,Python]
+----
+// ...
+----
+
+[source,DotNet]
+----
+// ...
+----
+
+[source,Go]
+----
+// ...
+----
+
+Only use write transactions when writing data to Neo4j.  Otherwise this will cause unnecessary load on the leader of the cluster and lead to performance problems.
+
+
+[#cypher]
+== Running a Query
+
+Regardless of whether you are executing an auto-commit transaction or running the query within a transaction you will call the .`run()` method.
+The `run` method takes two arguments; the cypher query and a map of parameters, each of which are referenced inside the query with a `$`.
+
+[.tabs]
+[source,Java]
+----
+String cypher = "CREATE (t:Test {id: $id}) RETURN t";
+Map<String, Object> params = new HashMap<>();
+map.put("id", 1)
+
+// Auto-commit transaction
+Result res = session.run(cypher, params)
+
+// Within a Transaction
+Result res = tx.run(cypher, params)
+----
+
+[source,JavaScript]
+----
+const cypher = "CREATE (t:Test {id: $id}) RETURN t";
+const params = { id: neo4j.int(1) };
+
+// Auto-commit transaction
+session.run(cypher, params)
+  .then(res => /* ... */)
+
+// Within a Transaction
+tx.run(cypher, params)
+  .then(res => /* ... */)
+----
+
+[source,Python]
+----
+// ...
+----
+
+[source,DotNet]
+----
+// ...
+----
+
+[source,Go]
+----
+// ...
+----
+
+
+[#close]
+== Closing the Session and Driver
+
+Once you have finished with the session you can call the `.close()` method to release any connections currently held by the session.
+There is no overhead to closing a session.
+
+[source]
+----
+session.close()
+----
+
+
+
+
+== Closing the Driver
+
+Calling the `close()` method on the driver will shut down the driver and release any resources currently being consumed by the driver.
+You should only do this when
+
+[source]
+----
+driver.close()
+----
