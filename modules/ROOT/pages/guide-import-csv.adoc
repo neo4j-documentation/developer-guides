@@ -315,7 +315,7 @@ If you want to perform the import, you place them in the *import* folder for you
 .customers.csv
 [source]
 ----
-customerId:ID(customer-reference), name
+customerId:ID(Customer), name
 23, Delicatessen Inc
 42, Delicious Bakery
 ----
@@ -323,20 +323,20 @@ customerId:ID(customer-reference), name
 .products.csv
 [source]
 ----
-productId:ID(product-reference), name, price, :LABEL
+productId:ID(Product), name, price, :LABEL
 11,Chocolate,10,Product;Food
 ----
 
 .orders_header.csv
 [source]
 ----
-orderId:ID(order-reference),date,total,customerId:IGNORE
+orderId:ID(Order),date,total,customerId:IGNORE
 ----
 
 .customer_orders_header.csv
 [source]
 ----
-:END_ID(order-reference),date:IGNORE,total:IGNORE,:START_ID(customer-reference)
+:END_ID(Order),date:IGNORE,total:IGNORE,:START_ID(Customer)
 ----
 
 .orders1.csv
@@ -354,7 +354,7 @@ orderId:ID(order-reference),date,total,customerId:IGNORE
 .order_details.csv
 [source]
 ----
-:START_ID(order-reference),amount,price,:END_ID(product-reference)
+:START_ID(Order),amount,price,:END_ID(Product)
 1041,13,130,11
 1042,2,20,11
 ----
@@ -398,10 +398,10 @@ There is specific markup on specific columns, which we will explain.
 
 * `name:ID` - global id column used to look up the node later reconnecting.
 ** if the property name is left off, it will be not stored (temporary), which is what the `--id-type` refers to.
-** if you have repeated IDs across entities, you have to provide the entity (id-group) in parentheses like `:ID(order-reference)`.
+** if you have repeated IDs across entities, you have to provide the entity (id-group) in parentheses like `:ID(Order)`.
 ** if your IDs are globally unique, you can leave that off.
 * `:LABEL` - label column for nodes. Multiple labels can be separated by delimiter.
-* `:START_ID`, `:END_ID` - relationship file columns referring to the node ids. For id-groups, use `:END_ID(order-reference)`.
+* `:START_ID`, `:END_ID` - relationship file columns referring to the node ids. For id-groups, use `:END_ID(Order)`.
 * `:TYPE` - column to specify relationship-type.
 * All other columns are treated as properties but skipped if empty or annotated with `:IGNORE`.
 * Type conversion is possible by suffixing the name with indicators like `:INT`, `:BOOLEAN`, etc.
