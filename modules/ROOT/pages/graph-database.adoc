@@ -33,7 +33,7 @@ With only a pattern and a set of starting points, graph databases explore the ne
 As with most technologies, there are few different approaches to what makes up the key components of a graph database.
 One such approach is the property graph model, where data is organized as nodes, relationships, and properties (data stored on the nodes or relationships).
 
-We will cover this model in more detail in the https://neo4j.com/developer/data-modeling/[Data Modeling section^] of these guides, but for now, we will briefly define the components that make up the property graph model.
+We will cover this model in more detail in the link:/developer/data-modeling/[Data Modeling section] of these guides, but for now, we will briefly define the components that make up the property graph model.
 
 *_Nodes_* are the entities in the graph.
 They can hold any number of attributes (key-value pairs) called _properties_.

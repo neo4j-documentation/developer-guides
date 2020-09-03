@@ -13,7 +13,7 @@ It will help to compare and contrast the steps of each process and help you iden
 
 .Prerequisites
 [abstract]
-You should understand the basics of Neo4j's link:/developer/get-started/graph-database#property-graph[property graph data model] and be familiar with relational data modeling (including entity-relationship diagrams and other concepts).
+You should be familiar with Neo4j's link:/developer/graph-database#property-graph[property graph data model] and relational databases.
 
 [role=expertise {level}]
 {level}
