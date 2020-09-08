@@ -8,6 +8,13 @@
 :programming-language: java
 :category: drivers
 :tags: java, spring, spring-boot, app-development, applications
+
+[NOTE]
+====
+The Spring Boot starter will be superseded by the Neo4j Java Driver auto config in the upcoming Spring Boot 2.4.
+For Spring Boot 2.3. we will still provide support with this starter.
+====
+
 include::{manualIncludeDir}README.adoc[tags=properties]
 
 include::{manualIncludeDir}docs/manual/getting-started.adoc[lines=3..-1]

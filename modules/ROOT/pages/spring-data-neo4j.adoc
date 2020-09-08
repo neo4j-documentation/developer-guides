@@ -10,8 +10,11 @@
 
 [NOTE]
 ====
-The Spring Data Neo4j project is currently for existing support and maintenance only.
-All new and future projects should use the link:/developer/spring-data-neo4j-rx/[Spring Data Neo4j RX] project instead.
+The Spring Data Neo4j 5.x project is currently for existing support and maintenance only.
+All new and future projects should use Spring Data Neo4j 6 project instead.
+This will be part of the upcoming Spring Data Release train Ockham (2020.0.0).
+Please consult the https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Ockham-(2020.0.0)[wiki] for detailed information about the release dates.
+An updated version of this guide will be released along with the GA.
 ====
 
 .Goals
@@ -303,7 +306,6 @@ As with our `PersonRepository` above, these methods in our `MovieRepository` wil
 == Resources
 
 For a more thorough walkthrough of the code, see the resources linked below.
-We also provide both imperative and reactive development through the link:/developer/spring-data-neo4j-rx/[Spring Data Neo4j RX] project.
 
 [cols="1,4"]
 |===
