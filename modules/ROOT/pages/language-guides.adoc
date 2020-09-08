@@ -29,7 +29,7 @@ For Neo4j Clusters, Bolt provides smart client routing with load balancing and f
 
 The binary protocol is enabled in Neo4j by default, so you can use any language driver that supports it.
 
-Neo4j officially provides drivers for link:dotnet[.Net], link:java[Java], link:spring-data-neo4j-rx[Spring], link:javascript[JavaScript], link:go[Go], and link:python[Python].
+Neo4j officially provides drivers for link:dotnet[.Net], link:java[Java], link:spring-data-neo4j[Spring], link:javascript[JavaScript], link:go[Go], and link:python[Python].
 
 You can find detailed information about the official drivers in the {drivermanual}[Neo4j Driver Manual^].
 
@@ -45,7 +45,7 @@ Get started with your stack now, see the dedicated page for more detail.
 [cols="5*",width=100]
 |===
 | link:/developer/java/[icon:check-circle-o[] Java]
-| link:/developer/spring-data-neo4j-rx/[icon:check-circle-o[] Spring]
+| link:/developer/spring-data-neo4j/[icon:check-circle-o[] Spring]
 | link:/developer/neo4j-ogm/[icon:check-circle-o[] Neo4j-OGM]
 | link:/developer/dotnet/[icon:check-circle-o[] .NET]
 | link:/developer/javascript/[icon:check-circle-o[] JavaScript]

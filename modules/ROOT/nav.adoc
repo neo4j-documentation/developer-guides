@@ -76,7 +76,6 @@
 *** xref:java-driver-spring-boot-starter.adoc[Java Driver Spring Boot Starter]
 *** xref:neo4j-ogm.adoc[Neo4j Object Graph Mapper]
 *** xref:spring-data-neo4j.adoc[Spring Data Neo4j]
-*** xref:spring-data-neo4j-rx.adoc[Spring Data Neo4j RX]
 *** xref:java-procedures.adoc[Procedures and Functions]
 *** xref:java-third-party.adoc[Third-party libraries]
 ** xref:dotnet.adoc[.NET]
