@@ -179,7 +179,7 @@ You can put several Cypher statements into the command line input (with semicolo
 To do this, go to the `Settings` tab on your Neo4j Browser window and make sure the box is checked for `Enable multi statement query editor`.
 These steps are shown in the image below.
 
-image::{img}enable_multiline_queries.jpg[width=300,link="{img}enable_multiline_queries.jpg",role="popup-link"]
+image::{img}enable_multiline_queries.jpg[width=300,role="popup-link"]
 
 .Output, Export, & Visualization Tips
 You can switch between `Graph`, `Table`, `Text`, and `Code` views to see the results in various formats by clicking the icons on the left of each pane.

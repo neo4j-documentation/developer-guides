@@ -40,7 +40,7 @@ You can use `CREATE` to insert nodes, relationships, and patterns into Neo4j.
 Let us look at an example that we used in our last guide.
 To review, we had a `Person` node (Jennifer) who liked graphs, was friends with Michael, and worked at Neo4j.
 
-image::{img}cypher_graph_v1.jpg[link="{img}cypher_graph_v1.jpg",role="popup-link"]
+image::{img}cypher_graph_v1.jpg[role="popup-link"]
 
 What if we wanted to add another of Jennifer's friends to the graph?
 We can add Jennifer's friend Mark using the Cypher statement below.
@@ -58,7 +58,7 @@ If you do not want to return any results, simply run this statement instead:
 `CREATE (friend:Person {name: 'Mark'})`
 --
 
-image::{img}cypher_graph_createFriend.jpg[link="{img}cypher_graph_createFriend.jpg",role="popup-link"]
+image::{img}cypher_graph_createFriend.jpg[role="popup-link"]
 
 Great! Now we added Mark to the database.
 However, Mark is all alone with no relationships because we just created his node and did not specify any connections.
@@ -72,7 +72,7 @@ MATCH (mark:Person {name: 'Mark'})
 CREATE (jennifer)-[rel:IS_FRIENDS_WITH]->(mark)
 ----
 
-image::{img}cypher_graph_createFriendRel.jpg[link="{img}cypher_graph_createFriendRel.jpg",role="popup-link"]
+image::{img}cypher_graph_createFriendRel.jpg[role="popup-link"]
 
 Notice that we run two `MATCH` queries before we create a relationship between the nodes.
 Why is that?
@@ -111,7 +111,7 @@ SET p.birthdate = date('1980-01-01')
 RETURN p
 ----
 
-image::{img}cypher_graph_addProp.jpg[link="{img}cypher_graph_addProp.jpg",role="popup-link"]
+image::{img}cypher_graph_addProp.jpg[role="popup-link"]
 
 [NOTE]
 --
@@ -130,7 +130,7 @@ SET rel.startYear = date({year: 2018})
 RETURN rel
 ----
 
-image::{img}cypher_graph_addRelProp.jpg[link="{img}cypher_graph_addRelProp.jpg",role="popup-link"]
+image::{img}cypher_graph_addRelProp.jpg[role="popup-link"]
 
 [NOTE]
 --
@@ -160,7 +160,7 @@ MATCH (j:Person {name: 'Jennifer'})-[r:IS_FRIENDS_WITH]->(m:Person {name: 'Mark'
 DELETE r
 ----
 
-image::{img}cypher_graph_delRel.jpg[link="{img}cypher_graph_delRel.jpg",role="popup-link"]
+image::{img}cypher_graph_delRel.jpg[role="popup-link"]
 
 === Delete a Node
 
@@ -173,7 +173,7 @@ MATCH (m:Person {name: 'Mark'})
 DELETE m
 ----
 
-image::{img}cypher_graph_delNode.jpg[link="{img}cypher_graph_delNode.jpg",role="popup-link"]
+image::{img}cypher_graph_delNode.jpg[role="popup-link"]
 
 === Delete a Node and Relationship
 
@@ -215,7 +215,7 @@ MATCH (n:Person {name: 'Jennifer'})
 SET n.birthdate = null
 ----
 
-image::{img}cypher_graph_delProp.jpg[link="{img}cypher_graph_delProp.jpg",role="popup-link"]
+image::{img}cypher_graph_delProp.jpg[role="popup-link"]
 
 [#cypher-merge]
 == Avoiding Duplicate Data Using MERGE
@@ -240,7 +240,7 @@ MERGE (mark:Person {name: 'Mark'})
 RETURN mark
 ----
 
-image::{img}cypher_graph_mergeFriend.jpg[link="{img}cypher_graph_mergeFriend.jpg",role="popup-link"]
+image::{img}cypher_graph_mergeFriend.jpg[role="popup-link"]
 
 === Using Merge on a Relationship
 
@@ -263,7 +263,7 @@ If the entire pattern (nodes, relationships, and any specified properties) does 
 Cypher never produces a partial mix of matching and creating within a pattern.
 To avoid a mix of match and create, you need to match any existing elements of your pattern first before doing a merge on any elements you might want to create, just as we did in the statement above.
 
-image::{img}cypher_graph_mergeFriendRel.jpg[link="{img}cypher_graph_mergeFriendRel.jpg",role="popup-link"]
+image::{img}cypher_graph_mergeFriendRel.jpg[role="popup-link"]
 
 Just for reference, the Cypher statement that will cause duplicates is below.
 Because this pattern (Jennifer IS_FRIENDS_WITH Mark) does not exist in the database, Cypher creates the entire pattern new - both nodes, as well as the relationship between them.

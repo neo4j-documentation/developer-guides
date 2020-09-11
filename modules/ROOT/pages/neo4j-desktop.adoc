@@ -37,7 +37,7 @@ Step 2 on the download page instructions shows you how to set up your first proj
 [#what-is-neo4j-desktop]
 == What is Neo4j Desktop
 
-Neo4j Desktop is a Developer IDE or Management Environment for Neo4j instances similar to Enterprise Manager, but better. 
+Neo4j Desktop is a Developer IDE or Management Environment for Neo4j instances similar to Enterprise Manager, but better.
 You can manage as many projects and database servers locally as you like and also connect to remote Neo4j servers.
 Neo4j Desktop comes with an free Developer License of Neo4j Enterprise Edition, the Java Runtime is also bundled.
 
@@ -53,16 +53,16 @@ Both Neo4j Desktop as well as Graph Apps offer automatic updates.
 == Opening Neo4j Desktop for the First Time
 
 If you are opening Neo4j Desktop for the first time, it should ask you to register the software with an activation key.
-This activation key is generated when you first download Neo4j Desktop and will be displayed on the download confirmation page. 
+This activation key is generated when you first download Neo4j Desktop and will be displayed on the download confirmation page.
 Keep it somewhere safe.
 
-image::{img}desktop_registration_may2020.jpg[link="{img}desktop_registration_may2020.jpg",float="right"]
+image::{img}desktop_registration_may2020.jpg[float="right"]
 
 Copy this activation key into the Software registration form and click Activate to continue.
 
 As a new user to Neo4j Desktop, you will be greeted with a new sample database containing https://github.com/neo4j-graph-examples/movies[Movies and Actors^].
 
-image::{img}first_graph_experience.png[link="{img}first_graph_experience.png",float="right"]
+image::{img}first_graph_experience.png[float="right"]
 
 Clicking the Browser Guide link for the Sample database will open up the Neo4j Browser with a Browser Guide that will guide you through your first queries on this Neo4j database.
 
@@ -82,7 +82,7 @@ The app will add a row in the menu for a project named `Project`.
 You can change the name by clicking on the pencil icon that appears when you hover on the project name in the right pane.
 To remove the project, hover over the `Project` row in the projects menu and click the trash bin icon that appears on the right side (image:{img}desktop_delete_proj_icon.jpg[width=20]).
 
-image::{img}deleting_a_project.jpg[link="{img}deleting_a_project.jpg",float="right"]
+image::{img}deleting_a_project.jpg[float="right"]
 
 === Settings
 
@@ -131,7 +131,7 @@ If you forget your password, you can reset it by clicking the three dots to the 
 You have now created your own graph database!
 Now we will walk through some tools to interact with the database and data.
 
-image::{img}db_section_instance.jpg[link="{img}db_section_instance.jpg",role="popup-link"]
+image::{img}db_section_instance.jpg[role="popup-link"]
 
 The kbd:[Start] button in the bottom right hand corner of each database card will Start the database.
 Once started, there will be a button in the bottom right hand corner to Stop the database.
@@ -145,17 +145,17 @@ Next to the Open button is a dropdown menu which will allow you to open up a lis
 
 To manage a database, click the three-dots icon in the top right hand of the card and click kbd:[Manage].
 
-image::{img}manage_db_pane.jpg[link="{img}manage_db_pane.jpg",role="popup-link"]
+image::{img}manage_db_pane.jpg[role="popup-link"]
 
 At the top of the screen, you will see the database name and an icon to signify its status.
 Directly underneath are three buttons to Start, Stop, or Restart the database.
 
-image::{img}status_buttons.jpg[link="{img}status_buttons.jpg",role="popup-link"]
+image::{img}status_buttons.jpg[role="popup-link"]
 
 The kbd:[Open Folder] button will open up the root folder for this database.
 The arrow icon to the right of this button will allow you to open up additional folders related to this database, for example the Plugins or Logs folders.
 
-image::{img}open_folder.jpg[link="{img}open_folder.jpg",role="popup-link"]
+image::{img}open_folder.jpg[role="popup-link"]
 
 The kbd:[Open Terminal] button will open up a new terminal window in the root folder of the database.
 
@@ -164,7 +164,7 @@ Below these buttons are several tabs for information and settings.
 The `Details` tab shows the description, version, and the status of your database along with some statistics for the database.
 When the database is running, it will also show port numbers and addresses needed to interact with the database (screenshot below).
 
-image::{img}db_details.jpg[link="{img}db_details.jpg",role="popup-link"]
+image::{img}db_details.jpg[role="popup-link"]
 
 The `Logs` tab will show all of the streaming log output from the database.
 

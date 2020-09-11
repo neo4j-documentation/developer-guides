@@ -31,11 +31,11 @@ When using any of the language drivers, before we try to connect to our Neo4j Au
 
 If we open our https://console.neo4j.io/#databases[Neo4j Aura Console Dashboard^], we'll see a list of our databases.
 
-image::{img}dbaas_database_created.png[link="{img}dbaas_database_created.png",role="popup-link"]
+image::{img}dbaas_database_created.png[role="popup-link"]
 
 We'll need to use the Bolt URL, so let's copy that onto our clipboard:
 
-image::{img}dbaas_database_created_highlight_browser.png[link="{img}dbaas_database_created_highlight_browser.png",role="popup-link"]
+image::{img}dbaas_database_created_highlight_browser.png[role="popup-link"]
 
 The default username is `neo4j` and the default password is generated on database creation.
 

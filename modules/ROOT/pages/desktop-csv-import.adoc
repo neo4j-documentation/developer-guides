@@ -50,33 +50,33 @@ If you already know how to create a database instance and find the `Manage` page
 To begin, we need to open the Neo4j Desktop application on your computer.
 When you start the application, you should see something like the screen below.
 
-image::{img}desktop_main.jpg[link="{img}desktop_main.jpg",role="popup-link"]
+image::{img}desktop_main.jpg[role="popup-link"]
 
 You may already have database instances from other projects or exercises, but let us create a separate database for this import.
 To do that, click on the section that says `Add Graph` in the image above.
 You should see two buttons appear for creating a local graph or connecting to a remote graph.
 
-image::{img}desktop_add_graph.jpg[link="{img}desktop_add_graph.jpg",role="popup-link"]
+image::{img}desktop_add_graph.jpg[role="popup-link"]
 
 Choose the `Create a Local Graph` and fill in details on the entry form for your database.
 For the dropdown field, you can leave whatever version is defaulted.
 Once that is complete, click `Create`.
 
-image::{img}desktop_db_details.jpg[link="{img}desktop_db_details.jpg",role="popup-link"]
+image::{img}desktop_db_details.jpg[role="popup-link"]
 
 It may take a minute or two to create the instance, but once it finishes, you should see something like the screenshot below.
 You can start your database by clicking the `Start` button on it.
 
-image::{img}desktop_db_created.jpg[link="{img}desktop_db_created.jpg",role="popup-link"]
+image::{img}desktop_db_created.jpg[role="popup-link"]
 
 When it starts, the button should change to `Stop` so you see the screen below.
 
-image::{img}desktop_start_db.jpg[link="{img}desktop_start_db.jpg",role="popup-link"]
+image::{img}desktop_start_db.jpg[role="popup-link"]
 
 The other button is to manage the database.
 Let's click on `Manage` to show a screen like this one.
 
-image::{img}desktop_manage_db.jpg[link="{img}desktop_manage_db.jpg",role="popup-link"]
+image::{img}desktop_manage_db.jpg[role="popup-link"]
 
 The top panel in the image above shows some basic functions you can execute on the database.
 The next step will show us how to use this panel to put our files in the `Import` folder.
@@ -94,12 +94,12 @@ In Neo4j Desktop's `Manage` pane, you should see the button for `Open Folder` in
 Right next to that button is a dropdown arrow button.
 If you click that, you will see a menu of options for different folders.
 
-image::{img}desktop_open_folder.jpg[link="{img}desktop_open_folder.jpg",role="popup-link"]
+image::{img}desktop_open_folder.jpg[role="popup-link"]
 
 Choose the `Import` folder.
 This will open up another Finder window on the Mac.
 
-image::{img}desktop_import_folder.jpg[link="{img}desktop_import_folder.jpg",role="popup-link"]
+image::{img}desktop_import_folder.jpg[role="popup-link"]
 
 [NOTE]
 --
@@ -111,7 +111,7 @@ If in the default install location, you can find import folder paths shown in li
 Now you can click on the other Finder window where the zip file downloaded and move the entire .zip file to the folder Neo4j Desktop opened.
 You should see something like this when you are finished.
 
-image::{img}desktop_folder_with_zip.jpg[link="{img}desktop_folder_with_zip.jpg",role="popup-link"]
+image::{img}desktop_folder_with_zip.jpg[role="popup-link"]
 
 Double-click on the zip file, and it should unzip and create a `desktop-csv-import` folder.
 If you click on that folder, you should see 3 .csv files - products.csv, orders.csv, and order-details.csv.
@@ -189,7 +189,7 @@ LIMIT 8
 ----
 
 .Results:
-image:{img}desktop_import_inspect.jpg[link="{img}desktop_import_inspect.jpg",role="popup-link"]
+image:{img}desktop_import_inspect.jpg[role="popup-link"]
 
 Notice that the orders.csv and the order-details.csv return in a different format from the products.csv.
 This is because those files have headers, so the column names are returned with the values for those rows.
@@ -229,7 +229,7 @@ RETURN productId, productName, unitCost
 LIMIT 3
 ----
 
-image::{img}desktop_import_products_convert.jpg[link="{img}desktop_import_products_convert.jpg",role="popup-link"]
+image::{img}desktop_import_products_convert.jpg[role="popup-link"]
 
 Note that we are using collection positions (row[0], row[1], row[2]) to refer to the columns in the row and improve readability by using aliases to reference them in the return.
 In a file that has no headers, this is how to reference values in each position.
@@ -258,7 +258,7 @@ RETURN orderId, orderDate, country
 LIMIT 5
 ----
 
-image::{img}desktop_import_orders_convert.jpg[link="{img}desktop_import_orders_convert.jpg",role="popup-link"]
+image::{img}desktop_import_orders_convert.jpg[role="popup-link"]
 
 There was one tricky thing with this CSV in the `orderDate` column.
 Neo4j's datetime uses the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601^] format which uses the delimiter `T` between the date and time values.
@@ -287,7 +287,7 @@ RETURN productId, orderId, quantityOrdered
 LIMIT 8
 ----
 
-image::{img}desktop_import_details_convert.jpg[link="{img}desktop_import_details_convert.jpg",role="popup-link"]
+image::{img}desktop_import_details_convert.jpg[role="popup-link"]
 
 [#loading-data]
 == Loading the data!
@@ -304,7 +304,7 @@ To utilize the graph database fully, we need a graph data model.
 
 Though there are a variety ways to organize the products and orders in our files, we will save that for another guide and use the below version of the model for this exercise.
 
-image::{img}desktop_import_data_model.jpg[link="{img}desktop_import_data_model.jpg",role="popup-link"]
+image::{img}desktop_import_data_model.jpg[role="popup-link"]
 
 We have two nodes - one for a product and one for an order.
 Each of those nodes have properties from our CSV files.
@@ -379,7 +379,7 @@ MATCH (p:Product)
 RETURN p LIMIT 20
 ----
 
-image::{img}desktop_import_verify_products.jpg[link="{img}desktop_import_verify_products.jpg",role="popup-link"]
+image::{img}desktop_import_verify_products.jpg[role="popup-link"]
 
 .Orders
 Next, we can load the orders.
@@ -404,7 +404,7 @@ MATCH (o:Order)
 RETURN o LIMIT 20
 ----
 
-image::{img}desktop_import_verify_orders.jpg[link="{img}desktop_import_verify_orders.jpg",role="popup-link"]
+image::{img}desktop_import_verify_orders.jpg[role="popup-link"]
 
 .Order-details
 Last, but not least, we create the relationship between the products and the orders.
@@ -436,7 +436,7 @@ MATCH (o:Order)-[rel:CONTAINS]->(p:Product)
 RETURN p, rel, o LIMIT 50
 ----
 
-image::{img}desktop_import_verify_details.jpg[link="{img}desktop_import_verify_details.jpg",role="popup-link"]
+image::{img}desktop_import_verify_details.jpg[role="popup-link"]
 
 [#import-wrapup]
 == Wrapping up

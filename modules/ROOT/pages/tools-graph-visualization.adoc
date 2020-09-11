@@ -5,7 +5,7 @@
 :category: visualization
 :tags: visualization, tools, neovis-js, d3-js, graphxr, yfiles, linkurious
 
-image::{img}graph_cluster_distant_wide.jpg[link="{img}graph_cluster_distant_wide.jpg"]
+image::{img}graph_cluster_distant_wide.jpg[]
 
 [role=expertise {level}]
 {level}
@@ -53,7 +53,7 @@ To learn more about Neo4j Labs, visit our https://neo4j.com/labs/[Labs page^].
 To maximize functionality and data analysis capabilities through visualization, you can also combine this library with the graph algorithms library in Neo4j to style the visualization to align with results of algorithms such as page rank, centrality, communities, and more.
 Below, we see a graph visualization of Game Of Thrones character interactions rendered by neovis.js, and enhanced using Neo4j graph algorithms by applying link:/docs/graph-algorithms/current/algorithms/page-rank/[pagerank^] and link:/docs/graph-algorithms/current/algorithms/community/[community detection^] algorithms to the styling of the visualization.
 
-image:{img}example-viz.png[link="{img}example-viz.png",role="popup-link"]
+image:{img}example-viz.png[role="popup-link"]
 
 An advantage of enhancing graph visualization with these algorithms is that we can visually interpret the results of these algorithms.
 
@@ -88,7 +88,7 @@ As the first line on D3’s website states "D3.js is a JavaScript library for ma
 You can bind different kinds of data to a DOM and then execute different kinds of functions on it.
 One of those functions includes generating an SVG, canvas, or HTML visualization from the data in the DOM.
 
-image::{img}d3_visualization.jpg[link="{img}d3_visualization.jpg",role="popup-link",float="right",width=350]
+image::{img}d3_visualization.jpg[role="popup-link",float="right",width=350]
 
 Neo4j’s movie example applications use d3.js, and you can find a variety of other projects using Neo4j and d3.
 The complicated part of D3 (or any embeddable library that doesn’t have direct Neo4j connection) is converting your graph data into the expected map format for export.
@@ -118,7 +118,7 @@ For additional information and to see everything that is available, check out th
 While some libraries are meant to include all the capabilities in one bundle, Sigma.js touts a highly-extensible environment where users can add extension libraries or plugins to provide additional capability.
 This library takes exported data in either https://github.com/jacomyal/sigma.js/tree/master/plugins/sigma.parsers.json[JSON^] or https://github.com/jacomyal/sigma.js/tree/master/plugins/sigma.parsers.gexf[GEXF^] formats.
 
-image::{img}sigmajs_visualization.jpg[link="{img}sigmajs_visualization.jpg",role="popup-link",float="right",width=350]
+image::{img}sigmajs_visualization.jpg[role="popup-link",float="right",width=350]
 
 Users can start from a very basic visualization right out of the box, and then begin adding custom functions and rendering for styling preferences.
 Once the requirements surpass what is possible there, users can write and use their own custom plugins for specific functionality.
@@ -160,9 +160,9 @@ They also require little or no developer integration hours and setup.
 The next paragraphs will help us get a feel for the types of products in this area.
 
 ==== *Bloom* by
-image:{img}neo4j_logo.png[link="{img}neo4j_logo.png",width=200]
+image:{img}neo4j_logo.png[width=200]
 
-image::{img}bloom_screen.jpg[link="{img}bloom_screen.jpg",role="popup-link",float="right",width=350]
+image::{img}bloom_screen.jpg[role="popup-link",float="right",width=350]
 
 Neo4j Bloom is a data exploration tool that visualizes data in the graph and allows users to navigate and query the data without any query language or programming.
 
@@ -182,9 +182,9 @@ Bloom is available in the following formats:
 * Product information: https://neo4j.com/bloom/[Neo4j Bloom landing page^]
 
 ==== *GraphXR* by
-image:{img}kineviz-logo.png[link="{img}kineviz-logo.png",width=200]
+image:{img}kineviz-logo.png[width=200]
 
-image::{img}kineviz_visualization.jpg[link="{img}kineviz_visualization.jpg",role="popup-link",float="right",width=350]
+image::{img}kineviz_visualization.jpg[role="popup-link",float="right",width=350]
 
 GraphXR is a start-to-finish web-based visualization platform for interactive analytics.
 For technical users, it's a highly flexible and extensible environment for conducting ad hoc analysis.
@@ -206,9 +206,9 @@ The blog post about the graph app is included in the resources below.
 * Product information: https://static1.squarespace.com/static/5c58b86e8dfc8c2d0d700050/t/5c6f46559140b7665401785b/1550796373803/GraphXR%2BDatasheet.pdf[GraphXR Datasheet^]
 
 ==== *yFiles* by
-image:{img}yWorks.png[link="{img}yWorks.png",width=200]
+image:{img}yWorks.png[width=200]
 
-image::{img}yfiles-neo.jpg[link="{img}yfiles-neo.jpg",role="popup-link",float="right",width=350]
+image::{img}yfiles-neo.jpg[role="popup-link",float="right",width=350]
 
 yWorks provides sophisticated solutions for the visualization of graphs, diagrams, and networks with yFiles, a family of high-quality, commercial software programming libraries.
 The yFiles libraries enable you to easily create sophisticated graph-based applications powered by Neo4j.
@@ -225,9 +225,9 @@ It can be installed in Neo4j Desktop.
 * Product information: https://www.yworks.com/products/yfiles[yFiles Visualization Libraries^]
 
 ==== *Linkurious Enterprise* by
-image:{img}Linkurious_logo_large.png[link="{img}graph-visualization-linkurious-enterprise.png",width=200]
+image:{img}Linkurious_logo_large.png[width=200]
 
-image::{img}linkurious_vis_Apr2019.png[link="{img}linkurious_vis_monitor.png",role="popup-link",float="right",width=350]
+image::{img}linkurious_vis_Apr2019.png[role="popup-link",float="right",width=350]
 
 Linkurious Enterprise is an on-premises and browser-based platform that works on top of graph databases.
 It brings graph visualization and analysis capabilities to analysts tasked to detect and analyze threats in large volumes of connected data.
@@ -242,9 +242,9 @@ Organizations such as the French Ministry of Economy and Finance, Zurich Insuran
 * Product datasheet https://linkurio.us/wp-content/uploads/2019/04/Linkurious_Enterprise_Technical_Datasheet.pdf[Linkurious Enterprise^]
 
 ==== *Graphistry* by
-image:{img}graphistry-logo-rough.png[link="{img}graphistry-logo-rough.png",width=200]
+image:{img}graphistry-logo-rough.png[width=200]
 
-image::{img}graphistry_vis.jpg[link="{img}graphistry_vis.jpg",role="popup-link",float="right",width=350]
+image::{img}graphistry_vis.jpg[role="popup-link",float="right",width=350]
 
 Graphistry brings a human interface to the age of big and complex data.
 It automatically transforms your data into interactive, visual investigation maps built for the needs of analysts.
@@ -258,7 +258,7 @@ Ideal for everything from security, fraud, and IT investigations to 3600 views o
 * Product information: https://www.graphistry.com/[Graphistry graph visualization^]
 
 ==== *Perspectives* by
-image:{img}tom-sawyer-logo.png[link="{img}tom-sawyer-logo.png",width=200]
+image:{img}tom-sawyer-logo.png[width=200]
 
 Tom Sawyer Perspectives is a robust platform for building enterprise-class graph and data visualization and analysis applications.
 It is a complete graph visualization software development kit (SDK) with a graphics-based design and preview environment.
@@ -269,7 +269,7 @@ Enterprises, system integrators, technology companies, and government agencies u
 * Product information: https://www.tomsawyer.com/perspectives/[Perspectives graph visualization^]
 
 ==== *Keylines* by
-image:{img}Cambridge-Intelligence-logo.jpg[link="{img}Cambridge-Intelligence-logo.jpg",width=200]
+image:{img}Cambridge-Intelligence-logo.jpg[width=200]
 
 KeyLines makes it easy to build and deploy high-performance network visualization tools quickly.
 Every aspect of your application can be tailored to suit you, your data and the questions you need to answer.
