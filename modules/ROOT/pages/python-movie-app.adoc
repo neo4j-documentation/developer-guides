@@ -21,16 +21,22 @@ Some experience with Flask is suggested.
 This course provides an overview of what you need to know to write a Flask application using a Neo4j database. 
 To keep concepts simple, the application is an IMDB clone with basic authentication and recommendations. 
 
+++++
+<div class="responsive-embed">
+<iframe src="https://player.vimeo.com/video/457580433" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/457580433">Introduction</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</div>
+++++
+
 [#neo4j-python]
-== Why Neo4j?
+== Before We Start - Why Neo4j?
 
 Neo4j is the world's most popular _graph database_.
 This offers a number of advantages:
 
- * Neo4j provides a schemaless representation of both entities and relationships between entities.
- * Relationships between entities are *traversed* rather than *joined*.
- Traversals explore the local subgraph meaning that query times stay the same as your database grows.
- * Because of the traversal paradigm we think in terms of the complex relationships in our data without worrying as much how to model it
+* Neo4j provides a schemaless representation of both entities and relationships between entities.
+* Relationships between entities are *traversed* rather than *joined*.Traversals explore the local subgraph meaning that query times stay the same as your database grows.
+* Because of the traversal paradigm we think in terms of the complex relationships in our data without worrying as much how to model it
 
 Neo4j makes it easy to create nodes and relationships in whatever way seems most natural, but you can also change the structure of your database with a query.
 
@@ -115,6 +121,13 @@ There is a link:/developer/cypher[Cypher tutorial] if you would like to learn mo
 [#project-setup]
 == The Neo4j Movie Flask/React App
 
+++++
+<div class="responsive-embed">
+<iframe src="https://player.vimeo.com/video/457581961" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/457581961">01 Introduction</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</div>
+++++
+
 Let’s jump right into it. 
 You’re a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app. 
 You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get going. 
@@ -136,7 +149,7 @@ This project uses a classic Neo4j dataset: the movie database. It includes `Movi
 Additionally, users can create accounts, log in, and add their ratings to movies:
 
 ```
-(:User)-[:RATES]-(:Movie)
+(:User)-[:RATES]->(:Movie)
 ```
 ==== The API
 
@@ -157,7 +170,15 @@ You can find the frontend code in the `web` directory.
 
 === Setup
 
-To get the project running, clone the repo and follow along with these instructions:
+To get the project running, clone the repo and follow along with these instructions, which will be recapped in the video:
+
+++++
+<div class="responsive-embed">
+<iframe src="https://player.vimeo.com/video/457583812" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/457583812">Get it Running</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</div>
+++++
+
 First, Start the Database!
 
 Your app will need a database, and the easiest way to access a database already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox. 
@@ -208,17 +229,21 @@ npm start
 
 Navigate to view the app at http://localhost:3000/
 
-
-Click on a movie poster to see its corresponding movie detail page:
-
+Click on a movie poster to see its corresponding movie detail page.
 
 Click on a cast or crew member to see that person’s profile, which includes biographical information, related people, and more movies the person has acted in, directed, written, or produced:
 
-A Closer Look: 
+== Going Through The Endpoints
+
+++++
+<div class="responsive-embed">
+<iframe src="https://player.vimeo.com/video/457590860" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/457590860">Going Through The Endpoints</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</div>
+++++
 
 Let’s look at how we would request a list of all the established genres from the database. 
 The GenreList class queries the database for all `Genre` nodes, serializes the results, and returns them via `/api/v0/genres`:
-
 
 [source,python]
 ```
@@ -269,9 +294,7 @@ returns a series of records:
 [<Record genre=<Node id=1 labels=frozenset({'Genre'}) properties={'name': 'Adventure', 'id': 1}>>, <Record genre=<Node id=2 labels=frozenset({'Genre'}) properties={'name': 'Animation', 'id': 2}>>, <Record genre=<Node id=3 labels=frozenset({'Genre'}) properties={'name': 'Children', 'id': 3}>>, <Record genre=<Node id=4 labels=frozenset({'Genre'}) properties={'name': 'Comedy', 'id': 4}>>, <Record genre=<Node id=6 labels=frozenset({'Genre'}) properties={'name': 'Fantasy', 'id': 6}>>, <Record genre=<Node id=9 labels=frozenset({'Genre'}) properties={'name': 'Romance', 'id': 9}>>, <Record genre=<Node id=10 labels=frozenset({'Genre'}) properties={'name': 'Drama', 'id': 10}>>, <Record genre=<Node id=13 labels=frozenset({'Genre'}) properties={'name': 'Action', 'id': 13}>>, <Record genre=<Node id=14 labels=frozenset({'Genre'}) properties={'name': 'Crime', 'id': 14}>>, <Record genre=<Node id=16 labels=frozenset({'Genre'}) properties={'name': 'Thriller', 'id': 16}>>, <Record genre=<Node id=23 labels=frozenset({'Genre'}) properties={'name': 'Horror', 'id': 23}>>, <Record genre=<Node id=33 labels=frozenset({'Genre'}) properties={'name': 'Mystery', 'id': 33}>>, <Record genre=<Node id=37 labels=frozenset({'Genre'}) properties={'name': 'Sci-Fi', 'id': 37}>>, <Record genre=<Node id=49 labels=frozenset({'Genre'}) properties={'name': 'Documentary', 'id': 49}>>, <Record genre=<Node id=51 labels=frozenset({'Genre'}) properties={'name': 'IMAX', 'id': 51}>>, <Record genre=<Node id=56 labels=frozenset({'Genre'}) properties={'name': 'War', 'id': 56}>>, <Record genre=<Node id=63 labels=frozenset({'Genre'}) properties={'name': 'Musical', 'id': 63}>>, <Record genre=<Node id=161 labels=frozenset({'Genre'}) properties={'name': 'Western', 'id': 161}>>, <Record genre=<Node id=162 labels=frozenset({'Genre'}) properties={'name': 'Film-Noir', 'id': 162}>>, <Record genre=<Node id=7745 labels=frozenset({'Genre'})]
 ```
 
-
-
-The serializer parses these slightly results into the processed data we need to build a useful API:
+The serializer parses these slightly results into the processed data we need:
 
 ```
 def serialize_genre(genre):
@@ -596,7 +619,6 @@ Response
 ]
 ```
 
-
 Python Implementation
 
 ```
@@ -629,7 +651,21 @@ def serialize_movie(movie, my_rating=None):
     }
 ```
 
-=== Next Steps
+== The React Frontend
+
+++++
+<div class="responsive-embed">
+<iframe src="https://player.vimeo.com/video/457594013" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/457594013">Walking Through The Frontend</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+</div>
+++++
+
+== Deployment
+
+
+
+
+== Next Steps
 
 Fork the repo and hack away! Find directors that work with multiple genres, or find people who tend to work with each other frequently as writer-director pairs.
 Did you find a way to improve the template or the Python driver? Create a GitHub Issue and/or submit a pull request.
