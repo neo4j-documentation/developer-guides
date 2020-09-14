@@ -59,7 +59,7 @@ MATCH (p:Person)
 RETURN p
 ----
 
-image::{img}cypher_example1_labelvar.jpg[link="{img}cypher_example1_labelvar.jpg",role="popup-link"]
+image::{img}cypher_example1_labelvar.jpg[role="popup-link"]
 
 
 * *Example 2:* Find `Person` nodes in the graph that have a name of 'Jennifer'.
@@ -71,7 +71,7 @@ MATCH (jenn:Person {name: 'Jennifer'})
 RETURN jenn
 ----
 
-image::{img}cypher_example2_labelprop.jpg[link="{img}cypher_example2_labelprop.jpg",role="popup-link"]
+image::{img}cypher_example2_labelprop.jpg[role="popup-link"]
 
 
 * *Example 3:* Find which `Company` Jennifer works for.
@@ -87,7 +87,7 @@ MATCH (:Person {name: 'Jennifer'})-[:WORKS_FOR]->(company:Company)
 RETURN company
 ----
 
-image::{img}cypher_example3_returnnode.jpg[link="{img}cypher_example3_returnnode.jpg",role="popup-link"]
+image::{img}cypher_example3_returnnode.jpg[role="popup-link"]
 
 
 * *Example 4:* Find which `Company` Jennifer works for, but this time, return only the name of the company.
@@ -103,7 +103,7 @@ MATCH (:Person {name: 'Jennifer'})-[:WORKS_FOR]->(company:Company)
 RETURN company.name
 ----
 
-image::{img}cypher_example4_returnprop.jpg[link="{img}cypher_example4_returnprop.jpg",role="popup-link"]
+image::{img}cypher_example4_returnprop.jpg[role="popup-link"]
 
 [#cypher-aliases]
 == Aliasing Return Values
@@ -128,10 +128,10 @@ RETURN order.orderId AS OrderID, order.orderDate AS `Purchase Date`,
 ----
 
 .Results Without Aliases:
-image:{img}cypher_without_aliases.jpg[link="{img}cypher_without_aliases.jpg",role="popup-link"]
+image:{img}cypher_without_aliases.jpg[role="popup-link"]
 
 .Results With Aliases:
-image:{img}cypher_with_aliases.jpg[link="{img}cypher_with_aliases.jpg",role="popup-link"]
+image:{img}cypher_with_aliases.jpg[role="popup-link"]
 
 [NOTE]
 --

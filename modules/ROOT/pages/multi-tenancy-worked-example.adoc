@@ -173,7 +173,7 @@ SHOW DATABASES;
 
 We're going to import the data into the following graph model:
 
-image::{img}4dot0_multi_tenancy_graph_model.png[link="{img}4dot0_multi_tenancy_graph_model.png",role="popup-link"]
+image::{img}4dot0_multi_tenancy_graph_model.png[role="popup-link"]
 
 We'll have nodes representing products, clients, tickets, and ticket items, and relationships that indicate which client purchased a ticket, the items that comprise a ticket, and the product that each item was for.
 
@@ -236,7 +236,7 @@ include::example$importTickets.cypher[tag=query]
 
 We can see a sample of the imported graph in the Neo4j Browser visualization below:
 
-image::{img}4dot0_multi_tenancy_browser_viz.png[link="{img}4dot0_multi_tenancy_browser_viz.png",role="popup-link"]
+image::{img}4dot0_multi_tenancy_browser_viz.png[role="popup-link"]
 
 [#querying-individual-databases]
 == Querying individual databases
@@ -308,7 +308,7 @@ MATCH path = (:Client {id: 77078849426})-[:PURCHASED]->()-->(:TicketItem)-->(:Pr
 RETURN path
 ----
 
-image::{img}4dot0_multi_tenancy_big_spender.png[link="{img}4dot0_multi_tenancy_big_spender.png",role="popup-link",title="A big spender in Mall 2"]
+image::{img}4dot0_multi_tenancy_big_spender.png[role="popup-link",title="A big spender in Mall 2"]
 
 On the left hand side of the diagram we can see highlighted nodes that have skewed the average spend!
 My Spanish isn't great, but I can see an iPad Air among the items purchased.

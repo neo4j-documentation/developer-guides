@@ -28,7 +28,7 @@ You should be familiar with xref:index.adoc[MATCH], xref:updating.adoc[Create/Up
 All of our examples will continue with the graph example we have been using in the previous guides.
 Below is an image of the graph to familiarize yourself with the nodes and relationships used throughout this page.
 
-image::{img}cypher_graph_v2.jpg[link="{img}cypher_graph_v2.jpg",role="popup-link"]
+image::{img}cypher_graph_v2.jpg[role="popup-link"]
 
 [#cypher-aggregate]
 == Aggregation in Cypher
@@ -71,13 +71,13 @@ RETURN count(*)
 ----
 
 .Query1 Results:
-image:{img}cypher_agg_count.jpg[link="{img}cypher_agg_count.jpg",role="popup-link"]
+image:{img}cypher_agg_count.jpg[role="popup-link"]
 
 .Query2 Results:
-image:{img}cypher_agg_count_prop.jpg[link="{img}cypher_agg_count_prop.jpg",role="popup-link"]
+image:{img}cypher_agg_count_prop.jpg[role="popup-link"]
 
 .Query3 Results:
-image:{img}cypher_agg_count_results.jpg[link="{img}cypher_agg_count_results.jpg",role="popup-link"]
+image:{img}cypher_agg_count_results.jpg[role="popup-link"]
 
 [#aggregate-collect]
 === Aggregating Values
@@ -95,7 +95,7 @@ MATCH (p:Person)-[:IS_FRIENDS_WITH]->(friend:Person)
 RETURN p.name, collect(friend.name) AS friend
 ----
 
-image::{img}cypher_agg_collect.jpg[link="{img}cypher_agg_collect.jpg",role="popup-link"]
+image::{img}cypher_agg_collect.jpg[role="popup-link"]
 
 [#aggregate-size]
 === Counting Values in a List
@@ -116,10 +116,10 @@ RETURN p.name, collect(friend.name) AS friends, size((friend)-[:IS_FRIENDS_WITH]
 ----
 
 .Query5 Results:
-image:{img}cypher_agg_size.jpg[link="{img}cypher_agg_size.jpg",role="popup-link"]
+image:{img}cypher_agg_size.jpg[role="popup-link"]
 
 .Query6 Results:
-image:{img}cypher_agg_sizePath.jpg[link="{img}cypher_agg_sizePath.jpg",role="popup-link"]
+image:{img}cypher_agg_sizePath.jpg[role="popup-link"]
 
 [#cypher-results-output]
 == Manipulating Results and Output
@@ -156,10 +156,10 @@ RETURN p.name, friendsList, numberOfFoFs
 ----
 
 .Query7 Results:
-image:{img}cypher_results_with.jpg[link="{img}cypher_results_with.jpg",role="popup-link"]
+image:{img}cypher_results_with.jpg[role="popup-link"]
 
 .Query8 Results:
-image:{img}cypher_results_with_filter.jpg[link="{img}cypher_results_with_filter.jpg",role="popup-link"]
+image:{img}cypher_results_with_filter.jpg[role="popup-link"]
 
 In the first query, we pass the `Person` name, and a collected list of the `Technology` types.
 Only these items can be referenced in the `RETURN` clause.
@@ -213,10 +213,10 @@ RETURN p.name, p.yearsExp
 ----
 
 .Query9 Results:
-image:{img}cypher_results_unwind_strList.jpg[link="{img}cypher_results_unwind_strList.jpg",role="popup-link"]
+image:{img}cypher_results_unwind_strList.jpg[role="popup-link"]
 
 .Query10 Results:
-image:{img}cypher_results_unwind_numList.jpg[link="{img}cypher_results_unwind_numList.jpg",role="popup-link"]
+image:{img}cypher_results_unwind_numList.jpg[role="popup-link"]
 
 [#results-ordering]
 === Ordering Results
@@ -246,10 +246,10 @@ RETURN p.name, p.yearsExp ORDER BY p.yearsExp DESC
 ----
 
 .Query11 Results:
-image:{img}cypher_results_order_names.jpg[link="{img}cypher_results_order_names.jpg",role="popup-link"]
+image:{img}cypher_results_order_names.jpg[role="popup-link"]
 
 .Query12 Results:
-image:{img}cypher_results_order_experience.jpg[link="{img}cypher_results_order_experience.jpg",role="popup-link"]
+image:{img}cypher_results_order_experience.jpg[role="popup-link"]
 
 Notice that our first query has to order by `Person` name before collecting the values into a list.
 If you do not sort first (put the `ORDER BY` after the `RETURN`), you will sort based on the size of the list and not by the first letter of the values in the list.
@@ -306,7 +306,7 @@ RETURN DISTINCT user.name
 ----
 
 .Query13 Results:
-image:{img}cypher_results_distinct_user.jpg[link="{img}cypher_results_distinct_user.jpg",role="popup-link"]
+image:{img}cypher_results_distinct_user.jpg[role="popup-link"]
 
 For Query13, our use case is that we are launching a new Twitter account for tips and tricks on Cypher, and we want to notify users who have a Twitter account and who like graphs or query languages.
 The first two lines of the query look for `Person` nodes who have a Twitter handle.
@@ -335,7 +335,7 @@ ORDER BY numberOfFriends DESC
 LIMIT 3
 ----
 
-image::{img}cypher_results_limit.jpg[link="{img}cypher_results_limit.jpg",role="popup-link"]
+image::{img}cypher_results_limit.jpg[role="popup-link"]
 
 Our query pulls persons and the friends they are connected to and returns the person name and count of their friends.
 We could run just that much of the query and return a messy list of names and friend counts, but we probably want to order the list based on the number of friends each person has starting with the biggest number at the top (`DESC`).

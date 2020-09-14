@@ -39,7 +39,7 @@ We have added more `Person` nodes (blue) who `WORK_FOR` different `Company` node
 Each person could also have multiple `IS_FRIENDS_WITH` relationships to other people.
 This gives us a network of people, the companies they work for, and the technologies they like.
 
-image::{img}cypher_graph_v2.jpg[link="{img}cypher_graph_v2.jpg",role="popup-link"]
+image::{img}cypher_graph_v2.jpg[role="popup-link"]
 
 [#cypher-where]
 == The WHERE clause
@@ -97,7 +97,7 @@ WHERE 3 <= p.yearsExp <= 7
 RETURN p
 ----
 
-image::{img}cypher_filter_ranges.jpg[link="{img}cypher_filter_ranges.jpg",role="popup-link"]
+image::{img}cypher_filter_ranges.jpg[role="popup-link"]
 
 [#filter-exists]
 === Testing if a Property Exists
@@ -127,10 +127,10 @@ RETURN p, rel, c
 ----
 
 .Query1 Results:
-image:{img}cypher_filter_exists_nodeProp.jpg[link="{img}cypher_filter_exists_nodeProp.jpg",role="popup-link"]
+image:{img}cypher_filter_exists_nodeProp.jpg[role="popup-link"]
 
 .Query2 Results:
-image:{img}cypher_filter_exists_relProp.jpg[link="{img}cypher_filter_exists_relProp.jpg",role="popup-link"]
+image:{img}cypher_filter_exists_relProp.jpg[role="popup-link"]
 
 [#filter-strings]
 == Checking Strings - Partial Values, Fuzzy Searches, and More
@@ -175,7 +175,7 @@ WHERE p.name =~ 'Jo.*'
 RETURN p.name
 ----
 
-image::{img}cypher_filter_regex.jpg[link="{img}cypher_filter_regex.jpg",role="popup-link"]
+image::{img}cypher_filter_regex.jpg[role="popup-link"]
 
 Just like in SQL and other languages, you can check if a property value is a value in a list.
 The `IN` keyword allows you to specify an array of values and validate a property's contents against each one in the list.
@@ -189,7 +189,7 @@ WHERE p.yearsExp IN [1, 5, 6]
 RETURN p.name, p.yearsExp
 ----
 
-image::{img}cypher_filter_list.jpg[link="{img}cypher_filter_list.jpg",role="popup-link"]
+image::{img}cypher_filter_list.jpg[role="popup-link"]
 
 [#filter-patterns]
 == Filtering on Patterns
@@ -215,10 +215,10 @@ RETURN friend.name
 ----
 
 .Query1 Results:
-image:{img}cypher_filter_exists_ptrn.jpg[link="{img}cypher_filter_list.jpg",role="popup-link"]
+image:{img}cypher_filter_exists_ptrn.jpg[role="popup-link"]
 
 .Query2 Results:
-image:{img}cypher_filter_notExists_ptrn.jpg[link="{img}cypher_filter_list.jpg",role="popup-link"]
+image:{img}cypher_filter_notExists_ptrn.jpg[role="popup-link"]
 
 [#filter-optional]
 === Optional Patterns
@@ -238,7 +238,7 @@ OPTIONAL MATCH (p)-[:WORKS_FOR]-(other:Company)
 RETURN p.name, other.name
 ----
 
-image::{img}cypher_filter_optMatch.jpg[link="{img}cypher_filter_optMatch.jpg",role="popup-link"]
+image::{img}cypher_filter_optMatch.jpg[role="popup-link"]
 
 Notice that Joe is returned because his name starts with the letter 'J', but his company name is null.
 That is because he does not have a `WORKS_FOR` relationship to a company node.
@@ -273,10 +273,10 @@ RETURN p.name
 ----
 
 .Query1 Results:
-image:{img}cypher_filter_extPattern.jpg[link="{img}cypher_filter_extPattern.jpg",role="popup-link"]
+image:{img}cypher_filter_extPattern.jpg[role="popup-link"]
 
 .Query2 Results:
-image:{img}cypher_filter_twoPattern.jpg[link="{img}cypher_filter_twoPattern.jpg",role="popup-link"]
+image:{img}cypher_filter_twoPattern.jpg[role="popup-link"]
 
 Notice that on the second query, we used a comma after the first `MATCH` line and added another pattern to match on the next line.
 This allows us to chain together patterns, similar to when we used the `WHERE exists(<pattern>)` syntax above.

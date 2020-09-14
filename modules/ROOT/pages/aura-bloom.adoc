@@ -49,21 +49,21 @@ To access it, we can open a Neo4j Browser window.
 
 In the Neo4j Aura console (console.neo4j.io), choose the blue button at the right of the instance for `Open with` and choose `Neo4j Browser`.
 
-image::{img}aura_console_browser_1.jpg[link="{img}aura_console_browser_1.jpg",role="popup-link"]
+image::{img}aura_console_browser_1.jpg[role="popup-link"]
 
 Once we have Neo4j Browser open, we can click in the command line input at the top, type in `:play movie-graph`, then click the `play` button to the right of the input.
 
-image::{img}browser_command_line.jpg[link="{img}browser_command_line.jpg",role="popup-link"]
+image::{img}browser_command_line.jpg[role="popup-link"]
 
 A slideshow will appear beneath the command line, and we can use the next button to see the next page of the Browser guide.
 
-image::{img}load_movie_graph.jpg[link="{img}load_movie_graph.jpg",role="popup-link"]
+image::{img}load_movie_graph.jpg[role="popup-link"]
 
 Click on the Cypher statement (in grey dotted lines on the right).
 This will copy it to the command line above, and then we can click the `play` button again to run that statement.
 It will return a piece of the graph and display it in another result pane that appears below the command line.
 
-image::{img}movie_graph_return.jpg[link="{img}movie_graph_return.jpg",role="popup-link"]
+image::{img}movie_graph_return.jpg[role="popup-link"]
 
 ****
 [NOTE]
@@ -78,7 +78,7 @@ We will also need to add indexes for the Person and Movie labels, which we will 
 
 Copy each one into the command line, running each one by clicking the `play` button.
 
-image::{img}add_indexes.jpg[link="{img}add_indexes.jpg",role="popup-link"]
+image::{img}add_indexes.jpg[role="popup-link"]
 
 [#bloom-explore]
 == Explore the data with Neo4j Bloom
@@ -87,22 +87,22 @@ Let's explore the movie data with Neo4j Bloom!
 
 First, we launch our Bloom application by clicking again on the `Open with` button on the Neo4j Aura console, selecting `Neo4j Bloom` this time.
 
-image::{img}aura_console_browser_1.jpg[link="{img}aura_console_browser_1.jpg",role="popup-link"]
+image::{img}aura_console_browser_1.jpg[role="popup-link"]
 
 We will need to provide the username and password for our Aura instance before we can continue.
 
-image::{img}aura_bloom_login.jpg[link="{img}aura_bloom_login.jpg",role="popup-link"]
+image::{img}aura_bloom_login.jpg[role="popup-link"]
 
 It will then ask us to link:/developer/neo4j-bloom/#bloom-perspective[choose a perspective], which we will allow Bloom to do for us by clicking on the `Create Perspective`, and then the `Generate Perspective` button.
 This will create a new perspective that we will then choose - select by clicking on the `Use Perspective` button.
 
 To view some data, we can type in `Movie Person` in the link:/developer/neo4j-bloom/#bloom-search[search bar] and click on the first suggestion that appears underneath it.
 
-image::{img}aurabloom_movieperson_1.jpg[link="{img}aurabloom_movieperson_1.jpg",role="popup-link"]
+image::{img}aurabloom_movieperson_1.jpg[role="popup-link"]
 
 That will show us all the `Movie` nodes who have `Person` nodes connected to them.
 
-image::{img}aurabloom_movie_results_1.jpg[link="{img}aurabloom_movie_results_1.jpg",role="popup-link"]
+image::{img}aurabloom_movie_results_1.jpg[role="popup-link"]
 
 We can zoom in (using the `+` and `-` icons in the lower right) to view more details about all of the nodes, and we can move about the graph by clicking in an empty space in the scene and dragging it around.
 
@@ -112,23 +112,23 @@ We can link:/developer/neo4j-bloom/#clearing-scene[clear the scene] by right-mou
 Next, we can write a query to look for a specific movie and the people who are connected to it.
 To do this, type `The Polar Express Person` into the search bar and click on the first suggestion that appears beneath it.
 
-image::{img}aurabloom_polarexpress_1.jpg[link="{img}aurabloom_polarexpress_1.jpg",role="popup-link"]
+image::{img}aurabloom_polarexpress_1.jpg[role="popup-link"]
 
 This will display the results of the query in the scene and allow us to explore a bit more.
 
-image::{img}aurabloom_polarexp_results_1.jpg[link="{img}aurabloom_polarexp_results_1.jpg",role="popup-link"]
+image::{img}aurabloom_polarexp_results_1.jpg[role="popup-link"]
 
 We can see that there are two people connected to this movie in our dataset - `Tom Hanks` and `Robert Zemeckis`.
 We can find out if these two `Person` nodes have any other connections by link:/developer/neo4j-bloom/#expand-nodes[expanding those nodes].
 For this, click on one of the persons where a white border appears around the node.
 Then right-mouse click and choose the `Expand`, and then `All` options from the menu.
 
-image::{img}aurabloom_expand_node_1.jpg[link="{img}aurabloom_expand_node_1.jpg",role="popup-link"]
+image::{img}aurabloom_expand_node_1.jpg[role="popup-link"]
 
 Once complete for both `Robert Zemeckis` and `Tom Hanks`, we can see that both people were also involved in the `Cast Away` movie.
 Both times, Robert directed the movies and Tom Hanks acted in them (relationship types `ACTED_IN` and `DIRECTED`).
 
-image::{img}aurabloom_expanded_graph_1.jpg[link="{img}aurabloom_expanded_graph_1.jpg",role="popup-link"]
+image::{img}aurabloom_expanded_graph_1.jpg[role="popup-link"]
 
 ****
 [NOTE]
