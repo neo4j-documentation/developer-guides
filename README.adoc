@@ -11,7 +11,7 @@ Built with link:https://antora.org/[Antora^].
 
 == Installation
 
-To build these docs locally you will need link:https://nodejs.org/en/download/package-manager/[Node & NPM^] installed.
+To build these docs locally you will need link:https://nodejs.org/en/download/package-manager/[Node & NPM^] installed.  Antora requires Node version 10 or higher.
 
 To install the dependencies run:
 
