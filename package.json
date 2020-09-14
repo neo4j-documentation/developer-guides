@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm build && npm run serve & npm-watch build",
+    "start": "npm run build && npm run serve & npm-watch build",
     "serve": "node server.js",
     "build": "antora --stacktrace preview.yml",
     "publish": "git push origin HEAD:publish",
