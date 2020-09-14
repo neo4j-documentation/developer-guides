@@ -124,7 +124,7 @@ There is a link:/developer/cypher[Cypher tutorial] if you would like to learn mo
 ++++
 <div class="responsive-embed">
 <iframe src="https://player.vimeo.com/video/457581961" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/457581961">01 Introduction</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<p><a href="https://vimeo.com/457581961">Setting Up</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 </div>
 ++++
 
@@ -651,7 +651,7 @@ def serialize_movie(movie, my_rating=None):
     }
 ```
 
-== The React Frontend
+== The React Frontend  
 
 ++++
 <div class="responsive-embed">
