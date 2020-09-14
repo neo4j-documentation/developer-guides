@@ -23,9 +23,9 @@ You can https://neo4j.com/docs/migration-guide/4.0/upgrade-driver/#_configure_ss
 
 
 | *Encrypted with Self-Signed Certificate*
-| `neo4j+scc`
-| `neo4j+scc`
-| `bolt+scc`
+| `neo4j+ssc`
+| `neo4j+ssc`
+| `bolt+ssc`
 
 | *https://neo4j.com/aura/[Neo4j Aura^]*
 | `neo4j+s`
