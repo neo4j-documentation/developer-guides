@@ -129,6 +129,7 @@
 ** xref:about-graphacademy.adoc[Learn through GraphAcademy]
 ** xref:guide-create-neo4j-browser-guide.adoc[Tutorial: Create Custom Browser Guide]
 ** xref:ruby-course.adoc[How-To: Build with Ruby &amp; Neo4j]
+** xref:python-movie-app.adoc[How-To: Build with Python, Flask &amp; Neo4j]
 ** xref:browser-guide-list.adoc[Available Neo4j Browser Guides]
 ** link:/docs/[Neo4j Documentation^]
 
