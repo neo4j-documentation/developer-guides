@@ -137,18 +137,18 @@ This tutorial post will walk you through rating a movie on a sample movie rating
 This project uses a classic Neo4j dataset: the movie database. It includes `Movie`, `Actor`, `Director`, and `Genre` nodes, connected by relationships as described below:
 
 [source,cypher]
----
+----
 (:Movie)-[:HAS_GENRE]→(:Genre)
 (:Actor)-[:ACTED_IN]→(:Movie)
 (:Director)-[:DIRECTED]→(:Movie)
----
+----
 
 Additionally, users can create accounts, log in, and add their ratings to movies:
 
 [source,cypher]
----
+----
 (:User)-[:RATES]->(:Movie)
----
+----
 
 ==== The API
 
@@ -192,28 +192,28 @@ Note the section that looks like this - you’ll need to copy+paste the credenti
 For example, if the driver line contains the following:
 
 [source,python]
----
+----
 driver = GraphDatabase.driver("bolt://52.72.13.205:47929", auth=basic_auth("neo4j", "knock-cape-reserve"))
----
+----
 
 In your text editor, open up `flask-api/app.py` and enter the appropriate information into the variables `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL` and save.
 
 [source,python]
----
+----
 DATABASE_USERNAME = 'neo4j'
 DATABASE_PASSWORD = 'expiration-facts-analyzers'
 DATABASE_URL = 'bolt://34.227.92.130:34260'
----
+----
 
 To start the Flask API:
 
 [source,shell]
----
+----
 cd flask-api
 pip3 install -r requirements.txt
 export FLASK_APP=app.py
 flask run 
----
+----
 
 Verify the endpoints are is running as expected by taking a look at the docs at: http://localhost:5000/docs
 
@@ -224,11 +224,12 @@ Run `nvm use` to ensure you’re using the node version specified for this proje
 If you don’t have the recommended version of node installed, follow the prompt to install the recommended version. 
 After verifying you are using the recommended user, run:
 
-```
+[source,shell]
+----
 npm install 
 cp src/config/settings.example.js src/config/settings.js
 npm start 
-```
+----
 
 Navigate to view the app at http://localhost:3000/
 
@@ -249,7 +250,7 @@ Let’s look at how we would request a list of all the established genres from t
 The GenreList class queries the database for all `Genre` nodes, serializes the results, and returns them via `/api/v0/genres`:
 
 [source,python]
----
+----
 class GenreList(Resource):
     @swagger.doc({
         'tags': ['genres'],
@@ -268,10 +269,10 @@ class GenreList(Resource):
         db = get_db()
         result = db.read_transaction(get_genres)
         return [serialize_genre(record['genre']) for record in result]
----
+----
 
 [source,python]
----
+----
 def serialize_genre(genre):
     print(genre)
     return {
@@ -279,12 +280,12 @@ def serialize_genre(genre):
         'name': genre['name'],
     }
 
----
+----
 
 [source,python]
----
+----
 api.add_resource(GenreList, '/api/v0/genres')
----
+----
 
 What’s Going on with the Serializer?
 
@@ -294,20 +295,20 @@ result = db.read_transaction(get_genres)
 returns a series of records:
 
 [source,shell]
----
+----
 [<Record genre=<Node id=1 labels=frozenset({'Genre'}) properties={'name': 'Adventure', 'id': 1}>>, <Record genre=<Node id=2 labels=frozenset({'Genre'}) properties={'name': 'Animation', 'id': 2}>>, <Record genre=<Node id=3 labels=frozenset({'Genre'}) properties={'name': 'Children', 'id': 3}>>, <Record genre=<Node id=4 labels=frozenset({'Genre'}) properties={'name': 'Comedy', 'id': 4}>>, <Record genre=<Node id=6 labels=frozenset({'Genre'}) properties={'name': 'Fantasy', 'id': 6}>>, <Record genre=<Node id=9 labels=frozenset({'Genre'}) properties={'name': 'Romance', 'id': 9}>>, <Record genre=<Node id=10 labels=frozenset({'Genre'}) properties={'name': 'Drama', 'id': 10}>>, <Record genre=<Node id=13 labels=frozenset({'Genre'}) properties={'name': 'Action', 'id': 13}>>, <Record genre=<Node id=14 labels=frozenset({'Genre'}) properties={'name': 'Crime', 'id': 14}>>, <Record genre=<Node id=16 labels=frozenset({'Genre'}) properties={'name': 'Thriller', 'id': 16}>>, <Record genre=<Node id=23 labels=frozenset({'Genre'}) properties={'name': 'Horror', 'id': 23}>>, <Record genre=<Node id=33 labels=frozenset({'Genre'}) properties={'name': 'Mystery', 'id': 33}>>, <Record genre=<Node id=37 labels=frozenset({'Genre'}) properties={'name': 'Sci-Fi', 'id': 37}>>, <Record genre=<Node id=49 labels=frozenset({'Genre'}) properties={'name': 'Documentary', 'id': 49}>>, <Record genre=<Node id=51 labels=frozenset({'Genre'}) properties={'name': 'IMAX', 'id': 51}>>, <Record genre=<Node id=56 labels=frozenset({'Genre'}) properties={'name': 'War', 'id': 56}>>, <Record genre=<Node id=63 labels=frozenset({'Genre'}) properties={'name': 'Musical', 'id': 63}>>, <Record genre=<Node id=161 labels=frozenset({'Genre'}) properties={'name': 'Western', 'id': 161}>>, <Record genre=<Node id=162 labels=frozenset({'Genre'}) properties={'name': 'Film-Noir', 'id': 162}>>, <Record genre=<Node id=7745 labels=frozenset({'Genre'})]
----
+----
 
 The serializer parses these slightly results into the processed data we need:
 
 [source,python]
----
+----
 def serialize_genre(genre):
     return {
         'id': genre['id'],
         'name': genre['name'],
     }
----
+----
 
 Voila! You get an array of genres at `/genres`.
 
@@ -342,17 +343,15 @@ Assuming you have the API running, you can test requests either by using the int
 
 *Example: Create a New User*
 
-Request
-
+.Request
 [source,shell]
----
+----
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/register'
----
+----
 
-Response
-
+.Response
 [source,shell]
----
+----
 {
    "id":"e1e157a2-1fb5-416a-b819-eb75c480dfc6",
    "username":"Mary333 Jane",
@@ -360,32 +359,30 @@ Response
       "full_size":"https://www.gravatar.com/avatar/b2a02..."
    }
 }
----
+----
 
 
 *Example: Try to Create a New User but Username is Already Taken*
 
-Request
-
+.Request
 [source,shell]
----
+----
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d  '{ "username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/register'
----
+----
 
-Response
-
+.Response
 [source,shell]
----
+----
 {
    "username":"username already in use"
 }
----
-
+----
 
 User registration logic is implemented in `/flask-api/app.py` as described below:
 
+.User Registration
 [source,python]
----
+----
 class Register(Resource):
     @swagger.doc({
         'tags': ['users'],
@@ -456,8 +453,7 @@ class Register(Resource):
         )
         user = results.single()['user']
         return serialize_user(user), 201
----
-
+----
 
 ==== Users Can Log In
 
@@ -470,55 +466,47 @@ Assuming you have the API running, you can test requests either by using the int
 
 *Example: Login*
 
-Request
-
+.Request
 [source,shell]
----
+----
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/login'
----
+----
 
-Response
-
+.Response
 [source,shell]
----
+----
 {
   "token":"5a85862fb28a316ea6a1"
 }
----
-
+----
 
 *Example: Wrong Password*
 
-Request
-
+.Request
 [source,shell]
----
+----
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/register'
----
+----
 
-Response
-
+.Response
 [source,shell]
----
+----
 {
    "username":"username already in use"
 }
----
+----
 
 *Example: See Myself*
 
-Request
-
+.Request
 [source,shell]
----
+----
 curl -X GET --header 'Accept: application/json' --header 'Authorization: Token 5a85862fb28a316ea6a1' 'http://localhost:5000/api/v0/users/me'
----
+----
 
-
-Response
-
+.Response
 [source,shell]
----
+----
 {
   "id": "94a604f7-3eab-4f28-88ab-12704c228936",
   "username": "Mary Jane",
@@ -526,7 +514,7 @@ Response
     "full_size": "https://www.gravatar.com/avatar/c2eab..."
   }
 }
----
+----
 
 The code here is similar to that of `/register`.
 There is a similar form to fill out, where a user types in their username and password.
@@ -545,24 +533,21 @@ The user can access their previous ratings and the respective movies that were r
 
 *Example: Rate a Movie*
 
-Request
-
+.Request
 [source,shell]
----
+----
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Token ce40f63e79344f017a48b205db27aeaa301ae2b6' -d '{"rating":4}' 'http://localhost:5000/api/v0/movies/15602/rate'
----
+----
 
-Response
-
+.Response
 [source,shell]
----
+----
 {}
----
+----
 
-Python Implementation
-
+.Python Implementation: Rate a Movie
 [source,python]
----
+----
 class RateMovie(Resource):
     @login_required
     def post(self, id):
@@ -594,21 +579,19 @@ class RateMovie(Resource):
             ''', {'movie_id': id, 'user_id': g.user['id']}
         )
         return {}, 204
----
+----
 
 Example: See All of My Ratings
 
-Request
-
+.Request
 [source,shell]
----
+----
 curl -X GET --header 'Accept: application/json' --header 'Authorization: Token ce40f63e79344f017a48b205db27aeaa301ae2b6' 'http://localhost:5000/api/v0/movies/rated'
----
+----
 
-Response
-
+.Response
 [source,shell]
----
+----
 [
   {
     "id": "15602",
@@ -622,12 +605,11 @@ Response
     "my_rating": 4
   }
 ]
----
+----
 
-Python Implementation
-
+.Python Implementation: See My Ratings
 [source,python]
----
+----
 class MovieListRatedByMe(Resource):
     @login_required
     def get(self):
@@ -655,7 +637,7 @@ def serialize_movie(movie, my_rating=None):
         'poster_image': movie['poster'],
         'my_rating': my_rating,
     }
----
+----
 
 == The React Frontend  
 
@@ -682,7 +664,7 @@ The home page is a relatively simple page making calls to two endpoints: the "mo
 The "Featured Movies" portion at the top calls three hard-coded movies. 
 
 [source,javascript]
---- 
+----
 renderFeatured() {
     var {movies} = this.props;
 
@@ -703,10 +685,10 @@ renderFeatured() {
       </div>
     );
   }
----
+----
 
 [source,javascript]
----
+----
 static getFeaturedMovies() {
     return Promise.all([
         axios.get(`${apiBaseURL}/movies/13380`),
@@ -714,7 +696,7 @@ static getFeaturedMovies() {
         axios.get(`${apiBaseURL}/movies/11398`)
     ]);
 }
----
+----
 
 === Movie and Person Detail
 
