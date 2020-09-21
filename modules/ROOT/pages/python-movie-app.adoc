@@ -15,7 +15,8 @@ The Flask framework is used as the backend, and React as frontend.
 .Prerequisites
 [abstract]
 You should have Python installed on your system.
-Some experience with Flask is suggested.
+You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] on to your machine.
+
 
 [#python-movie-course]
 This course provides an overview of what you need to know to write a Flask application using a Neo4j database. 
@@ -131,6 +132,9 @@ Now you’re looking for a demo app or template to get the ball rolling.
 === Enter the Neo4j Movie Flask/React App
 
 This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
+
+If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] on to your machine.
+
 
 ==== The Database
 
@@ -581,7 +585,7 @@ class RateMovie(Resource):
         return {}, 204
 ----
 
-Example: See All of My Ratings
+*Example: See All of My Ratings*
 
 .Request
 [source,shell]
@@ -637,6 +641,70 @@ def serialize_movie(movie, my_rating=None):
         'poster_image': movie['poster'],
         'my_rating': my_rating,
     }
+----
+
+*Example: My Recommendations*
+
+.Request
+[source,shell]
+----
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Token ce40f63e79344f017a48b205db27aeaa301ae2b6' 'http://localhost:5000/api/v0/movies/recommended'
+----
+
+.Response
+[source,shell]
+----
+[
+  {
+    "id": "45523",
+    "title": "Louis C.K.: Hilarious",
+    "summary": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "released": "2010-01-26",
+    "duration": 82,
+    "rated": 8.6,
+    "tagline": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/8mJMrrT4tkfZLMFvKQ0Hq6jlXbp.jpg",
+    "my_rating": null
+  },
+  {
+    "id": "38757",
+    "title": "Tangled",
+    "summary": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "released": "2010-11-24",
+    "duration": 100,
+    "rated": 7.8,
+    "tagline": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/1uPxRO0iYwW02lzwatRhkugWBYs.jpg",
+    "my_rating": null
+  },
+
+...
+]
+----
+
+[source,python]
+----
+@login_required
+def get(self):
+    def get_movies_list_recommended(tx, user_id):
+        return list(tx.run(
+            '''
+            MATCH (me:User {id: $user_id})-[my:RATED]->(m:Movie)
+            MATCH (other:User)-[their:RATED]->(m)
+            WHERE me <> other
+            AND abs(my.rating - their.rating) < 2
+            WITH other,m
+            MATCH (other)-[otherRating:RATED]->(movie:Movie)
+            WHERE movie <> m 
+            WITH avg(otherRating.rating) AS avgRating, movie
+            RETURN movie
+            ORDER BY avgRating desc
+            LIMIT 25
+            ''', {'user_id': user_id}
+        ))
+    db = get_db()
+    result = db.read_transaction(get_movies_list_recommended, g.user['id'])
+    return [serialize_movie(record['movie']) for record in result]
 ----
 
 == The React Frontend  
