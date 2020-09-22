@@ -58,14 +58,14 @@ We can import those DataFrames from CSV files using the following code:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="load-csv-files"]
+include::example$link-prediction/py/06_SageMaker.py[tag="load-csv-files"]
 ----
 
 And now let's have a look at the features that we're going to be working with:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="train-features"]
+include::example$link-prediction/py/06_SageMaker.py[tag="train-features"]
 ----
 
 .Train DataFrame
@@ -76,7 +76,7 @@ include::example$link-prediction/notebooks/data/df_train_under_sample.csv[]
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="test-features"]
+include::example$link-prediction/py/06_SageMaker.py[tag="test-features"]
 ----
 
 .Test DataFrame
@@ -90,9 +90,9 @@ include::example$link-prediction/notebooks/data/df_test_under_sample.csv[]
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="imports"]
+include::example$link-prediction/py/06_SageMaker.py[tag="imports"]
 
-include::example$link-prediction/py/05_SageMaker.py[tag="prerequisites"]
+include::example$link-prediction/py/06_SageMaker.py[tag="prerequisites"]
 ----
 
 [#upload-to-s3]
@@ -105,7 +105,7 @@ We need to make sure that the order of the columns is the same in both files, an
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="upload-dataset-s3"]
+include::example$link-prediction/py/06_SageMaker.py[tag="upload-dataset-s3"]
 ----
 
 .Output
@@ -136,7 +136,7 @@ We'll also add config to limit the amount of time to 5 minutes for each training
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-setup"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-setup"]
 ----
 
 [#launch-sagemaker-autopilot]
@@ -153,7 +153,7 @@ We can launch our job by calling the `create_auto_ml_job` function:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-launch"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-launch"]
 ----
 
 .Output
@@ -173,7 +173,7 @@ The high-level steps will be displayed in the `AutoMLJobSecondaryStatus` field o
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-track-progress"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-track-progress"]
 ----
 
 .Output
@@ -203,7 +203,7 @@ We can list all the candidates by running the following code:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-all-candidates"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-all-candidates"]
 ----
 
 .All candidates
@@ -216,7 +216,7 @@ We can also extract just the best candidate:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-best-candidate"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-best-candidate"]
 ----
 
 .Best candidate
@@ -240,7 +240,7 @@ We can create a model by running the following code:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-create-model"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-create-model"]
 ----
 
 .Output
@@ -260,7 +260,7 @@ A transform job uses a trained model to get inferences on a dataset and saves th
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-create-transform-job"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-create-transform-job"]
 ----
 
 .Output
@@ -279,7 +279,7 @@ We can track this job by using the `describe_transform_job` function:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-track-transform-job"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-track-transform-job"]
 ----
 
 .Output
@@ -295,7 +295,7 @@ Once that's completed, we can view the results of the job by running the followi
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="autopilot-transform-job-results"]
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-transform-job-results"]
 ----
 
 This DataFrame contains predictions for the label field of the test DataFrame, and we're now ready to compare those predictions against the actual labels to see how well the model has performed.
@@ -311,16 +311,16 @@ The following function will help with this:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="evaluation-imports"]
+include::example$link-prediction/py/06_SageMaker.py[tag="evaluation-imports"]
 
-include::example$link-prediction/py/05_SageMaker.py[tag="evaluation-functions"]
+include::example$link-prediction/py/06_SageMaker.py[tag="evaluation-functions"]
 ----
 
 We can evaluate our model by running the following code:
 
 [source,python]
 ----
-include::example$link-prediction/py/05_SageMaker.py[tag="test-model"]
+include::example$link-prediction/py/06_SageMaker.py[tag="test-model"]
 ----
 
 .Results
