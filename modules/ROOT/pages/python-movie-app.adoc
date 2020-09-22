@@ -200,7 +200,7 @@ For example, if the driver line contains the following:
 driver = GraphDatabase.driver("bolt://52.72.13.205:47929", auth=basic_auth("neo4j", "knock-cape-reserve"))
 ----
 
-In your text editor, open up `flask-api/app.py` and enter the appropriate information into the variables `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL` and save.
+In your text editor, open and/or create `flask-api/.env` and enter the appropriate information into the variables `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL` and save.
 
 [source,python]
 ----
@@ -781,7 +781,16 @@ The User Profile page allows the user to re-rate or un-rate their movies, and vi
 
 * Download Dump File https://github.com/neo4j-graph-examples/recommendations/tree/master/data
 * Create an account on Aura https://neo4j.com/cloud/aura/
-* Upload the dump
+* Upload the dump and start the database
+
+// video here - once it is uploaded
+
+=== Deplyoying the Backend and Frontend with Heroku
+
+After 
+
+// video here once it is uploaded 
+
 
 == Next Steps
 
