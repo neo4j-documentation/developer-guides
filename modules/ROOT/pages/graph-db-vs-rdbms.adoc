@@ -50,7 +50,7 @@ Unlike other database management systems, relationships are of equal importance 
 This means we are not required to infer connections between entities using special properties such as foreign keys or out-of-band processing like map-reduce.
 
 By assembling nodes and relationships into connected structures, graph databases enable us to build simple and sophisticated models that map closely to our problem domain.
-The data stays remarkably similiar to the its form in the real world - small, normalized, yet richly connected entities.
+The data stays remarkably similiar to its form in the real world - small, normalized, yet richly connected entities.
 This allows you to query and view your data from any imaginable point of interest, supporting many different use cases.
 
 Each node (entity or attribute) in the graph database model directly and physically contains a list of relationship records that represent the relationships to other nodes.
