@@ -323,8 +323,8 @@ We can evaluate our model by running the following code:
 include::example$link-prediction/py/06_SageMaker.py[tag="test-model"]
 ----
 
-.Results
-[opts=header, format="csv"]
-|===
-include::example$link-prediction/notebooks/data/sagemaker-model-eval.csv[]
-|===
+// .Results
+// [opts=header, format="csv"]
+// |===
+// include::example$link-prediction/notebooks/data/sagemaker-model-eval.csv[]
+// |===
