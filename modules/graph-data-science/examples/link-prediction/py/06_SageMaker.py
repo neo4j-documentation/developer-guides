@@ -66,7 +66,6 @@ session = sagemaker.Session(boto_session=boto_session)
 bucket = session.default_bucket()
 
 timestamp_suffix = strftime('%Y-%m-%d-%H-%M-%S', gmtime())
-# timestamp_suffix = "2020-08-20-11-26-33"
 
 prefix = 'sagemaker/link-prediction-developer-guide-' + timestamp_suffix
 
@@ -305,6 +304,8 @@ print(describe_response)
 # Now let's view the results of the transform job:
 
 # +
+prefix = "sagemaker/link-prediction-developer-guide-2020-09-22-10-53-59"
+
 # tag::autopilot-transform-job-results[]
 s3_output_key = '{}/inference-results/test_data_binary_classifier.csv.out'.format(prefix);
 local_inference_results_path = 'data/download/inference_results.csv'
