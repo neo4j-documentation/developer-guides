@@ -98,8 +98,8 @@ You can perform the same match but instead use the `collect` function to aggrega
 
 [source,cypher]
 ----
-MATCH (p:Person)-[:LIKES]->(f:Fruit)
-RETURN p, collect(f.name)
+MATCH (p:Person)-[:RATED]->(m:Movie)
+RETURN p, collect(m.title)
 ----
 
 .Result of Cypher aggregation query
@@ -117,24 +117,21 @@ There is a link:/developer/cypher[Cypher tutorial] if you would like to learn mo
 [#project-setup]
 == The Neo4j Movie Flask/React App
 
+Let’s jump right into it. 
+You’re a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app. 
+You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get going. 
+Now you’re looking for a demo app or template to get the ball rolling.
+
+If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] on to your machine.
+This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
+The following video will walk briefly walk you through the various features of the movie app. 
+
 ++++
 <div class="responsive-embed">
 <iframe src="https://player.vimeo.com/video/457581961" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 <p><a href="https://vimeo.com/457581961">Setting Up</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 </div>
 ++++
-
-Let’s jump right into it. 
-You’re a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app. 
-You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get going. 
-Now you’re looking for a demo app or template to get the ball rolling.
-
-=== Enter the Neo4j Movie Flask/React App
-
-This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
-
-If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] on to your machine.
-
 
 ==== The Database
 
@@ -787,7 +784,38 @@ The User Profile page allows the user to re-rate or un-rate their movies, and vi
 
 === Deplyoying the Backend and Frontend with Heroku
 
-After 
+You will have to create two apps on Heroku, one for the backend and one for the frontend. 
+
+Starting with the backend, create an app on Heroku for the backend. 
+On your local machine, add the Heroku repo as a remote. 
+On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j Aura (or the sandbox if you haven't migrated to Aura). 
+
+
+Create another Heroku app for the frontend. 
+Add another git remote pointed to the Heroku app dedicated to the frontend app. 
+Under **Heroku > Settings > Config Vars**, add the environment variables for the `REACT_APP_API_BASE_URL` and `REACT_APP_PROXY_URL` fields. 
+
+Under **Heroku > Settings > Buildpacks**, add `mars/create-react-app` to load dependencies. 
+
+Check out the `Makefile` in the root directory of the project.
+It contains the commands needed to deploy the project. 
+You can run `deploy-api` to deploy the Rlask API and `deploy-web` to run deployment on the React site. 
+
+.Makefile
+----
+deploy-api:
+    git branch -f heroku-api
+    git branch -D heroku-api
+    git subtree split --prefix flask-api -b heroku-api
+    git push heroku-api heroku-api:master --force
+
+deploy-web:
+    git branch -f heroku-web
+    git branch -D heroku-web
+    git subtree split --prefix web -b heroku-web
+    git push heroku-web heroku-web:master --force
+----
+
 
 // video here once it is uploaded 
 
