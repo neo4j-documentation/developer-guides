@@ -88,6 +88,10 @@ include::example$link-prediction/notebooks/data/df_test_under_sample.csv[]
 [#prerequistes]
 == Setup AWS prerequisites
 
+We'll need to both an AWS role and user that have `AmazonSageMakerFullAccess` permissions.
+We also need to generate an access key and secret for the user.
+The code expects these values to be configured as environment variables:
+
 [source,python]
 ----
 include::example$link-prediction/py/06_SageMaker.py[tag="imports"]
@@ -110,9 +114,9 @@ include::example$link-prediction/py/06_SageMaker.py[tag="upload-dataset-s3"]
 
 .Output
 |===
-| Train data uploaded to: s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide/train/train_data.csv
+| Train data uploaded to: s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide-2020-09-22-10-53-59/train/train_data_binary_classifier.csv
 
-Test data uploaded to: s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide/test/test_data.csv
+Test data uploaded to: s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide-2020-09-22-10-53-59/test/test_data_binary_classifier.csv
 |===
 
 [NOTE]
@@ -265,13 +269,13 @@ include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-create-transf
 
 .Output
 |===
-| {'TransformJobArn': 'arn:aws:sagemaker:us-east-1:715633473519:transform-job/automl-link-pred-transform-job-automl-link-2020-08-20-09-25-03',
- 'ResponseMetadata': {'RequestId': 'a2d45d95-4260-4a79-bf16-12f16f014008',
+| {'AutoMLJobArn': 'arn:aws:sagemaker:us-east-1:715633473519:automl-job/automl-link-2020-09-22-10-53-59',
+ 'ResponseMetadata': {'RequestId': 'e3c45bde-62b4-424f-bb2f-98479d7f4428',
   'HTTPStatusCode': 200,
-  'HTTPHeaders': {'x-amzn-requestid': 'a2d45d95-4260-4a79-bf16-12f16f014008',
+  'HTTPHeaders': {'x-amzn-requestid': 'e3c45bde-62b4-424f-bb2f-98479d7f4428',
    'content-type': 'application/x-amz-json-1.1',
-   'content-length': '139',
-   'date': 'Thu, 20 Aug 2020 11:07:08 GMT'},
+   'content-length': '102',
+   'date': 'Tue, 22 Sep 2020 10:57:03 GMT'},
   'RetryAttempts': 0}}
 |===
 
@@ -328,3 +332,15 @@ include::example$link-prediction/py/06_SageMaker.py[tag="test-model"]
 |===
 include::example$link-prediction/notebooks/data/sagemaker-model-eval.csv[]
 |===
+
+We have accuracy, precision, and recall scores of just over 96%, which means the model has done a pretty good job of predicting likely co-authorship.
+
+[#next-steps]
+== Next Steps
+
+We've already got a good model, but can we do better?
+
+Perhaps we could add more features based on the results of other algorithms?
+Or maybe we could increase the run time per job and the number of candidates evaluated by SageMaker to see if it can come up with a better model.
+
+If you have any ideas or questions, please create an issue or PR on the https://github.com/neo4j-examples/link-prediction[neo4j-examples/link-prediction^] GitHub repository.
