@@ -209,7 +209,7 @@ include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-all-candidate
 .All candidates
 [format="csv", options="header", cols="4,1"]
 |===
-include::example$link-prediction/notebooks/data/autopilot_candidates.csv[]
+include::example$link-prediction/notebooks/data/download/autopilot_candidates.csv[]
 |===
 
 We can also extract just the best candidate:
@@ -222,7 +222,7 @@ include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-best-candidat
 .Best candidate
 [format="csv", options="header", cols="3,1,1"]
 |===
-include::example$link-prediction/notebooks/data/autopilot_best_candidate.csv[]
+include::example$link-prediction/notebooks/data/download/autopilot_best_candidate.csv[]
 |===
 
 [#create-model]
@@ -323,8 +323,8 @@ We can evaluate our model by running the following code:
 include::example$link-prediction/py/06_SageMaker.py[tag="test-model"]
 ----
 
-// .Results
-// [opts=header, format="csv"]
-// |===
-// include::example$link-prediction/notebooks/data/sagemaker-model-eval.csv[]
-// |===
+.Results
+[opts=header, format="csv"]
+|===
+include::example$link-prediction/notebooks/data/sagemaker-model-eval.csv[]
+|===

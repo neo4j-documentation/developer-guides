@@ -64,12 +64,18 @@ region = boto_session.region_name
 
 session = sagemaker.Session(boto_session=boto_session)
 bucket = session.default_bucket()
-prefix = 'sagemaker/link-prediction-developer-guide'
+
+timestamp_suffix = strftime('%Y-%m-%d-%H-%M-%S', gmtime())
+# timestamp_suffix = "2020-08-20-11-26-33"
+
+prefix = 'sagemaker/link-prediction-developer-guide-' + timestamp_suffix
 
 role = os.environ["SAGEMAKER_ROLE"]
 
 sm = boto_session.client(service_name='sagemaker',region_name=region)
 # end::prerequisites[]
+
+print(timestamp_suffix, prefix)
 # -
 
 # ## Upload the dataset to Amazon S3
@@ -78,13 +84,23 @@ sm = boto_session.client(service_name='sagemaker',region_name=region)
 
 # +
 # tag::upload-dataset-s3[]
-train_file = 'data/upload/train_data.csv';
+train_columns = [
+    "cn", "pa", "tn", "minTriangles", "maxTriangles", "minCoefficient", "maxCoefficient", "sp", "sl", "label"
+]
+df_train_under = df_train_under[train_columns]
+
+test_columns = [
+    "cn", "pa", "tn", "minTriangles", "maxTriangles", "minCoefficient", "maxCoefficient", "sp", "sl"
+]
+df_test_under = df_test_under.drop(columns=["label"])[test_columns]
+
+train_file = 'data/upload/train_data_binary_classifier.csv';
 df_train_under.to_csv(train_file, index=False, header=True)
 train_data_s3_path = session.upload_data(path=train_file, key_prefix=prefix + "/train")
 print('Train data uploaded to: ' + train_data_s3_path)
 
-test_file = 'data/upload/test_data.csv';
-df_test_under.drop(columns=["label"]).to_csv(test_file, index=False, header=False)
+test_file = 'data/upload/test_data_binary_classifier.csv';
+df_test_under.to_csv(test_file, index=False, header=False)
 test_data_s3_path = session.upload_data(path=test_file, key_prefix=prefix + "/test")
 print('Test data uploaded to: ' + test_data_s3_path)
 # end::upload-dataset-s3[]
@@ -132,13 +148,14 @@ output_data_config = {
 
 # +
 # tag::autopilot-launch[]
-timestamp_suffix = strftime('%Y-%m-%d-%H-%M-%S', gmtime())
 auto_ml_job_name = 'automl-link-' + timestamp_suffix
 print('AutoMLJobName: ' + auto_ml_job_name)
 
 sm.create_auto_ml_job(AutoMLJobName=auto_ml_job_name,
                       InputDataConfig=input_data_config,
                       OutputDataConfig=output_data_config,
+                      ProblemType="BinaryClassification",
+                      AutoMLJobObjective={"MetricName": "Accuracy"},
                       AutoMLJobConfig=automl_job_config,
                       RoleArn=role)
 # end::autopilot-launch[]
@@ -156,7 +173,7 @@ sm.create_auto_ml_job(AutoMLJobName=auto_ml_job_name,
 print ('JobStatus - Secondary Status')
 print('------------------------------')
 
-auto_ml_job_name = "automl-link-2020-08-20-09-25-03"
+# auto_ml_job_name = "automl-link-2020-08-20-11-26-33"
 
 # tag::autopilot-track-progress[]
 describe_response = sm.describe_auto_ml_job(AutoMLJobName=auto_ml_job_name)
@@ -185,7 +202,7 @@ candidates_df
 # end::autopilot-all-candidates[]
 
 display(candidates_df)
-candidates_df.to_csv("data/autopilot_candidates.csv", index=False, float_format='%g')
+candidates_df.to_csv("data/download/autopilot_candidates.csv", index=False, float_format='%g')
 
 # +
 # tag::autopilot-best-candidate[]
@@ -201,7 +218,7 @@ best_df
 # end::autopilot-best-candidate[]
 
 display(best_df)
-best_df.to_csv("data/autopilot_best_candidate.csv", index=False, float_format='%g')
+best_df.to_csv("data/download/autopilot_best_candidate.csv", index=False, float_format='%g')
 # -
 
 # ### Perform batch inference using the best candidate
@@ -209,7 +226,7 @@ best_df.to_csv("data/autopilot_best_candidate.csv", index=False, float_format='%
 # Now that we have successfully completed the SageMaker Autopilot job on the dataset, create a model from any of the candidates by using [Inference Pipelines](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipelines.html). 
 
 # +
-timestamp_suffix = "automl-link-2020-08-20-09-25-03"
+# timestamp_suffix = "automl-link-2020-08-20-09-25-03"
 
 # tag::autopilot-create-model[]
 model_name = 'automl-link-pred-model-' + timestamp_suffix
@@ -220,12 +237,22 @@ model = sm.create_model(Containers=best_candidate['InferenceContainers'],
 
 print('Model ARN corresponding to the best candidate is : {}'.format(model['ModelArn']))
 # end::autopilot-create-model[]
+# -
+
+# ### Evaluating the model
+#
+# And now we're going to create a transform job based on this model.
+# A transform job uses a trained model to get inferences on a dataset and saves these results to S3.
 
 # +
-# test_data_s3_path = "s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide/test/test_data.csv"
+# test_data_s3_path = "s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide-2020-08-20-11-26-33/train/train_data_copy.csv"
+# timestamp_suffix = "2020-08-20-11-26-33"
+# timestamp_suffix = strftime('%Y-%m-%d-%H-%M-%S', gmtime())
 
 # tag::autopilot-create-transform-job[]
 transform_job_name = 'automl-link-pred-transform-job-' + timestamp_suffix
+
+print(test_data_s3_path, transform_job_name, model_name)
 
 transform_input = {
         'DataSource': {
@@ -275,17 +302,14 @@ while job_run_status not in ('Failed', 'Completed', 'Stopped'):
 print(describe_response)
 # -
 
-# ### Evaluating the model
-#
 # Now let's view the results of the transform job:
 
 # +
 # tag::autopilot-transform-job-results[]
-s3_output_key = '{}/inference-results/test_data_link-pred-ordered.csv.out'.format(prefix);
-local_inference_results_path = 'inference_results_link-pred-ordered.csv'
+s3_output_key = '{}/inference-results/test_data_binary_classifier.csv.out'.format(prefix);
+local_inference_results_path = 'data/download/inference_results.csv'
 
 inference_results_bucket = boto_session.resource("s3").Bucket(session.default_bucket())
-
 inference_results_bucket.download_file(s3_output_key, local_inference_results_path);
 
 data = pd.read_csv(local_inference_results_path, sep=';', header=None)
@@ -324,13 +348,15 @@ def feature_importance(columns, classifier):
 
 # +
 # tag::test-model[]
+df_test_under = pd.read_csv("data/df_test_under_all.csv")
+
 predictions = data[0]
-y_test = test_df["label"]
+y_test = df_test_under["label"]
 
 evaluate_model(y_test, predictions)
 # end::test-model[]
 # -
 
-evaluate_model(predictions, y_test).to_csv("data/model-eval.csv", index=False)
+evaluate_model(y_test, predictions).to_csv("data/sagemaker-model-eval.csv", index=False)
 
 feature_importance(columns, classifier)
