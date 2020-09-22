@@ -24,7 +24,7 @@ You will also need to install the Python https://scikit-learn.org/[scikit-learn^
 // ++++
 
 Link Prediction techniques are used to predict future or missing links in graphs.
-In this guide we're going to use these techniques predict future co-authorships using scikit-learn and link prediction algorithms from the Graph Data Science Library.
+In this guide we're going to use these techniques to predict future co-authorships using scikit-learn and link prediction algorithms from the Graph Data Science Library.
 
 [NOTE]
 ====
