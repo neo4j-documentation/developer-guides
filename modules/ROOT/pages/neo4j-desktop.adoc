@@ -20,16 +20,12 @@ It helps if you have read the section on link:/developer/get-started/graph-datab
 {level}
 
 [#install-neo4j-desktop]
-link:link:/download/?ref=developer-neo4j-desktop[If you haven't already, download Neo4j Desktop Now^, role="button feature-box_button"]
+link:/download/?ref=developer-neo4j-desktop[If you haven't already, download Neo4j Desktop Now^].
 Instructions for setting up the application will be shown after you click the download.
 
 NOTE: The activation key will be displayed at the top of the instruction page. Copy it as you need it for the installation.
 
-++++
-<div class="responsive-embed">
-<iframe width="680" height="425" src="https://www.youtube.com/embed/cTZ_Z3KfLyE" frameborder="0" allowfullscreen></iframe>
-</div>
-++++
+video::cTZ_Z3KfLyE[youtube]
 
 Using the provided instructions, follow Step 1 to install and start the Neo4j Desktop application.
 Step 2 on the download page instructions shows you how to set up your first project and database and how to open the Neo4j in the browser, but we want to cover this step in more detail here.
@@ -62,7 +58,7 @@ Copy this activation key into the Software registration form and click Activate 
 
 As a new user to Neo4j Desktop, you will be greeted with a new sample database containing https://github.com/neo4j-graph-examples/movies[Movies and Actors^].
 
-image::{img}first_graph_experience.png[float="right"]
+image::neo4j-desktop-first-graph-experience.png[float="right"]
 
 Clicking the Browser Guide link for the Sample database will open up the Neo4j Browser with a Browser Guide that will guide you through your first queries on this Neo4j database.
 
@@ -73,20 +69,21 @@ You can reset this password in the Administration tab on the Manage screen.
 == Navigation
 
 The menu along the left side of Neo4j Desktop shows high-level icons for projects, graph applications, settings, activation keys, and Neo4j info.
-At the top, the folder with a bookmark (image:{img}projects_icon.jpg[width=20]) shows the list of projects you have created.
+At the top, the folder with a bookmark (image:neo4j-desktop-project-icon.png[width=30]) shows the list of projects you have created.
 
 === Creating and Deleting a Project
+
+image::neo4j-desktop-deleting-a-project.png[float="right",width=320]
 
 To create a new project, simply click `+ New` at the right of the `Projects` menu.
 The app will add a row in the menu for a project named `Project`.
 You can change the name by clicking on the pencil icon that appears when you hover on the project name in the right pane.
-To remove the project, hover over the `Project` row in the projects menu and click the trash bin icon that appears on the right side (image:{img}desktop_delete_proj_icon.jpg[width=20]).
+To remove the project, hover over the `Project` row in the projects menu and click the trash bin icon that appears on the right side (image:neo4j-desktop-remove-icon.png[width=30]).
 
-image::{img}deleting_a_project.jpg[float="right"]
 
 === Settings
 
-Application settings can be modified or viewed by clicking the gear towards the bottom of the left-side menu in Neo4j Desktop (image:{img}settings_icon.jpg[width=20]).
+Application settings can be modified or viewed by clicking the gear towards the bottom of the left-side menu in Neo4j Desktop (image:neo4j-desktop-settings-icon.png[width=30]).
 You can modify any of these settings at any time.
 
 The first block is for privacy settings where you can adjust what data is sent back to Neo4j for assistance and future improvements.
@@ -193,7 +190,7 @@ This tab just allows you to set a new password for your database.
 
 If you have feedback or questions on how to use Neo4j Desktop, feel free to reach out to us.
 You can submit messages to us through the https://community.neo4j.com/c/neo4j-graph-platform/desktop/75[Neo4j Desktop category on the Neo4j Community website^].
-If you have spot any bugs, please create an issue in the https://github.com/neo-technology/neo4j-desktop[Neo4j Desktop Github Responsitory^]
+If you have spot any bugs, please create an issue in the https://github.com/neo-technology/neo4j-desktop[Neo4j Desktop Github Repository^]
 
 [#desktop-next-steps]
 == Next Steps
