@@ -14,9 +14,11 @@
 #     name: python3
 # ---
 
-# # Choosing a machine learning algorithm
+# # Training the machine learning model
 #
-# We’ll create our machine learning pipeline based on a random forest classifier. This method is well suited as our data set will be comprised of a mix of strong and weak features. While the weak features will sometimes be helpful, the random forest method will ensure we don’t create a model that only fits our training data.
+# In this notebook we're going to create a machine learning model and train it against the features that we engineered in the previous notebook.
+#
+# We’ll be using a random forest classifier. This method is well suited as our data set will be comprised of a mix of strong and weak features. While the weak features will sometimes be helpful, the random forest method will ensure we don’t create a model that only fits our training data.
 
 # +
 import pandas as pd
@@ -31,7 +33,7 @@ from sklearn.ensemble import RandomForestClassifier
 # end::imports[]
 # -
 
-# We can create our classifier with the following code:
+# Let's first load the features that we engineered in the previous notebook:
 
 # +
 # Load the CSV files saved in the train/test notebook
@@ -44,9 +46,13 @@ df_train_under.sample(5)
 
 df_test_under.sample(5)
 
+# We can create our random forest classifier with the following code:
+
 # tag::create-classifier[]
 classifier = RandomForestClassifier(n_estimators=30, max_depth=10, random_state=0)
 # end::create-classifier[]
+
+# And now let's train the model:
 
 # +
 # tag::train-model[]
@@ -60,6 +66,9 @@ X = df_train_under[columns]
 y = df_train_under["label"]
 classifier.fit(X, y)
 # end::train-model[]
+# -
+
+# Next we're going to evaluate our model and see which features are the most influential. The following two functions will help us do this:
 
 # +
 # tag::evaluation-imports[]
@@ -91,6 +100,10 @@ def feature_importance(columns, classifier):
     plt.show()
 
 
+# -
+
+# Now let's see how well our model does against the test set:
+
 # +
 # tag::test-model[]
 predictions = classifier.predict(df_test_under[columns])
@@ -101,5 +114,7 @@ evaluate_model(predictions, y_test)
 # -
 
 evaluate_model(predictions, y_test).to_csv("data/model-eval.csv", index=False)
+
+# 96% on all the metrics, not bad. And finally we can see which features are having the most influence:
 
 feature_importance(columns, classifier)

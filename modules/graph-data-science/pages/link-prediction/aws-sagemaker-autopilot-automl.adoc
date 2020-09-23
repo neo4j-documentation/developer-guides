@@ -1,0 +1,346 @@
+= Link Prediction with GDSL and AWS SageMaker Autopilot (AutoML)
+:level: Intermediate
+:page-level: Intermediate
+:author: Mark Needham
+:category: graph-data-science
+:tags: graph-data-science, machine-learning, link-prediction, automl
+:description: This guide explains how to solve a link prediction problem using Neo4j GDSL and the AWS SageMaker Autopilot AutoML tool.
+
+.Goals
+[abstract]
+In this guide, we will learn how to solve a link prediction problem using the AWS SageMaker Autopilot AutoML tool and the Graph Data Science Library.
+
+.Prerequisites
+[abstract]
+Please have link:/download[Neo4j^] (version 4.0 or later) and the link:/download-center/#algorithms[Graph Data Science Library^] downloaded and installed.
+You will also need to have an AWS account.
+
+[role=expertise {level}]
+{level}
+
+Link Prediction techniques are used to predict future or missing links in graphs.
+In this guide we're going to use these techniques to predict future co-authorships using AWS SageMaker Autopilot and link prediction algorithms from the Graph Data Science Library.
+
+[NOTE]
+====
+The code examples used in this guide can be found in the https://github.com/neo4j-examples/link-prediction[neo4j-examples/link-prediction^] GitHub repository.
+For background reading on link prediction, see the xref:link-prediction/index.adoc[] guide.
+====
+
+[#install-dependencies]
+== Install Dependencies
+
+We're going to use several Python libraries in this guide, so let's get those installed by running the following command:
+
+[source, bash]
+----
+pip install pandas sagemaker
+----
+
+[#citation-graph]
+== Citation Graph
+
+image:noun_citation_2276559.png[float="right", width="100px"]
+
+We'll be using data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
+The dataset doesn’t contain relationships between authors describing their collaborations, but we can infer them based on finding articles authored by multiple people.
+
+.The co-authors graph
+image::co-author-graph.svg[]
+
+[#train-test-features]
+== Train and test datasets
+
+We're going to use the train and test DataFrames that we created in the xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn] developer guide.
+In that guide we split the citation graph into test and train sub graphs and engineered features using graph algorithms.
+
+We can import those DataFrames from CSV files using the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="load-csv-files"]
+----
+
+And now let's have a look at the features that we're going to be working with:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="train-features"]
+----
+
+.Train DataFrame
+[opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
+|===
+include::example$link-prediction/notebooks/data/df_train_under_sample.csv[]
+|===
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="test-features"]
+----
+
+.Test DataFrame
+[opts=header, format="csv", cols="5,17,15,17,15,6,5,5,5,10"]
+|===
+include::example$link-prediction/notebooks/data/df_test_under_sample.csv[]
+|===
+
+[#prerequistes]
+== Setup AWS prerequisites
+
+We'll need to both an AWS role and user that have `AmazonSageMakerFullAccess` permissions.
+We also need to generate an access key and secret for the user.
+The code expects these values to be configured as environment variables:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="imports"]
+
+include::example$link-prediction/py/06_SageMaker.py[tag="prerequisites"]
+----
+
+[#upload-to-s3]
+== Upload dataset to S3
+
+image:s3.png[float="right", width="100px"]
+
+Now we're going to convert the Train and Test DataFrames to CSV files and upload them to S3.
+We need to make sure that the order of the columns is the same in both files, and the train CSV file shouldn't have the `label` field and doesn't need the column headings either.
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="upload-dataset-s3"]
+----
+
+.Output
+|===
+| Train data uploaded to: s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide-2020-09-22-10-53-59/train/train_data_binary_classifier.csv
+
+Test data uploaded to: s3://sagemaker-us-east-1-715633473519/sagemaker/link-prediction-developer-guide-2020-09-22-10-53-59/test/test_data_binary_classifier.csv
+|===
+
+[NOTE]
+====
+Make sure that the independent variable (`label` in this case) is the last field in the CSV file, otherwise you'll end up training a faulty model.
+====
+
+[#setup-sagemaker-autopilot]
+== Set up SageMaker Autopilot Job
+
+image:sagemaker.png[float="right", width="100px"]
+
+We're now ready to configure our Autopilot job.
+The following inputs are mandatory:
+
+* Amazon S3 location for input dataset and for all output artifacts
+* Name of the column of the dataset you want to predict (`label` in this case)
+* An IAM role
+
+We'll also add config to limit the amount of time to 5 minutes for each training job and we'll create a maximum of 5 candidate models.
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-setup"]
+----
+
+[#launch-sagemaker-autopilot]
+== Launch SageMaker Autopilot Job
+
+We're now ready to launch the Autopilot job.
+Autopilot jobs consists of the following high-level steps:
+
+Analyzing Data :: where the dataset is analyzed and Autopilot comes up with a list of ML pipelines that should be tried out on the dataset. The dataset is also split into train and validation sets.
+Feature Engineering :: where Autopilot performs feature transformation on individual features of the dataset as well as at an aggregate level.
+Model Tuning :: where the top performing pipeline is selected along with the optimal hyperparameters for the training algorithm (the last stage of the pipeline).
+
+We can launch our job by calling the `create_auto_ml_job` function:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-launch"]
+----
+
+.Output
+|===
+| {'AutoMLJobArn': 'arn:aws:sagemaker:us-east-1:715633473519:automl-job/automl-link-2020-08-20-09-25-03',
+ 'ResponseMetadata': {'RequestId': 'c780f695-71c6-4bc3-8401-a77beef5e7e5',
+  'HTTPStatusCode': 200,
+  'HTTPHeaders': {'x-amzn-requestid': 'c780f695-71c6-4bc3-8401-a77beef5e7e5',
+   'content-type': 'application/x-amz-json-1.1',
+   'content-length': '102',
+   'date': 'Thu, 20 Aug 2020 09:25:04 GMT'},
+  'RetryAttempts': 0}}
+|===
+
+The job will take about **25 minutes to run**, but we can track its progress.
+The high-level steps will be displayed in the `AutoMLJobSecondaryStatus` field of the response returned by the `describe_auto_ml_job` function.
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-track-progress"]
+----
+
+.Output
+|===
+| InProgress - AnalyzingData
+
+...
+
+InProgress - FeatureEngineering
+
+...
+
+InProgress - ModelTuning
+
+...
+
+Completed - MaxCandidatesReached
+|===
+
+
+Once we see a job status of `Completed` and a secondary status of `MaxCandidatesReached`, our job has completed and we can inspect the results.
+
+[#analyze-candidates]
+== Analyze Candidates
+
+We can list all the candidates by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-all-candidates"]
+----
+
+.All candidates
+[format="csv", options="header", cols="4,1"]
+|===
+include::example$link-prediction/notebooks/data/download/autopilot_candidates.csv[]
+|===
+
+We can also extract just the best candidate:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-best-candidate"]
+----
+
+.Best candidate
+[format="csv", options="header", cols="3,1,1"]
+|===
+include::example$link-prediction/notebooks/data/download/autopilot_best_candidate.csv[]
+|===
+
+[#create-model]
+== Create Model
+
+The next step is to create a model based on one of these candidates using inference pipelines.
+
+[quote, Deploy an Inference Pipeline, 'https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipelines.html[docs.aws.amazon.com/sagemaker/latest/dg/inference-pipelines.html^]']
+____
+An inference pipeline is an Amazon SageMaker model that is composed of a linear sequence of two to five containers that process requests for inferences on data.
+You use an inference pipeline to define and deploy any combination of pretrained Amazon SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers.
+____
+
+We can create a model by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-create-model"]
+----
+
+.Output
+|===
+| Model ARN corresponding to the best candidate is : arn:aws:sagemaker:us-east-1:715633473519:model/automl-link-pred-model-automl-link-2020-08-20-09-25-03
+|===
+
+[#evaluate-model]
+== Evaluate Model
+
+image:noun_evaluation_2404409.png[float="right", width="100px"]
+
+Now we're going to apply our model to the test set to see how well it fares.
+
+We can use a transform job to do this.
+A transform job uses a trained model to get inferences on a dataset and saves these results to S3.
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-create-transform-job"]
+----
+
+.Output
+|===
+| {'AutoMLJobArn': 'arn:aws:sagemaker:us-east-1:715633473519:automl-job/automl-link-2020-09-22-10-53-59',
+ 'ResponseMetadata': {'RequestId': 'e3c45bde-62b4-424f-bb2f-98479d7f4428',
+  'HTTPStatusCode': 200,
+  'HTTPHeaders': {'x-amzn-requestid': 'e3c45bde-62b4-424f-bb2f-98479d7f4428',
+   'content-type': 'application/x-amz-json-1.1',
+   'content-length': '102',
+   'date': 'Tue, 22 Sep 2020 10:57:03 GMT'},
+  'RetryAttempts': 0}}
+|===
+
+We can track this job by using the `describe_transform_job` function:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-track-transform-job"]
+----
+
+.Output
+|===
+| InProgress
+
+...
+
+Completed
+|===
+
+Once that's completed, we can view the results of the job by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-transform-job-results"]
+----
+
+This DataFrame contains predictions for the label field of the test DataFrame, and we're now ready to compare those predictions against the actual labels to see how well the model has performed.
+
+We’re going to evaluate the quality of our model by computing its accuracy, precision, and recall.
+The diagram below, taken from the https://neo4j.com/graph-algorithms-book/[O’Reilly Graph Algorithms Book^], explains how each of these metrics are computed.
+
+.Accuracy measures
+image::model-evaluation.png[]
+
+scikit-learn has built in functions that we can use for this.
+The following function will help with this:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="evaluation-imports"]
+
+include::example$link-prediction/py/06_SageMaker.py[tag="evaluation-functions"]
+----
+
+We can evaluate our model by running the following code:
+
+[source,python]
+----
+include::example$link-prediction/py/06_SageMaker.py[tag="test-model"]
+----
+
+.Results
+[opts=header, format="csv"]
+|===
+include::example$link-prediction/notebooks/data/sagemaker-model-eval.csv[]
+|===
+
+We have accuracy, precision, and recall scores of just over 96%, which means the model has done a pretty good job of predicting likely co-authorship.
+
+[#next-steps]
+== Next Steps
+
+We've already got a good model, but can we do better?
+
+Perhaps we could add more features based on the results of other algorithms?
+Or maybe we could increase the run time per job and the number of candidates evaluated by SageMaker to see if it can come up with a better model.
+
+If you have any ideas or questions, please create an issue or PR on the https://github.com/neo4j-examples/link-prediction[neo4j-examples/link-prediction^] GitHub repository.
