@@ -14,7 +14,7 @@ It also gives a high-level overview of how working with each database type is si
 
 .Prerequisites
 [abstract]
-You should be familiar with the relational database model and understand the basics of the link:/developer/get-started/graph-database#property-graph[property-graph model].
+You should be familiar with the relational database model and understand the basics of the link:/developer/graph-database#property-graph[property-graph model].
 It is also helpful to understand basic data modeling questions and concepts.
 
 [role=expertise {level}]
