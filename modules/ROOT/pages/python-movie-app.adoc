@@ -23,10 +23,7 @@ This course provides an overview of what you need to know to write a Flask appli
 To keep concepts simple, the application is an IMDB clone with basic authentication and recommendations. 
 
 ++++
-<div class="responsive-embed">
-<iframe src="https://player.vimeo.com/video/457580433" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/457580433">Introduction</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3L89pVRZOx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
 [#neo4j-python]
@@ -127,10 +124,7 @@ This tutorial post will walk you through rating a movie on a sample movie rating
 The following video will walk briefly walk you through the various features of the movie app. 
 
 ++++
-<div class="responsive-embed">
-<iframe src="https://player.vimeo.com/video/457581961" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/457581961">Setting Up</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Oatm1WWmIHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
 ==== The Database
@@ -173,10 +167,7 @@ You can find the frontend code in the `web` directory.
 To get the project running, clone the repo and follow along with these instructions, which will be recapped in the video:
 
 ++++
-<div class="responsive-embed">
-<iframe src="https://player.vimeo.com/video/457583812" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/457583812">Get it Running</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2Jis6hvkoQQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
 First, Start the Database!
@@ -241,10 +232,7 @@ Click on a cast or crew member to see that person’s profile, which includes bi
 == Going Through The Endpoints
 
 ++++
-<div class="responsive-embed">
-<iframe src="https://player.vimeo.com/video/457590860" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/457590860">Going Through The Endpoints</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z3HkInTB1EM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
 Let’s look at how we would request a list of all the established genres from the database. 
@@ -707,10 +695,7 @@ def get(self):
 == The React Frontend  
 
 ++++
-<div class="responsive-embed">
-<iframe src="https://player.vimeo.com/video/457594013" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<p><a href="https://vimeo.com/457594013">Walking Through The Frontend</a> from <a href="https://vimeo.com/user49026072">c</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TXKXotzkygI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
 You can take a look at the React frontend code at in the `/web/` subdirectory. 
@@ -780,7 +765,9 @@ The User Profile page allows the user to re-rate or un-rate their movies, and vi
 * Create an account on Aura https://neo4j.com/cloud/aura/
 * Upload the dump and start the database
 
-// video here - once it is uploaded
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Wc6qFI-URSM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
 
 === Deplyoying the Backend and Frontend with Heroku
 
@@ -817,8 +804,9 @@ deploy-web:
 ----
 
 
-// video here once it is uploaded 
-
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V8j9GAYV3co" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
 
 == Next Steps
 
