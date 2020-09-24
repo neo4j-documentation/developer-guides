@@ -14,8 +14,8 @@ The Flask framework is used as the backend, and React as front-end.
 
 .Prerequisites
 [abstract]
-You should have Python installed on your system.
-You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] on to your machine.
+You should have Python 3 installed on your system.
+You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Movie Demo] on to your machine.
 
 
 [#python-movie-course]
