@@ -15,12 +15,12 @@ The Flask framework is used as the backend, and React as front-end.
 .Prerequisites
 [abstract]
 You should have Python 3 installed on your system.
-You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Movie Demo] on to your machine.
+You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Movie Demo] onto your machine.
 
 
 [#python-movie-course]
 This course provides an overview of what you need to know to write a Flask application using a Neo4j database. 
-To keep concepts simple, the application is an IMDB clone with basic authentication and recommendations. 
+To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality. 
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3L89pVRZOx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -30,13 +30,13 @@ To keep concepts simple, the application is an IMDB clone with basic authenticat
 == Before We Start - Why Neo4j?
 
 Neo4j is the world's most popular _graph database_.
-This offers a number of advantages:
+This platform offers a number of advantages:
 
 * Neo4j provides a schemaless representation of both entities and relationships between entities.
-* Relationships between entities are *traversed* rather than *joined*.Traversals explore the local subgraph meaning that query times stay the same as your database grows.
-* Because of the traversal paradigm we think in terms of the complex relationships in our data without worrying as much how to model it
+* Relationships between entities are *traversed* rather than *joined*. Traversals explore the local subgraph, meaning that query times stay the same even as your database grows.
+* Because of the traversal paradigm, we can think in terms of the complex relationships in our data, without worrying as much about how to model it.
 
-Neo4j makes it easy to create nodes and relationships in whatever way seems most natural, but you can also change the structure of your database with a query.
+Neo4j makes it easy to create nodes and relationships in an intuitive way, but you can also always change the structure of your database with a query.
 
 [#intro-neo4j]
 == Introduction to Neo4j
@@ -44,7 +44,7 @@ Neo4j makes it easy to create nodes and relationships in whatever way seems most
 Connected information is everywhere in our world.
 Neo4j was built to efficiently store, handle, and query highly-connected elements in your data model.
 With a powerful and flexible data model, you can represent your real-world, variably-structured information without a loss of fidelity.
-The property graph model is easy to understand and handle, especially for object-oriented and relational developers.
+The property graph model is easy to understand and work with, especially for object-oriented and relational developers.
 
 [role="pull-right"]
 --
@@ -56,12 +56,12 @@ The property graph model consists of:
 **Nodes**, which have:
 
 * _properties_: schemaless key/value pairs
-* _labels_: describe and group nodes much like tables group rows, but nodes can have multiple labels
+* _labels_: describe and group nodes much like tables group rows, except nodes can also have multiple labels
 
 **Relationships**, which connect two nodes directionally and have:
 
 * _properties_: schemaless key/value pairs
-* A _type_: gives a description of how it connects the two nodes
+* A _type_: describes how it connects the two nodes
 
 While relationships are directional, querying relationships in either direction has no associated performance cost.
 
@@ -77,7 +77,7 @@ RETURN p, m.title
 ----
 
 The `MATCH` clause is the most common starting point for Cypher queries.
-It defines a pattern for which to search and returns one result per match.
+It defines a pattern or condition to search the database for, and returns one result for each match.
 With the `RETURN` clause, we would end up returning a table such as:
 
 .Result of Cypher query
@@ -88,10 +88,10 @@ With the `RETURN` clause, we would end up returning a table such as:
 | {name: "Denise"} | "Animal House"
 |=============================
 
-Here, you see we can return entire entities in our database rather than just properties.
+As you can see here, we can return entire entities in our database rather than just their properties.
 
 This is very handy, but it would also be nice to avoid the duplication of our `Person` node.
-You can perform the same match but instead use the `collect` function to aggregate the values:
+So, you can perform the same match but instead use the `collect` function to aggregate the values:
 
 [source, cypher,role=nocopy,noplay]
 ----
@@ -106,9 +106,9 @@ RETURN p, collect(m.title)
 | {name: "Denise"} | ["Toy Story", "Animal House"]
 |=============================
 
-While it's possible to get started using Neo4j without learning Cypher, it is a very powerful way to query a Neo4j database and is worth learning.
-Also, since this project works by making Cypher queries to Neo4j it is good to understand Cypher as your queries get more complex.
-There is a link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Cypher tutorial] if you would like to learn more.
+While it's possible to get started using Neo4j without learning Cypher, it is a very powerful tool to query a Neo4j database and is worth learning.
+Also, since this project works by making Cypher queries to Neo4j, it is helpful to understand Cypher as your queries get more complex.
+Here is a link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Cypher tutorial], if you would like to learn more.
 
 
 [#project-setup]
@@ -116,10 +116,10 @@ There is a link:https://neo4j.com/graphacademy/online-training/introduction-to-n
 
 Let’s jump right into it. 
 You’re a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app. 
-You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get going. 
-Now you’re looking for a demo app or template to get the ball rolling.
+You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started. 
+Now you’re looking for a demo app or template to start putting those skills into practice.
 
-If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] on to your machine.
+If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] onto your machine.
 This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
 The following video will walk briefly walk you through the various features of the movie app. 
 
@@ -158,13 +158,13 @@ The front-end, built in React.js, consumes the data provided by the Flask API an
 * Movie detail page
 * Actor and Director detail page
 * User detail page
-* Signup and Login pages
+* Sign-up and Login pages
 
 You can find the front-end code in the `web` directory. 
 
 === Setup
 
-To get the project running, clone the repo and follow along with these instructions, which will be recapped in the video:
+To get the project running, clone the repo and follow along with these instructions, which are be recapped in the video:
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2Jis6hvkoQQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -172,15 +172,15 @@ To get the project running, clone the repo and follow along with these instructi
 
 First, Start the Database!
 
-Your app will need a database, and the easiest way to access a database already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox. 
+Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox. 
 
-Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/ and either using social authentication or your email and password. 
+Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using social authentication or your email and password. 
 
-After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations”, then tap the “Launch Project” button in blue to start the database you will be connecting to. 
+After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to. 
 
 In order to connect to the database from the environment from which you’ll be running the app (presumably your local machine), you’ll need credentials. You can find those under the “Connection details” and/or the “Connect via drivers” tab:
 
-Note the section that looks like this - you’ll need to copy+paste the credentials in the driver secti to connect to the database from your local machine.
+Note the section that looks like this - you’ll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
 For example, if the driver line contains the following:
 
 [source,python, role=nocopy]
@@ -188,7 +188,7 @@ For example, if the driver line contains the following:
 driver = GraphDatabase.driver("bolt://52.72.13.205:47929", auth=basic_auth("neo4j", "knock-cape-reserve"))
 ----
 
-In your text editor, open and/or create `flask-api/.env` and enter the appropriate information into the variables `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL` and save.
+Then, in your text editor, open and/or create `flask-api/.env` and enter the appropriate information into the variables: `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL`. Then save the file.
 
 ----
 DATABASE_USERNAME = 'your usernamer'
@@ -196,7 +196,7 @@ DATABASE_PASSWORD = 'your password'
 DATABASE_URL = 'your URL'
 ----
 
-To start the Flask API:
+To start the Flask API, run:
 
 [source,shell]
 ----
@@ -206,7 +206,7 @@ export FLASK_APP=app.py
 flask run 
 ----
 
-Verify the endpoints are is running as expected by taking a look at the docs at: http://localhost:5000/docs
+Verify that the endpoints are running as expected by taking a look at the docs at: http://localhost:5000/docs
 
 === Start the React.js Front-End
 
@@ -235,7 +235,7 @@ Click on a cast or crew member to see that person’s profile, which includes bi
 ++++
 
 Let’s look at how we would request a list of all the established genres from the database. 
-The GenreList class queries the database for all `Genre` nodes, serializes the results, and returns them via `/api/v0/genres`:
+The GenreList class queries the database for all `Genre` nodes, serializes the results, and then returns them via `/api/v0/genres`:
 
 [source,python, role=nocopy]
 ----
@@ -275,11 +275,11 @@ def serialize_genre(genre):
 api.add_resource(GenreList, '/api/v0/genres')
 ----
 
-What’s Going on with the Serializer?
+=== What’s Going on with the Serializer?
 
 If you’ve only used a non-Bolt Neo4j driver before, these bolt-driver responses may be different than what you’re used to. 
 In the “get all Genres” example described above, 
-result = db.read_transaction(get_genres)
+`result = db.read_transaction(get_genres)`
 returns a series of records:
 
 ----
@@ -300,7 +300,7 @@ def serialize_genre(genre):
 Voila! You get an array of genres at `/genres`.
 
 
-Beyond the `/Genres` Endpoint
+=== Beyond the `/Genres` Endpoint
 
 Of course, an app that just shows movie genres isn’t very interesting.
 Take a look at the routes and models used to build the home page, movie detail page, and person detail page.
@@ -317,7 +317,7 @@ Aside from creating themselves and authenticating with the app, Users can rate M
 
 ==== :RATED Properties
 
-`rating`: an integer rating between 1 and 5, with 5 being love it and 1 being hate it.
+`rating`: an integer rating between 1 and 5, with 5 being love it and 1 being hate it
 
 ==== Users Can Create Accounts
 
@@ -325,8 +325,10 @@ Before a User can rate a Movie, the user has to exist, i.e. someone has to sign 
 The sign-up process will create a node in the database with a User label, along with the properties necessary for logging in and maintaining a session.
 
 The registration endpoint is located at `/api/v0/register`.
-The app submits a request to the register endpoint when a user fills out the “Create an Account” form and taps “Create Account.”
+The app automatically submits a request to the register endpoint when a user fills out the “Create an Account” form and taps “Create Account.”
 Assuming you have the API running, you can test requests either by using the interactive docs at `/3000/docs/` or by using cURL.
+
+Naturally, you should replace the placeholder fields throughout with your chosen username and password.
 
 *Example: Create a New User*
 
@@ -335,8 +337,6 @@ Assuming you have the API running, you can test requests either by using the int
 ----
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/register'
 ----
-
-Naturally you should replace the fields above and throughout with your chosen username and password.
 
 .Response
 ----
@@ -504,15 +504,15 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token 5
 The code here is similar to that of `/register`.
 There is a similar form to fill out, where a user types in their username and password.
 With the given username, a `User` is initialized.
-The password they filled out in the form is verified against the hashed password that was retrieved from the corresponding :User node in the database.
-If the verification is successful, it will return a token.
+The password they filled out in the form is then verified against the hashed password that was retrieved from the corresponding :User node in the database.
+If the verification is successful, the program will return a token.
 The user is then directed to an authentication page, from which they can navigate through the app, view their user profile, and rate movies. 
 
 *Example: Users Can Rate Movies*
 
 Once a user has logged in and navigated to a page that displays movies, they can select a star rating for any movie in the page or remove any of their previous movie ratings.
 
-The user can access their previous ratings and the respective movies that were rated on both their user profile and the movie detail page in question.
+The user can access their previous ratings and the respective movies that were rated through both their user profile and the movie detail page in question.
 
 *Example: Rate a Movie*
 
@@ -741,12 +741,12 @@ static getFeaturedMovies() {
 
 === Movie and Person Detail
 
-The Movie and Person detail are visually very similar pages - poster image on the left, carousels on the bottom. 
-However, the Movie page is different depending on whether or not the user is authenticated, as the user has to be able to mark their rating on each movie. 
+The Movie and Person detail are visually very similar pages - both with a poster image on the left and carousels on the bottom. 
+However, the Movie page is different depending on whether or not the user is authenticated, as the authenticated user is able to mark their rating on each movie. 
 
 === User Profile
 
-The User Profile page allows the user to re-rate or un-rate their movies, and view recommendations based on those ratings. 
+The User Profile page allows the user to re-rate or un-rate their movies, and view more movie recommendations based on those ratings. 
 
 == Deployment
 
@@ -762,14 +762,14 @@ The User Profile page allows the user to re-rate or un-rate their movies, and vi
 
 === Deplyoying the Backend and Front-end with Heroku
 
-You will have to create two apps on Heroku, one for the backend and one for the front-end. 
+You will have to create two apps on Heroku: one for the backend and one for the front-end. 
 
-Starting with the backend, create an app on Heroku for the backend. 
+Starting with the backend, create a new app on Heroku. 
 On your local machine, add the Heroku repo as a remote. 
 On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j Aura (or the sandbox if you haven't migrated to Aura). 
 
 
-Create another Heroku app for the front-end. 
+Then, create another Heroku app for the front-end. 
 Add another git remote pointed to the Heroku app dedicated to the front-end app. 
 Under **Heroku > Settings > Config Vars**, add the environment variables for the `REACT_APP_API_BASE_URL` and `REACT_APP_PROXY_URL` fields. 
 
