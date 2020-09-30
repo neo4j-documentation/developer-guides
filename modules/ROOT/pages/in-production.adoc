@@ -11,6 +11,10 @@ This section features guides and tutorials to help you understand how to deploy,
 When running Neo4j in production, we want to maximize the processes and configuration for scalability, monitoring, and day-to-day operations.
 We will cover how to run Neo4j in various environments, tune performance, operate databases, configure security, set up an architecture, and more.
 
+====
+https://neo4j.com/cloud/aura?ref=developer-administration[Relax by running Neo4j in production on Aura.^]
+====
+
 [#maximize-features]
 == Taking advantage of the latest features
 
