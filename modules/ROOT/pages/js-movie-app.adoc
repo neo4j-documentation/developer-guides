@@ -1,11 +1,11 @@
-= Getting Started with Neo4j and Flask
+= Getting Started with Neo4j and Express
 :level: Intermediate
 :page-level: Intermediate
 :author: Neo4j
 :category: documentation
-:tags: flask, python, react
-:description: This course provides an overview on everything that you need to build a Neo4j application with the link:https://www.python.org/[Python programming language^].
-The Flask framework is used as the backend, and React as front-end.
+:tags: node, express, javascript, react
+:description: This course provides an overview on everything that you need to build a Neo4j application with the link:https://en.wikipedia.org/wiki/JavaScript[JavaScript programming language^].
+The Express framework is used as the backend, and the React framework as front-end.
 
 
 .Goals
@@ -14,19 +14,20 @@ The Flask framework is used as the backend, and React as front-end.
 
 .Prerequisites
 [abstract]
-You should have Python 3 installed on your system.
-You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Movie Demo] onto your machine.
+You should have `lts/erbium` installed on your system.
+This project uses link:https://github.com/nvm-sh/nvm[nvm], so having NVM will make your life easier. 
+You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Neo4j Movie Template] onto your machine.
 
 
-[#python-movie-course]
-This course provides an overview of what you need to know to write a Flask application using a Neo4j database.
-To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality.
+[#javascript-movie-course]
+This course provides an overview of what you need to know to write an Express application using a Neo4j database. 
+To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality. 
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3L89pVRZOx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
-[#neo4j-python]
+[#neo4j-javascript]
 == Before We Start - Why Neo4j?
 
 Neo4j is the world's most popular _graph database_.
@@ -112,16 +113,16 @@ Here is a link:https://neo4j.com/graphacademy/online-training/introduction-to-ne
 
 
 [#project-setup]
-== The Neo4j Movie Flask/React App
+== The Neo4j Movie Express/React App
 
-Let’s jump right into it.
-You’re a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app.
-You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started.
+Let’s jump right into it. 
+You’re a JavaScript developer interested in Neo4j and want to build a web app, microservice, or mobile app. 
+You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started. 
 Now you’re looking for a demo app or template to start putting those skills into practice.
 
-If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] onto your machine.
+If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Neo4j Movie Template] onto your machine.
 This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
-The following video will walk briefly walk you through the various features of the movie app.
+The following video will walk briefly walk you through the various features of the movie app. 
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Oatm1WWmIHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -145,14 +146,14 @@ Additionally, users can create accounts, log in, and add their ratings to movies
 (:User)-[:RATES]->(:Movie)
 ----
 
-=== The API
+==== The API
 
-The Flask portion of the application interfaces with the database and presents data to the React.js front-end via a RESTful API.
-You can find the flask API in the `/flask-api` directory in the repo.
+The Express portion of the application interfaces with the database and presents data to the React.js front-end via a RESTful API. 
+You can find the Express API in the `/api` directory in the repo.
 
-=== The Front-End
+==== The Front-End
 
-The front-end, built in React.js, consumes the data provided by the Flask API and presents it through some views to the end user, including:
+The front-end, built in React.js, consumes the data provided by the Express API and presents it through some views to the end user, including:
 
 * Home page
 * Movie detail page
@@ -160,35 +161,37 @@ The front-end, built in React.js, consumes the data provided by the Flask API an
 * User detail page
 * Sign-up and Login pages
 
-You can find the front-end code in the `web` directory.
+You can find the front-end code in the `web` directory. 
 
 === Setup
 
 To get the project running, clone the repo and follow along with these instructions, which are be recapped in the video:
 
-++++
+// TK VIDEO
+
+<!-- ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2Jis6hvkoQQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++
+++++ -->
 
 First, Start the Database!
 
-Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox.
+Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox. 
 
-Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using social authentication or your email and password.
+Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using social authentication or your email and password. 
 
-After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to.
+After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to. 
 
 In order to connect to the database from the environment from which you’ll be running the app (presumably your local machine), you’ll need credentials. You can find those under the “Connection details” and/or the “Connect via drivers” tab:
 
 Note the section that looks like this - you’ll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
 For example, if the driver line contains the following:
 
-[source,python, role=nocopy]
+[source,javascript,role=nocopy]
 ----
 driver = GraphDatabase.driver("bolt://52.72.13.205:47929", auth=basic_auth("neo4j", "knock-cape-reserve"))
 ----
 
-Then, in your text editor, open and/or create `flask-api/.env` and enter the appropriate information into the variables: `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL`. Then save the file.
+Then, in your text editor, open and/or create `api/.env` and enter the appropriate information into the variables: `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL`. Then save the file.
 
 ----
 DATABASE_USERNAME = 'your usernamer'
@@ -196,33 +199,33 @@ DATABASE_PASSWORD = 'your password'
 DATABASE_URL = 'your URL'
 ----
 
-To start the Flask API, run:
+To start the Express API, run:
 
 [source,shell]
 ----
-cd flask-api
-pip3 install -r requirements.txt
-export FLASK_APP=app.py
-flask run
+cd api
+nvm use
+npm install
+node app.js
 ----
 
-Verify that the endpoints are running as expected by taking a look at the docs at: http://localhost:5000/docs
+Verify that the endpoints are running as expected by taking a look at the docs at: `http://localhost:5000/docs`
 
 === Start the React.js Front-End
 
-With the database and backend running, open a new terminal tab or window and move to the project’s `/web` subdirectory.
+With the database and backend running, open a new terminal tab or window and move to the project’s `/web` subdirectory. 
 Run `nvm use` to ensure you’re using the node version specified for this project.
-If you don’t have the recommended version of node installed, follow the prompt to install the recommended version.
+If you don’t have the recommended version of node installed, follow the prompt to install the recommended version. 
 After verifying you are using the recommended user, run:
 
 [source,shell]
 ----
-npm install
+npm install 
 cp src/config/settings.example.js src/config/settings.js
-npm start
+npm start 
 ----
 
-Navigate to view the app at http://localhost:3000/
+Navigate to view the app at `http://localhost:3000/`
 
 Click on a movie poster to see its corresponding movie detail page.
 
@@ -230,72 +233,9 @@ Click on a cast or crew member to see that person’s profile, which includes bi
 
 == Going Through The Endpoints
 
-++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Z3HkInTB1EM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++
+=== Genres
 
-Let’s look at how we would request a list of all the established genres from the database.
-The GenreList class queries the database for all `Genre` nodes, serializes the results, and then returns them via `/api/v0/genres`:
-
-[source,python, role=nocopy]
-----
-class GenreList(Resource):
-    @swagger.doc({
-        'tags': ['genres'],
-        'summary': 'Find all genres',
-        'description': 'Returns all genres',
-        'responses': {
-            '200': {
-                'description': 'A list of genres',
-                'schema': GenreModel,
-            }
-        }
-    })
-    def get(self):
-        def get_genres(tx):
-            return list(tx.run('MATCH (genre:Genre) SET genre.id=id(genre) RETURN genre'))
-        db = get_db()
-        result = db.read_transaction(get_genres)
-        return [serialize_genre(record['genre']) for record in result]
-----
-
-[source,python,role=nocopy]
-----
-def serialize_genre(genre):
-    print(genre)
-    return {
-        'id': genre['id'],
-        'name': genre['name'],
-    }
-
-----
-
-[source,python,role=nocopy]
-----
-api.add_resource(GenreList, '/api/v0/genres')
-----
-
-=== What’s Going on with the Serializer?
-
-If you’ve only used a non-Bolt Neo4j driver before, these bolt-driver responses may be different than what you’re used to.
-In the "GET all Genres” example described above,
-`result = db.read_transaction(get_genres)`
-returns a series of records:
-
-----
-[<Record genre=<Node id=1 labels=frozenset({'Genre'}) properties={'name': 'Adventure', 'id': 1}>>, <Record genre=<Node id=2 labels=frozenset({'Genre'}) properties={'name': 'Animation', 'id': 2}>>, <Record genre=<Node id=3 labels=frozenset({'Genre'}) properties={'name': 'Children', 'id': 3}>>, <Record genre=<Node id=4 labels=frozenset({'Genre'}) properties={'name': 'Comedy', 'id': 4}>>, <Record genre=<Node id=6 labels=frozenset({'Genre'}) properties={'name': 'Fantasy', 'id': 6}>>, <Record genre=<Node id=9 labels=frozenset({'Genre'}) properties={'name': 'Romance', 'id': 9}>>, <Record genre=<Node id=10 labels=frozenset({'Genre'}) properties={'name': 'Drama', 'id': 10}>>, <Record genre=<Node id=13 labels=frozenset({'Genre'}) properties={'name': 'Action', 'id': 13}>>, <Record genre=<Node id=14 labels=frozenset({'Genre'}) properties={'name': 'Crime', 'id': 14}>>, <Record genre=<Node id=16 labels=frozenset({'Genre'}) properties={'name': 'Thriller', 'id': 16}>>, <Record genre=<Node id=23 labels=frozenset({'Genre'}) properties={'name': 'Horror', 'id': 23}>>, <Record genre=<Node id=33 labels=frozenset({'Genre'}) properties={'name': 'Mystery', 'id': 33}>>, <Record genre=<Node id=37 labels=frozenset({'Genre'}) properties={'name': 'Sci-Fi', 'id': 37}>>, <Record genre=<Node id=49 labels=frozenset({'Genre'}) properties={'name': 'Documentary', 'id': 49}>>, <Record genre=<Node id=51 labels=frozenset({'Genre'}) properties={'name': 'IMAX', 'id': 51}>>, <Record genre=<Node id=56 labels=frozenset({'Genre'}) properties={'name': 'War', 'id': 56}>>, <Record genre=<Node id=63 labels=frozenset({'Genre'}) properties={'name': 'Musical', 'id': 63}>>, <Record genre=<Node id=161 labels=frozenset({'Genre'}) properties={'name': 'Western', 'id': 161}>>, <Record genre=<Node id=162 labels=frozenset({'Genre'}) properties={'name': 'Film-Noir', 'id': 162}>>, <Record genre=<Node id=7745 labels=frozenset({'Genre'})]
-----
-
-The serializer parses these slightly results into the processed data we need:
-
-[source,python,role=nocopy]
-----
-def serialize_genre(genre):
-    return {
-        'id': genre['id'],
-        'name': genre['name'],
-    }
-----
+// TK go step by step through how to create the Genres Endpoint 
 
 Voila! You get an array of genres at `/genres`.
 
@@ -321,7 +261,7 @@ Aside from creating themselves and authenticating with the app, Users can rate M
 
 ==== Users Can Create Accounts
 
-Before a User can rate a Movie, the user has to exist, i.e. someone has to sign up for an account.
+Before a User can rate a Movie, the user has to exist, i.e. someone has to sign up for an account. 
 The sign-up process will create a node in the database with a User label, along with the properties necessary for logging in and maintaining a session.
 
 The registration endpoint is located at `/api/v0/register`.
@@ -365,81 +305,12 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 }
 ----
 
-User registration logic is implemented in `/flask-api/app.py` as described below:
+User registration logic is implemented in `/api/app.py` as described below:
 
 .User Registration
-[source,python,role=nocopy]
+[source,javascript,role=nocopy]
 ----
-class Register(Resource):
-    @swagger.doc({
-        'tags': ['users'],
-        'summary': 'Register a new user',
-        'description': 'Register a new user',
-        'parameters': [
-            {
-                'name': 'body',
-                'in': 'body',
-                'schema': {
-                    'type': 'object',
-                    'properties': {
-                        'username': {
-                            'type': 'string',
-                        },
-                        'password': {
-                            'type': 'string',
-                        }
-                    }
-                }
-            },
-        ],
-        'responses': {
-            '201': {
-                'description': 'Your new user',
-                'schema': UserModel,
-            },
-            '400': {
-                'description': 'Error message(s)',
-            },
-        }
-    })
-    def post(self):
-        data = request.get_json()
-        username = data.get('username')
-        password = data.get('password')
-        if not username:
-            return {'username': 'This field is required.'}, 400
-        if not password:
-            return {'password': 'This field is required.'}, 400
-
-        db = get_db()
-
-        results = db.run(
-            '''
-            MATCH (user:User {username: {username}}) RETURN user
-            ''', {'username': username}
-        )
-        try:
-            results.single()
-        except ResultError:
-            pass
-        else:
-            return {'username': 'username already in use'}, 400
-
-        results = db.run(
-            '''
-            CREATE (user:User {id: {id}, username: {username},
-                               password: {password},
-                               api_key: {api_key}}) RETURN user
-            ''',
-            {
-                'id': str(uuid.uuid4()),
-                'username': username,
-                'password': hash_password(username, password),
-                'api_key': binascii.hexlify(os.urandom(20)).decode()
-            }
-        )
-        user = results.single()['user']
-        return serialize_user(user), 201
+// TK User Registration Implementation
 ----
 
 ==== Users Can Log In
@@ -506,7 +377,7 @@ There is a similar form to fill out, where a user types in their username and pa
 With the given username, a `User` is initialized.
 The password they filled out in the form is then verified against the hashed password that was retrieved from the corresponding :User node in the database.
 If the verification is successful, the program will return a token.
-The user is then directed to an authentication page, from which they can navigate through the app, view their user profile, and rate movies.
+The user is then directed to an authentication page, from which they can navigate through the app, view their user profile, and rate movies. 
 
 *Example: Users Can Rate Movies*
 
@@ -527,40 +398,10 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 {}
 ----
 
-.Python Implementation: Rate a Movie
-[source,python,role=nocopy]
+.JavaScript Implementation: Rate a Movie
+[source,javascript,role=nocopy]
 ----
-class RateMovie(Resource):
-    @login_required
-    def post(self, id):
-        parser = reqparse.RequestParser()
-        parser.add_argument('rating', choices=list(range(0, 6)),
-                            type=int, required=True,
-                            help='A rating from 0 - 5 inclusive (integers)')
-        args = parser.parse_args()
-        rating = args['rating']
-
-        db = get_db()
-        results = db.run(
-            '''
-            MATCH (u:User {id: {user_id}}),(m:Movie {id: {movie_id}})
-            MERGE (u)-[r:RATED]->(m)
-            SET r.rating = {rating}
-            RETURN m
-            ''', {'user_id': g.user['id'], 'movie_id': id, 'rating': rating}
-        )
-        return {}
-
-    @login_required
-    def delete(self, id):
-        db = get_db()
-        db.run(
-            '''
-            MATCH (u:User {id: {user_id}})
-                          -[r:RATED]->(m:Movie {id: {movie_id}}) DELETE r
-            ''', {'movie_id': id, 'user_id': g.user['id']}
-        )
-        return {}, 204
+// TK JS Rate A Movie
 ----
 
 *Example: See All of My Ratings*
@@ -588,36 +429,10 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ]
 ----
 
-.Python Implementation: See My Ratings
-[source,python,role=nocopy]
+.JavaScript Implementation: See My Ratings
+[source,javascript,role=nocopy]
 ----
-class MovieListRatedByMe(Resource):
-    @login_required
-    def get(self):
-        db = get_db()
-        result = db.run(
-            '''
-            MATCH (:User {id: {user_id}})-[rated:RATED]->(movie:Movie)
-            RETURN DISTINCT movie, rated.rating as my_rating
-            ''', {'user_id': g.user['id']}
-        )
-        return [serialize_movie(record['movie'],
-        record['my_rating']) for record in result]
-
-...
-
-def serialize_movie(movie, my_rating=None):
-    return {
-        'id': movie['tmdbId'],
-        'title': movie['title'],
-        'summary': movie['plot'],
-        'released': movie['released'],
-        'duration': movie['runtime'],
-        'rated': movie['imdbRating'],
-        'tagline': movie['plot'],
-        'poster_image': movie['poster'],
-        'my_rating': my_rating,
-    }
+// TK See My Ratings
 ----
 
 *Example: My Recommendations*
@@ -658,38 +473,18 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ]
 ----
 
-[source,python,role=nocopy]
+[source,javascript,role=nocopy]
 ----
-@login_required
-def get(self):
-    def get_movies_list_recommended(tx, user_id):
-        return list(tx.run(
-            '''
-            MATCH (me:User {id: $user_id})-[my:RATED]->(m:Movie)
-            MATCH (other:User)-[their:RATED]->(m)
-            WHERE me <> other
-            AND abs(my.rating - their.rating) < 2
-            WITH other,m
-            MATCH (other)-[otherRating:RATED]->(movie:Movie)
-            WHERE movie <> m
-            WITH avg(otherRating.rating) AS avgRating, movie
-            RETURN movie
-            ORDER BY avgRating desc
-            LIMIT 25
-            ''', {'user_id': user_id}
-        ))
-    db = get_db()
-    result = db.read_transaction(get_movies_list_recommended, g.user['id'])
-    return [serialize_movie(record['movie']) for record in result]
+// TK See My Ratings
 ----
 
-== The React Front-end
+== The React Front-end  
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TXKXotzkygI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
-You can take a look at the React front-end code at in the `/web/` subdirectory.
+You can take a look at the React front-end code at in the `/web/` subdirectory. 
 The React front-end is very simple, and is composed of the following parts, as described in the video above:
 
 * Home Page
@@ -700,9 +495,9 @@ The React front-end is very simple, and is composed of the following parts, as d
 
 === Home Page
 
-The home page is a relatively simple page making calls to two endpoints: the "GET movies by genre endpoint" and the "GET movie by ID" endpoint.
+The home page is a relatively simple page making calls to two endpoints: the "movies by genre endpoint" and the "movie by ID" endpoint.
 
-The "Featured Movies" portion at the top calls three hard-coded movies.
+The "Featured Movies" portion at the top calls three hard-coded movies. 
 
 [source,javascript,role=nocopy]
 ----
@@ -741,50 +536,42 @@ static getFeaturedMovies() {
 
 === Movie and Person Detail
 
-The Movie and Person detail are visually very similar pages - both with a poster image on the left and carousels on the bottom.
-However, the Movie page is different depending on whether or not the user is authenticated, as the authenticated user is able to mark their rating on each movie.
+The Movie and Person detail are visually very similar pages - both with a poster image on the left and carousels on the bottom. 
+However, the Movie page is different depending on whether or not the user is authenticated, as the authenticated user is able to mark their rating on each movie. 
 
 === User Profile
 
-The User Profile page allows the user to re-rate or un-rate their movies, and view more movie recommendations based on those ratings.
+The User Profile page allows the user to re-rate or un-rate their movies, and view more movie recommendations based on those ratings. 
 
 == Deployment
 
-=== Deploying the Recommendations Database with Aura
-
-* Download Dump File https://github.com/neo4j-graph-examples/recommendations/tree/master/data
-* Create an account on Aura https://neo4j.com/cloud/aura/
-* Upload the dump and start the database
-
-++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Wc6qFI-URSM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++
+include::./_includes/using_aura.adoc[]
 
 === Deplyoying the Backend and Front-end with Heroku
 
-You will have to create two apps on Heroku: one for the backend and one for the front-end.
+You will have to create two apps on Heroku: one for the backend and one for the front-end. 
 
-Starting with the backend, create a new app on Heroku.
-On your local machine, add the Heroku repo as a remote.
-On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j Aura (or the sandbox if you haven't migrated to Aura).
+Starting with the backend, create a new app on Heroku. 
+On your local machine, add the Heroku repo as a remote. 
+On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j Aura (or the sandbox if you haven't migrated to Aura). 
 
 
-Then, create another Heroku app for the front-end.
-Add another git remote pointed to the Heroku app dedicated to the front-end app.
-Under **Heroku > Settings > Config Vars**, add the environment variables for the `REACT_APP_API_BASE_URL` and `REACT_APP_PROXY_URL` fields.
+Then, create another Heroku app for the front-end. 
+Add another git remote pointed to the Heroku app dedicated to the front-end app. 
+Under **Heroku > Settings > Config Vars**, add the environment variables for the `REACT_APP_API_BASE_URL` and `REACT_APP_PROXY_URL` fields. 
 
-Under **Heroku > Settings > Buildpacks**, add `mars/create-react-app` to load dependencies.
+Under **Heroku > Settings > Buildpacks**, add `mars/create-react-app` to load dependencies. 
 
-Check out the `Makefile` in the root directory of the project.
-It contains the commands needed to deploy the project.
-You can run `deploy-api` to deploy the Rlask API and `deploy-web` to run deployment on the React site.
+Check out the `Makefile` in the root directory of the project and edit it so it matches below the content below.
+It contains the commands needed to deploy the project. 
+You can run `deploy-api` to deploy the Express API and `deploy-web` to run deployment on the React site. 
 
 .Makefile
 ----
 deploy-api:
     git branch -f heroku-api
     git branch -D heroku-api
-    git subtree split --prefix flask-api -b heroku-api
+    git subtree split --prefix api -b heroku-api
     git push heroku-api heroku-api:master --force
 
 deploy-web:
@@ -794,7 +581,7 @@ deploy-web:
     git push heroku-web heroku-web:master --force
 ----
 
-
+//TK Check Video
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/V8j9GAYV3co" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
