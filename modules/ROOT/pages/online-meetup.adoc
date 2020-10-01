@@ -1,176 +1,120 @@
-= Neo4j Online Meetup
-:video_playlist_key: PL9Hl4pk2FsvVnz4oi0F8UXiD3nMNqsRO2
-:youtube_api_key: AIzaSyB3jZLnBi-Cqggq8BCq9xTV8YMgu-x_kTc
-:youtube_channel_id: UCvze3hU6OZBkB1vkhH2lH9Q
-:num_videos: 6
+= Neo4j Live Streams
+:slug: online-meetup
+:section: Documentation and Resources
+:section-link: resources
+:section-level: 1
+:sectanchors:
+:toc:
+:toc-title: Contents
+:toclevels: 1
 :author: Neo4j
 :category: documentation
 :tags: resources, online-meetup, community, developer, events, training
 
-[#webinar-meetup]
-== Join us for online sessions streamed on YouTube Live
+[#about]
+== About
+[cols="4,2",frame=none,grid=none]
+|===
 
-In February 2017 we started running online sessions so that people in regions that don't have physical meetups can get fresh Neo4j content.
+|We run a variety of live streams and online meetups so that people around the world can get fresh Neo4j content. Our regular streamers cover a variety of topics at different times during the week. We also have online meetups, often with special guests!
 
-We post new events on the link:https://www.meetup.com/Neo4j-Online-Meetup/[Neo4j Online Meetup] group so be sure to link:https://www.meetup.com/Neo4j-Online-Meetup/join[join the group] to be notified about these.
+a|image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[200,200]
 
-You can also link:https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel].
+|===
 
-++++
-<script src="https://apis.google.com/js/platform.js"></script>
+You can keep an eye on what's happening by:
 
-<div class="g-ytsubscribe" data-channelid="UCvze3hU6OZBkB1vkhH2lH9Q" data-layout="full" data-count="default"></div>
-++++
+* https://twitch.tv/neo4j_[Follow us on Twitch^] to get notified when we go live
+* Keep an eye out for event announcements on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup^] group
+* You can also https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel^]
 
-[#sessions-live]
-== Live
+[#regular-streamers]
+== Our regular streamers
 
-++++
-<div class="row">
-	<div class="small-12">
-		<div class="live-videos-list">
-      There is no live session at the moment but check below for upcoming and previous sessions.
-    </div>
-	</div>
-</div>
-++++
+[cols="2,3",frame=none,grid=none]
+|===
+a|image::https://miro.medium.com/fit/c/192/192/1*KfYHH6t6NEUEtbgMLFHiuw.jpeg[Ljubica Lazarevic, 300,300] a|
+*Monday: 3pm UTC (7am PDT, 10am EDT, 8:30pm IST)*
 
-[#upcoming-sessions]
-== Upcoming sessions
+https://twitter.com/ellazal[Lju Lazarevic^] does a double whammy of looking at an article from our developer newsletter, https://neo4j.com/tag/twin4j/[This Week in Neo4j^], as well as her current series of exploring a https://r.neo4j.com/wine-repo[wine data set^], showing data wrangling tips and tricks along the way.
 
-We've got the following online meetups coming up soon:
+Missed a stream? Check out the playlists:
 
-++++
-<div class="row">
-	<div class="small-12">
-		<div class="upcoming-videos-list">
-      There are no upcoming sessions scheduled at the moment but check below for the videos from past sessions.
-    </div>
-	</div>
-</div>
-++++
+* https://www.youtube.com/watch?v=UQTBJKFEinI&list=PL9Hl4pk2FsvXfHQHBMHv3U9MmhpNc8Vqe[Article review from This Week in Neo4j^]
+* https://www.youtube.com/watch?v=J7WHEnA-Ygg&list=PL9Hl4pk2FsvU7skL6tC-ZoSALfDQ552bI&index=1[Adventures with a wine data set^]
 
-[#previous-events]
-== Previous sessions
+|===
 
-You can watch videos from previous online meetups:
+[cols="3,2",frame=none,grid=none]
+|===
+a|*Tuesday 12pm UTC (8am EDT, 2pm CEST, 5:30pm IST, 8pm AWST)*
 
-++++
-<div class="row">
-	<div class="small-12 columns">
-		<ul class="past-videos-list item-list small-block-grid-1 medium-block-grid-3">
-		</ul>
+https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
 
-	</div>
-</div>
-++++
 
-All videos are also available on the link:https://www.youtube.com/playlist?list=PL9Hl4pk2FsvVnz4oi0F8UXiD3nMNqsRO2[Neo4j Online Meetup playlist, window="_blank"].
+Missed a stream? Check out the playlist:
+
+* https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
+
+ a|image::https://avatars1.githubusercontent.com/u/1372869[Adam Cowley, 300,300]
+|===
+
+[cols="2,3",frame=none,grid=none]
+|===
+a|image::https://pbs.twimg.com/profile_images/792577726230237184/8ZSDZEvI_400x400.jpg[Michael Hunger, 300,300] a|
+*Wednesday 9am UTC (11am CEST, 2:30pm IST, 5pm AWST, 7pm AEST, 9pm NZST)*
+
+https://twitter.com/mesirii[Michael Hunger^] explores the many hidden gems in and around Neo4j that will make your developer life better. Having been around for a long time, he dives deep into many of those topics and gives you behind the scenes insights and guidance. From Cypher tuning to, import/export, APOC or graph visualization there will be something valuable for everyone.
+
+Missed a stream? Check out the main Twitch playlist:
+
+* https://www.youtube.com/watch?v=8jqQM3LPyyk&list=PL9Hl4pk2FsvXjk0hrerr78pLN-477pDLo&index=70[Twitch catch-up^]
+
+|===
+
+[cols="3,2",frame=none,grid=none]
+|===
+a|
+*Thursday 9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)*
+*_(Friday 7am AEST, 9am NZST)_*
+
+https://twitter.com/lyonwj[Will Lyon^] covers building GraphQL APIs with Neo4j and fullstack applications using GraphQL, React, Apollo, and Neo4j Database, using the https://grandstack.io[GRANDstack^] framework, using a real-estate app as an example, as well as building a travel guide with Gatsby. 
+
+Missed a stream? Check out the playlist:
+
+* https://www.youtube.com/watch?v=Hh_n9Sj692E&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=2[GRANDstack - GraphQL React Apollo Neo4j^]
+* https://www.youtube.com/watch?v=XCuknJAIX84&list=PL9Hl4pk2FsvUza4kdPSKQrcl3MGGutOe2[Building A Travel Guide With Gatsby, Neo4j, & GraphQL^]
+
+a|image::https://dist.neo4j.com/wp-content/uploads/william-lyon.jpg[Will Lyon,300,300]
+|===
+
+[#upcoming-meetups]
+== Upcoming Online Meetups
+
+We also host regular online meetups! Check out the schedule below:
+
+[cols="2,4,2,4,2", options="header"]
+|===
+|Date|Time|Presenters|Description|Sign up
+|19 October|7am PDT, 10am EDT, 2pm UTC, 4pm CEST, 7:30pm IST, 10pm AWST|Karin Wolok, Lju Lazarevic and guest Matt Cloyd
+a|Introducing https://aspen-lang.org/[Aspen^], a simple markup language for creating graph data
+a|https://www.meetup.com/Neo4j-Online-Meetup/events/273636237[Link^]
+
+|20 October|8am UTC, 10am CEST, 1:30pm IST, 4pm AWST, 6pm AEST, 8pm NZST|Lju Lazarevic, Alex Erdl and guests|Check out our warm-up stream prior to the start of NODES 2020!| On Twitch!
+
+|===
+
+[#stream-catchup]
+== Stream catch-up and previous meetup sessions
+
+Missed a session? Not to worry! All of our live stream and online meetup sessions are available on YouTube:
+
+* https://www.youtube.com/playlist?list=PL9Hl4pk2FsvVnz4oi0F8UXiD3nMNqsRO2[Neo4j Online Meetup playlist^]
+* https://www.youtube.com/watch?v=8jqQM3LPyyk&list=PL9Hl4pk2FsvXjk0hrerr78pLN-477pDLo[Twitch stream playlist^]
+
+[#join-us]
+== Join us!
+
+Working on an exciting graphy problem? Building out a community driver and you want to share the word? Thinking about a theory you want to discuss? We'd love to hear about it and share your initiatives with the community. Drop a message on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup group^], and/or tweet https://twitter.com/ellazal[Lju^], and let's make it happen!
 
 [subs=attributes]
-++++
-<script>
-    function googleApiClientReady() {
-        gapi.client.setApiKey("{youtube_api_key}");
-        gapi.client.load('youtube', 'v3', function() {
-            var requestOptions = {
-                    playlistId: "{video_playlist_key}",
-                    part: 'snippet',
-                    maxResults: {num_videos}
-            };
-
-            var request = gapi.client.youtube.playlistItems.list(requestOptions);
-            request.execute(function(response) {
-
-                videoString = "";
-                $.each(response['items'], function(i,v) {
-                    var id = v['snippet']['resourceId']['videoId'],
-                        thumbnail = v['snippet']['thumbnails']['medium'],
-                        title = v['snippet']['title'],
-                        description = v['snippet']['description'],
-                        video_id = v['snippet']['resourceId']['videoId'];
-
-                    if (i > 2) {
-                        videoString += '<li class="text-center extra-item" style="display:none">';
-                    } else {
-                        videoString += '<li class="text-center">';
-                    }
-
-                    videoString += '<a href="https://www.youtube.com/watch?v=' + video_id + '&list={video_playlist_key}" target="_blank">';
-                        videoString += '<div class="videobox">';
-                            videoString += '<img src="' + thumbnail['url'] + '">';
-                            videoString += '<span></span>';
-                        videoString += '</div>';
-                    videoString += '</a>';
-                    videoString += '<h5>' + title + '</h5>';
-                    videoString += '</li>';
-
-                });
-                $(".past-videos-list").append(videoString);
-            });
-
-            var upcomingRequest = gapi.client.youtube.search.list({
-              part: 'snippet',
-              channelId: "{youtube_channel_id}",
-              maxResults: 1,
-              eventType: 'upcoming',
-              type: 'video'
-            });
-
-            upcomingRequest.execute(function(response) {
-              videoString = "";
-              $.each(response['items'], function(i,v) {
-
-                  var thumbnail = v['snippet']['thumbnails']['high'],
-                      title = v['snippet']['title'],
-                      description = v['snippet']['description'],
-                      video_id = v['id']['videoId'];
-
-
-                  videoString += '<div class="responsive-embed"><iframe width="560" height="315" src="https://www.youtube.com/embed/'  + video_id + '" frameborder="0" allowfullscreen></iframe></div>';
-                  videoString += "<hr />"
-
-              });
-
-							if(videoString != "") {
-								$(".upcoming-videos-list").replaceWith(videoString);
-							}
-            });
-
-						var liveRequest = gapi.client.youtube.search.list({
-              part: 'snippet',
-              channelId: "{youtube_channel_id}",
-              maxResults: 1,
-              eventType: 'live',
-              type: 'video'
-            });
-
-            liveRequest.execute(function(response) {
-              videoString = "";
-              $.each(response['items'], function(i,v) {
-
-                  var thumbnail = v['snippet']['thumbnails']['high'],
-                      title = v['snippet']['title'],
-                      description = v['snippet']['description'],
-                      video_id = v['id']['videoId'];
-
-
-                  videoString += '<div class="responsive-embed"><iframe width="560" height="315" src="https://www.youtube.com/embed/'  + video_id + '" frameborder="0" allowfullscreen></iframe></div>';
-                  videoString += "<hr />"
-
-              });
-
-							if(videoString != "") {
-								$(".live-videos-list").replaceWith(videoString);
-							}
-
-            });
-
-        });
-
-    };
-</script>
-
-
-<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
-++++
