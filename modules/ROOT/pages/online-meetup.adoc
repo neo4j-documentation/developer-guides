@@ -1,4 +1,4 @@
-= Neo4j Live Streams
+= Twitch, YouTube and Meetup Live Streams
 :slug: online-meetup
 :section: Documentation and Resources
 :section-link: resources
@@ -7,26 +7,27 @@
 :toc:
 :toc-title: Contents
 :toclevels: 1
-:author: Neo4j
 :category: documentation
-:tags: resources, online-meetup, community, developer, events, training
+:tags: resources, online-meetup, community, developer, events, training, twitch
 
 [#about]
 == About
-[cols="4,2",frame=none,grid=none]
+[cols="5,3",frame=none,grid=none]
 |===
 
-|We run a variety of live streams and online meetups so that people around the world can get fresh Neo4j content. Our regular streamers cover a variety of topics at different times during the week. We also have online meetups, often with special guests!
+a|We run a variety of live streams and online meetups so that people around the world can get fresh Neo4j content. Our regular streamers cover a variety of topics at different times during the week. We also have online meetups, often with special guests!
+
+You can keep an eye on what's happening by:
+
+* https://twitch.tv/neo4j_[Following us on Twitch^] to get notified when we go live
+* Keep an eye out for event announcements on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup^] group
+* You can also https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel^]
 
 a|image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[200]
 
 |===
 
-You can keep an eye on what's happening by:
 
-* https://twitch.tv/neo4j_[Follow us on Twitch^] to get notified when we go live
-* Keep an eye out for event announcements on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup^] group
-* You can also https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel^]
 
 [#regular-streamers]
 == Our regular streamers
@@ -51,7 +52,6 @@ a|*Tuesday 12pm UTC (8am EDT, 2pm CEST, 5:30pm IST, 8pm AWST)*
 
 https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
 
-
 Missed a stream? Check out the playlist:
 
 * https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
@@ -75,7 +75,8 @@ Missed a stream? Check out the main Twitch playlist:
 [cols="3,2",frame=none,grid=none]
 |===
 a|
-*Thursday 9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)*
+*Thursday 9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)* 
+
 *_(Friday 7am AEST, 9am NZST)_*
 
 https://twitter.com/lyonwj[Will Lyon^] covers building GraphQL APIs with Neo4j and fullstack applications using GraphQL, React, Apollo, and Neo4j Database, using the https://grandstack.io[GRANDstack^] framework, using a real-estate app as an example, as well as building a travel guide with Gatsby. 
