@@ -20,6 +20,7 @@ asciidoc:
     go-driver-version: 1.8.3
     maven-sdn: Package
     maven-artifact-info: https://search.maven.org/artifact/org.neo4j.driver/neo4j-java-driver/{java-driver-version}/jar
+    neo4j-java-driver-spring-boot-starter_version: 4.1.1.0
 
     examples: https://github.com/neo4j-examples
     cyphermanual: 'https://neo4j.com/docs/cypher-manual/current'
