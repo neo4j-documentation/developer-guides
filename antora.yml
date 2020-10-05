@@ -19,11 +19,11 @@ asciidoc:
     dotnet-driver-version: '4.1'
     go-driver-version: 1.8
     maven-sdn: Package
-    maven-artifact-info: http://search.maven.org/#artifactdetails%7Corg.neo4j.driver%7Cneo4j-java-driver%7C{java-driver-version}%7Cjar
+    maven-artifact-info: https://search.maven.org/artifact/org.neo4j.driver/neo4j-java-driver/{java-driver-version}/jar
 
     examples: https://github.com/neo4j-examples
     cyphermanual: 'https://neo4j.com/docs/cypher-manual/current'
     drivermanual: 'https://neo4j.com/docs/driver-manual/current'
-    opsmanual: 'http://neo4j.com/docs/operations-manual/current'
+    opsmanual: 'https://neo4j.com/docs/operations-manual/current'
     github: 'https://github.com/neo4j-contrib/developer-resources/tree/gh-pages'
     name: '{name}'
