@@ -833,9 +833,29 @@ axios.get(cypherFiles[0].url)
 We do not recommend any specific front-end frameworks for developing apps.
 However, community members have built packages that will speed up your workflow.
 
-// === React
+=== React
 
-// - [TODO: link to React Hooks for Neo4j]
+The link:https://github.com/adam-cowley/use-neo4j[`use-neo4j`^] library provides hooks for running Cypher queries against a Neo4j Database.
+The `Neo4jProvider` component will detect the Neo4j Desktop API and show a list of Projects and Graphs configured in Neo4j Desktop.
+The library falls back to a generic login form which allows the user to enter their own credentials.
+
+[source,jsx]
+----
+ReactDOM.render(
+  <React.StrictMode>
+    <Neo4jProvider>
+      <App />
+    </Neo4jProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+----
+
+==== Starter Kit
+
+You can fork or clone the link:https://github.com/adam-cowley/graphapp-starter-react[Graph App Starter kit for React^] to generate a basic Graph App.  The example project uses Semantic UI for styling and `use-neo4j` to interact with Neo4j.
+
 
 === Vue.js
 
