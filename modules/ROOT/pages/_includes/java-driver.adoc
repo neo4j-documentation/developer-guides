@@ -50,5 +50,5 @@ include::./driver-warning.adoc[]
 
 | {drivermanual}[icon:book[] Docs^]
 | https://neo4j.com/docs/api/java-driver/current/[icon:code[] API]
-| http://github.com/neo4j/neo4j-java-driver[icon:github[] Source]
+| https://github.com/neo4j/neo4j-java-driver[icon:github[] Source]
 |===
