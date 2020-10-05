@@ -22,10 +22,7 @@ An updated version of this guide will be released along with the GA.
 {description}
 The library provides convenient access to Neo4j including object mapping, Spring Data repositories, conversion, transaction handling, and more.
 
-.Prerequisites
-[abstract]
-You should be familiar with link:/developer/get-started/graph-database[graph database] concepts and the link:/developer/get-started/graph-database#property-graph[property graph model].
-Having link:/download[installed Neo4j^] and tried out the link:/developer/cypher-query-language[Cypher query language] helps too.
+include::./_includes/common-language-prereq.adoc[]
 You should also be familiar with Spring.
 Knowing https://projects.spring.io/spring-data/[Spring Data^] and https://projects.spring.io/spring-boot/[Spring Boot^] are both great additions to your toolbox, as well.
 When developing with Neo4j, please use JDK 8 or later and your favorite IDE.
