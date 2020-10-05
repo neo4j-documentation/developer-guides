@@ -59,16 +59,3 @@ It also supports basic CRUD and legacy indexing.
 | icon:play-circle[] Example | {examples}/movies-dotnet-neo4jclient
 | Protocol                   | Bolt, Http
 |===
-
-[#cypher-dotnet-api]
-=== Cypher.NET
-
-A .NET API for the Neo4j HTTP Transactional Endpoint (v2.0.0) exposes a strongly-typed Graph Query API based on the Neo4j Cypher query language.
-
-[cols="1,5"]
-|===
-| icon:github[] Source       |   https://github.com/mtranter/CypherNet
-| icon:user[] Authors        |   Mark Tranter
-| icon:rss[] Blog            |   http://mtranter.com/2013/09/21/cypher-net-a-neo4j-cypher-api
-| Protocol                   |   Http
-|===
