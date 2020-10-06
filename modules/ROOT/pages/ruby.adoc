@@ -29,7 +29,7 @@ include::./_includes/community-driver-notice.adoc[]
 
 Neo4j has been accessible from Ruby long before version 1.0, first using JRuby on the JVM and then on MRI via the HTTP and now Bolt protocols.
 
-tag::neo4.rb-lib[]
+// tag::neo4.rb-lib[]
 [#neo4jrb-lib]
 === Neo4j.rb
 
@@ -46,7 +46,7 @@ A Object-Graph-Mapper (OGM) for the Neo4j graph database. It tries to follow API
 but with a Neo4j flavor. It requires one of the above drivers.
 neo4j-rake_tasks::
 A set of rake tasks for installing and managing a Neo4j database within your project.
-end::neo4.rb-lib[]
+// end::neo4.rb-lib[]
 
 [cols="1,4"]
 |===
