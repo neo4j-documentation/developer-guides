@@ -11,10 +11,7 @@
 [abstract]
 {description}
 
-.Prerequisites
-[abstract]
-You should be familiar with link:/developer/get-started/graph-database[graph database concepts] and the property graph model.
-You should have link:/download[installed Neo4j^] and made yourself familiar with our link:/developer/cypher[Cypher Query language].
+include::./_includes/common-language-prereq.adoc[]
 
 [role=expertise {level}]
 {level}
