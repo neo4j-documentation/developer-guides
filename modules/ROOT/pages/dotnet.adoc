@@ -53,9 +53,9 @@ It also supports basic CRUD and legacy indexing.
 
 [cols="1,5"]
 |===
-| icon:github[] Source       | https://github.com/Readify/Neo4jClient
+| icon:github[] Source       | https://github.com/DotNet4Neo4j/neo4jclient
 | icon:user[] Authors        | http://twitter.com/cskardon[Chris Skardon^] http://twitter.com/tathamoddie[Tatham Oddie^]
-| icon:book[] Docs           | https://github.com/Readify/Neo4jClient/wiki[]
+| icon:book[] Docs           | https://github.com/DotNet4Neo4j/Neo4jClient/wiki[]
 | icon:play-circle[] Example | {examples}/movies-dotnet-neo4jclient
 | Protocol                   | Bolt, Http
 |===
