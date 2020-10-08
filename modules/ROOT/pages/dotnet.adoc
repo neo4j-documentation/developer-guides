@@ -59,3 +59,15 @@ It also supports basic CRUD and legacy indexing.
 | icon:play-circle[] Example | {examples}/movies-dotnet-neo4jclient
 | Protocol                   | Bolt, Http
 |===
+
+[#neo4j-driver-extensions]
+=== Neo4j.Driver.Extensions
+
+`Neo4j.Driver.Extensions` provides a set of extension methods to the official driver API, aiming at reducing boilerplate and easing mapping to entity classes.
+
+[cols="1,5"]
+|===
+| icon:github[] Source       | https://github.com/DotNet4Neo4j/Neo4j.Driver.Extensions
+| icon:user[] Authors        | http://twitter.com/cskardon[Chris Skardon^]
+| icon:book[] Docs           | https://xclave.co.uk/2020/10/06/using-neo4j-driver-now-you-can-extend-it/[Introduction blogpost]
+|===
