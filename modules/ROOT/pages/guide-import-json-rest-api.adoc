@@ -65,7 +65,7 @@ The following query will return activities starting from the earliest timestamp:
 
 [source, cypher]
 ----
-WITH after AS 0
+WITH 0 AS after
 
 WITH 'https://www.strava.com/api/v3/athlete/activities?after=' + after AS uri
 CALL apoc.load.jsonParams(uri, {Authorization: $stravaToken}, null)
