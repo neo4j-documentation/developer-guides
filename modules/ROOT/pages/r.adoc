@@ -47,6 +47,26 @@ Currently it connects to Neo4j via Http but we plan to integrate it with the C-c
 | Protocols | Http
 |===
 
+[#neo4jshell]
+== neo4jshell
+
+image::{img}neo4jshell.png[float=right]
+
+=== neo4jshell
+
+The goal of neo4jshell is to provide rapid querying of Neo4j graph databases by offering a programmatic interface with 'cypher-shell'.
+
+It is developed by Keith McNulty.
+
+[cols="1,4"]
+|===
+| icon:user[] Author         | https://twitter.com/dr_keithmcnulty[Keith McNulty]
+| icon:gift[] Package        | https://CRAN.R-project.org/package=neo4jshell
+| icon:github[] Source       | https://github.com/keithmcnulty/neo4jshell
+
+| Protocols | Bolt (via 'cypher-shell')
+|===
+
 ////
 === RNeo4j
 
