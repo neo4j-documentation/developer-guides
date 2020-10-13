@@ -271,7 +271,7 @@ A PHP adapter for Neo4j REST API Cypher endpoint.
 ////
 
 [#bolt]
-=== Bolt
+== Bolt
 
 Bolt protocol library over TCP socket.
 
