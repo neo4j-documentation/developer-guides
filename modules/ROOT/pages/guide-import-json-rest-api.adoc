@@ -136,7 +136,8 @@ SET run.distance = toFloat(value.distance),
 RETURN CASE WHEN count(*) < 30 THEN 0 ELSE count(*) END AS count
 ----
 
-All that's left to do now is wrap the whole thing in periodic commit.
+All that's left to do now is wrap the whole thing in periodic commit. 
+We'll call `apoc.periodic.commit` method with two arguments: the first is the Cypher statement to run until the `RETURN` clause returns 0, and the second are parameters that are passed to the Cypher statement.  
 
 [source, cypher]
 ----
