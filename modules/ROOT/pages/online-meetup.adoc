@@ -9,6 +9,7 @@
 :toclevels: 1
 :category: documentation
 :tags: resources, online-meetup, community, developer, events, training, twitch
+:page-player: https://player.twitch.tv/?channel=neo4j_&muted=false&autoplay=true&parent=twitter.com&parent=cards-dev.twitter.com&parent=cards-frame.twitter.com
 
 [#about]
 == About
@@ -75,11 +76,11 @@ Missed a stream? Check out the main Twitch playlist:
 [cols="3,2",frame=none,grid=none]
 |===
 a|
-*Thursday 9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)* 
+*Thursday 9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)*
 
 *_(Friday 7am AEST, 9am NZST)_*
 
-https://twitter.com/lyonwj[Will Lyon^] covers building GraphQL APIs with Neo4j and fullstack applications using GraphQL, React, Apollo, and Neo4j Database, using the https://grandstack.io[GRANDstack^] framework, using a real-estate app as an example, as well as building a travel guide with Gatsby. 
+https://twitter.com/lyonwj[Will Lyon^] covers building GraphQL APIs with Neo4j and fullstack applications using GraphQL, React, Apollo, and Neo4j Database, using the https://grandstack.io[GRANDstack^] framework, using a real-estate app as an example, as well as building a travel guide with Gatsby.
 
 Missed a stream? Check out the playlist:
 
