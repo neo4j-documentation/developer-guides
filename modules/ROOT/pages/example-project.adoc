@@ -62,25 +62,56 @@ We then apply the force-layout algorithm to render nodes as circles and relation
 [#app-project-data]
 == Data Setup
 
+=== Neo4j Labs Instance
+
+Most of the examples should already work with the following settings:
+
+[cols="2*"]
+|===
+| icon:link[] Connection URI
+| `neo4j+s://demo.neo4jlabs.com`
+
+| icon:database[] Database Name
+| `movies`
+
+| icon:sign-in[] Username
+| `movies`
+
+| icon:user-secret[] Password
+| `movies`
+|===
+
+=== Neo4j Desktop
+
 - Start your local Neo4j Server (http://neo4j.com/download[Download & Install^])
 - Open the http://localhost:7474[Neo4j Browser].
 - Log in, remember the password
 - Install the Movies dataset with `:play movies`
 - Click the large `CREATE` statement and hit the triangular "Run" button to insert the data.
 
-You can also choose to use our link:/sandbox/?ref=developer-example-proj[Neo4j Sandbox^] or a link:/developer/in-production/guide-cloud-deployment[cloud-hosted Neo4j database].
-If you go this route, then you have to provide the URL to your Neo4j server in an environment variable `NEO4J_URL`.
 
-Alternatively you can run this Cypher `LOAD CSV` statement:
+=== Neo4j Aura
 
-[source,cypher]
-----
-LOAD CSV WITH HEADERS FROM "https://www.dropbox.com/s/ci3cjwy91dp3a7e/movies_setup.csv?dl=0" AS row
-MERGE (m:Movie {title:row.title}) ON CREATE SET m.released = toInt(row.released), m.tagline = row.tagline
-MERGE (p:Person  {name:row.name}) ON CREATE SET p.born     = toInt(row.born)
-WITH   m,p,row WHERE row.type = "ACTED_IN"
-MERGE (p)-[r:ACTED_IN]->(m) ON CREATE SET r.roles = split(row.roles,";")[0..-1]
-----
+ * Log in to https://console.neo4j.io/[Neo4j Aura].
+ * Proceed to the database creation page
+ ** Select a region near you
+ ** Pick the smallest size settings (you can always adjust them later)
+ ** Confirm and remember the credentials
+ * Open the Neo4j Browser
+ * Log in
+ * Install the Movies dataset with `:play movies`
+ * Click the large `CREATE` statement and hit the triangular "Run" button to insert the data.
+
+=== Neo4j Sandbox
+
+ - Log in to https://sandbox.neo4j.com/[Neo4j Sandbox].
+ - Create a project with the "Movies" dataset and launch it.
+
+[NOTE]
+--
+Do not forget to terminate the instance once you are done with it.
+Proceed to the "Action" tab and terminate the database.
+--
 
 [#app-project-endpoints]
 == Endpoints
