@@ -1,22 +1,13 @@
 = Twitch, YouTube and Meetup Live Streams
 :slug: online-meetup
 :section: Documentation and Resources
-:section-link: resources
-:section-level: 1
-:sectanchors:
-:toc:
-:toc-title: Contents
-:toclevels: 1
 :category: documentation
 :tags: resources, online-meetup, community, developer, events, training, twitch
 :page-player: https://player.twitch.tv/?channel=neo4j_&muted=false&autoplay=true&parent=twitter.com&parent=cards-dev.twitter.com&parent=cards-frame.twitter.com
 
-[#about]
-== About
-[cols="5,3",frame=none,grid=none]
-|===
+image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[width="300px",float="right"]
 
-a|We run a variety of live streams and online meetups so that people around the world can get fresh Neo4j content. Our regular streamers cover a variety of topics at different times during the week. We also have online meetups, often with special guests!
+We run a variety of live streams and online meetups so that people around the world can get fresh Neo4j content. Our regular streamers cover a variety of topics at different times during the week. We also have online meetups, often with special guests!
 
 You can keep an eye on what's happening by:
 
@@ -24,19 +15,15 @@ You can keep an eye on what's happening by:
 * Keep an eye out for event announcements on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup^] group
 * You can also https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel^]
 
-a|image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[200]
-
-|===
-
-
 
 [#regular-streamers]
 == Our regular streamers
 
-[cols="2,3",frame=none,grid=none]
-|===
-a|image::https://miro.medium.com/fit/c/192/192/1*KfYHH6t6NEUEtbgMLFHiuw.jpeg[Ljubica Lazarevic, 300] a|
-*Monday: 3pm UTC (7am PDT, 10am EDT, 8:30pm IST)*
+=== Monday - Lju
+
+image::https://miro.medium.com/fit/c/192/192/1*KfYHH6t6NEUEtbgMLFHiuw.jpeg[Ljubica Lazarevic,width="200px",float="right"]
+
+*3pm UTC (7am PDT, 10am EDT, 8:30pm IST)*
 
 https://twitter.com/ellazal[Lju Lazarevic^] does a double whammy of looking at an article from our developer newsletter, https://neo4j.com/tag/twin4j/[This Week in Neo4j^], as well as her current series of exploring a https://r.neo4j.com/wine-repo[wine data set^], showing data wrangling tips and tricks along the way.
 
@@ -45,11 +32,12 @@ Missed a stream? Check out the playlists:
 * https://www.youtube.com/watch?v=UQTBJKFEinI&list=PL9Hl4pk2FsvXfHQHBMHv3U9MmhpNc8Vqe[Article review from This Week in Neo4j^]
 * https://www.youtube.com/watch?v=J7WHEnA-Ygg&list=PL9Hl4pk2FsvU7skL6tC-ZoSALfDQ552bI&index=1[Adventures with a wine data set^]
 
-|===
 
-[cols="3,2",frame=none,grid=none]
-|===
-a|*Tuesday 12pm UTC (8am EDT, 2pm CEST, 5:30pm IST, 8pm AWST)*
+=== Tuesday - Adam
+
+image::https://pbs.twimg.com/profile_images/852657056968564737/AKqYLHhV_400x400.jpg[Adam Cowley,width="200px",float="right"]
+
+*12pm UTC (8am EDT, 2pm CEST, 5:30pm IST, 8pm AWST)*
 
 https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
 
@@ -57,13 +45,12 @@ Missed a stream? Check out the playlist:
 
 * https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
 
- a|image::https://avatars1.githubusercontent.com/u/1372869[Adam Cowley, 300]
-|===
 
-[cols="2,3",frame=none,grid=none]
-|===
-a|image::https://pbs.twimg.com/profile_images/792577726230237184/8ZSDZEvI_400x400.jpg[Michael Hunger, 300] a|
-*Wednesday 9am UTC (11am CEST, 2:30pm IST, 5pm AWST, 7pm AEST, 9pm NZST)*
+[.clearfix]
+=== Wednesday - Michael
+
+image::https://pbs.twimg.com/profile_images/792577726230237184/8ZSDZEvI_400x400.jpg[Michael Hunger,width="200px",float="right"]
+
 
 https://twitter.com/mesirii[Michael Hunger^] explores the many hidden gems in and around Neo4j that will make your developer life better. Having been around for a long time, he dives deep into many of those topics and gives you behind the scenes insights and guidance. From Cypher tuning to, import/export, APOC or graph visualization there will be something valuable for everyone.
 
@@ -71,13 +58,12 @@ Missed a stream? Check out the main Twitch playlist:
 
 * https://www.youtube.com/watch?v=8jqQM3LPyyk&list=PL9Hl4pk2FsvXjk0hrerr78pLN-477pDLo&index=70[Twitch catch-up^]
 
-|===
 
-[cols="3,2",frame=none,grid=none]
-|===
-a|
-*Thursday 9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)*
+=== Thursday - Will
 
+image::https://dist.neo4j.com/wp-content/uploads/william-lyon.jpg[Will Lyon,role=width="200px",float="right"]
+
+*9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)* +
 *_(Friday 7am AEST, 9am NZST)_*
 
 https://twitter.com/lyonwj[Will Lyon^] covers building GraphQL APIs with Neo4j and fullstack applications using GraphQL, React, Apollo, and Neo4j Database, using the https://grandstack.io[GRANDstack^] framework, using a real-estate app as an example, as well as building a travel guide with Gatsby.
@@ -87,22 +73,28 @@ Missed a stream? Check out the playlist:
 * https://www.youtube.com/watch?v=Hh_n9Sj692E&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=2[GRANDstack - GraphQL React Apollo Neo4j^]
 * https://www.youtube.com/watch?v=XCuknJAIX84&list=PL9Hl4pk2FsvUza4kdPSKQrcl3MGGutOe2[Building A Travel Guide With Gatsby, Neo4j, & GraphQL^]
 
-a|image::https://dist.neo4j.com/wp-content/uploads/william-lyon.jpg[Will Lyon,300]
-|===
 
 [#upcoming-meetups]
 == Upcoming Online Meetups
 
 We also host regular online meetups! Check out the schedule below:
 
-[cols="2,4,2,4,2", options="header"]
+[cols="4,2,4,2", options="header"]
 |===
-|Date|Time|Presenters|Description|Sign up
-|19 October|7am PDT, 10am EDT, 2pm UTC, 4pm CEST, 7:30pm IST, 10pm AWST|Karin Wolok, Lju Lazarevic and guest Matt Cloyd
+|Date | Presenters | Description | Sign up
+
+|**19 October** +
+_7am PDT, 10am EDT, 2pm UTC, 4pm CEST, 7:30pm IST, 10pm AWST_
+
+|Karin Wolok, Lju Lazarevic and guest Matt Cloyd
 a|Introducing https://aspen-lang.org/[Aspen^], a simple markup language for creating graph data
 a|https://www.meetup.com/Neo4j-Online-Meetup/events/273636237[Link^]
 
-|20 October|8am UTC, 10am CEST, 1:30pm IST, 4pm AWST, 6pm AEST, 8pm NZST|Lju Lazarevic, Alex Erdl and guests|Check out our warm-up stream prior to the start of NODES 2020!| On Twitch!
+|**20 October** +
+8am UTC, 10am CEST, 1:30pm IST, 4pm AWST, 6pm AEST, 8pm NZST
+|Lju Lazarevic, Alex Erdl and guests
+|Check out our warm-up stream prior to the start of NODES 2020!
+| On Twitch!
 
 |===
 
@@ -118,5 +110,3 @@ Missed a session? Not to worry! All of our live stream and online meetup session
 == Join us!
 
 Working on an exciting graphy problem? Building out a community driver and you want to share the word? Thinking about a theory you want to discuss? We'd love to hear about it and share your initiatives with the community. Drop a message on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup group^], and/or tweet https://twitter.com/ellazal[Lju^], and let's make it happen!
-
-[subs=attributes]

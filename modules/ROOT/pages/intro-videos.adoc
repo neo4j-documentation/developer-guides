@@ -5,22 +5,21 @@
 
 [#intro-videos]
 
-++++
-<div class="card card-3">
-<p>Hello aspiring graphistas,</p>
 
-<p>Welcome to my <i><b>Intro to Graph Databases</b></i> video series.  I created this series to teach people of all levels how graph databases work and when they're best applied. </p>
+Hello aspiring graphistas,
 
-<p>If you're already familiar with SQL and NoSQL databases, you may skip some of the beginning content (or watch at 1.5x as many of us do!).</p>
+Welcome to the **Intro to Graph Databases** video series.
+We've created this series to teach people of all levels how graph databases work and when they're best applied.
 
-<p>Hope you enjoy and stay in touch on the <a href="https://community.neo4j.com/">Community Site</a> if you have any questions or problems during your learning journey.  If you'd prefer courses that mix video content with writtent content, exercises and quizes, please check out <a href="/graphacademy/online-training/">Neo4j GraphAcademy online training</a>.</p>
+If you're already familiar with SQL and NoSQL databases, you may skip some of the beginning content (or watch at 1.5x as many of us do!).
 
-<p>Cheers,<br /><br />
--Ryan Boyd<br />
-Director of Developer Relations @ Neo4j</p>
-</div>
-<br /><br />
-++++
+Hope you enjoy and stay in touch on the link:https://community.neo4j.com/[Community Site^] if you have any questions or problems during your learning journey.
+If you'd prefer courses that mix video content with writtent content, exercises and quizes, please check out link:/graphacademy/online-training[Neo4j GraphAcademy online training^].
+
+Cheers, +
+- Michael Hunger +
+Caretaker General for the Neo4j Community
+
 
 [#episode-one]
 == Episode 1: Evolution of Databases
