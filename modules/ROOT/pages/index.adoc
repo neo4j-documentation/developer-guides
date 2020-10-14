@@ -1,0 +1,226 @@
+= Neo4j Developer Guides
+:page-layout: landing
+:page-theme: developer
+:page-toclevels: -1
+
+
+[.hero]
+== Neo4j Developer Resources
+
+Get up and running with Neo4j in less than an hour or something a bit more catchy
+
+++++
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="top">
+    <polygon class="st0" points="100,100 0,100 100,0 "></polygon>
+    <line class="st1" x1="0" y1="100" x2="100" y2="0"></line>
+</svg>
+++++
+
+[.buttons]
+* xref:language-guides.adoc[I'm a Developer]
+* xref:graph-data-science:index.adoc[I'm a Data Scientist]
+* xref:in-production.adoc[I'm an Administrator]
+
+++++
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="bottom">
+    <polygon class="st0" points="100,100 0,100 100,0 "></polygon>
+    <line class="st1" x1="0" y1="100" x2="100" y2="0"></line>
+</svg>
+++++
+
+[.secondary.leading.flex]
+
+== Getting Started
+
+[.column]
+=== 1. Download Neo4j
+
+You can either link:/download/[Download Neo4j Desktop^] locally, link:/aura/[run Neo4j in the Cloud with Aura^] or link:/sandbox/[try Neo4j free for 7 days with Neo4j Sandbox^].
+
+* xref:graph-database.adoc[What is a Graph Database?]
+* xref:neo4j-desktop.adoc[Neo4j Desktop Starter Guide]
+* xref:graph-platform.adoc[The Neo4j Graph Platform]
+
+[.column]
+=== 2. Connecting to Neo4j
+
+There is nothing worse than an empty database.
+You can either download one of our example data set or model and import your own from many sources.
+
+
+
+* xref:cypher:index.adoc[The Cypher Query Language]
+* xref:data-modeling.adoc[Graph Data Modeling]
+* xref:data-import.adoc[Importing Data into Neo4j]
+
+[.column]
+=== 3. Build your application
+
+You can use a set of Neo4j products to share your data or build out your own application in the programming language of your preference.
+
+
+* xref:language-guides.adoc[Neo4j Drivers]
+* xref:neo4j-browser.adoc[Neo4j Browser]
+* xref:neo4j-bloom.adoc[Neo4j Bloom]
+
+
+[.flex]
+== Start with a Use Case
+
+// * Fraud Detection & Analytics
+// * Network and Database Infrastructure Management
+// * Recommendation Engines
+// * Master Data Management
+// * Social Media and Social Network Graphs
+// * Identity and Access Management
+
+
+[.column]
+=== Social Example
+
+image:diagram.png[JavaScript & Node.js]
+
+Joe knows Sally, and Sally knows Anna. Bob is excluded from the result because, in addition to being a 2nd-degree friend through Sally, he's also a first-degree friend.
+Pad the content out by a couple of lines to even things up.
+
+link:#[Create a Free Social Sandbox, role=more information]
+
+
+[.column]
+=== Network Management
+
+image:diagram.png[JavaScript & Node.js]
+
+Only Webserver VM depends on Server 1. Because we're looking at variable length paths of DEPENDS_ON relationships, we're also able to determine that Public Website would be impacted by an outage of Server 1.  A little bit of padding.
+
+link:#[Create a Free Network Management Sandbox, role=more information]
+
+[.column]
+=== Fraud Detection
+
+image:diagram.png[JavaScript & Node.js]
+
+Hank shares an account with Abby. Abby shares a SSN with Sophie and Max. Given that we suspect Hank may be involved in fraudulent activity, we can flag the Cayman account, Sophie, and Abby as possible fraudulent entities.
+
+
+link:#[Create a Free Fraud Detection Sandbox, role=more information]
+
+
+[.discrete]
+== GraphGist Project
+
+link:/graphgists/[View 100+ Graph examples grouped by Industry and Use Case^, role=button]
+
+
+[.secondary.flex.languages]
+== Building Applications
+
+[.column]
+=== Java
+
+image:java.png[Java]
+
+* link:#[Neo4j Java Example]
+* link:#[Spring Data Neo4j]
+* link:#[Procedures and Functions]
+
+[.column]
+=== Node.js
+
+image:javascript.png[JavaScript & Node.js]
+
+* link:#[Neo4j JavaScript Example]
+* link:#[TypeScript]
+
+[.column]
+=== .NET
+
+image:net.png[.NET]
+
+* link:#[Neo4j .NET Example]
+* link:#[Neo4jClient]
+
+[.column]
+=== Python
+
+image:python.png[Python]
+
+* link:#[Neo4j Python Example]
+* link:#[Py2Neo]
+
+[.column]
+=== Go
+
+image:go.png[Go]
+
+* link:#[Neo4j Go Example]
+
+
+// [.community-language]
+// === Community Drivers
+
+// link:#[Ruby] | link:#[Perl] | link:#[PHP] | link:#[Erlang]
+
+
+[.flex]
+== Intro to Graph Databases
+
+[.column]
+=== Episode 1: The Evolution of DBs
+
+image::https://i.ytimg.com/vi/5Tl8WcaqZoc/mqdefault.jpg[Episode 1: The Evolution of DBs]
+link:#[Watch Video, role=more information]
+
+[.column]
+=== Episode 2: Properties of Graph DB
+
+image::https://i.ytimg.com/vi/-dCeFEqDkUI/mqdefault.jpg[Episode 2: Properties of Graph DBs]
+link:#[Watch Video, role=more information]
+
+[.column]
+=== Episode 3: Property Graph Model
+
+image::https://i.ytimg.com/vi/NH6WoJHN4UA/mqdefault.jpg[Episode 3: Property Graph Model]
+link:#[Watch Video, role=more information]
+
+
+// [.no-flex]
+// link:#[More content on the Neo4j Youtube Channel]
+
+
+[.secondary.flex]
+== Training and Certification
+
+[.column]
+=== Online Training
+
+Get started with Neo4j by taking free online training classes.
+
+link:/graphacademy/[Enrol to the GraphAcademy for free, role=more information]
+
+[.column]
+=== Classroom Training
+
+Offered locally in over a dozen cities around the globe.
+
+link:#[Arrange Classroom Training, role=more information]
+
+
+[.column]
+=== Certification
+
+Become a Neo4j Certified Professional to validate and promote your skills.
+
+link:#[Neo4j Certification, role=more information]
+
+
+
+// [.secondary]
+// == Neo4j Community
+
+// == Upcoming Events
+
+// [.secondary]
+// == Featured Videos
+
+// == Online Meetups
