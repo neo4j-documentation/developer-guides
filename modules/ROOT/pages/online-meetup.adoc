@@ -61,7 +61,7 @@ Missed a stream? Check out the main Twitch playlist:
 
 === Thursday - Will
 
-image::https://dist.neo4j.com/wp-content/uploads/william-lyon.jpg[Will Lyon,role=width="200px",float="right"]
+image::https://dist.neo4j.com/wp-content/uploads/william-lyon.jpg[Will Lyon,width="200px",float="right"]
 
 *9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)* +
 *_(Friday 7am AEST, 9am NZST)_*
