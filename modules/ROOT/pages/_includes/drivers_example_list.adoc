@@ -4,6 +4,8 @@ For our example application we've provided a implementation for the languages an
 You can find them in the http://github.com/neo4j-examples?query=movie[Neo4j Examples GitHub repository^].
 Most of them have thankfully been made available by the driver authors.
 
+==== For the Official Drivers
+
 * Java
 ** {examples}/neo4j-movies-java-bolt[Java Bolt Driver^]
 ** {examples}/spring-data-neo4j-intro-app[Spring Data Neo4j 5^]
@@ -13,14 +15,12 @@ Most of them have thankfully been made available by the driver authors.
 ** {examples}/movies-golang-bolt[Golang Bolt Driver ^]
 * Javascript
 ** {examples}/movies-javascript-bolt[Javascript Bolt Driver ^]
-* *More*
-** Python {examples}/movies-python-neo4jrestclient[Neo4j-Rest-Client^] by http://twitter.com/versae[Javier de la Rosa^]
-** .Net {examples}/movies-dotnet-neo4jclient[neo4jclient^] by http://twitter.com/pierrick22[Pierrick Gannon^]
-** Ruby {examples}/movies-ruby-neo4j-core[Neo4j-Core^] by http://twitter.com/neo4jrb[Neo4j.rb Team^]
-** Ruby {examples}/movies-ruby-neo4jrb[Neo4j.rb Rails^] by http://twitter.com/neo4jrb[Neo4j.rb Team^]
-** Clojure: {examples}/movies-clojure-neocons[neocons^] by https://twitter.com/ducky427[Rohit Aggarwal & ClojureWerkz^]
-** Perl: {examples}/movies-perl-neo4p[Neo4p::REST^] by https://twitter.com/thinkinator[Mark Jensen^]
-** PHP: {examples}/movies-php-neoclient[Neoclient^] by http://twitter.com/ikwattro[Chris Willemsen^]
-** PHP: {examples}/movies-php-neo4jphp[Neo4jPHP^] by http://twitter.com/josh_adell[Josh Adell^]
-** Elixir: {examples}/movies-elixir-phoenix[phoenix^] by http://twitter.com/florin[Florin Pătraşcu^]
 
+==== For Community Drivers
+
+* Elixir: {examples}/movies-elixir-phoenix[phoenix^] by http://twitter.com/florin[Florin Pătraşcu^]
+* .Net {examples}/movies-dotnet-neo4jclient[neo4jclient^] by http://twitter.com/pierrick22[Pierrick Gannon^]
+* Ruby {examples}/movies-ruby-neo4j-core[Neo4j-Core^] by http://twitter.com/neo4jrb[Neo4j.rb Team^]
+* Ruby {examples}/movies-ruby-neo4jrb[Neo4j.rb Rails^] by http://twitter.com/neo4jrb[Neo4j.rb Team^]
+* Perl: {examples}/movies-perl-neo4p[Neo4p::REST^] by https://twitter.com/thinkinator[Mark Jensen^]
+* PHP: {examples}/movies-php-neoclient[Neoclient^] by http://twitter.com/ikwattro[Chris Willemsen^]
