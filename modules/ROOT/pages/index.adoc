@@ -172,7 +172,7 @@ image::https://i.ytimg.com/vi/5Tl8WcaqZoc/mqdefault.jpg[Episode 1: The Evolution
 link:#[Watch Video, role=more information]
 
 [.column]
-=== Episode 2: Properties of Graph DBs
+=== Episode 2: Properties of Graph DB
 
 image::https://i.ytimg.com/vi/-dCeFEqDkUI/mqdefault.jpg[Episode 2: Properties of Graph DBs]
 link:#[Watch Video, role=more information]
