@@ -107,7 +107,7 @@ curl http://localhost:8080/search?q=matrix
 
 The Cypher query used, with the parameters `{query:"matrix"}`.
 
-The search movies query `MATCH`es the movies by title with `CONTAINS` and then `RETURN`s the movie nodes as a list of maps with the `title`, `released` and `tagline` attributes.
+The search movies query ``MATCH``es the movies by title with `CONTAINS` and then ``RETURN``s the movie nodes as a list of maps with the `title`, `released` and `tagline` attributes.
 
 [source,cypher]
 ----
