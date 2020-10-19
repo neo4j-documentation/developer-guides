@@ -36,7 +36,9 @@ From the mongo-connector documentation:
 [quote]
 mongo-connector creates a pipeline from a MongoDB cluster to one or more target systems, such as Solr, Elasticsearch, or another MongoDB cluster.
 It synchronizes data in MongoDB to the target then tails the MongoDB oplog, keeping up with operations in MongoDB in real-time.
-It has been tested with Python 2.6, 2.7, 3.3, and 3.4.
+From the Github repo for Mongo-connector - mongo-connector supports Python 3.4+ and MongoDB versions 3.4 and 3.6.
+
+
 
 To facilitate synchronizing data from MongoDB to a Neo4j instance, the community has implemented a link:https://github.com/neo4j-contrib/neo4j_doc_manager[Neo4j Doc Manager] for mongo-connector.
 It is intended for live one-way synchronization from MongoDB to Neo4j, where you have both databases running to take advantage of each databases' strengths in your application.
