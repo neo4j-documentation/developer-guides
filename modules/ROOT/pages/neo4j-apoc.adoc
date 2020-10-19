@@ -7,9 +7,11 @@
 :category: labs
 :tags: graph-platform, apoc, utilities, libraries, procedures, functions
 :description: Through this guide, you will learn about one of Neo4j's extension libraries - APOC.
+:page-pagination:
+:page-comments:
 
+[TIP]
 ====
-[NOTE]
 icon:flask[size=2x]
 The APOC library is one of our Neo4j Labs projects.
 To learn more, visit the https://neo4j.com/labs/apoc/[APOC^] Labs page.
@@ -75,11 +77,11 @@ We will cover more information about this in the sections below.
 </div>
 ++++
 
-****
 [NOTE]
+====
 If you watched the video above, don't feel intimidated by the Cypher in some of the examples.
 Those topics will be covered in the upcoming guide for the https://neo4j.com/developer/cypher/[Cypher Query Language].
-****
+====
 
 [#apoc-tips]
 == APOC Helpful Tips
@@ -126,10 +128,11 @@ image:{img}apoc_help_text.png[role="popup-link"]
 
 This command also gives a description and sample implementation with parameters and their data types.
 
-****
 [TIP]
+====
 For a comprehensive list of all the procedures, you can execute `CALL apoc.help('apoc')`.
-****
+====
+
 
 [#apoc-examples]
 == Common Examples and Usage
@@ -141,23 +144,23 @@ While it is not possible to cover them fully here, we would like to highlight a 
 Can be useful for outputting to reports, showing on a web screen, including it in a URL as a parameter, and hundreds of other uses.
 There are also other procedures for various date/time conversions from and to other data types, as well as expiration dates and retrievals for current date.
 
-****
-[NOTE]
+[TIP]
+====
 Neo4j 3.4 released some date/time functionality as part of the core product.
 If you are using 3.4, you may not need APOC for common date/time work.
 For any users on previous versions, APOC is the best way to incorporate this functionality.
 More information about using the date/time functionality can be found in the resources at the bottom of this guide.
-****
+====
 
 * *apoc.load.json(url) -* load data from a URL or a JSON-formatted file and use Cypher statements to create or update data in Neo4j database.
 Excellent for calling an API and dumping retrieved data into Neo4j.
 Other similar procedures exist for `apoc.load.jdbc` for a direct JDBC to a database, `apoc.load.xml` for xml data, and `apoc.load.csv` for CSV flat files.
 No matter what your data import needs might be, APOC is likely to have something to address them.
 
-****
-[NOTE]
+[TIP]
+====
 For more information on using APOC for data import, check out our https://neo4j.com/developer/data-import/[Data Import section].
-****
+====
 
 * *apoc.periodic.iterate(query1, query2, {param1: value1}) —* used as a sort of batch loader.
 Can pull a list of results in the first query, then execute another query on each of those query1 results to update each one or retrieve other data for it.

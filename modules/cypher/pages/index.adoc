@@ -4,7 +4,7 @@
 :tags: cypher, queries, graph-queries, query-language, learn-cypher
 :page-comments:
 :page-aliases: ROOT:cypher-query-language.adoc, cypher-query-language.adoc
-:page-pagination: next
+:page-pagination:
 
 
 [#about-cypher]

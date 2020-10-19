@@ -2,6 +2,8 @@
 :author: Neo4j
 :category: documentation
 :tags: introduction, graph, videos, resources
+:page-comments:
+:page-pagination: next
 
 [#intro-videos]
 

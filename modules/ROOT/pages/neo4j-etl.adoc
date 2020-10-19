@@ -7,9 +7,11 @@
 :category: import-export
 :tags: graph-platform, etl, tools, integrations, relational, graph, load, import, connect, data
 :description: Through this guide, you will learn how to take your data from a relational database or table format and import to Neo4j.
+:page-pagination:
+:page-comments:
 
+[TIP]
 ====
-[NOTE]
 icon:flask[size=2x]
 The ETL Tool is one of our Neo4j Labs projects.
 To learn more, visit the link:/labs/etl-tool/[Neo4j ETL Tool^] Labs page.
@@ -32,11 +34,11 @@ We will focus on how to use this tool through the Neo4j Desktop application, so 
 [#install-neo4j-etl]
 If you haven't already, link:/download/[download^] Neo4j and use the provided instructions (shown when downloading) to get a project and database ready to run.
 
-****
-[NOTE]
+[TIP]
+====
 This import tool uses a command flag that requires Neo4j 3.4.0 and higher versions.
 If you are running an older version of Neo4j, you can upgrade the database or use the ETL https://github.com/neo4j-contrib/neo4j-etl[command line tool^].
-****
+====
 
 Once you have a project and a database instance created, you will need to go to the `Graph Applications` tab in Neo4j Desktop, copy and paste the `https://r.neo4j.com/neo4j-etl-app` url for the Neo4j ETL tool in the install box, and click the `Install` button.
 
@@ -95,7 +97,7 @@ The screenshot below shows the steps, with the red highlighting and numbering to
 
 image::{img}etl4_choose_project.jpg[role="popup-link"]
 
-[NOTE]
+[TIP]
 --
 You can choose which Neo4j database you want to use here, but it is not required.
 This can also be chosen in a later step.
@@ -107,11 +109,11 @@ This can also be chosen in a later step.
 After choosing a project, you will need to set up a connection to a relational database.
 You can do this by clicking the `Add Connection` button in the lower left of the pane.
 
-****
-[NOTE]
+[TIP]
+====
 If you previously set up connections with the ETL tool, these will be remembered and listed.
 You can always create new connections and edit or remove existing connections.
-****
+====
 
 When you click to add a new connection, you will see a form to enter the relational database connection details.
 We recommend first choosing the type of database from the dropdown box in the middle of the page, as that will automatically fill in some of the other fields for you.
@@ -160,11 +162,11 @@ image:{img}etl9_mapping_rule3.jpg[role="popup-link"]
 
 Those rules create a graph data model like the one below.
 
-****
-[NOTE]
+[TIP]
+====
 This example is using the popular Northwind data set.
 You can download and test this data set with the links further on link:/developer/neo4j-etl/#neo4j-etl-options[this page].
-****
+====
 
 image::{img}etl10a_mapping_sample.jpg[role="popup-link"]
 
@@ -234,12 +236,12 @@ If it fails, you will see a red error message at the top of the screen, and you 
 
 image::{img}etl13_successful_import.jpg[role="popup-link"]
 
-****
-[NOTE]
+[TIP]
+====
 This import tool uses a command flag that requires Neo4j 3.4.0 and higher versions.
 If you are running an older version of Neo4j, this step will fail.
 To continue, you can upgrade the database or use the https://github.com/neo4j-contrib/neo4j-etl[command line tool^].
-****
+====
 
 Now, you can query the Neo4j database or use Neo4j Browser to verify the data loaded to properly.
 Your relational data has now been transformed to a graph!

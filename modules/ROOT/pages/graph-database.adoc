@@ -4,6 +4,8 @@
 :author: Jennifer Reif
 :category: documentation
 :tags: get-started, introduction, graph, database, property-graph, use-cases, cypher
+:page-comments:
+:page-pagination: next
 
 [role=expertise {level}]
 {level}

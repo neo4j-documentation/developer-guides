@@ -5,6 +5,8 @@
 :category: bloom
 :tags: graph-platform, server, desktop, sandbox, perspective, graph, visualization, data
 :description: This article shows how to use Neo4j Bloom for exploring graph data in Neo4j.
+:page-pagination:
+:page-comments:
 
 .Goals
 [abstract]
@@ -165,13 +167,15 @@ image::{img}bloom_show_productName_1.jpg[role="popup-link"]
 Now that we tried a small search and altered the perspective, let us see how Bloom allows us to expand results without writing a different search.
 Using our previous search for the `Product` nodes, we had one node selected to view its properties.
 
-****
-[NOTE]
+
+[TIP]
+====
 *If you are starting in the middle of this guide...*
 You can open Bloom and type `Product` into the search bar and press the `Enter` key.
 Zooming in a bit on the results, you can click on a node that interests you.
 For this example, we have picked the product for `Ipoh Coffee`.
-****
+====
+
 
 If we have more than one node selected, then we can click in a blank part of the scene to unselect everything, then click on the node we are interested in viewing.
 
@@ -197,11 +201,12 @@ image::{img}bloom_product_expanded_1.jpg[role="popup-link"]
 
 The scene also shows ids for each one of these nodes, so we can refer to our earlier step for <<alter-perspective, altering the perspective>> to view other properties for the categories.
 
-****
-[NOTE]
+
+[TIP]
+====
 *Taking it further...*
 you can continue to explore this section of the graph by expanding the `Category` node to see what other products are in that product category or by expanding a particular order to see which customer made the order and what (if any) other products were ordered with our `Ipoh Coffee` product.
-****
+====
 
 [#clearing-scene]
 == Clearing data in Neo4j Bloom
@@ -273,13 +278,13 @@ image::{img}bloom_coffee_node_1.jpg[role="popup-link"]
 
 image::{img}bloom_chocbiscuits_node_1.jpg[role="popup-link"]
 
-****
-[NOTE]
+[TIP]
+====
 *Walkthrough Steps...*
 First, clear the scene.
 Then, search for one product and press `Enter` to add it to the scene.
 Next, search for the second product and press `Enter` to add it to the scene.
-****
+====
 
 Once the coffee and chocolate biscuit products are in our scene, we can select both products (click on product1 + `ctrl/cmd` key + click on product2).
 This should highlight both products by placing a white border around each one of them.

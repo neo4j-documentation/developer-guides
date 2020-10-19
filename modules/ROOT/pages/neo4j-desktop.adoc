@@ -7,6 +7,8 @@
 :category: desktop
 :tags: graph-platform, desktop, activation, graph, manage-graph, database
 :description: This article demonstrates how to use the Neo4j Desktop GUI for managing instances of Neo4j locally for development.
+:page-pagination:
+:page-comments:
 
 .Goals
 [abstract]
@@ -89,11 +91,12 @@ You can modify any of these settings at any time.
 The first block is for privacy settings where you can adjust what data is sent back to Neo4j for assistance and future improvements.
 The next two sections are where you can configure a proxy or run Neo4j Desktop in offline mode.
 
-****
-[NOTE]
+
+[TIP]
+====
 We do not recommend running Neo4j Desktop in offline mode unless required by your company.
 Offline mode restricts some usage capabilities.
-****
+====
 
 Under `Neo4j Distributions` section of the settings, it shows which versions of the database are used in your projects (if any) and lists the currently set up projects and databases.
 
@@ -120,10 +123,11 @@ A small icon next to each version number in the dropdown menu will show which ve
 Once the info is filled in, then click kbd:[Create].
 It may take a few minutes to download the version and actually create the database.
 
-****
-[NOTE]
+
+[TIP]
+====
 If you forget your password, you can reset it by clicking the three dots to the top right of the Database card, clicking Manage, and navigating to the Administration tab.
-****
+====
 
 You have now created your own graph database!
 Now we will walk through some tools to interact with the database and data.
@@ -169,10 +173,8 @@ The `Settings` tab displays the configuration values for the database.
 These can be changed, if needed.
 Once changes are made, you can apply them, and Desktop will offer to restart the database (necessary for changes to take effect).
 
-****
-[NOTE]
+[TIP]
 You can also search the settings in this tab by using kbd:[Ctrl+F] / kbd:[Cmd+F] (Mac).
-****
 
 On the `Plugins` tab, you can see what plugins are available (or you have installed) to use with Neo4j.
 Currently, Neo4j Desktop has plugins for APOC, GraphQL, and Graph Algorithms.
