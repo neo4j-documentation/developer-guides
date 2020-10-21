@@ -1,0 +1,24 @@
+= Data Science Courses
+:category: administration
+:tags: cypher, queries, graph-queries, resources, documentation, graph algorithms, data science, training
+:page-comments:
+:page-pagination: previous
+
+== Data Science Courses
+
+Neo4j has a number of courses to teach data scientists how to use Neo4j and the Neo4j Graph Data Science Library.
+
+Here is the suggested learning path for Data Scientists:
+
+image::{img}DataScientistLearningPath.png[role="popup-link"]
+
+
+=== GraphAcademy Courses
+
+We recommend that you first take our introductory Neo4j course:
+
+https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0^]
+
+Then follow with this course:
+
+https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[Introduction to Graph Algorithms in Neo4j 4.0^]

@@ -33,6 +33,7 @@
 ** xref:cypher-style-guide.adoc[Cypher Style Guide]
 ** xref:cypher:resources.adoc[Cypher Resources]
 
+* xref:cypher:courses.adoc[Courses]
 
 * *For Developers*
 * xref:data-modeling.adoc[Graph Data Modeling]
@@ -76,6 +77,8 @@
 ** xref:graph-apps:featured.adoc[Featured Graph Apps]
 ** xref:graph-apps:building-a-graph-app.adoc[Building Graph Apps]
 
+* xref:developer_courses.adoc[Courses]
+
 * *For Data Scientists*
 * xref:graph-data-science:index.adoc[Neo4j Graph Data Science]
   ** xref:graph-data-science:graph-algorithms.adoc[Graph Algorithms]
@@ -100,7 +103,7 @@
 ** xref:tools-graph-visualization.adoc[Visualization Tools]
 ** xref:other-graph-visualizations.adoc[Other Visualizations]
 
-
+* xref:data_science_courses.adoc[Courses]
 
 
 * *For Administrators*
@@ -129,6 +132,8 @@
 ** xref:aura-grandstack.adoc[Deploying a GRANDstack application to Aura]
 ** xref:aura-bloom.adoc[Bloom Visualization with Aura]
 ** xref:aura-monitoring.adoc[Monitoring]
+
+* xref:admin_courses.adoc[Courses]
 
 * *For Everyone*
 * xref:resources.adoc[Documentation &amp; Resources]
