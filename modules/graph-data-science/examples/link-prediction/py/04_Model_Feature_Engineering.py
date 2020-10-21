@@ -149,7 +149,7 @@ CALL gds.localClusteringCoefficient.write({
       orientation: 'UNDIRECTED'
     }
   },
-  writeProperty: 'coefficientTest'
+  writeProperty: 'coefficientTrain'
 });
 """
 
