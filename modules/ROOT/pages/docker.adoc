@@ -32,6 +32,13 @@ A list of the previous versions is available under the {docker-hub-link}[tags se
 [#run-neo4j-docker]
 == How to use the Neo4j Docker Image
 
+.TL;DR
+[source,bash]
+----
+docker run -p7474:7474 -p7687:7687 -e NEO4J_AUTH=neo4j/s3cr3t neo4j
+# then open http://localhost:7474 to connect with Neo4j Browser
+----
+
 The step-by-step instructions on starting Docker containers for Neo4j are given in our link:/developer/docker-run-neo4j/[how-to guide].
 There is also documentation in our link:/docs/operations-manual/current/docker/[operations manual^] on running Neo4j with Docker and how to configure it, run clusters, and handle security.
 
