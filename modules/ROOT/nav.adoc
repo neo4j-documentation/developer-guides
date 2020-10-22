@@ -33,7 +33,7 @@
 ** xref:cypher-style-guide.adoc[Cypher Style Guide]
 ** xref:cypher:resources.adoc[Cypher Resources]
 
-* *Courses*
+* Courses
 ** link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Intro Neo4j Course^]
 
 * *For Developers*
@@ -79,7 +79,7 @@
 ** xref:graph-apps:building-a-graph-app.adoc[Building Graph Apps]
 
 
-* *Courses*
+* Courses
 ** link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[1. Intro Neo4j Course^]
 ** link:https://neo4j.com/graphacademy/online-training/graph-data-modeling/[2. Graph Data Modeling Course^]
 ** link:https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[3. Implementing Models Course^]
@@ -110,7 +110,7 @@
 ** xref:other-graph-visualizations.adoc[Other Visualizations]
 
 
-* *Courses*
+* Courses
 ** link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[1. Intro Neo4j Course^]
 ** link:https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[2. Graph Algorithms Course^]
 
@@ -143,7 +143,7 @@
 ** xref:aura-monitoring.adoc[Monitoring]
 
 
-* *Courses*
+* Courses
 ** link:https://neo4j.com/graphacademy/online-training/basic-neo4j-admin-40/[1. Basic Admin Course^]
 ** link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[2. Intro Neo4j Course^]
 ** link:https://neo4j.com/graphacademy/online-training/graph-data-modeling/[3. Graph Data Modeling Course^]
