@@ -28,8 +28,8 @@ Here is our current list of online courses:
 * Neo4j 4.0:
 ** Introduction to Neo4j 4.0
 ** Graph Data Modeling
-** Implementing Graph Data Models in Neo4j 4.0
-** Cypher Query Tuning in Neo4j 4.0
+** Implementing Graph Data Models
+** Cypher Query Tuning in Neo4j
 ** Basic Neo4j 4.0 Administration
 * Neo4j 3.5:
 ** Graph Data Modeling
@@ -40,6 +40,14 @@ Here is our current list of online courses:
 
 https://neo4j.com/graphacademy/online-training/[Click here to enroll in a free online training course^]
 
+=== Online Meetups and Webinars
+
+For those who are unable to travel or who want to learn more about the broader graph world, Neo4j also hosts online meetups and webinars.
+These events cover a variety of topics and include partner products, community projects, and technical solutions for users at all levels.
+
+* https://neo4j.com/developer/online-meetup.adoc[Twitch, YouTube and Meetup Live Streams]
+* https://neo4j.com/webinars/[Neo4j Webinars^]
+
 === Instructor-led Training
 
 Neo4j also provides both virtual and classroom training all over the world throughout the year.
@@ -48,13 +56,6 @@ These courses are instructor-led and are designed for users to get maximum value
 https://neo4j.com/events/world/training/[Instructor-led public training events^]
 
 Companies can also mailto:training@neo4j.com[request] private, custom training events for internal staff to solve specific problems or understand concepts and architecture specific to their use case.
-
-=== Online Meetups and Webinars
-
-For those who are unable to travel or who want to learn more about the broader graph world, Neo4j also hosts online meetups and webinars.
-These events cover a variety of topics and include partner products, community projects, and technical solutions for users at all levels.
-
-https://neo4j.com/webinars/[Neo4j Webinars^]
 
 [#neo4j-certification]
 == Neo4j Developer Certification
@@ -65,6 +66,7 @@ We also have a Neo4j Developer Certification that proves you know the foundation
 
 The exam tests your knowledge of developer-focused concepts, including the graph model, Cypher, and more.
 It is free of charge and can be retaken.
+
 To help you get prepared, you can check out the details on the https://neo4j.com/graphacademy/neo4j-certification/[certification page^] of GraphAcademy and read https://medium.com/neo4j/neo4j-certification-how-to-pass-like-a-pro-eed6daa7c6f7[Jennifer's blog post^] for study tips.
 
-Upon passing the exam, you will receive a certificate and if you are a member of the https://community.neo4j.com[Neo4j Community], a Neo4j Certified Professional Badge.
+Upon passing the exam, you will receive a certificate and if you are a member of the https://community.neo4j.com[Neo4j Community^], a Neo4j Certified Professional Badge.

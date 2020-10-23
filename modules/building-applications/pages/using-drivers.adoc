@@ -1,3 +1,4 @@
+[[building-applications]]
 = Building Applications on Neo4j
 :author: Adam Cowley
 :description: In the Building Applications section we discuss how to build an application on Neo4j.
