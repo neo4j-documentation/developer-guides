@@ -68,7 +68,7 @@
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
 ** xref:perl.adoc[Perl]
 
-* xref:building-applications:index.adoc[Building Applications]
+* Building Applications
 ** xref:example-project.adoc[Example: all Stacks (Movies)]
 // TODO Adam ** xref:building-applications:using-drivers.adoc[Tutorial: Step By Step - Connect and Query Neo4j]
 ** xref:python-movie-app.adoc[Tutorial: Python &amp; Flask (IMDB)]
