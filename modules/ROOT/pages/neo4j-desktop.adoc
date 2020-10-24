@@ -37,7 +37,7 @@ Step 2 on the download page instructions shows you how to set up your first proj
 
 Neo4j Desktop is a Developer IDE or Management Environment for Neo4j instances similar to Enterprise Manager, but better.
 You can manage as many projects and database servers locally as you like and also connect to remote Neo4j servers.
-Neo4j Desktop comes with an free Developer License of Neo4j Enterprise Edition, the Java Runtime is also bundled.
+Neo4j Desktop comes with a free Developer License of Neo4j Enterprise Edition. The Java Runtime is also bundled.
 
 Each database server managed through desktop can be configured, upgraded and maintained through the UI, no command line needed.
 You can install popular Neo4j extensions like link:/labs/apoc[APOC^] or the link:/developer/graph-data-science[Graph Data Science^] library with a single click.
