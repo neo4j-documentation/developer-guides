@@ -71,7 +71,8 @@
 * Building Applications
 ** xref:example-project.adoc[Example: all Stacks (Movies)]
 // TODO Adam ** xref:building-applications:using-drivers.adoc[Tutorial: Step By Step - Connect and Query Neo4j]
-** xref:python-movie-app.adoc[Tutorial: Python &amp; Flask (IMDB)]
+** xref:python-movie-app.adoc[Tutorial: Python/Flask and React (IMDB)]
+** xref:js-movie-app.adoc[Tutorial: JavaScript/Express and React (IMDB)]
 ** xref:ruby-course.adoc[Tutorial: Ruby &amp; Rails (Books)]
 
 * xref:integration.adoc[Neo4j Tools &amp; Integrations]
