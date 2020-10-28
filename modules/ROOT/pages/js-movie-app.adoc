@@ -23,10 +23,6 @@ You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[N
 This course provides an overview of what you need to know to write an Express application using a Neo4j database. 
 To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality. 
 
-++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3L89pVRZOx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++
-
 [#neo4j-javascript]
 == Before We Start - Why Neo4j?
 
@@ -122,7 +118,7 @@ Now you’re looking for a demo app or template to start putting those skills in
 
 If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Neo4j Movie Template] onto your machine.
 This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
-The following video will walk briefly walk you through the various features of the movie app. 
+The following video will walk briefly walk you through the various features of the movie app.
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Oatm1WWmIHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -165,15 +161,14 @@ You can find the front-end code in the `web` directory.
 
 === Setup
 
+
 To get the project running, clone the repo and follow along with these instructions, which are be recapped in the video:
 
-// TK VIDEO
+++++
+<iframe width="560" height="315" src="https://youtu.be/z-PAO2WU1QQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++ 
 
-<!-- ++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2Jis6hvkoQQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++ -->
-
-First, Start the Database!
+If you haven't already, https://github.com/neo4j-examples/neo4j-movies-template[clone the repo].
 
 Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox. 
 
@@ -181,22 +176,23 @@ Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using soc
 
 After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to. 
 
-In order to connect to the database from the environment from which you’ll be running the app (presumably your local machine), you’ll need credentials. You can find those under the “Connection details” and/or the “Connect via drivers” tab:
+In order to connect to the database from the environment from which you’ll be running the app (presumably your local machine), you’ll need credentials. You can find those under the “Connection details” and/or the “Connect via drivers” tab.
 
-Note the section that looks like this - you’ll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
+You’ll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
 For example, if the driver line contains the following:
 
 [source,javascript,role=nocopy]
 ----
-driver = GraphDatabase.driver("bolt://52.72.13.205:47929", auth=basic_auth("neo4j", "knock-cape-reserve"))
+const driver = neo4j.driver("bolt://52.72.13.205:47929", neo4j.auth.basic("neo4j", "knock-cape-reserve"))
 ----
 
 Then, in your text editor, open and/or create `api/.env` and enter the appropriate information into the variables: `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL`. Then save the file.
 
 ----
-DATABASE_USERNAME = 'your usernamer'
-DATABASE_PASSWORD = 'your password'
-DATABASE_URL = 'your URL'
+SECRET_KEY="super secret guy"
+MOVIE_DATABASE_USERNAME="neo4j"
+MOVIE_DATABASE_PASSWORD="height-restrictions-calculators"
+MOVIE_DATABASE_URL="bolt://52.91.202.103:32814"
 ----
 
 To start the Express API, run:
@@ -235,15 +231,42 @@ Click on a cast or crew member to see that person’s profile, which includes bi
 
 === Genres
 
-// TK go step by step through how to create the Genres Endpoint 
+Diving down from route to model, a call from the user would travel through the route set in `api/app.js`
 
-Voila! You get an array of genres at `/genres`.
+.api/app.js
+[source,javascript,role=nocopy]
+----
+api.get("/genres", routes.genres.list);
+---- 
+
+The information from the call would be routed by `api/routes/genres.js` in and out of the the Genre model in `api/models/genres.js`, sending the response, an array of `Genres`, back to the user. 
+
+.api/models/genres.js
+[source,javascript,role=nocopy]
+----
+const _ = require('lodash');
+const Genre = require('../models/neo4j/genre');
+
+const getAll = function(session) {
+  return session.readTransaction(txc =>
+      txc.run('MATCH (genre:Genre) RETURN genre')
+    ).then(_manyGenres);
+};
+
+const _manyGenres = function (result) {
+  return result.records.map(r => new Genre(r.get('genre')));
+};
+
+module.exports = {
+  getAll: getAll
+};
+----
 
 
 === Beyond the `/Genres` Endpoint
 
 Of course, an app that just shows movie genres isn’t very interesting.
-Take a look at the routes and models used to build the home page, movie detail page, and person detail page.
+Take a look at the routes and models used to build the home page, `Movie` detail page, and `Person` detail page.
 
 === The User Model
 
@@ -305,13 +328,34 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 }
 ----
 
-User registration logic is implemented in `/api/app.py` as described below:
+Similar to calling the `Genre` endpoint, when a user creates an account, the user flows through endpoint through the register User route to the User model and back.  
 
-.User Registration
+.api/app.js
 [source,javascript,role=nocopy]
 ----
-// TK User Registration Implementation
+api.post("/register", routes.users.register);
 ----
+
+.api/routes/users.js
+[source,javascript,role=nocopy]
+----
+exports.register = function (req, res, next) {
+  const username = _.get(req.body, 'username');
+  const password = _.get(req.body, 'password');
+
+  if (!username) {
+    throw {username: 'This field is required.', status: 400};
+  }
+  if (!password) {
+    throw {password: 'This field is required.', status: 400};
+  }
+
+  Users.register(dbUtils.getSession(req), username, password)
+    .then(response => writeResponse(res, response, 201))
+    .catch(next);
+};
+----
+
 
 ==== Users Can Log In
 
@@ -372,7 +416,7 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token 5
 }
 ----
 
-The code here is similar to that of `/register`.
+The code here is analogous to that of `/register`.
 There is a similar form to fill out, where a user types in their username and password.
 With the given username, a `User` is initialized.
 The password they filled out in the form is then verified against the hashed password that was retrieved from the corresponding :User node in the database.
@@ -398,10 +442,62 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 {}
 ----
 
-.JavaScript Implementation: Rate a Movie
+The user sends who they are, what movie they want to rate, and what their rating is through the endpoint. 
+
+.api/app.js
 [source,javascript,role=nocopy]
 ----
-// TK JS Rate A Movie
+api.post("/movies/:id/rate", routes.movies.rateMovie);
+----
+
+The information is routed through `api/routes/movies.js`:
+
+.api/routes/movies.js
+[source,javascript,role=nocopy]
+----
+exports.rateMovie = function (req, res, next) {
+  loginRequired(req, res, () => {
+    const rating = Number(_.get(req.body, 'rating'));
+    if (Number.isNaN(rating) || rating < 0 || rating >= 6) {
+      throw {rating: 'Rating value is invalid', status: 400};
+    }
+
+    Movies.rate(dbUtils.getSession(req), req.params.id, req.user.id, rating)
+      .then(response => writeResponse(res, {}))
+      .catch(next);
+  });
+};
+----
+
+The rating is applied at the `api/models/movies.js`
+
+.api/models/movies.js
+[source,javascript,role=nocopy]
+----
+const rate = function (session, movieId, userId, rating) {
+  return session.writeTransaction(txc =>
+    txc.run(
+      'MATCH (u:User {id: $userId}),(m:Movie {tmdbId: $movieId}) \
+      MERGE (u)-[r:RATED]->(m) \
+      SET r.rating = $rating \
+      RETURN m',
+      {
+        userId: userId,
+        movieId: movieId,
+        rating: parseInt(rating)
+      }
+    )
+  );
+};
+
+... 
+
+// export exposed functions
+module.exports = {
+...
+  rate: rate,
+...
+};
 ----
 
 *Example: See All of My Ratings*
@@ -429,55 +525,6 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ]
 ----
 
-.JavaScript Implementation: See My Ratings
-[source,javascript,role=nocopy]
-----
-// TK See My Ratings
-----
-
-*Example: My Recommendations*
-
-.Request
-[source,shell]
-----
-curl -X GET --header 'Accept: application/json' --header 'Authorization: Token ce40f63e79344f017a48b205db27aeaa301ae2b6' 'http://localhost:5000/api/v0/movies/recommended'
-----
-
-.Response
-----
-[
-  {
-    "id": "45523",
-    "title": "Louis C.K.: Hilarious",
-    "summary": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
-    "released": "2010-01-26",
-    "duration": 82,
-    "rated": 8.6,
-    "tagline": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
-    "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/8mJMrrT4tkfZLMFvKQ0Hq6jlXbp.jpg",
-    "my_rating": null
-  },
-  {
-    "id": "38757",
-    "title": "Tangled",
-    "summary": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
-    "released": "2010-11-24",
-    "duration": 100,
-    "rated": 7.8,
-    "tagline": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
-    "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/1uPxRO0iYwW02lzwatRhkugWBYs.jpg",
-    "my_rating": null
-  },
-
-...
-]
-----
-
-[source,javascript,role=nocopy]
-----
-// TK See My Ratings
-----
-
 == The React Front-end  
 
 ++++
@@ -485,7 +532,7 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ++++
 
 You can take a look at the React front-end code at in the `/web/` subdirectory. 
-The React front-end is very simple, and is composed of the following parts, as described in the video above:
+The React front-end is very simple, and is composed of the following parts, as described in the video above.
 
 * Home Page
 * Authentication Page
@@ -502,7 +549,7 @@ The "Featured Movies" portion at the top calls three hard-coded movies.
 [source,javascript,role=nocopy]
 ----
 renderFeatured() {
-    var {movies} = this.props;
+    const {movies} = this.props;
 
     return (
       <div className="nt-home-featured">
@@ -581,7 +628,6 @@ deploy-web:
     git push heroku-web heroku-web:master --force
 ----
 
-//TK Check Video
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/V8j9GAYV3co" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
