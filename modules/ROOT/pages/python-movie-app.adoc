@@ -750,15 +750,7 @@ The User Profile page allows the user to re-rate or un-rate their movies, and vi
 
 == Deployment
 
-=== Deploying the Recommendations Database with Aura
-
-* Download Dump File https://github.com/neo4j-graph-examples/recommendations/tree/master/data
-* Create an account on Aura https://neo4j.com/cloud/aura/
-* Upload the dump and start the database
-
-++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Wc6qFI-URSM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++
+include::./_includes/using_aura.adoc[]
 
 === Deplyoying the Backend and Front-end with Heroku
 
