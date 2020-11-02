@@ -19,8 +19,10 @@ docker run -p7474:7474 -p7687:7687 -e NEO4J_AUTH=neo4j/s3cr3t neo4j
 ----
 
 ====
+
 [[what-is-docker]]
-== What is Docker 
+*What is Docker*
+
 https://docker.com[Docker^] is a lightweight virtualization mechanism to run single applications or processes in a containerized environment on a Linux host system.
 It is designed to handle a small piece of functionality in each container and scale according to needs.
 Docker containers can be used as infrastructure layers, data containers, or configuration providers.
