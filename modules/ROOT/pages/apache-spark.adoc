@@ -3,8 +3,8 @@
 :page-level: Intermediate
 :author: Neo4j
 :category: integrations
-:tags: integrations, spark, tools
-:description: There are various ways to beneficially use Neo4j with http://spark.apache.org[Apache Spark], here we will list some approaches and point to solutions that enable you to leverage your Spark infrastructure with Neo4j.
+:tags: integrations, spark, tools, deprecated
+:description: This page is deprecated in favor of the Neo4j Connector for Apache Spark
 
 [NOTE]
 **This approach is deprecated** in favor of the link:/developer/spark[Neo4j Connector for Apache Spark].  This page is being maintained
