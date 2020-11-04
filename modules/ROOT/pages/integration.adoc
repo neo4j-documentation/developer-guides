@@ -6,13 +6,21 @@
 [#neo4j-integration]
 Neo4j is supported by a rich ecosystem of libraries, tools, drivers, and guides provided by partners, users, and community contributors.
 We want to give an overview about what's available and link to the original sources.
+
+== Neo4j Supported Connectors
+
+The following integrations are provided by Neo4j and are supported for existing Enterprise customers.
+
+* link:/developer/spark[Neo4j Connector for Apache Spark]
+* link:https://neo4j.com/labs/kafka/4.0/[Neo4j Connector for Apache Kafka] (also known as Neo4j-Streams)
+* link:https://neo4j.com/bi-connector/[Neo4j Connector for Business Intelligence]
+
 We try to focus on the freely available solutions here, and provide links to commercial options were appropriate.
 
-Check out our link:/developer/integration/[integrations] to further boost your Neo4j productivity.
+== Other Community Integrations
 
 Neo4j integration projects:
 
-link:../apache-spark[Neo4j and Apache Spark] +
 link:../elastic-search[Neo4j and Elastic\{Search\}] +
 link:../mongodb[Neo4j and MongoDB] +
 link:../cassandra[Neo4j and Cassandra] +
