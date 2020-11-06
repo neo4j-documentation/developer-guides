@@ -64,7 +64,7 @@ Missed a stream? Check out the main Twitch playlist:
 image::https://dist.neo4j.com/wp-content/uploads/william-lyon.jpg[Will Lyon,width="200px",float="right"]
 
 *9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)* +
-*_(Friday 7am AEST, 9am NZST)_*
+*_(Friday 8am AEST, 10am NZST)_*
 
 https://twitter.com/lyonwj[Will Lyon^] covers building GraphQL APIs with Neo4j and fullstack applications using GraphQL, React, Apollo, and Neo4j Database, using the https://grandstack.io[GRANDstack^] framework, using a real-estate app as an example, as well as building a travel guide with Gatsby.
 
@@ -72,7 +72,7 @@ Missed a stream? Check out the playlist:
 
 * https://www.youtube.com/watch?v=Hh_n9Sj692E&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=2[GRANDstack - GraphQL React Apollo Neo4j^]
 * https://www.youtube.com/watch?v=XCuknJAIX84&list=PL9Hl4pk2FsvUza4kdPSKQrcl3MGGutOe2[Building A Travel Guide With Gatsby, Neo4j, & GraphQL^]
-
+* https://www.youtube.com/playlist?list=PL9Hl4pk2FsvWzQCyTzbI-5HIOJNOGmd9C[Fullstack GraphQL Book Club^]
 
 [#upcoming-meetups]
 == Upcoming Online Meetups
@@ -83,18 +83,81 @@ We also host regular online meetups! Check out the schedule below:
 |===
 |Date | Presenters | Description | Sign up
 
-|**19 October** +
-_7am PDT, 10am EDT, 2pm UTC, 4pm CEST, 7:30pm IST, 10pm AWST_
+|**5 November** +
+_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
 
-|Karin Wolok, Lju Lazarevic and guest Matt Cloyd
-a|Introducing https://aspen-lang.org/[Aspen^], a simple markup language for creating graph data
-a|https://www.meetup.com/Neo4j-Online-Meetup/events/273636237[Link^]
+|Speakers Chris Eyre and Tim Reimer, with Co-hosts Nathan Smith & Lju Lazarevic
+a|*NODES2020 Extended*
 
-|**20 October** +
-8am UTC, 10am CEST, 1:30pm IST, 4pm AWST, 6pm AEST, 8pm NZST
-|Lju Lazarevic, Alex Erdl and guests
-|Check out our warm-up stream prior to the start of NODES 2020!
-| On Twitch!
+* Viewing contentful data with Neo4j
+* Semantic transformation with Enterprise Application Integration (EAI) using Graphs
+a|https://youtu.be/DxniBWrgueA[Catch-up Link^]
+
+|**10 November** +
+_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
+|Guests Karuna Lakhani and Otávio Calaça Xavier, with host Lju Lazarevic
+a|*NODES2020 Extended*
+
+* Chemical link prediction using Neo4j
+* Analyzing open public data of brazilian companies and their partnerships in a graph database.
+a|https://twitch.tv/neo4j_[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|**17 November** +
+_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
+|Guests Mayank Gangwal and TBC, with host TBC
+a|*NODES2020 Extended*
+
+* Metrics driven agile and devops transformation using Neo4j
+
+a|https://twitch.tv/neo4j_[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|**24 November TBC** +
+_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
+|Guests TBC, with host TBC
+a|*NODES2020 Extended*
+
+a|https://twitch.tv/neo4j_[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|**3 December** +
+_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
+|Guests Shipa Karakeraa and TBC, with host TBC
+a|*NODES2020 Extended*
+
+* Humanizing HRTech with graph databases - AI powered CV parsers
+
+a|https://twitch.tv/neo4j_[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|**7 December** +
+_7am UTC, 8am CET, 12:30pm IST_, 3pm AWST, 5pm AEST, 8pm NZST
+|Guests Monojit Basu and TBC, with host Lju Lazarevic
+a|*NODES2020 Extended*
+
+* Manifold structures in semi-supervized and multiview learning
+
+a|https://twitch.tv/neo4j_[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+
+|**17 December** +
+_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
+|Guests Doulkifli Boukraa and Siddharth Karumanchi, with host TBC
+a|*NODES2020 Extended*
+
+* Question-answering graphs: gain insights from Q&A systems like StackExchange
+* Building a custom electoral semantic knowledge graph to infer knowledge using Neosemantics
+ 
+a|https://twitch.tv/neo4j_[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |===
 
