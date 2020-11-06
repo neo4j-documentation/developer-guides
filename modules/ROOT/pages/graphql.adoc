@@ -5,9 +5,11 @@
 :author: Will Lyon
 :category: integrations
 :tags: labs, graphql, queries, grandstack, react, apollo, javascript, java
+:page-comments:
+:page-pagination:
 
+[TIP]
 ====
-[NOTE]
 icon:flask[size=2x]
 The Neo4j and GraphQL integration is one of our Neo4j Labs projects.
 To learn more, visit the https://neo4j.com/labs/grandstack-graphql[GraphQL and Grandstack^] Labs page.

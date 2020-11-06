@@ -115,7 +115,8 @@ Provided by members of our community these courses on Neo4j cover different aspe
 We have a wide range of videos available which you can watch on your own time. 
 Those videos support the learning experience and can deepen your understanding of certain topics.
 
-* http://youtube.com/neo4j[Neo4j Video Collection^]
+* https://neo4j.com/videos/[Neo4j Videos^]
+* https://neo4j.com/video/nodes-2020/[NODES 2020 Videos^]
 * https://neo4j.com/nodes-2019/[NODES 2019 Videos^]
 * https://neo4j.com/graphconnect-2018/[GraphConnect 2018 Videos^]
 * https://neo4j.com/graphtour/videos/[GraphTour Videos^]
@@ -126,15 +127,10 @@ Those videos support the learning experience and can deepen your understanding o
 * https://www.youtube.com/watch?v=V1DTBjetIfk&list=PL9Hl4pk2FsvXEww23lDX_owoKoqqBQpdq[APOC Series by Michael Hunger^]
 * https://www.packtpub.com/catalogsearch/result/?q=Neo4j&product_type_filter=Video&released=Available[3 Neo4j Videos from Packt]
 
-* http://watch.neo4j.org/video/105896138[Graphs R Cool by Nicole White^]
-* http://watch.neo4j.org/video/112447027[Real World LOAD CSV by Nicole White^]
-* http://watch.neo4j.org/video/109169965[Build Recommendation Engines with Neo4j by Nicole White^]
-* https://vimeo.com/album/3004747[High Performance Neo4j Video Series by Max de Marzi^]
-
 [#neo4j-integrations]
 == Neo4j Ecosystem Integrations
 
-* http://structr.org[structr Graph Application Framework - CMS, Graph-Server, Schema, User Management & more^]
+* http://structr.com[structr Graph Application Framework - CMS, Graph-Server, Schema, User Management & more^]
 * http://graphaware.com/products/[GraphAware Framework Libraries - Recommendation, Algorithms, Tools, Drivers^]
 * http://irregular-bi.tumblr.com/tagged/neo4j[QlikView/QlikSense Integration^]
 * http://fbiville.github.io/liquigraph[LiquiGraph - Database Migration Tool^]
@@ -171,7 +167,7 @@ Here are two recordings of our Chief Scientist which are not only informative bu
 
 * http://tbgraph.wordpress.com/[Tomasz Bratanic on Graph Algorithms, APOC and Data Import^]
 * http://blog.brian-underwood.codes/[Brian Underwood Neo4j & Ruby^]
-* https://www.kennybastani.com/search/label/neo4j[Kenny Bastani on Modeling, Architecture,  and Graph Processing^]
+* https://www.kennybastani.com/search/label/neo4j[Kenny Bastani on Modeling, Architecture, and Graph Processing^]
 * http://nicolewhite.github.io/[Nicole White on R, Python and Cypher^]
 * https://medium.com/@christophewillemsen[Christophe Willemsen on NLP, PHP, Elasticsearch^]
 * http://jqassistant.org/blog/[Dirk Mahler on Software-Analytics^]

@@ -13,17 +13,18 @@ asciidoc:
     spring-data-neo4j-version: 5.1.3.RELEASE
     neo4j-stable-version: 4.0.3
     bolt-driver-version: 1.7.0
-    java-driver-version: 4.0.1
-    javascript-driver-version: 4.0.2
-    python-driver-version: 4.1
-    dotnet-driver-version: '4.1'
-    go-driver-version: 1.8
+    java-driver-version: 4.1.1
+    javascript-driver-version: 4.1.2
+    python-driver-version: 4.1.1
+    dotnet-driver-version: '4.1.1'
+    go-driver-version: 1.8.3
     maven-sdn: Package
-    maven-artifact-info: http://search.maven.org/#artifactdetails%7Corg.neo4j.driver%7Cneo4j-java-driver%7C{java-driver-version}%7Cjar
+    maven-artifact-info: https://search.maven.org/artifact/org.neo4j.driver/neo4j-java-driver/{java-driver-version}/jar
+    neo4j-java-driver-spring-boot-starter_version: 4.1.1.0
 
     examples: https://github.com/neo4j-examples
     cyphermanual: 'https://neo4j.com/docs/cypher-manual/current'
     drivermanual: 'https://neo4j.com/docs/driver-manual/current'
-    opsmanual: 'http://neo4j.com/docs/operations-manual/current'
+    opsmanual: 'https://neo4j.com/docs/operations-manual/current'
     github: 'https://github.com/neo4j-contrib/developer-resources/tree/gh-pages'
     name: '{name}'

@@ -5,6 +5,8 @@
 :category: documentation
 :tags: get-started, introduction, relational, graph, compare, concepts
 :description: This guide explores the concepts of graph databases from a relational developer's point of view.
+:page-comments:
+:page-pagination: next
 
 .Goals
 [abstract]
@@ -90,10 +92,11 @@ Alice belongs to 3 different departments, so we create a node for each one and w
 To find out which departments Alice belongs to, we would search the graph for Alice's node, then traverse all of the BELONGS_TO relationships from Alice to find the Department nodes she is connected to.
 That's all we need - a single hop with no lookups involved.
 
-****
-[NOTE]
+[TIP]
+====
 More information on this topic can be found in the https://neo4j.com/developer/data-modeling/[Data Modeling section^].
-****
+====
+
 
 [#rdbms-graph-query]
 == Data Storage and Retrieval
@@ -132,10 +135,10 @@ WHERE d.name = "IT Department"
 RETURN p.name
 ----
 
-****
-[NOTE]
+[TIP]
+====
 You can find more about Cypher syntax in the upcoming guides for the https://neo4j.com/developer/cypher/[Cypher Query Language^] and transitioning https://neo4j.com/developer/guide-sql-to-cypher/[from SQL to Cypher^].
-****
+====
 
 [#rdbms-graph-practice]
 == Transitioning from Relational to Graph - In Practice
@@ -162,10 +165,10 @@ try (PreparedStatement stmt = con.prepareStatement(QUERY)) {
 }
 ----
 
-****
-[NOTE]
+[TIP]
+====
 For more information, you can visit our pages for https://neo4j.com/developer/language-guides/[Building Applicatons^] to see how to connect to Neo4j using different programming languages.
-****
+====
 
 [#rdbms-graph-resources]
 == Resources

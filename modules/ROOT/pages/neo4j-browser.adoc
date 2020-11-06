@@ -7,6 +7,8 @@
 :category: browser
 :tags: graph-platform, web, desktop, guides, styling, queries, configuration, visualization
 :description: This article demonstrates how to use the Neo4j Browser for querying, visualization, and data interaction.
+:page-pagination:
+:page-comments:
 
 .Goals
 [abstract]
@@ -22,7 +24,7 @@ It also helps if you have read the section on link:/developer/get-started/graph-
 
 ++++
 <div class="responsive-embed">
-<iframe width="680" height="425" src="https://www.youtube.com/embed/rQTximyaETA" frameborder="0" allowfullscreen></iframe>
+<iframe width="680" height="425" src="https://www.youtube.com/embed/oHo-lQ79zf0" frameborder="0" allowfullscreen></iframe>
 </div>
 ++++
 
@@ -32,11 +34,13 @@ Using the provided instructions (shown when downloading), follow Step 1 to insta
 Alternatively, after downloading the zipped server-only package, instructions can also be found in the readme (`bin/neo4j start`) after unzipping the downloaded file.
 Step 2 on the download page instructions shows you how to set up your first project and database and how to open the Neo4j Browser.
 
-****
-[NOTE]
+
+[TIP]
+====
 Please remember the password.
 If you forget it, you have to remove the credentials file in `data/dbms/authorization`.
-****
+====
+
 
 Just to review, so far, we have shown two ways to interact with Neo4j.
 
@@ -184,12 +188,13 @@ image::{img}enable_multiline_queries.jpg[width=300,role="popup-link"]
 .Output, Export, & Visualization Tips
 You can switch between `Graph`, `Table`, `Text`, and `Code` views to see the results in various formats by clicking the icons on the left of each pane.
 
-****
-[NOTE]
+
+[TIP]
+====
 Don't worry if you don't see any output.
 You might just be in Graph mode, but had your query return tabular/scalar data.
 To see the results, just switch the mode to the Table view.
-****
+====
 
 Query time is reported in the `Table` or `Code` views (*don't rely on that exact timing though*), and it includes the latency and deserialization costs, not just the actual query execution time.
 
@@ -229,7 +234,7 @@ The Favorites menu uses your comment as the query name.
 
 Creating folders can help organize your favorites, and you can rearrange them by dragging or delete them if they are no longer useful.
 
-[NOTE]
+[TIP]
 Your favorites, settings, and styles can be saved to the cloud with Neo4j Browser Sync.
 If you clear your Browser cache, your local favorites will be removed.
 
@@ -239,7 +244,7 @@ If you clear your Browser cache, your local favorites will be removed.
 For more advanced styling, you can bring up the style-viewer with `:style` and copy/paste the graph-style-sheet (GRASS) that is returned.
 You can edit this stylesheet offline, save the file as a .grass file, and drag it back onto the drag-area of the viewer.
 
-[NOTE]
+[TIP]
 You can reset to the default styles with `:style reset`.
 
 Within the GRASS file, you can change colors, fonts, sizes, outlines, and titles per node label and relationship type.

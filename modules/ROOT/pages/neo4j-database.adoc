@@ -2,6 +2,8 @@
 :author: Jennifer Reif
 :category: documentation
 :tags: graph-platform, graph, database, features, versions
+:page-pagination:
+:page-comments:
 
 [#database]
 Neo4j's primary product and focus is our graph database that stores data in the form of nodes and relationships.
@@ -150,3 +152,4 @@ link:/release-notes/neo4j-3-5-0/[Initial Release Notes^]
 == Other Resources
 
 link:/release-notes/[All Neo4j Release Notes^]
+

@@ -10,9 +10,7 @@
 [abstract]
 {description}
 
-.Prerequisites
-[abstract]
-You should be familiar with link:/developer/get-started/graph-database[graph database concepts] and the property graph model. You should have link:/download[installed Neo4j^] and made yourself familiar with our link:/developer/cypher[Cypher query language].
+include::./_includes/common-language-prereq.adoc[]
 
 [role=expertise {level}]
 {level}
@@ -39,15 +37,48 @@ The source code for all the different language examples is available on https://
 [#app-project-model]
 == Domain Model
 
+We use a simple Movie database domain, which is also built into Neo4j Browser.
+If you need the data separately, it is available in this https://github.com/neo4j-graph-examples/movies[GitHub repository^].
+
 [source,cypher]
 ----
 (:Person {name: string})-[:ACTED_IN {roles: [string]}]->(:Movie {title: string, released: number})
 ----
 
+image::https://github.com/neo4j-graph-examples/movies/raw/master/documentation/img/model.svg[width=400]
+
+And example subgraph of the data is the neighborhood of "Tom Hanks".
+
+image::https://github.com/neo4j-graph-examples/movies/raw/master/documentation/img/example.png[width=400]
+
+[#app-project-data]
+== Data Setup
+
+=== Neo4j Labs Demo Server
+
+Most of the examples should already work with the following settings:
+
+[cols="2*"]
+|===
+| icon:link[] Connection URI
+| `neo4j+s://demo.neo4jlabs.com`
+
+| icon:database[] Database Name
+| `movies`
+
+| icon:sign-in[] Username
+| `movies`
+
+| icon:user-secret[] Password
+| `movies`
+|===
+
+Other data setup options are explained <<other-setups,below>>.
+
 [#app-project-webpage]
 == Webpage
 
-The webpage is a single Bootstrap page that uses jQuery AJAX calls to access the backend and adds the returned JSON result data to HTML DOM elements in the page.
+The webpage is a single, simple Bootstrap page that uses jQuery AJAX calls to access the backend and adds the returned JSON result data to HTML DOM elements in the page.
 
 For the search, that is the `/search?q=query` endpoint whose results are added as table rows in a listing.
 
@@ -61,31 +92,29 @@ For the movie details it uses the `/movie/A%20Movie%20Title` endpoint and the re
 For the Graph Visualization we use http://d3js.org[d3.js^]. Our `/graph` endpoint already returns the data in the format of "nodes" and "links"-list that d3 can use directly.
 We then apply the force-layout algorithm to render nodes as circles and relationships as lines, and add some minimal styling to the visualization to provide the movie title/person name as title attribute to the node circles which is shown as a tooltip.
 
-[#app-project-data]
-== Data Setup
+[#app-project-endpoints]
+== Endpoints
+=== Search Movies
 
-- Start your local Neo4j Server (http://neo4j.com/download[Download & Install^])
-- Open the http://localhost:7474[Neo4j Browser].
-- Log in, remember the password
-- Install the Movies dataset with `:play movies`
-- Click the large `CREATE` statement and hit the triangular "Run" button to insert the data.
+----
+// list of JSON objects for movie search results
+curl http://localhost:8080/search?q=matrix
 
-You can also choose to use our link:/sandbox/?ref=developer-example-proj[Neo4j Sandbox^] or a link:/developer/in-production/guide-cloud-deployment[cloud-hosted Neo4j database].
-If you go this route, then you have to provide the URL to your Neo4j server in an environment variable `NEO4J_URL`.
+[{"movie": {"released": 1999, "tagline": "Welcome to the Real World", "title": "The Matrix"}},
+ {"movie": {"released": 2003, "tagline": "Free your mind", "title": "The Matrix Reloaded"}},
+ {"movie": {"released": 2003, "tagline": "Everything that has a beginning has an end", "title": "The Matrix Revolutions"}}]
+----
 
-Alternatively you can run this Cypher `LOAD CSV` statement:
+The Cypher query used, with the parameters `{query:"matrix"}`.
+
+The search movies query ``MATCH``es the movies by title with `CONTAINS` and then ``RETURN``s the movie nodes as a list of maps with the `title`, `released` and `tagline` attributes.
 
 [source,cypher]
 ----
-LOAD CSV WITH HEADERS FROM "https://www.dropbox.com/s/ci3cjwy91dp3a7e/movies_setup.csv?dl=0" AS row
-MERGE (m:Movie {title:row.title}) ON CREATE SET m.released = toInt(row.released), m.tagline = row.tagline
-MERGE (p:Person  {name:row.name}) ON CREATE SET p.born     = toInt(row.born)
-WITH   m,p,row WHERE row.type = "ACTED_IN"
-MERGE (p)-[r:ACTED_IN]->(m) ON CREATE SET r.roles = split(row.roles,";")[0..-1]
+MATCH (movie:Movie)
+ WHERE lower(movie.title) CONTAINS $query
+ RETURN movie
 ----
-
-[#app-project-endpoints]
-== Endpoints
 
 === Get Movie
 
@@ -102,40 +131,15 @@ The Cypher query is used, with the parameters `{title:"The Matrix"}`
 
 It matches the movie by title, then optionally finds all people working on that movie and returns the movie title and a crew-list consisting of a map with person-name, job identifier derived from the relationship-type and optionally a role for actors.
 
-[source,cypher]
-----
-LOAD CSV WITH HEADERS FROM "https://www.dropbox.com/s/ci3cjwy91dp3a7e/movies_setup.csv?dl=0" AS row
-MERGE (m:Movie {title:row.title}) ON CREATE SET m.tagline = row.tagline,m.released=row.released
-MERGE (p:Person {name:row.name}) ON CREATE SET p.born = row.born
-FOREACH (_ in CASE row.type WHEN "ACTED_IN" then [1] else [] end |
-   MERGE (p)-[r:ACTED_IN]->(m) ON CREATE SET r.roles = split(row.roles,";")[0..-1]
-)
-FOREACH (_ in CASE row.type WHEN "DIRECTED" then [1] else [] end | MERGE (p)-[:DIRECTED]->(m))
-FOREACH (_ in CASE row.type WHEN "PRODUCED" then [1] else [] end | MERGE (p)-[:PRODUCED]->(m))
-FOREACH (_ in CASE row.type WHEN "WROTE"    then [1] else [] end | MERGE (p)-[:WROTE   ]->(m))
-FOREACH (_ in CASE row.type WHEN "REVIEWED" then [1] else [] end | MERGE (p)-[:REVIEWED]->(m))
-----
-
-=== Search Movies
-
-----
-// list of JSON objects for movie search results
-curl http://localhost:8080/search?q=matrix
-
-[{"movie": {"released": 1999, "tagline": "Welcome to the Real World", "title": "The Matrix"}},
- {"movie": {"released": 2003, "tagline": "Free your mind", "title": "The Matrix Reloaded"}},
- {"movie": {"released": 2003, "tagline": "Everything that has a beginning has an end", "title": "The Matrix Revolutions"}}]
-----
-
-The Cypher query used, with the parameters `{query:"matrix"}`.
-
-The search movies query matches the movies by title with CONTAINS and then returns the movie nodes as a list of maps with the title, released and tagline entries.
+This is the Cypher statement used, it finds a movie by title and then returns for all people their name, possible roles, and the job (acted, directed, produced) as the first part of the lowercase rel-type `ACTED_IN -> acted`.  
 
 [source,cypher]
 ----
-MATCH (movie:Movie)
- WHERE lower(movie.title) CONTAINS {query}
- RETURN movie
+MATCH (movie:Movie {title:$title})
+OPTIONAL MATCH (movie)<-[rel]-(person:Person)
+RETURN movie.title as title, 
+collect({name:person.name, role:rel.roles, job:head(split(toLower(type(rel)),'_'))}) as cast 
+LIMIT 1
 ----
 
 === Graph Visualization
@@ -162,8 +166,9 @@ The parameter `{limit:50}` is used to prevent the visualization from becoming a 
 ----
 MATCH (m:Movie)<-[:ACTED_IN]-(a:Person)
  RETURN m.title as movie, collect(a.name) as cast
- LIMIT {limit}
+ LIMIT $limit
 ----
+
 
 [#app-project-deploy]
 == Deployment
@@ -174,13 +179,19 @@ Then setup and start the language/stack specific implementation of the backend a
 
 You can search for movies by title or click on any result entry to see the details.
 
+=== Deployment Options
+
+There are many deployment options, from Docker containers or Kubernetes pods to serverless AWS-lambdas, GCP-cloud-run functions to PaaS environments like Heroku, Cloudfound or DigitialOcean App Platform.
+
+To keep it simple we only show deployment to Heroku here, more involved deployments will be discussed later.
+
 === Deploy to Heroku
 
 Many of the mentioned https://github.com/neo4j-examples?query=movies[GitHub example repositories^] feature a "Deploy to Heroku" button.
 You can either use that or follow the manual process outlined below.
 
 We want to install our application to the cloud, for instance the http://heroku.com[Heroku^] PaaS.
-We will also use either the https://addons.heroku.com/graphenedb[GrapheneDB^] or https://addons.heroku.com/graphstory[GraphStory^] Neo4j Database Hosting Add-On or the free link:/sandbox/?ref=developer-proj-deploy[Neo4j Sandbox^].
+You can either use the demo server mentioned above or the Neo4j Sandbox, Neo4j Aura or Cloud Marketplaces shown <<other-setups,below>>
 
 Install the https://toolbelt.heroku.com/[Heroku Toolbelt^] and git.
 
@@ -188,7 +199,8 @@ Then run these commands:
 
 [source,shell]
 ----
-# initialize git repository and add files
+# Clone the appropriate repository for your language 
+# initialize the git repository and add files
 git init
 git add .
 git commit -m"my neo4j movies app"
@@ -197,35 +209,59 @@ git commit -m"my neo4j movies app"
 export app=my-neo4j-movies-app
 heroku apps:create $app
 
-# add free hosting database
-heroku addons:add graphenedb:chalk --app $app
-# or
-heroku addons:add graphstory --app $app
+# configure your app to use the connection credentials
+# e.g. bolt://user:password@host:port
+heroku config:set NEO4J_URL=<bolt-url> --app $app
 
-# configure your app to use the add-on
-heroku config:set NEO4J_REST_URL=GRAPHENEDB_URL --app $app
-# or
-heroku config:set NEO4J_REST_URL=GRAPHSTORY_URL --app $app
+# or depending on the repository you might have separate username and password environment variables
+heroku config:set NEO4J_USER=neo4j --app $app
+heroku config:set NEO4J_PASSWORD=neo4j --app $app
 
 # deploy to heroku
 git push heroku master
 
 # open application
 heroku open --app $app
-
-# open addon admin page
-heroku addons:open graphenedb
-# or
-heroku addons:open graphstory
-
 ----
 
-In the Graphenedb-UI use "Launch Neo4j Admin UI".
-In the Neo4j-Browser import the `:play movies` dataset as of the install instructions above.
-
-Make sure that username and password are provied as part of the URL, e.g. `bolt://user:password@host:port` or `http://user:password@host:port`.
-
 Then your app is ready to roll.
+
+[[other-setups]]
+== Other Neo4j Database Setup Options
+
+=== Neo4j Desktop
+
+- (http://neo4j.com/download[Download & Install Neo4j Desktop^])
+- After installation, there is a "first use" graph available
+- To change the password from the auto-generated one, click the three dots to Manage and choose the Admistration tab
+- Open the Neo4j Browser with the blue "Open" button to explore
+
+If you want to create a new database, do so within a Desktop Project, then start Neo4j-Browser
+
+- Install the Movies dataset with `:play movies`
+- Click the large `CREATE` statement and hit the triangular "Run" button to insert the data.
+
+The connection details will be `bolt://localhost`, username: `neo4j` and your chosen password.
+
+=== Neo4j Aura
+
+ * Log in to https://console.neo4j.io/[Neo4j Aura].
+ * Proceed to the database creation page
+ ** Select a region near you
+ ** Pick the smallest size settings (you can always adjust them later)
+ ** Confirm and remember the credentials
+ * Open the Neo4j Browser
+ * Log in
+ * Install the Movies dataset with `:play movies`
+ * Click the large `CREATE` statement and hit the triangular "Run" button to insert the data.
+ * You will need the bolt URL, username: `neo4j` and the password you saved as connection details
+ 
+=== Neo4j Sandbox
+
+ - Log in to https://sandbox.neo4j.com/[Neo4j Sandbox].
+ - Create a project with the "Movies" dataset and launch it.
+ - The Connection Details are in the sandbox UI if you unfold the lower part with the black triangle
+
 
 :leveloffset: -1
 
