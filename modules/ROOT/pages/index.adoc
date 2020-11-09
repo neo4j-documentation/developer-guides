@@ -28,14 +28,14 @@ Everything you need to become and expert in Neo4j
 </svg>
 ++++
 
-[.secondary.leading.flex]
+[.secondary.leading.flex.no-arrows]
 
 == Getting Started
 
 [.column]
 === 1. Download Neo4j
 
-You can either link:/download/[Download Neo4j Desktop^] locally, link:/aura/[run Neo4j in the Cloud with Aura^] or link:/sandbox/[try Neo4j free for 7 days with Neo4j Sandbox^].
+You can either link:/download/[Download Neo4j Desktop^] locally, link:/aura/[run Neo4j in the Cloud with Aura^] or link:/sandbox/?ref=developer-lp[try Neo4j for free with Neo4j Sandbox^].
 
 * xref:graph-database.adoc[What is a Graph Database?]
 * xref:neo4j-desktop.adoc[Neo4j Desktop Starter Guide]
@@ -54,7 +54,7 @@ You can either download one of our example data set or model and import your own
 [.column]
 === 3. Build your application
 
-You can our suite of Neo4j products to share your data or build out your own application in the programming language of your preference.
+You can use our xref:graph-platform.adoc[suite of Neo4j products] to share your data or build out your own application in the programming language of your preference.
 
 
 * xref:language-guides.adoc[Drivers & Language Guides]
@@ -64,7 +64,7 @@ You can our suite of Neo4j products to share your data or build out your own app
 
 == What is a Graph Database (in under 10 Minutes)
 
-video::SwXeQlVYAp0[youtube]
+video::REVkXVxvMQE[youtube]
 
 [.secondary.flex.use-cases.no-arrows]
 == Start with a Use Case
@@ -94,7 +94,7 @@ image:https://neo4jsandbox.com/img/recommendations-icon-pink.png[Create a free N
 Generate personalized real-time recommendations using a dataset of movie reviews.
 
 // link:https://sandbox.neo4j.com/?usecase=movies[Create a free Movies Sandbox, role=more information^]
-link:https://sandbox.neo4j.com/?usecase=recommendations[Create a free Real-time Movie Recommendations Sandbox, role=more information^]
+link:https://sandbox.neo4j.com/?usecase=recommendations&ref=developer-lp[Create a free Real-time Movie Recommendations Sandbox, role=more information^]
 
 
 
@@ -106,7 +106,7 @@ image:https://neo4jsandbox.com/img/network-management-icon-grey.png[Neo4j Networ
 Dependency and root cause analysis + more for network and IT management.
 
 
-link:https://sandbox.neo4j.com/?usecase=network-management[Create a Free Network Management Sandbox, role=more information^]
+link:https://sandbox.neo4j.com/?usecase=network-management&ref=developer-lp[Create a Free Network Management Sandbox, role=more information^]
 
 [.column]
 === Fraud Detection
@@ -115,14 +115,14 @@ image:https://neo4jsandbox.com/img/recommendations-icon-pink.png[Neo4j Fraud Det
 
 Fraud detection with the Paysim financial dataset, Neo4j Graph Data Science, and Neo4j Bloom.
 
-link:https://sandbox.neo4j.com/?usecase=fraud-detection[Create a Free Fraud Detection Sandbox, role=more information]
+link:https://sandbox.neo4j.com/?usecase=fraud-detection&ref=developer-lp[Create a Free Fraud Detection Sandbox, role=more information]
 
 
 [.discrete.secondary]
 == GraphGist Project
 
-link:/graphgists/[View 100+ Graph examples grouped by Industry and Use Case^, role=button] &nbsp;
 link:https://sandbox.neo4j.com/[Try Neo4j for free^, role=button]
+link:/graphgists/[View 100+ Graph examples grouped by Industry and Use Case^, role=button] &nbsp;
 
 
 // [.secondary.flex.languages]
@@ -176,149 +176,39 @@ link:https://sandbox.neo4j.com/[Try Neo4j for free^, role=button]
 
 
 
-
+[.no-arrows]
 == Code Examples by Language
 
-Neo4j officially supports drivers for link:dotnet.adoc[.Net^], link:java.adoc[Java^], link:javascript.adoc[Node.js^], link:go.adoc[GoLang^] and link:python.adoc[Python^]. Our community contributors provide many more, including link:php.adoc[PHP^], link:ruby.adoc[Ruby^], link:r.adoc[R^], link:erlang-elixir.adoc[Erlang^] and link:clojure.adoc[Clojure^].
+Neo4j officially supports drivers for xref:dotnet.adoc[.Net], xref:java.adoc[Java], xref:javascript.adoc[Node.js], xref:go.adoc[GoLang^ and xref:python.adoc[Python]. Our community contributors provide many more, including xref:php.adoc[PHP], xref:ruby.adoc[Ruby], xref:r.adoc[R], xref:erlang-elixir.adoc[Erlang] and xref:clojure.adoc[Clojure].
 
 
 
 [.tabs]
 [source,Java]
 ----
-// Add your the driver dependency to your pom.xml build.gradle etc.
-// Java Driver Dependency: http://search.maven.org/#artifactdetails|org.neo4j.driver|neo4j-java-driver|4.0.1|jar
-// Reactive Streams http://search.maven.org/#artifactdetails|org.reactivestreams|reactive-streams|1.0.3|jar
-// download jars into current directory
-// java -cp "*" Example.java
-
-import org.neo4j.driver.*;
-import static org.neo4j.driver.Values.parameters;
-
-public class Example {
-
-  public static void main(String...args) {
-
-    Driver driver = GraphDatabase.driver("bolt://<HOST>:<BOLTPORT>",
-              AuthTokens.basic("<USERNAME>","<PASSWORD>"));
-
-    try (Session session = driver.session(SessionConfig.forDatabase("neo4j"))) {
-
-      String cypherQuery =
-        "MATCH (p:Product)-[:PART_OF]->(:Category)-[:PARENT*0..]-> " +
-        "(:Category {categoryName:$category}) " +
-        "RETURN p.productName as product " ;
-
-      var result = session.readTransaction(
-        tx -> tx.run(cypherQuery,
-                parameters("category","Dairy Products"))
-            .list());
-
-      for (Record record : result) {
-        System.out.println(record.get("product").asString());
-      }
-    }
-    driver.close();
-  }
-}
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/java/Example.java[]
 ----
 
 .Node.js
 [source,javascript]
 ----
-// npm install --save neo4j-driver
-// node example.js
-var neo4j = require('neo4j-driver');
-var driver = neo4j.driver('bolt://<HOST>:<BOLTPORT>',
-                  neo4j.auth.basic('<USERNAME>', '<PASSWORD>'),
-                  {/* encrypted: 'ENCRYPTION_OFF' */});
-
-var query =
-  `
-  MATCH (p:Product)-[:PART_OF]->(:Category)-[:PARENT*0..]->
-  (:Category {categoryName:$category})
-  RETURN p.productName as product
-  `;
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/javascript/example.js[]
 ----
 
 [source,Python]
 ----
-# pip3 install neo4j-driver
-# python3 example.py
-
-from neo4j import GraphDatabase, basic_auth
-
-driver = GraphDatabase.driver(
-  "bolt://<HOST>:<BOLTPORT>",
-  auth=basic_auth("<USERNAME>", "<PASSWORD>"))
-
-cypher_query = '''
-MATCH (p:Product)-[:PART_OF]->(:Category)-[:PARENT*0..]->
-(:Category {categoryName:$category})
-RETURN p.productName as product
-'''
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/python/example.py[]
 ----
 
 [source,Go]
 ----
-// go mod init main
-// go run example.go
-package main
-import (
-	"fmt"
-	"github.com/neo4j/neo4j-go-driver/neo4j" //Go 1.8
-)
-func main() {
-	s, err := runQuery("bolt://demo.neo4jlabs.com:7687", "<USERNAME>", "<PASSWORD>")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(s)
-}
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/go/example.go[]
 ----
 
 ..NET
 [source,c]
 ----
-// install dotnet core on your system
-// dotnet new console -o .
-// dotnet add package Neo4j.Driver
-// paste in this code into Program.cs
-// dotnet run
-
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Neo4j.Driver;
-
-namespace dotnet {
-  class Example {
-  static async Task Main() {
-    var driver = GraphDatabase.Driver("bolt://<HOST>:<BOLTPORT>",
-                    AuthTokens.Basic("<USERNAME>", "<PASSWORD>"));
-
-    var cypherQuery =
-      @"
-      MATCH (p:Product)-[:PART_OF]->(:Category)-[:PARENT*0..]->
-      (:Category {categoryName:$category})
-      RETURN p.productName as product
-      ";
-
-    var session = driver.AsyncSession(o => o.WithDatabase("neo4j"));
-    var result = await session.ReadTransactionAsync(async tx => {
-      var r = await tx.RunAsync(cypherQuery,
-              new { category="Dairy Products"});
-      return await r.ToListAsync();
-    });
-
-    await session?.CloseAsync();
-    foreach (var row in result)
-      Console.WriteLine(row["product"].As<string>());
-
-    }
-  }
-}
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/csharp/Example.cs[]
 ----
 
 link:https://github.com/neo4j-examples[View example projects on Github, role=button]
@@ -331,14 +221,14 @@ link:https://github.com/neo4j-examples[View example projects on Github, role=but
 [.column]
 === Read
 
-* link:/graphacademy/[Online Training^]
+* link:/graphacademy/online-training[Online Training^]
 * link:/graphacademy/neo4j-certification/[Neo4j Certification^]
 * link:https://medium.com/neo4j[Developer Blog^]
 
 [.column]
 === Watch
 
-* link:https://www.youtube.com/watch?v=5Tl8WcaqZoc[Graph Database Video Series^]
+* link:https://www.youtube.com/watch?v=5Tl8WcaqZoc[Intro Video Series^]
 * link:https://youtube.com/neo4j[Neo4j YouTube Channel^]
 * link:https://twitch.com/neo4j_[Livestreams on Twitch^]
 
