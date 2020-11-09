@@ -86,7 +86,7 @@ We also host regular online meetups! Check out the schedule below:
 |**5 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
 
-|Speakers Chris Eyre and Tim Reimer, with Co-hosts Nathan Smith & Lju Lazarevic
+|Speakers Chris Eyre and Tim Reimer, with co-hosts Nathan Smith & Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Viewing contentful data with Neo4j
@@ -95,7 +95,7 @@ a|https://youtu.be/DxniBWrgueA[Catch-up Link^]
 
 |**10 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Karuna Lakhani and Otávio Calaça Xavier, with host Lju Lazarevic
+|Guests Karuna Lakhani and Otávio Calaça Xavier, with co-hosts Nathan Smith & Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Chemical link prediction using Neo4j
@@ -117,8 +117,10 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**24 November TBC** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests TBC, with host TBC
+|Guest Michael Herman, with host TBC
 a|*NODES2020 Extended*
+
+* Csharp Superstack: Creating highly scalable Neo4j web apps without Javascript
 
 a|https://twitch.tv/neo4j_[On Twitch!^]
 
@@ -126,9 +128,10 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**3 December** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Shipa Karakeraa and TBC, with host TBC
+|Guests Julian Gomez and Shipa Karakeraa and TBC, with host TBC
 a|*NODES2020 Extended*
 
+* History as a graph database
 * Humanizing HRTech with graph databases - AI powered CV parsers
 
 a|https://twitch.tv/neo4j_[On Twitch!^]
@@ -137,7 +140,7 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**7 December** +
 _7am UTC, 8am CET, 12:30pm IST_, 3pm AWST, 5pm AEST, 8pm NZST
-|Guests Monojit Basu and TBC, with host Lju Lazarevic
+|Guest Monojit Basu, with co-hosts Alecander Erdl and Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Manifold structures in semi-supervized and multiview learning
