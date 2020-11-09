@@ -7,7 +7,7 @@
 [.hero]
 == Neo4j Developer Resources
 
-Get up and running with Neo4j in less than an hour or something a bit more catchy
+Everything you need to become and expert in Neo4j
 
 ++++
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="top">
