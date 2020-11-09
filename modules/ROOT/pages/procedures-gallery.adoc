@@ -111,7 +111,7 @@ apoc.algo.pageRankStats({iterations:10,write:true})
 
 |===
 
-image::http://neo4j-contrib.github.io/neo4j-apoc-procedures/img/apoc.load.json-so-result.png[width=700]
+image::apoc.load.json-so-result.png[width=700]
 
 === Functions:
 
@@ -235,7 +235,7 @@ Below are some of the most commonly used procedures grouped by type. You can fin
 
 William Lyon demonstrates how to use them in the http://www.lyonwj.com/2016/08/09/neo4j-spatial-procedures-congressional-boundaries/[Legis-Graph-Spatial Blog post] with the https://github.com/legis-graph/legis-graph-spatial[code being available on GitHub]
 
-image::http://www.lyonwj.com/public/img/ca_san_mateo.png[width=500]
+image::ca_san_mateo.png[width=500]
 
 .create a WKT layer
 [source,cypher]

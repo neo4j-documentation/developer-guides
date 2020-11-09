@@ -100,7 +100,7 @@ The following are useful resources once you've got a bit of experience with Grap
 
 * link:/blog/top-13-resources-graph-theory-algorithms/[Blog: Top 13 Resources for Understanding Graph Theory & Algorithms^]
 * https://medium.com/neo4j/tagged/data-science[Neo4j Analytics Category on Medium^]
-* https://towardsdatascience.com/@bratanic.tomaz[Tomaz Bratanic's Graph Data Science articles^]
+* https://bratanic-tomaz.medium.com/[Tomaz Bratanic's Graph Data Science articles^]
 
 ++++
 <style>

@@ -1,0 +1,33 @@
+= Courses
+:category: cypher
+:tags: cypher, queries, graph-queries, resources, documentation, cypher-training, cypher-help, training
+:page-comments:
+:page-pagination: previous
+
+== Courses
+
+Neo4j has a number of courses to teach you how to use Neo4j. Whether you are a developer, administrator, or data scientist, you will need to understand the basics of Neo4j and Cypher.
+
+We have three learning paths that you can follow:
+
+[#developer-learning-path]
+=== Neo4j Developer
+
+image::{img}DeveloperLearningPath.png[role="popup-link"]
+
+[#administrator-learning-path]
+=== Neo4j Administrator
+
+image::{img}AdministratorLearningPath.png[role="popup-link"]
+
+[#data-scientist-learning-path]
+=== Data Scientist
+
+image::{img}DataScientistLearningPath.png[role="popup-link"]
+
+=== GraphAcademy Courses
+
+As a beginner, we recommend that you first take our introductory course:
+
+https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0^]
+
