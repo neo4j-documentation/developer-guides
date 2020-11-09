@@ -42,12 +42,10 @@ You can either link:/download/[Download Neo4j Desktop^] locally, link:/aura/[run
 * xref:graph-platform.adoc[The Neo4j Graph Platform]
 
 [.column]
-=== 2. Connecting to Neo4j
+=== 2. Querying Data
 
 There is nothing worse than an empty database.
 You can either download one of our example data set or model and import your own from many sources.
-
-
 
 * xref:cypher:index.adoc[The Cypher Query Language]
 * xref:data-modeling.adoc[Graph Data Modeling]
@@ -56,15 +54,19 @@ You can either download one of our example data set or model and import your own
 [.column]
 === 3. Build your application
 
-You can use a set of Neo4j products to share your data or build out your own application in the programming language of your preference.
+You can our suite of Neo4j products to share your data or build out your own application in the programming language of your preference.
 
 
-* xref:language-guides.adoc[Neo4j Drivers]
-* xref:neo4j-browser.adoc[Neo4j Browser]
-* xref:neo4j-bloom.adoc[Neo4j Bloom]
+* xref:language-guides.adoc[Drivers & Language Guides]
+* xref:neo4j-browser.adoc[Neo4j Browser], xref:neo4j-bloom.adoc[Neo4j Bloom]
+* xref:graph-visualization.adoc[Graph Visualization]
 
 
-[.flex]
+== What is a Graph Database (in under 10 Minutes)
+
+video::SwXeQlVYAp0[youtube]
+
+[.secondary.flex.use-cases.no-arrows]
 == Start with a Use Case
 
 // * Fraud Detection & Analytics
@@ -76,84 +78,95 @@ You can use a set of Neo4j products to share your data or build out your own app
 
 
 [.column]
-=== Social Example
+// === Social Networking
 
-image:diagram.png[JavaScript & Node.js]
+// image:diagram.png[JavaScript & Node.js]
 
-Joe knows Sally, and Sally knows Anna. Bob is excluded from the result because, in addition to being a 2nd-degree friend through Sally, he's also a first-degree friend.
-Pad the content out by a couple of lines to even things up.
+// Joe knows Sally, and Sally knows Anna. Bob is excluded from the result because, in addition to being a 2nd-degree friend through Sally, he's also a first-degree friend.
+// Pad the content out by a couple of lines to even things up.
 
-link:#[Create a Free Social Sandbox, role=more information]
+// link:#[Create a Free Social Sandbox, role=more information]
+
+=== Real-time Recommendations
+
+image:https://neo4jsandbox.com/img/recommendations-icon-pink.png[Create a free Neo4j Movies and Recommendations example datasets]
+
+Generate personalized real-time recommendations using a dataset of movie reviews.
+
+// link:https://sandbox.neo4j.com/?usecase=movies[Create a free Movies Sandbox, role=more information^]
+link:https://sandbox.neo4j.com/?usecase=recommendations[Create a free Real-time Movie Recommendations Sandbox, role=more information^]
+
 
 
 [.column]
 === Network Management
 
-image:diagram.png[JavaScript & Node.js]
+image:https://neo4jsandbox.com/img/network-management-icon-grey.png[Neo4j Network Management Example]
 
-Only Webserver VM depends on Server 1. Because we're looking at variable length paths of DEPENDS_ON relationships, we're also able to determine that Public Website would be impacted by an outage of Server 1.  A little bit of padding.
+Dependency and root cause analysis + more for network and IT management.
 
-link:#[Create a Free Network Management Sandbox, role=more information]
+
+link:https://sandbox.neo4j.com/?usecase=network-management[Create a Free Network Management Sandbox, role=more information^]
 
 [.column]
 === Fraud Detection
 
-image:diagram.png[JavaScript & Node.js]
+image:https://neo4jsandbox.com/img/recommendations-icon-pink.png[Neo4j Fraud Detection Data Model]
 
-Hank shares an account with Abby. Abby shares a SSN with Sophie and Max. Given that we suspect Hank may be involved in fraudulent activity, we can flag the Cayman account, Sophie, and Abby as possible fraudulent entities.
+Fraud detection with the Paysim financial dataset, Neo4j Graph Data Science, and Neo4j Bloom.
+
+link:https://sandbox.neo4j.com/?usecase=fraud-detection[Create a Free Fraud Detection Sandbox, role=more information]
 
 
-link:#[Create a Free Fraud Detection Sandbox, role=more information]
-
-
-[.discrete]
+[.discrete.secondary]
 == GraphGist Project
 
-link:/graphgists/[View 100+ Graph examples grouped by Industry and Use Case^, role=button]
+link:/graphgists/[View 100+ Graph examples grouped by Industry and Use Case^, role=button] &nbsp;
+link:https://sandbox.neo4j.com/[Try Neo4j for free^, role=button]
 
 
-[.secondary.flex.languages]
-== Building Applications
+// [.secondary.flex.languages]
+// == Building Applications
 
-[.column]
-=== Java
+// [.column]
+// === Java
 
-image:java.png[Java]
+// image:java.png[Java]
 
-* link:#[Neo4j Java Example]
-* link:#[Spring Data Neo4j]
-* link:#[Procedures and Functions]
+// * link:#[Neo4j Java Example]
+// * link:#[Spring Data Neo4j]
+// * link:#[Procedures and Functions]
 
-[.column]
-=== Node.js
+// [.column]
+// === Node.js
 
-image:javascript.png[JavaScript & Node.js]
+// image:javascript.png[JavaScript & Node.js]
 
-* link:#[Neo4j JavaScript Example]
-* link:#[TypeScript]
+// * link:#[Neo4j JavaScript Example]
+// * link:#[TypeScript]
 
-[.column]
-=== .NET
+// [.column]
+// === .NET
 
-image:net.png[.NET]
+// image:net.png[.NET]
 
-* link:#[Neo4j .NET Example]
-* link:#[Neo4jClient]
+// * link:#[Neo4j .NET Example]
+// * link:#[Neo4jClient]
 
-[.column]
-=== Python
+// [.column]
+// === Python
 
-image:python.png[Python]
+// image:python.png[Python]
 
-* link:#[Neo4j Python Example]
-* link:#[Py2Neo]
+// * link:#[Neo4j Python Example]
+// * link:#[Py2Neo]
 
-[.column]
-=== Go
+// [.column]
+// === Go
 
-image:go.png[Go]
+// image:go.png[Go]
 
-* link:#[Neo4j Go Example]
+// * link:#[Neo4j Go Example]
 
 
 // [.community-language]
@@ -162,57 +175,242 @@ image:go.png[Go]
 // link:#[Ruby] | link:#[Perl] | link:#[PHP] | link:#[Erlang]
 
 
-[.flex]
-== Intro to Graph Databases
+
+
+== Code Examples by Language
+
+Neo4j officially supports drivers for link:dotnet.adoc[.Net^], link:java.adoc[Java^], link:javascript.adoc[Node.js^], link:go.adoc[GoLang^] and link:python.adoc[Python^]. Our community contributors provide many more, including link:php.adoc[PHP^], link:ruby.adoc[Ruby^], link:r.adoc[R^], link:erlang-elixir.adoc[Erlang^] and link:clojure.adoc[Clojure^].
+
+
+
+[.tabs]
+[source,Java]
+----
+// Add your the driver dependency to your pom.xml build.gradle etc.
+// Java Driver Dependency: http://search.maven.org/#artifactdetails|org.neo4j.driver|neo4j-java-driver|4.0.1|jar
+// Reactive Streams http://search.maven.org/#artifactdetails|org.reactivestreams|reactive-streams|1.0.3|jar
+// download jars into current directory
+// java -cp "*" Example.java
+
+import org.neo4j.driver.*;
+import static org.neo4j.driver.Values.parameters;
+
+public class Example {
+
+  public static void main(String...args) {
+
+    Driver driver = GraphDatabase.driver("bolt://<HOST>:<BOLTPORT>",
+              AuthTokens.basic("<USERNAME>","<PASSWORD>"));
+
+    try (Session session = driver.session(SessionConfig.forDatabase("neo4j"))) {
+
+      String cypherQuery =
+        "MATCH (p:Product)-[:PART_OF]->(:Category)-[:PARENT*0..]-> " +
+        "(:Category {categoryName:$category}) " +
+        "RETURN p.productName as product " ;
+
+      var result = session.readTransaction(
+        tx -> tx.run(cypherQuery,
+                parameters("category","Dairy Products"))
+            .list());
+
+      for (Record record : result) {
+        System.out.println(record.get("product").asString());
+      }
+    }
+    driver.close();
+  }
+}
+----
+
+.Node.js
+[source,javascript]
+----
+// npm install --save neo4j-driver
+// node example.js
+var neo4j = require('neo4j-driver');
+var driver = neo4j.driver('bolt://<HOST>:<BOLTPORT>',
+                  neo4j.auth.basic('<USERNAME>', '<PASSWORD>'),
+                  {/* encrypted: 'ENCRYPTION_OFF' */});
+
+var query =
+  `
+  MATCH (p:Product)-[:PART_OF]->(:Category)-[:PARENT*0..]->
+  (:Category {categoryName:$category})
+  RETURN p.productName as product
+  `;
+----
+
+[source,Python]
+----
+# pip3 install neo4j-driver
+# python3 example.py
+
+from neo4j import GraphDatabase, basic_auth
+
+driver = GraphDatabase.driver(
+  "bolt://<HOST>:<BOLTPORT>",
+  auth=basic_auth("<USERNAME>", "<PASSWORD>"))
+
+cypher_query = '''
+MATCH (p:Product)-[:PART_OF]->(:Category)-[:PARENT*0..]->
+(:Category {categoryName:$category})
+RETURN p.productName as product
+'''
+----
+
+[source,Go]
+----
+// go mod init main
+// go run example.go
+package main
+import (
+	"fmt"
+	"github.com/neo4j/neo4j-go-driver/neo4j" //Go 1.8
+)
+func main() {
+	s, err := runQuery("bolt://demo.neo4jlabs.com:7687", "<USERNAME>", "<PASSWORD>")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(s)
+}
+----
+
+..NET
+[source,c]
+----
+// install dotnet core on your system
+// dotnet new console -o .
+// dotnet add package Neo4j.Driver
+// paste in this code into Program.cs
+// dotnet run
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using Neo4j.Driver;
+
+namespace dotnet {
+  class Example {
+  static async Task Main() {
+    var driver = GraphDatabase.Driver("bolt://<HOST>:<BOLTPORT>",
+                    AuthTokens.Basic("<USERNAME>", "<PASSWORD>"));
+
+    var cypherQuery =
+      @"
+      MATCH (p:Product)-[:PART_OF]->(:Category)-[:PARENT*0..]->
+      (:Category {categoryName:$category})
+      RETURN p.productName as product
+      ";
+
+    var session = driver.AsyncSession(o => o.WithDatabase("neo4j"));
+    var result = await session.ReadTransactionAsync(async tx => {
+      var r = await tx.RunAsync(cypherQuery,
+              new { category="Dairy Products"});
+      return await r.ToListAsync();
+    });
+
+    await session?.CloseAsync();
+    foreach (var row in result)
+      Console.WriteLine(row["product"].As<string>());
+
+    }
+  }
+}
+----
+
+link:https://github.com/neo4j-examples[View example projects on Github, role=button]
+
+
+[.flex.secondary.no-bullets]
+== Resources for Learning Neo4j
+
 
 [.column]
-=== Episode 1: The Evolution of DBs
+=== Read
 
-image::https://i.ytimg.com/vi/5Tl8WcaqZoc/mqdefault.jpg[Episode 1: The Evolution of DBs]
-link:#[Watch Video, role=more information]
-
-[.column]
-=== Episode 2: Properties of Graph DB
-
-image::https://i.ytimg.com/vi/-dCeFEqDkUI/mqdefault.jpg[Episode 2: Properties of Graph DBs]
-link:#[Watch Video, role=more information]
+* link:/graphacademy/[Online Training^]
+* link:/graphacademy/neo4j-certification/[Neo4j Certification^]
+* link:https://medium.com/neo4j[Developer Blog^]
 
 [.column]
-=== Episode 3: Property Graph Model
+=== Watch
 
-image::https://i.ytimg.com/vi/NH6WoJHN4UA/mqdefault.jpg[Episode 3: Property Graph Model]
-link:#[Watch Video, role=more information]
-
-
-// [.no-flex]
-// link:#[More content on the Neo4j Youtube Channel]
-
-
-[.secondary.flex]
-== Training and Certification
+* link:https://www.youtube.com/watch?v=5Tl8WcaqZoc[Graph Database Video Series^]
+* link:https://youtube.com/neo4j[Neo4j YouTube Channel^]
+* link:https://twitch.com/neo4j_[Livestreams on Twitch^]
 
 [.column]
-=== Online Training
+=== Interact
 
-Get started with Neo4j by taking free online training classes.
-
-link:/graphacademy/[Enrol to the GraphAcademy for free, role=more information]
-
-[.column]
-=== Classroom Training
-
-Offered locally in over a dozen cities around the globe.
-
-link:#[Arrange Classroom Training, role=more information]
+* link:https://twitter.com/neo4j[Twitter^]
+* link:https://meetup.com/Neo4j-Online-Meetup/[Online Meetups^]
+* link:http://stackoverflow.com/questions/tagged/neo4j[Stack Overflow^]
 
 
-[.column]
-=== Certification
+== Neo4j Community Site
 
-Become a Neo4j Certified Professional to validate and promote your skills.
+If you're ever stuck, need help or general feedback, you can head over to the link:https://community.neo4j[Neo4j Community Site^] to get help.  We have an active community of members who are more than happy to help.   Why not come and link:https://community.neo4j.com/c/general/introduce-yourself/7[Introduce yourself]?  Do you have a side-project that you're excited about or have an idea and would like to find collaborators? link:https://community.neo4j.com/c/projects-collaboration/9[Tell us in the Projects & Collaboration category^].
 
-link:#[Neo4j Certification, role=more information]
 
+
+// [.flex]
+// == Intro to Graph Databases
+
+// [.column]
+// === Episode 1: The Evolution of DBs
+
+// image::https://i.ytimg.com/vi/5Tl8WcaqZoc/mqdefault.jpg[Episode 1: The Evolution of DBs]
+// link:#[Watch Video, role=more information]
+
+
+
+// [.column]
+// === Episode 2: Properties of Graph DB
+
+// image::https://i.ytimg.com/vi/-dCeFEqDkUI/mqdefault.jpg[Episode 2: Properties of Graph DBs]
+// link:#[Watch Video, role=more information]
+
+// [.column]
+// === Episode 3: Property Graph Model
+
+// image::https://i.ytimg.com/vi/NH6WoJHN4UA/mqdefault.jpg[Episode 3: Property Graph Model]
+// link:#[Watch Video, role=more information]
+
+
+// [.discrete]
+// == More Videos
+
+// link:https://youtube.com/neo4j[More content on the Neo4j Youtube Channel, role=button]
+// link:https://medium.com/neo4j[Neo4j Developer Blog, role=button]
+
+
+// [.secondary.flex]
+// == Training and Certification
+
+// [.column]
+// === Online Training
+
+// Get started with Neo4j by taking free online training classes.
+
+// link:/graphacademy/[Enrol to the GraphAcademy for free, role=more information]
+
+
+// [.column]
+// === Certification
+
+// Become a Neo4j Certified Professional to validate and promote your skills.
+
+// link:#[Neo4j Certification, role=more information]
+
+// [.column]
+// === Upcoming Events
+
+// Keep an eye on Neo4j events coming up near you.
+
+// link:#[Upcoming Events Near You, role=more information]
 
 
 // [.secondary]
