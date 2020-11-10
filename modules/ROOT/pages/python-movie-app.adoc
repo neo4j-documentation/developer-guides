@@ -752,7 +752,7 @@ The User Profile page allows the user to re-rate or un-rate their movies, and vi
 
 include::./_includes/using_aura.adoc[]
 
-=== Deplyoying the Backend and Front-end with Heroku
+=== Deploying the Backend and Front-end with Heroku
 
 You will have to create two apps on Heroku: one for the backend and one for the front-end.
 
