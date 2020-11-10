@@ -361,7 +361,8 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 .Response
 ----
 {
-   "username":"username already in use"
+    "status":400,
+    "username":"username already in use"
 }
 ----
 
@@ -463,7 +464,8 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 [source,shell]
 ----
 {
-  "token":"5a85862fb28a316ea6a1"
+    "status":200,
+    "token":"31361a8d0f479f3da6c3a04793744c70f998be11"
 }
 ----
 
@@ -478,7 +480,8 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 .Response
 ----
 {
-   "username":"username already in use"
+    "password":"wrong password",
+    "status":400
 }
 ----
 
@@ -493,11 +496,12 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token 5
 .Response
 ----
 {
-  "id": "94a604f7-3eab-4f28-88ab-12704c228936",
-  "username": "Mary Jane",
-  "avatar": {
-    "full_size": "https://www.gravatar.com/avatar/c2eab..."
-  }
+    "avatar": {
+        "full_size":"https://www.gravatar.com/avatar/c2eab..."
+    },
+    "id": "94a604f7-3eab-4f28-88ab-12704c228936",
+    "status":200,
+    "username":"Mary Jane"
 }
 ----
 
@@ -524,7 +528,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 
 .Response
 ----
-{}
+{"status":200}
 ----
 
 .Python Implementation: Rate a Movie
@@ -575,15 +579,15 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ----
 [
   {
-    "id": "15602",
-    "title": "Grumpier Old Men",
-    "summary": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
-    "released": "1995-12-22",
     "duration": 101,
-    "rated": 6.6,
-    "tagline": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
+    "id": "15602",
+    "my_rating": 4,
     "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/1FSXpj5e8l4KH6nVFO5SPUeraOt.jpg",
-    "my_rating": 4
+    "rated": 6.6,
+    "released": "1995-12-22",
+    "summary": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
+    "tagline": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
+    "title": "Grumpier Old Men"
   }
 ]
 ----
@@ -632,28 +636,27 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ----
 [
   {
-    "id": "45523",
-    "title": "Louis C.K.: Hilarious",
-    "summary": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
-    "released": "2010-01-26",
     "duration": 82,
-    "rated": 8.6,
-    "tagline": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "id": "45523",
+    "my_rating": null,
     "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/8mJMrrT4tkfZLMFvKQ0Hq6jlXbp.jpg",
-    "my_rating": null
+    "rated": 8.6,
+    "released": "2010-01-26",
+    "summary": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "tagline": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "title": "Louis C.K.: Hilarious"
   },
   {
-    "id": "38757",
-    "title": "Tangled",
-    "summary": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
-    "released": "2010-11-24",
     "duration": 100,
-    "rated": 7.8,
-    "tagline": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "id": "38757",
+    "my_rating": null,
     "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/1uPxRO0iYwW02lzwatRhkugWBYs.jpg",
-    "my_rating": null
+    "rated": 7.8,
+    "released": "2010-11-24",
+    "summary": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "tagline": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "title": "Tangled"
   },
-
 ...
 ]
 ----
