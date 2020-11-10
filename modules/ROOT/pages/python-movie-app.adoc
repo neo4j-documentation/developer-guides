@@ -88,7 +88,7 @@ With the `RETURN` clause, we would end up returning a table such as:
 | {name: "Denise"} | "Animal House"
 |=============================
 
-As you can see here, we can return entire entities in our database rather than just their properties.
+As you can see here, we can return entire entities from our database rather than just their properties.
 
 This is very handy, but it would also be nice to avoid the duplication of our `Person` node.
 So, you can perform the same match but instead use the `collect` function to aggregate the values:
