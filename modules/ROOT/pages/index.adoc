@@ -9,24 +9,10 @@
 
 Everything you need to become and expert in Neo4j
 
-++++
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="top">
-    <polygon class="st0" points="100,100 0,100 100,0 "></polygon>
-    <line class="st1" x1="0" y1="100" x2="100" y2="0"></line>
-</svg>
-++++
-
 [.buttons]
 * xref:language-guides.adoc[I'm a Developer]
 * xref:graph-data-science:index.adoc[I'm a Data Scientist]
 * xref:in-production.adoc[I'm an Administrator]
-
-++++
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="bottom">
-    <polygon class="st0" points="100,100 0,100 100,0 "></polygon>
-    <line class="st1" x1="0" y1="100" x2="100" y2="0"></line>
-</svg>
-++++
 
 [.secondary.leading.flex.no-arrows]
 
