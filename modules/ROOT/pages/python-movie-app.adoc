@@ -278,7 +278,7 @@ api.add_resource(GenreList, '/api/v0/genres')
 === What’s Going on with the Serializer?
 
 If you’ve only used a non-Bolt Neo4j driver before, these bolt-driver responses may be different than what you’re used to.
-In the “get all Genres” example described above,
+In the "GET all Genres” example described above,
 `result = db.read_transaction(get_genres)`
 returns a series of records:
 
@@ -700,7 +700,7 @@ The React front-end is very simple, and is composed of the following parts, as d
 
 === Home Page
 
-The home page is a relatively simple page making calls to two endpoints: the "movies by genre endpoint" and the "movie by ID" endpoint.
+The home page is a relatively simple page making calls to two endpoints: the "GET movies by genre endpoint" and the "GET movie by ID" endpoint.
 
 The "Featured Movies" portion at the top calls three hard-coded movies.
 
@@ -750,15 +750,7 @@ The User Profile page allows the user to re-rate or un-rate their movies, and vi
 
 == Deployment
 
-=== Deplyoying the Recommendations Database with Aura
-
-* Download Dump File https://github.com/neo4j-graph-examples/recommendations/tree/master/data
-* Create an account on Aura https://neo4j.com/cloud/aura/
-* Upload the dump and start the database
-
-++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Wc6qFI-URSM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++
+include::./_includes/using_aura.adoc[]
 
 === Deplyoying the Backend and Front-end with Heroku
 

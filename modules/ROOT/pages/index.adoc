@@ -1,0 +1,314 @@
+= Neo4j Developer Guides
+:page-layout: landing
+:page-theme: developer
+:page-toclevels: -1
+
+
+[.hero]
+== Neo4j Developer Resources
+
+Everything you need to become and expert in Neo4j
+
+++++
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="top">
+    <polygon class="st0" points="100,100 0,100 100,0 "></polygon>
+    <line class="st1" x1="0" y1="100" x2="100" y2="0"></line>
+</svg>
+++++
+
+[.buttons]
+* xref:language-guides.adoc[I'm a Developer]
+* xref:graph-data-science:index.adoc[I'm a Data Scientist]
+* xref:in-production.adoc[I'm an Administrator]
+
+++++
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="bottom">
+    <polygon class="st0" points="100,100 0,100 100,0 "></polygon>
+    <line class="st1" x1="0" y1="100" x2="100" y2="0"></line>
+</svg>
+++++
+
+[.secondary.leading.flex.no-arrows]
+
+== Getting Started
+
+[.column]
+=== 1. Download Neo4j
+
+You can either link:/download/[Download Neo4j Desktop^] locally, link:/aura/[run Neo4j in the Cloud with Aura^] or link:/sandbox/?ref=developer-lp[try Neo4j for free with Neo4j Sandbox^].
+
+* xref:graph-database.adoc[What is a Graph Database?]
+* xref:neo4j-desktop.adoc[Neo4j Desktop Starter Guide]
+* xref:graph-platform.adoc[The Neo4j Graph Platform]
+
+[.column]
+=== 2. Querying Data
+
+There is nothing worse than an empty database.
+You can either download one of our example data set or model and import your own from many sources.
+
+* xref:cypher:index.adoc[The Cypher Query Language]
+* xref:data-modeling.adoc[Graph Data Modeling]
+* xref:data-import.adoc[Importing Data into Neo4j]
+
+[.column]
+=== 3. Build your application
+
+You can use our xref:graph-platform.adoc[suite of Neo4j products] to share your data or build out your own application in the programming language of your preference.
+
+
+* xref:language-guides.adoc[Drivers & Language Guides]
+* xref:neo4j-browser.adoc[Neo4j Browser], xref:neo4j-bloom.adoc[Neo4j Bloom]
+* xref:graph-visualization.adoc[Graph Visualization]
+
+
+== What is a Graph Database (in under 10 Minutes)
+
+video::REVkXVxvMQE[youtube]
+
+[.secondary.flex.use-cases.no-arrows]
+== Start with a Use Case
+
+// * Fraud Detection & Analytics
+// * Network and Database Infrastructure Management
+// * Recommendation Engines
+// * Master Data Management
+// * Social Media and Social Network Graphs
+// * Identity and Access Management
+
+
+[.column]
+// === Social Networking
+
+// image:diagram.png[JavaScript & Node.js]
+
+// Joe knows Sally, and Sally knows Anna. Bob is excluded from the result because, in addition to being a 2nd-degree friend through Sally, he's also a first-degree friend.
+// Pad the content out by a couple of lines to even things up.
+
+// link:#[Create a Free Social Sandbox, role=more information]
+
+=== Real-time Recommendations
+
+image:https://neo4jsandbox.com/img/recommendations-icon-pink.png[Create a free Neo4j Movies and Recommendations example datasets]
+
+Generate personalized real-time recommendations using a dataset of movie reviews.
+
+// link:https://sandbox.neo4j.com/?usecase=movies[Create a free Movies Sandbox, role=more information^]
+link:https://sandbox.neo4j.com/?usecase=recommendations&ref=developer-lp[Create a free Real-time Movie Recommendations Sandbox, role=more information^]
+
+
+
+[.column]
+=== Network Management
+
+image:https://neo4jsandbox.com/img/network-management-icon-grey.png[Neo4j Network Management Example]
+
+Dependency and root cause analysis + more for network and IT management.
+
+
+link:https://sandbox.neo4j.com/?usecase=network-management&ref=developer-lp[Create a Free Network Management Sandbox, role=more information^]
+
+[.column]
+=== Fraud Detection
+
+image:https://neo4jsandbox.com/img/recommendations-icon-pink.png[Neo4j Fraud Detection Data Model]
+
+Fraud detection with the Paysim financial dataset, Neo4j Graph Data Science, and Neo4j Bloom.
+
+link:https://sandbox.neo4j.com/?usecase=fraud-detection&ref=developer-lp[Create a Free Fraud Detection Sandbox, role=more information]
+
+
+[.discrete.secondary]
+== GraphGist Project
+
+link:https://sandbox.neo4j.com/[Try Neo4j for free^, role=button]
+link:/graphgists/[View 100+ Graph examples grouped by Industry and Use Case^, role=button] &nbsp;
+
+
+// [.secondary.flex.languages]
+// == Building Applications
+
+// [.column]
+// === Java
+
+// image:java.png[Java]
+
+// * link:#[Neo4j Java Example]
+// * link:#[Spring Data Neo4j]
+// * link:#[Procedures and Functions]
+
+// [.column]
+// === Node.js
+
+// image:javascript.png[JavaScript & Node.js]
+
+// * link:#[Neo4j JavaScript Example]
+// * link:#[TypeScript]
+
+// [.column]
+// === .NET
+
+// image:net.png[.NET]
+
+// * link:#[Neo4j .NET Example]
+// * link:#[Neo4jClient]
+
+// [.column]
+// === Python
+
+// image:python.png[Python]
+
+// * link:#[Neo4j Python Example]
+// * link:#[Py2Neo]
+
+// [.column]
+// === Go
+
+// image:go.png[Go]
+
+// * link:#[Neo4j Go Example]
+
+
+// [.community-language]
+// === Community Drivers
+
+// link:#[Ruby] | link:#[Perl] | link:#[PHP] | link:#[Erlang]
+
+
+
+[.no-arrows]
+== Code Examples by Language
+
+Neo4j officially supports drivers for xref:dotnet.adoc[.Net], xref:java.adoc[Java], xref:javascript.adoc[Node.js], xref:go.adoc[GoLang^ and xref:python.adoc[Python]. Our community contributors provide many more, including xref:php.adoc[PHP], xref:ruby.adoc[Ruby], xref:r.adoc[R], xref:erlang-elixir.adoc[Erlang] and xref:clojure.adoc[Clojure].
+
+
+
+[.tabs]
+[source,Java]
+----
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/java/Example.java[]
+----
+
+.Node.js
+[source,javascript]
+----
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/javascript/example.js[]
+----
+
+[source,Python]
+----
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/python/example.py[]
+----
+
+[source,Go]
+----
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/go/example.go[]
+----
+
+..NET
+[source,c]
+----
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/csharp/Example.cs[]
+----
+
+link:https://github.com/neo4j-examples[View example projects on Github, role=button]
+
+
+[.flex.secondary.no-bullets]
+== Resources for Learning Neo4j
+
+
+[.column]
+=== Read
+
+* link:/graphacademy/online-training[Online Training^]
+* link:/graphacademy/neo4j-certification/[Neo4j Certification^]
+* link:https://medium.com/neo4j[Developer Blog^]
+
+[.column]
+=== Watch
+
+* link:https://www.youtube.com/watch?v=5Tl8WcaqZoc[Intro Video Series^]
+* link:https://youtube.com/neo4j[Neo4j YouTube Channel^]
+* link:https://twitch.com/neo4j_[Livestreams on Twitch^]
+
+[.column]
+=== Interact
+
+* link:https://twitter.com/neo4j[Twitter^]
+* link:https://meetup.com/Neo4j-Online-Meetup/[Online Meetups^]
+* link:http://stackoverflow.com/questions/tagged/neo4j[Stack Overflow^]
+
+
+== Neo4j Community Site
+
+If you're ever stuck, need help or general feedback, you can head over to the link:https://community.neo4j[Neo4j Community Site^] to get help.  We have an active community of members who are more than happy to help.   Why not come and link:https://community.neo4j.com/c/general/introduce-yourself/7[Introduce yourself]?  Do you have a side-project that you're excited about or have an idea and would like to find collaborators? link:https://community.neo4j.com/c/projects-collaboration/9[Tell us in the Projects & Collaboration category^].
+
+
+
+// [.flex]
+// == Intro to Graph Databases
+
+// [.column]
+// === Episode 1: The Evolution of DBs
+
+// image::https://i.ytimg.com/vi/5Tl8WcaqZoc/mqdefault.jpg[Episode 1: The Evolution of DBs]
+// link:#[Watch Video, role=more information]
+
+
+
+// [.column]
+// === Episode 2: Properties of Graph DB
+
+// image::https://i.ytimg.com/vi/-dCeFEqDkUI/mqdefault.jpg[Episode 2: Properties of Graph DBs]
+// link:#[Watch Video, role=more information]
+
+// [.column]
+// === Episode 3: Property Graph Model
+
+// image::https://i.ytimg.com/vi/NH6WoJHN4UA/mqdefault.jpg[Episode 3: Property Graph Model]
+// link:#[Watch Video, role=more information]
+
+
+// [.discrete]
+// == More Videos
+
+// link:https://youtube.com/neo4j[More content on the Neo4j Youtube Channel, role=button]
+// link:https://medium.com/neo4j[Neo4j Developer Blog, role=button]
+
+
+// [.secondary.flex]
+// == Training and Certification
+
+// [.column]
+// === Online Training
+
+// Get started with Neo4j by taking free online training classes.
+
+// link:/graphacademy/[Enrol to the GraphAcademy for free, role=more information]
+
+
+// [.column]
+// === Certification
+
+// Become a Neo4j Certified Professional to validate and promote your skills.
+
+// link:#[Neo4j Certification, role=more information]
+
+// [.column]
+// === Upcoming Events
+
+// Keep an eye on Neo4j events coming up near you.
+
+// link:#[Upcoming Events Near You, role=more information]
+
+
+// [.secondary]
+// == Neo4j Community
+
+// == Upcoming Events
+
+// [.secondary]
+// == Featured Videos
+
+// == Online Meetups

@@ -18,14 +18,14 @@ For dedicated assistance or content posting/announcements, please visit our http
 .splash { margin : 10px; }
 .splash footer {display:none;}
 </style>
-<iframe src="http://neo4j-users-slack-invite.herokuapp.com/" scrolling="no" style="margin-top:-80px;scroll:none;overflow:hidden;border:none;width:340px;height:340px;"></iframe>
+<iframe src="https://neo4j-users-slack-invite.herokuapp.com/" scrolling="no" style="margin-top:-80px;scroll:none;overflow:hidden;border:none;width:340px;height:340px;"></iframe>
 ++++
 
 With your account you can then find all the goodness of our community at http://neo4j-users.slack.com or in the Slack desktop app.
 
 ****
 [NOTE]
-Unfortunately, with the free Slack plan, only 10.000 messages are kept. 
+Unfortunately, with the free Slack plan, only 10.000 messages are kept.
 But you can access our an http://neo4j-users.slackarchive.io/[*archive of our neo4j-users group here*].
 ****
 
@@ -34,7 +34,7 @@ But you can access our an http://neo4j-users.slackarchive.io/[*archive of our ne
 
 If you are a customer, please raise a ticket at http://support.neo4j.com[our support portal^] or contact our http://neo4j.com/contact-us[professional services] directly.
 
-For more involved questions, please raise them in an appropriate category on the https://community.neo4j.com[Neo4j Online Community^]. 
+For more involved questions, please raise them in an appropriate category on the https://community.neo4j.com[Neo4j Online Community^].
 The community site allows other users to search for questions and answers and shares the knowledge with others!
 
 [#chat-guidelines]
@@ -58,7 +58,7 @@ We tried to help a bit by prefixing the channels but it's still not optimal.
 |
 
 
-=== Welcome & Get Started 
+=== Welcome & Get Started
 
 Say hi and meet users in this channel!
 
@@ -156,9 +156,9 @@ The experts for these languages and driver authors answer your questions directl
 
 |
 
-=== Integrations 
+=== Integrations
 
-Integrating Neo4j with other tools, databases or systems? 
+Integrating Neo4j with other tools, databases or systems?
 
 [none]
 * https://neo4j-users.slack.com/messages/neo4j-jdbc[#neo4j-jdbc,window="neo4j-users-slack"]
@@ -174,7 +174,7 @@ Integrating Neo4j with other tools, databases or systems?
 
 |
 
-=== Neo4j Partners 
+=== Neo4j Partners
 
 In these channels you can get quick & direct contact and feedback from technology-partners in the Neo4j ecosystem.
 

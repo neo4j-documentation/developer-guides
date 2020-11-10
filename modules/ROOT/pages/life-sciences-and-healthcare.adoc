@@ -179,7 +179,7 @@ Today's life science research is about genes, proteins, metabolites, relationshi
 
 ==== Open Tree Of Life
 
-image::http://opentreeoflife.files.wordpress.com/2012/04/opentree-final-logo-copy.png?w=360&h=189[float="left"]
+image::opentree-final-logo.png[float="left"]
 
 *The tree of life* links all biodiversity through a shared evolutionary history.
 This project will produce the first online, comprehensive first-draft tree of all 1.8 million named species, accessible to both the public and scientific communities.

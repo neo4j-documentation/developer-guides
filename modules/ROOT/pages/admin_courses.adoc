@@ -1,0 +1,26 @@
+= Administrator Courses
+:category: administration
+:tags: cypher, queries, graph-queries, resources, documentation, admin, training
+:page-comments:
+:page-pagination: previous
+
+== Administrator Courses
+
+Neo4j has a number of courses to teach administrators how to use Neo4j.
+
+Here is the suggested learning path for Neo4j Administrators:
+
+image::{img}AdministratorLearningPath.png[role="popup-link"]
+
+
+=== GraphAcademy Courses
+
+We recommend that you first take our introductory administration course:
+
+https://neo4j.com/graphacademy/online-training/basic-neo4j-admin-40/[Basic Neo4j 4.0 Administration^]
+
+Then follow with these courses:
+
+https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0^]
+https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling for Neo4j ^]
+https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[Cypher Query Tuning in Neo4j 4.0^]

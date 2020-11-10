@@ -1,0 +1,592 @@
+= Getting Started with Neo4j and Express
+:level: Intermediate
+:page-level: Intermediate
+:author: Neo4j
+:category: documentation
+:tags: node, express, javascript, react
+:description: This course provides an overview on everything that you need to build a Neo4j application with the link:https://en.wikipedia.org/wiki/JavaScript[JavaScript programming language^].
+The Express framework is used as the backend, and the React framework as front-end.
+
+
+.Goals
+[abstract]
+{description}
+
+.Prerequisites
+[abstract]
+You should have `lts/erbium` installed on your system.
+This project uses link:https://github.com/nvm-sh/nvm[nvm], so having NVM will make your life easier. 
+You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Neo4j Movie Template] onto your machine.
+
+
+[#javascript-movie-course]
+This course provides an overview of what you need to know to write an Express application using a Neo4j database. 
+To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality. 
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3L89pVRZOx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
+[#neo4j-javascript]
+== Before We Start - Why Neo4j?
+
+Neo4j is the world's most popular _graph database_.
+Graph databases offer a number of advantages:
+
+* Neo4j provides a schemaless representation of both entities and relationships between entities.
+* Relationships between entities are *traversed* rather than *joined*. Traversals explore the local subgraph, meaning that query times stay the same even as your database grows.
+* Because of the traversal paradigm, we can think in terms of the complex relationships in our data, without worrying as much about how to model it.
+
+Neo4j makes it easy to create nodes and relationships in an intuitive way, but you can also always change the structure of your database with a query.
+
+[#intro-neo4j]
+== Introduction to Neo4j
+
+Connected information is everywhere in our world.
+Neo4j was built to efficiently store, handle, and query highly-connected elements in your data model.
+With a powerful and flexible data model, you can represent your real-world, variably-structured information without a loss of fidelity.
+The property graph model is easy to understand and work with, especially for object-oriented and relational developers.
+
+[role="pull-right"]
+--
+image::{img}simple_graph.png[]
+--
+
+The property graph model consists of:
+
+**Nodes**, which have:
+
+* _properties_: schemaless key/value pairs
+* _labels_: describe and group nodes much like tables group rows, except nodes can also have multiple labels
+
+**Relationships**, which connect two nodes directionally and have:
+
+* _properties_: schemaless key/value pairs
+* A _type_: describes how it connects the two nodes
+
+While relationships are directional, querying relationships in either direction has no associated performance cost.
+
+=== Cypher
+
+Cypher is Neo4j's built-in query language.
+Cypher queries look like the following code block:
+
+[source, cypher,role=nocopy,noplay]
+----
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+RETURN p, m.title
+----
+
+The `MATCH` clause is the most common starting point for Cypher queries.
+It defines a pattern to search the database for, and returns one result for each match.
+With the `RETURN` clause, we would end up returning a table such as:
+
+.Result of Cypher query
+[width="99%", options="header"]
+|=============================
+| p                | m.title
+| {name: "Denise"} | "Toy Story"
+| {name: "Denise"} | "Animal House"
+|=============================
+
+As you can see here, we can return entire entities in our database rather than just their properties.
+
+This is very handy, but it would also be nice to avoid the duplication of our `Person` node.
+So, you can perform the same match but instead use the `collect` function to aggregate the values:
+
+[source, cypher,role=nocopy,noplay]
+----
+MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+RETURN p, collect(m.title)
+----
+
+.Result of Cypher aggregation query
+[width="99%", options="header"]
+|=============================
+| p                | m.title
+| {name: "Denise"} | ["Toy Story", "Animal House"]
+|=============================
+
+While it's possible to get started using Neo4j without learning Cypher, it is a very powerful tool to query a Neo4j database and is worth learning.
+Also, since this project works by making Cypher queries to Neo4j, it is helpful to understand Cypher as your queries get more complex.
+Here is a link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Cypher tutorial], if you would like to learn more.
+
+
+[#project-setup]
+== The Neo4j Movie Express/React App
+
+Let’s jump right into it. 
+You’re a JavaScript developer interested in Neo4j and want to build a web app, microservice, or mobile app. 
+You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started. 
+Now you’re looking for a demo app or template to start putting those skills into practice.
+
+If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Neo4j Movie Template] onto your machine.
+This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
+The following video will walk briefly walk you through the various features of the movie app. 
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Oatm1WWmIHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
+=== The Database
+
+This project uses a classic Neo4j dataset: the movie database. It includes `Movie`, `Actor`, `Director`, and `Genre` nodes, connected by relationships as described below:
+
+[source, cypher, role=nocopy,noplay]
+----
+(:Movie)-[:HAS_GENRE]→(:Genre)
+(:Actor)-[:ACTED_IN]→(:Movie)
+(:Director)-[:DIRECTED]→(:Movie)
+----
+
+Additionally, users can create accounts, log in, and add their ratings to movies:
+
+[source, cypher, role=nocopy,noplay]
+----
+(:User)-[:RATES]->(:Movie)
+----
+
+==== The API
+
+The Express portion of the application interfaces with the database and presents data to the React.js front-end via a RESTful API. 
+You can find the Express API in the `/api` directory in the repo.
+
+==== The Front-End
+
+The front-end, built in React.js, consumes the data provided by the Express API and presents it through some views to the end user, including:
+
+* Home page
+* Movie detail page
+* Actor and Director detail page
+* User detail page
+* Sign-up and Login pages
+
+You can find the front-end code in the `web` directory. 
+
+=== Setup
+
+To get the project running, clone the repo and follow along with these instructions, which are be recapped in the video:
+
+// TK VIDEO
+
+<!-- ++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2Jis6hvkoQQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++ -->
+
+First, Start the Database!
+
+Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox. 
+
+Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using social authentication or your email and password. 
+
+After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to. 
+
+In order to connect to the database from the environment from which you’ll be running the app (presumably your local machine), you’ll need credentials. You can find those under the “Connection details” and/or the “Connect via drivers” tab:
+
+Note the section that looks like this - you’ll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
+For example, if the driver line contains the following:
+
+[source,javascript,role=nocopy]
+----
+driver = GraphDatabase.driver("bolt://52.72.13.205:47929", auth=basic_auth("neo4j", "knock-cape-reserve"))
+----
+
+Then, in your text editor, open and/or create `api/.env` and enter the appropriate information into the variables: `DATABASE_USERNAME`, `DATABASE_PASSWORD`, and `DATABASE_URL`. Then save the file.
+
+----
+DATABASE_USERNAME = 'your usernamer'
+DATABASE_PASSWORD = 'your password'
+DATABASE_URL = 'your URL'
+----
+
+To start the Express API, run:
+
+[source,shell]
+----
+cd api
+nvm use
+npm install
+node app.js
+----
+
+Verify that the endpoints are running as expected by taking a look at the docs at: `http://localhost:5000/docs`
+
+=== Start the React.js Front-End
+
+With the database and backend running, open a new terminal tab or window and move to the project’s `/web` subdirectory. 
+Run `nvm use` to ensure you’re using the node version specified for this project.
+If you don’t have the recommended version of node installed, follow the prompt to install the recommended version. 
+After verifying you are using the recommended user, run:
+
+[source,shell]
+----
+npm install 
+cp src/config/settings.example.js src/config/settings.js
+npm start 
+----
+
+Navigate to view the app at `http://localhost:3000/`
+
+Click on a movie poster to see its corresponding movie detail page.
+
+Click on a cast or crew member to see that person’s profile, which includes biographical information, related people, and more movies the person has acted in, directed, written, or produced:
+
+== Going Through The Endpoints
+
+=== Genres
+
+// TK go step by step through how to create the Genres Endpoint 
+
+Voila! You get an array of genres at `/genres`.
+
+
+=== Beyond the `/Genres` Endpoint
+
+Of course, an app that just shows movie genres isn’t very interesting.
+Take a look at the routes and models used to build the home page, movie detail page, and person detail page.
+
+=== The User Model
+
+Aside from creating themselves and authenticating with the app, Users can rate Movies with the `:RATED` relationship, illustrated below.
+
+==== User Properties
+
+`password`: The hashed version of the user’s chosen password
+`api_key`: The user’s API key, which the user uses to authenticate requests
+`username`: The user’s chosen username
+
+==== :RATED Properties
+
+`rating`: an integer rating between 1 and 5, with 5 being love it and 1 being hate it
+
+==== Users Can Create Accounts
+
+Before a User can rate a Movie, the user has to exist, i.e. someone has to sign up for an account. 
+The sign-up process will create a node in the database with a User label, along with the properties necessary for logging in and maintaining a session.
+
+The registration endpoint is located at `/api/v0/register`.
+The app automatically submits a request to the register endpoint when a user fills out the “Create an Account” form and taps “Create Account.”
+Assuming you have the API running, you can test requests either by using the interactive docs at `/3000/docs/` or by using cURL.
+
+Naturally, you should replace the placeholder fields throughout with your chosen username and password.
+
+*Example: Create a New User*
+
+.Request
+[source,shell]
+----
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/register'
+----
+
+.Response
+----
+{
+   "id":"e1e157a2-1fb5-416a-b819-eb75c480dfc6",
+   "username":"Mary333 Jane",
+   "avatar":{
+      "full_size":"https://www.gravatar.com/avatar/b2a02..."
+   }
+}
+----
+
+
+*Example: Try to Create a New User but Username is Already Taken*
+
+.Request
+[source,shell]
+----
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d  '{ "username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/register'
+----
+
+.Response
+----
+{
+   "username":"username already in use"
+}
+----
+
+User registration logic is implemented in `/api/app.py` as described below:
+
+.User Registration
+[source,javascript,role=nocopy]
+----
+// TK User Registration Implementation
+----
+
+==== Users Can Log In
+
+Now that users are able to register for an account, we can define the view that allows them to login to the site and start a session.
+
+The registration endpoint is located at `/api/v0/login`.
+The app submits a request to the login endpoint when a user fills in the username and password text boxes and taps “Create Account.”
+Assuming you have the API running, you can test requests either by using the interactive docs at `/5000/docs/` or by using cURL.
+
+
+*Example: Login*
+
+.Request
+[source,shell]
+----
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/login'
+----
+
+.Response
+[source,shell]
+----
+{
+  "token":"5a85862fb28a316ea6a1"
+}
+----
+
+*Example: Wrong Password*
+
+.Request
+[source,shell]
+----
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "username": "Mary Jane", "password": "SuperPassword"}' 'http://localhost:5000/api/v0/register'
+----
+
+.Response
+----
+{
+   "username":"username already in use"
+}
+----
+
+*Example: See Myself*
+
+.Request
+[source,shell]
+----
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Token 5a85862fb28a316ea6a1' 'http://localhost:5000/api/v0/users/me'
+----
+
+.Response
+----
+{
+  "id": "94a604f7-3eab-4f28-88ab-12704c228936",
+  "username": "Mary Jane",
+  "avatar": {
+    "full_size": "https://www.gravatar.com/avatar/c2eab..."
+  }
+}
+----
+
+The code here is similar to that of `/register`.
+There is a similar form to fill out, where a user types in their username and password.
+With the given username, a `User` is initialized.
+The password they filled out in the form is then verified against the hashed password that was retrieved from the corresponding :User node in the database.
+If the verification is successful, the program will return a token.
+The user is then directed to an authentication page, from which they can navigate through the app, view their user profile, and rate movies. 
+
+*Example: Users Can Rate Movies*
+
+Once a user has logged in and navigated to a page that displays movies, they can select a star rating for any movie in the page or remove any of their previous movie ratings.
+
+The user can access their previous ratings and the respective movies that were rated through both their user profile and the movie detail page in question.
+
+*Example: Rate a Movie*
+
+.Request
+[source,shell]
+----
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Token ce40f63e79344f017a48b205db27aeaa301ae2b6' -d '{"rating":4}' 'http://localhost:5000/api/v0/movies/15602/rate'
+----
+
+.Response
+----
+{}
+----
+
+.JavaScript Implementation: Rate a Movie
+[source,javascript,role=nocopy]
+----
+// TK JS Rate A Movie
+----
+
+*Example: See All of My Ratings*
+
+.Request
+[source,shell]
+----
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Token ce40f63e79344f017a48b205db27aeaa301ae2b6' 'http://localhost:5000/api/v0/movies/rated'
+----
+
+.Response
+----
+[
+  {
+    "id": "15602",
+    "title": "Grumpier Old Men",
+    "summary": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
+    "released": "1995-12-22",
+    "duration": 101,
+    "rated": 6.6,
+    "tagline": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
+    "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/1FSXpj5e8l4KH6nVFO5SPUeraOt.jpg",
+    "my_rating": 4
+  }
+]
+----
+
+.JavaScript Implementation: See My Ratings
+[source,javascript,role=nocopy]
+----
+// TK See My Ratings
+----
+
+*Example: My Recommendations*
+
+.Request
+[source,shell]
+----
+curl -X GET --header 'Accept: application/json' --header 'Authorization: Token ce40f63e79344f017a48b205db27aeaa301ae2b6' 'http://localhost:5000/api/v0/movies/recommended'
+----
+
+.Response
+----
+[
+  {
+    "id": "45523",
+    "title": "Louis C.K.: Hilarious",
+    "summary": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "released": "2010-01-26",
+    "duration": 82,
+    "rated": 8.6,
+    "tagline": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/8mJMrrT4tkfZLMFvKQ0Hq6jlXbp.jpg",
+    "my_rating": null
+  },
+  {
+    "id": "38757",
+    "title": "Tangled",
+    "summary": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "released": "2010-11-24",
+    "duration": 100,
+    "rated": 7.8,
+    "tagline": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/1uPxRO0iYwW02lzwatRhkugWBYs.jpg",
+    "my_rating": null
+  },
+
+...
+]
+----
+
+[source,javascript,role=nocopy]
+----
+// TK See My Ratings
+----
+
+== The React Front-end  
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TXKXotzkygI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
+You can take a look at the React front-end code at in the `/web/` subdirectory. 
+The React front-end is very simple, and is composed of the following parts, as described in the video above:
+
+* Home Page
+* Authentication Page
+* Movie Detail Page
+* Person (Actor, Director) Page
+* User Profile Page
+
+=== Home Page
+
+The home page is a relatively simple page making calls to two endpoints: the "movies by genre endpoint" and the "movie by ID" endpoint.
+
+The "Featured Movies" portion at the top calls three hard-coded movies. 
+
+[source,javascript,role=nocopy]
+----
+renderFeatured() {
+    var {movies} = this.props;
+
+    return (
+      <div className="nt-home-featured">
+        <h3 className="nt-home-header">Featured Movies</h3>
+        <ul>
+          { _.compact(movies.featured).map(f => {
+            return (
+              <li key={f.id}>
+                <Link to={`/movie/${f.id}`}>
+                  <img src={f.posterImage} alt="" />
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+----
+
+[source,javascript,role=nocopy]
+----
+static getFeaturedMovies() {
+    return Promise.all([
+        axios.get(`${apiBaseURL}/movies/13380`),
+        axios.get(`${apiBaseURL}/movies/15292`),
+        axios.get(`${apiBaseURL}/movies/11398`)
+    ]);
+}
+----
+
+=== Movie and Person Detail
+
+The Movie and Person detail are visually very similar pages - both with a poster image on the left and carousels on the bottom. 
+However, the Movie page is different depending on whether or not the user is authenticated, as the authenticated user is able to mark their rating on each movie. 
+
+=== User Profile
+
+The User Profile page allows the user to re-rate or un-rate their movies, and view more movie recommendations based on those ratings. 
+
+== Deployment
+
+include::./_includes/using_aura.adoc[]
+
+=== Deplyoying the Backend and Front-end with Heroku
+
+You will have to create two apps on Heroku: one for the backend and one for the front-end. 
+
+Starting with the backend, create a new app on Heroku. 
+On your local machine, add the Heroku repo as a remote. 
+On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j Aura (or the sandbox if you haven't migrated to Aura). 
+
+
+Then, create another Heroku app for the front-end. 
+Add another git remote pointed to the Heroku app dedicated to the front-end app. 
+Under **Heroku > Settings > Config Vars**, add the environment variables for the `REACT_APP_API_BASE_URL` and `REACT_APP_PROXY_URL` fields. 
+
+Under **Heroku > Settings > Buildpacks**, add `mars/create-react-app` to load dependencies. 
+
+Check out the `Makefile` in the root directory of the project and edit it so it matches below the content below.
+It contains the commands needed to deploy the project. 
+You can run `deploy-api` to deploy the Express API and `deploy-web` to run deployment on the React site. 
+
+.Makefile
+----
+deploy-api:
+    git branch -f heroku-api
+    git branch -D heroku-api
+    git subtree split --prefix api -b heroku-api
+    git push heroku-api heroku-api:master --force
+
+deploy-web:
+    git branch -f heroku-web
+    git branch -D heroku-web
+    git subtree split --prefix web -b heroku-web
+    git push heroku-web heroku-web:master --force
+----
+
+//TK Check Video
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V8j9GAYV3co" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
+== Next Steps
+
+Fork the repo and hack away! Find directors that work with multiple genres, or find people who tend to work with each other frequently as writer-director pairs.
+Did you find a way to improve the template or the Python driver? Create a GitHub Issue and/or submit a pull request.

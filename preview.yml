@@ -15,6 +15,7 @@ ui:
     url: https://github.com/neo4j-documentation/docs-refresh/raw/master/ui/build/ui-bundle.zip
     # url: /Users/adam/projects/docs/ui/build/ui-bundle.zip
     snapshot: true
+
 urls:
   html_extension_style: indexify
 asciidoc:
@@ -24,4 +25,3 @@ asciidoc:
   attributes:
     page-theme: developer
     page-disabletracking: true
-

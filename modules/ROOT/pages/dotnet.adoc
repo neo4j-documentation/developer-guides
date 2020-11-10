@@ -53,22 +53,23 @@ It also supports basic CRUD and legacy indexing.
 
 [cols="1,5"]
 |===
-| icon:github[] Source       | https://github.com/Readify/Neo4jClient
+| icon:github[] Source       | https://github.com/DotNet4Neo4j/neo4jclient
+| icon:gift[] NuGet Package  | https://nuget.org/packages/neo4jclient
 | icon:user[] Authors        | http://twitter.com/cskardon[Chris Skardon^] http://twitter.com/tathamoddie[Tatham Oddie^]
-| icon:book[] Docs           | https://github.com/Readify/Neo4jClient/wiki[]
+| icon:book[] Docs           | https://github.com/DotNet4Neo4j/Neo4jClient/wiki[]
 | icon:play-circle[] Example | {examples}/movies-dotnet-neo4jclient
 | Protocol                   | Bolt, Http
 |===
 
-[#cypher-dotnet-api]
-=== Cypher.NET
+[#neo4j-driver-extensions]
+=== Neo4j.Driver.Extensions
 
-A .NET API for the Neo4j HTTP Transactional Endpoint (v2.0.0) exposes a strongly-typed Graph Query API based on the Neo4j Cypher query language.
+`Neo4j.Driver.Extensions` provides a set of extension methods to the official driver API, aiming at reducing boilerplate and easing mapping to entity classes.
 
 [cols="1,5"]
 |===
-| icon:github[] Source       |   https://github.com/mtranter/CypherNet
-| icon:user[] Authors        |   Mark Tranter
-| icon:rss[] Blog            |   http://mtranter.com/2013/09/21/cypher-net-a-neo4j-cypher-api
-| Protocol                   |   Http
+| icon:github[] Source       | https://github.com/DotNet4Neo4j/Neo4j.Driver.Extensions
+| icon:gift[] NuGet Package  | https://nuget.org/packages/neo4j.driver.extensions
+| icon:user[] Authors        | http://twitter.com/cskardon[Chris Skardon^]
+| icon:book[] Docs           | https://xclave.co.uk/2020/10/06/using-neo4j-driver-now-you-can-extend-it/[Introduction blogpost]
 |===
