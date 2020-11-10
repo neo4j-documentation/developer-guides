@@ -32,7 +32,7 @@ To keep concepts simple, the application is an IMDB clone with basic account aut
 Neo4j is the world's most popular _graph database_.
 Graph databases offer a number of advantages:
 
-* Neo4j provides a schemaless representation of both entities and relationships between entities.
+* Neo4j provides a schema-optional representation of both entities and relationships between entities.
 * Relationships between entities are *traversed* rather than *joined*. Traversals explore the local subgraph, meaning that query times stay the same even as your database grows.
 * Because of the traversal paradigm, we can think in terms of the complex relationships in our data, without worrying as much about how to model it.
 
