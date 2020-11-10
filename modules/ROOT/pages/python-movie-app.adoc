@@ -745,7 +745,7 @@ static getFeaturedMovies() {
 === Movie and Person Detail
 
 The Movie and Person detail are visually very similar pages - both with a poster image on the left and carousels on the bottom.
-However, the Movie page is different depending on whether or not the user is authenticated, as the authenticated user is able to mark their rating on each movie.
+However, the Movie page is different depending on whether the user is authenticated, as the authenticated user is able to mark their rating on each movie.
 
 === User Profile
 
