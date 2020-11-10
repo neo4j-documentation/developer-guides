@@ -797,4 +797,4 @@ deploy-web:
 == Next Steps
 
 Fork the repo and hack away! Find directors that work with multiple genres, or find people who tend to work with each other frequently as writer-director pairs.
-Did you find a way to improve the template or the Python driver? Create a GitHub Issue and/or submit a pull request.
+Did you find a way to improve the https://github.com/neo4j-examples/neo4j-movies-template/[application] or the https://github.com/neo4j/neo4j-python-driver[Python driver]? Create a GitHub Issue and/or submit a pull request.
