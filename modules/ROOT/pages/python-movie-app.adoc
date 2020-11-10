@@ -15,7 +15,7 @@ The Flask framework is used as the backend, and React as front-end.
 .Prerequisites
 [abstract]
 You should have Python 3 installed on your system.
-You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Movie Demo] onto your machine.
+You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Movie Demo repository] onto your machine.
 
 
 [#python-movie-course]
@@ -119,8 +119,8 @@ You’re a Python developer interested in Neo4j and want to build a web app, mic
 You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started.
 Now you’re looking for a demo app or template to start putting those skills into practice.
 
-If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] onto your machine.
-This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
+If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo repository] onto your machine.
+This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you've rated.
 The following video will walk briefly walk you through the various features of the movie app.
 
 ++++
@@ -164,7 +164,7 @@ You can find the front-end code in the `web` directory.
 
 === Setup
 
-To get the project running, clone the repo and follow along with these instructions, which are be recapped in the video:
+To get the project running, clone the https://github.com/neo4j-examples/neo4j-movies-template[repository] and follow along with these instructions, which are recapped in the video:
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2Jis6hvkoQQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
