@@ -182,7 +182,7 @@ We'll do this by executing the following:
 
 [source,bash]
 ----
-export NEO4J_PASSWORD="2In5LWouigNai-rFlrVcAq7c7WK63rAESruViWY7Qac"
+export NEO4J_PASSWORD="Your password"
 cat import.cypher | ./cypher-shell -a neo4j+s://d1c4a329.databases.neo4j.io -u neo4j --format verbose
 ----
 
