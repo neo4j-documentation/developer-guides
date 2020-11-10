@@ -114,10 +114,10 @@ Here is a link:https://neo4j.com/graphacademy/online-training/introduction-to-ne
 [#project-setup]
 == The Neo4j Movie Flask/React App
 
-Let’s jump right into it.
-You’re a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app.
-You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started.
-Now you’re looking for a demo app or template to start putting those skills into practice.
+Let's jump right into it.
+You're a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app.
+You've already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started.
+Now you're looking for a demo app or template to start putting those skills into practice.
 
 If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo repository] onto your machine.
 This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you've rated.
@@ -172,15 +172,15 @@ To get the project running, clone the https://github.com/neo4j-examples/neo4j-mo
 
 First, Start the Database!
 
-Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox.
+Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the "Recommendations" database in Neo4j Sandbox.
 
 Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using social authentication or your email and password.
 
-After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to.
+After logging in to Neo4j Sandbox, tap "New Project" and select "Recommendations," then tap the blue "Launch Project" button to start the database you will be connecting to.
 
-In order to connect to the database from the environment from which you’ll be running the app (presumably your local machine), you’ll need credentials. You can find those under the “Connection details” and/or the “Connect via drivers” tab:
+In order to connect to the database from the environment from which you'll be running the app (presumably your local machine), you'll need credentials. You can find those under the "Connection details" and/or the "Connect via drivers" tab:
 
-Note the section that looks like this - you’ll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
+Note the section that looks like this - you'll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
 For example, if the driver line contains the following:
 
 [source,python, role=nocopy]
@@ -210,9 +210,9 @@ Verify that the endpoints are running as expected by taking a look at the docs a
 
 === Start the React.js Front-End
 
-With the database and backend running, open a new terminal tab or window and move to the project’s `/web` subdirectory.
-Run `nvm use` to ensure you’re using the node version specified for this project.
-If you don’t have the recommended version of node installed, follow the prompt to install the recommended version.
+With the database and backend running, open a new terminal tab or window and move to the project's `/web` subdirectory.
+Run `nvm use` to ensure you're using the node version specified for this project.
+If you don't have the recommended version of node installed, follow the prompt to install the recommended version.
 After verifying you are using the recommended user, run:
 
 [source,shell]
@@ -226,7 +226,7 @@ Navigate to view the app at http://localhost:3000/
 
 Click on a movie poster to see its corresponding movie detail page.
 
-Click on a cast or crew member to see that person’s profile, which includes biographical information, related people, and more movies the person has acted in, directed, written, or produced:
+Click on a cast or crew member to see that person's profile, which includes biographical information, related people, and more movies the person has acted in, directed, written, or produced:
 
 == Going Through The Endpoints
 
@@ -234,7 +234,7 @@ Click on a cast or crew member to see that person’s profile, which includes bi
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Z3HkInTB1EM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
-Let’s look at how we would request a list of all the established genres from the database.
+Let's look at how we would request a list of all the established genres from the database.
 The GenreList class queries the database for all `Genre` nodes, serializes the results, and then returns them via `/api/v0/genres`:
 
 [source,python, role=nocopy]
@@ -275,10 +275,10 @@ def serialize_genre(genre):
 api.add_resource(GenreList, '/api/v0/genres')
 ----
 
-=== What’s Going on with the Serializer?
+=== What's Going on with the Serializer?
 
-If you’ve only used a non-Bolt Neo4j driver before, these bolt-driver responses may be different than what you’re used to.
-In the "GET all Genres” example described above,
+If you've only used a non-Bolt Neo4j driver before, these bolt-driver responses may be different from what you're used to.
+In the "GET all Genres" example described above,
 `result = db.read_transaction(get_genres)`
 returns a series of records:
 
@@ -302,7 +302,7 @@ Voila! You get an array of genres at `/genres`.
 
 === Beyond the `/Genres` Endpoint
 
-Of course, an app that just shows movie genres isn’t very interesting.
+Of course, an app that just shows movie genres isn't very interesting.
 Take a look at the routes and models used to build the home page, movie detail page, and person detail page.
 
 === The User Model
@@ -311,9 +311,9 @@ Aside from creating themselves and authenticating with the app, Users can rate M
 
 ==== User Properties
 
-`password`: The hashed version of the user’s chosen password
-`api_key`: The user’s API key, which the user uses to authenticate requests
-`username`: The user’s chosen username
+`password`: The hashed version of the user's chosen password
+`api_key`: The user's API key, which the user uses to authenticate requests
+`username`: The user's chosen username
 
 ==== :RATED Properties
 
@@ -325,7 +325,7 @@ Before a User can rate a Movie, the user has to exist, i.e. someone has to sign 
 The sign-up process will create a node in the database with a User label, along with the properties necessary for logging in and maintaining a session.
 
 The registration endpoint is located at `/api/v0/register`.
-The app automatically submits a request to the register endpoint when a user fills out the “Create an Account” form and taps “Create Account.”
+The app automatically submits a request to the register endpoint when a user fills out the "Create an Account" form and taps "Create Account."
 Assuming you have the API running, you can test requests either by using the interactive docs at `/3000/docs/` or by using cURL.
 
 Naturally, you should replace the placeholder fields throughout with your chosen username and password.
@@ -447,7 +447,7 @@ class Register(Resource):
 Now that users are able to register for an account, we can define the view that allows them to login to the site and start a session.
 
 The registration endpoint is located at `/api/v0/login`.
-The app submits a request to the login endpoint when a user fills in the username and password text boxes and taps “Create Account.”
+The app submits a request to the login endpoint when a user fills in the username and password text boxes and taps "Create Account."
 Assuming you have the API running, you can test requests either by using the interactive docs at `/5000/docs/` or by using cURL.
 
 
