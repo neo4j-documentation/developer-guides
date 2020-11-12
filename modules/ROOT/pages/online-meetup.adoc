@@ -95,14 +95,11 @@ a|https://youtu.be/DxniBWrgueA[Catch-up Link^]
 
 |**10 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Karuna Lakhani and Otávio Calaça Xavier, with co-hosts Nathan Smith & Lju Lazarevic
+|Guest Otávio Calaça Xavier, with co-hosts Nathan Smith & Lju Lazarevic
 a|*NODES2020 Extended*
 
-* Chemical link prediction using Neo4j
 * Analyzing open public data of brazilian companies and their partnerships in a graph database.
-a|https://twitch.tv/neo4j_[On Twitch!^]
-
-https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+a|https://youtu.be/dr-CGVz6x7I[Catch-up Link^]
 
 |**17 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
