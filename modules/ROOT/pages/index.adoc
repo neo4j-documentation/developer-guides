@@ -7,7 +7,7 @@
 [.hero]
 == Neo4j Developer Resources
 
-Everything you need to become and expert in Neo4j
+Everything you need to become an expert in Neo4j
 
 ++++
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none" style="enable-background:new 0 0 100 100;" xml:space="preserve" class="top">
@@ -179,7 +179,7 @@ link:/graphgists/[View 100+ Graph examples grouped by Industry and Use Case^, ro
 [.no-arrows]
 == Code Examples by Language
 
-Neo4j officially supports drivers for xref:dotnet.adoc[.Net], xref:java.adoc[Java], xref:javascript.adoc[Node.js], xref:go.adoc[GoLang^ and xref:python.adoc[Python]. Our community contributors provide many more, including xref:php.adoc[PHP], xref:ruby.adoc[Ruby], xref:r.adoc[R], xref:erlang-elixir.adoc[Erlang] and xref:clojure.adoc[Clojure].
+Neo4j officially supports drivers for xref:dotnet.adoc[.Net], xref:java.adoc[Java], xref:javascript.adoc[Node.js], xref:go.adoc[GoLang] and xref:python.adoc[Python]. Our community contributors provide many more, including xref:php.adoc[PHP], xref:ruby.adoc[Ruby], xref:r.adoc[R], xref:erlang-elixir.adoc[Erlang] and xref:clojure.adoc[Clojure].
 
 
 
