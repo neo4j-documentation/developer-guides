@@ -103,7 +103,7 @@ a|https://youtu.be/dr-CGVz6x7I[Catch-up Link^]
 
 |**17 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guest Mayank Gangwal, with host TBC
+|Guest Mayank Gangwal, with co-hosts Nathan Smith & Alexander Erdl
 a|*NODES2020 Extended*
 
 * Metrics driven agile and devops transformation using Neo4j
@@ -114,7 +114,7 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**24 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guest Michael Herman, with host TBC
+|Guest Michael Herman, with co-hosts Chris Skardon & Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Csharp Superstack: Creating highly scalable Neo4j web apps without Javascript
@@ -137,7 +137,7 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**7 December** +
 _7am UTC, 8am CET, 12:30pm IST_, 3pm AWST, 5pm AEST, 8pm NZST
-|Guest Monojit Basu, with co-hosts Alecander Erdl and Lju Lazarevic
+|Guest Monojit Basu, with co-hosts Alexander Erdl and Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Manifold structures in semi-supervized and multiview learning
@@ -149,7 +149,7 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**17 December** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Doulkifli Boukraa and Siddharth Karumanchi, with host TBC
+|Guests Doulkifli Boukraa and Siddharth Karumanchi, with co-hosts Jesús Barrasa & Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Question-answering graphs: gain insights from Q&A systems like StackExchange
