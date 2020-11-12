@@ -23,7 +23,7 @@ You can keep an eye on what's happening by:
 
 image::https://miro.medium.com/fit/c/192/192/1*KfYHH6t6NEUEtbgMLFHiuw.jpeg[Ljubica Lazarevic,width="200px",float="right"]
 
-*3pm UTC (7am PDT, 10am EDT, 8:30pm IST)*
+*3pm UTC (7am PST, 10am EST, 8:30pm IST)*
 
 https://twitter.com/ellazal[Lju Lazarevic^] does a double whammy of looking at an article from our developer newsletter, https://neo4j.com/tag/twin4j/[This Week in Neo4j^], as well as her current series of exploring a https://r.neo4j.com/wine-repo[wine data set^], showing data wrangling tips and tricks along the way.
 
@@ -37,7 +37,7 @@ Missed a stream? Check out the playlists:
 
 image::https://pbs.twimg.com/profile_images/852657056968564737/AKqYLHhV_400x400.jpg[Adam Cowley,width="200px",float="right"]
 
-*12pm UTC (8am EDT, 2pm CEST, 5:30pm IST, 8pm AWST)*
+*1pm UTC (8am EST, 2pm CET, 6:30pm IST, 9pm AWST)*
 
 https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
 
@@ -63,8 +63,8 @@ Missed a stream? Check out the main Twitch playlist:
 
 image::https://dist.neo4j.com/wp-content/uploads/william-lyon.jpg[Will Lyon,width="200px",float="right"]
 
-*9pm UTC (2pm PDT, 5pm EDT, 11pm CEST)* +
-*_(Friday 8am AEST, 10am NZST)_*
+*10pm UTC (2pm PST, 5pm EST, 11pm CET)* +
+*_(Friday 9am AEDT, 11am NZDT)_*
 
 https://twitter.com/lyonwj[Will Lyon^] covers building GraphQL APIs with Neo4j and fullstack applications using GraphQL, React, Apollo, and Neo4j Database, using the https://grandstack.io[GRANDstack^] framework, using a real-estate app as an example, as well as building a travel guide with Gatsby.
 
@@ -86,7 +86,7 @@ We also host regular online meetups! Check out the schedule below:
 |**5 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
 
-|Speakers Chris Eyre and Tim Reimer, with Co-hosts Nathan Smith & Lju Lazarevic
+|Speakers Chris Eyre and Tim Reimer, with co-hosts Nathan Smith & Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Viewing contentful data with Neo4j
@@ -95,18 +95,15 @@ a|https://youtu.be/DxniBWrgueA[Catch-up Link^]
 
 |**10 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Karuna Lakhani and Otávio Calaça Xavier, with host Lju Lazarevic
+|Guest Otávio Calaça Xavier, with co-hosts Nathan Smith & Lju Lazarevic
 a|*NODES2020 Extended*
 
-* Chemical link prediction using Neo4j
 * Analyzing open public data of brazilian companies and their partnerships in a graph database.
-a|https://twitch.tv/neo4j_[On Twitch!^]
-
-https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+a|https://youtu.be/dr-CGVz6x7I[Catch-up Link^]
 
 |**17 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Mayank Gangwal and TBC, with host TBC
+|Guest Mayank Gangwal, with co-hosts Nathan Smith & Alexander Erdl
 a|*NODES2020 Extended*
 
 * Metrics driven agile and devops transformation using Neo4j
@@ -115,10 +112,12 @@ a|https://twitch.tv/neo4j_[On Twitch!^]
 
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
-|**24 November TBC** +
+|**24 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests TBC, with host TBC
+|Guest Michael Herman, with co-hosts Chris Skardon & Lju Lazarevic
 a|*NODES2020 Extended*
+
+* Csharp Superstack: Creating highly scalable Neo4j web apps without Javascript
 
 a|https://twitch.tv/neo4j_[On Twitch!^]
 
@@ -126,9 +125,10 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**3 December** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Shipa Karakeraa and TBC, with host TBC
+|Guests Julian Gomez and Shilpa Karkeraa and TBC, with host TBC
 a|*NODES2020 Extended*
 
+* History as a graph database
 * Humanizing HRTech with graph databases - AI powered CV parsers
 
 a|https://twitch.tv/neo4j_[On Twitch!^]
@@ -137,7 +137,7 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**7 December** +
 _7am UTC, 8am CET, 12:30pm IST_, 3pm AWST, 5pm AEST, 8pm NZST
-|Guests Monojit Basu and TBC, with host Lju Lazarevic
+|Guest Monojit Basu, with co-hosts Alexander Erdl and Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Manifold structures in semi-supervized and multiview learning
@@ -149,7 +149,7 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**17 December** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Doulkifli Boukraa and Siddharth Karumanchi, with host TBC
+|Guests Doulkifli Boukraa and Siddharth Karumanchi, with co-hosts Jesús Barrasa & Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Question-answering graphs: gain insights from Q&A systems like StackExchange

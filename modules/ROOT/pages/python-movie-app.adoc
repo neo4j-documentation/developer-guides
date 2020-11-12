@@ -15,7 +15,7 @@ The Flask framework is used as the backend, and React as front-end.
 .Prerequisites
 [abstract]
 You should have Python 3 installed on your system.
-You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Movie Demo] onto your machine.
+You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Python Movie Demo repository] onto your machine.
 
 
 [#python-movie-course]
@@ -32,7 +32,7 @@ To keep concepts simple, the application is an IMDB clone with basic account aut
 Neo4j is the world's most popular _graph database_.
 Graph databases offer a number of advantages:
 
-* Neo4j provides a schemaless representation of both entities and relationships between entities.
+* Neo4j provides a schema-optional representation of both entities and relationships between entities.
 * Relationships between entities are *traversed* rather than *joined*. Traversals explore the local subgraph, meaning that query times stay the same even as your database grows.
 * Because of the traversal paradigm, we can think in terms of the complex relationships in our data, without worrying as much about how to model it.
 
@@ -88,7 +88,7 @@ With the `RETURN` clause, we would end up returning a table such as:
 | {name: "Denise"} | "Animal House"
 |=============================
 
-As you can see here, we can return entire entities in our database rather than just their properties.
+As you can see here, we can return entire entities from our database rather than just their properties.
 
 This is very handy, but it would also be nice to avoid the duplication of our `Person` node.
 So, you can perform the same match but instead use the `collect` function to aggregate the values:
@@ -114,13 +114,13 @@ Here is a link:https://neo4j.com/graphacademy/online-training/introduction-to-ne
 [#project-setup]
 == The Neo4j Movie Flask/React App
 
-Let’s jump right into it.
-You’re a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app.
-You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started.
-Now you’re looking for a demo app or template to start putting those skills into practice.
+Let's jump right into it.
+You're a Python developer interested in Neo4j and want to build a web app, microservice, or mobile app.
+You've already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started.
+Now you're looking for a demo app or template to start putting those skills into practice.
 
-If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo] onto your machine.
-This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
+If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Python Move Demo repository] onto your machine.
+This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you've rated.
 The following video will walk briefly walk you through the various features of the movie app.
 
 ++++
@@ -164,7 +164,7 @@ You can find the front-end code in the `web` directory.
 
 === Setup
 
-To get the project running, clone the repo and follow along with these instructions, which are be recapped in the video:
+To get the project running, clone the https://github.com/neo4j-examples/neo4j-movies-template[repository] and follow along with these instructions, which are recapped in the video:
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2Jis6hvkoQQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -172,15 +172,15 @@ To get the project running, clone the repo and follow along with these instructi
 
 First, Start the Database!
 
-Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox.
+Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the "Recommendations" database in Neo4j Sandbox.
 
 Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using social authentication or your email and password.
 
-After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to.
+After logging in to Neo4j Sandbox, tap "New Project" and select "Recommendations," then tap the blue "Launch Project" button to start the database you will be connecting to.
 
-In order to connect to the database from the environment from which you’ll be running the app (presumably your local machine), you’ll need credentials. You can find those under the “Connection details” and/or the “Connect via drivers” tab:
+In order to connect to the database from the environment from which you'll be running the app (presumably your local machine), you'll need credentials. You can find those under the "Connection details" and/or the "Connect via drivers" tab:
 
-Note the section that looks like this - you’ll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
+Note the section that looks like this - you'll need to copy+paste the credentials in the driver section to connect to the database from your local machine.
 For example, if the driver line contains the following:
 
 [source,python, role=nocopy]
@@ -210,9 +210,9 @@ Verify that the endpoints are running as expected by taking a look at the docs a
 
 === Start the React.js Front-End
 
-With the database and backend running, open a new terminal tab or window and move to the project’s `/web` subdirectory.
-Run `nvm use` to ensure you’re using the node version specified for this project.
-If you don’t have the recommended version of node installed, follow the prompt to install the recommended version.
+With the database and backend running, open a new terminal tab or window and move to the project's `/web` subdirectory.
+Run `nvm use` to ensure you're using the node version specified for this project.
+If you don't have the recommended version of node installed, follow the prompt to install the recommended version.
 After verifying you are using the recommended user, run:
 
 [source,shell]
@@ -226,7 +226,7 @@ Navigate to view the app at http://localhost:3000/
 
 Click on a movie poster to see its corresponding movie detail page.
 
-Click on a cast or crew member to see that person’s profile, which includes biographical information, related people, and more movies the person has acted in, directed, written, or produced:
+Click on a cast or crew member to see that person's profile, which includes biographical information, related people, and more movies the person has acted in, directed, written, or produced:
 
 == Going Through The Endpoints
 
@@ -234,7 +234,7 @@ Click on a cast or crew member to see that person’s profile, which includes bi
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Z3HkInTB1EM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
-Let’s look at how we would request a list of all the established genres from the database.
+Let's look at how we would request a list of all the established genres from the database.
 The GenreList class queries the database for all `Genre` nodes, serializes the results, and then returns them via `/api/v0/genres`:
 
 [source,python, role=nocopy]
@@ -275,10 +275,10 @@ def serialize_genre(genre):
 api.add_resource(GenreList, '/api/v0/genres')
 ----
 
-=== What’s Going on with the Serializer?
+=== What's Going on with the Serializer?
 
-If you’ve only used a non-Bolt Neo4j driver before, these bolt-driver responses may be different than what you’re used to.
-In the "GET all Genres” example described above,
+If you've only used a non-Bolt Neo4j driver before, these bolt-driver responses may be different from what you're used to.
+In the "GET all Genres" example described above,
 `result = db.read_transaction(get_genres)`
 returns a series of records:
 
@@ -302,7 +302,7 @@ Voila! You get an array of genres at `/genres`.
 
 === Beyond the `/Genres` Endpoint
 
-Of course, an app that just shows movie genres isn’t very interesting.
+Of course, an app that just shows movie genres isn't very interesting.
 Take a look at the routes and models used to build the home page, movie detail page, and person detail page.
 
 === The User Model
@@ -311,9 +311,9 @@ Aside from creating themselves and authenticating with the app, Users can rate M
 
 ==== User Properties
 
-`password`: The hashed version of the user’s chosen password
-`api_key`: The user’s API key, which the user uses to authenticate requests
-`username`: The user’s chosen username
+`password`: The hashed version of the user's chosen password
+`api_key`: The user's API key, which the user uses to authenticate requests
+`username`: The user's chosen username
 
 ==== :RATED Properties
 
@@ -325,7 +325,7 @@ Before a User can rate a Movie, the user has to exist, i.e. someone has to sign 
 The sign-up process will create a node in the database with a User label, along with the properties necessary for logging in and maintaining a session.
 
 The registration endpoint is located at `/api/v0/register`.
-The app automatically submits a request to the register endpoint when a user fills out the “Create an Account” form and taps “Create Account.”
+The app automatically submits a request to the register endpoint when a user fills out the "Create an Account" form and taps "Create Account."
 Assuming you have the API running, you can test requests either by using the interactive docs at `/3000/docs/` or by using cURL.
 
 Naturally, you should replace the placeholder fields throughout with your chosen username and password.
@@ -361,7 +361,8 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 .Response
 ----
 {
-   "username":"username already in use"
+    "status":400,
+    "username":"username already in use"
 }
 ----
 
@@ -447,7 +448,7 @@ class Register(Resource):
 Now that users are able to register for an account, we can define the view that allows them to login to the site and start a session.
 
 The registration endpoint is located at `/api/v0/login`.
-The app submits a request to the login endpoint when a user fills in the username and password text boxes and taps “Create Account.”
+The app submits a request to the login endpoint when a user fills in the username and password text boxes and taps "Create Account."
 Assuming you have the API running, you can test requests either by using the interactive docs at `/5000/docs/` or by using cURL.
 
 
@@ -463,7 +464,8 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 [source,shell]
 ----
 {
-  "token":"5a85862fb28a316ea6a1"
+    "status":200,
+    "token":"31361a8d0f479f3da6c3a04793744c70f998be11"
 }
 ----
 
@@ -478,7 +480,8 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 .Response
 ----
 {
-   "username":"username already in use"
+    "password":"wrong password",
+    "status":400
 }
 ----
 
@@ -493,11 +496,12 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token 5
 .Response
 ----
 {
-  "id": "94a604f7-3eab-4f28-88ab-12704c228936",
-  "username": "Mary Jane",
-  "avatar": {
-    "full_size": "https://www.gravatar.com/avatar/c2eab..."
-  }
+    "avatar": {
+        "full_size":"https://www.gravatar.com/avatar/c2eab..."
+    },
+    "id": "94a604f7-3eab-4f28-88ab-12704c228936",
+    "status":200,
+    "username":"Mary Jane"
 }
 ----
 
@@ -524,7 +528,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 
 .Response
 ----
-{}
+{"status":200}
 ----
 
 .Python Implementation: Rate a Movie
@@ -575,15 +579,15 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ----
 [
   {
-    "id": "15602",
-    "title": "Grumpier Old Men",
-    "summary": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
-    "released": "1995-12-22",
     "duration": 101,
-    "rated": 6.6,
-    "tagline": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
+    "id": "15602",
+    "my_rating": 4,
     "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/1FSXpj5e8l4KH6nVFO5SPUeraOt.jpg",
-    "my_rating": 4
+    "rated": 6.6,
+    "released": "1995-12-22",
+    "summary": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
+    "tagline": "John and Max resolve to save their beloved bait shop from turning into an Italian restaurant, just as its new female owner catches Max's attention.",
+    "title": "Grumpier Old Men"
   }
 ]
 ----
@@ -632,28 +636,27 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ----
 [
   {
-    "id": "45523",
-    "title": "Louis C.K.: Hilarious",
-    "summary": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
-    "released": "2010-01-26",
     "duration": 82,
-    "rated": 8.6,
-    "tagline": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "id": "45523",
+    "my_rating": null,
     "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/8mJMrrT4tkfZLMFvKQ0Hq6jlXbp.jpg",
-    "my_rating": null
+    "rated": 8.6,
+    "released": "2010-01-26",
+    "summary": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "tagline": "In this unique and dynamic live concert experience, Louis C.K.'s exploration of life after 40 destroys politically correct images of modern life with thoughts we have all had...but would rarely admit to.",
+    "title": "Louis C.K.: Hilarious"
   },
   {
-    "id": "38757",
-    "title": "Tangled",
-    "summary": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
-    "released": "2010-11-24",
     "duration": 100,
-    "rated": 7.8,
-    "tagline": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "id": "38757",
+    "my_rating": null,
     "poster_image": "https://image.tmdb.org/t/p/w440_and_h660_face/1uPxRO0iYwW02lzwatRhkugWBYs.jpg",
-    "my_rating": null
+    "rated": 7.8,
+    "released": "2010-11-24",
+    "summary": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "tagline": "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+    "title": "Tangled"
   },
-
 ...
 ]
 ----
@@ -742,7 +745,7 @@ static getFeaturedMovies() {
 === Movie and Person Detail
 
 The Movie and Person detail are visually very similar pages - both with a poster image on the left and carousels on the bottom.
-However, the Movie page is different depending on whether or not the user is authenticated, as the authenticated user is able to mark their rating on each movie.
+However, the Movie page is different depending on whether the user is authenticated, as the authenticated user is able to mark their rating on each movie.
 
 === User Profile
 
@@ -752,7 +755,7 @@ The User Profile page allows the user to re-rate or un-rate their movies, and vi
 
 include::./_includes/using_aura.adoc[]
 
-=== Deplyoying the Backend and Front-end with Heroku
+=== Deploying the Backend and Front-end with Heroku
 
 You will have to create two apps on Heroku: one for the backend and one for the front-end.
 
@@ -794,4 +797,4 @@ deploy-web:
 == Next Steps
 
 Fork the repo and hack away! Find directors that work with multiple genres, or find people who tend to work with each other frequently as writer-director pairs.
-Did you find a way to improve the template or the Python driver? Create a GitHub Issue and/or submit a pull request.
+Did you find a way to improve the https://github.com/neo4j-examples/neo4j-movies-template/[application] or the https://github.com/neo4j/neo4j-python-driver[Python driver]? Create a GitHub Issue and/or submit a pull request.

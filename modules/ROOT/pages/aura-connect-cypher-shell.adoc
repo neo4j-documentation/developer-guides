@@ -25,11 +25,11 @@ We should also have https://neo4j.com/docs/operations-manual/current/tools/cyphe
 
 If we open our https://console.neo4j.io/#databases[Neo4j Aura Console Dashboard^], we'll see a list of our databases.
 
-image::{img}dbaas_database_created.png[role="popup-link"]
+image::{img}dbaas_database_created_4.png[role="popup-link"]
 
-We'll need to use the Bolt URL, so let's copy that onto our clipboard:
+We'll need to use the Connection URI, so let's copy that onto our clipboard:
 
-image::{img}dbaas_database_created_highlight_browser.png[role="popup-link"]
+image::{img}dbaas_database_created_4_highlight_browser.png[role="popup-link"]
 
 We're now ready to connect to the Cypher Shell.
 
@@ -58,19 +58,46 @@ If we run that command we'll see the following output, which has been edited for
 
 [source,text]
 ----
-usage: cypher-shell [-h] [-a ADDRESS] [-u USERNAME] [-p PASSWORD] [--encryption {true,false}] [--format {auto,verbose,plain}] [--debug] [--non-interactive] [--sample-rows SAMPLE-ROWS] [--wrap {true,false}] [-v] [--driver-version] [--fail-fast | --fail-at-end] [cypher]
+usage: cypher-shell [-h] [-a ADDRESS] [-u USERNAME] [-p PASSWORD] [--encryption {true,false,default}] [-d DATABASE] [--format {auto,verbose,plain}] [-P PARAM] [--debug] [--non-interactive] [--sample-rows SAMPLE-ROWS] [--wrap {true,false}] [-v] [--driver-version] [-f FILE]
+                    [--fail-fast | --fail-at-end] [cypher]
 
 A command line shell where you can execute Cypher against an instance of Neo4j. By default the shell is interactive but you can use it for scripting by passing cypher directly on the command line or by piping a file with cypher statements (requires Powershell on Windows).
 
+example of piping a file:
+  cat some-cypher.txt | cypher-shell
+
+positional arguments:
+  cypher                 an optional string of cypher to execute and then exit
+
+optional arguments:
+  -h, --help             show this help message and exit
+  --fail-fast            exit and report failure on first error when reading from file (this is the default behavior)
+  --fail-at-end          exit and report failures at end of input when reading from file
+  --format {auto,verbose,plain}
+                         desired output format, verbose displays results in tabular format and prints statistics, plain displays data with minimal formatting (default: auto)
+  -P PARAM, --param PARAM
+                         Add a parameter to this session. Example: `-P "number => 3"`. This argument can be specified multiple times.
+  --debug                print additional debug information (default: false)
+  --non-interactive      force non-interactive mode, only useful if auto-detection fails (like on Windows) (default: false)
+  --sample-rows SAMPLE-ROWS
+                         number of rows sampled to compute table widths (only for format=VERBOSE) (default: 1000)
+  --wrap {true,false}    wrap table column values if column is too narrow (only for format=VERBOSE) (default: true)
+  -v, --version          print version of cypher-shell and exit (default: false)
+  --driver-version       print version of the Neo4j Driver used and exit (default: false)
+  -f FILE, --file FILE   Pass a file with cypher statements to be executed. After the statements have been executed cypher-shell will be shutdown
+
 connection arguments:
   -a ADDRESS, --address ADDRESS
-                         address and port to connect to (default: bolt://localhost:7687)
+                         address and port to connect to (default: neo4j://localhost:7687)
   -u USERNAME, --username USERNAME
                          username to connect as. Can also be specified using environment variable NEO4J_USERNAME (default: )
   -p PASSWORD, --password PASSWORD
                          password to connect with. Can also be specified using environment variable NEO4J_PASSWORD (default: )
-  --encryption {true,false}
-                         whether the connection to Neo4j should be encrypted; must be consistent with Neo4j's configuration (default: true)
+  --encryption {true,false,default}
+                         whether the connection to Neo4j should be encrypted. This must be consistent with Neo4j's configuration. If  choosing  'default'  the  encryption  setting is deduced from the specified address. For example the 'neo4j+ssc' protocol would use encryption.
+                         (default: default)
+  -d DATABASE, --database DATABASE
+                         database to connect to. Can also be specified using environment variable NEO4J_DATABASE (default: )
 ----
 
 We need to pass in our database URI to the `-a` argument.
@@ -80,7 +107,7 @@ If we run the following command:
 
 [source,bash]
 ----
- ./cypher-shell -a bolt+routing://178c6768.databases.neo4j.io
+./cypher-shell -a neo4j+s://d1c4a329.databases.neo4j.io
 ----
 
 We'll then receive the following prompt:
@@ -95,10 +122,13 @@ Once we've provided those details, we'll see the following message:
 
 [source,bash]
 ----
-Connected to Neo4j 3.5.0 at bolt+routing://178c6768.databases.neo4j.io:7687 as user neo4j.
+username: neo4j
+password: *******************************************
+Connected to Neo4j 4.1.0 at neo4j+s://d1c4a329.databases.neo4j.io:7687 as user neo4j.
 Type :help for a list of available commands or :exit to exit the shell.
 Note that Cypher queries must end with a semicolon.
-neo4j>
+neo4j@neo4j>
+
 ----
 
 We can now run queries against our Cloud database.
@@ -152,8 +182,8 @@ We'll do this by executing the following:
 
 [source,bash]
 ----
-export NEO4J_PASSWORD="your password"
-cat import.cypher | ./cypher-shell -a bolt+routing://178c6768.databases.neo4j.io -u neo4j --format verbose
+export NEO4J_PASSWORD="Your password"
+cat import.cypher | ./cypher-shell -a neo4j+s://d1c4a329.databases.neo4j.io -u neo4j --format verbose
 ----
 
 [NOTE]
@@ -174,7 +204,7 @@ We can now execute a read query to see what data we've imported into our databas
 
 [source, bash]
 ----
-./cypher-shell -a bolt+routing://178c6768.databases.neo4j.io -u neo4j "MATCH path = ()-->() RETURN path LIMIT 10"
+./cypher-shell -a neo4j+s://d1c4a329.databases.neo4j.io -u neo4j "MATCH path = ()-->() RETURN path LIMIT 10"
 ----
 
 If we execute this command, we'll see the following output:

@@ -75,10 +75,9 @@
 ** xref:ruby-course.adoc[Tutorial: Ruby &amp; Rails (Books)]
 
 * xref:integration.adoc[Neo4j Tools &amp; Integrations]
-** xref:apache-spark.adoc[Apache Spark]
-** xref:elastic-search.adoc[Elastic-Search]
-** xref:mongodb.adoc[MongoDB]
-** xref:cassandra.adoc[Cassandra]
+** link:https://neo4j.com/developer/spark/[Neo4j Connector for Apache Spark]
+** link:https://neo4j.com/labs/kafka/4.0/[Neo4j Connector for Apache Kafka]
+** link:https://neo4j.com/bi-connector/[Neo4j Connector for Business Intelligence]
 
 * xref:graph-apps:index.adoc[Graph Apps]
 ** xref:graph-apps:featured.adoc[Featured Graph Apps]
