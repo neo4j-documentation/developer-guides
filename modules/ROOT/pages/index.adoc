@@ -111,7 +111,7 @@ link:https://sandbox.neo4j.com/?usecase=network-management&ref=developer-lp[Crea
 [.column]
 === Fraud Detection
 
-image:https://neo4jsandbox.com/img/recommendations-icon-pink.png[Neo4j Fraud Detection Data Model]
+image:fraud-detection-icon.png[Neo4j Fraud Detection Data Model]
 
 Fraud detection with the Paysim financial dataset, Neo4j Graph Data Science, and Neo4j Bloom.
 
@@ -175,13 +175,9 @@ link:/graphgists/[View 100+ Graph examples grouped by Industry and Use Case^, ro
 // link:#[Ruby] | link:#[Perl] | link:#[PHP] | link:#[Erlang]
 
 
-
-[.no-arrows]
 == Code Examples by Language
 
 Neo4j officially supports drivers for xref:dotnet.adoc[.Net], xref:java.adoc[Java], xref:javascript.adoc[Node.js], xref:go.adoc[GoLang] and xref:python.adoc[Python]. Our community contributors provide many more, including xref:php.adoc[PHP], xref:ruby.adoc[Ruby], xref:r.adoc[R], xref:erlang-elixir.adoc[Erlang] and xref:clojure.adoc[Clojure].
-
-
 
 [.tabs]
 [source,Java]
@@ -211,7 +207,7 @@ include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/
 include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/csharp/Example.cs[]
 ----
 
-link:https://github.com/neo4j-examples[View example projects on Github, role=button]
+You can learn more in our xref:language-guides.adoc[Drivers & Language Guides] or link:https://github.com/neo4j-examples[view example projects on Github, role=more information]
 
 
 [.flex.secondary.no-bullets]
