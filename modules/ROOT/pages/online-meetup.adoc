@@ -47,12 +47,13 @@ Missed a stream? Check out the playlist:
 
 
 [.clearfix]
-=== Wednesday - Michael
+=== Wednesday - Florent
 
-image::https://pbs.twimg.com/profile_images/792577726230237184/8ZSDZEvI_400x400.jpg[Michael Hunger,width="200px",float="right"]
+image::https://media-exp1.licdn.com/dms/image/C4D03AQFD0qtWpX0E2Q/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=XkIWRyYlDMGy7VSdvLrCBpVoLianqpNomhefQllMcbw[Michael Hunger,width="200px",float="right"]
 
+*10am UTC (5am EST, 11am CET, 3:30pm IST, 6pm AWST)*
 
-https://twitter.com/mesirii[Michael Hunger^] explores the many hidden gems in and around Neo4j that will make your developer life better. Having been around for a long time, he dives deep into many of those topics and gives you behind the scenes insights and guidance. From Cypher tuning to, import/export, APOC or graph visualization there will be something valuable for everyone.
+https://twitter.com/fbiville[Florent Biville^] shows how to build applications based on the available drivers (HTTP, Bolt, JDBC) and Object-Graph mappers. He's currently building a https://realworld.io[realworld.io] backend in Golang with the official Neo4j driver.
 
 Missed a stream? Check out the main Twitch playlist:
 
@@ -154,7 +155,7 @@ a|*NODES2020 Extended*
 
 * Question-answering graphs: gain insights from Q&A systems like StackExchange
 * Building a custom electoral semantic knowledge graph to infer knowledge using Neosemantics
- 
+
 a|https://twitch.tv/neo4j_[On Twitch!^]
 
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
