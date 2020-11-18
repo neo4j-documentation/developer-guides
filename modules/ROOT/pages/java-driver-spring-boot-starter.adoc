@@ -11,7 +11,7 @@
 
 [NOTE]
 ====
-The Spring Boot starter will be superseded by the Neo4j Java Driver auto config in the upcoming Spring Boot 2.4.
+The Spring Boot starter is now superseded by the Neo4j Java Driver auto config starting with Spring Boot 2.4.
 For Spring Boot 2.3. we will still provide support with this starter.
 ====
 
