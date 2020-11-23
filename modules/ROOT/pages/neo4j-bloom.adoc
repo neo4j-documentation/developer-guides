@@ -68,7 +68,7 @@ With Bloom, we will see how to navigate and explore the data to gather business 
 To load this data, we can start our instance in Neo4j Desktop and open Neo4j Browser by going to `localhost:7474` in a web browser.
 Then, in the Cypher command bar, type `:play northwind-graph` and run it for the Browser guide to appear in a pane below the command line.
 Click on and run the Cypher queries in the slides to load all of the Northwind data into the graph.
-When finished, we can run `CALL db.schema()` in the command line, and the data model should match the one shown below.
+When finished, we can run `CALL db.schema.visualization()` in the command line, and the data model should match the one shown below.
 
 image::{img}northwind_data_model.jpg[role="popup-link"]
 
