@@ -124,7 +124,7 @@ a|https://youtu.be/1B1n38WmBm8[Catch-up Link^]
 
 |**3 December** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Julian Gomez and Shilpa Karkeraa and TBC, with host TBC
+|Guests Julian Gomez and Shilpa Karkeraa, with co-hosts Nathan Smith & Lju Lazarevic
 a|*NODES2020 Extended*
 
 * History as a graph database
@@ -136,10 +136,11 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**7 December** +
 _7am UTC, 8am CET, 12:30pm IST_, 3pm AWST, 5pm AEST, 8pm NZST
-|Guest Monojit Basu, with co-hosts Alexander Erdl and Lju Lazarevic
+|Guests Monojit Basu, Aleksandra Asanin and Ruben Teijeiro, with co-hosts Alexander Erdl and Lju Lazarevic
 a|*NODES2020 Extended*
 
 * Manifold structures in semi-supervized and multiview learning
+* How Neo4j helps in the recruiting process
 
 a|https://twitch.tv/neo4j_[On Twitch!^]
 
@@ -157,6 +158,17 @@ a|*NODES2020 Extended*
 a|https://twitch.tv/neo4j_[On Twitch!^]
 
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+
+|**12 January 2021** +
+_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
+Chris Skardon & Lju Lazarevic
+
+a|*Ask me anything - .NET edition*
+
+Don't know drivers? Can't query? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+
+a|https://twitch.tv/neo4j_[On Twitch!^]
 
 |===
 
