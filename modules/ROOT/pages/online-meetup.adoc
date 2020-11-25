@@ -109,9 +109,8 @@ a|*NODES2020 Extended*
 
 * Metrics driven agile and devops transformation using Neo4j
 
-a|https://twitch.tv/neo4j_[On Twitch!^]
+a|https://youtu.be/NF_KVbqHw7Q[Catch-up Link^]
 
-https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**24 November** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
@@ -120,9 +119,8 @@ a|*NODES2020 Extended*
 
 * Csharp Superstack: Creating highly scalable Neo4j web apps without Javascript
 
-a|https://twitch.tv/neo4j_[On Twitch!^]
+a|https://youtu.be/1B1n38WmBm8[Catch-up Link^]
 
-https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**3 December** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
