@@ -93,7 +93,7 @@
 * xref:graph-data-science:index.adoc[Neo4j Graph Data Science]
   ** xref:graph-data-science:graph-algorithms.adoc[Graph Algorithms]
   ** xref:graph-data-science:neuler-no-code-graph-algorithms.adoc[NEuler: No-code Graph Algorithms]
-  ** xref:graph-data-science:nlp.adoc[Natural Language Processing (NLP)]
+  ** xref:graph-data-science:nlp/index.adoc[Natural Language Processing (NLP)]
   ** Tutorials
     *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
     *** xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph with NLP and Ontologies]
@@ -173,4 +173,3 @@
 * xref:contribute.adoc[Contributing to Neo4j]
 ** xref:cla.adoc[Contributor License Agreement]
 ** xref:contributing-code.adoc[Code Contributions]
-
