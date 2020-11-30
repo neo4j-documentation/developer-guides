@@ -66,24 +66,22 @@ More importantly they are visualized in interactive datasets (provided in Cypher
 [#training-offers]
 == Neo4j Training Offerings
 
-As an experienced Neo4j user you are eligible for taking the Neo4j Certification Exam to become a *Certified Neo4j Professional*.
-The exam is free of charge and can be retaken.
-
-* link:https://neo4j.com/graphacademy/neo4j-certification/[Neo4j Certification Exam^]
-
-The in-person training classes give you access to Neo4j expert trainers:
-
-* link:https://neo4j.com/events/world/training/[Neo4j Classroom Training^]
-
 The online course are a great way to get started in a self-paced mode:
 
-* https://neo4j.com/graphacademy/online-training/[Neo4j Online Training Courses^]
-** https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Getting Started with Neo4j Course^]
-** https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling^]
-** https://neo4j.com/graphacademy/online-training/applied-graph-algorithms/[Applied Graph Algorithms^]
-** https://neo4j.com/graphacademy/online-training/data-science/[Data Science with Neo4j^]
-** https://neo4j.com/graphacademy/online-training/basic-neo4j-admin-40/[Neo4j Administration^]
-// ** https://neo4j.com//developer/ruby-course/[Getting Started with Neo4j and Ruby Course^]
+link:https://neo4j.com/graphacademy/online-training/[Neo4j Online Training Courses^]
+
+The instructor-led training classes give you access to Neo4j expert trainers:
+
+link:https://neo4j.com/events/world/training/[Neo4j Instructor-led Training^]
+
+As an experienced Neo4j user you can take the Neo4j Certification Exam to become a *Certified Neo4j Professional*.
+The exam is free of charge and can be retaken. It tests you on basic Neo4j knowledge and Cypher.
+
+link:https://neo4j.com/graphacademy/neo4j-certification/[Certified Neo4j Professional Exam^]
+
+We also have a Neo4j 4.0 Certified exam that tests you on exclusively Neo4j 4.0 features. To take this exam, you must have passed the Certified Neo4j Professional exam.
+
+link:https://neo4j.com/graphacademy/neo4j-certification-40/[Neo4j 4.0 Certified Exam^]
 
 [#external-tutorials]
 == External Neo4j Tutorials

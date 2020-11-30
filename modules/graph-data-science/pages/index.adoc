@@ -78,7 +78,12 @@ image:https://dist.neo4j.com/wp-content/uploads/20200702062117/noun_training_298
 
 GraphAcademy has self-paced online training classes to help you get up to speed with Graph Data Science.
 
+Here are our Neo4j 4.0/Graph Data Science Library courses:
+
+* https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[Introduction to Graph Algorithms in Neo4j 4.0^]  +
+* https://neo4j.com/graphacademy/online-training/gds-data-science/[Using a Machine Learning Workflow for Link Prediction^]  +
+
+Here are our Neo4j 3.5/ Graph Algorithm Library courses:
+
 * https://neo4j.com/graphacademy/online-training/data-science/[Data Science with Neo4j 3.5^]  +
 * https://neo4j.com/graphacademy/online-training/applied-graph-algorithms/[Applied Graph Algorithms with Neo4j 3.5^]
-
-Both of these training courses can be completed in half a day.
