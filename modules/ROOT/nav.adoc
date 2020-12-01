@@ -117,6 +117,7 @@
 * Courses
 ** link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[1. Intro to Neo4j^]
 ** link:https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[2. Intro to Graph Algorithms^]
+** link:https://neo4j.com/graphacademy/online-training/gds-data-science/[3. Using a Machine Learning Workflow for Link Prediction^]
 
 
 * *For Administrators*

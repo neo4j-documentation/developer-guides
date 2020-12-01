@@ -47,7 +47,9 @@ Here are our latest Neo4j 4.0 online, self-paced training courses:
 * https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[Implementing Graph Data Models in Neo4j 4.0^]
 * https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[Cypher Query Tuning in Neo4j 4.0^]
 * https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling for Neo4j^]
-* https://neo4j.com/graphacademy/online-training/basic-neo4j-admin-40/[Basic Neo4j 4.0 Administration]
+* https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[Introduction to Graph Algorithms in Neo4j 4.0^]
+* https://neo4j.com/graphacademy/online-training/gds-data-science/[Using a Machine Learning Workflow for Link Prediction^]
+
 
 Here are our Neo4j 3.5 online, self-paced training courses:
 
