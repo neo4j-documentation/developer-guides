@@ -56,6 +56,12 @@ It is a good choice if you're doing a serious graph based NLP project.
 https://github.com/graphaware/neo4j-nlp[Learn more about GraphAware Natural Language Processing, role="button feature-box_button"]
 
 
+[#developer-guides]
+== Developer Guides
+
+* xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph with NLP and Ontologies]
+* xref:graph-data-science:nlp/entity-extraction.adoc[Entity Extraction with APOC NLP]
+
 [#nlp-resources]
 == Resources
 
