@@ -98,8 +98,9 @@
     *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
     *** xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph with NLP and Ontologies]
   ** How-To Guides
+    *** xref:graph-data-science:nlp/entity-extraction.adoc[Entity Extraction with APOC NLP]
     *** xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn]
-*** xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[Link Prediction with AutoML]
+    *** xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[Link Prediction with AutoML]
   ** Concepts
     *** xref:graph-data-science:graph-search-algorithms.adoc[Graph Search Algorithms]
     *** xref:graph-data-science:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
