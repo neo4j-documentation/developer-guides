@@ -27,8 +27,6 @@ image::{img}php_logo.png[float=right,width=300]
 You're a PHP developer and want to start with Neo4j?
 Here you go.
 
-Whether you're using frameworks like Symfony and Laravel or you're developing without frameworks, you'll find an adequate library for your use case.
-
 If you have any questions, you can always find a community member around on the https://community.neo4j.com[Neo4j Online Community^].
 
 [#bolt]
@@ -41,37 +39,3 @@ Bolt driver for PHP.
 | icon:user[] Author | https://www.linkedin.com/in/michalstefanak/[Michal Stefanak^]
 | icon:github[] Source | https://github.com/stefanak-michal/Bolt
 |===
-
-[#neo4j-symfony]
-== Neo4j Symfony Bundle
-
-To provide a smooth integration between Neo4j and Symfony we’ve created the SymfonyNeo4jBundle.
-It wraps the excellent PHP community client by Graphaware and creates a solid Symfony experience.
-Thanks to the WebProfiler integration, you will see all your database calls, all the queries and their results, exceptions and statistics.
-
-The bundle also integrates the client events with the Symfony event dispatcher.
-It is not opinionated in how you are using Neo4j and using the OGM is optional.
-Advanced Neo4j users will have full control over the client and what Cypher gets executed.
-
-[cols="1,4"]
-|===
-| icon:user[] Authors | http://twitter.com/tobiasnyholm[Tobias Nyholm^], http://twitter.com/PandawanTech[Xavier Coureau^]
-| icon:github[] Source | https://github.com/neo4j-contrib/neo4j-symfony
-| icon:book[] Docs | https://github.com/neo4j-contrib/neo4j-symfony/blob/master/README.md
-| icon:play-circle[] | https://github.com/neo4j-examples/movies-symfony-php-bolt
-| icon:book[] Blog | https://www.sitepoint.com/introducing-the-neo4j-symfony-bundle/
-|===
-
-[#neoeloquent-lib]
-== NeoEloquent for Laravel
-
-Neo4j Graph Eloquent Driver for Laravel
-
-[cols="1,4"]
-|===
-| icon:user[] Author | https://github.com/Mulkave[Abed Halawi^]
-| icon:github[] Source | https://github.com/Vinelab/NeoEloquent
-|===
-
-[#php-example]
-include::./_includes/sample_project.adoc[]
