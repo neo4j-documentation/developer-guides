@@ -145,7 +145,7 @@ image::https://dist.neo4j.com/wp-content/uploads/20201130092104/graph-35.svg[]
 Now we're going to build our entity graph.
 We're going to use a combination of `apoc.periodic.iterate` and the cloud specific streaming procedures to:
 
-* Extract entities for each article
+* Extract entities for each article, filtering for specific entity types
 * Create a node for each entity
 * Create a relationship from each entity to the article
 
@@ -429,55 +429,7 @@ LIMIT 5;
 
 --
 
+Some of the entities that these articles have in common don't really make sense (e.g. "home" or "Twitter"), but in general the articles would be good candidates to go in a 'recommended articles' section for the Gary Lineker article.
 
-These articles would be good candidates to go in a 'recommended articles' section for the Gary Lineker article.
-
-////
-[source,cypher]
-----
-CALL apoc.load.xml("https://feeds.feedburner.com/TechCrunch/", "rss/channel/item")
-YIELD value
-WITH [child in value._children WHERE child._type = "title" | child._text][0] AS title,
-     [child in value._children WHERE child._type = "category" | child._text] AS categories,
-     [child in value._children WHERE child._type = "guid" | child._text][0] AS guid,
-     apoc.text.regreplace([child in value._children WHERE child._type = "encoded" | child._text][0], '<[^>]*>', ' ') AS body
-MERGE (a:Article {id: guid})
-SET a.body = substring(body, 0, 4950), a.title = title
-WITH a, categories
-CALL {
-  WITH a, categories
-  UNWIND categories AS category
-  MERGE (c:Category {name: category})
-  MERGE (a)-[:IN_CATEGORY]->(c)
-  RETURN count(*) AS categoryCount
-}
-RETURN a.id AS articleId, a.title AS title, categoryCount;
-----
-
-
-.Results
-[opts="header", cols="2,4,1"]
-|===
-| articleId                           | title                                                                                                              | categoryCount
-| "https://techcrunch.com/?p=2079262" | "Alphabet’s DeepMind achieves historic new milestone in AI-based protein structure prediction"                     | 15
-| "https://techcrunch.com/?p=2079324" | "As Slack acquisition rumors swirl, a look at Salesforce’s six biggest deals"                                      | 12
-| "https://techcrunch.com/?p=2079266" | "Materialize scores $40 million investment for SQL streaming database"                                             | 10
-| "https://techcrunch.com/?p=2079255" | "Equity Monday: HungryPanda raises $70M, trade tensions, and cross-border VC"                                      | 7
-| "https://techcrunch.com/?p=2079276" | "DoorDash aims to add $11 billion to its valuation during public offering"                                         | 7
-| "https://techcrunch.com/?p=2079299" | "Nikola shares drop as GM pulls plug on investment deal"                                                           | 5
-| "https://techcrunch.com/?p=2079285" | "Raspberry Pi Foundation releases case fan to prevent overheating"                                                 | 3
-| "https://techcrunch.com/?p=2079261" | "EU lawmakers to push audio-visual sector on geoblocking"                                                          | 7
-| "https://techcrunch.com/?p=2079241" | "ServiceNow is acquiring Element AI, the Canadian startup building AI services for enterprises"                    | 1
-| "https://techcrunch.com/?p=2079254" | "Moderna claims 94% efficacy for COVID-19 vaccine, will ask FDA for emergency use authorization today"             | 16
-| "https://techcrunch.com/?p=2079236" | "Apple on the hook for €10M in Italy, accused of misleading users about iPhone water resistance"                   | 7
-| "https://techcrunch.com/?p=2079220" | "UK shrinks timetable for telcos to stop installing 5G kit from Huawei"                                            | 10
-| "https://techcrunch.com/?p=2079208" | "HungryPanda raises $70M for a food delivery app aimed at overseas Chinese consumers"                              | 3
-| "https://techcrunch.com/?p=2079205" | "Gartner: Q3 smartphone sales down 5.7% to 366M, slicing Covid-19 declines in Q1, Q2"                              | 6
-| "https://techcrunch.com/?p=2079201" | "The Trump administration will add SMIC, China’s largest chipmaker, to its defense blacklist: report"              | 6
-| "https://techcrunch.com/?p=2079170" | "Primer, the fintech helping merchants consolidate the payments stack, raises £14M Series A"                       | 5
-| "https://techcrunch.com/?p=2079182" | "Gillmor Gang: Electrical Banana"                                                                                  | 8
-| "https://techcrunch.com/?p=2079177" | "Firstminute Capital launches second $111M fund, featuring a who’s-who of founders as LPs"                         | 2
-| "https://techcrunch.com/?p=2079139" | "This Week in Apps: Snapchat clones TikTok, India bans 43 Chinese apps, more data on App Store commission changes" | 7
-| "https://techcrunch.com/?p=2079147" | "The Supreme Court will hear its first big CFAA case"                                                              | 18
-|===
-////
+If we wanted to filter the extracted entities further, we could try including only those entities that have a Wikipedia entry.
+For more details on that approach, see xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[].
