@@ -23,58 +23,56 @@ Extracting structure from text documents and storing it in a graph enables sever
 [#nlp-tools]
 == Neo4j NLP Tools and Products
 
-There are two tools available for doing NLP analysis in Neo4j.
+There are severall approaches for doing NLP analysis in Neo4j.
 We'll learn about them in this section.
 
 === APOC NLP
 
-https://neo4j.com/docs/labs/apoc/current/[APOC^] is Neo4j's standard library.
+https://neo4j.com/labs/apoc/4.2/[APOC^] is Neo4j's standard library.
 It contains procedures that call the Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure Natural Language APIs, and create a graph based on the results returned.
 
 These procedures support entity extraction, key phrase extraction, sentiment analysis, and document classification.
 
 This library is a good choice for your first graph based NLP project.
 
-https://neo4j.com/docs/labs/apoc/current/nlp/[Learn more about APOC NLP, role="button feature-box_button"]
+.Related Articles
+* https://markhneedham.com/blog/2020/05/05/quick-graph-building-entity-graph-twin4j-apoc-nlp/[QuickGraph #7: An entity graph of TWIN4j using APOC NLP^]
+* https://towardsdatascience.com/nlp-and-graphs-go-hand-in-hand-with-neo4j-and-apoc-e57f59f46845[NLP goes hand in hand with graphs^]
 
-=== GraphAware Natural Language Processing
+https://neo4j.com/labs/apoc/4.2/nlp/[Learn more about APOC NLP, role="button feature-box_button"]
 
-This is a Neo4j plugin that offers Graph Based Natural Language Processing capabilities and runs on top of the Stanford NLP and OpenNLP libraries.
-It provides a common interface for underlying text processors as well as a Domain Specific Language built atop stored procedures and functions making your Natural Language Processing workflow developer friendly.
+=== GraphAware Hume
 
-The library supports text extraction, key word extraction, TextRank summarization, word embeddings using Word2Vec, and more.
-It is available as an open sourced community version as well as an enterprise version via the https://graphaware.com/products/hume/[Hume Graph-Powered Insights Engine^].
+Hume is a graph-powered Insights Engine made by GraphAware, a Neo4j partner.
+It can be used to build a knowledge graph that will help surface previously buried and undetected relevance in your organization.
 
 [NOTE]
 ====
-Only the enterprise version of the library is being actively developed and supported.
+Hume is a commercial product. You'll need to get in contact with GraphAware to learn more and get a demo.
 ====
 
-This library is very powerful, but also has a steeper learning curve.
-It is a good choice if you're doing a serious graph based NLP project.
+.Related Articles
+* https://graphaware.com/hume,graphaware,covid19/2020/04/01/corona-virus-contact-tracing-smart-quarantine-hume.html[Contact Tracing Using GraphAware Hume (COVID-19)^]
+* https://graphaware.com/nlp/2020/04/15/hume-in-space.html[Hume in Space: Monitoring Satellite Technology Markets with a ML-powered Knowledge Graph^]
+* https://graphaware.com/nlp/2020/10/20/ere-jane-austen.html[Knowledge Graphs with Entity Relations: Is Jane Austen employed by Google?^]
+* https://graphaware.com/hume/2020/11/30/insightful-it-operations-with-hume.html[Insightful IT Operations with Hume^]
 
-https://github.com/graphaware/neo4j-nlp[Learn more about GraphAware Natural Language Processing, role="button feature-box_button"]
+https://graphaware.com/products/hume/[Learn more about GraphAware Hume, role="button feature-box_button"]
+
+=== Other approaches
+
+Other approaches to NLP analysis, using Python libraries and Cypher, are described in the following articles:
+
+* https://www.slideshare.net/lyonwj/natural-language-processing-with-graph-databases-and-neo4j[Natural Language Processing with Graph Databases and Neo4j^]
+* https://www.lyonwj.com/2015/06/16/nlp-with-neo4j/[Natural Language Processing With Neo4j - Mining Paradigmatic Word Associations^]
+* https://medium.com/neo4j/using-nlp-in-neo4j-ac40bc92196f[Neo4j: Natural Language Processing (NLP) in Cypher^]
+* https://www.youtube.com/watch?v=mTCqQ2e08Q8[Neo4j Online Meetup #15: Natural Language Understanding with Python and Neo4j^]
 
 
 [#developer-guides]
 == Developer Guides
 
+The following guides show how to solve various NLP related problems:
+
 * xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph with NLP and Ontologies]
 * xref:graph-data-science:nlp/entity-extraction.adoc[Entity Extraction with APOC NLP]
-
-[#nlp-resources]
-== Resources
-
-* APOC NLP
-  ** https://neo4j.com/docs/labs/apoc/current/nlp/[APOC NLP Documentation^]
-  ** https://markhneedham.com/blog/2020/05/05/quick-graph-building-entity-graph-twin4j-apoc-nlp/[QuickGraph #7: An entity graph of TWIN4j using APOC NLP^]
-  ** https://towardsdatascience.com/nlp-and-graphs-go-hand-in-hand-with-neo4j-and-apoc-e57f59f46845[NLP goes hand in hand with graphs^]
-* GraphAware NLP
-  ** https://www.youtube.com/watch?v=ySxgzBdM2jM[Content-Based Recommendations using Knowledge Graphs (Neo4j Online Meetup #59)^]
-  ** https://graphaware.com/resources/all/taming-text-with-neo4j-the-graphaware-nlp-framework/[Taming text with Neo4j: The Graphaware NLP Framework^]
-  ** https://neo4j.com/blog/accelerating-towards-natural-language-search-graphs/[Accelerating Towards Natural Language Search with Graphs^]
-* Other approaches
-** https://www.slideshare.net/lyonwj/natural-language-processing-with-graph-databases-and-neo4j[Natural Language Processing with Graph Databases and Neo4j^]
-** https://www.lyonwj.com/2015/06/16/nlp-with-neo4j/[Natural Language Processing With Neo4j - Mining Paradigmatic Word Associations^]
-** https://medium.com/neo4j/using-nlp-in-neo4j-ac40bc92196f[Neo4j: Natural Language Processing (NLP) in Cypher^]
-** https://www.youtube.com/watch?v=mTCqQ2e08Q8[Neo4j Online Meetup #15: Natural Language Understanding with Python and Neo4j^]

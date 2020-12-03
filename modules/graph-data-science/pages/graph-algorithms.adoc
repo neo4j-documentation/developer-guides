@@ -65,7 +65,6 @@ image:https://dist.neo4j.com/wp-content/uploads/20200727025435/noun_tutorial_328
 The following guides provide hands on examples of the different algorithms in the Graph Data Science Library.
 
 * xref:graph-data-science:applied-graph-embeddings.adoc[Applied Graph Embeddings]
-* xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph using NLP and Ontologies]
 
 [#how-to-guides]
 == How-To Guides
@@ -75,6 +74,7 @@ image:noun_recipe_3127171.png[float="right", width="100px"]
 The recipes show how to use the Graph Data Science Library to solve common problems.
 
 * xref:graph-data-science:link-prediction/scikit-learn.adoc[]
+* xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[]
 
 
 [#explanation]
