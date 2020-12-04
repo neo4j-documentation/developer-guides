@@ -21,6 +21,13 @@ If we have not already, we can follow the instructions in the link:https://aura.
 
 Now that we've created our Neo4j Aura database, we're going to learn how to monitor it.
 
+[#aura-status]
+== Status Page
+
+Like every proper cloud service, Neo4j Aura also has a status page, that gives you a quick overview on the availability and operability of the overall service.
+
+https://neo4jaura.statuspage.io/[Aura Status Page^, role="button feature-box_button"]
+
 [#aura-metrics]
 == Built-in metrics
 
