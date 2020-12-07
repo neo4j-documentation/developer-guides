@@ -91,7 +91,7 @@ Both of these tools can be installed in Docker environments, and the project rep
 [#what-is-knowledge-graph]
 == What is a Knowledge Graph?
 
-There are many different definitions of Knowledge Graphs.
+There are many different definitions of https://neo4j.com/use-cases/knowledge-graph/[Knowledge Graphs^].
 In this tutorial, the definition of a Knowledge Graph is a graph that contains the following:
 
 Facts :: Instance data. This would include graph data imported from any data source and could be structured (e.g. JSON/XML) or semi structured (e.g. HTML)
