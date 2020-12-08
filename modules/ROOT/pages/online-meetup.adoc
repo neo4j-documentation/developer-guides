@@ -147,6 +147,18 @@ a|https://twitch.tv/neo4j_[On Twitch!^]
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 
+|**9 December** +
+_3:30pm UTC, 4:30pm CET, 9pm IST_, 11:30pm AWST, 1:30am AEST, 3:30am NZST
+|Guests Eric Solender and Florent Biville
+a|*Neo4j Streams*
+
+* Introduction to https://github.com/mindstand/gogm[GoGM^]
+
+a|https://twitch.tv/neo4j_[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+
 |**17 December** +
 _6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
 |Guests Doulkifli Boukraa and Siddharth Karumanchi, with co-hosts Jesús Barrasa & Lju Lazarevic
