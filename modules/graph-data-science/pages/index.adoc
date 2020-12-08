@@ -50,6 +50,11 @@ image:https://dist.neo4j.com/wp-content/uploads/np_swing_206_C595E4.png[Graph Da
 
 NEuler (Neo4j Euler) is a link:/developer/graph-apps/[graph app^] that helps Neo4j Desktop users get started with the Neo4j Graph Data Science Library.
 
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/h9FQtMtL9_A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
 link:/developer/neuler-no-code-graph-algorithms[Get started with NEuler, role="medium button"]
 
 [#nlp]
