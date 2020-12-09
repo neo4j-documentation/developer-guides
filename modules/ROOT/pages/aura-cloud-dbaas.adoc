@@ -74,7 +74,7 @@ link:/developer/aura-monitoring/[Monitoring your Aura database]
 
 Additional guides and help are available on the https://aura.support.neo4j.com/hc/en-us[Aura support^] page.
 
-https://neo4jaura.statuspage.io/[Aura Status Page^, role="button feature-box_button"]
+https://status.neo4j.io/[Neo4j Aura Status Page^, role="button feature-box_button"]
 
 You can also ask questions and connect with other people launching Neo4j Aura at the
 https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].
