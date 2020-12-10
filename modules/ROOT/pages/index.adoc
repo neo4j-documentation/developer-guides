@@ -171,29 +171,29 @@ Neo4j officially supports drivers for xref:dotnet.adoc[.Net], xref:java.adoc[Jav
 [.tabs]
 [source,Java]
 ----
-include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/java/Example.java[]
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/main/code/java/Example.java[]
 ----
 
 .Node.js
 [source,javascript]
 ----
-include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/javascript/example.js[]
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/main/code/javascript/example.js[]
 ----
 
 [source,Python]
 ----
-include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/python/example.py[]
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/main/code/python/example.py[]
 ----
 
 [source,Go]
 ----
-include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/go/example.go[]
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/main/code/go/example.go[]
 ----
 
 ..NET
 [source,c]
 ----
-include::https://raw.githubusercontent.com/neo4j-graph-examples/template/master/code/csharp/Example.cs[]
+include::https://raw.githubusercontent.com/neo4j-graph-examples/template/main/code/csharp/Example.cs[]
 ----
 
 You can learn more in our xref:language-guides.adoc[Drivers & Language Guides] or link:https://github.com/neo4j-examples[view example projects on Github, role=more information]
