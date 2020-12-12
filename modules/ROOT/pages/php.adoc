@@ -39,3 +39,18 @@ Bolt driver for PHP.
 | icon:user[] Author | https://www.linkedin.com/in/michalstefanak/[Michal Stefanak^]
 | icon:github[] Source | https://github.com/stefanak-michal/Bolt
 |===
+
+[#Client]
+== Full client
+
+*Neo4j-php-client* is a client supporting multiple protocols. *Http* and *bolt* are supported, starting from neo4j 2.3 up until the most recent version.
+
+It boasts many features such as multiple connections, transactions, http, bolt and authentication. It also integrates with the psalm static analysis tool for complete type safety.
+
+It is being actively developed and has an up to date roadmap which is on the https://github.com/laudis-technologies/neo4j-php-client#roadmap[Github page^].
+
+[cols="1,4"]
+|===
+| icon:user[] Author | https://www.linkedin.com/in/ghlen-nagels-1b6663134/[Ghlen Nagels^]
+| icon:github[] Source | https://github.com/laudis-technologies/neo4j-php-client
+|===
