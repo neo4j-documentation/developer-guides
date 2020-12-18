@@ -478,8 +478,8 @@ LIMIT 5;
 [#import-csv-resources]
 == CSV Import Resources
 
-* {opsmanual}/tools/import/[Manual: Import Tool^]
-* {opsmanual}/tutorial/import-tool/[Manual: Import Tool Tutorial^]
+* {opsmanual}/tools/neo4j-admin-import/[Manual: Import Tool^]
+* {opsmanual}/tutorial/neo4j-admin-import/#tutorial-neo4j-admin-import[Manual: Import Tool Tutorial^]
 * link:/developer/kb/?tag=load-csv[Knowledgebase Articles: LOAD CSV^]
 * link:https://github.com/neo4j-contrib/northwind-neo4j[GitHub project: Northwind CSV files^]
 * {opsmanual}/configuration/file-locations[Manual: Neo4j File Locations^]
