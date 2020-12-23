@@ -47,7 +47,7 @@ If you need the data separately, it is available in this https://github.com/neo4
 
 image::https://github.com/neo4j-graph-examples/movies/raw/main/documentation/img/model.svg[width=400]
 
-And example subgraph of the data is the neighborhood of "Tom Hanks".
+An example subgraph of the data is the neighborhood of "Tom Hanks".
 
 image::https://github.com/neo4j-graph-examples/movies/raw/main/documentation/img/example.png[width=400]
 
