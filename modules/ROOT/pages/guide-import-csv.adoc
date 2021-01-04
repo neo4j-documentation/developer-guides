@@ -406,7 +406,7 @@ There is specific markup on specific columns, which we will explain.
 * All other columns are treated as properties but skipped if empty or annotated with `:IGNORE`.
 * Type conversion is possible by suffixing the name with indicators like `:INT`, `:BOOLEAN`, etc.
 
-For more details on this header format and the tool, see the documentation in the {opsmanual}/tools/import/[Neo4j Manual^] and the accompanying {opsmanual}/tutorial/import-tool/[tutorial^].
+For more details on this header format and the tool, see the documentation in the {opsmanual}/tools/neo4j-admin-import/[Neo4j Manual^] and the accompanying {opsmanual}/tutorial/neo4j-admin-import/[tutorial^].
 
 There is also a lesson in the link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0_ online course] that covers using the neo4j-admin import tool.
 
