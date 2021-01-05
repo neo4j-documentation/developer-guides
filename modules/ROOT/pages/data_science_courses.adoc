@@ -1,3 +1,4 @@
+//obsolete
 = Data Science Courses
 :category: administration
 :tags: cypher, queries, graph-queries, resources, documentation, graph algorithms, data science, training

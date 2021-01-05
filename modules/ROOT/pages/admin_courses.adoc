@@ -1,3 +1,4 @@
+//obsolete
 = Administrator Courses
 :category: administration
 :tags: cypher, queries, graph-queries, resources, documentation, admin, training

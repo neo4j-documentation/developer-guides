@@ -1,3 +1,4 @@
+//obsolete
 = Developer Courses
 :category: developer
 :tags: cypher, queries, graph-queries, resources, documentation, cypher-training, cypher-help, training

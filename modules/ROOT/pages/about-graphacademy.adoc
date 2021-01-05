@@ -1,3 +1,4 @@
+//obsolete
 = icon:graduation-cap[] Learn through Neo4j GraphAcademy
 :level: Beginner
 :page-level: Beginner

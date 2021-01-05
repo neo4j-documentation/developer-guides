@@ -40,16 +40,20 @@ To help you along your path of learning more about Neo4j, we want to provide you
 
 *Free*, self-paced courses at https://neo4j.com/graphacademy/online-training/[GraphAcademy Online Training^].
 
-Here are our latest Neo4j 4.0 online, self-paced training courses:
+Here are our latest Neo4j 4.x online, self-paced training courses:
 
-* https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0^]
+* https://neo4j.com/graphacademy/training-overview-40/enrollment/[1 Overview of Neo4j 4.x^]
+* https://neo4j.com/graphacademy/training-querying-40/enrollment/[2. Querying with Cypher in Neo4j 4.x^]
+* https://neo4j.com/graphacademy/training-updating-40/enrollment/[3. Creating Nodes and Relationships in Neo4j 4.x^]
+* https://neo4j.com/graphacademy/training-best-practices-40/enrollment/[4. Using Indexes and Query Best Practices in Neo4j 4.x^]
+* https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[5. Importing Data with Neo4j 4.x^]
 * https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling for Neo4j^]
-* https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[Implementing Graph Data Models in Neo4j 4.0^]
-* https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[Cypher Query Tuning in Neo4j 4.0^]
+* https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[Implementing Graph Data Models in Neo4j 4.x^]
+* https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[Cypher Query Tuning in Neo4j 4.x^]
 * https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling for Neo4j^]
-* https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[Introduction to Graph Algorithms in Neo4j 4.0^]
+* https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[Introduction to Graph Algorithms in Neo4j 4.x^]
 * https://neo4j.com/graphacademy/online-training/gds-data-science/[Using a Machine Learning Workflow for Link Prediction^]
-
+* https://neo4j.com/graphacademy/training-gdsaa-40/enrollment/[Applied Graph Data Science for Web Applications^]
 
 Here are our Neo4j 3.5 online, self-paced training courses:
 

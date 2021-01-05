@@ -299,7 +299,7 @@ To help handle larger volumes of transactions, you can increase some configurati
 * link:/docs/cypher-manual/current/clauses/load-csv/[Cypher Manual: LOAD CSV^]
 * link:/developer/guide-importing-data-and-etl/[Example: Import Northwind Data Set]
 * link:https://youtu.be/Eh_79goBRUk[Video: LOAD CSV in the Real World^]
-* link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0: Using LOAD CSV for Import]
+* link:https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[Importing Data with Neo4j 4.x: Using LOAD CSV for Import]
 
 [#batch-importer]
 == Bulk Importer For Large Datasets
@@ -408,7 +408,7 @@ There is specific markup on specific columns, which we will explain.
 
 For more details on this header format and the tool, see the documentation in the {opsmanual}/tools/neo4j-admin-import/[Neo4j Manual^] and the accompanying {opsmanual}/tutorial/neo4j-admin-import/[tutorial^].
 
-There is also a lesson in the link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0_ online course] that covers using the neo4j-admin import tool.
+There is also a lesson in the link:https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[mporting Data with Neo4j 4.x: Using neo4j-admin] that covers using the neo4j-admin import tool.
 
 [#data-load-quality]
 == CSV Data Quality
