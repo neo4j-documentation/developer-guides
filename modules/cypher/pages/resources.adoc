@@ -26,7 +26,7 @@ To help you along your path of learning more about Cypher and how to use it, we 
 
 [#training-cypher]
 == Training, Courses, and Webinars
-* https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Training: Online Intro Course^]
+* https://neo4j.com/graphacademy/online-training/[Training: Self-paced online courses^]
 * https://neo4j.com/graphacademy/[Find Other Online and Classroom Training Sessions: GraphAcademy^]
 
 [#neo4j-events]
