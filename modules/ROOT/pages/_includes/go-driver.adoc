@@ -1,8 +1,4 @@
 
-++++
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/go/go.min.js"></script>
-++++
-
 The Neo4j Go driver is *officially supported* by Neo4j and connects to the database using the binary bolt protocol.
 It aims to be minimal, while being idiomatic to Go.
 

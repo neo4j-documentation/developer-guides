@@ -1,8 +1,4 @@
 
-++++
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.4/mode/java/java.min.js"></script>
-++++
-
 The Neo4j Java driver is *officially supported* by Neo4j and connects to the database using the binary protocol.
 It aims to be minimal, while being idiomatic to Java.
 We support Java 8 and 11 for the driver.
