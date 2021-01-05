@@ -1,6 +1,7 @@
 site:
   title: Neo4j Developer Portal
   url: /developer
+  start_page: developer:ROOT:index.adoc
 
 content:
   sources:
@@ -18,6 +19,7 @@ ui:
 
 urls:
   html_extension_style: indexify
+
 asciidoc:
   extensions:
   - "@neo4j-documentation/remote-include"
@@ -25,3 +27,5 @@ asciidoc:
   attributes:
     page-theme: developer
     page-disabletracking: true
+    experimental: ''
+    page-cdn: /static/assets
