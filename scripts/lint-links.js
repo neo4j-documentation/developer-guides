@@ -1,6 +1,6 @@
 const path = require('path')
 const hyperlink = require('hyperlink')
-const TapRender = require('@munter/tap-render');
+const TapRender = require('./tap-render.js');
 
 const root = path.join(__dirname, '..')
 
