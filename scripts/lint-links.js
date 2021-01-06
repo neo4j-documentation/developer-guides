@@ -10,6 +10,7 @@ const root = path.join(__dirname, '..')
   try {
     const skipPatterns = [
       // initial redirect
+      'load index.html',
       'load ../../../../../index.html',
       // google fonts
       'load https://fonts.googleapis.com/',
