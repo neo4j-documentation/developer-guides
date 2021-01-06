@@ -3,7 +3,7 @@
 :section: Documentation and Resources
 :category: documentation
 :tags: resources, online-meetup, community, developer, events, training, twitch
-:page-player: https://player.twitch.tv/?channel=neo4j_&muted=false&autoplay=true&parent=twitter.com&parent=cards-dev.twitter.com&parent=cards-frame.twitter.com
+:page-player: https://player.twitch.tv/?channel=neo4j&muted=false&autoplay=true&parent=twitter.com&parent=cards-dev.twitter.com&parent=cards-frame.twitter.com
 
 image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[width="300px",float="right"]
 
@@ -11,7 +11,7 @@ We run a variety of live streams and online meetups so that people around the wo
 
 You can keep an eye on what's happening by:
 
-* https://twitch.tv/neo4j_[Following us on Twitch^] to get notified when we go live
+* https://twitch.tv/neo4j[Following us on Twitch^] to get notified when we go live
 * Keep an eye out for event announcements on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup^] group
 * You can also https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel^]
 
@@ -130,7 +130,7 @@ a|*NODES2020 Extended*
 * History as a graph database
 * Humanizing HRTech with graph databases - AI powered CV parsers
 
-a|https://twitch.tv/neo4j_[On Twitch!^]
+a|https://twitch.tv/neo4j[On Twitch!^]
 
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
@@ -142,7 +142,7 @@ a|*NODES2020 Extended*
 * Manifold structures in semi-supervized and multiview learning
 * How Neo4j helps in the recruiting process
 
-a|https://twitch.tv/neo4j_[On Twitch!^]
+a|https://twitch.tv/neo4j[On Twitch!^]
 
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
@@ -155,7 +155,7 @@ a|*NODES2020 Extended*
 * Question-answering graphs: gain insights from Q&A systems like StackExchange
 * Building a custom electoral semantic knowledge graph to infer knowledge using Neosemantics
 
-a|https://twitch.tv/neo4j_[On Twitch!^]
+a|https://twitch.tv/neo4j[On Twitch!^]
 
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
@@ -168,7 +168,7 @@ a|*Ask me anything - .NET edition*
 
 Don't know drivers? Can't query? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
 
-a|https://twitch.tv/neo4j_[On Twitch!^]
+a|https://twitch.tv/neo4j[On Twitch!^]
 
 |===
 
