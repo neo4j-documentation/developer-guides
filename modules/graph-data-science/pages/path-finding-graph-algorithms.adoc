@@ -71,7 +71,7 @@ It has the following use cases:
 
 * Part of the https://pdfs.semanticscholar.org/51e7/8aa2041d595b3871a49f4b92be725199e73d.pdf[Finding Diverse High-Quality Plans for Hypothesis Generation] process.
 
-link:docs/graph-data-science/current/alpha-algorithms/yen-s-k-shortest-path/[Read Yen's k-Shortest Paths reference documentation^, role="medium button"]
+link:/docs/graph-data-science/current/alpha-algorithms/yen-s-k-shortest-path/[Read Yen's k-Shortest Paths reference documentation^, role="medium button"]
 
 [#all-pairs-shortest-path]
 == All-Pairs Shortest Path
