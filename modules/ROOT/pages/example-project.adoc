@@ -45,11 +45,11 @@ If you need the data separately, it is available in this https://github.com/neo4
 (:Person {name: string})-[:ACTED_IN {roles: [string]}]->(:Movie {title: string, released: number})
 ----
 
-image::https://github.com/neo4j-graph-examples/movies/raw/main/documentation/img/model.svg[width=400]
+image::graph-examples-movies-model.svg[width=400]
 
 An example subgraph of the data is the neighborhood of "Tom Hanks".
 
-image::https://github.com/neo4j-graph-examples/movies/raw/main/documentation/img/example.png[width=400]
+image::graph-examples-movies-example.png[width=400]
 
 [#app-project-data]
 == Data Setup
@@ -131,14 +131,14 @@ The Cypher query is used, with the parameters `{title:"The Matrix"}`
 
 It matches the movie by title, then optionally finds all people working on that movie and returns the movie title and a crew-list consisting of a map with person-name, job identifier derived from the relationship-type and optionally a role for actors.
 
-This is the Cypher statement used, it finds a movie by title and then returns for all people their name, possible roles, and the job (acted, directed, produced) as the first part of the lowercase rel-type `ACTED_IN -> acted`.  
+This is the Cypher statement used, it finds a movie by title and then returns for all people their name, possible roles, and the job (acted, directed, produced) as the first part of the lowercase rel-type `ACTED_IN -> acted`.
 
 [source,cypher]
 ----
 MATCH (movie:Movie {title:$title})
 OPTIONAL MATCH (movie)<-[rel]-(person:Person)
-RETURN movie.title as title, 
-collect({name:person.name, role:rel.roles, job:head(split(toLower(type(rel)),'_'))}) as cast 
+RETURN movie.title as title,
+collect({name:person.name, role:rel.roles, job:head(split(toLower(type(rel)),'_'))}) as cast
 LIMIT 1
 ----
 
@@ -199,7 +199,7 @@ Then run these commands:
 
 [source,shell]
 ----
-# Clone the appropriate repository for your language 
+# Clone the appropriate repository for your language
 # initialize the git repository and add files
 git init
 git add .
@@ -255,7 +255,7 @@ The connection details will be `bolt://localhost`, username: `neo4j` and your ch
  * Install the Movies dataset with `:play movies`
  * Click the large `CREATE` statement and hit the triangular "Run" button to insert the data.
  * You will need the bolt URL, username: `neo4j` and the password you saved as connection details
- 
+
 === Neo4j Sandbox
 
  - Log in to https://sandbox.neo4j.com/[Neo4j Sandbox].
