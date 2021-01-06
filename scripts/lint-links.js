@@ -17,7 +17,11 @@ const root = path.join(__dirname, '..')
       // static resources
       'load static/assets',
       // rate limit on twitter.com (will return 400 code if quota exceeded)
-      'external-check https://twitter.com/neo4j'
+      'external-check https://twitter.com/neo4j',
+      // ignore until https://github.com/neo4j/neo4j-java-driver-spring-boot-starter/pull/38 is merged
+      'fragment-check build/site/developer/java-driver-spring-boot-starter/index.html --> #Configuration options',
+      // ignore until https://github.com/neo4j/neo4j-ogm/pull/867 is merged
+      'fragment-check build/site/developer/neo4j-ogm/index.html --> #reference:native-property-types:supported-drivers'
     ]
     const neo4jRootRelativeUrls = []
     const skipFilter = (report) => {
