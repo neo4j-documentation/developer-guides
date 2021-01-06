@@ -1,4 +1,6 @@
 = How to set up a Neo4j Cluster
+// FIXME: /developer/guide-clustering-neo4j redirects to /docs/operations-manual/current/clustering/
+// this page won't be seen, should we remove it?
 :level: Advanced
 :page-level: Advanced
 :author: Neo4j

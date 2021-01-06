@@ -49,7 +49,7 @@ Some of these guides cover information on handling different types of deployment
 [unstyled]
 - xref:docker.adoc[Running Neo4j in Docker]
 - xref:docker-run-neo4j.adoc[How-To: Run Neo4j in Docker]
-- xref:guide-clustering-neo4j.adoc[Set up a Neo4j Cluster]
+- link:/docs/operations-manual/current/clustering/[Set up a Neo4j Cluster]
 
 Public and/or private cloud provider deployment options are also possible.
 Cloud-hosted offerings and how to deploy Neo4j to infrastructure or platform providers is documented and referenced in the link:/developer/guide-cloud-deployment/[cloud] and link:/developer/aura-cloud-dbaas/[Neo4j Aura] sections.
