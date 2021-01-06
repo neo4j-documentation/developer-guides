@@ -15,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:get-started.adoc#property-graph[property graph model].
+You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:graph-database.adoc#property-graph[property graph model].
 
 [role=expertise {level}]
 {level}

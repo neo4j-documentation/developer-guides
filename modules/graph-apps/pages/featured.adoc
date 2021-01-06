@@ -20,7 +20,7 @@ image:graph-gallery-screenshot.jpg[Graph Gallery Screenshot]
 
 If you are new to Graph Databases then the Graph Gallery is a good place to look for inspiration.
 The Graph Gallery features a curation of over a hundred example graphs categorised by use case and industry.
-Each entry includes a **Play as Browser Guide** button, allowing you to walk through the example step-by-step in xref:ROOT:neo4j-browser[Neo4j Browser].
+Each entry includes a **Play as Browser Guide** button, allowing you to walk through the example step-by-step in xref:ROOT:neo4j-browser.adoc[Neo4j Browser].
 
 link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/graph-gallery[Install Graph Gallery in Neo4j Desktop,role=button]
 
@@ -89,7 +89,7 @@ link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/
 === Neo4j Cloud Tool
 
 image:https://install.graphapp.io/images/cloud-icon.png[Neo4j Cloud Tool Logo,width=48,float=right,role=rounded]
-The Neo4j Cloud Tool provides the functionality required to load your local Neo4j Instances into a xref:ROOT:aura-cloud-dbaas[Neo4j Aura] instance.  Neo4j Aura is a fully-managed cloud database service.
+The Neo4j Cloud Tool provides the functionality required to load your local Neo4j Instances into a xref:ROOT:aura-cloud-dbaas.adoc[Neo4j Aura] instance.  Neo4j Aura is a fully-managed cloud database service.
 
 link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neo4j-cloud-ui[Install Neo4j Cloud Tool in Neo4j Desktop, role=button]
 
@@ -112,4 +112,4 @@ link:neo4j-desktop://graphapps/install?url=https://registry.npmjs.org/neomap[Ins
 
 == Build Your Own
 
-If you are interested in building your own graph app, you can follow our xref:building-a-graph-app[Building Graph Apps Guide].
+If you are interested in building your own graph app, you can follow our xref:building-a-graph-app.adoc[Building Graph Apps Guide].
