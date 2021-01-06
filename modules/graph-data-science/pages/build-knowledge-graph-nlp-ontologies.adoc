@@ -486,7 +486,7 @@ include::example$nlp/queries.cypher[tag="zookeeper"]
 ----
 
 .Zookeeper to NoSQL
-image::zookeeper-nosql.png[Zookeeper to NoSQL, link="{imagesdir}/zookeeper-nosql",role="popup-link"]
+image::zookeeper-nosql.png[Zookeeper to NoSQL,role="popup-link"]
 
 So Apache Zookeeper is actually a couple of levels away from the NoSQL category.
 
