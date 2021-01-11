@@ -23,14 +23,13 @@ You can keep an eye on what's happening by:
 
 image::https://miro.medium.com/fit/c/192/192/1*KfYHH6t6NEUEtbgMLFHiuw.jpeg[Ljubica Lazarevic,width="200px",float="right"]
 
-*3pm UTC (7am PST, 10am EST, 8:30pm IST)*
+*4pm UTC (8am PST, 11am EST, 9:30pm IST)*
 
-https://twitter.com/ellazal[Lju Lazarevic^] does a double whammy of looking at an article from our developer newsletter, https://neo4j.com/tag/twin4j/[This Week in Neo4j^], as well as her current series of exploring a https://r.neo4j.com/wine-repo[wine data set^], showing data wrangling tips and tricks along the way.
+https://twitter.com/ellazal[Lju Lazarevic^] looks at an article from our developer newsletter, https://neo4j.com/tag/twin4j/[This Week in Neo4j^].
 
 Missed a stream? Check out the playlists:
 
 * https://www.youtube.com/watch?v=UQTBJKFEinI&list=PL9Hl4pk2FsvXfHQHBMHv3U9MmhpNc8Vqe[Article review from This Week in Neo4j^]
-* https://www.youtube.com/watch?v=J7WHEnA-Ygg&list=PL9Hl4pk2FsvU7skL6tC-ZoSALfDQ552bI&index=1[Adventures with a wine data set^]
 
 
 === Tuesday - Adam
@@ -51,7 +50,7 @@ Missed a stream? Check out the playlist:
 
 image::https://media-exp1.licdn.com/dms/image/C4D03AQFD0qtWpX0E2Q/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=XkIWRyYlDMGy7VSdvLrCBpVoLianqpNomhefQllMcbw[Michael Hunger,width="200px",float="right"]
 
-*10am UTC (5am EST, 11am CET, 3:30pm IST, 6pm AWST)*
+*7:30am PST, 10:30 EST, 3:30pm UTC, 4:30pm CET, 9pm IST*
 
 https://twitter.com/fbiville[Florent Biville^] shows how to build applications based on the available drivers (HTTP, Bolt, JDBC) and Object-Graph mappers. He's currently building a https://realworld.io[realworld.io] backend in Golang with the official Neo4j driver.
 
@@ -84,89 +83,45 @@ We also host regular online meetups! Check out the schedule below:
 |===
 |Date | Presenters | Description | Sign up
 
-|**5 November** +
-_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-
-|Speakers Chris Eyre and Tim Reimer, with co-hosts Nathan Smith & Lju Lazarevic
-a|*NODES2020 Extended*
-
-* Viewing contentful data with Neo4j
-* Semantic transformation with Enterprise Application Integration (EAI) using Graphs
-a|https://youtu.be/DxniBWrgueA[Catch-up Link^]
-
-|**10 November** +
-_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guest Otávio Calaça Xavier, with co-hosts Nathan Smith & Lju Lazarevic
-a|*NODES2020 Extended*
-
-* Analyzing open public data of brazilian companies and their partnerships in a graph database.
-a|https://youtu.be/dr-CGVz6x7I[Catch-up Link^]
-
-|**17 November** +
-_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guest Mayank Gangwal, with co-hosts Nathan Smith & Alexander Erdl
-a|*NODES2020 Extended*
-
-* Metrics driven agile and devops transformation using Neo4j
-
-a|https://youtu.be/NF_KVbqHw7Q[Catch-up Link^]
-
-
-|**24 November** +
-_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guest Michael Herman, with co-hosts Chris Skardon & Lju Lazarevic
-a|*NODES2020 Extended*
-
-* Csharp Superstack: Creating highly scalable Neo4j web apps without Javascript
-
-a|https://youtu.be/1B1n38WmBm8[Catch-up Link^]
-
-
-|**3 December** +
-_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Julian Gomez and Shilpa Karkeraa, with co-hosts Nathan Smith & Lju Lazarevic
-a|*NODES2020 Extended*
-
-* History as a graph database
-* Humanizing HRTech with graph databases - AI powered CV parsers
-
-a|https://twitch.tv/neo4j[On Twitch!^]
-
-https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
-
-|**7 December** +
-_7am UTC, 8am CET, 12:30pm IST_, 3pm AWST, 5pm AEST, 8pm NZST
-|Guests Monojit Basu, Aleksandra Asanin and Ruben Teijeiro, with co-hosts Alexander Erdl and Lju Lazarevic
-a|*NODES2020 Extended*
-
-* Manifold structures in semi-supervized and multiview learning
-* How Neo4j helps in the recruiting process
-
-a|https://twitch.tv/neo4j[On Twitch!^]
-
-https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
-
-
-|**17 December** +
-_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-|Guests Doulkifli Boukraa and Siddharth Karumanchi, with co-hosts Jesús Barrasa & Lju Lazarevic
-a|*NODES2020 Extended*
+|**15 January** +
+_7am PST, 10am EST, 3pm UTC, 4pm CET, 8:30pm IST_
+|Guests Doulkifli Boukraa with hosts Lju Lazarevic
+a|*NODES2020 Extended - Rescheduled*
 
 * Question-answering graphs: gain insights from Q&A systems like StackExchange
-* Building a custom electoral semantic knowledge graph to infer knowledge using Neosemantics
 
 a|https://twitch.tv/neo4j[On Twitch!^]
 
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 
-|**12 January 2021** +
-_6am PST, 9am EST, 2pm UTC, 3pm CET, 7:30pm IST_
-Chris Skardon & Lju Lazarevic
+|**Coming soon 2021!** +
+
+|Chris Skardon & Lju Lazarevic
 
 a|*Ask me anything - .NET edition*
 
-Don't know drivers? Can't query? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+
+a|https://twitch.tv/neo4j[On Twitch!^]
+
+|**Coming soon 2021!** +
+
+|Tom Geudens & Lju Lazarevic
+
+a|*Ask me anything - Architecture and deployment edition*
+
+Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+
+a|https://twitch.tv/neo4j[On Twitch!^]
+
+|**Coming soon 2021!** +
+
+|Jesus Barrasa & Lju Lazarevic
+
+a|*Ask me anything - RDF Edition*
+
+Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
 
 a|https://twitch.tv/neo4j[On Twitch!^]
 
