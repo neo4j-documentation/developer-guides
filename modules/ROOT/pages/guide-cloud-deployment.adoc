@@ -1,6 +1,4 @@
 = Hosting Neo4j in the Cloud
-// FIXME: /developer/guide-cloud-deployment redirects to /developer
-// this page won't be seen, should we remove it?
 :author: Jennifer Reif
 :category: cloud
 :tags: cloud, hosting, aura, aws, google, azure, kubernetes, docker, paas
