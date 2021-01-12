@@ -40,7 +40,7 @@ include::./driver-warning.adoc[]
 | The Neo4j Team, http://twitter.com/cskardon[Chris Skardon], https://twitter.com/IngvarKofoed[Martin Jensen]
 
 | http://www.nuget.org/packages/Neo4j.Driver[icon:gift[] NuGet Package]
-| {examples}//movies-dotnet-bolt[icon:play-circle[] Example]
+| {examples}/movies-dotnet-bolt[icon:play-circle[] .NET Example], {examples}/movies-dotnetcore-bolt[icon:play-circle[] .NET core example]
 | https://community.neo4j.com/c/drivers-stacks/NET[Neo4j Online Community^]
 
 | {drivermanual}[icon:book[] Docs^]
