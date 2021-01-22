@@ -1,0 +1,38 @@
+
+When you open Neo4j Desktop for the first time you will see a Neo4j Primer Project with the  Movie Database already started as shown here:
+
+image::{img}generic-first_open_desktop.png[role="popup-link"]
+
+You can use this already-started DBMS if you want to begin learning about using Neo4j and Cypher.
+For your development, you typically create one or more projects where a project can contain one or more DBMSs.
+
+Next, you will create a new project in Neo4j Desktop.
+You  can only have a single DBMS running, so you must first stop the DBMS that is started by clicking the *Stop* button:
+
+image::{img}generic-stop_movie_database.png[role="popup-link"]
+
+You should now see that there is no active DBMS:
+
+image::{img}generic-movie_database_stopped.png[role="popup-link"]
+
+Add a new project by clicking *New* at the top of the sidebar:
+
+image::{img}generic-create_project.png[role="popup-link"]
+
+This creates a project named *Project*:
+
+image::{img}generic-project_created.png[role="popup-link"]
+
+You want your projects to be named something that describes the goal of the project.
+You can change the name of a project by hovering over the area to the right of the project name and selecting the *Edit* button:
+
+image::{img}generic-name_project.png[role="popup-link"]
+
+Then you type a name for the project and select the "Check" button to save the name.
+
+image::{img}generic-change_project_name.png[role="popup-link"]
+
+And here we see the project with the changed name:
+
+image::{img}generic-project_named.png[role="popup-link"]
+

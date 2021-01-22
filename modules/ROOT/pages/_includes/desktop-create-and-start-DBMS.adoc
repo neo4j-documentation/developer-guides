@@ -1,0 +1,44 @@
+
+In a Neo4j Desktop project, you can create one or more DBMSs.
+Next, you will create a local DBMS in a project and start it.
+
+In the project where you want to add the DBMS, click the *Add* button, and then select *Local DBMS*:
+
+image::{img}generic-create_local_DBMS.png[role="popup-link"]
+
+This opens a dialog where you will specify the details of the DBMS.
+You can use the default name for the DBMS, which is Graph DBMS, but you should name it something that helps to identify the use case for the DBMS.
+Here we specify MyDBMS as the name:
+
+image::{img}generic-name_DBMS.png[role="popup-link"]
+
+You [underline]#must# specify a password for the DBMS so enter a password that you will remember:
+
+image::{img}generic-password_DBMS.png[role="popup-link"]
+
+Neo4j Desktop will create a DBMS with the default version for Neo4j Desktop.
+However, you can select a different version.
+Keep in mind that if there is a down arrow shown next to the version, this means that Neo4j Desktop will need to download resources for that particular version of the DBMS. To do this you [underline]#must# be connected to the Internet:
+
+image::{img}generic-version_DBMS.png[role="popup-link"]
+
+After you have specifed the details for the DBMS you want to create, you click the *Create* button:
+
+image::{img}generic-create_DBMS.png[role="popup-link"]
+
+And here is what you should see after the DBMS is successfully created:
+
+image::{img}generic-DBMS_created.png[role="popup-link"]
+
+Recall that you cannot have more than one DBMS started.
+Provided you have no other DBMSs started in Neo4j Desktop, you can start your newly-created DBMS by hovering to the right of the DBMS name and clicking the *Start* button:
+
+image::{img}generic-start_DBMS.png[role="popup-link"]
+
+The DBMS will take a few seconds to start. After it is started, you should see something like this:
+
+image::{img}generic-DBMS_started.png[role="popup-link"]
+
+After the DBMS is started, you can access it with clients running on your system such as Neo4j Browser, Neo4j Bloom, etc.
+In Neo4j Desktop, the DBMS is an Enterprise Server, but it can only be accessed locally.
+
