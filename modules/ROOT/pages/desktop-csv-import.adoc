@@ -170,6 +170,24 @@ Notice that the *orders.csv* and the *order-details.csv* return in a different f
 This is because those files have headers, so the column names are returned with the values for those rows.
 Since the *products.csv* does not have column names, then `LOAD CSV` just returns the plain data row from the file.
 
+[#filtering-load]
+== Filtering what you load with `LOAD CSV`
+
+After inspecting the data, you may only want to view or load a subset of the data in the CSV file.
+You can filter what you view (or load) as follows:
+
+[source, cypher]
+----
+//count data rows in orders.csv (headers)
+LOAD CSV WITH HEADERS FROM 'file:///orders.csv' AS row
+WITH row where row.shipCountry = 'Germany'
+RETURN row
+LIMIT 5;
+----
+
+image:{img}developer-desktop-csv-import-FilterCSV.png[role="popup-link"]
+
+
 [#data-types]
 == Data types
 
