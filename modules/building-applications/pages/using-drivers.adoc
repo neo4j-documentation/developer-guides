@@ -51,7 +51,7 @@ The driver accepts two arguments:
 
 === Connection Strings
 
-Regardless of whether you are connecting to a single instance of Neo4j or a xref:ROOT:guide-clustering-neo4j[Causal Cluster] your application code will remain the same - the only difference will be the connection string.
+Regardless of whether you are connecting to a single instance of Neo4j or a link:/docs/operations-manual/current/clustering/[Causal Cluster] your application code will remain the same - the only difference will be the connection string.
 
 A connection string consists of a **scheme** and the URI and port of the Neo4j instance.  For example, by default a connection to a Neo4j Desktop instance will be:
 

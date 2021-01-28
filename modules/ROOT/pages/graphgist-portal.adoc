@@ -25,7 +25,7 @@ You should have a good understanding of the Neo4j's link:/developer/get-started/
 {graphgists_list}[Neo4j Graph Gists] are an easy way to create and share your documents containing not just prose, structure and pictures but most importantly **example graph models and use cases** expressed in Neo4j's query language, link:/developer/cypher[Cypher].
 They are very helpful to share knowledge among the Neo4j community and help developers and others within your own organization by showing real-life solutions.
 
-image::graphgists.jpg[link="graphgists.jpg",role="popup-link"]
+image::graphgists.jpg[role="popup-link"]
 
 These documents are written in a simple, textual markup language (http://asciidoctor.org[AsciiDoc^]) and are rendered in your browser as rich and interactive web pages that you can quickly evolve by describing simple how-tos or questions to providing an extensive use case specification.
 
@@ -53,5 +53,5 @@ More information on getting started building your own GraphGist is available on 
 You can also explore the full range of GraphGists from xref:neo4j-desktop.adoc[Neo4j Desktop] using the *Graph Gallery* Graph App.
 You can install the Graph App with a single click at https://install.graphapp.io[install.graphapp.io^]
 
-image::GraphGallery.jpg[link="GraphGallery.jpg",role="popup-link"]
+image::GraphGallery.jpg[role="popup-link"]
 

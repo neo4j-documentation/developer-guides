@@ -15,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should have a basic understanding of the xref:ROOT:get-started.adoc#property-graph[property graph model].
+You should have a basic understanding of the xref:ROOT:graph-database.adoc#property-graph[property graph model].
 Having link:/download[downloaded] and installed Neo4j helps you code along with the examples.
 Importing the data is covered in our xref:ROOT:guide-importing-data-and-etl.adoc[data import guide].
 

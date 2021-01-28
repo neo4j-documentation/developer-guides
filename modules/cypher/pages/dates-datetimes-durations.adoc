@@ -16,7 +16,7 @@
 
 .Prerequisites
 [abstract]
-You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:get-started.adoc#property-graph[property graph model].
+You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:graph-database.adoc#property-graph[property graph model].
 This guide is a continuation of the concepts discussed in the previous Cypher sections.
 You should be familiar with xref:index.adoc[MATCH], xref:updating.adoc[Create/Update/Delete], and xref:filtering-query-results.adoc[Filtering] concepts before walking through this guide.
 

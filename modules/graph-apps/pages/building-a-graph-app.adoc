@@ -66,7 +66,7 @@ Click *Enable Development Mode* and add fill out the Entry Point and Root Path.
 
 image::{img}developer-tools.png[Developer Tools window with Enable development mode checkbox and fields for Entry Point and Root Path, title="Developer Tools form"]
 
-- *Entry Point*: This is the path to your app, either a location of an HTML file (for example `file:///Users/me/my-graph-app/index.html`), or an HTTP url where your app is being served (for example `http://localhost:8080`).
+- *Entry Point*: This is the path to your app, either a location of an HTML file (for example `\file:///Users/me/my-graph-app/index.html`), or an HTTP url where your app is being served (for example `http://localhost:8080`).
 - *Root Path*: This is the path to the root of your development project.
  If you are running Background Processes, this should be the location of the files that contain your Java or Node.js processes  - if in doubt, you can just set it to `/`.
 

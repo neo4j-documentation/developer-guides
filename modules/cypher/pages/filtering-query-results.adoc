@@ -15,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:get-started.adoc#property-graph[property graph model].
+You should be familiar with xref:ROOT:get-started.adoc[graph database] concepts and the xref:ROOT:graph-database.adoc#property-graph[property graph model].
 This guide is a continuation of the xref:index.adoc[Cypher Syntax] and xref:updating.adoc[Read and Write Operations] sections.
 You should be familiar with those concepts before walking through this guide.
 
