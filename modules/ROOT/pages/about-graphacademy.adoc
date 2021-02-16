@@ -46,7 +46,7 @@ https://neo4j.com/graphacademy/online-training/[Click here to enroll in a free o
 For those who are unable to travel or who want to learn more about the broader graph world, Neo4j also hosts online meetups and webinars.
 These events cover a variety of topics and include partner products, community projects, and technical solutions for users at all levels.
 
-* https://neo4j.com/developer/online-meetup.adoc[Twitch, YouTube and Meetup Live Streams]
+* https://neo4j.com/developer/online-meetup[Twitch, YouTube and Meetup Live Streams]
 * https://neo4j.com/webinars/[Neo4j Webinars^]
 
 === Instructor-led Training
