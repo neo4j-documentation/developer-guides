@@ -200,7 +200,7 @@ You can learn more in our xref:language-guides.adoc[Drivers & Language Guides] o
 
 == Neo4j Community Forum
 
-If you're ever stuck and need help, head over to the link:https://community.neo4j[Neo4j Community Site^].
+If you're ever stuck and need help, head over to the link:https://community.neo4j.com[Neo4j Community Site^].
 We have an active community of experts who are more than happy to answer your questions.
 
 Why not join our community and link:https://community.neo4j.com/c/general/introduce-yourself/7[introduce yourself]?
