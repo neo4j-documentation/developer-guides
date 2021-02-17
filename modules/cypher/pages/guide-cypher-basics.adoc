@@ -285,7 +285,7 @@ image::ThreeDegreesKevinBacon.png[3 Hops from Kevin Bacon, link="{imagesdir}/Thr
 === Find the Bacon Path to Meg Ryan
 
 What is the shortest path between Kevin Bacon and Meg Ryan in the graph?
-In this Cypher,, we are returning the path that includes nodes and relationships.
+In this Cypher, we are returning the path that includes nodes and relationships.
 
 Copy and paste this code into the query pane and execute it:
 
