@@ -34,7 +34,7 @@ The library contains implementations for the following types of algorithms:
 
 * link:/docs/graph-data-science/current/algorithms/linkprediction/[Link Prediction^] - these algorithms determine the closeness of pairs of nodes
 
-* link:/docs/graph-data-science/1.3-preview/algorithms/node-embeddings/[Node Embeddings^] - these algorithms compute vector representations of nodes in a graph.
+* link:/docs/graph-data-science/current/algorithms/node-embeddings/[Node Embeddings^] - these algorithms compute vector representations of nodes in a graph.
 
 link:/graph-data-science-library[Learn more about Neo4j GDSL^, role="medium button"]
 
