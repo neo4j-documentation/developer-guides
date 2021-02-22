@@ -180,7 +180,7 @@ type Mutations {
                          MERGE (d)-[:DIRECTED]->(m)")
 }
 schema {
-   mutations: Mutations
+   mutation: Mutations
 }
 ----
 
