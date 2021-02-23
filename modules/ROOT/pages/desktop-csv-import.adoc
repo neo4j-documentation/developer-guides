@@ -180,7 +180,7 @@ You can filter what you view (or load) as follows:
 ----
 //count data rows in orders.csv (headers)
 LOAD CSV WITH HEADERS FROM 'file:///orders.csv' AS row
-WITH row where row.shipCountry = 'Germany'
+WITH row WHERE row.shipCountry = 'Germany'
 RETURN row
 LIMIT 5;
 ----

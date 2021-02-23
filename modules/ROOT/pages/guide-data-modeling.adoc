@@ -17,6 +17,7 @@ You should understand the basics of Neo4j's link:/developer/get-started/graph-da
 [role=expertise {level}]
 {level}
 
+ifndef::env-guide[]
 [#modeling-intro]
 == Introduction
 
@@ -62,6 +63,8 @@ The ability to easily whiteboard your data model makes the graph data model incr
 There is no need to draw up business model versions or explain ERD terms to business users.
 Instead, the graph data model is easily understood by anyone.
 
+endif::[]
+
 [#describe-domain]
 == Describing a Domain
 
@@ -77,6 +80,7 @@ Both *John* and *Sally* +++<u>have read</u>+++ the _book_, *Graph Databases*.
 We can use the information in this statement to build our model by identifying the components as labels, nodes, and relationships.
 Let us take the scenario into pieces and define them as parts of our property graph model.
 
+ifndef::env-guide[]
 .Review - Property Graph Elements (click to zoom)
 image:{img}property_graph_elements.jpg[role="popup-link"]
 
@@ -98,6 +102,11 @@ Entities such as a car, a person, a customer, a company, an asset, and others si
 
 We can identify nodes as entities with a unique conceptual identity.
 In our scenario we began for Sally and John, these entities are outlined below in bold.
+endif::[]
+
+ifdef::env-guide[]
+== Defining Nodes
+endif::[]
 
 .Scenario - Defining Nodes
 [quote]
@@ -117,6 +126,7 @@ Remember that a graph database takes each instance of an entity as a separate no
 .Graph Model - Nodes
 image:{img}modeling_johnsally_nodes.jpg[400,400,role="popup-link"]
 
+ifndef::env-guide[]
 [#add-labels]
 == Labels
 
@@ -138,6 +148,11 @@ To find out if we can group objects in our Sally and John scenario, we will star
 We can find two different types of objects in the statement, which are emphasized below.
 
 .Scenario - Defining Labels
+endif::[]
+ifdef::env-guide[]
+== Defining labels
+endif::[]
+
 [quote]
 Two _people_, John and Sally, are friends.
 Both John and Sally have read the _book_, Graph Databases.
@@ -147,12 +162,13 @@ Extracting the labels: +
 * _Book_
 
 Now that we have identified both our nodes and labels, we can update our graph data model to assign the labels to the nodes they describe.
-For *John* and *Sally*, we apply the role _Person_.
-For *Graph Databases*, we apply the role _Book_.
+For *John* and *Sally*, we apply the label _Person_.
+For *Graph Databases*, we apply the label _Book_.
 
 .Graph Model - Labels
 image:{img}modeling_johnsally_labels.jpg[400,400,role="popup-link"]
 
+ifndef::env-guide[]
 [#define-rels]
 == Relationships
 
@@ -171,9 +187,15 @@ Just as we have found nodes and labels by looking for nouns, you can often find 
 Actions such as DRIVES, HAS_READ, MANAGES, ACTED_IN, and others similar can be defined as different types of relationships to exist between nodes.
 ****
 
+.Scenario - Defining Relationships
+endif::[]
+
+ifdef::env-guide[]
+== Defining Relationships
+endif::[]
+
 Let us identify the interactions (which are underlined in our scenario below) between the *John*, *Sally*, and *Graph Database* nodes.
 
-.Scenario - Defining Relationships
 [quote]
 Two people, Sally and John, +++<u>are friends</u>+++.
 Both John and Sally +++<u>have read</u>+++ the book, Graph Databases.
@@ -190,6 +212,7 @@ John and Sally have both read the Graph Databases book, so we can connect each o
 .Graph Model - Relationships
 image:{img}modeling_johnsally_relationships.jpg[400,400,role="popup-link"]
 
+ifndef::env-guide[]
 [#fillin-properties]
 == Properties
 
@@ -201,6 +224,11 @@ Most standard data types are supported as properties, with the full list publish
 
 Properties allow you to store relevant data about the node or relationship with the entity it describes.
 They can often be found by knowing what kinds of questions your use case needs to ask of your data.
+
+endif::[]
+ifdef::env-guide[]
+== Defining Properties
+endif::[]
 
 For our John and Sally scenario, we can list some questions that we might want to answer about the data.
 
@@ -221,6 +249,41 @@ image:{img}modeling_johnsally_properties.jpg[400,400,role="popup-link"]
 With the final model, we now can answer each of the questions we defined in our list.
 Of course, we can grow and change the model over time and add/remove relationships, nodes, properties, and labels.
 The flexibility and simplicity of the property graph data model allows users to easily review the data structure and update it according to the changing needs of the business.
+
+ifdef::env-guide[]
+== Implementing the model
+
+You use Cypher statements to create your graph. There are many ways to load data into the graph. Here we use the MERGE clause to create the data model.
+
+Execute this code to create the graph for this simple data model:
+
+[source,Cypher]
+----
+MERGE (j:Person {name: 'John', age: 27})
+MERGE (s:Person {name: 'Sally', age: 32})
+MERGE (b:Book {title: 'Graph Databases', authors: ['Jim Webber', 'Ian Robinson']})
+MERGE (j)-[rel1:IS_FRIENDS_WITH]->(s)
+ON CREATE SET rel1.since = '01/09/2013'
+MERGE (j)-[rel2:HAS_READ]->(b)
+ON CREATE SET rel2.on = '02/03/2013', rel2.rated = 5
+MERGE (s)-[rel3:HAS_READ]->(b)
+ON CREATE SET rel3.on = '02/09/2013', rel3.rated = 4
+----
+
+== Viewing the data in the graph
+
+After you have created the graph, you can view it with this statement:
+
+[source,Cypher]
+----
+MATCH (n) RETURN n
+----
+
+In Neo4j Browser, you can hover over each node and relationship in the graph to view its properties.
+
+image:{img}ImplementedModel.png[]
+
+endif::[]
 
 [#graph-design]
 == Graph Data Modeling Design

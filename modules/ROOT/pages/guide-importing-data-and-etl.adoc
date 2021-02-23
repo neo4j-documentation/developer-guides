@@ -140,13 +140,13 @@ Importing the relationships will mean looking up the nodes we just created and a
 To ensure the lookup of nodes is optimized, we will want to create indexes for any node properties we want to use in the lookups (often the id or another unique value).
 
 We also want to create a constraint (also creates an index with it) that will disallow orders with the same id from getting created, preventing duplicates.
-Finally, as the indexes are created after the nodes are inserted, their population happens asynchronously, so we use the `schema await` (a shell command) to block until they are populated.
+Finally, as the indexes are created after the nodes are inserted, their population happens asynchronously, so we call  `db.await.indexes()` to block until they are populated.
 
 [source, cypher]
 ----
 include::example$import_csv.cypher[tags=indexes]
 include::example$import_csv.cypher[tags=constraints]
-schema await
+CALL db.await.indexes();
 ----
 
 Initial nodes and indexes in place, we can now create the relationships for orders to products and orders to employees.
