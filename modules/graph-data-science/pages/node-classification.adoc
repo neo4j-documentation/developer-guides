@@ -151,8 +151,7 @@ CALL gds.graph.create(
       fighting_skills:{property:'fighting_skills', defaultValue:0},
       durability:{property:'durability', defaultValue:0},
       speed:{property:'speed', defaultValue:0},
-      intelligence:{property:'intelligence', defaultValue:0},
-      group_membership:{property:'group_membership',defaultValue:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}
+      intelligence:{property:'intelligence', defaultValue:0}
       }
     }
   }, {
@@ -298,11 +297,30 @@ CALL gds.alpha.hits.mutate('marvel-character-graph',{
 });
 ----
 
-Lastly, we will use the https://neo4j.com/docs/graph-data-science/current/algorithms/fastrp/[Fast Random Projection] (FastRP) embedding algorithm to create embedding vectors for each node, that will be used in one of our node classifications.  
+Lastly, we will use the https://neo4j.com/docs/graph-data-science/current/algorithms/fastrp/[Fast Random Projection] (FastRP) embedding algorithm to create embedding vectors for each node, that will be used in one of our node classifications.  Despite the fact that we will only be looking at a subset of this graph, namely X-Men and those who might be X-men or relate to them somehow, but we will compute the embeddings for the whole graph. 
+
+[source, cypher]
+----
+CALL gds.beta.fastRPExtended.write('marvel-character-graph',{
+    relationshipTypes:['APPEARS_WITH_UNDIRECTED'],
+    featureProperties: ['strength','fighting_skills','durability','speed','intelligence','appeared_with_pageRank','ally_pageRank','enemy_pageRank','appeared_with_betweenness','ally_betweenness','enemy_betweenness','appeared_with_hub','appeared_with_auth'], //14 node features
+    relationshipWeightProperty: 'times',
+    propertyDimension: 45,
+    embeddingDimension: 250,
+    iterationWeights: [0, 0, 1.0, 1.0],
+    normalizationStrength:0.05,
+    writeProperty: 'fastRP_Extended_Embedding'
+})
+----
 
 [NOTE]
 ====
 For more information on graph embeddings and how they can be used, see link:/developer/graph-data-science/graph-embeddings[Applied Graph Embeddings].
+====
+
+Finally, we can drop the `marvel-character-graph` to free up some memory via `CALL gds.graph.drop('marvel-character-graph')`.
+
+
 
 In this next section we will demonstrating how to run the node classifcation algorithm on two different models: one where we use the properties associated with each character and conver them to tabular format for training and one where we use the FastRP graph embedding algorithm to create vector embeddings for the training and test set in order to predict node classes.  ***insert link to FastRP***
 
