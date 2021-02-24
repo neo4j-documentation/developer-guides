@@ -23,7 +23,7 @@ Please have link:/download[Neo4j^] (version 4.2.3 or later) and link:/download-c
 
 Node classification is a supervised machine learning (ML) approach whereby existing nodes with known classes can be used to train a model that will learn the classes for nodes where they are unknown. In order to achieve this, the data must be split into two parts -- a training graph and a testing graph -- prior to predicting the classes for the unknown nodes.  The training process involves splitting the training graph into two parts -- a training and validation set -- that will be used to fine tune the model through subsequent steps.  
 
-Node classification is based on https://en.wikipedia.org/wiki/Logistic_regression[logistic regression].  As in any ML model, care must be taken in choosing both the training and test sets as well as how to ensure that the model is not overfitting the data.  In the case of the GDS Node Classification algorithm, an L1 (***or L2???) norm is used as a penalty.
+Node classification is based on https://en.wikipedia.org/wiki/Logistic_regression[logistic regression].  As in any ML model, care must be taken in choosing both the training and test sets as well as how to ensure that the model is not overfitting the data.  In the case of the GDS Node Classification algorithm, an L2 norm is used as a penalty.
 
 [NOTE]
 ====
@@ -423,7 +423,7 @@ CALL gds.alpha.ml.nodeClassification.train('marvel_model_data', {
   modelInfo.metrics.F1_WEIGHTED.test AS testGraphScore
 ----
 
-In this statement, we are training a model based on the node properties of `energy`, `speed`, `strength`, `durability`, and `intelligence`.  The `targetProperty` is the thing we are trying to solve for;  in this case we are trying to determine the node property `is_xman` (1 for an X_man, 0 for everyone else).  The model will be able to return the weighted F1 score and the accuracy, but it is important to note that only the first metric is used for the actual training.  We see that the validation set represents 20% of the test graph with 5-fold cross-validation.  Finally, we set a series of parameters that are used to evaluate the model.  In this case, we have provided a series of penalties (L1 or L2 norm???) with a given number of training iterations.  The training algorithm will identify the optimal model given these parameters, which is returned in the final portion of the query along with the training and test F1 weighted scores.
+In this statement, we are training a model based on the node properties of `energy`, `speed`, `strength`, `durability`, and `intelligence`.  The `targetProperty` is the thing we are trying to solve for;  in this case we are trying to determine the node property `is_xman` (1 for an X_man, 0 for everyone else).  The model will be able to return the weighted F1 score and the accuracy, but it is important to note that only the first metric is used for the actual training.  We see that the validation set represents 20% of the test graph with 5-fold cross-validation.  Finally, we set a series of parameters that are used to evaluate the model.  In this case, we have provided a series of penalties using the L2 norm with a given number of training iterations.  The training algorithm will identify the optimal model given these parameters, which is returned in the final portion of the query along with the training and test F1 weighted scores.
 
 When this is run on our dataset, we obtain the following results:
 
