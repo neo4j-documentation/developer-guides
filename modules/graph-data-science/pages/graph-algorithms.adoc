@@ -77,7 +77,7 @@ The recipes show how to use the Graph Data Science Library to solve common probl
 
 * xref:graph-data-science:link-prediction/scikit-learn.adoc[]
 * xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[]
-* xref:graph-data-science:node-classifcation/node-classification.adoc[]
+* xref:graph-data-science:node-classification/node-classification.adoc[]
 
 
 [#explanation]
