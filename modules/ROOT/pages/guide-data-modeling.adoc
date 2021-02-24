@@ -108,7 +108,9 @@ ifdef::env-guide[]
 == Defining Nodes
 endif::[]
 
+ifndef::env-guide[]
 .Scenario - Defining Nodes
+endif::[]
 [quote]
 Two people, *John* and *Sally*, are friends.
 Both *John* and *Sally* have read the book, *Graph Databases*.
