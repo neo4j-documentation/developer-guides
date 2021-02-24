@@ -442,7 +442,6 @@ These scores are low, but this is not surprising.  We provided a very minimal nu
 
 [source, cypher]
 ----
-//3. train node classifier to find x-men: fastRP
 CALL gds.alpha.ml.nodeClassification.train('marvel_model_data', {
    nodeLabels: ['Character'],
    modelName: 'xmen-model-fastRP',
