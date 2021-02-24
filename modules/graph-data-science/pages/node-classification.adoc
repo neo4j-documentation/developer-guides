@@ -316,3 +316,167 @@ For more information on graph embeddings and how they can be used, see link:/dev
 
 Finally, we can drop the `marvel-character-graph` to free up some memory via `CALL gds.graph.drop('marvel-character-graph')`.
 
+== Running the node classification algorithm
+
+Prior to the actual running of the node classification we must set up our training and testing graphs.  There are a few things that we need to consider.  First, we want to have roughly an equal number of X-Men to non-X-Men in our graph to prevent class imbalance.  This means that first we will select all of the X-Men and set the property `is_xman` to identify these individuals:
+
+[source, cypher]
+----
+MATCH (c:Character)-[:PART_OF_GROUP]-> (g:Group{name:'X-Men'})
+SET c.is_xman=1, c:Model_Data;
+----
+
+We see here that `c.is_xman` is set to an integer value of 1, which is required by the node classification algorithm to distinguish between the various classes.
+
+Next, we need to identify characters that are not X-Men.  There are many more non-X-Men characters that appear with the X-Men, so we will downsample these through the requirement to have a degree greater than zero while also using a random number to determine whether that character will be put into the non-X-Men set and set their class to the integer value of 0:
+
+[source, cypher]
+----
+MATCH (c:Character)
+WHERE NOT (c)-[:PART_OF_GROUP]->(:Group) WITH c
+WHERE NOT (c)-[:APPEARED_WITH*2..3]-(:Character{is_xman:1}) 
+AND apoc.node.degree(c)>0 WITH c
+WHERE rand() < 0.2
+SET c:Model_Data, c.is_xman=0;
+----
+
+Finally, we will create a set of character that will be used for predictions after the model is trained:
+
+[source, cypher]
+----
+MATCH (c:Character)
+WHERE NOT (c:Model_Data)
+SET c:Holdout_Data;
+----
+
+Once we have done this, we will create an in-memory graph encompassing these characters, their properties, and the class to be predicted.  
+
+[source, cypher]
+----
+CALL gds.graph.create(
+  'marvel_model_data',
+  {
+    Character: {
+      label: 'Model_Data',
+      properties: { 
+        fastRP_embedding:{property:'fastRP_Extended_Embedding', defaultValue:0},
+        //graphSAGE_embedding:{property:'graphSAGE_embedding', defaultValue:0},
+        strength:{property:'strength', defaultValue:0},
+        durability:{property:'durability', defaultValue:0},
+        intelligence:{property:'intelligence', defaultValue:0},
+        energy:{property:'energy', defaultValue:0},
+        speed:{property:'speed', defaultValue:0},
+        is_xman:{property:'is_xman', defaultValue:0}
+      }
+    },
+    Holdout_Character: {
+      label: 'Holdout_Data',
+      properties: { 
+        fastRP_embedding:{property:'fastRP_Extended_Embedding', defaultValue:0},
+        //graphSAGE_embedding:{property:'graphSAGE_embedding', defaultValue:0},
+        strength:{property:'strength', defaultValue:0},
+        durability:{property:'durability', defaultValue:0},
+        intelligence:{property:'intelligence', defaultValue:0},
+        energy:{property:'energy', defaultValue:0},
+        speed:{property:'speed', defaultValue:0},
+        is_xman:{property:'is_xman', defaultValue:0}
+      }
+    }
+  }, {
+    APPEARED_WITH: { //I don't actually need this for node classification
+      type: 'APPEARED_WITH',
+      orientation: 'UNDIRECTED',
+      properties: ['times'],
+      aggregation: 'SINGLE'
+    }
+});
+----
+
+Observe that we have two character labels that are being put into this in-memory graph, namely `Character` and `Holdout_Character`.  This ensures that we are not mixing up the characters that will be used in the validation after the model is fully trained.
+
+First let's train a simple model that only uses some character properties for the training process:
+
+[source, cypher]
+----
+CALL gds.alpha.ml.nodeClassification.train('marvel_model_data', {
+   nodeLabels: ['Character'],
+   modelName: 'xmen-model-properties',
+   featureProperties: ['energy','speed','strength','durability','intelligence'], 
+   targetProperty: 'is_xman', 
+   metrics: ['F1_WEIGHTED','ACCURACY'], 
+   holdoutFraction: 0.2, 
+   validationFolds: 5, 
+   randomSeed: 2,
+   params: [
+       {penalty: 0.0625, maxIterations: 1000},
+       {penalty: 0.125, maxIterations: 1000}, 
+       {penalty: 0.25, maxIterations: 1000}, 
+       {penalty: 0.5, maxIterations: 1000},
+       {penalty: 1.0, maxIterations: 1000},
+       {penalty: 2.0, maxIterations: 1000}, 
+       {penalty: 4.0, maxIterations: 1000}
+       ]
+    }) YIELD modelInfo
+  RETURN
+  modelInfo.bestParameters AS winningModel,
+  modelInfo.metrics.F1_WEIGHTED.outerTrain AS trainGraphScore,
+  modelInfo.metrics.F1_WEIGHTED.test AS testGraphScore
+----
+
+In this statement, we are training a model based on the node properties of `energy`, `speed`, `strength`, `durability`, and `intelligence`.  The `targetProperty` is the thing we are trying to solve for;  in this case we are trying to determine the node property `is_xman` (1 for an X_man, 0 for everyone else).  The model will be able to return the weighted F1 score and the accuracy, but it is important to note that only the first metric is used for the actual training.  We see that the validation set represents 20% of the test graph with 5-fold cross-validation.  Finally, we set a series of parameters that are used to evaluate the model.  In this case, we have provided a series of penalties (L1 or L2 norm???) with a given number of training iterations.  The training algorithm will identify the optimal model given these parameters, which is returned in the final portion of the query along with the training and test F1 weighted scores.
+
+When this is run on our dataset, we obtain the following results:
+
+[cols=3*]
+|===
+|"winningModel"
+|"trainingGraphScore"
+|"testGraphScore"
+
+|{"maxIterations":1000,"penalty":0.0625}
+|0.4696285981767071
+|0.44504748658690024
+|===
+
+These scores are low, but this is not surprising.  We provided a very minimal number of properties on which to train the model, a problem that is compounded by the fact the the graph itself is quite small.  So instead, let's train a new model using the FastRP embeddings.  (Don't forget that if you are not using the Enterprise Edition of the Graph Data Science library, you can only have one model in memory at any given time, so you must drop that model via `CALL gds.beta.model.drop('marvel_model_data')`.)  
+
+[source, cypher]
+----
+//3. train node classifier to find x-men: fastRP
+CALL gds.alpha.ml.nodeClassification.train('marvel_model_data', {
+   nodeLabels: ['Character'],
+   modelName: 'xmen-model-fastRP',
+   featureProperties: ['fastRP_embedding'], 
+   targetProperty: 'is_xman', 
+   metrics: ['F1_WEIGHTED','ACCURACY'], 
+   holdoutFraction: 0.2, 
+   validationFolds: 5, 
+   randomSeed: 2,
+   params: [
+       {penalty: 0.0625, maxIterations: 1000},
+       {penalty: 0.125, maxIterations: 1000}, 
+       {penalty: 0.25, maxIterations: 1000}, 
+       {penalty: 0.5, maxIterations: 1000},
+       {penalty: 1.0, maxIterations: 1000},
+       {penalty: 2.0, maxIterations: 1000}, 
+       {penalty: 4.0, maxIterations: 1000}
+       ]
+    }) YIELD modelInfo
+  RETURN
+  modelInfo.bestParameters AS winningModel,
+  modelInfo.metrics.F1_WEIGHTED.outerTrain AS trainGraphScore,
+  modelInfo.metrics.F1_WEIGHTED.test AS testGraphScore
+----
+
+This is identical to our procedure before, however, we can see that we have replaced the `featureProperties` to be the FastRP embeddings.  We would expect this model to perform better since the embedding process returns a vector embedding for each node that, in our case, is 250 elements long.  In fact, we obtain the following results with the embeddings:
+
+[cols=3*]
+|===
+|"winningModel"
+|"trainingGraphScore"
+|"testGraphScore"
+
+|{"maxIterations":1000,"penalty":0.0625}
+|0.9623978269133772
+|0.857142851020408
+|===
