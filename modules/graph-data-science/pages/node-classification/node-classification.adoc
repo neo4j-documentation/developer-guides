@@ -23,7 +23,7 @@ Please have link:/download[Neo4j^] (version 4.2.3 or later) and link:/download-c
 
 Node classification is a supervised machine learning (ML) approach whereby existing nodes with known classes can be used to train a model that will learn the classes for nodes where they are unknown. In order to achieve this, the data must be split into two parts -- a training graph and a testing graph -- prior to predicting the classes for the unknown nodes.  The training process involves splitting the training graph into two parts -- a training and validation set -- that will be used to fine tune the model through subsequent steps.  
 
-Node classification is based on https://en.wikipedia.org/wiki/Logistic_regression[logistic regression^].  As in any ML model, care must be taken in choosing both the training and test sets as well as how to ensure that the model is not overfitting the data.  In the case of the GDS Node Classification algorithm, an L2 norm is used as a penalty.
+Node classification is based on https://en.wikipedia.org/wiki/Logistic_regression[logistic regression].  As in any ML model, care must be taken in choosing both the training and test sets as well as how to ensure that the model is not overfitting the data.  In the case of the GDS Node Classification algorithm, an L2 norm is used as a penalty.
 
 [NOTE]
 ====
@@ -188,7 +188,7 @@ CALL gds.graph.create(
 });
 ----
 
-and then we use this graph to calculate the https://neo4j.com/docs/graph-data-science/current/algorithms/page-rank/[PageRank], https://neo4j.com/docs/graph-data-science/current/algorithms/betweenness-centrality/[Betweenness Centrality], and https://neo4j.com/docs/graph-data-science/current/algorithms/hits/[Hyperlink-Induced Topic Search] (HITS) of each node and write those values back to the database:
+and then we use this graph to calculate the https://neo4j.com/docs/graph-data-science/current/algorithms/page-rank/[PageRank^], https://neo4j.com/docs/graph-data-science/current/algorithms/betweenness-centrality/[Betweenness Centrality^], and https://neo4j.com/docs/graph-data-science/current/algorithms/hits/[Hyperlink-Induced Topic Search^] (HITS) of each node and write those values back to the database:
 
 [source, cypher]
 ----
@@ -294,7 +294,7 @@ CALL gds.alpha.hits.mutate('marvel-character-graph',{
 });
 ----
 
-Lastly, we will use the https://neo4j.com/docs/graph-data-science/current/algorithms/fastrp/[Fast Random Projection] (FastRP) embedding algorithm to create embedding vectors for each node, that will be used in one of our node classifications.  Despite the fact that we will only be looking at a subset of this graph, namely X-Men and those who might be X-men or relate to them somehow, but we will compute the embeddings for the whole graph. 
+Lastly, we will use the https://neo4j.com/docs/graph-data-science/current/algorithms/fastrp/[Fast Random Projection^] (FastRP) embedding algorithm to create embedding vectors for each node, that will be used in one of our node classifications.  Despite the fact that we will only be looking at a subset of this graph, namely X-Men and those who might be X-men or relate to them somehow, but we will compute the embeddings for the whole graph. 
 
 [source, cypher]
 ----
@@ -312,7 +312,7 @@ CALL gds.beta.fastRPExtended.write('marvel-character-graph',{
 
 [NOTE]
 ====
-For more information on graph embeddings and how they can be used, see link:/developer/graph-data-science/graph-embeddings[Applied Graph Embeddings].
+For more information on graph embeddings and how they can be used, see link:/developer/graph-data-science/graph-embeddings[Applied Graph Embeddings^].
 ====
 
 Finally, we can drop the `marvel-character-graph` to free up some memory via `CALL gds.graph.drop('marvel-character-graph')`.
@@ -480,3 +480,69 @@ This is identical to our procedure before, however, we can see that we have repl
 |0.9623978269133772
 |0.857142851020408
 |===
+
+== Predictions with the model
+
+Using the FastRP model, let's inspect some predicted nodes.  To do this, we first have to run the prediction algorithm, which we will then write to the nodes themselves:
+
+[source, cypher]
+----
+CALL gds.alpha.ml.nodeClassification.predict.mutate('marvel_model_data', {
+  nodeLabels: ['Holdout_Character'], //filter our the character nodes
+  modelName: 'xmen-model-fastRP',
+  mutateProperty: 'predicted_xman',
+  predictedProbabilityProperty: 'predicted_xman_probability'
+});
+
+CALL gds.graph.writeNodeProperties(
+  'marvel_model_data',
+  ['predicted_xman', 'predicted_xman_probability'],
+  ['Holdout_Character']
+);
+----
+
+We now look at some of the predictions for characters that are labeled as X-Men.  To do this, we run the following query:
+
+[source, cypher]
+----
+MATCH (c:Character) 
+WHERE c.predicted_xman = 1 AND NOT c:Model_Data
+RETURN c.name, c.aliases, c.predicted_xman, c.predicted_xman_probability 
+----
+
+`c.predicted_xman` returns the predicted class (in this case we are looking for characters that were labeled as X-Men by the model).  The returned `c.predicted_xman-probability` gives the probability of each class, presented as a list where the first element is the probability of class 0 (not an X-Man) and the second element is the probability of class 1 (an X-Man).  Our results will be as follows for the first three returned characters (with long alias lists truncated in some cases for space):
+
+[cols=4*]
+|===
+|"c.name"
+│"c.aliases"
+│"c.predicted_xman"
+│"c.predicted_xman_probability"
+
+|"Steve Rogers"
+|"Steve Rogers, Brett Hendrick, Buck Jones, ..."
+|1
+|[0.12884971201784812,0.8711502879821517]
+
+|"James Buchanan Barnes"
+│"James Buchanan Barnes, Captain America"
+│1
+│[0.12883941235908603,0.8711605876409136]
+
+│"Nick Fury (LEGO Marvel Super Heroes)"
+│"null"                
+│1
+│[0.1288894713488483,0.8711105286511514] 
+|===
+
+***Note sure why this table doesn't work.
+
+Examining Steve Rogers further, he is not actually an X-Man.  However, in the graph we can see that he has many `:APPEARED_WITH` relationships with actual X-Men, which can be seen via:
+
+[source, cypher]
+----
+MATCH (c:Character {name: 'Steve Rogers'})-[e]->(x:Character)-[:PART_OF_GROUP]->(g:Group {name: 'X-Men'})
+RETURN c.name, e, x.name
+----
+
+If we were to explore other characters returned in this list, we would see that they also have several relationships with true X-Men.  We also will note that there are actual X-Men who were not linked in the original data with the X-Men group that are really X-Men (for example: Beast, Cyclops, and Charles Xavier).
