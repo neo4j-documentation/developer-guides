@@ -98,7 +98,7 @@ YIELD node
 RETURN distinct 'done';
 ----
 
-This query creates a series of nodes and their labels and properties: `Comic`, `Character`, `Stats` along with a variety of edges such as which comics the characters appeared in which comics, who is an enemby of whom, etc.  You can see a schema of this graph using `CALL db.schema.visualization()` here:
+This query creates a series of nodes and their labels and properties: `Comic`, `Character`, `Stats` along with a variety of edges such as which comics the characters appeared in which comics, who is an enemy of whom, etc.  You can see a schema of this graph using `CALL db.schema.visualization()` here:
 
 image::marvel-schema.png[Marvel Universe schema, link="{imagesdir}/marvel-schema.png",role="popup-link"]
 
