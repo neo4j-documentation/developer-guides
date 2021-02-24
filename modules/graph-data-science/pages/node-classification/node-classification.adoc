@@ -1,4 +1,4 @@
-= Node Classification
+= Node Classification with GDSL
 :level: Intermediate
 :page-level: Intermediate
 :author: Clair Sullivan
@@ -23,7 +23,7 @@ Please have link:/download[Neo4j^] (version 4.2.3 or later) and link:/download-c
 
 Node classification is a supervised machine learning (ML) approach whereby existing nodes with known classes can be used to train a model that will learn the classes for nodes where they are unknown. In order to achieve this, the data must be split into two parts -- a training graph and a testing graph -- prior to predicting the classes for the unknown nodes.  The training process involves splitting the training graph into two parts -- a training and validation set -- that will be used to fine tune the model through subsequent steps.  
 
-Node classification is based on https://en.wikipedia.org/wiki/Logistic_regression[logistic regression].  As in any ML model, care must be taken in choosing both the training and test sets as well as how to ensure that the model is not overfitting the data.  In the case of the GDS Node Classification algorithm, an L2 norm is used as a penalty.
+Node classification is based on https://en.wikipedia.org/wiki/Logistic_regression[logistic regression^].  As in any ML model, care must be taken in choosing both the training and test sets as well as how to ensure that the model is not overfitting the data.  In the case of the GDS Node Classification algorithm, an L2 norm is used as a penalty.
 
 [NOTE]
 ====
@@ -100,7 +100,8 @@ RETURN distinct 'done';
 
 This query creates a series of nodes and their labels and properties: `Comic`, `Character`, `Stats` along with a variety of edges such as which comics the characters appeared in which comics, who is an enemy of whom, etc.  You can see a schema of this graph using `CALL db.schema.visualization()` here:
 
-image::marvel-schema.png[Marvel Universe schema, link="{imagesdir}/marvel-schema.png",role="popup-link"]
+.Marvel Universe Schema
+image::marvel-schema.png.png[]
 
 (Note that for the simplicity of the image we are not showing the node properties since there are many.)
 
