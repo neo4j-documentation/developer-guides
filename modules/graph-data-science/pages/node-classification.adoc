@@ -436,7 +436,7 @@ When this is run on our dataset, we obtain the following results:
 |0.44504748658690024
 |===
 
-These scores are low, but this is not surprising.  We provided a very minimal number of properties on which to train the model, a problem that is compounded by the fact the the graph itself is quite small.  So instead, let's train a new model using the FastRP embeddings.  Don't forget that if you are not using the Enterprise Edition of the Graph Data Science library, you can only have one model in memory at any given time, so you must drop that model via `CALL gds.beta.model.drop('marvel_model_data')`. 
+These scores are low, but this is not surprising.  We provided a very minimal number of properties on which to train the model, a problem that is compounded by the fact the the graph itself is quite small.  So instead, let's train a new model using the FastRP embeddings.   
 
 [source, cypher]
 ----
@@ -464,6 +464,11 @@ CALL gds.alpha.ml.nodeClassification.train('marvel_model_data', {
   modelInfo.metrics.F1_WEIGHTED.outerTrain AS trainGraphScore,
   modelInfo.metrics.F1_WEIGHTED.test AS testGraphScore
 ----
+
+[NOTE]
+====
+Don't forget that if you are not using the https://neo4j.com/docs/graph-data-science/current/installation/#installation-enterprise-edition[Enterprise Edition] of the Graph Data Science library, you can only have one model in memory at any given time, so you must drop that model via `CALL gds.beta.model.drop('marvel_model_data')`.
+====
 
 This is identical to our procedure before, however, we can see that we have replaced the `featureProperties` to be the FastRP embeddings.  We would expect this model to perform better since the embedding process returns a vector embedding for each node that, in our case, is 250 elements long.  In fact, we obtain the following results with the embeddings:
 
