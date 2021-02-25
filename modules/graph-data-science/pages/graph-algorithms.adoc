@@ -36,6 +36,8 @@ The library contains implementations for the following types of algorithms:
 
 * link:/docs/graph-data-science/current/algorithms/node-embeddings/[Node Embeddings^] - these algorithms compute vector representations of nodes in a graph.
 
+* link:/docs/graph-data-science/current/algorithms/node-classification/[Node Classification^] - this algorithm uses machine learning to predict the classification of nodes.
+
 link:/graph-data-science-library[Learn more about Neo4j GDSL^, role="medium button"]
 
 [#start-graph-algorithms]
@@ -75,6 +77,7 @@ The recipes show how to use the Graph Data Science Library to solve common probl
 
 * xref:graph-data-science:link-prediction/scikit-learn.adoc[]
 * xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[]
+* xref:graph-data-science:node-classification.adoc[]
 
 
 [#explanation]

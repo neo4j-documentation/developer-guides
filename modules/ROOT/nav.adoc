@@ -106,6 +106,7 @@
     *** xref:graph-data-science:nlp/entity-extraction.adoc[Entity Extraction with APOC NLP]
     *** xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn]
     *** xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[Link Prediction with AutoML]
+    *** xref:graph-data-science:node-classification.adoc[Node Classification with GDSL]
   ** Concepts
     *** xref:graph-data-science:graph-search-algorithms.adoc[Graph Search Algorithms]
     *** xref:graph-data-science:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
