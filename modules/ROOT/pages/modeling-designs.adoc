@@ -46,7 +46,7 @@ In the next few paragraphs, we will introduce a few different ways to look at di
 One of the earliest decisions you may encounter is whether to model something as a property on a node or as a relationship to a separate node.
 Take, for example, the data below modeling a movie genre as a property on the `Movie` node.
 
-image::{img}modeling_genre_property.jpg[role="popup-link"]
+image::{img}/modeling_genre_property.jpg[role="popup-link"]
 
 To write a query finding the genre(s) of a particular movie is very simple.
 It would find the `Movie` node it wants to know about, then return the values listed in the genre property.
@@ -71,7 +71,7 @@ RETURN m1, m2;
 
 Now, instead, if we were to model our movies and genres as separate nodes and create a relationship between the two, we would come up with a model something like the image below.
 
-image::{img}modeling_genre_node.jpg[role="popup-link"]
+image::{img}/modeling_genre_node.jpg[role="popup-link"]
 
 This creates a completely separate entity (node) for the genre, allowing you to connect all the movies with a shared genre to that `Genre` node.
 Let us see how this changes our queries.
@@ -138,7 +138,7 @@ The way Peter at Marvel handled hyperedges in their data is by creating an `Appe
 This `Appearance` can be related to multiple `Moment` nodes where the person and alias appear as a unit.
 This is represented in the models shown below (also in the https://player.vimeo.com/video/79399404[video^]).
 
-image:{img}modeling_marvel_hyperedge_appearance.jpg[role="popup-link"]
+image:{img}/modeling_marvel_hyperedge_appearance.jpg[role="popup-link"]
 
 In a relational store, attempting to categorize and relate all of these complicated aspects would be extremely difficult and further complicate analysis and review of the data as a whole.
 The graph model allowed them to model this heavily dynamic universe and track all of the changing connections throughout their data.
@@ -154,7 +154,7 @@ A common example is for modeling airline flights.
 An airline has a particular flight on a certain day to and from a specific location.
 We might start with a model like the first image below to show how flights travel from airport to airport.
 
-image::{img}modeling_airport_flights.jpg[role="popup-link"]
+image::{img}/modeling_airport_flights.jpg[role="popup-link"]
 
 We would soon realize that we need to model a `Flight` entity that exists between two destinations because multiple planes can travel between two destinations several times in one day.
 
@@ -166,7 +166,7 @@ This way, you wouldn't need to check each flight relationship to an airport.
 Instead, you would only look at the relationships for the dates you cared about.
 This model turns out like the one below.
 
-image::{img}modeling_airport_flight_dates.jpg[role="popup-link"]
+image::{img}/modeling_airport_flight_dates.jpg[role="popup-link"]
 
 For the full walkthrough of the modeling process for airline flights, see https://maxdemarzi.com/2015/08/26/modeling-airline-flights-in-neo4j/[Max's blog post^].
 

@@ -21,7 +21,7 @@ Please have link:/download[Neo4j^] (version 4.0 or later) and the link:/download
 [#overview-centrality-algorithms]
 == What are centrality algorithms?
 
-image:{img}Centrality-Algo-Icon.png[float="right", width="200px"]
+image:{img}/Centrality-Algo-Icon.png[float="right", width="200px"]
 
 Centrality algorithms are one of the traditional categories of graph algorithms.
 They find the important nodes in a graph, where importance can mean that a node:

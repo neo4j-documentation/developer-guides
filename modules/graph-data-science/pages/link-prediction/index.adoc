@@ -16,7 +16,7 @@ In this guide, we will learn about concepts related to link prediction, which is
 [#what-is-link-prediction]
 == What is link prediction?
 
-image:link.png[float="right", width="100px"]
+image:{img}/link.png[float="right", width="100px"]
 
 Link prediction has been around for a long time, but was popularised by a paper written by Jon Kleinberg and David Liben-Nowell in 2004, titled link:https://www.cs.cornell.edu/home/kleinber/link-pred.pdf[The Link Prediction Problem for Social Networks^].
 
@@ -36,7 +36,7 @@ More recently, Dr Jim Webber, Chief Scientist at Neo4j, explains how the evoluti
 [#what-is-it-used-for]
 == Use Cases
 
-image:use-case.png[float="right", width="100px"]
+image:{img}/use-case.png[float="right", width="100px"]
 
 Apart from predicting World Wars or friendships in a social network where else might we want to predict links?
 
@@ -48,7 +48,7 @@ For example in a citation network, we’re actually predicting the action of two
 [#algorithms]
 == Link Prediction algorithms
 
-image:algorithm.png[float="right", width="100px"]
+image:{img}/algorithm.png[float="right", width="100px"]
 
 Kleinberg and Liben-Nowell describe a set of methods that can be used for link prediction.
 These methods compute a score for a pair of nodes, where the score could be considered a **measure of proximity or “similarity”** between those nodes based on the graph topology.
@@ -57,7 +57,7 @@ The closer two nodes are, the more likely there will be a relationship between t
 A list of the methods described in the paper are shown below:
 
 .Link Prediction Algorithms
-image::link-prediction-algorithms.png[width="500px"]
+image::{img}/link-prediction-algorithms.png[width="500px"]
 
 The Neo4j Data Science Library supports some of the distance metrics described in the paper, as well as other measures of node proximity.
 
@@ -83,7 +83,7 @@ Guillaume Le Floch describes these two approaches in more detail in his blog pos
 [#selected-ml-model]
 == Selecting a machine learning model
 
-image:ml-model.png[float="right", width="100px"]
+image:{img}/ml-model.png[float="right", width="100px"]
 
 If we're using the supervised learning approach, one of the first things we need to do is decide which machine learning model we're going to use.
 
@@ -99,7 +99,7 @@ This could be a gradient boosting classifier as described in Guillaume Le Floch'
 [#train-test-data-sets]
 == Train and test data sets
 
-image:leakage.png[float="right", width="100px"]
+image:{img}/leakage.png[float="right", width="100px"]
 
 We also need to decide how we're going to split our train and test datasets.
 We can’t randomly split the data, using a built-in function from our machine learning library of choice, as this could lead to data leakage.

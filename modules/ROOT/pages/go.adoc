@@ -19,7 +19,7 @@ include::./_includes/common-language-prereq.adoc[]
 [#neo4j-go]
 == Neo4j for Go Developers
 
-image::{img}GO.jpg[width=150,float=right]
+image::{img}/GO.jpg[width=150,float=right]
 
 You can use the official driver for Go (neo4j-go-driver) or connect via Bolt or HTTP with any of our community drivers.
 

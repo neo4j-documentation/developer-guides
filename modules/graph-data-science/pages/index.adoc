@@ -34,7 +34,7 @@ Graph Data Science techniques can be used as part of a variety of different appl
 [#library-graph-data-science]
 == Graph Data Science Library
 
-image:https://dist.neo4j.com/wp-content/uploads/20200407203334/graph-data-science.svg[Graph Data Science Library, width="150px",float="right",margin-left:"2px"]
+image:{img}/20200407203334/graph-data-science.svg[Graph Data Science Library, width="150px",float="right",margin-left:"2px"]
 
 The Neo4j Graph Data Science Library (GDSL) provides efficiently implemented, parallel versions of common graph algorithms for Neo4j 3.x and Neo4j 4.x exposed as Cypher procedures.
 
@@ -46,7 +46,7 @@ link:/developer/graph-algorithms[Get started with GDSL, role="medium button"]
 [#playground-graph-data-science]
 == NEuler: The Graph Data Science Playground
 
-image:https://dist.neo4j.com/wp-content/uploads/np_swing_206_C595E4.png[Graph Data Science Playground, width="100px",float="right",margin-left:"2px"]
+image:{img}/np_swing_206_C595E4.png[Graph Data Science Playground, width="100px",float="right",margin-left:"2px"]
 
 NEuler (Neo4j Euler) is a link:/developer/graph-apps/[graph app^] that helps Neo4j Desktop users get started with the Neo4j Graph Data Science Library.
 
@@ -68,7 +68,7 @@ link:/developer/nlp[Learn more about NLP, role="medium button"]
 [#oreilly-graph-algorithms]
 == O'Reilly Graph Algorithms Book
 
-image:{img}OReilly-Graph-Algorithms_v2_ol1.jpg[Download your free copy,float="right",width="100px", margin-left:"2px"]
+image:{img}/OReilly-Graph-Algorithms_v2_ol1.jpg[Download your free copy,float="right",width="100px", margin-left:"2px"]
 
 In link:/graph-algorithms-book/[O'Reilly's Graph Algorithms Book^], Amy Hodler and Mark Needham take you on a guided tour of the world of graph algorithms.
 
@@ -79,7 +79,7 @@ link:/graph-algorithms-book/[Download your free copy^, role="medium button"]
 [#graph-data-science-training]
 == Graph Data Science Training
 
-image:https://dist.neo4j.com/wp-content/uploads/20200702062117/noun_training_2987031.png[Graph Data Science Training,float="right",width="100px", margin-left:"2px"]
+image:{img}/20200702062117/noun_training_2987031.png[Graph Data Science Training,float="right",width="100px", margin-left:"2px"]
 
 GraphAcademy has self-paced online training classes to help you get up to speed with Graph Data Science.
 

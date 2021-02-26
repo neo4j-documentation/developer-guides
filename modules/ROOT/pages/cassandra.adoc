@@ -25,7 +25,7 @@ You will need to have Cassandra, Neo4j and Python 3.x installed.
 [#neo4j-cassandra]
 == Overview
 
-image::{img}20160203161027/datamodel.png[title='Translating from a column-oriented data model to a property graph.']
+image::{img}/20160203161027/datamodel.png[title='Translating from a column-oriented data model to a property graph.']
 
 The main goal of the link:https://github.com/neo4j-contrib/neo4j-cassandra-connector[Cassandra Neo4j data import tool] is to provide a direct way to map a Cassandra schema to Neo4j and import result sets that come from Cassandra columns to Neo4j property graph model, generating a meaningful representation of nodes and relationships. This translation is specified by populating a YAML file based on the Cassandra schema to specify how the data should be mapped from a column-oriented data model to a property graph. The tool exports data from Cassandra using the Cassandra Python driver into CSV format as an intermediate step. LOAD CSV cypher statements are then generated based on the data model mapping specified for loading the data into Neo4j. The following sections will guide you through this process and also provide some mapping examples.
 
@@ -152,7 +152,7 @@ The schema YAML file name (if different than `schema.yaml`) can also be specifed
 python connector.py export -k playlist -t track_by_id,artists_by_first_letter -f my_schema_file.yaml
 ----
 
-image::{img}20160203161028/neo4j_cassandra.png[title='Neo4j Cassandra data import tool']
+image::{img}/20160203161028/neo4j_cassandra.png[title='Neo4j Cassandra data import tool']
 
 [#mapping-cassandra]
 == Mapping data into Cassandra to Neo4j
@@ -161,7 +161,7 @@ The YAML file will be parsed into Cypher queries. A file called **cypher_** will
 
 Using the sample Artists and Tracks dataset, we have __Track__ nodes and __Artist__ nodes, connected by artist fields. We also wanted to make a constraint on artist by its name - we could not have two different nodes with similar artist names.
 
-image::{img}20160204123739/graph_data_model.png[title='Property graph data from sample playlist database']
+image::{img}/20160204123739/graph_data_model.png[title='Property graph data from sample playlist database']
 
 [NOTE]
 The Neo4j Cassandra data import tool is in its infancy and currently has many limitations. It is currently a simple prototype meant to support a limited data model. We'd appreciate any feedback you might have, please raise an issue on the link:https://github.com/neo4j-contrib/neo4j-cassandra-connector/issues[GitHub project].

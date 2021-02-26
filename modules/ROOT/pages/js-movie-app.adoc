@@ -15,13 +15,13 @@ The Express framework is used as the backend, and the React framework as front-e
 .Prerequisites
 [abstract]
 You should have `lts/erbium` installed on your system.
-This project uses link:https://github.com/nvm-sh/nvm[nvm], so having NVM will make your life easier. 
+This project uses link:https://github.com/nvm-sh/nvm[nvm], so having NVM will make your life easier.
 You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[Neo4j Movie Template] onto your machine.
 
 
 [#javascript-movie-course]
-This course provides an overview of what you need to know to write an Express application using a Neo4j database. 
-To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality. 
+This course provides an overview of what you need to know to write an Express application using a Neo4j database.
+To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality.
 
 [#neo4j-javascript]
 == Before We Start - Why Neo4j?
@@ -45,7 +45,7 @@ The property graph model is easy to understand and work with, especially for obj
 
 [role="pull-right"]
 --
-image::{img}simple_graph.png[]
+image::{img}/simple_graph.png[]
 --
 
 The property graph model consists of:
@@ -111,9 +111,9 @@ Here is a link:https://neo4j.com/graphacademy/online-training/introduction-to-ne
 [#project-setup]
 == The Neo4j Movie Express/React App
 
-Let’s jump right into it. 
-You’re a JavaScript developer interested in Neo4j and want to build a web app, microservice, or mobile app. 
-You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started. 
+Let’s jump right into it.
+You’re a JavaScript developer interested in Neo4j and want to build a web app, microservice, or mobile app.
+You’ve already read up on Neo4j, played around with some datasets, and learned enough Cypher to get started.
 Now you’re looking for a demo app or template to start putting those skills into practice.
 
 If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Neo4j Movie Template] onto your machine.
@@ -144,7 +144,7 @@ Additionally, users can create accounts, log in, and add their ratings to movies
 
 ==== The API
 
-The Express portion of the application interfaces with the database and presents data to the React.js front-end via a RESTful API. 
+The Express portion of the application interfaces with the database and presents data to the React.js front-end via a RESTful API.
 You can find the Express API in the `/api` directory in the repo.
 
 ==== The Front-End
@@ -157,7 +157,7 @@ The front-end, built in React.js, consumes the data provided by the Express API 
 * User detail page
 * Sign-up and Login pages
 
-You can find the front-end code in the `web` directory. 
+You can find the front-end code in the `web` directory.
 
 === Setup
 
@@ -166,15 +166,15 @@ To get the project running, clone the repo and follow along with these instructi
 
 ++++
 <iframe width="560" height="315" src="https://youtu.be/z-PAO2WU1QQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++ 
+++++
 
 If you haven't already, https://github.com/neo4j-examples/neo4j-movies-template[clone the repo].
 
-Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox. 
+Your app will need a database, and the easiest way to access a database that's already full of data is by connecting directly to the “Recommendations” database in Neo4j Sandbox.
 
-Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using social authentication or your email and password. 
+Log in to Neo4j Sandbox by visiting https://sandbox.neo4j.com/, either using social authentication or your email and password.
 
-After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to. 
+After logging in to Neo4j Sandbox, tap “New Project” and select “Recommendations,” then tap the blue “Launch Project” button to start the database you will be connecting to.
 
 In order to connect to the database from the environment from which you’ll be running the app (presumably your local machine), you’ll need credentials. You can find those under the “Connection details” and/or the “Connect via drivers” tab.
 
@@ -209,16 +209,16 @@ Verify that the endpoints are running as expected by taking a look at the docs a
 
 === Start the React.js Front-End
 
-With the database and backend running, open a new terminal tab or window and move to the project’s `/web` subdirectory. 
+With the database and backend running, open a new terminal tab or window and move to the project’s `/web` subdirectory.
 Run `nvm use` to ensure you’re using the node version specified for this project.
-If you don’t have the recommended version of node installed, follow the prompt to install the recommended version. 
+If you don’t have the recommended version of node installed, follow the prompt to install the recommended version.
 After verifying you are using the recommended user, run:
 
 [source,shell]
 ----
-npm install 
+npm install
 cp src/config/settings.example.js src/config/settings.js
-npm start 
+npm start
 ----
 
 Navigate to view the app at `http://localhost:3000/`
@@ -237,9 +237,9 @@ Diving down from route to model, a call from the user would travel through the r
 [source,javascript,role=nocopy]
 ----
 api.get("/genres", routes.genres.list);
----- 
+----
 
-The information from the call would be routed by `api/routes/genres.js` in and out of the the Genre model in `api/models/genres.js`, sending the response, an array of `Genres`, back to the user. 
+The information from the call would be routed by `api/routes/genres.js` in and out of the the Genre model in `api/models/genres.js`, sending the response, an array of `Genres`, back to the user.
 
 .api/models/genres.js
 [source,javascript,role=nocopy]
@@ -284,7 +284,7 @@ Aside from creating themselves and authenticating with the app, Users can rate M
 
 ==== Users Can Create Accounts
 
-Before a User can rate a Movie, the user has to exist, i.e. someone has to sign up for an account. 
+Before a User can rate a Movie, the user has to exist, i.e. someone has to sign up for an account.
 The sign-up process will create a node in the database with a User label, along with the properties necessary for logging in and maintaining a session.
 
 The registration endpoint is located at `/api/v0/register`.
@@ -328,7 +328,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 }
 ----
 
-Similar to calling the `Genre` endpoint, when a user creates an account, the user flows through endpoint through the register User route to the User model and back.  
+Similar to calling the `Genre` endpoint, when a user creates an account, the user flows through endpoint through the register User route to the User model and back.
 
 .api/app.js
 [source,javascript,role=nocopy]
@@ -421,7 +421,7 @@ There is a similar form to fill out, where a user types in their username and pa
 With the given username, a `User` is initialized.
 The password they filled out in the form is then verified against the hashed password that was retrieved from the corresponding :User node in the database.
 If the verification is successful, the program will return a token.
-The user is then directed to an authentication page, from which they can navigate through the app, view their user profile, and rate movies. 
+The user is then directed to an authentication page, from which they can navigate through the app, view their user profile, and rate movies.
 
 *Example: Users Can Rate Movies*
 
@@ -442,7 +442,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 {}
 ----
 
-The user sends who they are, what movie they want to rate, and what their rating is through the endpoint. 
+The user sends who they are, what movie they want to rate, and what their rating is through the endpoint.
 
 .api/app.js
 [source,javascript,role=nocopy]
@@ -490,7 +490,7 @@ const rate = function (session, movieId, userId, rating) {
   );
 };
 
-... 
+...
 
 // export exposed functions
 module.exports = {
@@ -525,13 +525,13 @@ curl -X GET --header 'Accept: application/json' --header 'Authorization: Token c
 ]
 ----
 
-== The React Front-end  
+== The React Front-end
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TXKXotzkygI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
 
-You can take a look at the React front-end code at in the `/web/` subdirectory. 
+You can take a look at the React front-end code at in the `/web/` subdirectory.
 The React front-end is very simple, and is composed of the following parts, as described in the video above.
 
 * Home Page
@@ -544,7 +544,7 @@ The React front-end is very simple, and is composed of the following parts, as d
 
 The home page is a relatively simple page making calls to two endpoints: the "movies by genre endpoint" and the "movie by ID" endpoint.
 
-The "Featured Movies" portion at the top calls three hard-coded movies. 
+The "Featured Movies" portion at the top calls three hard-coded movies.
 
 [source,javascript,role=nocopy]
 ----
@@ -583,12 +583,12 @@ static getFeaturedMovies() {
 
 === Movie and Person Detail
 
-The Movie and Person detail are visually very similar pages - both with a poster image on the left and carousels on the bottom. 
-However, the Movie page is different depending on whether or not the user is authenticated, as the authenticated user is able to mark their rating on each movie. 
+The Movie and Person detail are visually very similar pages - both with a poster image on the left and carousels on the bottom.
+However, the Movie page is different depending on whether or not the user is authenticated, as the authenticated user is able to mark their rating on each movie.
 
 === User Profile
 
-The User Profile page allows the user to re-rate or un-rate their movies, and view more movie recommendations based on those ratings. 
+The User Profile page allows the user to re-rate or un-rate their movies, and view more movie recommendations based on those ratings.
 
 == Deployment
 
@@ -596,22 +596,22 @@ include::./_includes/using_aura.adoc[]
 
 === Deplyoying the Backend and Front-end with Heroku
 
-You will have to create two apps on Heroku: one for the backend and one for the front-end. 
+You will have to create two apps on Heroku: one for the backend and one for the front-end.
 
-Starting with the backend, create a new app on Heroku. 
-On your local machine, add the Heroku repo as a remote. 
-On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j Aura (or the sandbox if you haven't migrated to Aura). 
+Starting with the backend, create a new app on Heroku.
+On your local machine, add the Heroku repo as a remote.
+On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j Aura (or the sandbox if you haven't migrated to Aura).
 
 
-Then, create another Heroku app for the front-end. 
-Add another git remote pointed to the Heroku app dedicated to the front-end app. 
-Under **Heroku > Settings > Config Vars**, add the environment variables for the `REACT_APP_API_BASE_URL` and `REACT_APP_PROXY_URL` fields. 
+Then, create another Heroku app for the front-end.
+Add another git remote pointed to the Heroku app dedicated to the front-end app.
+Under **Heroku > Settings > Config Vars**, add the environment variables for the `REACT_APP_API_BASE_URL` and `REACT_APP_PROXY_URL` fields.
 
-Under **Heroku > Settings > Buildpacks**, add `mars/create-react-app` to load dependencies. 
+Under **Heroku > Settings > Buildpacks**, add `mars/create-react-app` to load dependencies.
 
 Check out the `Makefile` in the root directory of the project and edit it so it matches below the content below.
-It contains the commands needed to deploy the project. 
-You can run `deploy-api` to deploy the Express API and `deploy-web` to run deployment on the React site. 
+It contains the commands needed to deploy the project.
+You can run `deploy-api` to deploy the Express API and `deploy-web` to run deployment on the React site.
 
 .Makefile
 ----

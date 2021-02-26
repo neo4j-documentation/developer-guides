@@ -49,7 +49,24 @@ git commit -m "Added a new guide"
 git push -u origin content/my-fix
 ----
 
-At the end of the build process, the files are uploaded to the `static-content.neo4j.com` S3 Bucket.  From there, they are synced up to the Neo4j.com server once an hour, on the hour by a cronjob.
+At the end of the build process, the files are uploaded to the `static-content.neo4j.com` S3 Bucket.
+From there, they are synced up to the Neo4j.com server once an hour, on the hour by a cronjob.
+
+=== Images
+
+[IMPORTANT]
+====
+Do not store any images in this repository.
+All the images are stored in the https://github.com/neo4j-documentation/assets repository.
+====
+
+You can reference an image using the `image:` inline macro, or the `image::` block macro.
+It's important to note that the target must be prefixed by `{img}/`. +
+For instance, if you want to reference https://dist.neo4j.com/wp-content/uploads/cypher_learning.jpg,
+you will need to use the following definition:
+
+[source,adoc]
+image::{img}/cypher_learning.jpg[]
 
 == Live Preview
 
@@ -58,32 +75,6 @@ To preview the docs run:
 [source,sh]
 npm start
 
-
 This will build a set of HTML files in `build/site` and then serve them through an express server at http://localhost:8000.
 The dev script will also listen for changes and automatically rebuild the files automatically.
 You'll still need to refresh the page to view the changes.
-
-
-// == Publishing
-
-// Merging changes into the `publish` branch of this repo will trigger a rebuild of the HTML and CSS files in the link:https://github.com/neo4j-documentation/docs-refresh[Docs Refresh^] repo using a link:.github/[Github Action].
-
-// [source,sh]
-// ----
-// # clone the repo
-// git clone https://github.com/neo4j-documentation/developer-guides
-// # stage the commit
-// touch modules/ROOT/page.adoc
-// git add .
-// # Commit
-// git commit -m "My changes"
-// # Optionally, do a pull to make sure you have the latest.
-// git pull
-// # Merge the latest changes on the remote branch
-// git push origin master
-// # Push the HEAD of the branch to the publish branch
-// git push origin HEAD:publish
-// ----
-
-
-

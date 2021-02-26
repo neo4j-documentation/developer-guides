@@ -46,7 +46,7 @@ This tutorial will show you how to:
 . Open Neo4j Browser.
 . Set the browser settings to allow multi-statements:
 
-image::EnableMultiStatement.png[Enable Multi-statement, link="{imagesdir}/EnableMultiStatement.png",role="popup-link"]
+image::{img}/EnableMultiStatement.png[Enable Multi-statement, role="popup-link"]
 
 [start=4]
 . Enter `:play movie graph` in the query pane and click the "Play" button on the right. A new window opens below the query pane with the browser guide.
@@ -55,13 +55,13 @@ image::EnableMultiStatement.png[Enable Multi-statement, link="{imagesdir}/Enable
 
 This is what you should see in Neo4j Browser after loading the movie graph:
 
-image::AfterLoadMovieGraph.png[Loaded Movie Graph, link="{imagesdir}/AfterLoadMovieGraph.png",role="popup-link"]
+image::{img}/AfterLoadMovieGraph.png[Loaded Movie Graph, role="popup-link"]
 
 This is the graph view of some of the data returned.
 
 If you want to see the table view of the data returned, you click the table icon on the left:
 
-image::AfterLoadMovieGraphTable.png[Loaded Movie Graph as Table, link="{imagesdir}/AfterLoadMovieGraphTable.png",role="popup-link"]
+image::{img}/AfterLoadMovieGraphTable.png[Loaded Movie Graph as Table, role="popup-link"]
 
 How you view the results will also depend on the data returned. If the query returns nodes, then you can view the data as a graph. If the query returns property values, you can only view the data as a table.
 
@@ -99,11 +99,11 @@ RETURN tom
 
 The graph result should look as follows:
 
-image::findTom.png[Find Tom Hanks, link="{imagesdir}/findTom.png",role="popup-link"]
+image::{img}/findTom.png[Find Tom Hanks, role="popup-link"]
 
 You can also view the properties of the node with the table view:
 
-image::findTomTable.png[Find Tom Hanks Table, link="{imagesdir}/findTomTable.png",role="popup-link"]
+image::{img}/findTomTable.png[Find Tom Hanks Table, role="popup-link"]
 
 === Find the movie titled "Cloud Atlas"...
 
@@ -119,11 +119,11 @@ RETURN cloudAtlas
 
 Here is the result of this query:
 
-image::findCloudAtlas.png[Find Cloud Atlas, link="{imagesdir}/findCloudAtlas.png",role="popup-link"]
+image::{img}/findCloudAtlas.png[Find Cloud Atlas, role="popup-link"]
 
 And here is the table view:
 
-image::findCloudAtlasTable.png[Find Cloud Atlas Table, link="{imagesdir}/findCloudAtlasTable.png",role="popup-link"]
+image::{img}/findCloudAtlasTable.png[Find Cloud Atlas Table, role="popup-link"]
 
 === Find 10 people...
 
@@ -139,7 +139,7 @@ RETURN people.name LIMIT 10
 
 Here is the result of this query:
 
-image::findTenPeople.png[Find 10 People, link="{imagesdir}/findTenPeople.png",role="popup-link"]
+image::{img}/findTenPeople.png[Find 10 People, role="popup-link"]
 
 For this query, property values are returned and you can only view the results as a table.
 
@@ -158,7 +158,7 @@ RETURN nineties.title
 
 Here is the result of this query:
 
-image::findNinetiesMovies.png[Find 1990's Movies, link="{imagesdir}/findNinetiesMovies.png",role="popup-link"]
+image::{img}/findNinetiesMovies.png[Find 1990's Movies, role="popup-link"]
 
 
 [#cypher-movie-query]
@@ -186,15 +186,15 @@ RETURN tom,tomHanksMovies
 
 Here is the result of this query:
 
-image::findTomHanksMovies.png[Find Tom Hanks Movies, link="{imagesdir}/findTomHanksMovies.png",role="popup-link"]
+image::{img}/findTomHanksMovies.png[Find Tom Hanks Movies, role="popup-link"]
 
 Notice here that we also see the _DIRECTED_ relationships between the Tom Hanks node and the _Movie_ nodes. This is because we have a setting in our Neo4j Browser where result nodes will be connected:
 
-image::ConnectResultNodesSetting.png[Connected Nodes, link="{imagesdir}/ConnectResultNodesSetting.png",role="popup-link"]
+image::{img}/ConnectResultNodesSetting.png[Connected Nodes, role="popup-link"]
 
 And here is the table view:
 
-image::findTomHanksMoviesTable.png[Find Tom Hanks Movies Table, link="{imagesdir}/findTomHanksMoviesTable.png",role="popup-link"]
+image::{img}/findTomHanksMoviesTable.png[Find Tom Hanks Movies Table, role="popup-link"]
 
 
 === Who directed "Cloud Atlas"?
@@ -211,7 +211,7 @@ RETURN directors.name
 
 Here is the result of this query:
 
-image::DirectorsCloudAtlas.png[Directors of Cloud Atlas, link="{imagesdir}/DirectorsCloudAtlas.png",role="popup-link"]
+image::{img}/DirectorsCloudAtlas.png[Directors of Cloud Atlas, role="popup-link"]
 
 
 === Tom Hanks' co-actors...
@@ -228,11 +228,11 @@ RETURN tom, m, coActors
 
 Here is the result of this query:
 
-image::TomsCoActors.png[CoActors of Tom Hanks, link="{imagesdir}/TomsCoActors.png",role="popup-link"]
+image::{img}/TomsCoActors.png[CoActors of Tom Hanks, role="popup-link"]
 
 And here is the table view:
 
-image::TomsCoActorsTable.png[CoActors of Tom Hanks Table, link="{imagesdir}/TomsCoActorsTable.png",role="popup-link"]
+image::{img}/TomsCoActorsTable.png[CoActors of Tom Hanks Table, role="popup-link"]
 
 
 === How people are related to "Cloud Atlas"...
@@ -249,7 +249,7 @@ RETURN people.name, type(relatedTo), relatedTo
 
 Here is the result of this query:
 
-image::CloudAtlasRelationships.png[Cloud Atlas Relationships, link="{imagesdir}/CloudAtlasRelationships.png",role="popup-link"]
+image::{img}/CloudAtlasRelationships.png[Cloud Atlas Relationships, role="popup-link"]
 
 
 [#cypher-paths]
@@ -279,7 +279,7 @@ RETURN DISTINCT bacon, hollywood
 
 Here is the result of this query:
 
-image::ThreeDegreesKevinBacon.png[3 Hops from Kevin Bacon, link="{imagesdir}/ThreeDegreesKevinBacon.png",role="popup-link"]
+image::{img}/ThreeDegreesKevinBacon.png[3 Hops from Kevin Bacon, role="popup-link"]
 
 
 === Find the Bacon Path to Meg Ryan
@@ -301,7 +301,7 @@ Before you execute the query, you will see a warning that a relationship of '*' 
 
 Here is the result of this query:
 
-image::KevinBaconToMegRyan.png[Kevin Bacon to Meg Ryan, link="{imagesdir}/KevinBaconToMegRyan.png",role="popup-link"]
+image::{img}/KevinBaconToMegRyan.png[Kevin Bacon to Meg Ryan, role="popup-link"]
 
 
 [#cypher-movie-cleanup]
@@ -326,7 +326,7 @@ DETACH DELETE n
 
 Here is the result of this query:
 
-image::DetachDelete.png[Delete all Nodes, link="{imagesdir}/DetachDelete.png",role="popup-link"]
+image::{img}/DetachDelete.png[Delete all Nodes, role="popup-link"]
 
 Notice that although the database information in the left panel shows no nodes or relationships in the graph, the property key names remain.
 
@@ -345,6 +345,6 @@ RETURN count(*)
 
 Here is the result of this query:
 
-image::ZeroNodes.png[Zero Nodes, link="{imagesdir}/ZeroNodes.png",role="popup-link"]
+image::{img}/ZeroNodes.png[Zero Nodes, role="popup-link"]
 
 *Congratulations!* You have learned how to use Cypher to query a Neo4j database.

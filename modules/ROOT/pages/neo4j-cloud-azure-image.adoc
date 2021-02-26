@@ -35,7 +35,7 @@ Navigate to the Marketplace entry in the link above, and click "Get it Now".
 The marketplace will prompt you to click "Continue" after providing some basic version and publisher information.
 Click "Continue".
 
-image::{img}azure-launch-page.png[]
+image::{img}/azure-launch-page.png[]
 
 On the next screen, Azure will inform you that this offering is a "Bring Your Own License" offering.
 If you are an existing Neo4j customer, you already have a license.
@@ -54,11 +54,11 @@ The wizard will allow you to choose a new name, and the resource group will be c
 You will be required to configure administrator access, which you can do either with a password
 or an SSH public key.
 
-image::{img}configure-vm-details.png[]
+image::{img}/configure-vm-details.png[]
 
 When your settings are just as you want them, click the "Review + Create" tab and then the "Create" button at the bottom of the screen.
 
-image::{img}review-and-create.png[]
+image::{img}/review-and-create.png[]
 
 After you click "Create", Azure will create a deployment for your new instance.
 You can watch the progress of the deployment as it goes.

@@ -61,7 +61,7 @@ Missed a stream? Check out the main Twitch playlist:
 
 === Thursday - Will
 
-image::https://dist.neo4j.com/wp-content/uploads/william-lyon.jpg[Will Lyon,width="200px",float="right"]
+image::{img}/william-lyon.jpg[Will Lyon,width="200px",float="right"]
 
 *10pm UTC (2pm PST, 5pm EST, 11pm CET)* +
 *_(Friday 9am AEDT, 11am NZDT)_*
@@ -101,7 +101,7 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 a|*Ask me anything - .NET edition*
 
-Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it.
 
 a|https://twitch.tv/neo4j[On Twitch!^]
 
@@ -111,7 +111,7 @@ a|https://twitch.tv/neo4j[On Twitch!^]
 
 a|*Ask me anything - Architecture and deployment edition*
 
-Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it.
 
 a|https://twitch.tv/neo4j[On Twitch!^]
 
@@ -121,7 +121,7 @@ a|https://twitch.tv/neo4j[On Twitch!^]
 
 a|*Ask me anything - RDF Edition*
 
-Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it.
 
 a|https://twitch.tv/neo4j[On Twitch!^]
 

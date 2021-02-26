@@ -25,7 +25,7 @@ You should be familiar with link:/developer/cypher/[MATCH], link:/developer/cyph
 In this guide we're going to use an airports dataset that contains connections between US airports in January 2008.
 We have the data in a CSV file, and this is the graph model that we're going to import it into:
 
-image::{img}initial_model.png[role="popup-link"]
+image::{img}/initial_model.png[role="popup-link"]
 
 Before we import any data, we're going to create a unique constraint on the `Airport` label and `code` property to ensure that we don't accidentally import duplicate airports.
 The following query creates this constraint:
@@ -79,7 +79,7 @@ This model is a good starter one, but there are some improvements that we can ma
 The `diverted` and `cancelled` properties on the `CONNECTED_TO` relationships contain string values of `1` and `0`.
 Since these values are representing booleans, we can use the https://neo4j.com/docs/labs/apoc/current/graph-updates/graph-refactoring/normalize-boolean/[`apoc.refactor.normalizeAsBoolean`^] procedure to convert the values from strings to booleans.
 
-image::{img}boolean_refactoring.png[role="popup-link"]
+image::{img}/boolean_refactoring.png[role="popup-link"]
 
 The following query does the conversion for the `diverted` property:
 
@@ -190,7 +190,7 @@ Next, imagine that we want to write a query that finds a specific flight.
 This is quite difficult with our existing model because flights are represented as relationships.
 We can evolve our model to create a `Flight` node from the properties stored on the `CONNECTED_TO` relationship.
 
-image::{img}flight_node.png[role="popup-link"]
+image::{img}/flight_node.png[role="popup-link"]
 
 The following query does this refactoring:
 
@@ -262,7 +262,7 @@ This means that if we wanted to return a stream of all airlines we'd need to sca
 
 We can make it easier, and more efficient, to write this query by creating a node with an `Airline` label for each airline:
 
-image::{img}airline.png[role="popup-link"]
+image::{img}/airline.png[role="popup-link"]
 
 Let's first create a constraint on the `Airline` label and `name` property so that we don't create duplicate airline nodes:
 

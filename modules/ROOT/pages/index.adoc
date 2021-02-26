@@ -23,8 +23,8 @@ All you need to be happy and successful with Neo4j
 [.column]
 === 1. Run Neo4j
 
-Start by link:/try-neo4j/?ref=developer-lp[using Neo4j Sandbox for free^]. 
-Alternatively: 
+Start by link:/try-neo4j/?ref=developer-lp[using Neo4j Sandbox for free^].
+Alternatively:
 
 * xref:neo4j-desktop.adoc[Install Neo4j Desktop]
 * xref:aura-cloud-dbaas.adoc[Use Neo4j Aura in the Cloud]
@@ -69,7 +69,7 @@ video::REVkXVxvMQE[youtube]
 [.column]
 // === Social Networking
 
-// image:diagram.png[JavaScript & Node.js]
+// image:{img}/diagram.png[JavaScript & Node.js]
 
 // Joe knows Sally, and Sally knows Anna. Bob is excluded from the result because, in addition to being a 2nd-degree friend through Sally, he's also a first-degree friend.
 // Pad the content out by a couple of lines to even things up.
@@ -100,7 +100,7 @@ link:https://sandbox.neo4j.com/?usecase=network-management&ref=developer-lp[Crea
 [.column]
 === Fraud Detection
 
-image:fraud-detection-icon.png[Create a Fraud Detection Sandbox,link="https://sandbox.neo4j.com/?usecase=recommendations&ref=developer-lp"]
+image:{img}/fraud-detection-icon.png[Create a Fraud Detection Sandbox,link="https://sandbox.neo4j.com/?usecase=recommendations&ref=developer-lp"]
 
 Fraud detection with a financial transactions dataset, the Neo4j Graph Data Science Library, and Neo4j Bloom visualization.
 
@@ -120,7 +120,7 @@ link:/graphgists/[View 100+ Graph examples by Industry and Use Case^, role=butto
 // [.column]
 // === Java
 
-// image:java.png[Java]
+// image:{img}/java.png[Java]
 
 // * link:#[Neo4j Java Example]
 // * link:#[Spring Data Neo4j]
@@ -129,7 +129,7 @@ link:/graphgists/[View 100+ Graph examples by Industry and Use Case^, role=butto
 // [.column]
 // === Node.js
 
-// image:javascript.png[JavaScript & Node.js]
+// image:{img}/javascript.png[JavaScript & Node.js]
 
 // * link:#[Neo4j JavaScript Example]
 // * link:#[TypeScript]
@@ -137,7 +137,7 @@ link:/graphgists/[View 100+ Graph examples by Industry and Use Case^, role=butto
 // [.column]
 // === .NET
 
-// image:net.png[.NET]
+// image:{img}/net.png[.NET]
 
 // * link:#[Neo4j .NET Example]
 // * link:#[Neo4jClient]
@@ -145,7 +145,7 @@ link:/graphgists/[View 100+ Graph examples by Industry and Use Case^, role=butto
 // [.column]
 // === Python
 
-// image:python.png[Python]
+// image:{img}/python.png[Python]
 
 // * link:#[Neo4j Python Example]
 // * link:#[Py2Neo]
@@ -153,7 +153,7 @@ link:/graphgists/[View 100+ Graph examples by Industry and Use Case^, role=butto
 // [.column]
 // === Go
 
-// image:go.png[Go]
+// image:{img}/go.png[Go]
 
 // * link:#[Neo4j Go Example]
 

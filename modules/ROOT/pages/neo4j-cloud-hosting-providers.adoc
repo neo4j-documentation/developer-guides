@@ -25,7 +25,7 @@ If you provision databases via their offering, you enter a contract with those p
 ////
 ==== GraphGrid
 
-image::{img}20160914051238/graphgrid.jpg[width=300,float=right]
+image::{img}/20160914051238/graphgrid.jpg[width=300,float=right]
 
 * *GraphGrid Data Platform* is the complete Neo4j data platform, architected for the enterprise to unleash the full power of Neo4j into your modern graph data architecture.
 * *High Performance Neo4j Clusters* The full power of Neo4j at your fingertips with thousands of graph compute cores for big graph data processing and graph data warehouse management.
@@ -34,7 +34,7 @@ image::{img}20160914051238/graphgrid.jpg[width=300,float=right]
 
 ==== GrapheneDB
 
-image::{img}graphenedb.png[width=400,float=right]
+image::{img}/graphenedb.png[width=400,float=right]
 
 http://www.graphenedb.com/[GrapheneDB] offers Neo4j instances from free plans suitable for evaluation and testing to production-ready plans for demanding graph applications, with following features:
 
@@ -51,7 +51,7 @@ GrapheneDB is also available as a link:https://elements.heroku.com/addons/graphe
 [#graphstory-host]
 == GraphStory
 
-image::{img}graphstory.png[width=400,float=right]
+image::{img}/graphstory.png[width=400,float=right]
 
 link:http://www.graphstory.com[Graph Story] provides end-to-end Graph Database hosting for Community and Enterprise Neo4j, including:
 

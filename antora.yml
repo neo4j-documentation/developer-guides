@@ -7,7 +7,7 @@ nav:
 asciidoc:
   attributes:
     page-theme: developer
-    img: https://dist.neo4j.com/wp-content/uploads/
+    img: https://dist.neo4j.com/wp-content/uploads
     neo4j-version: 4.2.1
     neo4j-ogm-version: 3.2.19
     spring-boot-version: 2.4.1

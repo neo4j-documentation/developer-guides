@@ -35,7 +35,7 @@ For background reading on link prediction, see the xref:link-prediction/index.ad
 [#citation-graph]
 == Citation Graph
 
-image:noun_citation_2276559.png[float="right", width="100px"]
+image:{img}/noun_citation_2276559.png[float="right", width="100px"]
 
 In this guide, we’re going to use data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
 The full dataset is very large, but we're going to use a subset that contains data from a few Software Development Conferences.
@@ -43,13 +43,13 @@ The full dataset is very large, but we're going to use a subset that contains da
 A screenshot of the available datasets is shown below:
 
 .Citation Networks
-image::citation-graph.png[]
+image::{img}/citation-graph.png[]
 
 You can find https://github.com/neo4j-examples/link-prediction/blob/master/notebooks/01_DataLoading.ipynb[instructions for importing the data^] in the project repository.
 The following diagram shows what the data looks like once we’ve imported into Neo4j:
 
 .Diagram showing Citation Network in Neo4j
-image::citation-graph-imported.svg[]
+image::{img}/citation-graph-imported.svg[]
 
 [#co-author-graph]
 === Building a co-author graph
@@ -73,12 +73,12 @@ We create a couple of properties on these relationships:
 * a `collaborations` property that indicates how many articles on which the authors have collaborated
 
 .The co-authors graph
-image::co-author-graph.svg[]
+image::{img}/co-author-graph.svg[]
 
 [#train-test-datasets]
 == Train and test datasets
 
-image::noun_Data_3403843.png[width="100px", float="right"]
+image::{img}/noun_Data_3403843.png[width="100px", float="right"]
 
 To avoid data leakage, we need to split our graph into training and test sub graphs.
 We are lucky that our citation graph contains time information that we can split on.
@@ -95,7 +95,7 @@ include::example$link-prediction/py/03_Train_Test_Split.py[tag="determine-split"
 ----
 
 .Chart showing distribution of year of collaboration
-image::determine-split.png[]
+image::{img}/determine-split.png[]
 
 It looks like 2006 would act as a good year on which to split the data, because it will give us a reasonable amount of data for each of our sub graphs.
 We’ll take all the co-authorships from 2005 and earlier as our training graph, and everything from 2006 onwards as the test graph.
@@ -213,7 +213,7 @@ include::example$link-prediction/notebooks/data/df_train_under_basic_sample.csv[
 [#feature-engineering]
 == Feature Engineering
 
-image:noun_engineer_94087.png[float="right", width="100px"]
+image:{img}/noun_engineer_94087.png[float="right", width="100px"]
 
 Now it’s time to engineer some features which we’ll use to train our model.
 We're going to create three types of features:
@@ -352,7 +352,7 @@ include::example$link-prediction/notebooks/data/df_test_under_sample.csv[]
 [#selecting-model]
 == Model Selection
 
-image:noun_Random Forest_1503830.png[float="right", width="100px"]
+image:{img}/noun_Random Forest_1503830.png[float="right", width="100px"]
 
 Now that we've generated all our features, it's time to create our classifier.
 We're going to create a random forest.
@@ -383,13 +383,13 @@ include::example$link-prediction/py/05_Train_Evaluate_Model.py[tag="train-model"
 [#evaluate-model]
 == Model Evaluation
 
-image:noun_evaluation_2404409.png[float="right", width="100px"]
+image:{img}/noun_evaluation_2404409.png[float="right", width="100px"]
 
 We’re going to evaluate the quality of our model by computing its accuracy, precision, and recall.
 The diagram below, taken from the https://neo4j.com/graph-algorithms-book/[O’Reilly Graph Algorithms Book^], explains how each of these metrics are computed.
 
 .Accuracy measures
-image::model-evaluation.png[]
+image::{img}/model-evaluation.png[]
 
 scikit-learn has built in functions that we can use for this.
 The following function will help with this:

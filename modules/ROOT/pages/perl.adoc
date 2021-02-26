@@ -25,7 +25,7 @@ include::./_includes/community-driver-notice.adoc[]
 [#neo4j-perl]
 == Neo4j for Perl Developers
 
-image::{img}perl.png[float=right]
+image::{img}/perl.png[float=right]
 
 Members of the Perl community have invested a lot of time and love to develop drivers for Neo4j, so if you use them, please provide feedback to the authors.
 

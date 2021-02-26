@@ -48,7 +48,7 @@ The property graph model is easy to understand and work with, especially for obj
 
 [role="pull-right"]
 --
-image::{img}simple_graph.png[]
+image::{img}/simple_graph.png[]
 --
 
 The property graph model consists of:

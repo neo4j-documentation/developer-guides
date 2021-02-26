@@ -73,7 +73,7 @@ CREATE (anna)-[:FRIEND]->(:Person:Expert {name:"Amanda"})-[:WORKED_WITH]->(neo)
 `CREATE` can also add more complex patterns.
 
 ifndef::env-graphgist[]
-image::{img}first_steps_friends_network.jpg[width=400]
+image::{img}/first_steps_friends_network.jpg[width=400]
 endif::env-graphgist[]
 
 // graph

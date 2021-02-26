@@ -21,7 +21,7 @@ include::./_includes/community-driver-notice.adoc[]
 [#neo4j-swift]
 == Neo4j for Swift Developers
 
-image::{img}swift-logo.png[float=right,width=300]
+image::{img}/swift-logo.png[float=right,width=300]
 
 Swift is a great language for writing iOS and macOS apps, and with the introduction of Swift 3.0, it has become a great language for writing server side applications as well. All of which are excellent places to use Neo4j.
 

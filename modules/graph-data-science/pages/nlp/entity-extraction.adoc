@@ -88,7 +88,7 @@ We can generate an API key and URL by following the instructions in the  https:/
 Once we've done that, we should be able to see a page listing our credentials, similar to the screenshot below:
 
 .Azure Text Analytics credentials
-image::https://dist.neo4j.com/wp-content/uploads/20201201060459/aws-keys.png[]
+image::{img}/20201201060459/aws-keys.png[]
 
 In this case our API URL is `https://neo4j-entity-extraction-developer-guide.cognitiveservices.azure.com/`, and we can use either of the hidden keys.
 
@@ -136,7 +136,7 @@ RETURN a.id AS articleId, a.title AS title, categoryCount;
 We can see a Neo4j Browser visualization of the imported graph in the diagram below:
 
 .Guardian football graph
-image::https://dist.neo4j.com/wp-content/uploads/20201130092104/graph-35.svg[]
+image::{img}/20201130092104/graph-35.svg[]
 
 
 [#build-entity-graph]

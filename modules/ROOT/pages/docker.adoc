@@ -6,7 +6,7 @@
 :category: environment
 :tags: administration, docker, docker-image, deployment
 
-image::{img}neo4j-docker-image-now-in-beta-235x300.jpg[float="right"]
+image::{img}/neo4j-docker-image-now-in-beta-235x300.jpg[float="right"]
 
 [#neo4j-docker]
 == Running Neo4j with Docker
@@ -52,7 +52,7 @@ There is also documentation in our link:/docs/operations-manual/current/docker/[
 
 [NOTE]
 --
-By default, the docker image does not have certificates installed. 
+By default, the docker image does not have certificates installed.
 This means that you will need to disable encryption when connecting with a driver.
 --
 

@@ -21,7 +21,7 @@ include::./_includes/community-driver-notice.adoc[]
 [#neo4j-haskell]
 == Neo4j for Haskell Developers
 
-image::{img}haskell.png[float=right]
+image::{img}/haskell.png[float=right]
 
 [#hasbolt-driver]
 == Hasbolt

@@ -54,13 +54,13 @@ If you are opening Neo4j Desktop for the first time, it should ask you to regist
 This activation key is generated when you first download Neo4j Desktop and will be displayed on the download confirmation page.
 Keep it somewhere safe.
 
-image::{img}desktop_registration_may2020.jpg[float="right"]
+image::{img}/desktop_registration_may2020.jpg[float="right"]
 
 Copy this activation key into the Software registration form and click Activate to continue.
 
 As a new user to Neo4j Desktop, you will be greeted with a new sample database containing https://github.com/neo4j-graph-examples/movies[Movies and Actors^].
 
-image::neo4j-desktop-first-graph-experience.png[float="right"]
+image::{img}/neo4j-desktop-first-graph-experience.png[float="right"]
 
 Clicking the Browser Guide link for the Sample database will open up the Neo4j Browser with a Browser Guide that will guide you through your first queries on this Neo4j database.
 
@@ -71,21 +71,21 @@ You can reset this password in the Administration tab on the Manage screen.
 == Navigation
 
 The menu along the left side of Neo4j Desktop shows high-level icons for projects, graph applications, settings, activation keys, and Neo4j info.
-At the top, the folder with a bookmark (image:neo4j-desktop-project-icon.png[width=30]) shows the list of projects you have created.
+At the top, the folder with a bookmark (image:{img}/neo4j-desktop-project-icon.png[width=30]) shows the list of projects you have created.
 
 === Creating and Deleting a Project
 
-image::neo4j-desktop-deleting-a-project.png[float="right",width=320]
+image::{img}/neo4j-desktop-deleting-a-project.png[float="right",width=320]
 
 To create a new project, simply click `+ New` at the right of the `Projects` menu.
 The app will add a row in the menu for a project named `Project`.
 You can change the name by clicking on the pencil icon that appears when you hover on the project name in the right pane.
-To remove the project, hover over the `Project` row in the projects menu and click the trash bin icon that appears on the right side (image:neo4j-desktop-remove-icon.png[width=30]).
+To remove the project, hover over the `Project` row in the projects menu and click the trash bin icon that appears on the right side (image:{img}/neo4j-desktop-remove-icon.png[width=30]).
 
 
 === Settings
 
-Application settings can be modified or viewed by clicking the gear towards the bottom of the left-side menu in Neo4j Desktop (image:neo4j-desktop-settings-icon.png[width=30]).
+Application settings can be modified or viewed by clicking the gear towards the bottom of the left-side menu in Neo4j Desktop (image:{img}/neo4j-desktop-settings-icon.png[width=30]).
 You can modify any of these settings at any time.
 
 The first block is for privacy settings where you can adjust what data is sent back to Neo4j for assistance and future improvements.
@@ -105,9 +105,9 @@ You can also access the javascript console of an application for debugging and e
 
 === Profile and About
 
-The certificate icon (image:{img}activation_keys_icon.jpg[width=20]) shows the licenses that are attached to this installation in Neo4j Desktop, which includes activation of Desktop itself along with any graph app licenses.
+The certificate icon (image:{img}/activation_keys_icon.jpg[width=20]) shows the licenses that are attached to this installation in Neo4j Desktop, which includes activation of Desktop itself along with any graph app licenses.
 
-The bottom icon (image:{img}neo4j_icon.jpg[width=20]) is information about Neo4j itself and includes links to the main company website, as well as release and license information.
+The bottom icon (image:{img}/neo4j_icon.jpg[width=20]) is information about Neo4j itself and includes links to the main company website, as well as release and license information.
 
 [#desktop-create-graph]
 == Creating a graph database
@@ -132,7 +132,7 @@ If you forget your password, you can reset it by clicking the three dots to the 
 You have now created your own graph database!
 Now we will walk through some tools to interact with the database and data.
 
-image::{img}db_section_instance.jpg[role="popup-link"]
+image::{img}/db_section_instance.jpg[role="popup-link"]
 
 The kbd:[Start] button in the bottom right hand corner of each database card will Start the database.
 Once started, there will be a button in the bottom right hand corner to Stop the database.
@@ -146,17 +146,17 @@ Next to the Open button is a dropdown menu which will allow you to open up a lis
 
 To manage a database, click the three-dots icon in the top right hand of the card and click kbd:[Manage].
 
-image::{img}manage_db_pane.jpg[role="popup-link"]
+image::{img}/manage_db_pane.jpg[role="popup-link"]
 
 At the top of the screen, you will see the database name and an icon to signify its status.
 Directly underneath are three buttons to Start, Stop, or Restart the database.
 
-image::{img}status_buttons.jpg[role="popup-link"]
+image::{img}/status_buttons.jpg[role="popup-link"]
 
 The kbd:[Open Folder] button will open up the root folder for this database.
 The arrow icon to the right of this button will allow you to open up additional folders related to this database, for example the Plugins or Logs folders.
 
-image::{img}open_folder.jpg[role="popup-link"]
+image::{img}/open_folder.jpg[role="popup-link"]
 
 The kbd:[Open Terminal] button will open up a new terminal window in the root folder of the database.
 
@@ -165,7 +165,7 @@ Below these buttons are several tabs for information and settings.
 The `Details` tab shows the description, version, and the status of your database along with some statistics for the database.
 When the database is running, it will also show port numbers and addresses needed to interact with the database (screenshot below).
 
-image::{img}db_details.jpg[role="popup-link"]
+image::{img}/db_details.jpg[role="popup-link"]
 
 The `Logs` tab will show all of the streaming log output from the database.
 

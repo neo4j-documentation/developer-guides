@@ -37,7 +37,7 @@ It describes the process of how we change the shape or format of our raw data so
 It can be thought of as a dimensionality reduction process, where raw variables are reduced to more manageable groups (features), while still accurately describing the original data set.
 
 .Feature Extraction
-image::feature-extraction.png[]
+image::{img}/feature-extraction.png[]
 
 These features are often derived from data stored in tables in a relational database.
 
@@ -47,7 +47,7 @@ These features are often derived from data stored in tables in a relational data
 Connected feature extraction is the process of **changing the shape or format of graph data** so that it is usable in a machine learning pipeline.
 
 .Connected Feature Extraction
-image::connected-feature-extraction.png[]
+image::{img}/connected-feature-extraction.png[]
 
 Connected features can be generated in two main ways:
 

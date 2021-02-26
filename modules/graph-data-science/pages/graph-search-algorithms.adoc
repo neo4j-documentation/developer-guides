@@ -21,7 +21,7 @@ Please have link:/download[Neo4j^] (version 4.0 or later) and the link:/download
 [#overview-graph-search-algorithms]
 == What are graph search algorithms?
 
-image:https://dist.neo4j.com/wp-content/uploads/20200723030840/noun_Search-graph_528032.png[float="right", width="200px"]
+image:{img}/20200723030840/noun_Search-graph_528032.png[float="right", width="200px"]
 
 Graph search (or graph traversal) algorithms explore a graph for general discovery or explicit search.
 They will try to visit as much of the graph as they can reach, but there is no expectation that the paths they explore are computationally optimal.
