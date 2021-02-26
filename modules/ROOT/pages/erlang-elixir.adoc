@@ -24,8 +24,8 @@ include::./_includes/community-driver-notice.adoc[]
 [#neo4j-erlang-elixir]
 == Neo4j for Erlang/Elixir Developers
 
-image::{img}erlang.png[float=right,width=150]
-image::{img}elixir.png[float=left,width=150]
+image::{img}/erlang.png[float=right,width=150]
+image::{img}/elixir.png[float=left,width=150]
 
 Members of the Erlang and Elixir community have invested a lot of time and love to develop these drivers, so if you use them, please provide feedback to the authors.
 

@@ -61,7 +61,7 @@ Companies can also mailto:training@neo4j.com[request] private, custom training e
 [#neo4j-certification]
 == Neo4j Developer Certification
 
-image::{img}Neo4j_certified_professional.jpeg[role="popup-link",float="right",width=150]
+image::{img}/Neo4j_certified_professional.jpeg[role="popup-link",float="right",width=150]
 
 We also have a Neo4j Developer Certification that proves you know the foundations of the graph database and Cypher and is a great addition to your résume or CV.
 

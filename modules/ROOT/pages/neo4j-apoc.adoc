@@ -57,12 +57,12 @@ The images below walk you through both methods.
 For a video demonstration, see our APOC video series episode for https://youtu.be/b1Yr2nHNS4M[downloading and installing APOC^] on the Neo4j YouTube channel.
 
 .At the project level:
-image:{img}apoc_install_from_proj.png[role="popup-link"]
+image:{img}/apoc_install_from_proj.png[role="popup-link"]
 
 .At the database level:
-image:{img}apoc_install_from_db1.png[role="popup-link"]
+image:{img}/apoc_install_from_db1.png[role="popup-link"]
 
-image:{img}apoc_install_from_db2.png[role="popup-link"]
+image:{img}/apoc_install_from_db2.png[role="popup-link"]
 
 [#apoc-intro]
 == Intro to Using the APOC Library
@@ -124,7 +124,7 @@ CALL apoc.help('text')
 ----
 
 .Results for APOC procedures dealing with text
-image:{img}apoc_help_text.png[role="popup-link"]
+image:{img}/apoc_help_text.png[role="popup-link"]
 
 This command also gives a description and sample implementation with parameters and their data types.
 

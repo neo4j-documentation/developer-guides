@@ -6,8 +6,9 @@
 :page-comments:
 :page-pagination: next
 
+[subs=+attributes]
 ++++
-<object style="margin-bottom:2em;" type="image/svg+xml" data="https://dist.neo4j.com/wp-content/uploads/get_started_neo4j.svg"></object>
+<object style="margin-bottom:2em;" type="image/svg+xml" data="{img}/get_started_neo4j.svg"></object>
 ++++
 
 [#starting-neo4j]

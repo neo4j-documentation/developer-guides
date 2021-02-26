@@ -60,7 +60,7 @@ Once installed you should receive a confirmation message.
 
 == Launching a Graph App
 
-image:graph-apps-pane.png[Open the Graph Apps Pane using the Graph Apps icon, float=right]
+image:{img}/graph-apps-pane.png[Open the Graph Apps Pane using the Graph Apps icon, float=right]
 
 === From the Graph App Pane
 
@@ -74,7 +74,7 @@ You can launch a Graph App by clicking the icon
 ++++
 
 === From the Action Bar
-image::launch-graph-app-action-bar.png[Launching a Graph app from the Action Bar]
+image::{img}/launch-graph-app-action-bar.png[Launching a Graph app from the Action Bar]
 
 Graph Apps can also be launched from the Action Bar.
 As you type the name of the Graph App you wish to open, the list of suggestions will filter.

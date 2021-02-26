@@ -15,8 +15,8 @@ This page contains a list of featured Graph Apps built by link:/labs[Neo4j Labs^
 === Graph Gallery
 
 [.graph-app]
-image:graph-gallery-logo.png[Graph Gallery Logo,width=48,role=rounded graph-app-logo]
-image:graph-gallery-screenshot.jpg[Graph Gallery Screenshot]
+image:{img}/graph-gallery-logo.png[Graph Gallery Logo,width=48,role=rounded graph-app-logo]
+image:{img}/graph-gallery-screenshot.jpg[Graph Gallery Screenshot]
 
 If you are new to Graph Databases then the Graph Gallery is a good place to look for inspiration.
 The Graph Gallery features a curation of over a hundred example graphs categorised by use case and industry.
@@ -34,7 +34,7 @@ link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/
 
 === GraphQL Architect
 
-image:graphql-architect-logo.png[GraphQL Architect Logo,width=48,float=right,role=rounded]
+image:{img}/graphql-architect-logo.png[GraphQL Architect Logo,width=48,float=right,role=rounded]
 link:https://medium.com/neo4j/introducing-graphql-architect-19b0f2035e21[GraphQL Architect^] is a graph app for Neo4j Desktop that enables developers to build, query, and deploy GraphQL APIs backed by the Neo4j graph database, all from within Neo4j Desktop.
 
 link:neo4j-desktop://graphapps/install?url=https://registry.npmjs.org/@grandstack/graphql-architect[Install GraphQL Architect in Neo4j Desktop,role=button]
@@ -56,8 +56,8 @@ link:neo4j-desktop://graphapps/install?url=https://registry.npmjs.org/@graphapps
 ===  Halin
 
 [.graph-app]
-image:halin-logo.png[Halin Logo,role=rounded graph-app-logo]
-image:halin-screenshot.png[Halin Screenshot]
+image:{img}/halin-logo.png[Halin Logo,role=rounded graph-app-logo]
+image:{img}/halin-screenshot.png[Halin Screenshot]
 
 Halin is a Graph App for monitoring Neo4j.  It shows you how your system is functioning and using system resources like CPU and Memory, and helps you diagnose common configuration and performance problems.
 

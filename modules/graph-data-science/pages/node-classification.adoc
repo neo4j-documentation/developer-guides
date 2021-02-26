@@ -20,14 +20,14 @@ Please have link:/download[Neo4j^] (version 4.2.3 or later) and link:/download-c
 [#node-classification]
 == What is node classification?
 
-Node classification is a supervised machine learning (ML) approach whereby existing nodes with known classes can be used to train a model that will learn the classes for nodes where they are unknown. In order to achieve this, the data must be split into two parts -- a training graph and a testing graph -- prior to predicting the classes for the unknown nodes.  The training process involves splitting the training graph into two parts -- a training and validation set -- that will be used to fine tune the model through subsequent steps.  
+Node classification is a supervised machine learning (ML) approach whereby existing nodes with known classes can be used to train a model that will learn the classes for nodes where they are unknown. In order to achieve this, the data must be split into two parts -- a training graph and a testing graph -- prior to predicting the classes for the unknown nodes.  The training process involves splitting the training graph into two parts -- a training and validation set -- that will be used to fine tune the model through subsequent steps.
 
 Node classification is based on https://en.wikipedia.org/wiki/Logistic_regression[logistic regression].  As in any ML model, care must be taken in choosing both the training and test sets as well as how to ensure that the model is not overfitting the data.  In the case of the GDS Node Classification algorithm, an L2 norm is used as a penalty.
 
 [NOTE]
 ====
-The code examples used in this guide can be found in https://github.com/AliciaFrame/ML_with_GDS[this GitHub repository^]. 
-==== 
+The code examples used in this guide can be found in https://github.com/AliciaFrame/ML_with_GDS[this GitHub repository^].
+====
 
 [#marvel-dataset]
 == Marvel Universe dataset
@@ -100,7 +100,7 @@ RETURN distinct 'done';
 This query creates a series of nodes and their labels and properties: `Comic`, `Character`, `Stats` along with a variety of edges such as which comics the characters appeared in which comics, who is an enemy of whom, etc.  You can see a schema of this graph using `CALL db.schema.visualization()` here:
 
 .Marvel Universe Schema
-image::marvel-schema.png[800,600]
+image::{img}/marvel-schema.png[800,600]
 
 (Note that for the simplicity of the image we are not showing the node properties since there are many.)
 
@@ -125,7 +125,7 @@ Next, we set up the co-occurance of characters such that we can identify which c
 
 [source, cypher]
 ----
-MATCH (c1:Character)-[:APPEARED_IN]->(c:Comic)<-[:APPEARED_IN]-(c2:Character) 
+MATCH (c1:Character)-[:APPEARED_IN]->(c:Comic)<-[:APPEARED_IN]-(c2:Character)
 WITH c1, c2, count(c) as weight
 MERGE (c1)-[:APPEARED_WITH{times:weight}]->(c2)
 MERGE (c2)-[:APPEARED_WITH{times:weight}]->(c1)
@@ -142,7 +142,7 @@ CALL gds.graph.create(
   {
     Person: {
       label: 'Character',
-      properties: { 
+      properties: {
       strength:{property:'strength',defaultValue:0},
       fighting_skills:{property:'fighting_skills', defaultValue:0},
       durability:{property:'durability', defaultValue:0},
@@ -172,7 +172,7 @@ CALL gds.graph.create(
       type: 'ALLY',
       orientation: 'NATURAL',
       aggregation: 'SINGLE'
-    },    
+    },
     ENEMY_UNDIRECTED: {
       type: 'ENEMY',
       orientation: 'UNDIRECTED',
@@ -183,7 +183,7 @@ CALL gds.graph.create(
       orientation: 'NATURAL',
       aggregation: 'SINGLE'
     }
-   
+
 });
 ----
 
@@ -293,7 +293,7 @@ CALL gds.alpha.hits.mutate('marvel-character-graph',{
 });
 ----
 
-Lastly, we will use the https://neo4j.com/docs/graph-data-science/current/algorithms/fastrp/[Fast Random Projection^] (FastRP) embedding algorithm to create embedding vectors for each node, that will be used in one of our node classifications.  Despite the fact that we will only be looking at a subset of this graph, namely X-Men and those who might be X-men or relate to them somehow, but we will compute the embeddings for the whole graph. 
+Lastly, we will use the https://neo4j.com/docs/graph-data-science/current/algorithms/fastrp/[Fast Random Projection^] (FastRP) embedding algorithm to create embedding vectors for each node, that will be used in one of our node classifications.  Despite the fact that we will only be looking at a subset of this graph, namely X-Men and those who might be X-men or relate to them somehow, but we will compute the embeddings for the whole graph.
 
 [source, cypher]
 ----
@@ -334,7 +334,7 @@ Next, we need to identify characters that are not X-Men.  There are many more no
 ----
 MATCH (c:Character)
 WHERE NOT (c)-[:PART_OF_GROUP]->(:Group) WITH c
-WHERE NOT (c)-[:APPEARED_WITH*2..3]-(:Character{is_xman:1}) 
+WHERE NOT (c)-[:APPEARED_WITH*2..3]-(:Character{is_xman:1})
 AND apoc.node.degree(c)>0 WITH c
 WHERE rand() < 0.2
 SET c:Model_Data, c.is_xman=0;
@@ -349,7 +349,7 @@ WHERE NOT (c:Model_Data)
 SET c:Holdout_Data;
 ----
 
-Once we have done this, we will create an in-memory graph encompassing these characters, their properties, and the class to be predicted.  
+Once we have done this, we will create an in-memory graph encompassing these characters, their properties, and the class to be predicted.
 
 [source, cypher]
 ----
@@ -358,7 +358,7 @@ CALL gds.graph.create(
   {
     Character: {
       label: 'Model_Data',
-      properties: { 
+      properties: {
         fastRP_embedding:{property:'fastRP_Extended_Embedding', defaultValue:0},
         strength:{property:'strength', defaultValue:0},
         durability:{property:'durability', defaultValue:0},
@@ -370,7 +370,7 @@ CALL gds.graph.create(
     },
     Holdout_Character: {
       label: 'Holdout_Data',
-      properties: { 
+      properties: {
         fastRP_embedding:{property:'fastRP_Extended_Embedding', defaultValue:0},
         strength:{property:'strength', defaultValue:0},
         durability:{property:'durability', defaultValue:0},
@@ -381,7 +381,7 @@ CALL gds.graph.create(
       }
     }
   }, {
-    APPEARED_WITH: { 
+    APPEARED_WITH: {
       type: 'APPEARED_WITH',
       orientation: 'UNDIRECTED',
       properties: ['times'],
@@ -399,19 +399,19 @@ First let's train a simple model that only uses some character properties for th
 CALL gds.alpha.ml.nodeClassification.train('marvel_model_data', {
    nodeLabels: ['Character'],
    modelName: 'xmen-model-properties',
-   featureProperties: ['energy','speed','strength','durability','intelligence'], 
-   targetProperty: 'is_xman', 
-   metrics: ['F1_WEIGHTED','ACCURACY'], 
-   holdoutFraction: 0.2, 
-   validationFolds: 5, 
+   featureProperties: ['energy','speed','strength','durability','intelligence'],
+   targetProperty: 'is_xman',
+   metrics: ['F1_WEIGHTED','ACCURACY'],
+   holdoutFraction: 0.2,
+   validationFolds: 5,
    randomSeed: 2,
    params: [
        {penalty: 0.0625, maxIterations: 1000},
-       {penalty: 0.125, maxIterations: 1000}, 
-       {penalty: 0.25, maxIterations: 1000}, 
+       {penalty: 0.125, maxIterations: 1000},
+       {penalty: 0.25, maxIterations: 1000},
        {penalty: 0.5, maxIterations: 1000},
        {penalty: 1.0, maxIterations: 1000},
-       {penalty: 2.0, maxIterations: 1000}, 
+       {penalty: 2.0, maxIterations: 1000},
        {penalty: 4.0, maxIterations: 1000}
        ]
     }) YIELD modelInfo
@@ -436,26 +436,26 @@ When this is run on our dataset, we obtain the following results:
 |0.44504748658690024
 |===
 
-These scores are low, but this is not surprising.  We provided a very minimal number of properties on which to train the model, a problem that is compounded by the fact the the graph itself is quite small.  So instead, let's train a new model using the FastRP embeddings.   
+These scores are low, but this is not surprising.  We provided a very minimal number of properties on which to train the model, a problem that is compounded by the fact the the graph itself is quite small.  So instead, let's train a new model using the FastRP embeddings.
 
 [source, cypher]
 ----
 CALL gds.alpha.ml.nodeClassification.train('marvel_model_data', {
    nodeLabels: ['Character'],
    modelName: 'xmen-model-fastRP',
-   featureProperties: ['fastRP_embedding'], 
-   targetProperty: 'is_xman', 
-   metrics: ['F1_WEIGHTED','ACCURACY'], 
-   holdoutFraction: 0.2, 
-   validationFolds: 5, 
+   featureProperties: ['fastRP_embedding'],
+   targetProperty: 'is_xman',
+   metrics: ['F1_WEIGHTED','ACCURACY'],
+   holdoutFraction: 0.2,
+   validationFolds: 5,
    randomSeed: 2,
    params: [
        {penalty: 0.0625, maxIterations: 1000},
-       {penalty: 0.125, maxIterations: 1000}, 
-       {penalty: 0.25, maxIterations: 1000}, 
+       {penalty: 0.125, maxIterations: 1000},
+       {penalty: 0.25, maxIterations: 1000},
        {penalty: 0.5, maxIterations: 1000},
        {penalty: 1.0, maxIterations: 1000},
-       {penalty: 2.0, maxIterations: 1000}, 
+       {penalty: 2.0, maxIterations: 1000},
        {penalty: 4.0, maxIterations: 1000}
        ]
     }) YIELD modelInfo
@@ -507,9 +507,9 @@ We now look at some of the predictions for characters that are labeled as X-Men.
 
 [source, cypher]
 ----
-MATCH (c:Character) 
+MATCH (c:Character)
 WHERE c.predicted_xman = 1 AND NOT c:Model_Data
-RETURN c.name, c.aliases, c.predicted_xman, c.predicted_xman_probability 
+RETURN c.name, c.aliases, c.predicted_xman, c.predicted_xman_probability
 ----
 
 `c.predicted_xman` returns the predicted class (in this case we are looking for characters that were labeled as X-Men by the model).  The returned `c.predicted_xman-probability` gives the probability of each class, presented as a list where the first element is the probability of class 0 (not an X-Man) and the second element is the probability of class 1 (an X-Man).  Our results will be as follows for the first returned character (with long alias list truncated for space):

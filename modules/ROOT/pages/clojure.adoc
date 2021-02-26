@@ -21,7 +21,7 @@ include::./_includes/community-driver-notice.adoc[]
 [#neo4j-clojure]
 == Neo4j Clojure Drivers
 
-image::{img}clojure.png[float=right]
+image::{img}/clojure.png[float=right]
 
 Clojure drivers either support Neo4j embedded on the JVM or use Neo4j Server via its HTTP or Bolt APIs.
 

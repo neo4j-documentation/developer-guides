@@ -32,10 +32,10 @@ Let us look at a very rudimentary example of this using our movie data from the 
 In the graph view below, we can easily pick out that `Lana Wachowski` directed both `Cloud Atlas` and `The Matrix` movies, where in the tabular representation, that information is not as clear or easy-to-find.
 
 .Graph
-image:{img}vis_movies_graph_format.jpg[role="popup-link"]
+image:{img}/vis_movies_graph_format.jpg[role="popup-link"]
 
 .Table
-image:{img}vis_movies_tabular_format.jpg[role="popup-link"]
+image:{img}/vis_movies_tabular_format.jpg[role="popup-link"]
 
 Even if you feel that the relationship is not hard to find in the tabular format, imagine if we were looking at a graph that contained these individuals' entire filmography careers, as well as hundreds of other actors, directors, and film crew members.
 The connections could easily be lost in a non-visual presentation.
@@ -48,7 +48,7 @@ We will briefly discuss the key details of each here.
 
 === Neo4j Browser
 
-image:{img}browser_vis_yelp.jpg[role="popup-link"]
+image:{img}/browser_vis_yelp.jpg[role="popup-link"]
 
 Neo4j Browser, a developer-focused tool that allows developers to execute Cypher queries and visualize the results, is the default developer interface for both Enterprise and Community editions of Neo4j database.
 It comes out-of-the-box with all of Neo4j’s graph database offerings, including Neo4j Server (community and enterprise editions) and Neo4j Desktop (all OS versions).
@@ -59,7 +59,7 @@ You can also use the built-in drop-down buttons on query result panes to easily 
 
 === Neo4j Bloom
 
-image:{img}bloom_vis_yelp.jpg[role="popup-link"]
+image:{img}/bloom_vis_yelp.jpg[role="popup-link"]
 
 Bloom is Neo4j’s standalone product for visualization that is accessible with a commercial license or for free with Neo4j Desktop (single user).
 This tool was designed for business analysts and other non-developers to interact with data stored in the graph database without writing any code.

@@ -21,7 +21,7 @@ When developing with Neo4j, please use Java 8 or 11 and your favorite IDE.
 [#neo4j-java]
 == Neo4j for Java Developers
 
-image::{img}java.jpg[float=right,width=200]
+image::{img}/java.jpg[float=right,width=200]
 
 Neo4j offers a rich set of integration possibilities for developers using Java or other JVM-languages.
 

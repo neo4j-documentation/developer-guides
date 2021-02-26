@@ -63,7 +63,7 @@ YIELD name, currentStatus
 WHERE name CONTAINS 'test' AND currentStatus = 'online';
 ----
 
-image::show-databases-example.jpg[Using SHOW DATABASES, link="{imagesdir}/show-databases-example.jpg",role="popup-link"]
+image::{img}/show-databases-example.jpg[Using SHOW DATABASES,role="popup-link"]
 
 Here is another example:
 
@@ -73,7 +73,7 @@ YIELD access, resource, segment, action
 WHERE access = 'GRANTED'  AND action = 'match';
 ----
 
-image::show-roles-example.jpg[Using SHOW ROLES, link="{imagesdir}/show-roles-example.jpg",role="popup-link"]
+image::{img}/show-roles-example.jpg[Using SHOW ROLES,role="popup-link"]
 
 
 [#cypher-resources]

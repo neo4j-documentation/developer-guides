@@ -20,7 +20,7 @@ include::./_includes/common-language-prereq.adoc[]
 [#neo4j-javascript]
 == Neo4j for JavaScript Developers
 
-image::{img}nodejs.png[float=right,width=300]
+image::{img}/nodejs.png[float=right,width=300]
 
 Neo4j can be installed on any system and then accessed via its binary and HTTP APIs.
 

@@ -59,12 +59,12 @@ Alternatively, if your graph app will be used in a context where the always has 
 == Enabling Developer Tools
 
 Neo4j Desktop comes with a Development App that can be used while developing and debugging your Graph App.
-To enable Development Mode, click on the Settings image:{img}settings.png[Settings Icon, title="Settings Icon"] icon in the bottom left hand corner of the screen to reveal the Settings pane.
+To enable Development Mode, click on the Settings image:{img}/settings.png[Settings Icon, title="Settings Icon"] icon in the bottom left hand corner of the screen to reveal the Settings pane.
 
 At the bottom of the Settings pane, you will see a *Developer Tools* form.
 Click *Enable Development Mode* and add fill out the Entry Point and Root Path.
 
-image::{img}developer-tools.png[Developer Tools window with Enable development mode checkbox and fields for Entry Point and Root Path, title="Developer Tools form"]
+image::{img}/developer-tools.png[Developer Tools window with Enable development mode checkbox and fields for Entry Point and Root Path, title="Developer Tools form"]
 
 - *Entry Point*: This is the path to your app, either a location of an HTML file (for example `\file:///Users/me/my-graph-app/index.html`), or an HTTP url where your app is being served (for example `http://localhost:8080`).
 - *Root Path*: This is the path to the root of your development project.
@@ -360,7 +360,7 @@ For Graph Apps hosted on the internet, the manifest.json file should be served i
 
 The following image demonstrates how the values from manifest.json are used by Neo4j Desktop.
 
-image:{img}manifest.png[Manifest Mapping, title="How items from manifest.json are used in Neo4j Desktop"]
+image:{img}/manifest.png[Manifest Mapping, title="How items from manifest.json are used in Neo4j Desktop"]
 
 .Table manifest.json Contents
 |===

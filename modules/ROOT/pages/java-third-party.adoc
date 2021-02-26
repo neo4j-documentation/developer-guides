@@ -59,16 +59,16 @@ Just grab the https://github.com/neo4j-contrib/neo4j-jdbc/releases/latest[JAR of
 JCypher provides seamlessly integrated Java access to Neo4j at different levels of abstraction:
 
 At the topmost level of abstraction, JCypher allows you to *map complex business domains* to graph databases.
-You can take an arbitrarily complex graph of domain objects or POJOs and store it in a straightforward way into Neo4j for later retrieval. 
-You do not need to modify your domain object classes in any way, there is also no need for annotations. 
+You can take an arbitrarily complex graph of domain objects or POJOs and store it in a straightforward way into Neo4j for later retrieval.
+You do not need to modify your domain object classes in any way, there is also no need for annotations.
 JCypher provides a default mapping out of the box.
 
-At the same level of abstraction, *Domain Queries* provide the power and expressiveness of queries on a graph database, 
+At the same level of abstraction, *Domain Queries* provide the power and expressiveness of queries on a graph database,
 while being formulated on domain objects or on types of domain objects, respectively.
 The true power of Domain Queries comes from the fact, that the graph of domain objects is backed by a graph database.
 
 At the next lower level of abstraction – access to graph databases – is provided based on a generic graph model.
-While simple, the model allows you to easily navigate and manipulate graphs. 
+While simple, the model allows you to easily navigate and manipulate graphs.
 
 At the bottom level of abstraction, a *native Java DSL* in the form of a fluent Java API allows you to intuitively and comfortably formulate queries against Neo4j.
 
@@ -86,7 +86,7 @@ At the bottom level of abstraction, a *native Java DSL* in the form of a fluent 
 [#neo4j-grails]
 === Groovy & Grails: Neo4j Grails Plugin
 
-image::{img}grails.png[width=200,float=right]
+image::{img}/grails.png[width=200,float=right]
 
 The goal of GORM for Neo4j is to provide a 'as-complete-as-possible' GORM implementation that maps domain classes and instances to the Neo4j nodespace. The following features are supported:
 
@@ -106,7 +106,7 @@ The goal of GORM for Neo4j is to provide a 'as-complete-as-possible' GORM implem
 [#neo4j-scala]
 === Scala: neotypes
 
-image::{img}scala.png[width=200,float="right"]
+image::{img}/scala.png[width=200,float="right"]
 
 Scala lightweight, type-safe, asynchronous driver (not opinionated on side-effect implementation) for neo4j.
 The project aims to provide seamless integration with most popular scala infrastructures such as lightbend (Akka, Akka-http, Lagom, etc), typelevel (cats, http4s, etc), twitter (finch, etc)...

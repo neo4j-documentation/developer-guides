@@ -44,15 +44,15 @@ We can install that link:neo4j://graphapps/install?url=https://neo.jfrog.io/neo/
 https://neo.jfrog.io/neo/api/npm/npm/neo4j-cloud-ui
 ----
 
-image::{img}grandstack-install-graphapp-manual.png[role="popup-link"]
+image::{img}/grandstack-install-graphapp-manual.png[role="popup-link"]
 
 Once we do that we'll see the following prompt:
 
-image::{img}grandstack-install-graphapp.png[role="popup-link"]
+image::{img}/grandstack-install-graphapp.png[role="popup-link"]
 
 We can now launch the Neo4j Cloud Tool, which will take us to the following screen:
 
-image::{img}grandstack-neo4j-cloud-tool-launched.png[role="popup-link"]
+image::{img}/grandstack-neo4j-cloud-tool-launched.png[role="popup-link"]
 
 
 [#importing-database]
@@ -64,11 +64,11 @@ Click on the `Check existing database` button.
 This will check whether our Aura database contains existing data.
 Assuming an empty database, we'll see the following screen:
 
-image::{img}grandstack-neo4j-cloud-tool-check-existing.png[role="popup-link"]
+image::{img}/grandstack-neo4j-cloud-tool-check-existing.png[role="popup-link"]
 
 Clicking on the `Next` button will take us to the following screen:
 
-image::{img}grandstack-neo4j-cloud-tool-select-database-dump.png[role="popup-link"]
+image::{img}/grandstack-neo4j-cloud-tool-select-database-dump.png[role="popup-link"]
 
 From here we can import databases or a dump file.
 We'll be using the latter functionality to import a dump containing the football transfers database.
@@ -78,12 +78,12 @@ Once we've downloaded that file we'll select it as the dump file to import.
 After that we'll click on the `Import Dump file` button.
 This will take a few minutes to run, but eventually we'll see output similar to the following:
 
-image::{img}grandstack-neo4j-cloud-tool-done.png[role="popup-link"]
+image::{img}/grandstack-neo4j-cloud-tool-done.png[role="popup-link"]
 
 Click on the `View data in Neo4j Browser` button to see what we've imported.
 The diagram below shows a sample of the imported graph:
 
-image::{img}grandstack-neo4j-browser.png[role="popup-link"]
+image::{img}/grandstack-neo4j-browser.png[role="popup-link"]
 
 [#our-application]
 == Our Application
@@ -107,7 +107,7 @@ The application has two parts:
 
 The diagram below shows the architecture of our application and how it interacts with Neo4j:
 
-image::{img}grandstack-architecture.png[role="popup-link"]
+image::{img}/grandstack-architecture.png[role="popup-link"]
 
 == Now CLI
 
@@ -115,7 +115,7 @@ We're going to deploy the application using ZEIT, a cloud platform for websites 
 
 First we'll need to create an account on that platform via https://zeit.co/signup[zeit.co/signup^].
 
-image::{img}zeit_signup.png[role="popup-link"]
+image::{img}/zeit_signup.png[role="popup-link"]
 
 Once we've done that we can install the Now CLI on our machine using instructions from https://zeit.co/download[zeit.co/download^]:
 
@@ -160,15 +160,15 @@ We'll need to provide the following details:
 
 If we open our https://console.neo4j.io/#databases[Neo4j Aura Console Dashboard^], we'll see a list of our databases.
 
-image::{img}grandstack-database.png[role="popup-link"]
+image::{img}/grandstack-database.png[role="popup-link"]
 
 We'll need to use the Bolt URL, so let's copy that onto our clipboard:
 
-image::{img}grandstack-database-highlight-bolt.png[role="popup-link"]
+image::{img}/grandstack-database-highlight-bolt.png[role="popup-link"]
 
 The default username is `neo4j` and the default password is generated on database creation.
 
-image::{img}grandstack-database-password.png[role="popup-link"]
+image::{img}/grandstack-database-password.png[role="popup-link"]
 
 For the database described above we'd have the following credentials:
 
@@ -218,15 +218,15 @@ Running this command will result in the following output:
 We can then navigate to the provided URL, which in this case is `https://grand-stack-starter-seven-wheat.now.sh/`.
 Once this page has loaded, we'll see a list of the top transfers:
 
-image::{img}grandstack-deployed-transfers.png[role="popup-link"]
+image::{img}/grandstack-deployed-transfers.png[role="popup-link"]
 
 We can navigate to other screens via the left menu:
 
-image::{img}grandstack-deployed-menu.png[role="popup-link"]
+image::{img}/grandstack-deployed-menu.png[role="popup-link"]
 
 My favourite one is `Country Money Flow`, so let's have a look at that:
 
-image::{img}grandstack-deployed-country-money-flow.png[role="popup-link"]
+image::{img}/grandstack-deployed-country-money-flow.png[role="popup-link"]
 
 We've now deployed our first GRANDstack application.
 If any of the steps don't make sense or didn't work, please let us know in the https://community.neo4j.com/c/drivers-stacks/graphql-grandstack[GraphQL and GRANDstack topic^] on the https://community.neo4j.com/[community site^].

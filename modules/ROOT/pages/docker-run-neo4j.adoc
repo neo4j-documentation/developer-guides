@@ -7,7 +7,7 @@
 :tags: administration, docker, docker-image, documentation, container, configuration, cypher-shell
 :description: You will learn how to create and run a Neo4j graph database in a Docker container. This tutorial is designed for you to follow along and step through the process.
 
-image::{img}neo4j-docker-image-now-in-beta-235x300.jpg[float="right"]
+image::{img}/neo4j-docker-image-now-in-beta-235x300.jpg[float="right"]
 
 .Goals
 [abstract]
@@ -33,7 +33,7 @@ There is an official {docker-hub-link}[Neo4j image on DockerHub^] we can use to 
 From the DockerHub repo, we can run Community Edition or Enterprise Edition with a variety of versions of the database.
 The list from Neo4j's options in dockerhub is shown below.
 
-image::{img}neo4j_dockerhub_versions.jpg[]
+image::{img}/neo4j_dockerhub_versions.jpg[]
 
 [NOTE]
 --
@@ -297,7 +297,7 @@ The image below shows the command and prompt to access Cypher shell, as well as 
 The final command exits Cypher shell using `:exit` and returns to our bash prompt.
 
 .Commands and Output
-image:{img}docker_cypher_shell.jpg[role="popup-link"]
+image:{img}/docker_cypher_shell.jpg[role="popup-link"]
 
 === Overriding Default Config
 If you do need to modify any of the preset configuration values, you can do so in a couple of different ways.

@@ -33,17 +33,17 @@ This structure forms the basis for many recommendation engines.
 You can follow along by link:/developer/neo4j-desktop/[starting Neo4j Desktop] and opening link:/developer/neo4j-browser/[Neo4j Browser].
 For a complete walkthrough of those steps, you can read this https://medium.com/neo4j/neo4j-get-off-the-ground-in-30min-or-less-3a226a0d48b1[blog post^].
 
-Once you have a running instance of Neo4j, you populate the movie dataset by typing `:play movie graph` into the Neo4j Browser command line and clicking the play button (image:{img}cypher_run_button.jpg[width=25]).
+Once you have a running instance of Neo4j, you populate the movie dataset by typing `:play movie graph` into the Neo4j Browser command line and clicking the play button (image:{img}/cypher_run_button.jpg[width=25]).
 
-image::{img}cytutorial_neo4j_browser.jpg[role="popup-link"]
+image::{img}/cytutorial_neo4j_browser.jpg[role="popup-link"]
 
 Go to the second slide (using the right arrow) of the pane that appears below the command line, click the query, and run it.
 
-image::{img}cytutorial_movie_browser_guide.jpg[role="popup-link"]
+image::{img}/cytutorial_movie_browser_guide.jpg[role="popup-link"]
 
 You should see a result pane in Neo4j like the one below.
 
-image::{img}cytutorial_movie_graph.jpg[role="popup-link"]
+image::{img}/cytutorial_movie_graph.jpg[role="popup-link"]
 
 This data has been created and stored in the database so we can query it.
 The next section will show you how to write some queries to explore the data you just created.
@@ -60,7 +60,7 @@ MATCH (tom:Person {name: 'Tom Hanks'})
 RETURN tom
 ----
 
-image::{img}cytutorial_match_tomhanks.jpg[role="popup-link"]
+image::{img}/cytutorial_match_tomhanks.jpg[role="popup-link"]
 
 Now that we found an actor we are interested in, we can retrieve all his movies by starting from the `Tom Hanks` node and following the `ACTED_IN` relationships.
 Your results should look like a graph.
@@ -71,7 +71,7 @@ MATCH (tom:Person {name: 'Tom Hanks'})-[r:ACTED_IN]->(movie:Movie)
 RETURN tom, r, movie
 ----
 
-image::{img}cytutorial_tomhanks_movies.jpg[role="popup-link"]
+image::{img}/cytutorial_tomhanks_movies.jpg[role="popup-link"]
 
 Of course, Tom has colleagues who acted with him in his movies.
 A statement to find Tom's co-actors looks like this:
@@ -82,7 +82,7 @@ MATCH (tom:Person {name: 'Tom Hanks'})-[:ACTED_IN]->(:Movie)<-[:ACTED_IN]-(coAct
 RETURN coActor.name
 ----
 
-image::{img}cytutorial_tomhanks_coactors.jpg[role="popup-link"]
+image::{img}/cytutorial_tomhanks_coactors.jpg[role="popup-link"]
 
 [#collaborative-filtering]
 == Recommendations with Collaborative Filtering
@@ -98,7 +98,7 @@ AND NOT (tom)-[:ACTED_IN]->(:Movie)<-[:ACTED_IN]-(coCoActor)
 RETURN coCoActor.name
 ----
 
-image::{img}cytutorial_tomhanks_cocoactors.jpg[role="popup-link"]
+image::{img}/cytutorial_tomhanks_cocoactors.jpg[role="popup-link"]
 
 You probably noticed that a few names appear multiple times.
 This is because there are multiple paths to follow from _Tom Hanks_ to these actors.
@@ -115,7 +115,7 @@ ORDER BY frequency DESC
 LIMIT 5
 ----
 
-image::{img}cytutorial_tomhanks_cocoactors_freq.jpg[role="popup-link"]
+image::{img}/cytutorial_tomhanks_cocoactors_freq.jpg[role="popup-link"]
 
 One of those "co-co-actors" is _Tom Cruise_.
 Now let's see which movies and actors are between the two Toms so we can find out who can introduce them.
@@ -129,7 +129,7 @@ WHERE NOT (tom)-[:ACTED_IN]->(:Movie)<-[:ACTED_IN]-(cruise)
 RETURN tom, movie1, coActor, movie2, cruise
 ----
 
-image::{img}cytutorial_tomhanks_tomcruise.jpg[role="popup-link"]
+image::{img}/cytutorial_tomhanks_tomcruise.jpg[role="popup-link"]
 
 As you can see, this returns multiple paths.
 If you have ever played the https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon[six degrees of Kevin Bacon^] game, this concept of seeing how many hops exist between people is exactly what graphs depict.
@@ -147,7 +147,7 @@ We will mention a few specifically here with resources you can use to find more 
 
 We have a graph of a few friends with their favorite restaurants, cuisines, and locations.
 
-image::{img}restaurant-recommendation.png[]
+image::{img}/restaurant-recommendation.png[]
 
 A practical question to answer here, formulated as a http://neo4j.com/blog/why-the-most-important-part-of-facebook-graph-search-is-graph/[graph search^], is:
 

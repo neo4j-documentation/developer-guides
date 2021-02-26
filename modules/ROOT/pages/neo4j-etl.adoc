@@ -43,13 +43,13 @@ If you are running an older version of Neo4j, you can upgrade the database or us
 Once you have a project and a database instance created, you will need to go to the `Graph Applications` tab in Neo4j Desktop, copy and paste the `https://r.neo4j.com/neo4j-etl-app` url for the Neo4j ETL tool in the install box, and click the `Install` button.
 
 .Step 1
-image:{img}etl1a_install_graph_app.jpg[role="popup-link"]
+image:{img}/etl1a_install_graph_app.jpg[role="popup-link"]
 
 .Step 2
-image:{img}etl1b_agree_graph_app_install.jpg[role="popup-link"]
+image:{img}/etl1b_agree_graph_app_install.jpg[role="popup-link"]
 
 .Step 3: verify ETL tool is listed
-image:{img}etl1c_verify_graph_app.jpg[role="popup-link"]
+image:{img}/etl1c_verify_graph_app.jpg[role="popup-link"]
 
 Now you should have access, and you can load the application 2 different ways.
 
@@ -64,7 +64,7 @@ Clicking the dropdown next to open shows a list of graph apps you can use.
 Click on the `Neo4j ETL Tool` option to load the app.
 
 .Step 4: open ETL tool
-image:{img}etl2_load_app.jpg[role="popup-link"]
+image:{img}/etl2_load_app.jpg[role="popup-link"]
 
 [#etl-steps]
 == ETL Tool Steps and Process
@@ -82,20 +82,20 @@ Now that the application is all set up, there are only a few steps to import dat
 When you first load the ETL Tool, you might be asked to allow some background processes to run.
 We will choose `Allow` here, which continues loading the application and brings up the main screen.
 
-image::{img}etl3_allow_background_procs.jpg[role="popup-link"]
+image::{img}/etl3_allow_background_procs.jpg[role="popup-link"]
 
 On this screen, a default project should show and the database instances in that project.
 If you do not have any graph database instances created, you will see an image like the one below.
 You will need to link:/developer/neo4j-desktop/#desktop-create-graph[create a graph^] before the next steps with the ETL tool.
 The ETL Tool supports local and remote instances (including link:/aura/[Neo4j Aura^]).
 
-image::{img}etl_no_db_instances.jpg[role="popup-link"]
+image::{img}/etl_no_db_instances.jpg[role="popup-link"]
 
 Once you have a database created, you will need to select a project to work within.
 This determines which Neo4j databases will populate as options for you to import the data in a later step.
 The screenshot below shows the steps, with the red highlighting and numbering to show where to click and in what order.
 
-image::{img}etl4_choose_project.jpg[role="popup-link"]
+image::{img}/etl4_choose_project.jpg[role="popup-link"]
 
 [TIP]
 --
@@ -118,7 +118,7 @@ You can always create new connections and edit or remove existing connections.
 When you click to add a new connection, you will see a form to enter the relational database connection details.
 We recommend first choosing the type of database from the dropdown box in the middle of the page, as that will automatically fill in some of the other fields for you.
 
-image::{img}etl5_connection_setup.jpg[role="popup-link"]
+image::{img}/etl5_connection_setup.jpg[role="popup-link"]
 
 The image below shows the list of relational databases included in the tool.
 If you are using a database that is not specified in the dropdown list, you can still connect by choosing the `JDBC Driver` option and filling in the details.
@@ -126,7 +126,7 @@ If you are using a database that is not specified in the dropdown list, you can 
 Both the MySQL and PostgreSQL connections pre-populate many of the configurations for you.
 For any of the other database options, you will also specify the driver file for that database.
 
-image::{img}etl6_connection_options.jpg[role="popup-link"]
+image::{img}/etl6_connection_options.jpg[role="popup-link"]
 
 Once you have filled in the form, click the `Test and Save Connection` button at the bottom.
 The results for whether it was successful or not will show in a blue (success) or red (error) message bar at the top of your window.
@@ -137,13 +137,13 @@ The results for whether it was successful or not will show in a blue (success) o
 To begin the ETL process, we need to tell the application which relational database we want as the source and which Neo4j database we want as the target.
 In the screenshot below, you can see the list of relational databases on the left side of the pane, and the Neo4j database options on the right side of the pane.
 
-image::{img}etl7_db_mapping.jpg[role="popup-link"]
+image::{img}/etl7_db_mapping.jpg[role="popup-link"]
 
 Choose your relational database, then the Neo4j database and click the `Start Mapping` button in the lower righthand side.
 Just as before, a blue message bar will show at the top of your screen if the step was successful or a red one will show if step failed.
 In this case, it was successful, so our `Start Mapping` button inactivates, and the `Next` button activates to proceed to the next step!
 
-image::{img}etl8_mapping_success.jpg[role="popup-link"]
+image::{img}/etl8_mapping_success.jpg[role="popup-link"]
 
 [#etl-mapping-rules]
 == Review data model transformation and make adjustments
@@ -152,13 +152,13 @@ This step is where the actual translation of the relational data into graph data
 There are three rules the tool uses to convert from relational to graph.
 
 * A *table with a foreign key* is treated as a *join* and imported as a *node with a relationship*
-image:{img}etl9_mapping_rule1.jpg[role="popup-link"]
+image:{img}/etl9_mapping_rule1.jpg[role="popup-link"]
 
 * A *table with 2 foreign keys* is treated as a *join table* and imported as a *relationship*
-image:{img}etl9_mapping_rule2.jpg[role="popup-link"]
+image:{img}/etl9_mapping_rule2.jpg[role="popup-link"]
 
 * A *table with >2 foreign keys* is treated as n *intermediate node* and imported as a *node with multiple relationships*
-image:{img}etl9_mapping_rule3.jpg[role="popup-link"]
+image:{img}/etl9_mapping_rule3.jpg[role="popup-link"]
 
 Those rules create a graph data model like the one below.
 
@@ -168,7 +168,7 @@ This example is using the popular Northwind data set.
 You can download and test this data set with the links further on link:/developer/neo4j-etl/#neo4j-etl-options[this page].
 ====
 
-image::{img}etl10a_mapping_sample.jpg[role="popup-link"]
+image::{img}/etl10a_mapping_sample.jpg[role="popup-link"]
 
 This is where you can edit the mapping to change any of the translations, such as property names, data types, and relationships.
 
@@ -182,25 +182,25 @@ The tool also allows you to skip any nodes or relationships that you do not want
 In the screenshot below, we have chosen to skip the `UsState` nodes because there are no relationships, so the data is less valuable to us in graph format.
 However, we could still choose to import those nodes and later refactor the graph to create relationships from those nodes to others in the graph.
 
-image::{img}etl10b_skip_node.jpg[role="popup-link"]
+image::{img}/etl10b_skip_node.jpg[role="popup-link"]
 
 To edit the details of mappings, click on the pencil icon next to entity in the list or double click on the entity in the visualization on the right.
 A popup box will list the fields and offer options for any changes.
 You can click `Save` to apply your changes to the graph.
 
-image::{img}etl10c_edit_node.jpg[role="popup-link"]
+image::{img}/etl10c_edit_node.jpg[role="popup-link"]
 
 Oftentimes, the relationship types will be defaulted to meaningless names for a graph, so we can update them with more meaningful names for improved data context.
 The image below shows an example of some changes to relationship types.
 
 .Updated Graph Data Model
-image:{img}etl10d_update_relationships.jpg[role="popup-link"]
+image:{img}/etl10d_update_relationships.jpg[role="popup-link"]
 
 Once you have made any changes here, you can click `Save Mapping`.
 The status of the change will show in a blue (success) or red (error) message bar at the top of your window.
 If successful, you can click `Next` to go to the import step.
 
-image::{img}etl10e_save_mapping.jpg[role="popup-link"]
+image::{img}/etl10e_save_mapping.jpg[role="popup-link"]
 
 [#etl-import-method]
 == Choose an Import Method and Import the Data
@@ -214,27 +214,27 @@ Each method has certain requirements and advantages, which are listed below.
 * b. If database is shut down -
 ** 1. Bulk Import: fast loader for initial load with offline import (running neo4j-admin import tool).
 
-image::{img}etl11_import_modes.jpg[role="popup-link"]
+image::{img}/etl11_import_modes.jpg[role="popup-link"]
 
 We will show the online vs. offline import methods to see the different options that come with each.
 
 .For online import...
 After you choose an import method from the dropdown box, you can choose if you want to import to a specific database (Neo4j v4.0+ only).
 
-image::{img}etl12a_online_import.jpg[role="popup-link"]
+image::{img}/etl12a_online_import.jpg[role="popup-link"]
 
 .For offline import...
 Though there is only one import type when the database is shut down, there are a couple more things you can specify.
 You can tell the import to go to a specific database (Neo4j v4.0+ only), whether it exists or not.
 If that database name does not exist, you can choose to manually create the database after the import (with Cypher command `CREATE DATABASE <dbname>` on system database) or you can click the checkbox at the bottom to have the ETL Tool create the database for you with the import.
 
-image::{img}etl12b_offline_import.jpg[role="popup-link"]
+image::{img}/etl12b_offline_import.jpg[role="popup-link"]
 
 With either method, once you have filled out the form as much as you need or want, click the `Import Data` button in the lower right corner to start the load.
 If the import is successful, you will see a screen similar to the one below (this example used the Online Direct import method).
 If it fails, you will see a red error message at the top of the screen, and you can troubleshoot the issue with the logs by clicking the `See Logs` button at the bottom.
 
-image::{img}etl13_successful_import.jpg[role="popup-link"]
+image::{img}/etl13_successful_import.jpg[role="popup-link"]
 
 [TIP]
 ====

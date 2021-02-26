@@ -14,17 +14,17 @@ We have three learning paths that you can follow:
 [#developer-learning-path]
 === Neo4j Developer
 
-image::{img}DeveloperLearningPath.png[role="popup-link"]
+image::{img}/DeveloperLearningPath.png[role="popup-link"]
 
 [#administrator-learning-path]
 === Neo4j Administrator
 
-image::{img}AdministratorLearningPath.png[role="popup-link"]
+image::{img}/AdministratorLearningPath.png[role="popup-link"]
 
 [#data-scientist-learning-path]
 === Data Scientist
 
-image::{img}DataScientistLearningPath.png[role="popup-link"]
+image::{img}/DataScientistLearningPath.png[role="popup-link"]
 
 === GraphAcademy Courses
 

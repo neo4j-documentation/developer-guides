@@ -7,7 +7,7 @@
 [#join-slack]
 == Join more than {members} members in the Neo4j-Users Slack Group
 
-image::{img}neo4j-users-slack-group.png[link=http://neo4j.com/slack,float=right,width=300,window="neo4j-users-slack"]
+image::{img}/neo4j-users-slack-group.png[link=http://neo4j.com/slack,float=right,width=300,window="neo4j-users-slack"]
 
 The Neo4j Slack group allows users to connect with users and creates a chat atmosphere, with more than {members} people signed up.
 

@@ -27,7 +27,7 @@ The same front-end web page in all applications consumes 3 REST endpoints provid
 * single movie listing
 * graph visualization of the domain
 
-image::{img}movie_application.png[link="http://my-neo4j-movies-app.herokuapp.com/"]
+image::{img}/movie_application.png[link="http://my-neo4j-movies-app.herokuapp.com/"]
 
 [#app-project-source]
 == GitHub
@@ -45,11 +45,11 @@ If you need the data separately, it is available in this https://github.com/neo4
 (:Person {name: string})-[:ACTED_IN {roles: [string]}]->(:Movie {title: string, released: number})
 ----
 
-image::graph-examples-movies-model.svg[width=400]
+image::{img}/graph-examples-movies-model.svg[width=400]
 
 An example subgraph of the data is the neighborhood of "Tom Hanks".
 
-image::graph-examples-movies-example.png[width=400]
+image::{img}/graph-examples-movies-example.png[width=400]
 
 [#app-project-data]
 == Data Setup

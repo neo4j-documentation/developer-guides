@@ -21,7 +21,7 @@ Please have link:/download[Neo4j^] (version 4.0 or later) and the link:/download
 [#overview-community-detection-algorithms]
 == What are community detection algorithms?
 
-image:{img}Community-Algo-Icon.png[float="right", width="200px"]
+image:{img}/Community-Algo-Icon.png[float="right", width="200px"]
 
 Community detection algorithms are used to evaluate how groups of nodes are clustered or partitioned, as well as their tendency to strengthen or break apart.
 

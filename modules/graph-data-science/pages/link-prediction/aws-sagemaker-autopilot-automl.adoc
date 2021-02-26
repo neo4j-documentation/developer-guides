@@ -40,13 +40,13 @@ pip install pandas sagemaker
 [#citation-graph]
 == Citation Graph
 
-image:noun_citation_2276559.png[float="right", width="100px"]
+image:{img}/noun_citation_2276559.png[float="right", width="100px"]
 
 We'll be using data from the https://aminer.org/citation[DBLP Citation Network^], which includes citation data from various academic sources.
 The dataset doesn’t contain relationships between authors describing their collaborations, but we can infer them based on finding articles authored by multiple people.
 
 .The co-authors graph
-image::co-author-graph.svg[]
+image::{img}/co-author-graph.svg[]
 
 [#train-test-features]
 == Train and test datasets
@@ -102,7 +102,7 @@ include::example$link-prediction/py/06_SageMaker.py[tag="prerequisites"]
 [#upload-to-s3]
 == Upload dataset to S3
 
-image:s3.png[float="right", width="100px"]
+image:{img}/s3.png[float="right", width="100px"]
 
 Now we're going to convert the Train and Test DataFrames to CSV files and upload them to S3.
 We need to make sure that the order of the columns is the same in both files, and the train CSV file shouldn't have the `label` field and doesn't need the column headings either.
@@ -127,7 +127,7 @@ Make sure that the independent variable (`label` in this case) is the last field
 [#setup-sagemaker-autopilot]
 == Set up SageMaker Autopilot Job
 
-image:sagemaker.png[float="right", width="100px"]
+image:{img}/sagemaker.png[float="right", width="100px"]
 
 We're now ready to configure our Autopilot job.
 The following inputs are mandatory:
@@ -255,7 +255,7 @@ include::example$link-prediction/py/06_SageMaker.py[tag="autopilot-create-model"
 [#evaluate-model]
 == Evaluate Model
 
-image:noun_evaluation_2404409.png[float="right", width="100px"]
+image:{img}/noun_evaluation_2404409.png[float="right", width="100px"]
 
 Now we're going to apply our model to the test set to see how well it fares.
 
@@ -308,7 +308,7 @@ We’re going to evaluate the quality of our model by computing its accuracy, pr
 The diagram below, taken from the https://neo4j.com/graph-algorithms-book/[O’Reilly Graph Algorithms Book^], explains how each of these metrics are computed.
 
 .Accuracy measures
-image::model-evaluation.png[]
+image::{img}/model-evaluation.png[]
 
 scikit-learn has built in functions that we can use for this.
 The following function will help with this:

@@ -22,7 +22,7 @@ include::./_includes/community-driver-notice.adoc[]
 [#neo4j-php]
 == Neo4j for PHP Developers
 
-image::{img}php_logo.png[float=right,width=300]
+image::{img}/php_logo.png[float=right,width=300]
 
 You're a PHP developer and want to start with Neo4j?
 Here you go.

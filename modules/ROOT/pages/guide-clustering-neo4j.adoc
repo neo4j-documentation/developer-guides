@@ -58,7 +58,7 @@ It is best to use the back tool with the command line `./bin/neo4j-backup -host 
 // what is the new link?
 Additional details can be found {opsmanual}/backup/#backup-introduction[in the manual].
 
-image::{img}neo4j-logo.png[]
+image::{img}/neo4j-logo.png[]
 
 [#mend-leader]
 == Mending Procedure for Master

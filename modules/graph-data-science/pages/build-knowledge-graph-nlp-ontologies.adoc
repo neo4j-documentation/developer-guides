@@ -53,7 +53,7 @@ We're going to use a couple of plugin libraries in this tutorial, so you'll need
 [#apoc]
 === APOC
 
-image:apoc-small.jpg[float="right", width="100px"]
+image:{img}/apoc-small.jpg[float="right", width="100px"]
 
 https://neo4j.com/labs/apoc/[APOC^] (Awesome Procedures on Neo4j) is Neo4j's standard library.
 It contains more than 450 procedures and functions providing functionality for utilities, conversions, graph updates, and more.
@@ -62,19 +62,19 @@ We're going to use this tool to scrape web pages and apply NLP techniques on tex
 We can install APOC from the plugins section of a database in the Neo4j Desktop:
 
 .Installing APOC
-image::apoc-plugin-install.png[Installing APOC, link="{imagesdir}/apoc-plugin-install.png",role="popup-link"]
+image::{img}/apoc-plugin-install.png[Installing APOC, role="popup-link"]
 
 We'll also need to install the APOC NLP Dependencies jar from GitHub releases.
 At the time of writing, the latest version of APOC is 4.0.0.18, so we need to download `apoc-nlp-dependencies-4.0.0.18.jar` from the https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/tag/4.0.0.18[4.0.0.18 release page^].
 Once we've downloaded that file, we need to place it in the `plugins` directory:
 
 .Installing APOC NLP Dependencies
-image::apoc-dependencies.png[Installing APOC NLP Depedencies, link="{imagesdir}/apoc-dependencies.png",role="popup-link"]
+image::{img}/apoc-dependencies.png[Installing APOC NLP Depedencies, role="popup-link"]
 
 [#neosemantics]
 === neosemantics (n10s)
 
-image:n10s.png[float="right", width="100px"]
+image:{img}/n10s.png[float="right", width="100px"]
 
 https://neo4j.com/labs/neosemantics[neosemantics^] is a plugin that enables the use of RDF and its associated vocabularies like OWL, RDFS, SKOS, and others in Neo4j.
 We're going to use this tool to import ontologies into Neo4j.
@@ -101,7 +101,7 @@ Explicit Knowledge :: Explicit description of how instance data relates. This co
 [#import-onologies]
 == Importing Wikidata Ontologies
 
-image:1280px-Wikidata-logo-en.svg.png[float="right", width="100px"]
+image:{img}/1280px-Wikidata-logo-en.svg.png[float="right", width="100px"]
 
 Wikidata is a free and open knowledge base that can be read and edited by both humans and machines.
 It acts as central storage for the structured data of its Wikimedia sister projects including Wikipedia, Wikivoyage, Wiktionary, Wikisource, and others.
@@ -113,7 +113,7 @@ Wikidata provides a https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service[
 The screenshot below shows an example of a SPARQL query along with the results from running that query:
 
 .Querying a Software Taxonomy in the Wikidata SPARQL API
-image::wikidata-api.png[Querying a Software Taxonomy in the Wikidata SPARQL API]
+image::{img}/wikidata-api.png[Querying a Software Taxonomy in the Wikidata SPARQL API]
 
 This query starts from the entity https://www.wikidata.org/wiki/Q2429814[Q2429814^] (Software System) and then transitively finds children of that entity as far as it can.
 If we run the query we get a stream of triples (subject, predicate, subject).
@@ -141,7 +141,7 @@ Now we're going to import the Wikidata taxonomies.
 We can get an importable URL directly from the Wikidata SPARQL API, by clicking on the `Code` button:
 
 .Getting an importable URI for a Wikidata SPARQL query
-image::copy-sparql-api.png[Getting an importable URI for a Wikidata SPARQL query, link="{imagesdir}/copy-sparql-api.png",role="popup-link"]
+image::{img}/copy-sparql-api.png[Getting an importable URI for a Wikidata SPARQL query, role="popup-link"]
 
 We then pass that URL to the `n10s.rdf.import.fetch` procedure, which will import the stream of triples into Neo4j.
 
@@ -223,7 +223,7 @@ include::example$nlp/queries.cypher[tag="version-control"]
 ----
 
 .Version Control Graph
-image::version-control.svg[Version Control Graph, link="{imagesdir}/version-control.svg",role="popup-link"]
+image::{img}/version-control.svg[Version Control Graph, role="popup-link"]
 
 So far, so good!
 
@@ -234,7 +234,7 @@ https://dev.to/[dev.to^] is a developer blogging platform and contains articles 
 A screenshot of the home page is shown below:
 
 .The dev.to home page
-image::devto-screenshot.png[The dev.to home page, link="{imagesdir}/devto-screenshot.png",role="popup-link"]
+image::{img}/devto-screenshot.png[The dev.to home page, role="popup-link"]
 
 We're going to import some articles from dev.to into Neo4j.
 https://github.com/neo4j-examples/nlp-knowledge-graph/blob/master/import/articles.csv[`articles.csv`^] contains a list of 30 articles of interest.
@@ -330,7 +330,7 @@ include::example$nlp/queries.cypher[tag="dev-to-import"]
 We now have two disconnected sub graphs, which we can see in the diagram below:
 
 .Articles and Taxonomies Sub Graphs
-image::post-dev-to-import.png[Articles and Taxonomies Sub Graphs, link="{imagesdir}/post-dev-to-import.png",role="popup-link"]
+image::{img}/post-dev-to-import.png[Articles and Taxonomies Sub Graphs, role="popup-link"]
 
 On the left we have the Wikidata taxonomy graph, which represents the explicit knowledge in our Knowledge Graph.
 And on the right we have the articles graph, which represents the facts in our Knowledge Graph.
@@ -339,7 +339,7 @@ We want to join these two graphs together, which we will do using NLP techniques
 [#entity-extraction]
 == Article Entity Extraction
 
-image:apoc_gcp.jpg[float="right", width="100px"]
+image:{img}/apoc_gcp.jpg[float="right", width="100px"]
 
 In April 2020, the APOC standard library added https://neo4j.com/labs/apoc/4.1/nlp/[procedures that wrap the NLP APIs^] of each of the big cloud providers - AWS, GCP, and Azure.
 These procedures extract text from a node property and then send that text to APIs that extract entities, key phrases, categories, or sentiment.
@@ -429,7 +429,7 @@ MERGE (node)-[:HAS_ENTITY]->(page)
 We can see how running this query connects the article and taxonomy sub graphs by looking at the following Neo4j Browser visualization:
 
 .One article's entity graph
-image::one-article-entities.svg[One article's entity graph, link="{imagesdir}/one-article-entities.svg",role="popup-link"]
+image::{img}/one-article-entities.svg[One article's entity graph, role="popup-link"]
 
 Now we can run the entity extraction technique over the rest of the articles with help from the `apoc.periodic.iterate` procedure again:
 
@@ -486,7 +486,7 @@ include::example$nlp/queries.cypher[tag="zookeeper"]
 ----
 
 .Zookeeper to NoSQL
-image::zookeeper-nosql.png[Zookeeper to NoSQL,role="popup-link"]
+image::{img}/zookeeper-nosql.png[Zookeeper to NoSQL,role="popup-link"]
 
 So Apache Zookeeper is actually a couple of levels away from the NoSQL category.
 
@@ -503,7 +503,7 @@ include::example$nlp/queries.cypher[tag="similar-articles-1"]
 ----
 
 .Finding similar articles
-image::similar-articles-1.png[Finding similar articles, link="{imagesdir}/similar-articles-1.png",role="popup-link"]
+image::{img}/similar-articles-1.png[Finding similar articles, role="popup-link"]
 
 The Neo4j performance testing article is about Neo4j, and there are two other Neo4j articles that we could recommend to a reader that liked this article.
 
@@ -556,7 +556,7 @@ include::example$nlp/queries.cypher[tag="custom-ontology-preview"]
 ----
 
 .Software Stacks Ontology
-image::stacks.svg[Software Stacks Ontology, link="{imagesdir}/stacks.svg",role="popup-link"]
+image::{img}/stacks.svg[Software Stacks Ontology, role="popup-link"]
 
 It looks good, so let's import it by running the following query:
 

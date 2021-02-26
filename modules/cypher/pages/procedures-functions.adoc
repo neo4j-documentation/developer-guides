@@ -31,7 +31,7 @@ That's why the ability to extend Cypher with User Defined Procedures and Functio
 But not only users, even Neo4j itself provides and utilizes custom procedures.
 Many of the monitoring, introspection and security features exposed by Neo4j-Browser are implemented using procedures.
 
-image::{img}procedures-functions-bolt.jpg[width=600]
+image::{img}/procedures-functions-bolt.jpg[width=600]
 
 [#procedures-functions]
 == What are Procedures and Functions?

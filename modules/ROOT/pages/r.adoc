@@ -21,7 +21,7 @@ include::./_includes/community-driver-notice.adoc[]
 [#neo4j-r]
 == Neo4j for R Developers and Data Scientists
 
-image::{img}Rlogo.jpg[float=right]
+image::{img}/Rlogo.jpg[float=right]
 
 === Neo4R
 
@@ -50,7 +50,7 @@ Currently it connects to Neo4j via Http but we plan to integrate it with the C-c
 [#neo4jshell]
 == neo4jshell
 
-image::{img}neo4jshell.png[float=right]
+image::{img}/neo4jshell.png[float=right]
 
 === neo4jshell
 

@@ -32,7 +32,7 @@ Feel free to check out our other Cypher learning tools, as well!
 * link:/graphacademy/online-training/introduction-to-neo4j-40/[Cypher Online training^]
 * link:/sandbox/?ref=developer-cypher[Hands-on in Sandbox guides^] (use command `:play cypher`)
 
-image::{img}cypher_learning.jpg[role="popup-link"]
+image::{img}/cypher_learning.jpg[role="popup-link"]
 
 [#cypher-intro]
 == Introduction to Cypher

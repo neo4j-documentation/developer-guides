@@ -5,7 +5,7 @@
 :category: visualization
 :tags: visualization, tools, charts, maps, heatmaps, 3d
 
-image::{img}alternate_visualizations.jpg[]
+image::{img}/alternate_visualizations.jpg[]
 
 [role=expertise {level}]
 {level}
@@ -29,23 +29,23 @@ Feel free to explore others!
 * *amCharts*
 ** Blog post: https://medium.com/neo4j/showing-charts-for-neo4j-query-results-using-amcharts-and-structr-efae0b7a04f0[Charts for Neo4j query results with amCharts+Structr^]
 
-image::{img}amcharts_structr.jpg[role="popup-link"]
+image::{img}/amcharts_structr.jpg[role="popup-link"]
 
 * *Chart.js*
 ** Blog post: https://neo4j.com/blog/charting-neo4j-3-0/[Charting Neo4j^]
 
-image::{img}chart_js_visualization.jpg[role="popup-link"]
+image::{img}/chart_js_visualization.jpg[role="popup-link"]
 
 * *Nivo*
 ** Blog post: https://medium.com/neo4j/working-with-neo4j-date-and-spatial-types-in-a-react-js-app-5475b5042b50[Neo4j Spatial with Nivo charts^]
 
-image::{img}nivo_charts_bar.jpg[role="popup-link"]
-image::{img}nivo_charts_circle.jpg[role="popup-link"]
+image::{img}/nivo_charts_bar.jpg[role="popup-link"]
+image::{img}/nivo_charts_circle.jpg[role="popup-link"]
 
 .*Tableau* by
-image:{img}tableau.png[,width=200]
+image:{img}/tableau.png[,width=200]
 
-image::{img}tableau-neo4j.jpg[role="popup-link",float="right",width=350]
+image::{img}/tableau-neo4j.jpg[role="popup-link",float="right",width=350]
 
 Tableau is a data analysis tool that can take data from a variety of sources and blend or split the data based on user specification.
 You can set up a connection from Tableau to Neo4j using the web data connector integration project for the two technologies on GitHub.
@@ -60,7 +60,7 @@ Once the data is in Tableau, the user can interact with a drag-and-drop Tableau 
 [#graph-vis-map]
 == *Map-based visualizations*
 
-image::{img}mapbox_visualization.jpg[role="popup-link",float="right",width=350]
+image::{img}/mapbox_visualization.jpg[role="popup-link",float="right",width=350]
 
 Graph data is an excellent fit for mapping and representing geographic data, as it is laid out by entities and connections (locations/points and routes to get to those locations).
 Neo4j can help plot latitude and longitude, polygon geometries, routes, as well as distances, so a tool to overlay a map visualization on the front-end of this data provides a great deal of value for interacting and exploring an area.
@@ -85,7 +85,7 @@ Mapbox also gives you the capability to add an interactive map.
 [#graph-vis-heatmap]
 == *Heatmap visualizations*
 
-image::{img}heatmap_visualization.jpg[role="popup-link",float="right",width=350]
+image::{img}/heatmap_visualization.jpg[role="popup-link",float="right",width=350]
 
 A heatmap is a data visualization where colors are used to represent data values.
 It is often imposed on a map, but could also be on a matrix as well.
@@ -99,7 +99,7 @@ We will list the tool(s) we have encountered so far, but we will add to this as 
 [#graph-vis-3d]
 == *3D visualizations*
 
-image::{img}graph_vis_3d.jpg[role="popup-link",float="right",width=350]
+image::{img}/graph_vis_3d.jpg[role="popup-link",float="right",width=350]
 
 Adding a third dimension may increase some complexity in the visualization, but also adds value.
 Exploring your data in 3D can help navigate through large amounts of data better and more clearly.
@@ -127,9 +127,9 @@ Instead, they expand the current boundaries and find uniquely powerful ways to u
 Thinking outside the box increases the possibilities of graph even further!
 
 .*Graphileon*
-image:{img}graphileon-logo.png[width=200]
+image:{img}/graphileon-logo.png[width=200]
 
-image::{img}graphileon_visualization.jpg[role="popup-link",float="right",width=350]
+image::{img}/graphileon_visualization.jpg[role="popup-link",float="right",width=350]
 
 Graphileon is a platform for building graphy applications by composing functions and UI elements.
 It can be harnessed by users such as consultants and designers for styling and dashboards.

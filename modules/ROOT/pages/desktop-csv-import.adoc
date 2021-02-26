@@ -56,11 +56,11 @@ You will put these files in the *import* folder that Neo4j expects for imports.
 
 Open a finder window on your system by hovering over the three dots to the right started DBMS and selecting *Open folder*, and then *Import*:
 
-image::{img}generic-open_import_folder.png[role="popup-link"]
+image::{img}/generic-open_import_folder.png[role="popup-link"]
 
 Copy or move the three CSV files into this *import* folder on your system:
 
-image::{img}developer-desktop-csv-import-files_for_import.png[role="popup-link"]
+image::{img}/developer-desktop-csv-import-files_for_import.png[role="popup-link"]
 
 Now that your files are in the *import* folder, you can import the data into the database managed by the DBMS.
 You will use the current table and column format in the CSV files and translate it into nodes and relationships.
@@ -82,7 +82,7 @@ To enter and run Cypher statements on a started DBMS, you can:
 . Use cypher-shell:
 .. Click the drop-down menu to the right of the *Open* button and select *Terminal*.
 +
-image::{img}generic-open_terminal.png[role="popup-link"]
+image::{img}/generic-open_terminal.png[role="popup-link"]
 +
 .. Enter `bin/cypher-shell`.
 .. Enter *neo4j* for the user.
@@ -160,11 +160,11 @@ LIMIT 8;
 ----
 
 .Results in Neo4j Browser:
-image:{img}developer-desktop-csv-import-test_load_1.png[role="popup-link"]
+image:{img}/developer-desktop-csv-import-test_load_1.png[role="popup-link"]
 
-image:{img}developer-desktop-csv-import-test_load_2.png[role="popup-link"]
+image:{img}/developer-desktop-csv-import-test_load_2.png[role="popup-link"]
 
-image:{img}developer-desktop-csv-import-test_load_3.png[role="popup-link"]
+image:{img}/developer-desktop-csv-import-test_load_3.png[role="popup-link"]
 
 Notice that the *orders.csv* and the *order-details.csv* return in a different format from the *products.csv*.
 This is because those files have headers, so the column names are returned with the values for those rows.
@@ -185,7 +185,7 @@ RETURN row
 LIMIT 5;
 ----
 
-image:{img}developer-desktop-csv-import-FilterCSV.png[role="popup-link"]
+image:{img}/developer-desktop-csv-import-FilterCSV.png[role="popup-link"]
 
 
 [#data-types]
@@ -222,7 +222,7 @@ RETURN productId, productName, unitCost
 LIMIT 3;
 ----
 
-image:{img}developer-desktop-csv-import-products_convert.png[role="popup-link"]
+image:{img}/developer-desktop-csv-import-products_convert.png[role="popup-link"]
 
 
 Note that we are using collection positions (row[0], row[1], row[2]) to refer to the columns in the row and improve readability by using aliases to reference them in the return.
@@ -246,7 +246,7 @@ RETURN orderId, orderDate, country
 LIMIT 5;
 ----
 
-image::{img}developer-desktop-csv-import-orders_convert.png[role="popup-link"]
+image::{img}/developer-desktop-csv-import-orders_convert.png[role="popup-link"]
 
 There was one tricky thing with this CSV in the `orderDate` column.
 Neo4j's datetime uses the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601^] format which uses the delimiter `T` between the date and time values.
@@ -275,7 +275,7 @@ RETURN productId, orderId, quantityOrdered
 LIMIT 8;
 ----
 
-image::{img}developer-desktop-csv-import-details_convert.png[role="popup-link"]
+image::{img}/developer-desktop-csv-import-details_convert.png[role="popup-link"]
 
 [#loading-data]
 == Loading the data!
@@ -292,7 +292,7 @@ To utilize the graph database fully, you need a graph data model.
 
 Though there are a variety ways to organize the products and orders in your files, we will save that for another guide and use the below version of the model for this exercise.
 
-image::{img}developer-desktop-csv-import-data_model.png[role="popup-link"]
+image::{img}/developer-desktop-csv-import-data_model.png[role="popup-link"]
 
 We have two nodes - one for a product and one for an order.
 Each of those nodes have properties from the CSV files.
@@ -369,7 +369,7 @@ RETURN p LIMIT 20;
 
 Here are the results in Neo4j Browser:
 
-image::{img}developer-desktop-csv-import-verify_products.png[role="popup-link"]
+image::{img}/developer-desktop-csv-import-verify_products.png[role="popup-link"]
 
 .Orders
 Next, you will load the orders.
@@ -396,7 +396,7 @@ RETURN o LIMIT 20;
 
 Here are the results in Neo4j Browser:
 
-image::{img}developer-desktop-csv-import-verify_orders.png[role="popup-link"]
+image::{img}/developer-desktop-csv-import-verify_orders.png[role="popup-link"]
 
 .Order-details
 Last, but not least, you will create the relationship between the products and the orders.
@@ -430,7 +430,7 @@ RETURN p, rel, o LIMIT 50;
 
 Here are the results in Neo4j Browser:
 
-image::{img}developer-desktop-csv-import-verify_details.png[role="popup-link"]
+image::{img}/developer-desktop-csv-import-verify_details.png[role="popup-link"]
 
 [#import-wrapup]
 == Wrapping up

@@ -30,7 +30,7 @@ Although the NorthWind dataset is often used to demonstrate SQL and relational d
 
 An entity-relationship diagram (ERD) of the Northwind dataset is shown below.
 
-image::{img}Northwind_diagram.jpg[width=600]
+image::{img}/Northwind_diagram.jpg[width=600]
 
 First, this is a rather large and detailed model.
 We can scale this down a bit for our example and choose the entities that are most critical for our graph - in other words, those that might benefit most from seeing the connections.
@@ -38,7 +38,7 @@ For our use case, we really want to optimize the relationships with orders - wha
 
 Using these business requirements, we can narrow our model down to these essential entities.
 
-image::{img}Northwind_diagram_focus.jpg[width=600]
+image::{img}/Northwind_diagram_focus.jpg[width=600]
 
 [#northwind-graph-model]
 == Developing a Graph Model
@@ -75,7 +75,7 @@ With these principles in mind, we can map our relational model to a graph with t
 
 If we draw our translation out on the whiteboard, we have this graph data model.
 
-image::{img}northwind_graph_simple.jpg[width=600]
+image::{img}/northwind_graph_simple.jpg[width=600]
 
 Now, we can, of course, decide that we want to include the rest of the entities from our relational model, but for now, we will keep to this smaller graph model.
 

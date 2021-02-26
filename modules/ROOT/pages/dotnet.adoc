@@ -19,7 +19,7 @@ include::./_includes/common-language-prereq.adoc[]
 [#neo4j-dotnet]
 == Neo4j for .NET Developers
 
-image::{img}dotnet-logo.png[float=right,width=300]
+image::{img}/dotnet-logo.png[float=right,width=300]
 
 The .NET platform allows developers to create fascinating applications utilizing graph concepts with Neo4j.
 

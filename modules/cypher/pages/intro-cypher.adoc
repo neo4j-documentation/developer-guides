@@ -48,7 +48,7 @@ For example, take a look at the simple graph data in the image below.
 How would you represent this data in English?
 _NOTE: the answer is in the paragraph below_
 
-image::{img}cypher_graph_v1.jpg[role="popup-link"]
+image::{img}/cypher_graph_v1.jpg[role="popup-link"]
 
 
 [TIP]
@@ -80,7 +80,7 @@ We know that the main components of the property graph model are nodes and relat
 Remember that nodes are the data entities in your graph and that you can often identify nodes by finding the nouns or objects in your data model.
 In our example, `Jennifer`, `Michael`, `Graphs`, and `Neo4j` are our nodes.
 
-image::{img}cypher_graph_nodes.jpg[role="popup-link"]
+image::{img}/cypher_graph_nodes.jpg[role="popup-link"]
 
 To depict nodes in Cypher, we surround the node with parentheses, e.g. `(node)`.
 Notice how the parentheses look similar to the circles that the visual representation uses for nodes in our data model.
@@ -133,7 +133,7 @@ Additional information, such as how nodes are connected (relationship type) and 
 
 In our example, the lines with `LIKES`, `IS_FRIENDS_WITH`, and `WORKS_FOR` between nodes are our relationships.
 
-image::{img}cypher_graph_rels.jpg[role="popup-link"]
+image::{img}/cypher_graph_rels.jpg[role="popup-link"]
 
 Undirected relationships are represented with no arrow and just two dashes `+--+`.
 This means that the relationship can be traversed in either direction.
@@ -201,7 +201,7 @@ Our example graph has both a node property (`name`) and a relationship property 
 * Node property: `(p:Person {name: 'Jennifer'})`
 * Relationship property: `+-[rel:IS_FRIENDS_WITH {since: 2018}]->+`
 
-image::{img}cypher_graph_props.jpg[role="popup-link"]
+image::{img}/cypher_graph_props.jpg[role="popup-link"]
 
 Properties can have values with a variety of data types.
 To see the full list that Cypher offers, see the manual section on link:/docs/cypher-manual/current/syntax/values/[values and types^].

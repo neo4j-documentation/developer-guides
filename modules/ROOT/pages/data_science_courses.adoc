@@ -11,7 +11,7 @@ Neo4j has a number of courses to teach data scientists how to use Neo4j and the 
 
 Here is the suggested learning path for Data Scientists:
 
-image::{img}DataScientistLearningPath.png[role="popup-link"]
+image::{img}/DataScientistLearningPath.png[role="popup-link"]
 
 
 === GraphAcademy Courses

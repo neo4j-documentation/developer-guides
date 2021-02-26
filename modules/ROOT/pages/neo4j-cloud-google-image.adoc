@@ -36,7 +36,7 @@ Command syntax for the firewall rule is shown and explained in the link:{opsmanu
 
 In Google's Cloud Console, here's what your rule should look like:
 
-image::{img}firewall-rule.png[role="popup-link"]
+image::{img}/firewall-rule.png[role="popup-link"]
 
 [#compute-instance]
 == Create a Google Compute Instance from the Neo4j Public Image
