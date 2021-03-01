@@ -8,11 +8,11 @@
 
 .Goals
 [abstract]
-In this guide, we will learn about graph embeddings.
+In this guide, we will learn how to perform node classification.
 
 .Prerequisites
 [abstract]
-Please have link:/download[Neo4j^] (version 4.2.3 or later) and link:/download-center/#algorithms[Graph Data Science Library^] (version 1.5 or later) downloaded and installed to use graph embeddings.  You should also have https://github.com/neo4j-contrib/neo4j-apoc-procedures[APOC^] (version 4.1.0.6 or later).
+Please have link:/download[Neo4j^] (version 4.2.3 or later) and link:/download-center/#algorithms[Graph Data Science Library^] (version 1.5 or later) downloaded and installed to use graph embeddings.  You should also have https://github.com/neo4j-contrib/neo4j-apoc-procedures[APOC^] (version 4.2.0.1 or later).
 
 [role=expertise {level}]
 {level}
