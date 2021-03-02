@@ -286,6 +286,7 @@ MATCH (n) RETURN n
 
 In Neo4j Browser, you can hover over each node and relationship in the graph to view its properties.
 
+.Implemented model
 image:{img}ImplementedModel.jpg[400,400,role="popup-link"]
 
 endif::[]
