@@ -261,15 +261,18 @@ Execute this code to create the graph for this simple data model:
 
 [source,Cypher]
 ----
-MERGE (j:Person {name: 'John', age: 27})
-MERGE (s:Person {name: 'Sally', age: 32})
-MERGE (b:Book {title: 'Graph Databases', authors: ['Jim Webber', 'Ian Robinson']})
+MERGE (j:Person {name: 'John'})
+  ON CREATE set j.age = 27
+MERGE (s:Person {name: 'Sally'})
+  ON CREATE set s.age = 32
+MERGE (b:Book {title: 'Graph Databases'})
+  ON CREATE set b.authors = ['Jim Webber', 'Ian Robinson']
 MERGE (j)-[rel1:IS_FRIENDS_WITH]->(s)
-ON CREATE SET rel1.since = '01/09/2013'
+  ON CREATE SET rel1.since = '01/09/2013'
 MERGE (j)-[rel2:HAS_READ]->(b)
-ON CREATE SET rel2.on = '02/03/2013', rel2.rated = 5
+  ON CREATE SET rel2.on = '02/03/2013', rel2.rated = 5
 MERGE (s)-[rel3:HAS_READ]->(b)
-ON CREATE SET rel3.on = '02/09/2013', rel3.rated = 4
+  ON CREATE SET rel3.on = '02/09/2013', rel3.rated = 4
 ----
 
 == Viewing the data in the graph
@@ -300,7 +303,14 @@ A walkthrough of designs for different use cases is in our link:/developer/model
 
 [#modeling-resources]
 == Resources
+ifdef::env-guide[]
+* https://neo4j.com/blog/data-modeling-basics/[Blog post: Graph Data Modeling Basics]
+* https://neo4j.com/graphgists/[GraphGists: Graph Model Examples^]
+* https://neo4j.com/blog/data-modeling-pitfalls/[Blog post: Data Modeling Pitfalls to Avoid^]
+endif::[]
+ifndef::env-guide[]
 * link:/blog/data-modeling-basics/[Blog post: Graph Data Modeling Basics^]
 * link:/graphgists/[GraphGists: Graph Model Examples^]
 * link:/blog/data-modeling-pitfalls/[Blog post: Data Modeling Pitfalls to Avoid^]
+endif::[]
 * https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Free online training course: Graph Data Modeling for Neo4j]
