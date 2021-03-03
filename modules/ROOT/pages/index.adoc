@@ -11,9 +11,9 @@ All you need to be happy and successful with Neo4j
 
 
 [.buttons]
-* xref:language-guides.adoc[I'm a Developer]
-* xref:graph-data-science:index.adoc[I'm a Data Scientist]
-* xref:in-production.adoc[I'm an Administrator]
+* link:/developer/language-guides/?role=developer[I'm a Developer]
+* link:/developer/graph-data-science/?role=datascientist[I'm a Data Scientist]
+* link:/developer/in-production/?role=administrator[I'm an Administrator]
 
 
 [.secondary.leading.flex.no-arrows]
