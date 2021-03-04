@@ -125,7 +125,10 @@ Extracting the nodes: +
 Remember that a graph database takes each instance of an entity as a separate node (John and Sally would be two separate nodes, even though they are both people), and Graph Databases would be a separate node from another book.
 ****
 
+ifndef::env-guide[]
 .Graph Model - Nodes
+endif::[]
+
 image:{img}modeling_johnsally_nodes.jpg[400,400,role="popup-link"]
 
 ifndef::env-guide[]
@@ -167,7 +170,10 @@ Now that we have identified both our nodes and labels, we can update our graph d
 For *John* and *Sally*, we apply the label _Person_.
 For *Graph Databases*, we apply the label _Book_.
 
+ifndef::env-guide[]
 .Graph Model - Labels
+endif::[]
+
 image:{img}modeling_johnsally_labels.jpg[400,400,role="popup-link"]
 
 ifndef::env-guide[]
@@ -211,7 +217,10 @@ Relationships between nodes: +
 To sum up our findings, our John and Sally nodes (labeled _Person_) can be connected to each other by the +++<u>is friends with</u>+++ relationship.
 John and Sally have both read the Graph Databases book, so we can connect each of their nodes (each labeled _Person_) to the Graph Databases node (labeled _Book_) with a +++<u>has read</u>+++ relationship.
 
+ifndef::env-guide[]
 .Graph Model - Relationships
+endif::[]
+
 image:{img}modeling_johnsally_relationships.jpg[400,400,role="popup-link"]
 
 ifndef::env-guide[]
@@ -245,7 +254,10 @@ For our John and Sally scenario, we can list some questions that we might want t
 
 From this list of questions, you can identify the attributes that we need to store on the entities within our data model in order to answer these questions.
 
+ifndef::env-guide[]
 .Graph Model - Properties
+endif::[]
+
 image:{img}modeling_johnsally_properties.jpg[400,400,role="popup-link"]
 
 With the final model, we now can answer each of the questions we defined in our list.
