@@ -162,7 +162,7 @@ After you install or uninstall a plugin, you must restart the DBMS.
 
 Here we see that we can now access APOC procedures for this DBMS:
 
-image::{img}generic-APOC_installed.png[role="popup-link"]
+image::{img}generic-APOC_installed.png[role="popup-link",width=400]
 
 [#desktop-add-files-for-import]
 === Adding files to import
@@ -184,7 +184,7 @@ You can open a terminal window that will be automatically ready for using your N
 
 To open a terminal window you select the dropdown menu to the right of the Open button and select `Terminal`:
 
-image::{img}generic-open_terminal.png[role="popup-link"]
+image::{img}generic-open_terminal.png[role="popup-link",width=400]
 
 In the terminal window you can navigate to the `bin` directory to execute the `cypher-shell` or `neo4j-admin` tools.
 
@@ -217,7 +217,7 @@ If you do not see this pane on the right, make sure your Neo4j Desktop window is
 
 If you scroll to the bottom of the Details pane, you can reset the password for the DBMS:
 
-image::{img}generic-reset_password.png[role="popup-link"]
+image::{img}generic-reset_password.png[role="popup-link",width=400]
 
 [#desktop-feedback]
 == Feedback & Questions
