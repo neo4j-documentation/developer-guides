@@ -5,7 +5,7 @@
 :tags: aura, database-as-a-service, dbaas, graph-platform
 
 [#neo4j-dbaas]
-Neo4j A is a fully-managed clouraud database developed by the same people that built Neo4j.
+Neo4j Aura is a fully-managed cloud database developed by the same people that built Neo4j.
 
 It is available as a link:/cloud/aura/[paid professional tier^], a link:/cloud/aura/free[free database (waitlist)^], and an link:/cloud/aura/pricing/[Enterprise service^].
 
