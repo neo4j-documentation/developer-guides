@@ -81,9 +81,10 @@ To enter and run Cypher statements on a started DBMS, you can:
 .. Execute the Cypher with the `play` button on the right.
 . Use cypher-shell:
 .. Click the drop-down menu to the right of the *Open* button and select *Terminal*.
-+
-image::{img}generic-open_terminal.png[role="popup-link"]
-+
+
+image::{img}generic-open_terminal.png[role="popup-link",float=center,width=500]
+
+[start=b]
 .. Enter `bin/cypher-shell`.
 .. Enter *neo4j* for the user.
 .. Enter the password you specified for the DBMS.
@@ -143,6 +144,16 @@ RETURN row
 LIMIT 3;
 ----
 
+Your results should look something like this:
+
+[format="dsv", options="header"]
+|===
+row
+["1", "Chai", "18"]
+["2", "Chang", "19"]
+["3", "Aniseed Syrup", "10"]
+|===
+
 [source, cypher]
 ----
 //count data rows in orders.csv (headers)
@@ -150,6 +161,39 @@ LOAD CSV WITH HEADERS FROM 'file:///orders.csv' AS row
 RETURN row
 LIMIT 5;
 ----
+
+Your results should look something like this:
+
+[options="header",cols="m"]
+|===
+|row
+
+|{
+  "orderID": "10248",
+  "orderDate": "1996-07-04 00:00:00.000",
+  "shipCountry": "France"
+}
+|{
+  "orderID": "10249",
+  "orderDate": "1996-07-05 00:00:00.000",
+  "shipCountry": "Germany"
+}
+|{
+  "orderID": "10250",
+  "orderDate": "1996-07-08 00:00:00.000",
+  "shipCountry": "Brazil"
+}
+|{
+  "orderID": "10251",
+  "orderDate": "1996-07-08 00:00:00.000",
+  "shipCountry": "France"
+}
+|{
+  "orderID": "10252",
+  "orderDate": "1996-07-09 00:00:00.000",
+  "shipCountry": "Belgium"
+}
+|===
 
 [source, cypher]
 ----
@@ -159,12 +203,54 @@ RETURN row
 LIMIT 8;
 ----
 
-.Results in Neo4j Browser:
-image:{img}developer-desktop-csv-import-test_load_1.png[role="popup-link"]
+Your results should look something like this:
 
-image:{img}developer-desktop-csv-import-test_load_2.png[role="popup-link"]
+[options="header",cols="m"]
+|===
+|row
 
-image:{img}developer-desktop-csv-import-test_load_3.png[role="popup-link"]
+|{
+   "quantity": "12",
+   "productID": "11",
+   "orderID": "10248"
+ }
+|{
+   "quantity": "10",
+   "productID": "42",
+   "orderID": "10248"
+ }
+|{
+   "quantity": "5",
+   "productID": "72",
+   "orderID": "10248"
+ }
+|{
+   "quantity": "9",
+   "productID": "14",
+   "orderID": "10249"
+ }
+|{
+   "quantity": "40",
+   "productID": "51",
+   "orderID": "10249"
+ }
+|{
+   "quantity": "10",
+   "productID": "41",
+   "orderID": "10250"
+ }
+|{
+   "quantity": "35",
+   "productID": "51",
+   "orderID": "10250"
+ }
+|{
+   "quantity": "15",
+   "productID": "65",
+   "orderID": "10250"
+ }
+|===
+
 
 Notice that the *orders.csv* and the *order-details.csv* return in a different format from the *products.csv*.
 This is because those files have headers, so the column names are returned with the values for those rows.
@@ -185,8 +271,38 @@ RETURN row
 LIMIT 5;
 ----
 
-image:{img}developer-desktop-csv-import-FilterCSV.png[role="popup-link"]
+Your results should look something like this:
 
+[options="header",cols="m"]
+|===
+|row
+
+|{
+   "orderID": "10249",
+   "orderDate": "1996-07-05 00:00:00.000",
+   "shipCountry": "Germany"
+ }
+|{
+   "orderID": "10260",
+   "orderDate": "1996-07-19 00:00:00.000",
+   "shipCountry": "Germany"
+ }
+|{
+   "orderID": "10267",
+   "orderDate": "1996-07-29 00:00:00.000",
+   "shipCountry": "Germany"
+ }
+|{
+   "orderID": "10273",
+   "orderDate": "1996-08-05 00:00:00.000",
+   "shipCountry": "Germany"
+ }
+|{
+   "orderID": "10277",
+   "orderDate": "1996-08-09 00:00:00.000",
+   "shipCountry": "Germany"
+ }
+|===
 
 [#data-types]
 == Data types
@@ -222,8 +338,15 @@ RETURN productId, productName, unitCost
 LIMIT 3;
 ----
 
-image:{img}developer-desktop-csv-import-products_convert.png[role="popup-link"]
+Your results should look something like this:
 
+[format="dsv",options="header"]
+|===
+productId:productName:unitCost
+1:"Chai":18.0
+2:"Chang":19.0
+3:"Aniseed Syrup":10.0
+|===
 
 Note that we are using collection positions (row[0], row[1], row[2]) to refer to the columns in the row and improve readability by using aliases to reference them in the return.
 In a file that has no headers, this is how to reference values in each position.
@@ -246,7 +369,17 @@ RETURN orderId, orderDate, country
 LIMIT 5;
 ----
 
-image::{img}developer-desktop-csv-import-orders_convert.png[role="popup-link"]
+Your results should look something like this:
+
+[format="dsv",options="header",separator=";"]
+|===
+orderId;orderDate;country
+10248;"1996-07-04T00:00:00Z";"France"
+10249;"1996-07-05T00:00:00Z";"Germany"
+10250;"1996-07-08T00:00:00Z";"Brazil"
+10251;"1996-07-08T00:00:00Z";"France"
+10252;"1996-07-09T00:00:00Z";"Belgium"
+|===
 
 There was one tricky thing with this CSV in the `orderDate` column.
 Neo4j's datetime uses the https://en.wikipedia.org/wiki/ISO_8601[ISO 8601^] format which uses the delimiter `T` between the date and time values.
@@ -275,7 +408,20 @@ RETURN productId, orderId, quantityOrdered
 LIMIT 8;
 ----
 
-image::{img}developer-desktop-csv-import-details_convert.png[role="popup-link"]
+Your results should look something like this:
+
+[format="dsv",options="header"]
+|===
+productId:orderId:quantityOrdered
+11:10248:12
+42:10248:10
+72:10248:5
+14:10249:9
+51:10249:40
+41:10250:10
+51:10250:35
+65:10250:15
+|===
 
 [#loading-data]
 == Loading the data!
@@ -292,7 +438,7 @@ To utilize the graph database fully, you need a graph data model.
 
 Though there are a variety ways to organize the products and orders in your files, we will save that for another guide and use the below version of the model for this exercise.
 
-image::{img}developer-desktop-csv-import-data_model.png[role="popup-link"]
+image::{img}developer-desktop-csv-import-data_model.svg[role="popup-link",width=700]
 
 We have two nodes - one for a product and one for an order.
 Each of those nodes have properties from the CSV files.
@@ -369,7 +515,7 @@ RETURN p LIMIT 20;
 
 Here are the results in Neo4j Browser:
 
-image::{img}developer-desktop-csv-import-verify_products.png[role="popup-link"]
+image::{img}developer-desktop-csv-import-verify_products.svg[role="popup-link"]
 
 .Orders
 Next, you will load the orders.
@@ -396,7 +542,7 @@ RETURN o LIMIT 20;
 
 Here are the results in Neo4j Browser:
 
-image::{img}developer-desktop-csv-import-verify_orders.png[role="popup-link"]
+image::{img}developer-desktop-csv-import-verify_orders.svg[role="popup-link"]
 
 .Order-details
 Last, but not least, you will create the relationship between the products and the orders.
@@ -430,7 +576,7 @@ RETURN p, rel, o LIMIT 50;
 
 Here are the results in Neo4j Browser:
 
-image::{img}developer-desktop-csv-import-verify_details.png[role="popup-link"]
+image::{img}developer-desktop-csv-import-verify_details.svg[role="popup-link"]
 
 [#import-wrapup]
 == Wrapping up
