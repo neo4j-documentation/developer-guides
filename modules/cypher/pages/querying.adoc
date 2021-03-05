@@ -8,6 +8,7 @@
 :page-comments:
 :page-aliases: ROOT:cypher-basics-ii.adoc
 :page-pagination:
+:page-includedriver: true
 
 .Goals
 [abstract]
@@ -53,89 +54,94 @@ Each example will start with an explanation of what we are trying to achieve and
 * *Example 1:* Find the labeled `Person` nodes in the graph.
 Note that we must use a variable like `p` for the `Person` node if we want retrieve the node in the `RETURN` clause.
 
-[source, cypher]
+[source, cypher, role=runnable editable graph]
 ----
 MATCH (p:Person)
 RETURN p
+LIMIT 1
 ----
 
-image::{img}cypher_example1_labelvar.jpg[role="popup-link"]
+// image::{img}cypher_example1_labelvar.jpg[role="popup-link"]
 
 
-* *Example 2:* Find `Person` nodes in the graph that have a name of 'Jennifer'.
+* *Example 2:* Find `Person` nodes in the graph that have a name of 'Tom Hanks'.
 Remember that we can name our variable anything we want, as long as we reference that same name later.
 
-[source, cypher]
+[source, cypher, role=runnable editable graph]
 ----
-MATCH (jenn:Person {name: 'Jennifer'})
-RETURN jenn
-----
-
-image::{img}cypher_example2_labelprop.jpg[role="popup-link"]
-
-
-* *Example 3:* Find which `Company` Jennifer works for.
-
-Explanation: we know we need to find Jennifer's `Person` node, and we need to find the `Company` node she is connected to.
-To do that, we need to follow the `WORKS_FOR` relationship from Jennifer's `Person` node to the `Company` node.
-We have also specified a label of `Company` so that the query will only look at nodes with that label.
-Since we only care about returning the company in this query, we need to give that node a variable (`company`) but do not need to give variables for the `Person` node or `WORKS_FOR` relationship.
-
-[source, cypher]
-----
-MATCH (:Person {name: 'Jennifer'})-[:WORKS_FOR]->(company:Company)
-RETURN company
+MATCH (tom:Person {name: 'Tom Hanks'})
+RETURN tom
 ----
 
-image::{img}cypher_example3_returnnode.jpg[role="popup-link"]
+// image::{img}cypher_example2_labelprop.jpg[role="popup-link"]
 
 
-* *Example 4:* Find which `Company` Jennifer works for, but this time, return only the name of the company.
+* *Example 3:* Find which `Movie`s Tom Hanks has directed.
+
+Explanation: we know we need to find Tom Hanks' `Person` node, and we need to find the `Movie` nodes he is connected to.
+To do that, we need to follow the `DIRECTED` relationship from Tom Hanks' `Person` node to the `Movie` node.
+We have also specified a label of `Movie` so that the query will only look at nodes with that label.
+Since we only care about returning the company in this query, we need to give that node a variable (`movie`) but do not need to give variables for the `Person` node or `WORKS_FOR` relationship.
+
+[source, cypher, role=runnable editable graph]
+----
+MATCH (:Person {name: 'Tom Hanks'})-[:DIRECTED]->(movie:Movie)
+RETURN movie
+----
+
+// image::{img}cypher_example3_returnnode.jpg[role="popup-link"]
+
+
+* *Example 4:* Find which `Movie` Tom Hanks has directed, but this time, return only the title of the movie.
 
 Explanation: this query is very similar to Example 3.
-Example 3 returned the entire `Company` node with all its properties.
-For this example, we still need to find Jennifer's company, but now we only care about its name.
-We will need to access the node's `name` property using the syntax `variable.property` to return the name value.
+Example 3 returned the entire `Movie` node with all its properties.
+For this example, we still need to find Tom's movies, but now we only care about their titles.
+We will need to access the node's `title` property using the syntax `variable.property` to return the name value.
 
-[source, cypher]
+[source, cypher, role=runnable editable]
 ----
-MATCH (:Person {name: 'Jennifer'})-[:WORKS_FOR]->(company:Company)
-RETURN company.name
+MATCH (:Person {name: 'Tom Hanks'})-[:DIRECTED]->(movie:Movie)
+RETURN movie.title
 ----
 
-image::{img}cypher_example4_returnprop.jpg[role="popup-link"]
+// image::{img}cypher_example4_returnprop.jpg[role="popup-link"]
 
 [#cypher-aliases]
 == Aliasing Return Values
 
-Not all properties are simple like our `company.name` example above.
+Not all properties are simple like our `movie.title` example above.
 Some properties have poor names due to property length, multi-word descriptions, developer jargon, and other shortcuts.
 These naming conventions can be difficult to read, especially if they end up on reports and other user-facing interfaces.
+
+.Poorly-named Properties
+[source,cypher,role=runnable]
+----
+//poorly-named property
+MATCH (tom:Person {name:'Tom Hanks'})-[rel:DIRECTED]-(movie:Movie)
+RETURN tom.name, tom.born, movie.title, movie.released
+----
 
 Just like with SQL, you can rename return results by using the `AS` keyword and aliasing the property with a cleaner name.
 We can look at a mocked-up example to list a customer's orders and the number of items in the order.
 
-[source,cypher]
+.Cleaner Results with aliasing
+[source,cypher,role=runnable editable]
 ----
-//poorly-named property
-MATCH (kristen:Customer {name:'Kristen'})-[rel:PURCHASED]-(order:Order)
-RETURN order.orderId, order.orderDate, kristen.customerIdNo, order.orderTotalNoOfItems
-
 //cleaner printed results with aliasing
-MATCH (kristen:Customer {name:'Kristen'})-[rel:PURCHASED]-(order:Order)
-RETURN order.orderId AS OrderID, order.orderDate AS `Purchase Date`,
-       kristen.customerIdNo AS CustomerID, order.orderNumOfLineItems AS `Number Of Items`
+MATCH (tom:Person {name:'Tom Hanks'})-[rel:DIRECTED]-(movie:Movie)
+RETURN tom.name AS name, tom.born AS `Year Born`, movie.title AS title, movie.released AS `Year Released`
 ----
 
-.Results Without Aliases:
-image:{img}cypher_without_aliases.jpg[role="popup-link"]
+// .Results Without Aliases:
+// image:{img}cypher_without_aliases.jpg[role="popup-link"]
 
-.Results With Aliases:
-image:{img}cypher_with_aliases.jpg[role="popup-link"]
+// .Results With Aliases:
+// image:{img}cypher_with_aliases.jpg[role="popup-link"]
 
 [NOTE]
 --
-You can specify return aliases that have spaces by using the backtick character before and after the alias (order.orderDate AS `Purchase Date`).
+You can specify return aliases that have spaces by using the backtick character before and after the alias (novie.released AS `Year Released`).
 If you do not have an alias that contains spaces, then you do not need to use backticks.
 --
 
