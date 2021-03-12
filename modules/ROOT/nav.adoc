@@ -48,7 +48,7 @@
 ** xref:guide-import-csv.adoc[Importing CSV]
 ** xref:guide-import-json-rest-api.adoc[Importing API Data]
 ** xref:relational-to-graph-import.adoc[Import: RDBMS to Graph]
-** xref:guide-importing-data-and-etl.adoc[Example: Northwind Dataset]
+** xref:guide-importing-data-and-etl.adoc[How-To: Import Northwind Dataset]
 ** xref:desktop-csv-import.adoc[How-To: Desktop CSV Import]
 ** xref:example-data.adoc[Example Datasets]
 
