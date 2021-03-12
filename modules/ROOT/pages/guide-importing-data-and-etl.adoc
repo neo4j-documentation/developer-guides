@@ -36,9 +36,9 @@ ifdef::env-guide[]
 This Guide uses a specific data set, but the principles in this Guide can be applied and reused with any data domain.
 
 You should have a basic understanding of the
-https://neo4j.com/developer/graph-database/#property-graph[property graph model]
+https://neo4j.com/developer/graph-database/#property-graph[property graph model^]
 and know how to
-https://neo4j.com/developer/guide-data-modeling[model data as a graph].
+https://neo4j.com/developer/guide-data-modeling[model data as a graph^].
 endif::[]
 
 [#about-domain]
@@ -82,7 +82,7 @@ endif::[]
 ifdef::env-guide[]
 [NOTE]
 --
-For more information on adapting your graph model to different scenarios, check out our https://neo4j.com/developer/modeling-designs/[modeling designs] guide.
+For more information on adapting your graph model to different scenarios, check out our https://neo4j.com/developer/modeling-designs/[modeling designs^] guide.
 --
 endif::[]
 When deriving a graph model from a relational model, you should keep a couple of general guidelines in mind.
@@ -839,6 +839,6 @@ ifdef::env-guide[]
 * https://neo4j.com/docs/cypher-manual/current/clauses/load-csv/[LOAD CSV^]: Cypher's command for importing CSV files
 * https://neo4j.com/labs/apoc/[APOC library^]: Neo4j's utility library
 * https://neo4j.com/labs/etl-tool//[Neo4j ETL Tool^]: Loading relational data without code
-* https://neo4j.com/developer/data-import/[Importing Data with Neo4j]
-* https://neo4j.com/developer/data-modeling/guide-data-modeling[Graph Data Modeling]
+* https://neo4j.com/developer/data-import/[Importing Data with Neo4j^]
+* https://neo4j.com/developer/data-modeling/guide-data-modeling[Graph Data Modeling^]
 endif::[]
