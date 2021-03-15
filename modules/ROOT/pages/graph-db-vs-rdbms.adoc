@@ -167,7 +167,7 @@ try (PreparedStatement stmt = con.prepareStatement(QUERY)) {
 
 [TIP]
 ====
-For more information, you can visit our pages for https://neo4j.com/developer/language-guides/[Building Applicatons^] to see how to connect to Neo4j using different programming languages.
+For more information, you can visit our pages for https://neo4j.com/developer/language-guides/[Building Applications^] to see how to connect to Neo4j using different programming languages.
 ====
 
 [#rdbms-graph-resources]
