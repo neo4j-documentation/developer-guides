@@ -45,7 +45,7 @@ The property graph model is easy to understand and work with, especially for obj
 
 [role="pull-right"]
 --
-image::https://raw.githubusercontent.com/neo4j-graph-examples/recommendations/main/documentation/img/model.png[]
+image::{img}model.png[]
 --
 
 The property graph model consists of:
