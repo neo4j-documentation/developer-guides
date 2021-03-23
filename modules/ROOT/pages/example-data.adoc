@@ -8,7 +8,6 @@
 :tags: graph-data, data-sets, import-data, graph-examples, sandboxes, graph-gallery
 :description: This Guide introduces different example datasets for Neo4j and demonstrates how to import and explore them.
 :page-pagination: previous
-:page-comments:
 
 .Goals
 [abstract]

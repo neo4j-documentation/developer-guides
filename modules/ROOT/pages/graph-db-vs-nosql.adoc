@@ -6,7 +6,6 @@
 :tags: get-started, introduction, nosql, graph, key-value, document, compare, concepts
 :description: This guide explains how graph databases are related to other NoSQL databases and how they differ.
 :page-pagination:
-:page-comments:
 
 .Goals
 [abstract]

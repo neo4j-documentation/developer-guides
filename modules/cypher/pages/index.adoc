@@ -2,7 +2,6 @@
 :author: Jennifer Reif
 :category: cypher
 :tags: cypher, queries, graph-queries, query-language, learn-cypher
-:page-comments:
 :page-aliases: ROOT:cypher-query-language.adoc, cypher-query-language.adoc
 :page-pagination:
 
@@ -178,3 +177,9 @@ Find out where else you can learn Cypher or increase your depth of knowledge fro
 There are a variety of training opportunities, blogs, videos, and more for taking the next steps in your Cypher (and Neo4j) journey!
 
 xref:resources.adoc[Cypher Resources,role=more information]
+
+== Community Help
+
+If you have any questions about any of the content covered in these guides, feel free to create a new topic in the link:https://community.neo4j.com/c/neo4j-graph-platform/cypher/12?ref=guides[Cypher category on the Neo4j Community Site^].
+
+link:https://community.neo4j.com/?ref=guides[Join the Neo4j Community,role=more information^].

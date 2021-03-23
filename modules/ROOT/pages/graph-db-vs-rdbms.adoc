@@ -5,7 +5,6 @@
 :category: documentation
 :tags: get-started, introduction, relational, graph, compare, concepts
 :description: This guide explores the concepts of graph databases from a relational developer's point of view.
-:page-comments:
 :page-pagination: next
 
 .Goals

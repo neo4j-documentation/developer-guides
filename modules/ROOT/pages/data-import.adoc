@@ -3,7 +3,6 @@
 :category: import-export
 :tags: data-import, graph-import, import-csv, json-api, northwind-graph, example-data
 :page-pagination: next
-:page-comments:
 
 [#about-import]
 These guides and tutorials are designed to help you understand how to import various types of data into Neo4j.

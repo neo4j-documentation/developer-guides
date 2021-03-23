@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, insert-create, update, delete, merge
 :description: Building on the Cypher Basics I guide, this guide covers more introductory concepts of Cypher, Neo4j's graph query language. Upon finishing this guide, you should be able to read and write Cypher queries for standard CRUD operations.
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:cypher-basics-iii.adoc
 
@@ -305,3 +304,5 @@ The next guide will show you how to handle filtering in Neo4j to return results 
 * link:/docs/cypher-manual/current/clauses/delete/[Neo4j Cypher Manual: DELETE^]
 * link:/docs/cypher-manual/current/clauses/merge/[Neo4j Cypher Manual: MERGE^]
 * link:/docs/cypher-manual/current/clauses/merge/#query-merge-on-create-on-match[Neo4j Cypher Manual: ON CREATE/ON MATCH^]
+
+include::partial$help.adoc[]

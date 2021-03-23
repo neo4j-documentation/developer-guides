@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, extend-cypher, procedures, functions, custom-development
 :description: This guide explains how to use, create and deploy user defined procedures and functions, the extension mechanism of Cypher, Neo4j's query language. It also covers existing, widely used procedure libraries
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:procedures-functions.adoc
 
@@ -292,3 +291,5 @@ public static class WeightedPathResult {
 Use a build tool (like maven, gradle, ant) to package your code into a jar-file and copy that into `$NEO4J_HOME/plugins`
 Make sure required dependencies are added as well, either to your jar or the plugins directory.
 ////
+
+include::partial$help.adoc[]

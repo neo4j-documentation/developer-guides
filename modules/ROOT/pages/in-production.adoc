@@ -24,9 +24,9 @@ Operating in the changing environment requires some knowledge and training of th
 
 Various guides throughout this section will cover topics on key operational features and how they work.
 
-link:/developer/manage-multiple-databases/[Manage Multiple Databases] +
-link:/developer/multi-tenancy/[Multi-Tenancy: A Worked Example] +
-link:/developer/neo4j-fabric-sharding/[Sharding Graph Data]
+xref:manage-multiple-databases.adoc[Manage Multiple Databases] +
+xref:multi-tenancy-worked-example.adoc[Multi-Tenancy: A Worked Example] +
+xref:neo4j-fabric-sharding.adoc[Sharding Graph Data]
 
 [#performance-tuning]
 == Performance Tuning

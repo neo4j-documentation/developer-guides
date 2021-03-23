@@ -6,7 +6,6 @@
 :tags: data-import, import-csv, graph-import, desktop, load-csv, cypher
 :description: You will learn how to import data from CSV files to a Neo4j graph database using the Neo4j Desktop application. This tutorial is designed for you to follow along and step through the process.
 :page-pagination:
-:page-comments:
 
 .Goals
 [abstract]

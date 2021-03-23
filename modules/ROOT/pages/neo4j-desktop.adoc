@@ -8,7 +8,6 @@
 :tags: graph-platform, desktop, activation, graph, manage-graph, database
 :description: This article demonstrates how to use the Neo4j Desktop GUI for managing instances of Neo4j locally for development.
 :page-pagination:
-:page-comments:
 
 .Goals
 [abstract]

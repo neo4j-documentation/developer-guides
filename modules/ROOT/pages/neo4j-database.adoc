@@ -3,7 +3,6 @@
 :category: documentation
 :tags: graph-platform, graph, database, features, versions
 :page-pagination:
-:page-comments:
 
 [#database]
 Neo4j's primary product and focus is our graph database that stores data in the form of nodes and relationships.

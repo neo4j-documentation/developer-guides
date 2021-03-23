@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, recommendations, tutorial, filtering, paths
 :description: This tutorial shows how to use the relationships in your data to gather insights and recommend new entities that do not currently have a direct relationship based on the other relationships and network in the graph.
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:guide-build-a-recommendation-engine.adoc
 :page-type: Tutorial
@@ -182,3 +181,5 @@ Other factors that can be easily integrated in this query are favorites, allergi
 * link:/graphacademy/online-training/online-training/introduction-to-neo4j-40/[Online Training: Learn Cypher with Intro to Neo4j^]
 * http://www.slideshare.net/bachmanm/recommendations-with-neo4j[Michal Bachman Slides: Recommendation Engines with Neo4j^]
 * link:/graphgists/?category=real-time-recommendations[GraphGists: Recommendation Engine Examples^]
+
+include::partial$help.adoc[]

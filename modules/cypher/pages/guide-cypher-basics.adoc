@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, movie-graph, cypher-example
 :description: This tutorial explains the basic concepts of Cypher, Neo4j's query language, including how to create and query graphs.
-:page-comments:
 :page-aliases: ROOT:guide-cypher-basics.adoc
 
 .Goals
@@ -348,3 +347,5 @@ Here is the result of this query:
 image::ZeroNodes.png[Zero Nodes, link="{imagesdir}/ZeroNodes.png",role="popup-link"]
 
 *Congratulations!* You have learned how to use Cypher to query a Neo4j database.
+
+include::partial$next-steps.adoc[]

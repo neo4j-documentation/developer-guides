@@ -8,7 +8,6 @@
 :tags: graph-platform, etl, tools, integrations, relational, graph, load, import, connect, data
 :description: Through this guide, you will learn how to take your data from a relational database or table format and import to Neo4j.
 :page-pagination:
-:page-comments:
 
 [TIP]
 ====

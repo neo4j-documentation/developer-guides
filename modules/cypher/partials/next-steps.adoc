@@ -1,0 +1,6 @@
+== Next steps
+
+If you have any further questions about anything that has been covered in this section, you can ask in the link:https://community.neo4j.com/c/neo4j-graph-platform/cypher/12?ref=guides[Cypher category on the Neo4j Community Site^].
+We pride ourselves on having an open and engaging community and we would love you to be part of it.
+
+You can test your knowledge by taking the link:https://neo4j.com/graphacademy/training-intro-40/enrollment/[free Introduction to Neo4j 4.x Course^] or link:https://neo4j.com/graphacademy/neo4j-certification/[earn your free Neo4j Certification^] provided by the GraphAcademy.

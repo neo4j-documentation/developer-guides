@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, syntax, patterns, keywords, aliases
 :description: This guide explains the basic concepts of Cypher, Neo4j's graph query language. You should be able to read and understand Cypher queries after finishing this guide.
-:page-comments:
 :page-aliases: ROOT:cypher-basics-ii.adoc
 :page-pagination:
 :page-includedriver: true
@@ -156,3 +155,5 @@ We will look at more `MATCH` capabilities in an upcoming guide, as well as how t
 
 * https://neo4j.com/docs/cypher-manual/current/clauses/match/[Neo4j Cypher Manual: MATCH^]
 * https://neo4j.com/docs/cypher-manual/current/clauses/return/[Neo4j Cypher Manual: RETURN^]
+
+include::partial$help.adoc[]

@@ -6,7 +6,6 @@
 :category: cypher
 :tags: cypher, queries, show, filter, database, user
 :description: This guide shows how to better utilize results of the `SHOW` command.
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:filtering-show.adoc
 
@@ -83,3 +82,4 @@ image::show-roles-example.jpg[Using SHOW ROLES, link="{imagesdir}/show-roles-exa
 * link:https://neo4j.com/docs/operations-manual/current/authentication-authorization/[Docs: Manage Users].
 
 
+include::partial$help.adoc[]

@@ -2,7 +2,6 @@
 :author: Jennifer Reif
 :category: cypher
 :tags: cypher, queries, graph-queries, resources, documentation, cypher-training, cypher-help
-:page-comments:
 :page-pagination: previous
 :page-aliases: ROOT:cypher-resources.adoc
 
@@ -42,3 +41,5 @@ To help you along your path of learning more about Cypher and how to use it, we 
 * http://www.opencypher.org/[openCypher project^]
 * https://medium.com/neo4j[Neo4j Medium Blog Channel^]
 * https://community.neo4j.com/c/neo4j-graph-platform/cypher[Neo4j Community Site: Ask Questions, Get Answers on Cypher^]
+
+include::partial$next-steps.adoc[]

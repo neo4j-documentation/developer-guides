@@ -3,7 +3,6 @@
 :category: documentation
 :tags: get-started, introduction, graph, database, graph-platform, training
 :description: Become an expert Neo4j developer with these introductory tutorials and guidelines that cover the entire development lifecycle, from download to deployment.
-:page-comments:
 :page-pagination: next
 
 ++++

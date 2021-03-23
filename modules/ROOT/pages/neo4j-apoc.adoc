@@ -8,7 +8,6 @@
 :tags: graph-platform, apoc, utilities, libraries, procedures, functions
 :description: Through this guide, you will learn about one of Neo4j's extension libraries - APOC.
 :page-pagination:
-:page-comments:
 
 [TIP]
 ====

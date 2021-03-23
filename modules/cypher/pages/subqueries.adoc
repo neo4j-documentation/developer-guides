@@ -6,7 +6,6 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, subqueries, compare-queries
 :description: Building on the previous Cypher guides, this guide shows how to write subqueries. Upon finishing this guide, you should be able to write and understand queries using this capability.
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:subqueries.adoc
 
@@ -306,4 +305,4 @@ In the next section, we will learn how to use aggregation in Cypher and how to d
 * link:/docs/cypher-manual/current/clauses/where/#existential-subqueries[Neo4j Cypher Manual: Using existential subqueries in WHERE^]
 * link:/docs/cypher-manual/current/clauses/call-subquery/[Neo4j Cypher Manual: CALL {} (subquery)^]
 
-
+include::partial$help.adoc[]

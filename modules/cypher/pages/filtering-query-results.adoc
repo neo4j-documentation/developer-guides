@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, filtering, where, value-ranges, existence, optional-patterns
 :description: Building on the Cypher Basics I and II guides, this guide continues with additional concepts of Cypher for filtering and query criteria. Upon finishing this guide, you should be able to filter results on properties and patterns for ranges and other expanded searches.
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:filtering-query-results.adoc
 
@@ -294,3 +293,5 @@ In the next section, we will learn how to use subqueries in Cypher.
 
 * link:/docs/cypher-manual/current/clauses/where/[Neo4j Cypher Manual: Filtering with WHERE^]
 * link:/docs/cypher-manual/current/clauses/optional-match/[Neo4j Cypher Manual: OPTIONAL MATCH^]
+
+include::partial$help.adoc[]

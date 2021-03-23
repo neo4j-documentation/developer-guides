@@ -3,7 +3,6 @@
 :category: documentation
 :tags: get-started, introduction, resources, neo4j-help, cypher, graph, nosql-graph, neo4j-training
 :page-pagination:
-:page-comments:
 
 [#getting-started-resources]
 To help you along your path of learning more about Neo4j, we want to provide you with the resources we used throughout this section, as well as a few additional resources for further information and development.

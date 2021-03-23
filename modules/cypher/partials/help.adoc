@@ -1,0 +1,4 @@
+[TIP]
+.Are you struggling?
+If you need help with any of the information contained on this page, you can reach out to other members of our community.
+You can ask questions in the link:https://community.neo4j.com/c/neo4j-graph-platform/cypher/12?ref=guides[Cypher category on the Neo4j Community Site^].

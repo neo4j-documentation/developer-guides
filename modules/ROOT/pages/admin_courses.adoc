@@ -2,7 +2,6 @@
 = Administrator Courses
 :category: administration
 :tags: cypher, queries, graph-queries, resources, documentation, admin, training
-:page-comments:
 :page-pagination: previous
 
 == Administrator Courses

@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, aggregation, chaining, loops, order-by, distinct, limit
 :description: Building on the previous Cypher guides, this guide shows how to handle returning results in various ways, aggregating data, and using Cypher functions. Upon finishing this guide, you should be able to write and understand queries using these capabilities.
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:aggregation-returns-functions.adoc
 
@@ -361,3 +360,5 @@ In the next section, we will learn how to maintain data integrity by using const
 * link:/docs/cypher-manual/current/clauses/[Neo4j Cypher Manual: WITH, UNWIND, & More^]
 * link:/docs/cypher-manual/current/functions/aggregating/[Neo4j Cypher Manual: Aggregation^]
 * link:/docs/cypher-manual/current/functions/scalar/#functions-size[Neo4j Cypher Manual: Size()^]
+
+include::partial$help.adoc[]

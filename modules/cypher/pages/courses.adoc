@@ -2,7 +2,6 @@
 = Courses
 :category: cypher
 :tags: cypher, queries, graph-queries, resources, documentation, cypher-training, cypher-help, training
-:page-comments:
 :page-pagination: previous
 
 == Courses

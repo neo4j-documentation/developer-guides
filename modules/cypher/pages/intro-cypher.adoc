@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, syntax, patterns, keywords, aliases
 :description: This guide explains the basic concepts of Cypher, Neo4j's graph query language. You should be able to read and understand Cypher queries after finishing this guide.
-:page-comments:
 :page-aliases: ROOT:cypher-basics-i.adoc
 :page-pagination:
 
@@ -226,3 +225,5 @@ In Cypher, this pattern would look like the code below.
 
 This bit of Cypher tells the pattern we want, but it does not tell whether we want to find that existing pattern or insert it as a new pattern.
 To tell Cypher what we want it to do with the pattern, we need to add some keywords.
+
+include::partial$help.adoc[]

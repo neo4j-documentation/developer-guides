@@ -5,7 +5,6 @@
 :category: graph-data-science
 :tags: nlp, knowledge-graph, neosemantics, apoc
 :description: This guide shows how to build and query a Knowledge Graph of entities extracted using APOC NLP procedures and Ontologies extracted using neosemantics.
-:page-comments:
 :page-type: Tutorial
 
 .Goals

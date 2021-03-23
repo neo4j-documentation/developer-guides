@@ -6,7 +6,6 @@
 :category: cypher
 :tags: cypher, queries, execution plan, planner, replan
 :description: This guide describes improvements made for query replanning in Neo4j 4.1.
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:replanning.adoc
 
@@ -102,4 +101,4 @@ This will cause the query to be recompiled and placed in the cache with the late
 * link:https://neo4j.com/docs/cypher-manual/current/query-tuning/[Docs: Cypher query tuning].
 * link:https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/.[Online Course: Cypher Query Tuning in Neo4j 4.0].
 
-
+include::partial$help.adoc[]

@@ -5,7 +5,6 @@
 :category: cypher
 :tags: cypher, queries, graph-queries, sql-cypher, northwind-graph
 :description: This guide teaches anyone familiar with SQL how to write the equivalent, efficient Cypher statements. We'll use the well-known Northwind database to explain the concepts and work through the queries from simple to advanced.
-:page-comments:
 :page-pagination:
 :page-aliases: ROOT:guide-sql-to-cypher.adoc
 
@@ -492,3 +491,5 @@ discuss graph patterns with relationships
 [#cypher-resources]
 == Resources
 * link:/developer/graph-db-vs-rdbms/["Data Model Transformation",role=guide]
+
+include::partial$help.adoc[]
