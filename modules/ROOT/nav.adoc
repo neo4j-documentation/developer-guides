@@ -178,7 +178,7 @@
 ** link:https://neo4j.com/speaker-program/[Speaker Program: Share your Story^]
 
 * link:https://community.neo4j.com/[Help Forums^]
-** link:https://neo4j.com/slack[Neo4j-Users Slack^]
+** link:https://discord.gg/neo4j[Discord Chat^]
 ** link:https://stackoverflow.com/questions/tagged/neo4j[StackOverflow^]
 
 * link:https://neo4j.com/graphacademy/[Learn with GraphAcademy^]
