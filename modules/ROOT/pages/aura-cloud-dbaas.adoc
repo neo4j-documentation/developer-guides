@@ -26,6 +26,17 @@ https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j
 [#connecting-aura]
 == Connect to your Aura database
 
+If you log in to your Aura database using the Aura console, for any running database, you can simply open Neo4j Browser for that database using the *Open* button on the console.
+
+Provided the database is running, you can also connect to it from a Web browser by entering this URL:
+
+----
+https://dbid.databases.neo4j.io/browser/
+----
+
+Where you specify the *dbid* for your database. Neo4j Browser will connect to the database after you provide the username/password for the database.
+The default user name is `neo4j` and the password is what was generated or specified when the database was created.
+
 These tutorials explain how to connect to your Aura database from other Neo4j tools.
 
 link:/developer/aura-connect-neo4j-desktop/[Connect from Neo4j Desktop] +
