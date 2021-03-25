@@ -21,7 +21,7 @@ We also have some other places the community asks questions.
 
 * http://stackoverflow.com/questions/tagged/neo4j[Neo4j on StackOverflow^]
 * http://twitter.com/neo4j[Social: Neo4j on Twitter^]
-* http://neo4j.com/slack[Chat: Neo4j-Users Slack^]
+* https://discord.gg/neo4j[Discord Chat^]
 * http://www.quora.com/Neo4j[Neo4j on Quora^]
 * http://github.com/neo4j/neo4j/issues[Raise Issues: GitHub Issues^]
 * link:https://groups.google.com/group/neo4j[Neo4j Google Group^], link:https://groups.google.com/group/neo4jfr[(Français)^], link:https://groups.google.com/group/neo4jes[(Español)^], link:https://groups.google.com/group/neo4j-biotech[(biotech)^], link:https://groups.google.com/group/graph-software-analytics[(graph-software-analytics)^],
@@ -106,7 +106,7 @@ We are happy users of the following tools that we use daily to develop Neo4j.
 * Profiler: Yourkit, VisualVM, jvmtop, Java Mission Control, Flight Recorder
 * Version Control: Git & http://github.com/neo4j[GitHub^]
 * Issue Management: Trello and http://github.com/neo4j/neo4j/issues[GitHub issues^]
-* Team Communication: Neo4j Community Site, Slack, Google Hangouts, and Skype
+* Team Communication: Neo4j Community Site, Discord, Google Hangouts, and Zoom
 * Pair Programming: Team Viewer, join.me
 * Documents: Google Docs
 * Manual, GraphGists, Presentations: http://asciidoctor.org[AsciiDoctor^]

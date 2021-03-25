@@ -15,7 +15,7 @@ There are also a few other ways to find Neo4j content listed below.
 * https://medium.com/neo4j[Neo4j Developer Blog on Medium^]
 * https://youtube.com/neo4j[Neo4j Videos on Youtube^]
 * https://community.neo4j.com/c/community-content-blogs[All Community Blogs & Posts^]
-* http://neo4j.com/slack[Public Neo4j Slack^]
+* https://discord.gg/neo4j[Discord Chat^]
 * http://neo4j.meetup.com[Neo4j Meetups - worldwide^]
 * http://twitter.com/neo4j[Neo4j on Twitter^]
 * http://github.com/neo4j[Neo4j^] and http://github.com/neo4j[Neo4j-Contrib^] on GitHubs
