@@ -1,0 +1,88 @@
+= Neo4j Discord Chat
+:members: 8800
+:author: Neo4j
+:category: documentation
+:tags: resources, discord, community
+
+[#join-discord]
+== Join our Discord chat
+
+image::{img}20210324131149/discord-logo-wordmark-color.png[link=https://discord.gg/neo4j,float=right,width=300,window="neo4j-discord"]
+
+The Neo4j Discord is a friendly chat atmosphere for lively discussion, collaboration or
+comaraderie, throughout the week and also during online events.
+
+For help, the latest news or to share work you've created, please visit our https://community.neo4j.com[Neo4j Forums^] instead!
+
+
+[#getting-support]
+== Getting Support
+
+If you are a customer, please raise a ticket at http://support.neo4j.com[our support portal^] or contact our http://neo4j.com/contact-us[professional services] directly.
+
+For more involved questions, please raise them in an appropriate category on the https://community.neo4j.com[Neo4j Forums^].
+The forums allow other users to search for questions and answers, sharing knowledge throughout the community!
+
+[#chat-guidelines]
+== Chat Guidelines
+
+Please don't cross post between channels if not asked so explicitely.
+
+Don't use any @here, or @channel mentions as many of the channels have a large number of members.
+
+Please be respectful of varying users and beliefs and avoid content that could be perceived as offensive by others.
+
+
+[#channel-overview]
+== Channel Overview
+
+We've organized the channels into a few different groups. Most channels are for typing. Each
+group of channels also has an audio/video channel, for stepping into a room to have a quick conversation. 
+
+[cols="3*<.<a"]
+|===
+|
+
+=== General
+
+[none]
+* #welcome - brief introduction to Discord and how to get set up
+* #introduce-yourself - pleased to meet you
+* #graph-lobby - general banter
+* #suggestions - suggestions _about_ Discord
+* #leaderboard - track how actively you've been chatting
+* #graph lounge - audio/video 
+
+|
+=== Topics
+
+[none]
+* #product - any Neo4j product
+* #cypher - querying with Cypher
+* #graphql - application view of data
+* #data-science - make sense of data
+* #app-dev - building applications
+* #open-mic - audio/video
+
+|
+=== Neo4j Events
+
+[none]
+* #open-space - weekly events
+* #nodes - yearly developer event
+* #graphconnect- yearly graph conference
+* #watercooler - audio/video
+
+=== Announcements
+
+[none]
+* #live-stream 
+* #social-media
+* #neo4j-news
+* #release-notes
+* #events
+* #help-others
+
+|===
+
+We hope you enjoy meeting fellow users and chatting about Neo4j!
