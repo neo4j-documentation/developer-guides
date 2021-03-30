@@ -12,19 +12,18 @@ Here you will find guides from Neo4j’s community of contributors.
 == Help Others in the Community
 
 Want to help others?
+
 There are a number of great resources the Neo4j community uses to get quick help from graph database experts.
 Don't hesitate to ask when you’re stuck and looking for help.  Also, if you're familiar with a particular topic area, please jump in and lend a hand for your fellow graphistas.
 
-The primary home for the Neo4j Community is our https://community.neo4j.com[Neo4j Online Community^] site and forum.
+The primary home for Neo4j community discussion is our https://community.neo4j.com[Neo4j Forum^].
 
 We also have some other places the community asks questions.
 
 * http://stackoverflow.com/questions/tagged/neo4j[Neo4j on StackOverflow^]
 * http://twitter.com/neo4j[Social: Neo4j on Twitter^]
 * https://discord.gg/neo4j[Discord Chat^]
-* http://www.quora.com/Neo4j[Neo4j on Quora^]
 * http://github.com/neo4j/neo4j/issues[Raise Issues: GitHub Issues^]
-* link:https://groups.google.com/group/neo4j[Neo4j Google Group^], link:https://groups.google.com/group/neo4jfr[(Français)^], link:https://groups.google.com/group/neo4jes[(Español)^], link:https://groups.google.com/group/neo4j-biotech[(biotech)^], link:https://groups.google.com/group/graph-software-analytics[(graph-software-analytics)^],
 
 [#ask-question-tips]
 == Tips for Asking Good Questions
@@ -75,12 +74,12 @@ you can present to your peers and become a recognized expert in your field.  Neo
 link:/speaker-program/[*Neo4j Speaker Program*], can also help and reimburse
 travel expenses for community members speaking at many of the top conferences.
 
-There are also hundreds of face-to-face https://www.meetup.com/[*Neo4j meetup groups*] in communities
+There are also hundreds of face-to-face https://www.meetup.com/topics/neo4j/[*Neo4j meetup groups*] in communities
 around the world.  Many of these meetup groups regularly look for speakers to share their stories.
 
 The https://www.meetup.com/Neo4j-Online-Meetup/[*Neo4j Online Meetup*] is a way for you to meet the global community online and share your story. 
 
-We select talks for the Online Meetup and stories for our link:/tag/twin4j/[*Developer Newsletter*] from https://community.neo4j.com/[*Neo4j Community site*]. To submit your story, post it in the `Projects & Collaboration` (if including a link to github or website) or `Community Content & Blogs` (if linking to a blog post,
+We select talks for the Online Meetup and stories for our link:/tag/twin4j/[*Developer Newsletter*] from https://community.neo4j.com/[*Neo4j Community Forum*]. To submit your story, post it in the `Projects & Collaboration` (if including a link to github or website) or `Community Content & Blogs` (if linking to a blog post,
 slideshow, video, or article) categories.
 
 [#contributing]
