@@ -160,56 +160,56 @@ image::{img}custom_guide_test.jpg[role="popup-link"]
 +
 [source,shell,.small]
 ----
- = A Test Guide
+= A Test Guide
 
- == First Slide: Media
+== First Slide: Media
 
- image::https://avatars3.githubusercontent.com/u/201120[width=200,float=right]
+image::https://avatars3.githubusercontent.com/u/201120[width=200,float=right]
 
- This is just a test guide.
+This is just a test guide.
 
- But it comes with a picture and a video:
+But it comes with a picture and a video:
 
- ++++
- <div class="responsive-embed">
- <iframe width="560" height="315" src="https://www.youtube.com/embed/V7f2tGsNSck?showinfo=0&controls=2&autohide=1" frameborder="0" allowfullscreen></iframe>
- </div>
- ++++
+++++
+<div class="responsive-embed">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V7f2tGsNSck?showinfo=0&controls=2&autohide=1" frameborder="0" allowfullscreen></iframe>
+</div>
+++++
 
- == Second Slide: Statements
+== Second Slide: Statements
 
- === Creating Data
+=== Creating Data
 
- The area below becomes a clickable statement.
+The area below becomes a clickable statement.
 
- [source,shell]
- ----
- CREATE (db:Database {name:"Neo4j"})
- RETURN db
- ----
+[source,shell]
+----
+CREATE (db:Database {name:"Neo4j"})
+RETURN db
+----
 
- === Querying Data
- :name: pass:a['<span value-key="name">Neo4j</span>']
+=== Querying Data
+:name: pass:a['<span value-key="name">Neo4j</span>']
 
- We use a form field here:
+We use a form field here:
 
- ++++
- <input style="display:inline;width:30%;" value-for="name" class="form-control" value="Neo4j" size="40">
- ++++
+++++
+<input style="display:inline;width:30%;" value-for="name" class="form-control" value="Neo4j" size="40">
+++++
 
- [source,cypher,subs=attributes]
- ----
- MATCH (db:Database {name: $name})
- RETURN db
- ----
+[source,cypher,subs=attributes]
+----
+MATCH (db:Database {name: $name})
+RETURN db
+----
 
- == Third Slide: Links
+== Third Slide: Links
 
- * https://neo4j.com/developer/cypher[Learn more about Cypher]
- * pass:a[<a help-topic='keys'>Help Keys</a>]
- * pass:a[<a play-topic='https://guides.neo4j.com/'>Another Guide</a>]
+* https://neo4j.com/developer/cypher[Learn more about Cypher]
+* pass:a[<a help-topic='keys'>Help Keys</a>]
+* pass:a[<a play-topic='https://guides.neo4j.com/'>Another Guide</a>]
 
- image::https://avatars3.githubusercontent.com/u/201120[width=100,link="https://example.com"]
+image::https://avatars3.githubusercontent.com/u/201120[width=100,link="https://example.com"]
 ----
 
 4. Pass the `test.adoc` file to the `run.sh` script (as shown below) to convert to the HTML slides.
