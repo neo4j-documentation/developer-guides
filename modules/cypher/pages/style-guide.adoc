@@ -7,6 +7,7 @@
 :description: This guide will show some of the syntax recommendations for building clean, easy-to-read Cypher queries. At the end of this page, you will know how to improve readability of keywords, properties, labels, clauses, and other components.
 :page-pagination:
 :page-aliases: ROOT:cypher-style-guide.adoc
+:page-newsletter: true
 
 .Goals
 [abstract]

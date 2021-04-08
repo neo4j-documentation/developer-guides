@@ -3,6 +3,7 @@
 :category: documentation
 :tags: introduction, graph, videos, resources
 :page-pagination: next
+:page-newsletter: true
 
 [#intro-videos]
 

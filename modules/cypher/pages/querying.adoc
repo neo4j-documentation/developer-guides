@@ -8,6 +8,7 @@
 :page-aliases: ROOT:cypher-basics-ii.adoc
 :page-pagination:
 :page-includedriver: true
+:page-newsletter: true
 
 .Goals
 [abstract]

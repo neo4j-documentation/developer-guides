@@ -6,6 +6,7 @@
 :category: integrations
 :tags: labs, graphql, queries, grandstack, react, apollo, javascript, java
 :page-pagination:
+:page-newsletter: true
 
 [TIP]
 ====

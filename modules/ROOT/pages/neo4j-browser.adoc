@@ -8,6 +8,7 @@
 :tags: graph-platform, web, desktop, guides, styling, queries, configuration, visualization
 :description: This article demonstrates how to use the Neo4j Browser for querying, visualization, and data interaction.
 :page-pagination:
+:page-newsletter: true
 
 .Goals
 [abstract]

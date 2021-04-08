@@ -8,6 +8,7 @@
 :description: Building on the Cypher Basics guides, this guide covers the temporal date types introduced in Neo4j 3.4. Upon finishing this guide, you should be able to create, compare, and format these values.
 :page-pagination:
 :page-aliases: ROOT:dates-datetimes-durations.adoc
+:page-newsletter: true
 
 .Goals
 [abstract]

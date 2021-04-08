@@ -8,6 +8,7 @@
 :description: This guide shows how to better utilize results of the `SHOW` command.
 :page-pagination:
 :page-aliases: ROOT:filtering-show.adoc
+:page-newsletter: true
 
 .Goals
 [abstract]
