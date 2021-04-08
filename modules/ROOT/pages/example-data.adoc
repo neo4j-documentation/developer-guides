@@ -71,7 +71,7 @@ Other examples that you can quickly run within your own Neo4j Browser are:
 * `:play nasa` NASA knowledge graph example
 * `:play ukcompanies` UK company registration, property ownership, political donations
 * `:play stackoverflow` Stack Overflow users, tags and Q&A data
-* `	` BBC Good Foods recipe data
+// * `	` BBC Good Foods recipe data
 * `:play listings` Airbnb listings data
 * `:play football_transfers` Football (Soccer) transfer data
 // :play twitter-neo4j-stream
