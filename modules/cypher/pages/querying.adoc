@@ -148,7 +148,7 @@ If you do not have an alias that contains spaces, then you do not need to use ba
 [.arrange]
 == Code Challenge
 
-Now that you know the basics, use the parts below to build a cypher statement to to find the first 10 movies that Tom Hanks has directed.
+Now that you know the basics, use the parts below to build a cypher statement to to find the `title` and year of `release` for evert `:Movie` that Tom Hanks has `:DIRECTED`.
 Click the parts to add them in order and once you are done, click **Run Query** to see whether you have got it right.
 You can click any part of the query inside the code block to remove it.
 
