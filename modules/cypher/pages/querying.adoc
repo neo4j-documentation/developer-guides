@@ -145,6 +145,16 @@ You can specify return aliases that have spaces by using the backtick character 
 If you do not have an alias that contains spaces, then you do not need to use backticks.
 --
 
+[.arrange]
+== Code Challenge
+
+Now that you know the basics, use the parts below to build a cypher statement to to find the first 10 movies that Tom Hanks has directed.
+Click the parts to add them in order and once you are done, click **Run Query** to see whether you have got it right.
+You can click any part of the query inside the code block to remove it.
+
+[source,cypher]
+MATCH (p:Person {name: "Tom Hanks"})-[:DIRECTED]->(m:Movie) RETURN m.title, m.released
+
 [#cypher-next-steps]
 == Next Steps
 
