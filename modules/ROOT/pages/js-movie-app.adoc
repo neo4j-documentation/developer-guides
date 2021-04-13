@@ -43,8 +43,6 @@ Neo4j was built to efficiently store, handle, and query highly-connected element
 With a powerful and flexible data model, you can represent your real-world, variably-structured information without a loss of fidelity.
 The property graph model is easy to understand and work with, especially for object-oriented and relational developers.
 
-image::{img}model.png[]
-
 The property graph model consists of:
 
 **Nodes**, which have:
@@ -58,6 +56,8 @@ The property graph model consists of:
 * A _type_: describes how it connects the two nodes
 
 While relationships are directional, querying relationships in either direction has no associated performance cost.
+
+image::{img}model.png[][JavaScript Movie App Model]
 
 === Cypher
 
