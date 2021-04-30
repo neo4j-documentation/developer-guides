@@ -55,7 +55,7 @@ It also supports basic CRUD and legacy indexing.
 |===
 | icon:github[] Source       | https://github.com/DotNet4Neo4j/neo4jclient
 | icon:gift[] NuGet Package  | https://nuget.org/packages/neo4jclient
-| icon:user[] Authors        | http://twitter.com/cskardon[Chris Skardon^] http://twitter.com/tathamoddie[Tatham Oddie^]
+| icon:user[] Authors        | http://twitter.com/cskardon[Charlotte Skardon^] http://twitter.com/tathamoddie[Tatham Oddie^]
 | icon:book[] Docs           | https://github.com/DotNet4Neo4j/Neo4jClient/wiki[]
 | icon:play-circle[] Example | {examples}/movies-dotnet-neo4jclient
 | Protocol                   | Bolt, Http
@@ -70,6 +70,6 @@ It also supports basic CRUD and legacy indexing.
 |===
 | icon:github[] Source       | https://github.com/DotNet4Neo4j/Neo4j.Driver.Extensions
 | icon:gift[] NuGet Package  | https://nuget.org/packages/neo4j.driver.extensions
-| icon:user[] Authors        | http://twitter.com/cskardon[Chris Skardon^]
+| icon:user[] Authors        | http://twitter.com/cskardon[Charlotte Skardon^]
 | icon:book[] Docs           | https://xclave.co.uk/2020/10/06/using-neo4j-driver-now-you-can-extend-it/[Introduction blogpost]
 |===
