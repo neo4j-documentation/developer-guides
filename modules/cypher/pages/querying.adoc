@@ -141,7 +141,7 @@ RETURN tom.name AS name, tom.born AS `Year Born`, movie.title AS title, movie.re
 
 [NOTE]
 --
-You can specify return aliases that have spaces by using the backtick character before and after the alias (novie.released AS `Year Released`).
+You can specify return aliases that have spaces by using the backtick character before and after the alias (movie.released AS `Year Released`).
 If you do not have an alias that contains spaces, then you do not need to use backticks.
 --
 
