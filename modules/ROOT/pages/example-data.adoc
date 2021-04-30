@@ -142,9 +142,14 @@ For loading JSON, XML, XLS etc. you need to have the https://neo4j.com/labs/apoc
 
 Other datasets are provided as dump of a Neo4j datastore.
 
-1. Please stop your Neo4j server (only for Community Edition, which doesn't have the "multi-database" feature).
-2. Then you can import the file using the `./bin/neo4j-admin load  --force true --from file.dump --database <dbname>` command.
-3. Make the new database known to the system database with `CREATE DATABASE dbname` which will also automatically start it
+.Community Edition (replace the default database)
+1. Please stop your Neo4j server
+2. Then you can import the file using the `./bin/neo4j-admin load  --force true --from file.dump` command.
+3. Start the Neo4j server
+
+.Enterprise Edition (also Neo4j Desktop)
+1. Import the file using the `./bin/neo4j-admin load  --force true --from file.dump --database <dbname>` command.
+2. Make the new database known to the system database with `CREATE DATABASE dbname` which will also automatically start it
 
 
 [WARNING]
