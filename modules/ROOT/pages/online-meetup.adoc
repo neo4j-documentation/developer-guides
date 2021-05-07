@@ -32,17 +32,17 @@ Missed a stream? Check out the playlists:
 * https://www.youtube.com/watch?v=UQTBJKFEinI&list=PL9Hl4pk2FsvXfHQHBMHv3U9MmhpNc8Vqe[Article review from This Week in Neo4j^]
 
 
-=== Tuesday - Adam
-
-image::https://pbs.twimg.com/profile_images/852657056968564737/AKqYLHhV_400x400.jpg[Adam Cowley,width="200px",float="right"]
-
-*1pm UTC (8am EST, 2pm CET, 6:30pm IST, 9pm AWST)*
-
-https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
-
-Missed a stream? Check out the playlist:
-
-* https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
+// === Tuesday - Adam
+// 
+// image::https://pbs.twimg.com/profile_images/852657056968564737/AKqYLHhV_400x400.jpg[Adam Cowley,width="200px",float="right"]
+// 
+// *1pm UTC (8am EST, 2pm CET, 6:30pm IST, 9pm AWST)*
+// 
+// https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
+// 
+// Missed a stream? Check out the playlist:
+// 
+// * https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
 
 
 [.clearfix]
