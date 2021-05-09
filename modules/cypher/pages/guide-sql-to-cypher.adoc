@@ -275,7 +275,7 @@ WHERE p.productName STARTS WITH "C" AND p.unitPrice > 100
 RETURN p.productName, p.unitPrice;
 ----
 
-You can also use a regular expression, like `p.productName =~ "C.*"`.
+You can also use a regular expression, like `p.productName =~ "^C.*"`.
 
 // table
 
