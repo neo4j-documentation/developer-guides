@@ -22,6 +22,8 @@ It also helps if you have read the section on link:/developer/get-started/graph-
 [role=expertise {level}]
 {level}
 
+NOTE: There is now an official https://neo4j.com/docs/browser-manual/current/[Neo4j Browser Manual^] and also the option to https://neo4j-browser.canny.io/feature-requests[send feature requests^] and https://neo4j-browser.canny.io/changelog[read the change-log^].
+
 ++++
 <div class="responsive-embed">
 <iframe width="680" height="425" src="https://www.youtube.com/embed/oHo-lQ79zf0" frameborder="0" allowfullscreen></iframe>
