@@ -24,3 +24,4 @@ Most of them have thankfully been made available by the driver authors.
 * Ruby {examples}/movies-ruby-neo4jrb[Neo4j.rb Rails^] by http://twitter.com/neo4jrb[Neo4j.rb Team^]
 * Perl: {examples}/movies-perl-neo4p[Neo4p::REST^] by https://twitter.com/thinkinator[Mark Jensen^]
 * PHP: {examples}/movies-php-neoclient[Neoclient^] by http://twitter.com/ikwattro[Chris Willemsen^]
+* Python: {examples}/neo4j-movies-python-neomodel[Neomodel^]
