@@ -141,6 +141,8 @@ Routing.builder()
         .build();
 ----
 
+and get the managed driver bean.
+
 
 [#micronaut-integration]
 == Micronaut
