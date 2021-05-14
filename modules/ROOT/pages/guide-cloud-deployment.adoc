@@ -35,7 +35,7 @@ Alongside a set of management tools, it provides a series of modular cloud servi
 
 Running on Google Cloud provides a few options, depending on what you want to do.
 
-* Test Drive - GCP and Neo4j offer a https://neo4j.orbitera.com/c2m/trials/signup?testDrive=1135[free test drive^] with hands-on walkthroughs and introduction materials on graphs and Neo4j.
+* Neo4j Aura is available via the https://console.cloud.google.com/marketplace/product/endpoints/prod.n4gcp.neo4j.io[official GCP Marketplace^] that allows you to subscribe, provision and bill the instances to your GCP account
 
 * Single instance - our {opsmanual}/cloud-deployments/neo4j-gcp/single-instance-vm/[Google cloud image documentation^] gives you the steps to launch a single instance from an image with a few commands and interact with the Neo4j instance.
 
