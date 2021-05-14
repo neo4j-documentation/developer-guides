@@ -54,9 +54,11 @@
 
 * xref:language-guides.adoc[Drivers &amp; Language Guides]
 ** xref:java.adoc[Java]
-*** xref:java-driver-spring-boot-starter.adoc[Java Driver Spring Boot Starter]
+*** xref:spring-data-neo4j.adoc[Spring]
+**** xref:spring-data-neo4j.adoc[Spring Data Neo4j]
+**** xref:java-driver-spring-boot-starter.adoc[Java Driver Spring Boot Starter]
+*** xref:java-frameworks.adoc[Quarkus, Helidon, Micronaut]
 *** xref:neo4j-ogm.adoc[Neo4j Object Graph Mapper]
-*** xref:spring-data-neo4j.adoc[Spring Data Neo4j]
 *** xref:java-procedures.adoc[Procedures and Functions]
 *** xref:java-third-party.adoc[Third-party libraries]
 ** xref:dotnet.adoc[.NET]
