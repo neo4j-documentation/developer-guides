@@ -81,7 +81,7 @@ RETURN tom
 Explanation: we know we need to find Tom Hanks' `Person` node, and we need to find the `Movie` nodes he is connected to.
 To do that, we need to follow the `DIRECTED` relationship from Tom Hanks' `Person` node to the `Movie` node.
 We have also specified a label of `Movie` so that the query will only look at nodes with that label.
-Since we only care about returning the company in this query, we need to give that node a variable (`movie`) but do not need to give variables for the `Person` node or `WORKS_FOR` relationship.
+Since we only care about returning the movie in this query, we need to give that node a variable (`movie`) but do not need to give variables for the `Person` node or `DIRECTED` relationship.
 
 [source, cypher, role=runnable editable graph]
 ----
