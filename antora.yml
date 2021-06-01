@@ -12,11 +12,11 @@ asciidoc:
     neo4j-ogm-version: 3.2.19
     spring-boot-version: 2.4.1
     spring-data-neo4j-version: 6.0.2
-    java-driver-version: 4.2.0
-    javascript-driver-version: 4.2.1
-    python-driver-version: 4.2.1
-    dotnet-driver-version: 4.2.0
-    go-driver-version: 4.2.0
+    java-driver-version: 4.3.0
+    javascript-driver-version: 4.3.0
+    python-driver-version: 4.3.1
+    dotnet-driver-version: 4.3.0
+    go-driver-version: 4.3.0
     testcontainers-version: 1.15.1
     maven-sdn: Package
     maven-artifact-info: https://search.maven.org/artifact/org.neo4j.driver/neo4j-java-driver/{java-driver-version}/jar
