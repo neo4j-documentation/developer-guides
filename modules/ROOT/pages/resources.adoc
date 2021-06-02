@@ -150,7 +150,7 @@ Here are two recordings of our Chief Scientist which are not only informative bu
 * https://markhneedham.com/blog/[Mark Needham on Cypher, Python, and R^]
 * https://www.adamcowley.co.uk[Adam Cowley on JavaScript, Cypher, Recommendations^]
 * http://maxdemarzi.com/[Max de Marzi on Performance, Modeling, Neo4j Extensions^]
-* https://xclave.co.uk/[Chris Skardon on .Net, Power BI^]
+* https://xclave.co.uk/[Charlotte Skardon on .Net, Power BI^]
 * https://faboo.org/tags/neo4j[Bert Radke on Open Data, Import, Modeling^]
 * http://blog.bruggen.com/?view=magazine[Rik van Bruggen on Modeling, Cypher and Use-Cases^]
 * http://jexp.de/blog/[Michael Hunger on Spring Data, Import, Cypher & more^]
