@@ -97,7 +97,7 @@ https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |**Coming soon 2021!** +
 
-|Chris Skardon & Lju Lazarevic
+|Charlotte Skardon & Lju Lazarevic
 
 a|*Ask me anything - .NET edition*
 
