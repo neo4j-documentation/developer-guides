@@ -1,0 +1,42 @@
+name: Cypher Queries
+
+on:
+  push:
+    branches:
+      - 'publish'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      neo4j:
+        image: neo4j:4.3
+        ports:
+          - 7687:7687
+        env:
+          NEO4J_AUTH: neo4j/s3cr3t
+          NEO4J_ACCEPT_LICENSE_AGREEMENT: yes
+        options: >-
+          --health-cmd "cypher-shell -u neo4j -p s3cr3t 'RETURN 1'"
+          --health-interval 5s
+          --health-timeout 60s
+          --health-retries 12
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 10
+        uses: actions/setup-node@v1
+        with:
+          # remind: Antora runs faster on Node 10
+          node-version: '10'
+      - run: npm ci
+      - run: npm run checkQueries
+        env:
+          NEO4J_DATABASE_URI: 'bolt://localhost:7687'
+          NEO4J_DATABASE_USER: 'neo4j'
+          NEO4J_DATABASE_PASSWORD: 's3cr3t'
+          ASCIIDOC_CYPHER_RUNNER_REPORTER_ERROR_LIMIT: 20
