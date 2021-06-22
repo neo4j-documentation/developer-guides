@@ -16,15 +16,15 @@ All you need to be happy and successful with Neo4j
 * link:/developer/in-production/?role=administrator[I'm an Administrator]
 
 
-[.secondary.leading.flex.no-arrows]
+[.secondary.leading.flex-container.no-arrows]
 
 == Getting Started
 
 [.column]
 === 1. Run Neo4j
 
-Start by link:/try-neo4j/?ref=developer-lp[using Neo4j Sandbox for free^]. 
-Alternatively: 
+Start by link:/try-neo4j/?ref=developer-lp[using Neo4j Sandbox for free^].
+Alternatively:
 
 * xref:neo4j-desktop.adoc[Install Neo4j Desktop]
 * xref:aura-cloud-dbaas.adoc[Use Neo4j Aura in the Cloud]
@@ -55,7 +55,7 @@ Use the xref:graph-platform.adoc[Neo4j tools] to access your data or develop an 
 
 video::REVkXVxvMQE[youtube]
 
-[.secondary.flex.use-cases.no-arrows]
+[.secondary.flex-container.use-cases.no-arrows]
 == Start with an Example
 
 // * Fraud Detection & Analytics
@@ -114,7 +114,7 @@ link:https://sandbox.neo4j.com/[Explore the other Sandbox Examples^, role=button
 link:/graphgists/[View 100+ Graph examples by Industry and Use Case^, role=button] &nbsp;
 
 
-// [.secondary.flex.languages]
+// [.secondary.flex-container.languages]
 // == Building Applications
 
 // [.column]
@@ -206,7 +206,7 @@ We have an active community of experts who are more than happy to answer your qu
 Why not join our community and link:https://community.neo4j.com/c/general/introduce-yourself/7[introduce yourself]?
 Do you have a side-project or idea and would like to link:https://community.neo4j.com/c/projects-collaboration/9[find collaborators^]?
 
-[.flex.secondary.no-bullets]
+[.flex-container.secondary.no-bullets]
 == Resources for Learning Neo4j
 
 [.column]
@@ -231,7 +231,7 @@ Do you have a side-project or idea and would like to link:https://community.neo4
 * link:https://twitter.com/neo4j[Twitter^]
 
 
-// [.flex]
+// [.flex-container]
 // == Intro to Graph Databases
 
 // [.column]
@@ -262,7 +262,7 @@ Do you have a side-project or idea and would like to link:https://community.neo4
 // link:https://medium.com/neo4j[Neo4j Developer Blog, role=button]
 
 
-// [.secondary.flex]
+// [.secondary.flex-container]
 // == Training and Certification
 
 // [.column]
