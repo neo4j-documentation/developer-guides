@@ -238,7 +238,7 @@ We can see how this would look in Cypher by querying for people whose name start
 MATCH (p:Person)
 WHERE p.name STARTS WITH 'J'
 OPTIONAL MATCH (p)-[:WORKS_FOR]-(other:Company)
-RETURN p.name, other.name
+RETURN p.name, other.name;
 ----
 
 image::{img}cypher_filter_optMatch.jpg[role="popup-link"]
