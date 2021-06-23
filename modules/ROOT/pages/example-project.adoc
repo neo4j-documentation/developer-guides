@@ -40,7 +40,7 @@ The source code for all the different language examples is available on https://
 We use a simple Movie database domain, which is also built into Neo4j Browser.
 If you need the data separately, it is available in this https://github.com/neo4j-graph-examples/movies[GitHub repository^].
 
-[source,cypher]
+[source,cypher.fragment]
 ----
 (:Person {name: string})-[:ACTED_IN {roles: [string]}]->(:Movie {title: string, released: number})
 ----
@@ -112,7 +112,7 @@ The search movies query ``MATCH``es the movies by title with `CONTAINS` and then
 [source,cypher]
 ----
 MATCH (movie:Movie)
- WHERE lower(movie.title) CONTAINS $query
+ WHERE toLower(movie.title) CONTAINS $query
  RETURN movie
 ----
 
