@@ -40,7 +40,7 @@ They are also case-sensitive.
 This means that however you create them in the graph must match the queries you plan to run later.
 For instance, if you use incorrect camelcase when you create the label in the graph, then you will need to write your queries with the same incorrect camelcasing.
 
-[source,cypher]
+[source,cypher.fragment]
 ----
 (:Person)
 (:NetworkAddress)
@@ -52,7 +52,7 @@ For instance, if you use incorrect camelcase when you create the label in the gr
 Relationship types are styled with all upper-case and use the underscore between words.
 They are case-sensitive, so queries syntax must match the format in which they were created in the database.
 
-[source,cypher]
+[source,cypher.fragment]
 ----
 [:FOLLOWS]
 [:ACTED_IN]
@@ -64,7 +64,7 @@ They are case-sensitive, so queries syntax must match the format in which they w
 Property keys, variables, parameters, aliases, and functions are styled in camelCase where the first letter of the component begins with a lower-case letter, and the first letter of each following word is a capital letter.
 All of these are also case-sensitive, so capitalization must match either what is in the database (properties), what is already defined in the query (variables, parameters, aliases), or Cypher definitions (functions).
 
-[source,cypher]
+[source,cypher.fragment]
 ----
 title
 size()
@@ -169,7 +169,7 @@ If the string has both double and single quotes, use the form that creates the f
 .Not as clean:
 [source,cypher]
 --
-RETURN 'Cypher\'s a nice language', "Mats\' quote: "statement"'
+RETURN 'Cypher\'s a nice language', "Mats' quote: \"statement\""
 --
 
 .Preferred Syntax:
