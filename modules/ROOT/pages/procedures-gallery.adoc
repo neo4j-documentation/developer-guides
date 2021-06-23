@@ -268,13 +268,13 @@ Neo4j Consultant Jesus Barrasa wrote a number of procedures for importing and ma
 
 
 .import RDF formats and convert them into the property graph model
-[source,cypher]
+[source,cypher.noplay]
 ----
 CALL semantics.importRDF(rdf-url-or-file,format, shorten-url-flag, batch-commit-size);
 ----
 
 .import ontologies into Neo4j ontologies for graph generation and checking
-[source,cypher]
+[source,cypher.noplay]
 ----
 CALL semantics.LiteOntoImport(own-url-or-file,'RDF/XML')
 ----
