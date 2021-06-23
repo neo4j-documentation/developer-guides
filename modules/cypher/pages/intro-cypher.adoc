@@ -115,7 +115,7 @@ As you can imagine, this would be cumbersome if you had a very large graph.
 
 Using our graph example above, let's see how we could specify our nodes.
 
-[source,cypher]
+[source,cypher.fragment]
 ----
 ()                  //anonymous node (no label or variable) can refer to any node in the database
 (p:Person)          //using variable p and label Person
@@ -148,13 +148,13 @@ In these cases where you may not be sure of direction, it is better to use an un
 [source,cypher]
 ----
 //data stored with this direction
-CREATE (p:Person)-[:LIKES]->(t:Technology)
+CREATE (p:Person)-[:LIKES]->(t:Technology);
 
 //query relationship backwards will not return results
-MATCH (p:Person)<-[:LIKES]-(t:Technology)
+MATCH (p:Person)<-[:LIKES]-(t:Technology);
 
 //better to query with undirected relationship unless sure of direction
-MATCH (p:Person)-[:LIKES]-(t:Technology)
+MATCH (p:Person)-[:LIKES]-(t:Technology);
 ----
 --
 
@@ -219,7 +219,7 @@ Let us use our example of `Jennifer likes Graphs`.
 
 In Cypher, this pattern would look like the code below.
 
-[source, cypher]
+[source, cypher.fragment]
 ----
 (p:Person {name: "Jennifer"})-[rel:LIKES]->(g:Technology {type: "Graphs"})
 ----
