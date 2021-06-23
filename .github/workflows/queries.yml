@@ -29,11 +29,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 10
+        with:
+          persist-credentials: false
+      - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
-          # remind: Antora runs faster on Node 10
-          node-version: '10'
+          node-version: '14'
+      # remind: workaround to use http instead of git
+      # otherwise, the following error is thrown when installing dependencies:
+      # npm ERR! Error while executing:
+      # npm ERR! /usr/bin/git ls-remote -h -t ssh://git@github.com/Mogztter/asciidoc-cypher-query-runner.git
+      # npm ERR!
+      # npm ERR! Warning: Permanently added the RSA host key for IP address '140.82.113.3' to the list of known hosts.
+      # npm ERR! git@github.com: Permission denied (publickey).
+      # npm ERR! fatal: Could not read from remote repository.
+      - name: Reconfigure git to use HTTP authentication
+        run: >
+          git config --global url."https://github.com/".insteadOf
+          ssh://git@github.com/
       - run: npm ci
       - run: npm run checkQueries
         env:
