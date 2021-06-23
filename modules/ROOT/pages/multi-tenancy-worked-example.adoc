@@ -188,7 +188,7 @@ Let's switch to the `mall1` database and setup parameters that we'll use in our 
 :mall: 1
 :url: "file:///DelightingCustomersBDclean.json"
 
-[source,cypher,subs="attributes"]
+[source,cypher.fragment,subs="attributes"]
 ----
 :use mall1;
 include::example$importTickets.cypher[tag=params]
@@ -214,7 +214,7 @@ include::example$importTickets.cypher[tag=query]
 And now let's do the same thing for mall 2.
 We'll switch to that database and setup our parameters:
 
-[source,cypher,subs="attributes"]
+[source,cypher.fragment,subs="attributes"]
 ----
 :use mall2;
 include::example$importTickets.cypher[tag=params]
@@ -356,7 +356,7 @@ This functionality is useful for executing aggregate queries across multiple dat
 
 Let's first change to the _fabric_ database by running the following command:
 
-[source,cypher]
+[source,cypher.fragment]
 ----
 :use fabric
 ----
