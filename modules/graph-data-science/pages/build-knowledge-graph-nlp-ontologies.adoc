@@ -350,7 +350,7 @@ Before we do that we'll need to create an API key that has access to the Natural
 Assuming that we're already created a GCP account, we can generate a key by following the instructions at https://console.cloud.google.com/apis/credentials[console.cloud.google.com/apis/credentials^].
 Once we've created a key, we'll create a parameter that contains it:
 
-[source,cypher]
+[source,cypher.nocopy.noplay]
 ----
 include::example$nlp/queries.cypher[tag="set-key"]
 ----

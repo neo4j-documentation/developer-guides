@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  neo4j:
+    image: neo4j:4.3
+    ports:
+      - 7687:7687
+    environment:
+      NEO4J_AUTH: 'neo4j/s3cr3t'
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: 'yes'
+      NEO4JLABS_PLUGINS: '["apoc", "graph-data-science", "n10s"]'
+    volumes:
+      - "./plugins:/plugins"
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p s3cr3t 'RETURN 1'"]
+      interval: 5s
+      timeout: 80s
+      retries: 12
+      start_period: 20s

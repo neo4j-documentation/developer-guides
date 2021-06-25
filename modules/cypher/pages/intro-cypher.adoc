@@ -149,7 +149,10 @@ In these cases where you may not be sure of direction, it is better to use an un
 ----
 //data stored with this direction
 CREATE (p:Person)-[:LIKES]->(t:Technology);
+----
 
+[source,cypher.fragment]
+----
 //query relationship backwards will not return results
 MATCH (p:Person)<-[:LIKES]-(t:Technology);
 
