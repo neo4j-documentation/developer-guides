@@ -33,7 +33,9 @@ jobs:
           ssh://git@github.com/
       - run: npm ci
       - run: docker-compose up -d
-      - run: ./wait-for-it.sh localhost:7687 --timeout=80
+      - run: |
+          ./wait-for-it.sh localhost:7687 --timeout=60
+          sleep 20
       - run: npm run checkQueries
         env:
           NEO4J_DATABASE_URI: 'bolt://localhost:7687'
