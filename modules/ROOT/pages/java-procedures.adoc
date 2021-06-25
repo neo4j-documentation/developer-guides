@@ -27,7 +27,7 @@ Several libraries already provide new capabilities using procedures and function
 [source,cypher]
 ----
 MATCH (start:City {name: 'Berlin'}),(end:City {name: 'Malmö'})
-CALL apoc.algo.dikjstra(start, end, "ROUTE","distance") yield path, weight
+CALL apoc.algo.dijkstra(start, end, "ROUTE","distance") yield path, weight
 RETURN path
 ORDER BY weight ASC LIMIT 10
 ----

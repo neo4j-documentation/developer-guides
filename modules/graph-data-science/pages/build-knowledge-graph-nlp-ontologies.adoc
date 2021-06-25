@@ -402,7 +402,7 @@ CALL apoc.nlp.gcp.entities.stream(a, {
  key: $key
 })
 
-<1>
+// <1>
 YIELD node, value
 
 SET node.processed = true

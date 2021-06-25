@@ -258,7 +258,7 @@ RETURN count(*)
 WITH {latitude: 37.563440, longitude: -122.322265} AS coordinate
 CALL spatial.withinDistance('geom', coordinate, 1) YIELD node AS district
 MATCH (district)<-[:REPRESENTS]-(legislator:Legislator)
-RETURN district.state, legislator.govtrackID, legislator.lastName, l.currentParty AS party
+RETURN district.state, legislator.govtrackID, legislator.lastName, legislator.currentParty AS party
 ----
 
 [#apoc-rdf]
@@ -329,7 +329,7 @@ class UDF {
 
 
 .use the function like this
-[source,cypher]
+[source,cypher.fragment]
 ----
 CREATE (p:Person {id: create.uuid(), name: $name})
 ----

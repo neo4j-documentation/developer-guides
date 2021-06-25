@@ -554,7 +554,7 @@ For this, you can add the `:auto USING PERIODIC COMMIT` clause before the `LOAD 
 The default value for periodic commit is 1,000, but for this exercise, you will ask Cypher to commit every *500 rows*.
 You could decrease this number if you have a lot of memory already allocated to other tasks, or if it is limited.
 
-[source, cypher]
+[source, cypher.noplay]
 ----
 :auto USING PERIODIC COMMIT 500
 LOAD CSV WITH HEADERS FROM 'file:///order-details.csv' AS row

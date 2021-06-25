@@ -378,7 +378,7 @@ Ineffective spacing:
 ----
 MATCH (p:Person)-->(other:Person)
 WHERE p.name<>other.name
-RETURN length(p)
+RETURN collect(p)
 ----
 
 Recommended:
@@ -386,7 +386,7 @@ Recommended:
 ----
 MATCH (p:Person)-->(other:Person)
 WHERE p.name <> other.name
-RETURN length(p)
+RETURN collect(p)
 ----
 
 * *One space after each comma in lists and enumerations.*
