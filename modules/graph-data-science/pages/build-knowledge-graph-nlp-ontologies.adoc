@@ -285,7 +285,7 @@ WITH a,
      value.title[0].text AS title,
      value.time[0].attributes.datetime AS date
 
-<4>
+//<4>
 SET a.body = body , a.title = title, a.datetime = datetime(date)
 RETURN a;
 ----
