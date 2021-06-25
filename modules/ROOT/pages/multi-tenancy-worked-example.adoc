@@ -144,7 +144,7 @@ Let's first switch to that database:
 
 Once we've done that we can run the following statements to create the databases:
 
-[source,cypher]
+[source,cypher.admin]
 ----
 CREATE DATABASE mall1;
 CREATE DATABASE mall2;
@@ -372,7 +372,7 @@ Or in our case `USE fabric.mall1` and `USE fabric.mall2`.
 
 The following query finds the total spend and number of purchases in each mall, combines the results using the https://neo4j.com/docs/cypher-manual/4.0/clauses/union/#union-combine-queries-retain-duplicates[`UNION ALL`^] clause, and then orders the results by total spend:
 
-[source,cypher]
+[source,cypher.fabric]
 ----
 USE fabric.mall1
 MATCH (item:TicketItem)-->(product:Product)
@@ -402,7 +402,7 @@ ORDER BY totalSpend DESC;
 The total spend and number of purchases are almost identical between the malls!
 We can also write a version of this query that reduces duplication by using the built-in https://neo4j.com/docs/operations-manual/current/fabric/queries/#fabric-built-in-functions[`<fabric-database-name>graphIds`^] function and the https://neo4j.com/docs/cypher-manual/4.0/clauses/call-subquery/[`CALL{}`^] clause, as shown below:
 
-[source,cypher]
+[source,cypher.fabric]
 ----
 WITH ["Mall 1", "Mall 2"] AS malls
 UNWIND fabric.graphIds() AS graphId
@@ -419,7 +419,7 @@ ORDER BY totalSpend DESC;
 We can also aggregate the results returned by the sub queries executed on each of the mall databases.
 The following query finds the highest selling products in each mall, and then shows the top 10 products across both malls:
 
-[source,cypher]
+[source,cypher.fabric]
 ----
 UNWIND fabric.graphIds() AS graphId
 CALL {
@@ -454,7 +454,7 @@ LIMIT 10
 The top selling product in both malls is _ROSCON NATA MEDIANO_, but it'd be good if the sales for each product was aggregated so that we have only one row per product.
 We can do this using the https://neo4j.com/docs/cypher-manual/4.0/functions/aggregating/#functions-sum[`SUM`^] aggregation function:
 
-[source,cypher]
+[source,cypher.fabric]
 ----
 UNWIND fabric.graphIds() AS graphId
 CALL {
