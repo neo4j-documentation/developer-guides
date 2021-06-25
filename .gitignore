@@ -2,7 +2,6 @@
 build
 node_modules/
 .idea/
-!plugins/apoc-*-all.jar
+plugins/*
 !plugins/apoc-nlp-dependencies-*.jar
 !plugins/spatial.jar
-plugins/*
