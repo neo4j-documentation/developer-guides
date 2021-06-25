@@ -42,7 +42,7 @@
     }
   },
   "devDependencies": {
-    "@neo4j-documentation/asciidoc-cypher-query-runner": "git+https://github.com/Mogztter/asciidoc-cypher-query-runner.git#v0.1.7",
+    "@neo4j-documentation/asciidoc-cypher-query-runner": "git+https://github.com/Mogztter/asciidoc-cypher-query-runner.git#v0.1.8",
     "cheerio": "^1.0.0-rc.3",
     "hyperlink": "^4.6.0"
   }
