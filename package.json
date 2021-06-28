@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "@neo4j-documentation/link-checker": "github:Mogztter/link-checker#v0.1.0",
-    "cheerio": "^1.0.0-rc.3",
-    "hyperlink": "^4.6.0"
+    "cheerio": "^1.0.0-rc.3"
   }
 }
