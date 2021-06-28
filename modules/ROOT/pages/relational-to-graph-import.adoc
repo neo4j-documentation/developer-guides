@@ -13,8 +13,8 @@
 
 .Prerequisites
 [abstract]
-You should be familiar with link:/developer/get-started/graph-database[graph database] concepts and the link:/developer/get-started/graph-database#property-graph[property graph model].
-It is also helpful to know the differences between link:/developer/graph-db-vs-rdbms/[relational and graph concepts] and their link:/developer/relational-to-graph-modeling/[data models].
+You should be familiar with xref:graph-database.adoc[graph database] concepts and the xref:graph-database.adoc#property-graph[property graph model].
+It is also helpful to know the differences between xref:graph-db-vs-rdbms.adoc[relational and graph concepts] and their xref:relational-to-graph-modeling.adoc[data models].
 
 [role=expertise {level}]
 {level}
