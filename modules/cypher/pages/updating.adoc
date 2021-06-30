@@ -208,11 +208,11 @@ To show you both options, let us look at the code for each.
 ----
 //delete property using REMOVE keyword
 MATCH (n:Person {name: 'Jennifer'})
-REMOVE n.birthdate
+REMOVE n.birthdate;
 
 //delete property with SET to null value
 MATCH (n:Person {name: 'Jennifer'})
-SET n.birthdate = null
+SET n.birthdate = null;
 ----
 
 image::{img}cypher_graph_delProp.jpg[role="popup-link"]

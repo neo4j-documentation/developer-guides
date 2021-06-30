@@ -248,8 +248,8 @@ call spatial.addWKTLayer('geom', 'wkt')
 ----
 MATCH (d:District)
 WITH collect(d) AS districts
-CALL spatial.addNodes('geom', districts) YIELD node
-RETURN count(*)
+CALL spatial.addNodes('geom', districts) YIELD count
+RETURN count
 ----
 
 .Find Geometry within distance and related

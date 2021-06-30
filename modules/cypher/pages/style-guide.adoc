@@ -253,7 +253,7 @@ Recommended syntax:
 //null and boolean values are lower case
 MATCH (p:Person)
 WHERE p.birthdate = null
-  SET missingBirthdate = true
+  SET p.missingBirthdate = true
 RETURN p
 ----
 

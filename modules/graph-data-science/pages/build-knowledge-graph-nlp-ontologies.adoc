@@ -358,7 +358,7 @@ include::example$nlp/queries.cypher[tag="set-key"]
 We're going to use the `apoc.nlp.gcp.entities.stream` procedure, which will return a stream of entities found for the text content contained in a node property.
 Before running this procedure against all of the articles, let's run it against one of them to see what data is returned:
 
-[source,cypher]
+[source,cypher.apoc-nlp-gcp]
 ----
 MATCH (a:Article {uri: "https://dev.to/lirantal/securing-a-nodejs--rethinkdb--tls-setup-on-docker-containers"})
 CALL apoc.nlp.gcp.entities.stream(a, {
@@ -394,7 +394,7 @@ We're going to filter the rows returned to only include ones that have a Wikiped
 
 Let's have a look at how we're going to do this for one article:
 
-[source,cypher]
+[source,cypher.apoc-nlp-gcp]
 ----
 MATCH (a:Article {uri: "https://dev.to/lirantal/securing-a-nodejs--rethinkdb--tls-setup-on-docker-containers"})
 CALL apoc.nlp.gcp.entities.stream(a, {

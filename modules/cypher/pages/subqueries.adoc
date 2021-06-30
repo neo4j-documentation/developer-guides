@@ -90,7 +90,7 @@ Imagine that we want to find the people who:
 We aren't interested in knowing what those technologies are.
 We might try to answer this question with the following query:
 
-[source,cypher]
+[source,cypher.noplay]
 ----
 MATCH (person:Person)-[:WORKS_FOR]->(company)
 WHERE company.name STARTS WITH "Company"

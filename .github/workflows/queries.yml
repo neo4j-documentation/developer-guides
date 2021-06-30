@@ -42,4 +42,7 @@ jobs:
           NEO4J_DATABASE_USER: 'neo4j'
           NEO4J_DATABASE_PASSWORD: 's3cr3t'
           ASCIIDOC_CYPHER_RUNNER_REPORTER_ERROR_LIMIT: 20
-          ASCIIDOC_CYPHER_RUNNER_IGNORE_ROLES: 'fragment,noplay,shell,admin,fabric'
+          # REMIND: ignore APOC Natural Language Processing (NLP) for Google Cloud Platform (GCP)
+          # because it requires an additionnal jar that causes a classpath conflict with Neo4j Spatial
+          # see: https://github.com/neo4j-contrib/spatial/issues/382
+          ASCIIDOC_CYPHER_RUNNER_IGNORE_ROLES: 'fragment,noplay,shell,admin,fabric,apoc-nlp-gcp'
