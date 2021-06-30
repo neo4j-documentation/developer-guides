@@ -104,9 +104,9 @@ If we run this query, we'll see the following output:
 
 [source,text]
 ----
-Variable `t` not defined (line 4, column 25 (offset: 112))
-"AND (person)-[:LIKES]->(t:Technology)"
-                         ^
+PatternExpressions are not allowed to introduce new variables: 't'. (line 3, column 25 (offset: 119))
+  "AND (person)-[:LIKES]->(t:Technology)"
+                           ^
 ----
 
 We can find people that like a technology, but we can't check that at least 3 people like that technology as well, because the variable `t` isn't in the scope of the `WHERE` clause.
