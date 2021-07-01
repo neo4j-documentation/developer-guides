@@ -12,7 +12,7 @@ asciidoc:
     neo4j-ogm-version: 3.2.23
     spring-boot-version: 2.5.0
     spring-data-neo4j-version: 6.1.1
-    java-driver-version: 4.3.2
+    java-driver-version: 4.3.3
     javascript-driver-version: 4.3.0
     python-driver-version: 4.3.1
     dotnet-driver-version: 4.3.0
