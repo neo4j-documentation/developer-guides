@@ -430,17 +430,17 @@ RETURN split('test', 'e')
 Ineffective spacing:
 [source,cypher]
 ----
-MATCH (a:Person)
-WHERE EXISTS {(a)-->(b:Person)}
-RETURN a.name, collect(b.name) as friends
+MATCH (person:Person)
+WHERE EXISTS {(person)-[:HAS_DOG]->(:Dog)}
+RETURN person.name AS name
 ----
 
 Recommended:
 [source,cypher]
 ----
-MATCH (a:Person)
-WHERE EXISTS { (a)-->(b:Person) }
-RETURN a.name, collect(b.name) as friends
+MATCH (person:Person)
+WHERE EXISTS { (person)-[:HAS_DOG]->(:Dog) }
+RETURN person.name AS name
 ----
 
 * *Map Literal recommendations -*
