@@ -44,7 +44,7 @@ include::./driver-warning.adoc[]
 | {examples}/movies-java-bolt[icon:play-circle[] Example]
 | https://community.neo4j.com/c/drivers-stacks/java[Neo4j Online Community^]
 
-| {drivermanual}[icon:book[] Docs^]
+| https://neo4j.com/docs/java-manual/current/[icon:book[] Docs^]
 | https://neo4j.com/docs/api/java-driver/current/[icon:code[] API]
 | https://github.com/neo4j/neo4j-java-driver[icon:github[] Source]
 |===

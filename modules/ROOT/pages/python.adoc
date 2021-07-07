@@ -133,7 +133,7 @@ harry_potter.author.connect(rowling)
 
 == Resources
 
-* link:{drivermanual}[Docs: Driver Manual^]
+* link:/docs/python-manual/current/[Docs: Driver Manual^]
 * https://medium.com/neo4j/neo4j-python-4-0-driver-the-latest-driver-for-the-next-gen-database-a5be6ecd481f[Blog post: Python 4.0 driver^]
 * https://medium.com/neo4j/neo4j-for-django-developers-efd0e39e5f2e[Blog Post: Neo4j for Django Developers: From zero to deployment with Django-Neomodel and Neo4j’s Paradise Papers dataset]
 * https://medium.com/neo4j/running-django-neomodel-within-a-docker-container-f0d68c1d38c7[Blog Post: Running Django-Neomodel within a Docker Container]

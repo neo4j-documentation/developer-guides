@@ -36,7 +36,7 @@ include::./driver-warning.adoc[]
 
 | https://community.neo4j.com/c/drivers-stacks/go[Neo4j Online Community^]
 
-| {drivermanual}[icon:book[] Docs^]
+| https://neo4j.com/docs/go-manual/current/[icon:book[] Docs^]
 | https://godoc.org/github.com/neo4j/neo4j-go-driver/neo4j[icon:code[] API]
 | https://github.com/neo4j/neo4j-go-driver[icon:github[] Source]
 |===

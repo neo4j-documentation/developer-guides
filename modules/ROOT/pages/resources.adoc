@@ -47,10 +47,16 @@ Our https://neo4j.com/docs/[reference manuals^] are vey comprehensive and the ht
 * https://neo4j.com/docs/getting-started/current/[Getting Started Guides^]
 * https://neo4j.com/docs/cypher-manual/current/[Cypher Manual^]
 * https://neo4j.com/docs/cypher-refcard/current/[Cypher Reference Card^]
-* https://neo4j.com/docs/driver-manual/current/[Drivers Manual^]
 * https://neo4j.com/docs/graph-data-science/current/[Graph Algorithms^]
 * https://neo4j.com/docs/java-reference/current/[Extending Neo4j^]
 * https://neo4j.com/docs/operations-manual/current/[Neo4j Operations Manual^]
+
+=== Driver Manuals
+* https://neo4j.com/docs/dotnet-manual/current/[.NET Driver Manual^]
+* https://neo4j.com/docs/go-manual/current/[Go Driver Manual^]
+* https://neo4j.com/docs/java-manual/current/[Java Driver Manual^]
+* https://neo4j.com/docs/javascript-manual/current/[JavaScript Driver Manual^]
+* https://neo4j.com/docs/python-manual/current/[Python Driver Manual^]
 
 [#graphgist-examples]
 == Neo4j Graph Gist Examples
@@ -105,12 +111,12 @@ Provided by members of our community these courses on Neo4j cover different aspe
 * http://www.se-radio.net/2013/05/episode-194-michael-hunger/[Neo4j on Software Engineering Radio with Michael Hunger^]
 * https://programmierbar.buzzsprout.com/176239/3674173-folge-61-graphdatenbanken-mit-michael-hunger-von-neo4j[ProgrammierBar with Michael Hunger (german)^]
 * http://blog.tatham.oddie.com.au/2014/02/11/podcast-graph-databases-and-neo4j-with-richard-and-carl-from-net-rocks/[Podcast .Net Rocks with Tatham Oddie^]
-* http://www.infoq.com/interviews/jim-webber-neo4j-and-graph-database-use-cases[Jim Webber on Neo4J and Graph Database Use Cases^]	
+* http://www.infoq.com/interviews/jim-webber-neo4j-and-graph-database-use-cases[Jim Webber on Neo4J and Graph Database Use Cases^]
 
 [#videos-youtube]
 == Neo4j Videos
 
-We have a wide range of videos available which you can watch on your own time. 
+We have a wide range of videos available which you can watch on your own time.
 Those videos support the learning experience and can deepen your understanding of certain topics.
 
 * https://neo4j.com/videos/[Neo4j Videos^]

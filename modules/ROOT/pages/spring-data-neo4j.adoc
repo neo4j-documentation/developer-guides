@@ -193,7 +193,7 @@ We will need to define a domain class for each of our entities - `Movie` and `Pe
 [NOTE]
 --
 SDN supports all data types that the Neo4j Java Driver supports.
-To find out how to map Neo4j types to native language types, see link:/docs/driver-manual/current/cypher-workflow/#driver-type-mapping[this section^] in the documentation.
+To find out how to map Neo4j types to native language types, see link:/docs/java-manual/current/cypher-workflow/#driver-type-mapping[this section^] in the documentation.
 --
 
 [#movie-entity]

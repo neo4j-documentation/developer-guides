@@ -69,7 +69,7 @@ This means that communication between the driver and the database can be managed
 
 https://medium.com/neo4j/spring-data-neo4j-rx-released-into-the-wild-f1473951f91d[Blog post: Spring Data Neo4j Reactive^] +
 https://medium.com/neo4j/having-another-go-e50823b6fc79[Blog post: Go Driver 1.8^] +
-link:{drivermanual}/session-api/reactive/[Docs: Reactive Sessions^]
+link:/docs/java-manual/current/session-api/reactive//[Docs: Reactive Sessions^]
 
 [#neo4j-versions]
 == Neo4j Versions
@@ -124,7 +124,6 @@ https://youtu.be/of53lUFs5hc[Video: 4.1 Whirlwind Tour with Michael Hunger^]
 *Official documentation -* +
 link:/docs/operations-manual/4.0/[Docs: Neo4j 4.0 Operations^] +
 link:/docs/cypher-manual/4.0/[Docs: 4.0 Cypher^] +
-link:/docs/driver-manual/4.0/[Docs: 4.0 Drivers^] +
 link:/docs/migration-guide/4.0/[Migration guide^] +
 
 *Feature highlights -* +
