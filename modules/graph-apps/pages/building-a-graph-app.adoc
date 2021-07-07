@@ -147,7 +147,7 @@ The following events will trigger a context update via the API:
 
 **id**: the UUID of the graph that has become active
 
-| DATABASE_CREATED | A new database has been created within the project with the UUID `projectId` |
+| DBMS_CREATED | A new database has been created within the project with the UUID `projectId` |
 
 **id**: the UUID of the new database +
 **projectId**: the project in which this new database sits +
@@ -157,26 +157,26 @@ The following events will trigger a context update via the API:
 **version**: the version of Neo4j for this database +
 **edition**: the edition of Neo4j: community or enterprise +
 
-| DATABASE_STARTED | A database has been started | **id**: the UUID for the database
-| DATABASE_STOPPED | The active database has been stopped | **id**: the UUID for the database
+| DBMS_STARTED | A database has been started | **id**: the UUID for the database
+| DBMS_STOPPED | The active database has been stopped | **id**: the UUID for the database
 
-| DATABASE_RENAMED | A database has been renamed |
+| DBMS_RENAMED | A database has been renamed |
 **id**: the UUID for the database +
 **name**: the new name for the database
 
-| DATABASE_REMOVED | A database has been deleted | **id**: the UUID for the deleted database
+| DBMS_REMOVED | A database has been deleted | **id**: the UUID for the deleted database
 
-| DATABASE_UPDATED | A database has been updated |
+| DBMS_UPDATED | A database has been updated |
 
 **id**: the UUID for the updated database
 **database**: an object containing the updates made for the database
 
-| DATABASE_UPGRADED | A database has been upgraded to a newer version of Neo4j |
+| DBMS_UPGRADED | A database has been upgraded to a newer version of Neo4j |
 
 **id**: the UUID for the upgraded database
 **version**: the upgraded version - for example `4.0.2`
 
-| DATABASE_SETTINGS_SAVED | The settings for a database have been changed | **id**: the UUID for the updated database
+| DBMS_SETTINGS_SAVED | The settings for a database have been changed | **id**: the UUID for the updated database
 | REMOTE_CONNECTION_CREATED | A new remote connection has been added to a project | **id**: the UUID for the new remote connection
 | REMOTE_CONNECTION_REMOVED | A remote connection has been removed from a project | **id**: the UUID for the removed remote connection
 | REMOTE_CONNECTION_ACTIVATED | A remote connection has been activated  | **id**: the UUID for the activated remote connection
