@@ -165,7 +165,7 @@ Then you might need to configure Neo4j to upgrade your database automatically, b
 === Stack Overflow
 
 This is a graph-import of the Stack Overflow archive with 16.4M questions, 52k tags and 8.9M users (http://example-data.neo4j.org/so.dump[Stack Overflow Dump (6.2GB)]).
-This graph is pretty big, for best full scale querying you'd need a page-cache and heap of
+This graph is pretty big, for global graph queries you'd need a page-cache of 6G and heap of 16G to work with it.
 
 Here is an https://towardsdatascience.com/tagoverflow-correlating-tags-in-stackoverflow-66e2b0e1117b[article explaining the data model] and some exploratory analysis we ran on the data.
 
