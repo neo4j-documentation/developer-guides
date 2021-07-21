@@ -11,7 +11,8 @@
     "build": "antora --stacktrace preview.yml",
     "lint": "node scripts/lint-links.js",
     "publish": "git push origin HEAD:publish",
-    "downloadNotebooks": "node scripts/download-lp-notebooks.js"
+    "downloadNotebooks": "node scripts/download-lp-notebooks.js",
+    "checkQueries": "antora --generator @neo4j-documentation/asciidoc-cypher-query-runner/lib/antora/generate-site.js --stacktrace preview.yml"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     }
   },
   "devDependencies": {
+    "@neo4j-documentation/asciidoc-cypher-query-runner": "github:Mogztter/asciidoc-cypher-query-runner#v0.1.8",
     "cheerio": "^1.0.0-rc.3",
     "hyperlink": "^4.6.0"
   }

@@ -67,7 +67,7 @@ image::{img}model.png[][Python Movie App Model]
 Cypher is Neo4j's built-in query language.
 Cypher queries look like the following code block:
 
-[source, cypher,role=nocopy,noplay]
+[source,cypher.nocopy.noplay]
 ----
 MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
 RETURN p, m.title
@@ -90,7 +90,7 @@ As you can see here, we can return entire entities from our database rather than
 This is very handy, but it would also be nice to avoid the duplication of our `Person` node.
 So, you can perform the same match but instead use the `collect` function to aggregate the values:
 
-[source, cypher,role=nocopy,noplay]
+[source,cypher.nocopy.noplay]
 ----
 MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
 RETURN p, collect(m.title)
@@ -128,7 +128,7 @@ The following video will walk briefly walk you through the various features of t
 
 This project uses a classic Neo4j dataset: the movie database. It includes `Movie`, `Actor`, `Director`, and `Genre` nodes, connected by relationships as described below:
 
-[source, cypher, role=nocopy,noplay]
+[source,cypher.nocopy.noplay]
 ----
 (:Movie)-[:HAS_GENRE]→(:Genre)
 (:Actor)-[:ACTED_IN]→(:Movie)
@@ -137,7 +137,7 @@ This project uses a classic Neo4j dataset: the movie database. It includes `Movi
 
 Additionally, users can create accounts, log in, and add their ratings to movies:
 
-[source, cypher, role=nocopy,noplay]
+[source,cypher.nocopy.noplay]
 ----
 (:User)-[:RATES]->(:Movie)
 ----

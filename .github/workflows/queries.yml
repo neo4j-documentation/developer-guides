@@ -1,0 +1,48 @@
+name: Cypher Queries
+
+on:
+  push:
+    branches:
+      - 'publish'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      # remind: workaround to use http instead of git
+      # otherwise, the following error is thrown when installing dependencies:
+      # npm ERR! Error while executing:
+      # npm ERR! /usr/bin/git ls-remote -h -t ssh://git@github.com/Mogztter/asciidoc-cypher-query-runner.git
+      # npm ERR!
+      # npm ERR! Warning: Permanently added the RSA host key for IP address '140.82.113.3' to the list of known hosts.
+      # npm ERR! git@github.com: Permission denied (publickey).
+      # npm ERR! fatal: Could not read from remote repository.
+      - name: Reconfigure git to use HTTP authentication
+        run: >
+          git config --global url."https://github.com/".insteadOf
+          ssh://git@github.com/
+      - run: npm ci
+      - run: docker-compose up -d
+      - run: |
+          ./wait-for-it.sh localhost:7687 --timeout=60
+          sleep 20
+      - run: npm run checkQueries
+        env:
+          NEO4J_DATABASE_URI: 'bolt://localhost:7687'
+          NEO4J_DATABASE_USER: 'neo4j'
+          NEO4J_DATABASE_PASSWORD: 's3cr3t'
+          ASCIIDOC_CYPHER_RUNNER_REPORTER_ERROR_LIMIT: 20
+          # REMIND: ignore APOC Natural Language Processing (NLP) for Google Cloud Platform (GCP)
+          # because it requires an additionnal jar that causes a classpath conflict with Neo4j Spatial
+          # see: https://github.com/neo4j-contrib/spatial/issues/382
+          ASCIIDOC_CYPHER_RUNNER_IGNORE_ROLES: 'fragment,noplay,shell,admin,fabric,apoc-nlp-gcp'

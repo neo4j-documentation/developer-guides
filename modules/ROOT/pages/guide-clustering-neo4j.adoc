@@ -79,7 +79,7 @@ CREATE (n) RETURN id(n)
 
 . Second query. Use the id returned from the previous query
 
-[source, cypher]
+[source, cypher.fragment]
 ----
 MATCH (n) WHERE id(n) = <your node id> DELETE n
 ----

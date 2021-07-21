@@ -36,7 +36,7 @@ We will then be provided with an access token that we will need to use in all ou
 
 We can create a parameter in the link:/developer/neo4j-browser/[Neo4j Browser] or Cypher shell by executing the following command:
 
-[source, cypher]
+[source,cypher.noplay]
 ----
 :params {stravaToken: "Bearer <insert-strava-token>"}
 ----

@@ -248,8 +248,8 @@ call spatial.addWKTLayer('geom', 'wkt')
 ----
 MATCH (d:District)
 WITH collect(d) AS districts
-CALL spatial.addNodes('geom', districts) YIELD node
-RETURN count(*)
+CALL spatial.addNodes('geom', districts) YIELD count
+RETURN count
 ----
 
 .Find Geometry within distance and related
@@ -258,7 +258,7 @@ RETURN count(*)
 WITH {latitude: 37.563440, longitude: -122.322265} AS coordinate
 CALL spatial.withinDistance('geom', coordinate, 1) YIELD node AS district
 MATCH (district)<-[:REPRESENTS]-(legislator:Legislator)
-RETURN district.state, legislator.govtrackID, legislator.lastName, l.currentParty AS party
+RETURN district.state, legislator.govtrackID, legislator.lastName, legislator.currentParty AS party
 ----
 
 [#apoc-rdf]
@@ -268,13 +268,13 @@ Neo4j Consultant Jesus Barrasa wrote a number of procedures for importing and ma
 
 
 .import RDF formats and convert them into the property graph model
-[source,cypher]
+[source,cypher.noplay]
 ----
 CALL semantics.importRDF(rdf-url-or-file,format, shorten-url-flag, batch-commit-size);
 ----
 
 .import ontologies into Neo4j ontologies for graph generation and checking
-[source,cypher]
+[source,cypher.noplay]
 ----
 CALL semantics.LiteOntoImport(own-url-or-file,'RDF/XML')
 ----
@@ -329,7 +329,7 @@ class UDF {
 
 
 .use the function like this
-[source,cypher]
+[source,cypher.fragment]
 ----
 CREATE (p:Person {id: create.uuid(), name: $name})
 ----

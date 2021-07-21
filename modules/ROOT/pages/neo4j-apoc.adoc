@@ -95,7 +95,7 @@ To get started, though, let us take a look at some helpful ways to begin working
 As mentioned above, there are two ways to use an APOC procedure - within a Cypher statement or as a regular function call.
 With either method, the same syntax is used, as noted below.
 
-[source,cypher]
+[source,cypher.noplay]
 ----
 CALL <package>.<subpackage>.<procedure>(<argument1>,<argument2>,...);
 ----

@@ -134,7 +134,7 @@ neo4j@neo4j>
 We can now run queries against our Cloud database.
 For example, we can run the following procedure to return the logged in user:
 
-[source,cypher]
+[source,cypher.shell]
 ----
 neo4j> CALL dbms.showCurrentUser();
 ----

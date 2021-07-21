@@ -74,13 +74,13 @@ However, if you need to access files in other locations, you can find out which 
 Default import folder paths shown in link:/developer/kb/import-csv-locations/[this article^].
 
 .Examples
-[source, cypher, role= nocopy noplay]
+[source,cypher.nocopy.noplay]
 ----
 //Example 1 - file directly placed in import directory (import/data.csv)
-LOAD CSV FROM "file:///data.csv"
+LOAD CSV FROM "file:///data.csv";
 
 //Example 2 - file placed in subdirectory within import directory (import/northwind/customers.csv)
-LOAD CSV FROM "file:///northwind/customers.csv"
+LOAD CSV FROM "file:///northwind/customers.csv";
 ----
 
 *Web-hosted files* can be referenced directly with their URL, like `+https://host/path/data.csv+`.
@@ -88,13 +88,13 @@ However, permissions must be set so that an external source can read the file.
 For more information about access related to online file imports, see this link:/developer/kb/import-csv-locations/[knowledge base article^].
 
 .Examples
-[source, cypher, role= nocopy noplay]
+[source,cypher.nocopy.noplay]
 ----
 //Example 1 - website
-LOAD CSV FROM 'https://data.neo4j.com/northwind/customers.csv'
+LOAD CSV FROM 'https://data.neo4j.com/northwind/customers.csv';
 
 //Example 2 - Google
-LOAD CSV WITH HEADERS FROM 'https://docs.google.com/spreadsheets/d/<yourFilePath>'
+LOAD CSV WITH HEADERS FROM 'https://docs.google.com/spreadsheets/d/<yourFilePath>';
 ----
 
 === Important Tips for LOAD CSV
@@ -131,7 +131,7 @@ The default location for CSV files for import is the *import* directory for your
 Here are some examples of importing this data.
 
 .Examples
-[source,cypher,role=noplay]
+[source,cypher.noplay]
 ----
 //skip null values
 LOAD CSV WITH HEADERS FROM 'file:///companies.csv' AS row
@@ -168,7 +168,7 @@ Id,Name,Skills,Email
 ----
 
 .Example
-[source,cypher,role=noplay]
+[source,cypher.noplay]
 ----
 LOAD CSV WITH HEADERS FROM 'file:///employees.csv' AS row
 MERGE (e:Employee {employeeId: row.Id, email: row.Email})
@@ -182,7 +182,7 @@ Conditional conversions can be achieved with `CASE`.
 You saw one example of this when we were checking for null values or empty strings, but let us look at another example.
 
 .Example
-[source,cypher,role=noplay]
+[source,cypher.noplay]
 ----
 // clear data
 MATCH (n:Company) DELETE n;
@@ -228,7 +228,7 @@ employeeId,Name,Company
 You should also separate node and relationship creation into separate processing.
 For instance, instead of the following:
 
-[source,cypher,role= nocopy noplay]
+[source,cypher.nocopy.noplay]
 ----
 MERGE (e:Employee {employeeId: row.employeeId})
 MERGE (c:Company {companyId: row.companyId})
@@ -237,7 +237,7 @@ MERGE (e)-[r:WORKS_FOR]->(c)
 
 You can write it like this:
 
-[source,cypher,role=noplay]
+[source,cypher.noplay]
 ----
 // clear data
 MATCH (n)
@@ -276,7 +276,7 @@ This clause can be added before the `LOAD CSV` clause to tell Cypher to only pro
 For more information, see the link:/docs/cypher-manual/current/query-tuning/using/#query-using-periodic-commit-hint[manual page^] on `PERIODIC COMMIT`.
 +
 .Example
-[source,cypher, role= nocopy noplay]
+[source,cypher.nocopy.noplay]
 ----
 :auto USING PERIODIC COMMIT 500
 LOAD CSV WITH HEADERS FROM 'file:///data.csv' AS row
@@ -462,7 +462,7 @@ You can upload the file or provide an URL to load it.
 * link:/developer/desktop-csv-import/#inspect-files[Cypher] - what Cypher sees is what will be imported, so you can use that to your advantage.
 Using `LOAD CSV` without creating graph structure will just output samples, counts, or distributions to make it possible to detect incorrect header column counts, delimiters, quotes, escapes, or header name spellings.
 
-[source, cypher, role= nocopy noplay]
+[source,cypher.nocopy.noplay]
 ----
 // assert correct line count
 LOAD CSV FROM "file-url" AS line

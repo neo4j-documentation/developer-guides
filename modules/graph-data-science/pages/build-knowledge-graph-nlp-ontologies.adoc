@@ -285,7 +285,7 @@ WITH a,
      value.title[0].text AS title,
      value.time[0].attributes.datetime AS date
 
-<4>
+//<4>
 SET a.body = body , a.title = title, a.datetime = datetime(date)
 RETURN a;
 ----
@@ -350,7 +350,7 @@ Before we do that we'll need to create an API key that has access to the Natural
 Assuming that we're already created a GCP account, we can generate a key by following the instructions at https://console.cloud.google.com/apis/credentials[console.cloud.google.com/apis/credentials^].
 Once we've created a key, we'll create a parameter that contains it:
 
-[source,cypher]
+[source,cypher.nocopy.noplay]
 ----
 include::example$nlp/queries.cypher[tag="set-key"]
 ----
@@ -358,7 +358,7 @@ include::example$nlp/queries.cypher[tag="set-key"]
 We're going to use the `apoc.nlp.gcp.entities.stream` procedure, which will return a stream of entities found for the text content contained in a node property.
 Before running this procedure against all of the articles, let's run it against one of them to see what data is returned:
 
-[source,cypher]
+[source,cypher.apoc-nlp-gcp]
 ----
 MATCH (a:Article {uri: "https://dev.to/lirantal/securing-a-nodejs--rethinkdb--tls-setup-on-docker-containers"})
 CALL apoc.nlp.gcp.entities.stream(a, {
@@ -394,7 +394,7 @@ We're going to filter the rows returned to only include ones that have a Wikiped
 
 Let's have a look at how we're going to do this for one article:
 
-[source,cypher]
+[source,cypher.apoc-nlp-gcp]
 ----
 MATCH (a:Article {uri: "https://dev.to/lirantal/securing-a-nodejs--rethinkdb--tls-setup-on-docker-containers"})
 CALL apoc.nlp.gcp.entities.stream(a, {
@@ -402,7 +402,7 @@ CALL apoc.nlp.gcp.entities.stream(a, {
  key: $key
 })
 
-<1>
+// <1>
 YIELD node, value
 
 SET node.processed = true

@@ -62,7 +62,7 @@ We can generate an Access Key and Secret by following the instructions at https:
 Once we've done that, we can populate and execute the following commands to create parameters that contains these details.
 
 .The following define the `apiKey` and `apiSecret` parameters
-[source,cypher]
+[source,cypher.nocopy.noplay]
 ----
 :param awsApiKey => ("<api-key-here>");
 :param awsApiSecret => ("<api-secret-here>");
@@ -76,7 +76,7 @@ Once we've created a key, we can populate and execute the following command to c
 
 The following defines the `apiKey` parameter:
 
-[source,cypher]
+[source,cypher.nocopy.noplay]
 ----
 :param gcpApiKey => ("<api-key-here>")
 ----
@@ -95,7 +95,7 @@ In this case our API URL is `https://neo4j-entity-extraction-developer-guide.cog
 Let's populate and execute the following commands to create parameters that contains these details.
 
 .The following define the `apiKey` and `apiSecret` parameters
-[source,cypher]
+[source,cypher.nocopy.noplay]
 ----
 :param azureApiKey => ("<api-key-here>");
 :param azureApiUrl => ("<api-url-here>");
