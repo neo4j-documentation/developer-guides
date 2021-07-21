@@ -175,6 +175,8 @@
 
 * link:https://neo4j.com/tag/twin4j/[Developer Newsletter^]
 
+* xref:download-materials.adoc[Free Downloadable Neo4j Presentation Materials]
+
 * xref:online-meetup.adoc[Twitch & YouTube Live Streams]
 ** link:https://neo4j.com/videos/[Neo4j Videos^]
 ** link:https://neo4j.com/speaker-program/[Speaker Program: Share your Story^]
