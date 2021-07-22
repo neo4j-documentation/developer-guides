@@ -65,7 +65,7 @@ fabric.graph.1.database=mall2
 We're going to use a dataset published by Carrefour, a French retailer, as part of their https://github.com/ging/carrefour_basket_data_challenge[Delighting Customers Challenge Basket Data^].
 Rik van Bruggen recently wrote a series of blog posts showing how to import and analyse this data in Neo4j 3.5.
 
-The data is available as https://drive.google.com/a/neotechnology.com/uc?id=1wDNAMFk_3-H1l44ID4P6fcE6K7cvG9iX&export=download[a JSON file^] curated by Rik.
+The data is available as https://data.neo4j.com/DelightingCustomersBD.json[a JSON file (1GB)^] curated by Rik.
 Once we've downloaded the file, we need to put it into the `import` folder of Neo4j.
 
 The dataset is accompanied by a data dictionary that describes each of the fields that we see in the file:
