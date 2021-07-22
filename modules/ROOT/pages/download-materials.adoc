@@ -31,18 +31,15 @@ These are your slides to personalise, update, add to and use to help you tell yo
 
 As such, we are using the https://creativecommons.org/licenses/by-sa/4.0/[CC BY SA 4.0^] license for these slides. 
 
-Available format:
+== Available slide packs
 
-* Google Slides (option to download to other preferred formats)
-
-https://support.google.com/docs/answer/49114?hl=en&ref_topic=9052636#zippy=%2Cdownload-a-copy-of-a-file[Find out more^] about downloading to other formats
+Check out the different slide packs currently available below. All slides are Google Slides, and can be downloaded to other formats. More information on downloading can be found https://support.google.com/docs/answer/49114?hl=en&ref_topic=9052636#zippy=%2Cdownload-a-copy-of-a-file[here^].
 
 === Introduction to Graph Databases
 
 image::https://github.com/neo4j-documentation/developer-guides/blob/3d427a8cbe9f38cdcc41bbd0fe6dbf6a0b48b3c5/modules/ROOT/images/diagram.png?raw=true[Graph diagram],width="200px",float="right"]
 
-This pack covers what is a property graph database, how they are different to relational databases, and common scenarios where graph databses are a good fit. This is a good primer for explaining ....
-
+This pack covers what is a property graph database, how they are different to relational databases, and common scenarios where graph databses are a good fit. This is a good primer for introducing Neo4j, as well as highlighting resources available to learn more.
 
 https://dev.neo4j.com/intro_to_neo4j_slides[Get the pack here^]
 
@@ -50,7 +47,6 @@ https://dev.neo4j.com/intro_to_neo4j_slides[Get the pack here^]
 
 //image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/_cdn/cypher/cypher_learning.jpg[Cypher Example,width="200px",float="left"]
 image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/_cdn/cypher/cypher-basics-i/img/cypher_pattern_simple.png?raw=true[Placeholder,width="200px",float="left"]
-
 
 One of the most powerful features of Neo4j is the query language itself, Cypher. This pack covers an overview of Cypher, including an introduction to key words and structure.
 
