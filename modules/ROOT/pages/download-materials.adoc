@@ -6,7 +6,7 @@
 
 .on Unsplash
 [caption="NeONBRAND  ",link=https://unsplash.com/photos/1-aA2Fadydc] 
-image::https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80[NeONBRAND on Unsplash]
+image::https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80[Picture of a presentation in progress]
 
 Have you taken your first steps with Neo4j? Are you motivated about how graph databases can make your live easier? Driven by the prospect of being to understand how your data is connected, rather than if?
 
@@ -39,7 +39,7 @@ https://support.google.com/docs/answer/49114?hl=en&ref_topic=9052636#zippy=%2Cdo
 
 === Introduction to Graph Databases
 
-image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/diagram.png[Placeholder,width="200px",float="right"]
+image::https://github.com/neo4j-documentation/developer-guides/blob/3d427a8cbe9f38cdcc41bbd0fe6dbf6a0b48b3c5/modules/ROOT/images/diagram.png?raw=true[Graph diagram],width="200px",float="right"]
 
 This pack covers what is a property graph database, how they are different to relational databases, and common scenarios where graph databses are a good fit. This is a good primer for explaining ....
 
@@ -48,8 +48,8 @@ https://dev.neo4j.com/intro_to_neo4j_slides[Get the pack here^]
 
 === Introduction to Cypher
 
-//image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/_cdn/cypher/cypher_learning.jpg[Placeholder,width="200px",float="left"]
-image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/_cdn/cypher/cypher-basics-i/img/cypher_pattern_simple.png[Placeholder,width="200px",float="left"]
+//image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/_cdn/cypher/cypher_learning.jpg[Cypher Example,width="200px",float="left"]
+image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/_cdn/cypher/cypher-basics-i/img/cypher_pattern_simple.png?raw=true[Placeholder,width="200px",float="left"]
 
 
 One of the most powerful features of Neo4j is the query language itself, Cypher. This pack covers an overview of Cypher, including an introduction to key words and structure.
@@ -58,7 +58,7 @@ https://dev.neo4j.com/intro_to_cypher_slides[Get the pack here^]
 
 === (Coming soon!) Hands-on Neo4j
 
-image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/coming_soon.png[Placeholder,width="200px",float="right"]
+image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/coming_soon.png?raw=true[Coming Soon Image,width="200px",float="right"]
 
 A copy of our popular hands-on crash course to get people up to speed on what Neo4j is, and a walk-through, hands-on session using either Neo4j Sandbox or Neo4j Aura Free cloud database. If you want to see what this might look like, https://youtu.be/ou2st6FYxR8[check out a video here^]. 
 
