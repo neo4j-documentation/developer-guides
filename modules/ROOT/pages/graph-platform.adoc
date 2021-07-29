@@ -7,7 +7,7 @@
 
 [#neo4j-platform]
 There are a variety of ways to interact with and use graph data in Neo4j.
-This guide introduces the different products we provide at Neo4j to suit your diverse business and technology needs and show you how to get started using them.
+This guide introduces the different products we provide at Neo4j to suit your diverse business and technology needs and shows you how to get started using them.
 
 From our core product (the graph database) to visualization for business users, we provide a variety of opportunities to maximize your business and simplify your data.
 
