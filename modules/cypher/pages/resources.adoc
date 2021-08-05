@@ -35,6 +35,7 @@ To help you along your path of learning more about Cypher and how to use it, we 
 [#other-cypher-resources]
 == Other Resources
 * https://medium.com/neo4j/cypher-query-optimisations-fe0539ce2e5c[Medium Blog: Cypher Optimization^]
+* Blog series, Handling Dates and Temporals in Cypher: https://neo4j.com/developer-blog/cypher-sleuthing-dealing-with-dates-part-1/[Part 1^], https://neo4j.com/developer-blog/cypher-sleuthing-dealing-with-dates-part-2/[Part 2^], https://neo4j.com/developer-blog/cypher-sleuthing-dealing-with-dates-part-3/[Part 3^]
 * https://markhneedham.com/blog/tag/cypher/[Blog: Mark Needham on Cypher^]
 * https://maxdemarzi.com/category/cypher/[Blog: Max De Marzi on Cypher^]
 * https://www.airpair.com/neo4j/posts/getting-started-with-neo4j-and-cypher[Tutorial by Eve Freeman: Building an ACL with Cypher^]
