@@ -54,9 +54,11 @@
 
 * xref:language-guides.adoc[Drivers &amp; Language Guides]
 ** xref:java.adoc[Java]
-*** xref:java-driver-spring-boot-starter.adoc[Java Driver Spring Boot Starter]
+*** xref:spring-data-neo4j.adoc[Spring]
+**** xref:spring-data-neo4j.adoc[Spring Data Neo4j]
+**** xref:java-driver-spring-boot-starter.adoc[Java Driver Spring Boot Starter]
+*** xref:java-frameworks.adoc[Quarkus, Helidon, Micronaut]
 *** xref:neo4j-ogm.adoc[Neo4j Object Graph Mapper]
-*** xref:spring-data-neo4j.adoc[Spring Data Neo4j]
 *** xref:java-procedures.adoc[Procedures and Functions]
 *** xref:java-third-party.adoc[Third-party libraries]
 ** xref:dotnet.adoc[.NET]
@@ -172,6 +174,8 @@
 
 
 * link:https://neo4j.com/tag/twin4j/[Developer Newsletter^]
+
+* xref:download-materials.adoc[Free Downloadable Neo4j Presentation Materials]
 
 * xref:online-meetup.adoc[Twitch & YouTube Live Streams]
 ** link:https://neo4j.com/videos/[Neo4j Videos^]

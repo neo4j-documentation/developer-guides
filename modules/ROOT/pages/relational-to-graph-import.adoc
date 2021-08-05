@@ -154,4 +154,3 @@ Using the driver and programming language can be very useful for incremental upd
 
 === Driver Import Resources
 * Blog post: https://medium.com/neo4j/5-tips-tricks-for-fast-batched-updates-of-graph-structures-with-neo4j-and-cypher-73c7f693c8cc[Tips and Tricks for Fast-Batched Import with Neo4j^]
-* Documentation: https://neo4j.com/docs/driver-manual/current/[Neo4j Driver Manual^]

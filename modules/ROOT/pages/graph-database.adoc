@@ -5,6 +5,7 @@
 :category: documentation
 :tags: get-started, introduction, graph, database, property-graph, use-cases, cypher
 :page-pagination: next
+:page-newsletter: true
 
 [role=expertise {level}]
 {level}

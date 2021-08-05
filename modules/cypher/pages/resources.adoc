@@ -4,6 +4,7 @@
 :tags: cypher, queries, graph-queries, resources, documentation, cypher-training, cypher-help
 :page-pagination: previous
 :page-aliases: ROOT:cypher-resources.adoc
+:page-newsletter: true
 
 == Cypher Resources
 

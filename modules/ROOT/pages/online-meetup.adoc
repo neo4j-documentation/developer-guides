@@ -32,17 +32,17 @@ Missed a stream? Check out the playlists:
 * https://www.youtube.com/watch?v=UQTBJKFEinI&list=PL9Hl4pk2FsvXfHQHBMHv3U9MmhpNc8Vqe[Article review from This Week in Neo4j^]
 
 
-=== Tuesday - Adam
-
-image::https://pbs.twimg.com/profile_images/852657056968564737/AKqYLHhV_400x400.jpg[Adam Cowley,width="200px",float="right"]
-
-*1pm UTC (8am EST, 2pm CET, 6:30pm IST, 9pm AWST)*
-
-https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
-
-Missed a stream? Check out the playlist:
-
-* https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
+// === Tuesday - Adam
+// 
+// image::https://pbs.twimg.com/profile_images/852657056968564737/AKqYLHhV_400x400.jpg[Adam Cowley,width="200px",float="right"]
+// 
+// *1pm UTC (8am EST, 2pm CET, 6:30pm IST, 9pm AWST)*
+// 
+// https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
+// 
+// Missed a stream? Check out the playlist:
+// 
+// * https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
 
 
 [.clearfix]
@@ -77,55 +77,55 @@ Missed a stream? Check out the playlist:
 [#upcoming-meetups]
 == Upcoming Online Meetups
 
-We also host regular online meetups! Check out the schedule below:
+//We also host regular online meetups! Check out the schedule below:
 
-[cols="4,2,4,2", options="header"]
-|===
-|Date | Presenters | Description | Sign up
-
-|**15 January** +
-_7am PST, 10am EST, 3pm UTC, 4pm CET, 8:30pm IST_
-|Guests Doulkifli Boukraa with hosts Lju Lazarevic
-a|*NODES2020 Extended - Rescheduled*
-
-* Question-answering graphs: gain insights from Q&A systems like StackExchange
-
-a|https://twitch.tv/neo4j[On Twitch!^]
-
-https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
-
-
-|**Coming soon 2021!** +
-
-|Chris Skardon & Lju Lazarevic
-
-a|*Ask me anything - .NET edition*
-
-Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
-
-a|https://twitch.tv/neo4j[On Twitch!^]
-
-|**Coming soon 2021!** +
-
-|Tom Geudens & Lju Lazarevic
-
-a|*Ask me anything - Architecture and deployment edition*
-
-Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
-
-a|https://twitch.tv/neo4j[On Twitch!^]
-
-|**Coming soon 2021!** +
-
-|Jesus Barrasa & Lju Lazarevic
-
-a|*Ask me anything - RDF Edition*
-
-Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
-
-a|https://twitch.tv/neo4j[On Twitch!^]
-
-|===
+//[cols="4,2,4,2", options="header"]
+//|===
+//|Date | Presenters | Description | Sign up
+//
+//|**15 January** +
+//_7am PST, 10am EST, 3pm UTC, 4pm CET, 8:30pm IST_
+//|Guests Doulkifli Boukraa with hosts Lju Lazarevic
+//a|*NODES2020 Extended - Rescheduled*
+//
+//* Question-answering graphs: gain insights from Q&A systems like StackExchange
+//
+//a|https://twitch.tv/neo4j[On Twitch!^]
+//
+//https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+//
+//
+//|**Coming soon 2021!** +
+//
+//|Charlotte Skardon & Lju Lazarevic
+//
+//a|*Ask me anything - .NET edition*
+//
+//Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+//
+//a|https://twitch.tv/neo4j[On Twitch!^]
+//
+//|**Coming soon 2021!** +
+//
+//|Tom Geudens & Lju Lazarevic
+//
+//a|*Ask me anything - Architecture and deployment edition*
+//
+//Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+//
+//a|https://twitch.tv/neo4j[On Twitch!^]
+//
+//|**Coming soon 2021!** +
+//
+//|Jesus Barrasa & Lju Lazarevic
+//
+//a|*Ask me anything - RDF Edition*
+//
+//Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
+//
+//a|https://twitch.tv/neo4j[On Twitch!^]
+//
+//|===
 
 [#stream-catchup]
 == Stream catch-up and previous meetup sessions

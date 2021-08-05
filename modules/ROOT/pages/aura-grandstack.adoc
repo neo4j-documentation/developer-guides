@@ -1,3 +1,4 @@
+
 = Deploying a GRANDstack application to Aura
 :level: Intermediate
 :page-level: Intermediate
@@ -96,7 +97,7 @@ The following command will clone the football transfers project locally:
 
 [source,bash]
 ----
-git@github.com:mneedham/football-transfers-app.git
+git clone git@github.com:mneedham/football-transfers-app.git
 cd football-transfers-app
 ----
 

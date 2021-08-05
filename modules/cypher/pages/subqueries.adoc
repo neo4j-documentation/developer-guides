@@ -8,6 +8,7 @@
 :description: Building on the previous Cypher guides, this guide shows how to write subqueries. Upon finishing this guide, you should be able to write and understand queries using this capability.
 :page-pagination:
 :page-aliases: ROOT:subqueries.adoc
+:page-newsletter: true
 
 .Goals
 [abstract]

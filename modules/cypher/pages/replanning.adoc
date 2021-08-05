@@ -8,6 +8,7 @@
 :description: This guide describes improvements made for query replanning in Neo4j 4.1.
 :page-pagination:
 :page-aliases: ROOT:replanning.adoc
+:page-newsletter: true
 
 .Goals
 [abstract]

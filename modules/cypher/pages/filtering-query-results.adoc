@@ -7,6 +7,7 @@
 :description: Building on the Cypher Basics I and II guides, this guide continues with additional concepts of Cypher for filtering and query criteria. Upon finishing this guide, you should be able to filter results on properties and patterns for ranges and other expanded searches.
 :page-pagination:
 :page-aliases: ROOT:filtering-query-results.adoc
+:page-newsletter: true
 
 .Goals
 [abstract]

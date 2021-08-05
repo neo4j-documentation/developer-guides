@@ -6,6 +6,7 @@
 :tags: graph-platform, server, desktop, sandbox, perspective, graph, visualization, data
 :description: This article shows how to use Neo4j Bloom for exploring graph data in Neo4j.
 :page-pagination:
+:page-newsletter: true
 
 .Goals
 [abstract]

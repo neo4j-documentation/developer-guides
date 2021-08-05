@@ -7,6 +7,7 @@
 :description: Building on the Cypher Basics I guide, this guide covers more introductory concepts of Cypher, Neo4j's graph query language. Upon finishing this guide, you should be able to read and write Cypher queries for standard CRUD operations.
 :page-pagination:
 :page-aliases: ROOT:cypher-basics-iii.adoc
+:page-newsletter: true
 
 .Goals
 [abstract]

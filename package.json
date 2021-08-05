@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && npm run serve & npm-watch build",
+    "start": "npm run build && npm run serve & npm run watch",
     "serve": "node server.js",
+    "watch": "nodemon -e adoc --exec \"npm run build\"",
     "build": "antora --stacktrace preview.yml",
     "lint": "node scripts/lint-links.js",
     "publish": "git push origin HEAD:publish",

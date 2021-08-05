@@ -8,6 +8,7 @@
 :page-aliases: ROOT:cypher-basics-ii.adoc
 :page-pagination:
 :page-includedriver: true
+:page-newsletter: true
 
 .Goals
 [abstract]
@@ -80,7 +81,7 @@ RETURN tom
 Explanation: we know we need to find Tom Hanks' `Person` node, and we need to find the `Movie` nodes he is connected to.
 To do that, we need to follow the `DIRECTED` relationship from Tom Hanks' `Person` node to the `Movie` node.
 We have also specified a label of `Movie` so that the query will only look at nodes with that label.
-Since we only care about returning the company in this query, we need to give that node a variable (`movie`) but do not need to give variables for the `Person` node or `WORKS_FOR` relationship.
+Since we only care about returning the movie in this query, we need to give that node a variable (`movie`) but do not need to give variables for the `Person` node or `DIRECTED` relationship.
 
 [source, cypher, role=runnable editable graph]
 ----
@@ -140,9 +141,19 @@ RETURN tom.name AS name, tom.born AS `Year Born`, movie.title AS title, movie.re
 
 [NOTE]
 --
-You can specify return aliases that have spaces by using the backtick character before and after the alias (novie.released AS `Year Released`).
+You can specify return aliases that have spaces by using the backtick character before and after the alias (movie.released AS `Year Released`).
 If you do not have an alias that contains spaces, then you do not need to use backticks.
 --
+
+[.arrange]
+== Code Challenge
+
+Now that you know the basics, use the parts below to build a cypher statement to to find the `title` and year of `release` for every `:Movie` that Tom Hanks has `:DIRECTED`.
+Click the parts to add them in order and once you are done, click **Run Query** to see whether you have got it right.
+You can click any part of the query inside the code block to remove it.
+
+[source,cypher]
+MATCH (p:Person {name: "Tom Hanks"})-[:DIRECTED]->(m:Movie) RETURN m.title, m.released
 
 [#cypher-next-steps]
 == Next Steps

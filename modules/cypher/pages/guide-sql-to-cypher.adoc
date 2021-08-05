@@ -7,6 +7,7 @@
 :description: This guide teaches anyone familiar with SQL how to write the equivalent, efficient Cypher statements. We'll use the well-known Northwind database to explain the concepts and work through the queries from simple to advanced.
 :page-pagination:
 :page-aliases: ROOT:guide-sql-to-cypher.adoc
+:page-newsletter: true
 
 .Goals
 [abstract]
@@ -274,7 +275,7 @@ WHERE p.productName STARTS WITH "C" AND p.unitPrice > 100
 RETURN p.productName, p.unitPrice;
 ----
 
-You can also use a regular expression, like `p.productName =~ "C.*"`.
+You can also use a regular expression, like `p.productName =~ "^C.*"`.
 
 // table
 

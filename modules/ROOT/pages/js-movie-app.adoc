@@ -43,8 +43,6 @@ Neo4j was built to efficiently store, handle, and query highly-connected element
 With a powerful and flexible data model, you can represent your real-world, variably-structured information without a loss of fidelity.
 The property graph model is easy to understand and work with, especially for object-oriented and relational developers.
 
-image::{img}model.png[]
-
 The property graph model consists of:
 
 **Nodes**, which have:
@@ -58,6 +56,8 @@ The property graph model consists of:
 * A _type_: describes how it connects the two nodes
 
 While relationships are directional, querying relationships in either direction has no associated performance cost.
+
+image::{img}model.png[][JavaScript Movie App Model]
 
 === Cypher
 
@@ -158,12 +158,11 @@ You can find the front-end code in the `web` directory.
 
 === Setup
 
-
 To get the project running, clone the repo and follow along with these instructions, which are be recapped in the video:
 
 ++++
-<iframe width="560" height="315" src="https://youtu.be/z-PAO2WU1QQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++ 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/z-PAO2WU1QQ?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
 
 If you haven't already, https://github.com/neo4j-examples/neo4j-movies-template[clone the repo].
 

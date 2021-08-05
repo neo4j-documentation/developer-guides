@@ -15,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should be comfortable installing Neo4j (Desktop, Docker) or spinning up an instance in the cloud.
+You should be comfortable installing Neo4j (Desktop, Docker) or using an instance in the cloud (Aura, Sandbox).
 
 [role=expertise {level}]
 {level}
@@ -27,7 +27,7 @@ For getting started with using Neo4j it's helpful to use example datasets releva
 For each we want to provide a description, the graph model and some use-case queries.
 
 [TIP]
-Have fun, and send us feedback to devrel@neo4j.com or raise https://github.com/neo4j-contrib/developer/issues[an issue for the site] if something doesn't work as expected.
+Have fun, and provide us feedback for this page or create a GitHub issue in the linked repositories.
 
 [#built-in-examples]
 == Built-In Examples
@@ -54,13 +54,24 @@ image::{img}neo4j-sandboxes.png[link=https://neo4j.com/sandbox/?ref=developer-ex
 
 Except for the "blank" sandbox, all other sandboxes come prepopulated with the domain data and focus on use-case specific queries.
 
+All Sandboxes provide access to Neo4j Browser, Neo4j Bloom, APOC, Graph Data Science, neosemantics (n10s) and a GraphQL integration.
+
+=== Sandbox Dataset GitHub Repositories
+
+The data, browser guide, code examples (JavaScript, Java, Python, Go, C#), Cypher queries, Bloom perspectives for each Sandbox are all available in https://github.com/neo4j-graph-examples[GitHub repositories^]
+
 The use-cases range from
 
-* movie recommendations,
-* network management,
-* investigative data from the ICIJ Panama Papers to
-* crime investigation and
-* social networks optionally using your own Twitter account.
+* https://sandbox.neo4j.com?usecase=recommendations[movie recommendations^] (https://github.com/neo4j-graph-examples/recommendations[Repo])
+* https://sandbox.neo4j.com?usecase=network-management[network management^] (https://github.com/neo4j-graph-examples/network-management[Repo])
+* https://sandbox.neo4j.com?usecase=icij-paradise-papers[investigative data from the ICIJ (Panama Papers)^] (https://github.com/neo4j-graph-examples/icij-paradise-papers[Repo])
+* https://sandbox.neo4j.com?usecase=pole[crime investigation^] (https://github.com/neo4j-graph-examples/pole[Repo])
+* https://sandbox.neo4j.com?usecase=twitter-v2[social networks^] optionally using your own Twitter account (https://github.com/neo4j-graph-examples/twitter[Repo]).
+
+
+[[demo-server]]
+include::https://raw.githubusercontent.com/neo4j-graph-examples/demo.neo4jlabs.com/master/README.adoc[leveloffset=+1]
+// ,lines=0..-5
 
 [#guide-examples]
 == Other Guide Examples
@@ -71,7 +82,7 @@ Other examples that you can quickly run within your own Neo4j Browser are:
 * `:play nasa` NASA knowledge graph example
 * `:play ukcompanies` UK company registration, property ownership, political donations
 * `:play stackoverflow` Stack Overflow users, tags and Q&A data
-* `	` BBC Good Foods recipe data
+* `:play recipes` BBC Good Foods recipe data
 * `:play listings` Airbnb listings data
 * `:play football_transfers` Football (Soccer) transfer data
 // :play twitter-neo4j-stream
@@ -96,6 +107,8 @@ Then you can search and browse all available examples locally and run them again
 
 image::{img}graph-examples.png[link=https://install.graphapp.io]
 
+If you want to submit your own graph data model example, please head to https://portal.graphgist.org to have a look at even more (non-featured) examples and create your own entries.
+
 [#means-data-import]
 == Means of Data Import
 
@@ -106,31 +119,38 @@ The most reliable way to get a dataset into Neo4j is to import it from the raw s
 Then you are independent of database versions, which you otherwise might have to upgrade.
 That's why we provided raw data (CSV, JSON, XML) for several of the datasets, accompanied by import scripts in Cypher.
 
-You would run the Cypher script using a command-line client like `cypher-shell`.
+You could run the Cypher script using a command-line client like `cypher-shell`.
 
-image::{img}cypher-import-shell.png[]
+// image::{img}cypher-import-shell.png[]
 
-.Run Cypher Shell from the "Terminal" tab of your Graph in Neo4j Desktop
+.Run Cypher Shell from the "Terminal" of your Graph Database in Neo4j Desktop
 [source, shell]
 ----
-./bin/cypher-shell -u neo4j -p "password" < import-file.cypher
+./bin/cypher-shell -u neo4j -p "password" -f import-file.cypher
 ----
 
-You can also drag and drop or paste the script into Neo4j Browser (check that multi-statement editor is enabled in the settings) and run it from there.
+You can also drag and drop or paste the script into Neo4j Browser (check that "multi-statement editor" is enabled in the settings) and run it from there.
 
 image::{img}cypher-import-browser.png[]
 
-CSV data can be imported using either `LOAD CSV` clause in Cypher or `neo4j-admin import --mode csv` for initial bulk imports of large datasets.
+CSV data can be imported using either link:https://neo4j.com/developer/guide-import-csv/#import-load-csv[`LOAD CSV` clause in Cypher^] or https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/[`neo4j-admin import` for initial bulk imports^] of large datasets.
 
-For JSON, XML, XLS etc. you need to have the https://neo4j.com/labs/apoc[APOC^] utility library installed, which comes with a https://neo4j-contrib.github.io/neo4j-apoc-procedures/#export-import[number of procedures for importing data^] also from other databases.
+For loading JSON, XML, XLS etc. you need to have the https://neo4j.com/labs/apoc[APOC^] utility library installed, which comes with a https://neo4j.com/labs/apoc/4.2/import/[number of procedures for importing data^] also from other databases.
 
 [#load-db-copy]
-=== Using a copy or dump of a Neo4j database
+=== Using a dump of a Neo4j database
 
 Other datasets are provided as dump of a Neo4j datastore.
 
-1. Please stop your Neo4j server.
+.Community Edition (replace the default database)
+1. Please stop your Neo4j server
 2. Then you can import the file using the `./bin/neo4j-admin load  --force true --from file.dump` command.
+3. Start the Neo4j server
+
+.Enterprise Edition (also Neo4j Desktop)
+1. Import the file using the `./bin/neo4j-admin load  --force true --from file.dump --database <dbname>` command.
+2. Make the new database known to the system database with `CREATE DATABASE dbname` which will also automatically start it
+
 
 [WARNING]
 The Neo4j version of some of the datasets  might be older than your Neo4j version.
@@ -145,13 +165,13 @@ Then you might need to configure Neo4j to upgrade your database automatically, b
 === Stack Overflow
 
 This is a graph-import of the Stack Overflow archive with 16.4M questions, 52k tags and 8.9M users (http://example-data.neo4j.org/so.dump[Stack Overflow Dump (6.2GB)]).
-This graph is pretty big, for best full scale querying you'd need a page-cache and heap of
+This graph is pretty big, for global graph queries you'd need a page-cache of 6G and heap of 16G to work with it.
 
 Here is an https://towardsdatascience.com/tagoverflow-correlating-tags-in-stackoverflow-66e2b0e1117b[article explaining the data model] and some exploratory analysis we ran on the data.
 
 image::https://cdn-images-1.medium.com/max/1600/0*lOrKWCLdlLGG4BXe.jpg[]
 
-The database is also available as a https://f6087a21.databases.neo4j.io/browser/[Neo4j Online Database^] with username "stackoverflow" and password "stackoverflow".
+The database is also available as in the <<demo-server,Demo Server>> as outlined above
 
 ////
 |===

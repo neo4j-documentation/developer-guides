@@ -99,9 +99,10 @@ A Django plugin https://github.com/neo4j-contrib/django-neomodel[django_neomodel
 | icon:gift[] Package        | https://pypi.python.org/pypi/neomodel
 | icon:github[] Source       | http://github.com/neo4j-contrib/neomodel
 
-| icon:book[] Docs           | http://neomodel.readthedocs.org/
+| icon:book[] Docs           | https://neomodel.readthedocs.io/en/latest/
 | icon:code-fork[] Python    | 2.7 / 3.3+
 | Protocols | Bolt
+| Example App | https://github.com/neo4j-examples/neo4j-movies-python-neomodel
 |===
 
 .Installation
@@ -132,5 +133,7 @@ harry_potter.author.connect(rowling)
 
 == Resources
 
-* link:{drivermanual}[Docs: Driver Manual^]
+* link:/docs/python-manual/current/[Docs: Driver Manual^]
 * https://medium.com/neo4j/neo4j-python-4-0-driver-the-latest-driver-for-the-next-gen-database-a5be6ecd481f[Blog post: Python 4.0 driver^]
+* https://medium.com/neo4j/neo4j-for-django-developers-efd0e39e5f2e[Blog Post: Neo4j for Django Developers: From zero to deployment with Django-Neomodel and Neo4j’s Paradise Papers dataset]
+* https://medium.com/neo4j/running-django-neomodel-within-a-docker-container-f0d68c1d38c7[Blog Post: Running Django-Neomodel within a Docker Container]

@@ -4,7 +4,7 @@
 :tags: cypher, queries, graph-queries, query-language, learn-cypher
 :page-aliases: ROOT:cypher-query-language.adoc, cypher-query-language.adoc
 :page-pagination:
-
+:page-newsletter: true
 
 [#about-cypher]
 Cypher is Neo4j's graph query language that allows users to store and retrieve data from the graph database.

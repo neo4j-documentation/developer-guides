@@ -8,6 +8,7 @@
 :tags: graph-platform, desktop, activation, graph, manage-graph, database
 :description: This article demonstrates how to use the Neo4j Desktop GUI for managing instances of Neo4j locally for development.
 :page-pagination:
+:page-newsletter: true
 
 .Goals
 [abstract]
@@ -19,6 +20,8 @@ It helps if you have read the section on link:/developer/get-started/graph-datab
 
 [role=expertise {level}]
 {level}
+
+NOTE: There is now an official https://neo4j.com/docs/desktop-manual/current/[Neo4j Desktop Manual^] and also the option to https://neo4j-desktop.canny.io/feature-requests[send feature requests^] and https://neo4j-desktop.canny.io/changelog[read the change-log^].
 
 [#install-neo4j-desktop]
 link:/download/?ref=developer-neo4j-desktop[If you haven't already, download Neo4j Desktop Now^].

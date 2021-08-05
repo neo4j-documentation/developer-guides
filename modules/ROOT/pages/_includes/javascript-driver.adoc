@@ -29,7 +29,7 @@ include::./driver-warning.adoc[]
 |
 | https://community.neo4j.com/c/drivers-stacks/javascript[Neo4j Online Community^]
 
-| {drivermanual}[icon:book[] Docs^]
+| https://neo4j.com/docs/javascript-manual/current/[icon:book[] Docs^]
 | link:/docs/api/javascript-driver/current/[icon:code[] API]
 | http://github.com/neo4j/neo4j-javascript-driver[icon:github[] Source]
 |===
