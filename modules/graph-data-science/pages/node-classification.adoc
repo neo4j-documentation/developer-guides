@@ -467,7 +467,7 @@ CALL gds.alpha.ml.nodeClassification.train('marvel_model_data', {
 
 [NOTE]
 ====
-Don't forget that if you are not using the https://neo4j.com/docs/graph-data-science/current/installation/#installation-enterprise-edition[Enterprise Edition] of the Graph Data Science library, you can only have one model in memory at any given time, so you must drop that model via `CALL gds.beta.model.drop('marvel_model_data')`.
+Don't forget that if you are not using the https://neo4j.com/docs/graph-data-science/current/installation/#installation-enterprise-edition[Enterprise Edition] of the Graph Data Science library, you can only have a limited number of models in memory at any given time, so you must drop unused models via `CALL gds.beta.model.drop('marvel_model_data')`.
 ====
 
 This is identical to our procedure before, however, we can see that we have replaced the `featureProperties` to be the FastRP embeddings.  We would expect this model to perform better since the embedding process returns a vector embedding for each node that, in our case, is 250 elements long.  In fact, we obtain the following results with the embeddings:
