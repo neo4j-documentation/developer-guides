@@ -161,6 +161,7 @@ RETURN p.name
 //check if a property ends with 'n'
 MATCH (p:Person)
 WHERE p.name ENDS WITH 'n'
+RETURN p.name
 ----
 
 You can also use regular expressions to test the value of strings.
