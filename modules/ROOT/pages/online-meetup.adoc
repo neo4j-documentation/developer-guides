@@ -89,23 +89,6 @@ Missed a stream? Check out the playlist:
 |**13 September** +
 _6am PST, 9am EST, 1pm UTC, 3pm CEST, 6:30pm IST_
 |Lju Lazarevic
-a|*Training Series - Hands on Neo4j*
-
-In this workshop we will:
-
-* Introduce you to graph databases
-* Cover approaches for identifying graph-shaped problems
-* Get our hands on our very first graph database experience where we will load and query data, using Neo4j Aura Free
-
-We'll also cover what resources are available, and how to continue your graph journey.
-
-a|https://twitch.tv/neo4j[On Twitch!^]
-
-https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
-
-|**13 September** +
-_6am PST, 9am EST, 1pm UTC, 3pm CEST, 6:30pm IST_
-|Lju Lazarevic
 a|*Training Series - Hands-on with Neo4j Aura Free tier*
 
 In this hands-on session, we will cover the following:
