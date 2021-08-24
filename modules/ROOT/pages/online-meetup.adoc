@@ -23,7 +23,7 @@ You can keep an eye on what's happening by:
 
 image::https://miro.medium.com/fit/c/192/192/1*KfYHH6t6NEUEtbgMLFHiuw.jpeg[Ljubica Lazarevic,width="200px",float="right"]
 
-image::https://pbs.twimg.com/profile_images/1269926027050057728/IVMPkcbt_400x400.jpg[Alexander Erdl, width="200px",float="right"]
+image::https://pbs.twimg.com/profile_images/1269926027050057728/IVMPkcbt_400x400.jpg[Alexander Erdl,width="200px",float="right"]
 
 *8am UTC (9am BST, 10am CEST, 1:30pm IST, 4pm SGT)*
 
