@@ -8,224 +8,190 @@
 :page-pagination:
 :page-newsletter: true
 
-[TIP]
-====
-icon:flask[size=2x]
-The Neo4j and GraphQL integration is one of our Neo4j Labs projects.
-To learn more, visit the https://neo4j.com/labs/grandstack-graphql[GraphQL and Grandstack^] Labs page.
-====
-
 [#about-graphql]
 image::https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/200px-GraphQL_Logo.svg.png[float=right,width=200]
 
-GraphQL is a specification for querying a slice of an application graph, retrieving a tree of data that perfectly matches a front-end view, regardless of where that data was pulled from.
-It covers tree-based read queries, mutations for updates, and subscriptions for live updates.
+GraphQL is a specification for an API query language and a runtime for fulfilling these queries. GraphQL models application data as a graph and allows API clients to query the data as a graph irrespective of how the data is stored in the backend. While not specific to graph databases, using GraphQL with Neo4j offers several advantages including a consistent graph data model, increased developer productivity, and performance benefits.
 
-[#graphql-queries]
-== GraphQL Queries
+== GraphQL Overview
 
-Queries in GraphQL form a tree structure, based upon entities and relevant attributes.
-Any of those can take parameters (e.g for filtering or pagination) and directives.
+GraphQL is fundamentally an API query language, as explained on the https://graphql.org/[GraphQL landing page^]:
+
+> GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+
+A GraphQL query includes an entry point (a Query or Mutation field in GraphQL parlance), arguments, and a _selection set._ The selection set specifies a nested traversal through the data graph as well as which fields to be returned.
+
+Let's look at a example GraphQL query:
 
 .GraphQL example query
 [source,graphql]
 ----
-query {
-   Movie(title:"The Matrix") {
-      title
-      released
-      tagline
-      actors {
-         name
-         born
-      }
-   }
+{
+  movies(where: { title: "Matrix, The" }) {
+    title
+    plot
+    year
+    actors {
+      name
+    }
+  }
 }
+
 ----
+
+The response to this query is a JSON object which matches the shape of the query - only the data requested by the client is returned.
 
 .GraphQL example result
 [source,json]
 ----
 {
-   "Movie": [{
-      "title": "The Matrix",
-      "released": 1999,
-      "tagline": "Welcome to the Real World",
-      "actors": [{
-         "name": "Keanu Reeves",
-         "born": 1964
-         }, {
-         "name": "Carrie-Anne Moss",
-         "born": 1967
-         }, {
-         "name": "Laurence Fishburne",
-         "born": 1961
-         }
-      ]
-   }]
+  "data": {
+    "movies": [
+      {
+        "title": "Matrix, The",
+        "plot": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+        "year": 1999,
+        "actors": [
+          {
+            "name": "Hugo Weaving"
+          },
+          {
+            "name": "Laurence Fishburne"
+          },
+          {
+            "name": "Keanu Reeves"
+          },
+          {
+            "name": "Carrie-Anne Moss"
+          }
+        ]
+      }
+    ]
+  }
 }
 ----
 
-[#graphql-type-system]
-== GraphQL as a Contract
 
-At a high level, GraphQL builds a *contract* between front-end and back-end, based on the agreed-upon type system, which forms an application data model in the form of a graph.
+The typical approach to building a GraphQL API involves creating GraphQL _type definitions_ which define the data available in the API and how they are connected, and writing GraphQL _resolver functions_ which contain the logic for "resolving" data from the data layer. These type definitions and resolver functions are then combined into an executable GraphQL schema which can be served over HTTP.
 
-It decouples the front-end from the back-end data source(s), which allows you to change either piece independently while the type system stays consistent.
-Each query from the front-end is using that type system to precisely define which data it is interested in.
-
-There is no prescription to restrict where the backend data comes from or how it is returned - it can be anything from databases to APIs, from third party systems to in-memory representations, and even from/to code or static assets.
-
-GraphQL queries return data in a tree form that perfectly matches the frontend view hierarchy.
-If the application data is a graph, then the perfect backend is a graph database with native support for resolving GraphQL queries - Neo4j.
-
-[#graphql-schema]
-== Schema
-
-The type system is often declared in schema (IDL) files which contain entities, their attributes, interfaces, and enumerations, as well as mutations and subscriptions.
-The schema can be extended with custom directives and types that allow specific extensions of the core language.
+GraphQL type definitions are typically defined using the GraphQL Schema Definition Language (SDL). SDL is a language-agnostic way The GraphQL type definitions for the example queries above would look like this in SDL:
 
 .GraphQL example schema
 [source,graphql]
 ----
 type Movie {
-    title: String!
-    released: Int
-    tagline: String
-    actors: [Person]
+  title: String!
+   year: Int
+   plot: String
+   actors: [Person]
 }
 
 type Person {
+   name: String!
+   movies: [Movie]
+}
+----
+
+The typical approach of writing GraphQL resolver functions manually can often involve lots of boilerplate code. Fortunately, we can often leverage tools like Neo4j's OGM and Spring Data integration when building GraphQL APIs as described in https://info.michael-simons.eu/2021/07/13/neo4j-java-and-graphql/[this blog post.^]
+
+For further enhanced developer productivity the Neo4j GraphQL Library can be used to build GraphQL APIs backed by Neo4j driven by GraphQL type definitions.
+
+== The Neo4j GraphQL Library
+
+image::https://dist.neo4j.com/wp-content/uploads/20210423155831/graphql-diagram.svg[]
+
+The Neo4j GraphQL Library is a JavaScript library that can be used with any JavaScript GraphQL implementation, such as Apollo Server.
+
+Features of the Neo4j GraphQL Library include:
+
+* TODO: add features with link to relevant docs page
+
+=== Using The Neo4j GraphQL Library With Neo4j Aura
+
+Let's see how we can create a simple GraphQL API using the Neo4j GraphQL Library and Neo4j Aura. We'll be creating a Node.js GraphQL API application that will use the Neo4j GraphQL Library and Apollo Server to create 
+
+First, in a new directory we'll create a new Node.js project:
+
+....
+npm init -y
+....
+
+And install the necessary dependencies:
+
+....
+npm install @neo4j/graphql neo4j-driver graphql apollo-server dotenv
+....
+
+Next, we'll provision a Neo4j Aura instance. We'll use the free-tier of Neo4j Aura so we won't need to put in a credit card or incur any costs. Log in to https://dev.neo4j.com/aura[Neo4j Aura^] and select "Create Free DB".
+
+image::https://dist.neo4j.com/wp-content/uploads/20210826145910/neo4j-aura-free.png[]
+
+A random password for your Neo4j Aura instance will be generated, be sure to save this somewhere as we'll need to use it to access our Neo4j database. 
+
+image::https://dist.neo4j.com/wp-content/uploads/20210826150418/neo4j-aura-password.png[]
+
+Provisioning our Neo4j Aura instance will take a few moments. Once it is ready in the Neo4j Aura dashboard we'll see the connection URI, which we'll need to connect our GraphQL API to Neo4j Aura.
+
+image::https://dist.neo4j.com/wp-content/uploads/20210826151045/neo4j-aura-dashboard.png[]
+
+Next, create a new file `.env` with the connection credentials for our Neo4j Aura instance. This will allow us to set our connection details in environment variables, without mixing these secrets in our code. Here's what my `.env` file looks like, but be sure to replace with your own connection credentials for your Neo4j Aura instance
+
+.`.env`
+[source,md]
+----
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=a2y4FVUlfPdDPzU5EUeEq-arDdyokWStO1m7wlkY8u4
+NEO4J_URI=neo4j+s://80be87a6.databases.neo4j.io
+----
+
+Let's reuse our movie and actor GraphQL type definitions from above and use them with the Neo4j GraphQL Library:
+
+.`index.js`
+[source,JavaScript]
+----
+const { gql, ApolloServer } = require("apollo-server");
+const { Neo4jGraphQL } = require("@neo4j/graphql");
+const neo4j = require("neo4j-driver");
+require("dotenv").config();
+
+const typeDefs = gql`
+  type Movie {
+    title: String!
+    year: Int
+    plot: String
+    actors: [Person] @relationship(type: "ACTED_IN", direction: IN)
+  }
+
+  type Person {
     name: String!
-    born: Int
-    movies: [Movie]
-}
+    movies: [Movie] @relationship(type: "ACTED_IN", direction: OUT)
+  }
+`;
+
+const driver = neo4j.driver(
+  process.env.NEO4J_URI,
+  neo4j.auth.basic(process.env.NEO4J_USER, process.env.NEO4J_PASSWORD)
+);
+
+const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
+
+const server = new ApolloServer({
+  schema: neoSchema.schema,
+});
+
+server.listen().then(({ url }) => {
+  console.log(`GraphQL server ready on ${url}`);
+});
 ----
 
-[#grandstack]
-== icon:flask[] The GRANDstack
+TODO: mutation to create movie, what that looks like in neo4j browser and querying using filter
 
-http://grandstack.io/[GRANDstack^] is a full-stack development integration for building graph-based applications.
+TODO: next step CTA - graph academy
 
-GRAND stands for the following technologies:
-
-* http://graphql.org/[GraphQL^] - a query language for APIs and a runtime for fulfilling those queries with your existing data
-* https://reactjs.org/[React^] - a JavaScript library for building user interfaces
-* https://github.com/apollographql/apollo-client[Apollo Client^] - a fully-featured, production-ready caching GraphQL client for every server or UI framework
-* Neo4j Database - a graph database that is ACID-compliant and built to store and retrieve connected data
-
-https://twitter.com/lyonwj[Will Lyon^] facilitated a training session at GraphConnect NYC 2017, in which attendees built their first GRANDstack application.
-
-++++
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/9VHFIXAMkXz01n" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/neo4j/full-stack-development-with-neo4j-and-graphql" title="Full Stack Development with Neo4j and GraphQL" target="_blank">Full Stack Development with Neo4j and GraphQL</a> </strong> from <strong><a href="https://www.slideshare.net/neo4j" target="_blank">Neo4j - The Fastest and Most Scalable Native Graph Database</a></strong> </div>
-++++
-
-[#neo4j-graphql-java]
-== Java Extension: neo4j-graphql
-
-image::https://github.com/neo4j-graphql/graphql-community/raw/master/images/neo4j-graphql-logo.png[width=200,float=right]
-
-We wanted to combine the power of Neo4j and GraphQL by making it super easy to take an IDL schema OR an existing graph and serve a native GraphQL backend from it.
-
-With the information from the schema, we are able to generate a single query against the backing graph database.
-During development, both Neo4j's property graph model and the Cypher query language turned out to be great fits for the GraphQL features supported so far.
-
-You can grab the latest release of our extension from https://github.com/neo4j-graphql/neo4j-graphql/releases[here^] and drop it into any Neo4j 3.1.x server (in the `plugins` directory).
-After a restart, you can either query your graph data using GraphQL directly or by posting an IDL file with your preferred schema.
-
-We added some neat features that we hope are useful and make your life easier.
-We are especially proud of the `@cypher` directive, the auto-generated mutations (create, update, delete), and the `graphql.execute`, `graphql.idl` and `graphql.schema` procedures.
-
-Here is an example of how the schema definition above could or would be extended:
-
-[source,graphql]
-----
-type Movie {
-    title: ID!
-    released: Int
-    tagline: String
-
-    actors: [Person] @relation(name:"ACTED_IN", direction:IN)
-
-    director: Person @relation(name:"DIRECTED", direction:IN)
-
-    recommendation(first:Int = 3): [Movie]
-      @cypher(statement:"MATCH (this)<-[r1:REVIEWED]-(:User)-[r2:REVIEWED]->(reco:Movie)
-                         WHERE 3 <= r1.stars <= r2.stars
-                         RETURN reco, sum(r2.stars) as rating ORDER BY rating DESC")
-}
-
-interface Person {
-    name: ID!
-    born: Int
-}
-
-type Actor extends Person {
-    name: ID!
-    born: Int
-
-    movies: [Movie] @relation(name:"ACTED_IN")
-}
-
-type Director extends Person {
-    name: ID!
-    born: Int
-
-    movies: [Movie] @relation(name:"DIRECTED")
-}
-
-type Mutations {
-    directed(movie:ID! director:ID!) : String
-      @cypher(statement:"MATCH (m:Movie {title: $movie}), (d:Person {name: $director})
-                         MERGE (d)-[:DIRECTED]->(m)")
-}
-schema {
-   mutation: Mutations
-}
-----
-
-Have a look at the following "feature" table to see what else comes "in the box":
-
-include::https://raw.githubusercontent.com/neo4j-graphql/neo4j-graphql/master/readme.adoc[tags=features]
-
-In the repository, you can find a https://github.com/neo4j-graphql/neo4j-graphql/blob/master/movies.schema[movies schema^] and https://github.com/neo4j-graphql/neo4j-graphql/blob/master/movies.graphql[accompanying queries^] that use some of those features.
-
-[#neo4j-graphql-js]
-== JavaScript Implementation: neo4j-graphql-js
-
-We have also created the https://github.com/neo4j-graphql/neo4j-graphql-js[neo4j-graphql-js^] npm package, which makes it easier to use GraphQL and Neo4j together.
-
-Neo4j-graphql-js translates GraphQL queries to a single Cypher query, eliminating the need to write queries in GraphQL resolvers and for batching queries.
-It also exposes the Cypher query language through GraphQL via the @cypher schema directive.
-
-[#graphql-support]
-== GraphQL Support
-
-To demonstrate the combined power of a graph database (Neo4j) and GraphQL, we also added the GraphQL extension to this server. Access the GraphQL community graph, including GraphiQL http://graphql.communitygraph.org/[here^].
-
-After authorising, you will be able to query the GraphQL community graph with your trusted tools like GraphiQL or Apollo-Client.
-You can also visualize the Schema using Voyager.
-
-image::https://github.com/neo4j-graphql/graphql-community/raw/master/images/graphql-community-query-leeb.jpg[width=600]
-
-image::https://github.com/neo4j-graphql/graphql-community/raw/master/images/graphql-community-voyager.jpg[width=600]
-
-You can find the https://github.com/neo4j-graphql/graphql-community/blob/master/community-graph.schema[schema for the data] and several GraphQL queries and screenshots of your tools in action https://github.com/neo4j-graphql/graphql-community#screenshots[in this repository^].
-
-[#graphql-neo4j-data]
-=== Raw Data Access
-
-The raw graph data is publicly accessible here via the Neo4j Browser (http://107.170.69.23:7474 username/pwd: graphql/graphql).
-
-image::https://github.com/community-graph/graphql-community/raw/master/images/community-graphql-cypher-graph.jpg[width=600]
-
-image::https://github.com/community-graph/graphql-community/raw/master/images/community.graphql.cypher.table.jpg[width=600]
-
-If you are used to Neo4j you can use it right away by writing some link:/developer/cypher[Cypher] statements.
-Here are (https://github.com/community-graph/dashboard[some suggestions^]).
 
 [#graphql-resources]
 == Resources
-* http://github.com/neo4j-graphql[Report issues in GitHub^]
-* https://community.neo4j.com[Join the Neo4j Online Community to ask questions and post content^]
-* mailto:devrel@neo4j.com[Email Neo4j to send feedback^]
+* https://neo4j.com/product/graphql-library/[The Neo4j GraphQL Library overview page^]
+* https://neo4j.com/docs/graphql-manual/current/[Neo4j GraphQL Library Documentation^]
+* GraphAcademy Course: https://neo4j.com/graphacademy/training-graphql-apis/enrollment/[Building GraphQL APIs With The Neo4j GraphQL Library^]
+* Book: https://www.manning.com/books/fullstack-graphql-applications[Full Stack GraphQL Applications With React, Node.js, and Neo4j]^
