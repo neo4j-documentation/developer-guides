@@ -15,16 +15,16 @@ GraphQL is a specification for an API query language and a runtime for fulfillin
 
 == GraphQL Overview
 
-GraphQL is fundamentally an API query language, as explained on the https://graphql.org/[GraphQL landing page^]:
+GraphQL is fundamentally an API query language, as explained on the https://graphql.org/[GraphQL.org landing page^]:
 
 > GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-A GraphQL query includes an entry point (a Query or Mutation field in GraphQL parlance), arguments, and a _selection set._ The selection set specifies a nested traversal through the data graph as well as which fields to be returned.
+A GraphQL query includes an entry point (a Query or Mutation field in GraphQL terminology), (optionally) arguments, and a _selection set._ The selection set specifies a nested traversal through the data graph as well as which fields to be returned.
 
-Let's look at a example GraphQL query:
+Let's look at an example GraphQL query:
 
 .GraphQL example query
-[source,graphql]
+[source,GraphQL]
 ----
 {
   movies(where: { title: "Matrix, The" }) {
@@ -36,13 +36,12 @@ Let's look at a example GraphQL query:
     }
   }
 }
-
 ----
 
-The response to this query is a JSON object which matches the shape of the query - only the data requested by the client is returned.
+The response to this query is a JSON document which matches the shape of the query - only the data requested by the client and included in the selection set is returned.
 
 .GraphQL example result
-[source,json]
+[source,JSON]
 ----
 {
   "data": {
@@ -74,10 +73,10 @@ The response to this query is a JSON object which matches the shape of the query
 
 The typical approach to building a GraphQL API involves creating GraphQL _type definitions_ which define the data available in the API and how they are connected, and writing GraphQL _resolver functions_ which contain the logic for "resolving" data from the data layer. These type definitions and resolver functions are then combined into an executable GraphQL schema which can be served over HTTP.
 
-GraphQL type definitions are typically defined using the GraphQL Schema Definition Language (SDL). SDL is a language-agnostic way The GraphQL type definitions for the example queries above would look like this in SDL:
+GraphQL type definitions are typically defined using the GraphQL Schema Definition Language (SDL). SDL is a language-agnostic way to define GraphQL types. The GraphQL type definitions for the example queries above would look like this in SDL:
 
 .GraphQL example schema
-[source,graphql]
+[source,GraphQL]
 ----
 type Movie {
   title: String!
@@ -94,21 +93,26 @@ type Person {
 
 The typical approach of writing GraphQL resolver functions manually can often involve lots of boilerplate code. Fortunately, we can often leverage tools like Neo4j's OGM and Spring Data integration when building GraphQL APIs as described in https://info.michael-simons.eu/2021/07/13/neo4j-java-and-graphql/[this blog post.^]
 
-For further enhanced developer productivity the Neo4j GraphQL Library can be used to build GraphQL APIs backed by Neo4j driven by GraphQL type definitions.
+For further enhanced developer productivity the https://neo4j.com/product/graphql-library/[Neo4j GraphQL Library^] can be used to build GraphQL APIs backed by Neo4j with minimal code.
 
 == The Neo4j GraphQL Library
 
 image::https://dist.neo4j.com/wp-content/uploads/20210423155831/graphql-diagram.svg[]
 
-The Neo4j GraphQL Library is a JavaScript library that can be used with any JavaScript GraphQL implementation, such as Apollo Server.
+The Neo4j GraphQL Library is a JavaScript library that can be used with any JavaScript GraphQL implementation, such as Apollo Server. By mapping GraphQL type definitions to the property graph model used by Neo4j, the Neo4j GraphQL Library can generate a CRUD API backed by Neo4j. This means developers don't even need to implement GraphQL resolver functions as the Neo4j GraphQL Library handles generating database queries from arbitrary GraphQL requests at query time.
 
 Features of the Neo4j GraphQL Library include:
 
-* TODO: add features with link to relevant docs page
+* Auto-generated GraphQL https://neo4j.com/docs/graphql-manual/current/queries/[queries^] and https://neo4j.com/docs/graphql-manual/current/mutations/[mutations^] based on https://neo4j.com/docs/graphql-manual/current/type-definitions/[GraphQL type definitions^]
+* Complex https://neo4j.com/docs/graphql-manual/current/filtering/[filtering^], https://neo4j.com/docs/graphql-manual/current/sorting/[sorting^], and https://neo4j.com/docs/graphql-manual/current/pagination/[pagination^]
+* Support for https://neo4j.com/docs/graphql-manual/current/custom-resolvers/[custom resolvers^]
+* A powerful GraphQL schema directive driven https://neo4j.com/docs/graphql-manual/current/auth/[authorization model^]
+* Support for https://neo4j.com/docs/graphql-manual/current/type-definitions/cypher/[custom logic using Cypher^]
+* An https://neo4j.com/docs/graphql-manual/current/ogm/[Object Graph Mapper (OGM)^] based on GraphQL type definitions
 
 === Using The Neo4j GraphQL Library With Neo4j Aura
 
-Let's see how we can create a simple GraphQL API using the Neo4j GraphQL Library and Neo4j Aura. We'll be creating a Node.js GraphQL API application that will use the Neo4j GraphQL Library and Apollo Server to create 
+Let's see how we can create a simple GraphQL API using the Neo4j GraphQL Library and https://dev.neo4j.com/neo4j-aura[Neo4j Aura^]. We'll be creating a Node.js GraphQL API application that will use the Neo4j GraphQL Library and Apollo Server to create a GraphQL API for movies data matching our example above.
 
 First, in a new directory we'll create a new Node.js project:
 
@@ -134,17 +138,17 @@ Provisioning our Neo4j Aura instance will take a few moments. Once it is ready i
 
 image::https://dist.neo4j.com/wp-content/uploads/20210826151045/neo4j-aura-dashboard.png[]
 
-Next, create a new file `.env` with the connection credentials for our Neo4j Aura instance. This will allow us to set our connection details in environment variables, without mixing these secrets in our code. Here's what my `.env` file looks like, but be sure to replace with your own connection credentials for your Neo4j Aura instance
+Next, create a new file `.env` with the connection credentials for our Neo4j Aura instance. This will allow us to set our connection details in environment variables, without mixing these secrets in our code. Here's what the `.env` file would look like given the Neo4j Aura credentials above, but be sure to replace with your own connection credentials for your Neo4j Aura instance.
 
 .`.env`
-[source,md]
+[source]
 ----
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=a2y4FVUlfPdDPzU5EUeEq-arDdyokWStO1m7wlkY8u4
 NEO4J_URI=neo4j+s://80be87a6.databases.neo4j.io
 ----
 
-Let's reuse our movie and actor GraphQL type definitions from above and use them with the Neo4j GraphQL Library:
+Let's reuse our movie and actor GraphQL type definitions from above and use them with the Neo4j GraphQL Library. We'll also create an instance of the Neo4j JavaScript driver to connect to our Neo4j Aura instance, reading the credentials from our `.env` file as environment variables. Finally, we pass the GraphQL schema object generated by the Neo4j GraphQL Library to Apollo Server and start the GraphQL server.
 
 .`index.js`
 [source,JavaScript]
@@ -184,10 +188,80 @@ server.listen().then(({ url }) => {
 });
 ----
 
-TODO: mutation to create movie, what that looks like in neo4j browser and querying using filter
+Notice that we added the https://neo4j.com/docs/graphql-manual/current/type-definitions/relationships/[`@relationship` GraphQL schema directive^] to our type definitions. This directive allows us to encode the relationship type and directive into our GraphQL type definitions.
 
-TODO: next step CTA - graph academy
+We can start our Node.js GraphQL server by running `node index.js` and then navigate to `http://localhost:4000` in a web browser to access Apollo Studio. Since we started a fresh Neo4j Aura database, let's start by creating some data. The Neo4j GraphQL Library generates the https://neo4j.com/docs/graphql-manual/current/mutations/[GraphQL Mutation type^] used for creating data. Here, we'll use the `createMovies` mutation to create a movie node and the actors connected to it in a single nested operation.
 
+.GraphQL Mutation to create a movie and actors
+[source,GraphQL]
+----
+mutation {
+  createMovies(
+    input: {
+      title: "Matrix, The"
+      plot: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."
+      year: 1999
+      actors: {
+        create: [
+          { node: { name: "Hugo Weaving" } }
+          { node: { name: "Laurence Fishburne" } }
+          { node: { name: "Keanu Reeves" } }
+          { node: { name: "Carrie-Anne Moss" } }
+        ]
+      }
+    }
+  ) {
+    movies {
+      title
+      plot
+      year
+      actors {
+        name
+      }
+    }
+  }
+}
+----
+
+The response to this GraphQL mutation will match the selection set and shows us the data created by the mutation operation.
+
+.GraphQL response
+[source,JSON]
+----
+{
+  "data": {
+    "createMovies": {
+      "movies": [
+        {
+          "title": "Matrix, The",
+          "plot": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+          "year": 1999,
+          "actors": [
+            {
+              "name": "Hugo Weaving"
+            },
+            {
+              "name": "Laurence Fishburne"
+            },
+            {
+              "name": "Keanu Reeves"
+            },
+            {
+              "name": "Carrie-Anne Moss"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+----
+
+If we check our database using Neo4j Browser we can see the data we've created in Neo4j:
+
+image::https://dist.neo4j.com/wp-content/uploads/20210831112825/matrixgraph.png[]
+
+Learn more about the Neo4j GraphQL Library in the https://neo4j.com/docs/graphql-manual/current/[documentation.^]
 
 [#graphql-resources]
 == Resources
