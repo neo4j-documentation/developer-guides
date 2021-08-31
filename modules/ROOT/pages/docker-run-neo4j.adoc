@@ -60,7 +60,7 @@ Using an enterprise Docker image will require you to accept the official Enterpr
 == Neo4j Configuration
 
 The Neo4j Docker image includes some basic configuration defaults that should not need adjustment for most cases.
-However, if interested, the full list of default configurations for Neo4j in Docker can be found on https://github.com/neo4j/docker-neo4j/blob/master/src/3.5/docker-entrypoint.sh[the GitHub repository^].
+However, if interested, the full list of default configurations for Neo4j in Docker can be found on https://github.com/neo4j/docker-neo4j/blob/master/docker-image-src/3.5/docker-entrypoint.sh[the GitHub repository^].
 
 By default, the Docker image exposes three ports for remote access:
 
