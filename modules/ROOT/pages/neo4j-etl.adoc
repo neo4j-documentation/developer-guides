@@ -86,7 +86,7 @@ image::{img}etl3_allow_background_procs.jpg[role="popup-link"]
 
 On this screen, a default project should show and the database instances in that project.
 If you do not have any graph database instances created, you will see an image like the one below.
-You will need to link:/developer/neo4j-desktop/#desktop-create-graph[create a graph^] before the next steps with the ETL tool.
+You will need to xref:neo4j-desktop.adoc#desktop-create-DBMS[create a graph^] before the next steps with the ETL tool.
 The ETL Tool supports local and remote instances (including link:/aura/[Neo4j Aura^]).
 
 image::{img}etl_no_db_instances.jpg[role="popup-link"]

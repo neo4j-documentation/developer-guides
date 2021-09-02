@@ -9,7 +9,7 @@
     "serve": "node server.js",
     "watch": "nodemon -e adoc --exec \"npm run build\"",
     "build": "antora --stacktrace preview.yml",
-    "lint": "node scripts/lint-links.js",
+    "lint": "link-checker build/site --static /static/assets=build/site/_ --skip-file ./ignore-links.txt",
     "publish": "git push origin HEAD:publish",
     "downloadNotebooks": "node scripts/download-lp-notebooks.js"
   },
@@ -41,7 +41,7 @@
     }
   },
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.3",
-    "hyperlink": "^4.6.0"
+    "@neo4j-documentation/link-checker": "github:Mogztter/link-checker#v0.1.0",
+    "cheerio": "^1.0.0-rc.3"
   }
 }

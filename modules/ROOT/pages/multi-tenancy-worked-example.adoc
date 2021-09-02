@@ -15,7 +15,7 @@
 .Prerequisites
 [abstract]
 Please have link:/download[Neo4j^] (version 4.0 or later) downloaded and installed.
-It helps to have read the section on link:/developer/in-production/manage-multiple-databases/[managing multiple databases].
+It helps to have read the section on xref:manage-multiple-databases.adoc[managing multiple databases].
 We'll also need to install https://neo4j.com/developer/neo4j-apoc/[APOC^], Neo4j's standard library.
 
 [role=expertise {level}]

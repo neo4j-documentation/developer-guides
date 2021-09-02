@@ -14,7 +14,7 @@
 
 .Prerequisites
 [abstract]
-It helps to have read the section on link:/developer/get-started/graph-database/[graph databases] and link:/developer/neo4j-desktop/[Neo4j Desktop].
+It helps to have read the section on xref:graph-database.adoc[graph databases] and link:/developer/neo4j-desktop/[Neo4j Desktop].
 
 [role=expertise {level}]
 {level}

@@ -75,7 +75,7 @@ Determining how you want to structure tables and rows as nodes and relationships
 ifndef::env-guide[]
 [NOTE]
 --
-For more information on adapting your graph model to different scenarios, check out our link:/developer/modeling-designs/[modeling designs] guide.
+For more information on adapting your graph model to different scenarios, check out our xref:modeling-designs.adoc[modeling designs] guide.
 --
 endif::[]
 ifdef::env-guide[]
@@ -830,8 +830,8 @@ ifndef::env-guide[]
 * {cyphermanual}/clauses/load-csv/[LOAD CSV^]: Cypher's command for importing CSV files
 * link:/labs/apoc/[APOC library^]: Neo4j's utility library
 * link:/labs/etl-tool/[Neo4j ETL Tool^]: Loading relational data without code
-* link:/developer/data-import/[Importing Data with Neo4j]
-* link:/developer/data-modeling/guide-data-modeling[Graph Data Modeling]
+* xref:data-import.adoc[Importing Data with Neo4j]
+* xref:guide-data-modeling.adoc[Graph Data Modeling]
 endif::[]
 ifdef::env-guide[]
 * https://github.com/neo4j-contrib/developer-resources/tree/gh-pages/data/northwind[Northwind SQL, CSV and Cypher data files^], also as https://github.com/neo4j-contrib/developer-resources/tree/gh-pages/data/northwind/northwind.zip[zip^] file

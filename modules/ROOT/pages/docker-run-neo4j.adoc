@@ -18,7 +18,7 @@ image::{img}neo4j-docker-image-now-in-beta-235x300.jpg[float="right"]
 This guide builds upon the basic concepts discussed in earlier guides and some knowledge of Docker.
 To better understand and utilize Neo4j with Docker, it helps to know the following:
 
-* link:/developer/get-started/graph-database/[What is a Graph Database?]
+* xref:graph-database.adoc[What is a Graph Database?]
 * https://www.docker.com/resources/what-container[Docker: What is a Container?^]
 
 You should also have downloaded https://www.docker.com/get-started[Docker^] for your appropriate operating system and be familiar with navigating it from the command line.

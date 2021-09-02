@@ -15,7 +15,7 @@
 .Prerequisites
 [abstract]
 Please have link:/download[Neo4j^] (version 4.0 or later) downloaded and installed.
-It helps to have read the section on link:/developer/get-started/graph-database/[graph databases].
+It helps to have read the section on xref:graph-database.adoc[graph databases].
 
 [role=expertise {level}]
 {level}
@@ -137,7 +137,7 @@ image::{img}4dot0_movie_query_results.jpg[role="popup-link"]
 ****
 [NOTE]
 Colors and location of the graph within the result pane might vary.
-However, if the data is out-of-sync anytime throughout this guide, you can follow the steps to clean out the instance at the link:/developer/manage-databases/#multidb-cleanup[bottom of this guide] and try the data load again.
+However, if the data is out-of-sync anytime throughout this guide, you can follow the steps to clean out the instance at the xref:manage-multiple-databases.adoc#multidb-cleanup[bottom of this guide] and try the data load again.
 ****
 
 We can also check our schema procedure again to see how data is organized in the database (data model).
@@ -198,7 +198,7 @@ image::{img}4dot0_check_neo4j_schema_again.jpg[role="popup-link"]
 ****
 [NOTE]
 Colors and location of the graph within the result pane might vary.
-However, if the data is out-of-sync anytime throughout this guide, you can follow the steps to clean out the instance at the link:/developer/manage-databases/#multidb-cleanup[bottom of this guide] and try the data load again.
+However, if the data is out-of-sync anytime throughout this guide, you can follow the steps to clean out the instance at the xref:manage-multiple-databases.adoc#multidb-cleanup[bottom of this guide] and try the data load again.
 ****
 
 That is how we expected it!

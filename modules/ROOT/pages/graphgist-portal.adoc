@@ -16,7 +16,7 @@
 
 .Prerequisites
 [abstract]
-You should have a good understanding of the Neo4j's link:/developer/get-started/graph-database#property-graph[property graph data model]. It is also helpful to know a bit about the link:/developer/cypher[Cypher query language].
+You should have a good understanding of the Neo4j's xref:graph-database.adoc#property-graph[property graph data model]. It is also helpful to know a bit about the link:/developer/cypher[Cypher query language].
 
 [role=expertise {level}]
 {level}
