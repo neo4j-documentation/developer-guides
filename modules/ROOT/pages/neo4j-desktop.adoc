@@ -43,7 +43,7 @@ Each database server managed through desktop can be configured, upgraded and mai
 You can install popular Neo4j extensions like link:/labs/apoc[APOC^] or the link:/developer/graph-data-science[Graph Data Science^] library with a single click.
 
 Similar to IDE plugins, link:/developer/graph-apps[Graph Apps^] are helper web applications that make interacting with Neo4j easier.
-They cover visualization and querying with Neo4j Browser and Bloom, import tools for relational databases, monitoring tools to query log analyzers.
+They cover visualization and querying with Neo4j Browser and Bloom, import tools for relational databases, and monitoring tools to query log analyzers.
 
 Both Neo4j Desktop as well as Graph Apps offer automatic updates.
 

@@ -19,17 +19,20 @@ You can keep an eye on what's happening by:
 [#regular-streamers]
 == Our regular streamers
 
-=== Monday - Lju
+=== Monday - Alexander & Lju
 
 image::https://miro.medium.com/fit/c/192/192/1*KfYHH6t6NEUEtbgMLFHiuw.jpeg[Ljubica Lazarevic,width="200px",float="right"]
 
-*4pm UTC (8am PST, 11am EST, 9:30pm IST)*
+image::https://pbs.twimg.com/profile_images/1269926027050057728/IVMPkcbt_400x400.jpg[Alexander Erdl,width="200px",float="right"]
 
-https://twitter.com/ellazal[Lju Lazarevic^] looks at an article from our developer newsletter, https://neo4j.com/tag/twin4j/[This Week in Neo4j^].
+*8am UTC (9am BST, 10am CEST, 1:30pm IST, 4pm SGT)*
+
+https://twitter.com/alexandererdl[Alexander Erdl^] and https://twitter.com/ellazal[Lju Lazarevic^] take requests of online data sets, figure out some questions, define a data model, load the data and query, all against https://dev.neo4j.com/discover-aura[Neo4j Aura Free tier]. Got a data set you want them to explore? Let them know! 
 
 Missed a stream? Check out the playlists:
 
-* https://www.youtube.com/watch?v=UQTBJKFEinI&list=PL9Hl4pk2FsvXfHQHBMHv3U9MmhpNc8Vqe[Article review from This Week in Neo4j^]
+* https://www.youtube.com/playlist?list=PL9Hl4pk2FsvVZaoIpfsfpdzEXxyUJlAYw[Discover Neo4j Aura Free tier^]
+* https://github.com/lju-lazarevic/discoveraurafree[Read up the code examples on the repo^]
 
 
 // === Tuesday - Adam
@@ -45,18 +48,18 @@ Missed a stream? Check out the playlists:
 // * https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
 
 
-[.clearfix]
-=== Wednesday - Florent
+//[.clearfix]
+//=== Wednesday - Florent
 
-image::https://media-exp1.licdn.com/dms/image/C4D03AQFD0qtWpX0E2Q/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=XkIWRyYlDMGy7VSdvLrCBpVoLianqpNomhefQllMcbw[Michael Hunger,width="200px",float="right"]
+//image::https://media-exp1.licdn.com/dms/image/C4D03AQFD0qtWpX0E2Q/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=XkIWRyYlDMGy7VSdvLrCBpVoLianqpNomhefQllMcbw[Michael Hunger,width="200px",float="right"]
 
-*7:30am PST, 10:30 EST, 3:30pm UTC, 4:30pm CET, 9pm IST*
+//*7:30am PST, 10:30 EST, 3:30pm UTC, 4:30pm CET, 9pm IST*
 
-https://twitter.com/fbiville[Florent Biville^] shows how to build applications based on the available drivers (HTTP, Bolt, JDBC) and Object-Graph mappers. He's currently building a https://realworld.io[realworld.io] backend in Golang with the official Neo4j driver.
+//https://twitter.com/fbiville[Florent Biville^] shows how to build applications based on the available drivers (HTTP, Bolt, JDBC) and Object-Graph mappers. He's currently building a https://realworld.io[realworld.io] backend in Golang with the official Neo4j driver.
 
-Missed a stream? Check out the main Twitch playlist:
+//Missed a stream? Check out the main Twitch playlist:
 
-* https://www.youtube.com/watch?v=8jqQM3LPyyk&list=PL9Hl4pk2FsvXjk0hrerr78pLN-477pDLo&index=70[Twitch catch-up^]
+//* https://www.youtube.com/watch?v=8jqQM3LPyyk&list=PL9Hl4pk2FsvXjk0hrerr78pLN-477pDLo&index=70[Twitch catch-up^]
 
 
 === Thursday - Will
@@ -79,53 +82,93 @@ Missed a stream? Check out the playlist:
 
 //We also host regular online meetups! Check out the schedule below:
 
-//[cols="4,2,4,2", options="header"]
-//|===
-//|Date | Presenters | Description | Sign up
-//
-//|**15 January** +
-//_7am PST, 10am EST, 3pm UTC, 4pm CET, 8:30pm IST_
-//|Guests Doulkifli Boukraa with hosts Lju Lazarevic
-//a|*NODES2020 Extended - Rescheduled*
-//
-//* Question-answering graphs: gain insights from Q&A systems like StackExchange
-//
-//a|https://twitch.tv/neo4j[On Twitch!^]
-//
-//https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
-//
-//
-//|**Coming soon 2021!** +
-//
-//|Charlotte Skardon & Lju Lazarevic
-//
-//a|*Ask me anything - .NET edition*
-//
-//Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
-//
-//a|https://twitch.tv/neo4j[On Twitch!^]
-//
-//|**Coming soon 2021!** +
-//
-//|Tom Geudens & Lju Lazarevic
-//
-//a|*Ask me anything - Architecture and deployment edition*
-//
-//Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
-//
-//a|https://twitch.tv/neo4j[On Twitch!^]
-//
-//|**Coming soon 2021!** +
-//
-//|Jesus Barrasa & Lju Lazarevic
-//
-//a|*Ask me anything - RDF Edition*
-//
-//Don't know drivers? Can't query? Determining your deployment? Starting out with a new stack? Bring your questions to our AMA sessions, and our experts will talk you through it. 
-//
-//a|https://twitch.tv/neo4j[On Twitch!^]
-//
-//|===
+[cols="4,2,4,2", options="header"]
+|===
+|Date | Presenters | Description | Sign up
+
+|**13 September** +
+_6am PST, 9am EST, 1pm UTC, 3pm CEST, 6:30pm IST_
+|Lju Lazarevic
+a|*Training Series - Hands-on with Neo4j Aura Free tier*
+
+In this hands-on session, we will cover the following:
+
+* Introduce you to graph databases
+* Cover approaches for identifying graph-shaped problems
+* Get our hands on our very first graph database experience where we will load and query data, using Neo4j Aura Free
+
+We'll also cover what resources are available, and how to continue your graph journey.
+
+a|https://twitch.tv/neo4j[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|**14 September** +
+_6am PST, 9am EST, 1pm UTC, 3pm CEST, 6:30pm IST_
+|Jennifer Reif
+a|*Training Series - Hands on Neo4j*
+
+In this hands-on session, we will cover the following:
+
+* what Aura is, what's provided with free tier, and how to access it
+* how to manage and monitor the database from the control board
+* how to import data, run queries, and interact with the database
+* how to connect to the database from other sources (like Desktop, drivers, and more)
+* (time permitting) how to access and deploy an application for the database
+
+We will also see how to find help and other information specific to using Neo4j in the cloud!
+
+a|https://twitch.tv/neo4j[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|**15 September** +
+_6am PST, 9am EST, 1pm UTC, 3pm CEST, 6:30pm IST_
+|Lju Lazarevic
+a|*Training Series - Getting started with Neo4j Bloom*
+
+In this workshop we will:
+
+* Introduce you to Neo4j Bloom and how it works
+* Show you how to create and set up a perspective
+* How to customize what you show and hide away from users
+* Get the most out of your Data Science visualizations
+
+a|https://twitch.tv/neo4j[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|**16 September** +
+_6am PST, 9am EST, 1pm UTC, 3pm CEST, 6:30pm IST_
+|William Lyon
+a|*Training Series - Build APIs with Neo4j GraphQL Library*
+
+In this hands-on session, we will cover the following:
+
+* What is GraphQL and how to build GraphQL APIs
+* Building Node.js GraphQL APIs backed by a native graph database using the Neo4j GraphQL Library
+* Adding custom logic to our GraphQL API using the @cypher schema directive and custom resolvers
+* Adding authentication and authorization rules to our GraphQL API
+* Using the Neo4j GraphQL OGM (Object Graph Mapper) for type-safe database interactions without using Cypher
+
+a|https://twitch.tv/neo4j[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|**17 September** +
+_6am PST, 9am EST, 1pm UTC, 3pm CEST, 6:30pm IST_
+|Clair Sullivan
+a|*Training Series - Create a Knowledge Graph: A Simple ML Approach*
+
+This talk will start with unstructured text and end with a knowledge graph in Neo4j using standard Python packages for Natural Language Processing. From there, we will explore what can be done with that knowledge graph using the tools available with the Graph Data Science Library.
+
+a|https://twitch.tv/neo4j[On Twitch!^]
+
+https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
+
+|===
+
+
 
 [#stream-catchup]
 == Stream catch-up and previous meetup sessions
