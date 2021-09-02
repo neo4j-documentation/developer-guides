@@ -342,10 +342,10 @@ Processing by BooksController#index as HTML
  HTTP REQUEST: 3ms GET http://localhost:7474/db/data/schema/index (0 bytes)
  Book MATCH (n:`Book`:`Asset`) RETURN n HTTP REQUEST: 5ms POST http://localhost:7474/db/data/transaction/commit (1 bytes)
 
- Book#author MATCH (previous:`Book`:`Asset`) WHERE (ID(previous) = {ID_previous}) OPTIONAL MATCH (previous)<-[rel1:`CREATED`]-(next:`User`) RETURN ID(previous), collect(next) | {:ID_previous=>4}
+ Book#author MATCH (previous:`Book`:`Asset`) WHERE (ID(previous) = $ID_previous) OPTIONAL MATCH (previous)<-[rel1:`CREATED`]-(next:`User`) RETURN ID(previous), collect(next) | {:ID_previous=>4}
  HTTP REQUEST: 5ms POST http://localhost:7474/db/data/transaction/commit (1 bytes)
 
- Book#category MATCH (previous:`Book`:`Asset`) WHERE (ID(previous) = {ID_previous}) OPTIONAL MATCH (previous)-[rel1:`HAS_CATEGORY`]->(next:`Category`) RETURN ID(previous), collect(next) | {:ID_previous=>4}
+ Book#category MATCH (previous:`Book`:`Asset`) WHERE (ID(previous) = $ID_previous) OPTIONAL MATCH (previous)-[rel1:`HAS_CATEGORY`]->(next:`Category`) RETURN ID(previous), collect(next) | {:ID_previous=>4}
  HTTP REQUEST: 4ms POST http://localhost:7474/db/data/transaction/commit (1 bytes)
   Rendered books/index.html.erb within layouts/application (32.7ms)
 Completed 200 OK in 84ms (Views: 81.5ms)
@@ -378,7 +378,7 @@ Processing by BooksController#index as HTML
  HTTP REQUEST: 5ms POST http://localhost:7474/db/data/transaction/commit (1 bytes)
  Book#author
   MATCH (previous:`Book`:`Asset`)
-  WHERE (ID(previous) = {ID_previous})
+  WHERE (ID(previous) = $ID_previous)
   OPTIONAL MATCH (previous)<-[rel1:`CREATED`]-(next:`User`)
   RETURN
     ID(previous),
@@ -386,7 +386,7 @@ Processing by BooksController#index as HTML
  HTTP REQUEST: 4ms POST http://localhost:7474/db/data/transaction/commit (1 bytes)
  Book#category
   MATCH (previous:`Book`:`Asset`)
-  WHERE (ID(previous) = {ID_previous})
+  WHERE (ID(previous) = $ID_previous)
   OPTIONAL MATCH (previous)-[rel1:`HAS_CATEGORY`]->(next:`Category`)
   RETURN
     ID(previous),
@@ -559,8 +559,8 @@ It should show you the query which was made and it should look something like:
 [source,cypher]
 ----
 MATCH (n:`Book`:`Asset`)
-MATCH n-[rel1:`HAS_CATEGORY`]->(node3:`Category`)
-MATCH node3<-[rel2:`HAS_CATEGORY`]-(result_books:`Book`:`Asset`)
+MATCH (n)-[rel1:`HAS_CATEGORY`]->(node3:`Category`)
+MATCH (node3)<-[rel2:`HAS_CATEGORY`]-(result_books:`Book`:`Asset`)
 RETURN result_books
 ----
 

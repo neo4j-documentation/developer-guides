@@ -336,7 +336,7 @@ In our Cypher query, the MATCH between customer and order becomes an OPTIONAL MA
 ----
 MATCH (c:Customer {companyName:"Drachenblut Delikatessen"})
 OPTIONAL MATCH (p:Product)<-[pu:PRODUCT]-(:Order)<-[:PURCHASED]-(c)
-RETURN p.productName, toInt(sum(pu.unitPrice * pu.quantity)) AS volume
+RETURN p.productName, toInteger(sum(pu.unitPrice * pu.quantity)) AS volume
 ORDER BY volume DESC;
 ----
 
