@@ -18,7 +18,7 @@ image::{img}neo4j-docker-image-now-in-beta-235x300.jpg[float="right"]
 This guide builds upon the basic concepts discussed in earlier guides and some knowledge of Docker.
 To better understand and utilize Neo4j with Docker, it helps to know the following:
 
-* link:/developer/get-started/graph-database/[What is a Graph Database?]
+* xref:graph-database.adoc[What is a Graph Database?]
 * https://www.docker.com/resources/what-container[Docker: What is a Container?^]
 
 You should also have downloaded https://www.docker.com/get-started[Docker^] for your appropriate operating system and be familiar with navigating it from the command line.
@@ -60,7 +60,7 @@ Using an enterprise Docker image will require you to accept the official Enterpr
 == Neo4j Configuration
 
 The Neo4j Docker image includes some basic configuration defaults that should not need adjustment for most cases.
-However, if interested, the full list of default configurations for Neo4j in Docker can be found on https://github.com/neo4j/docker-neo4j/blob/master/src/3.5/docker-entrypoint.sh[the GitHub repository^].
+However, if interested, the full list of default configurations for Neo4j in Docker can be found on https://github.com/neo4j/docker-neo4j/blob/master/docker-image-src/3.5/docker-entrypoint.sh[the GitHub repository^].
 
 By default, the Docker image exposes three ports for remote access:
 

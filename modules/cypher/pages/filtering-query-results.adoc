@@ -56,12 +56,12 @@ Both queries will do the same thing and return the same results.
 ----
 //query using equality check in the MATCH clause
 MATCH (j:Person {name: 'Jennifer'})
-RETURN j
+RETURN j;
 
 //query using equality check in the WHERE clause
 MATCH (j:Person)
 WHERE j.name = 'Jennifer'
-RETURN j
+RETURN j;
 ----
 
 [#filter-negative]
@@ -118,12 +118,12 @@ The Cypher code is written in the block below.
 //Query1: find all users who have a birthdate property
 MATCH (p:Person)
 WHERE exists(p.birthdate)
-RETURN p.name
+RETURN p.name;
 
 //Query2: find all WORKS_FOR relationships that have a startYear property
 MATCH (p:Person)-[rel:WORKS_FOR]->(c:Company)
 WHERE exists(rel.startYear)
-RETURN p, rel, c
+RETURN p, rel, c;
 ----
 
 .Query1 Results:
@@ -151,17 +151,17 @@ An example of each is in the Cypher block below.
 //check if a property starts with 'M'
 MATCH (p:Person)
 WHERE p.name STARTS WITH 'M'
-RETURN p.name
+RETURN p.name;
 
 //check if a property contains 'a'
 MATCH (p:Person)
 WHERE p.name CONTAINS 'a'
-RETURN p.name
+RETURN p.name;
 
 //check if a property ends with 'n'
 MATCH (p:Person)
 WHERE p.name ENDS WITH 'n'
-RETURN p.name
+RETURN p.name;
 ----
 
 You can also use regular expressions to test the value of strings.
@@ -206,13 +206,13 @@ The Cypher code below shows how this is done.
 //Query1: find which people are friends of someone who works for Neo4j
 MATCH (p:Person)-[r:IS_FRIENDS_WITH]->(friend:Person)
 WHERE exists((p)-[:WORKS_FOR]->(:Company {name: 'Neo4j'}))
-RETURN p, r, friend
+RETURN p, r, friend;
 
 //Query2: find Jennifer's friends who do not work for a company
 MATCH (p:Person)-[r:IS_FRIENDS_WITH]->(friend:Person)
 WHERE p.name = 'Jennifer'
 AND NOT exists((friend)-[:WORKS_FOR]->(:Company))
-RETURN friend.name
+RETURN friend.name;
 ----
 
 .Query1 Results:
@@ -236,7 +236,7 @@ We can see how this would look in Cypher by querying for people whose name start
 MATCH (p:Person)
 WHERE p.name STARTS WITH 'J'
 OPTIONAL MATCH (p)-[:WORKS_FOR]-(other:Company)
-RETURN p.name, other.name
+RETURN p.name, other.name;
 ----
 
 image::{img}cypher_filter_optMatch.jpg[role="popup-link"]
@@ -265,12 +265,12 @@ Let us look at a couple of examples.
 ----
 //Query1: find who likes graphs besides Jennifer
 MATCH (j:Person {name: 'Jennifer'})-[r:LIKES]-(graph:Technology {type: 'Graphs'})-[r2:LIKES]-(p:Person)
-RETURN p.name
+RETURN p.name;
 
 //Query2: find who likes graphs besides Jennifer that she is also friends with
 MATCH (j:Person {name: 'Jennifer'})-[:LIKES]->(:Technology {type: 'Graphs'})<-[:LIKES]-(p:Person),
       (j)-[:IS_FRIENDS_WITH]-(p)
-RETURN p.name
+RETURN p.name;
 ----
 
 .Query1 Results:

@@ -73,5 +73,5 @@ Classroom and virtual training classes:
 == Other Resources
 * http://www.opencypher.org/[openCypher project^]
 * https://neo4j.com/customers/[Neo4j Customers^]
-* link:/developer/get-started/graph-database#_what_is_neo4j[Neo4j Features^]
+* xref:graph-database.adoc[Neo4j Features^]
 * http://neo4j.com/editions/[Neo4j Editions^]

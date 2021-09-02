@@ -13,7 +13,7 @@
 
 .Prerequisites
 [abstract]
-Before importing data, you should be familiar with what a link:/developer/graph-database/[graph database] is, how to construct a link:/developer/guide-data-modeling/[property graph data model], and some basics of the link:/developer/cypher[Cypher query language].
+Before importing data, you should be familiar with what a link:/developer/graph-database/[graph database] is, how to construct a xref:guide-data-modeling.adoc[property graph data model], and some basics of the link:/developer/cypher[Cypher query language].
 All of these skills are a part of the data import process.
 
 [role=expertise {level}]
@@ -427,7 +427,7 @@ Adjusting formatting, delimiters, columns, etc. at this stage will save a great 
 *Extra or missing quotes throughout file*
 Standalone double or single quotes in the middle of non-quoted text or non-escaped quotes in quoted text can cause issues reading the file for loading.
 It is best to either escape or remove stray quotes.
-Documentation for proper escaping is in the link:/developer/cypher-style-guide/#cypher-metacharacters[Cypher style guide] and a link:/developer/kb/parsing-of-quotes-for-load-csv-and-or-import/[knowledgebase article^].
+Documentation for proper escaping is in the xref:cypher:style-guide.adoc#cypher-metacharacters[Cypher style guide] and a link:/developer/kb/parsing-of-quotes-for-load-csv-and-or-import/[knowledgebase article^].
 
 *Special or Newline characters in file*
 When dealing with any special characters in a file, ensure they are quoted or remove them.

@@ -31,9 +31,9 @@ ORDER BY movie_count DESC LIMIT 5;
 ----
 MATCH (a:Actor)-[:ACTS_IN]->(m:Movie) 
 WITH a, collect(m.title) AS movies 
-WHERE length(movies) >= 20 
+WHERE size(movies) >= 20 
 RETURN a, movies 
-ORDER BY length(movies) DESC LIMIT 10;
+ORDER BY size(movies) DESC LIMIT 10;
 ----
 //table
 
@@ -46,9 +46,9 @@ WHERE acted >= 10
 WITH a, acted 
 MATCH (a:Director)-[:DIRECTED]->(m:Movie) 
 WITH a, acted, collect(m.title) AS directed 
-WHERE length(directed) >= 2 
+WHERE size(directed) >= 2 
 RETURN a.name, acted, directed 
-ORDER BY length(directed) DESC, acted DESC;
+ORDER BY size(directed) DESC, acted DESC;
 ----
 //table
 
@@ -61,9 +61,9 @@ WHERE acted >= 10
 WITH a, acted 
 MATCH (a:Actor:Director)-[:DIRECTED]->(m:Movie) 
 WITH a, acted, collect(m.title) AS directed 
-WHERE length(directed) >= 2 
+WHERE size(directed) >= 2 
 RETURN a.name, acted, directed 
-ORDER BY length(directed) DESC, acted DESC;
+ORDER BY size(directed) DESC, acted DESC;
 ----
 //table
 
@@ -76,9 +76,9 @@ WHERE acted >= 10
 WITH a, acted 
 MATCH (a)-[:DIRECTED]->(m) 
 WITH a, acted, collect(m.title) AS directed 
-WHERE length(directed) >= 2 
+WHERE size(directed) >= 2 
 RETURN a.name, acted, directed 
-ORDER BY length(directed) DESC, acted DESC;
+ORDER BY size(directed) DESC, acted DESC;
 ----
 
 .User-Ratings

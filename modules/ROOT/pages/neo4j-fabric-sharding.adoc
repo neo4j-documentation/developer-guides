@@ -13,7 +13,7 @@
 
 .Prerequisites
 [abstract]
-If you are not familiar with graph database concepts, please read the section on link:/developer/get-started/graph-database/[graph databases].
+If you are not familiar with graph database concepts, please read the section on xref:graph-database.adoc[graph databases].
 It also helps to be familiar with the architecture of link:/docs/operations-manual/current/clustering/introduction/[database clustering in Neo4j^].
 
 [role=expertise {level}]
