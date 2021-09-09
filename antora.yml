@@ -15,7 +15,7 @@ asciidoc:
     java-driver-version: 4.3.4
     javascript-driver-version: 4.3.3
     python-driver-version: 4.3.4
-    dotnet-driver-version: 4.3.0
+    dotnet-driver-version: 4.3.2
     go-driver-version: 4.3.3
     testcontainers-version: 1.15.3
     maven-sdn: Package
