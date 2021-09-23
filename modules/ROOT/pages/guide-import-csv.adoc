@@ -94,7 +94,7 @@ For more information about access related to online file imports, see this link:
 LOAD CSV FROM 'https://data.neo4j.com/northwind/customers.csv'
 
 //Example 2 - Google
-LOAD CSV WITH HEADERS FROM 'https://docs.google.com/spreadsheets/d/<yourFilePath>'
+LOAD CSV WITH HEADERS FROM 'https://docs.google.com/spreadsheets/d/<yourFilePath>/export?format=csv'
 ----
 
 === Important Tips for LOAD CSV
