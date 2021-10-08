@@ -5,7 +5,24 @@
 :tags: resources, online-meetup, community, developer, events, training, twitch
 :page-player: https://player.twitch.tv/?channel=neo4j&muted=false&autoplay=true&parent=twitter.com&parent=cards-dev.twitter.com&parent=cards-frame.twitter.com
 
-image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[width="300px",float="right"]
+// image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[width="300px",float="right"]
+++++
+ <div id="twitch-embed"></div>
+
+    <!-- Load the Twitch embed JavaScript file -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+    <script type="text/javascript">
+      new Twitch.Embed("twitch-embed", {
+        width: 680,
+        height: 480,
+        channel: "neo4j",
+        // Only needed if this page is going to be embedded on other websites
+        // parent: ["embed.example.com", "othersite.example.com"]
+      });
+    </script>
+++++
 
 We run a variety of live streams and online meetups so that people around the world can get fresh Neo4j content. Our regular streamers cover a variety of topics at different times during the week. We also have online meetups, often with special guests!
 
@@ -19,15 +36,17 @@ You can keep an eye on what's happening by:
 [#regular-streamers]
 == Our regular streamers
 
-=== Monday - Alexander & Lju
+=== Monday -  Michael & Alexander
 
-image::https://miro.medium.com/fit/c/192/192/1*KfYHH6t6NEUEtbgMLFHiuw.jpeg[Ljubica Lazarevic,width="200px",float="right"]
+image::https://pbs.twimg.com/profile_images/792577726230237184/8ZSDZEvI_400x400.jpg[Micahel Hunger,width="200px",float="right"]
 
 image::https://pbs.twimg.com/profile_images/1269926027050057728/IVMPkcbt_400x400.jpg[Alexander Erdl,width="200px",float="right"]
 
-*8am UTC (9am BST, 10am CEST, 1:30pm IST, 4pm SGT)*
+Alternating weekly between +
+*8am UTC (9am BST, 10am CEST, 1:30pm IST, 4pm SGT)* & +
+*2pm UTC (3pm BST, 4pm CEST, 7:30pm IST, 10pm SGT)*
 
-https://twitter.com/alexandererdl[Alexander Erdl^] and https://twitter.com/ellazal[Lju Lazarevic^] take requests of online data sets, figure out some questions, define a data model, load the data and query, all against https://dev.neo4j.com/discover-aura[Neo4j Aura Free tier]. Got a data set you want them to explore? Let them know! 
+https://twitter.com/mesirii[Michael Hunger^] and https://twitter.com/alexandererdl[Alexander Erdl^] take requests of online data sets, figure out some questions, define a data model, load the data and query, all against https://dev.neo4j.com/discover-aura[Neo4j Aura Free tier]. Got a data set you want them to explore? Let them know! 
 
 Missed a stream? Check out the playlists:
 
@@ -76,7 +95,7 @@ Missed a stream? Check out the playlist:
 * https://www.youtube.com/watch?v=Hh_n9Sj692E&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=2[GRANDstack - GraphQL React Apollo Neo4j^]
 * https://www.youtube.com/watch?v=XCuknJAIX84&list=PL9Hl4pk2FsvUza4kdPSKQrcl3MGGutOe2[Building A Travel Guide With Gatsby, Neo4j, & GraphQL^]
 * https://www.youtube.com/playlist?list=PL9Hl4pk2FsvWzQCyTzbI-5HIOJNOGmd9C[Fullstack GraphQL Book Club^]
-
+////
 [#upcoming-meetups]
 == Upcoming Online Meetups
 
@@ -167,7 +186,7 @@ a|https://twitch.tv/neo4j[On Twitch!^]
 https://www.meetup.com/Neo4j-Online-Meetup[Get notified on Meetup^]
 
 |===
-
+////
 
 
 [#stream-catchup]
@@ -181,4 +200,4 @@ Missed a session? Not to worry! All of our live stream and online meetup session
 [#join-us]
 == Join us!
 
-Working on an exciting graphy problem? Building out a community driver and you want to share the word? Thinking about a theory you want to discuss? We'd love to hear about it and share your initiatives with the community. Drop a message on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup group^], and/or tweet https://twitter.com/ellazal[Lju^], and let's make it happen!
+Working on an exciting graphy problem? Building out a community driver and you want to share the word? Thinking about a theory you want to discuss? We'd love to hear about it and share your initiatives with the community. Drop a message on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup group^], and/or tweet https://twitter.com/alexandererdl[Alexander^], and let's make it happen!
