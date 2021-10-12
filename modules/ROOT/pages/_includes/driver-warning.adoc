@@ -27,7 +27,7 @@ You can https://neo4j.com/docs/migration-guide/4.0/upgrade-driver/#_configure_ss
 | `neo4j+ssc`
 | `bolt+ssc`
 
-| *https://neo4j.com/aura/[Neo4j Aura^]*
+| *https://neo4j.com/aura/[Neo4j AuraDB^]*
 | `neo4j+s`
 | N/A
 | N/A

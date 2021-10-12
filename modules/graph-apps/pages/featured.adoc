@@ -89,7 +89,7 @@ link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/
 === Neo4j Cloud Tool
 
 image:https://install.graphapp.io/images/cloud-icon.png[Neo4j Cloud Tool Logo,width=48,float=right,role=rounded]
-The Neo4j Cloud Tool provides the functionality required to load your local Neo4j Instances into a xref:ROOT:aura-cloud-dbaas.adoc[Neo4j Aura] instance.  Neo4j Aura is a fully-managed cloud database service.
+The Neo4j Cloud Tool provides the functionality required to load your local Neo4j Instances into a xref:ROOT:aura-cloud-dbaas.adoc[Neo4j AuraDB] instance.  Neo4j AuraDB is a fully-managed cloud database service.
 
 link:neo4j-desktop://graphapps/install?url=https://neo.jfrog.io/neo/api/npm/npm/neo4j-cloud-ui[Install Neo4j Cloud Tool in Neo4j Desktop, role=button]
 

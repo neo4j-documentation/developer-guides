@@ -87,7 +87,7 @@ image::{img}etl3_allow_background_procs.jpg[role="popup-link"]
 On this screen, a default project should show and the database instances in that project.
 If you do not have any graph database instances created, you will see an image like the one below.
 You will need to xref:neo4j-desktop.adoc#desktop-create-DBMS[create a graph^] before the next steps with the ETL tool.
-The ETL Tool supports local and remote instances (including link:/aura/[Neo4j Aura^]).
+The ETL Tool supports local and remote instances (including link:/aura/[Neo4j AuraDB^]).
 
 image::{img}etl_no_db_instances.jpg[role="popup-link"]
 
@@ -208,7 +208,7 @@ image::{img}etl10e_save_mapping.jpg[role="popup-link"]
 There are a couple of different ways that the ETL Tool can import data to Neo4j, depending on the status of your graph database.
 Each method has certain requirements and advantages, which are listed below.
 
-* a. If database is running (works for both local and remote instances, including Neo4j Aura) -
+* a. If database is running (works for both local and remote instances, including Neo4j AuraDB) -
 ** 1. Online Direct: runs via BOLT connection for import, turning SQL results into Cypher parameters.
 ** 2. Online Batch: uses CSV files from mapping stage to import over BOLT connection in batches.
 * b. If database is shut down -

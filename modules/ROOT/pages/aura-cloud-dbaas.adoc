@@ -1,32 +1,32 @@
-= Neo4j Aura Database-as-a-Service
+= Neo4j AuraDB Database-as-a-Service
 :author: Jennifer Reif
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, database-as-a-service, dbaas, graph-platform
 
 [#neo4j-dbaas]
-Neo4j Aura is a fully-managed cloud database developed by the same people that built Neo4j.
+Neo4j AuraDB is a fully-managed cloud database developed by the same people that built Neo4j.
 
 It is available as a link:/cloud/aura/free[FREE database^], a link:/cloud/aura/[paid professional tier^],and an link:/cloud/aura/pricing/[Enterprise service^].
 
 This guides and tutorials below will help you get started:
 
 [#get-started-aura]
-== Get Started with Neo4j Aura
+== Get Started with Neo4j AuraDB
 
-Is it your first time using Neo4j Aura?
+Is it your first time using Neo4j AuraDB?
 You've come to the right place!
 The tutorial below will guide you through signing up, creating a database, and importing your data.
 
-https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-Aura[Get started with Neo4j Aura^, role="button feature-box_button"]
+https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-AuraDB[Get started with Neo4j AuraDB^, role="button feature-box_button"]
 
 // link:/developer/create-database[Create database]
 // link:/developer/change-password[Change password]
 
 [#connecting-aura]
-== Connect to your Aura database
+== Connect to your AuraDB database
 
-If you log in to your Aura database using the Aura console, for any running database, you can simply open Neo4j Browser for that database using the *Open* button on the console.
+If you log in to your AuraDB database using the AuraDB console, for any running database, you can simply open Neo4j Browser for that database using the *Open* button on the console.
 
 Provided the database is running, you can also connect to it from a Web browser by entering this URL:
 
@@ -37,7 +37,7 @@ https://dbid.databases.neo4j.io/browser/
 Where you specify the *dbid* for your database. Neo4j Browser will connect to the database after you provide the username/password for the database.
 The default user name is `neo4j` and the password is what was generated or specified when the database was created.
 
-These tutorials explain how to connect to your Aura database from other Neo4j tools.
+These tutorials explain how to connect to your AuraDB database from other Neo4j tools.
 
 link:/developer/aura-connect-neo4j-desktop/[Connect from Neo4j Desktop] +
 link:/developer/aura-connect-cypher-shell/[Connect from Cypher Shell] +
@@ -46,48 +46,48 @@ link:/developer/aura-connect-driver/[Connect from your application]
 [#importing-data]
 == Importing data
 
-Aura considers the protection of users' data to be of paramount importance.
-There are therefore some constraints to keep in mind when using your favourite import tools to load data into an Aura database.
+AuraDB considers the protection of users' data to be of paramount importance.
+There are therefore some constraints to keep in mind when using your favourite import tools to load data into an AuraDB database.
 The guide below covers these in detail.
 
-link:/developer/aura-data-import/[Importing data into Neo4j Aura]
+link:/developer/aura-data-import/[Importing data into Neo4j AuraDB]
 
-// These tutorials show how to import data into an Aura database.
+// These tutorials show how to import data into an AuraDB database.
 
 // * link:/developer/import-existing-database[Import an existing database]
 
 // * Import from Web APIs
 
 [#deploying-applications]
-== Deploying applications to Aura
+== Deploying applications to AuraDB
 
-These tutorials explain how to build full stack applications with Aura.
+These tutorials explain how to build full stack applications with AuraDB.
 
 link:/developer/aura-grandstack/[Deploying a GRANDstack application]
 
 [#visualize-aura]
-== Visualizing your data in Aura
+== Visualizing your data in AuraDB
 
-You can use Neo4j's Bloom visualization tool to explore graph data stored in Neo4j Aura.
-Connect to an Aura database with Neo4j Bloom and run near-natural language searches to query your data and return the results in a visual way.
+You can use Neo4j's Bloom visualization tool to explore graph data stored in Neo4j AuraDB.
+Connect to an AuraDB database with Neo4j Bloom and run near-natural language searches to query your data and return the results in a visual way.
 
-link:/developer/aura-bloom/[Visualizing Neo4j Aura data with Bloom]
+link:/developer/aura-bloom/[Visualizing Neo4j AuraDB data with Bloom]
 
 [#managing-aura]
-== Manage your Aura database
+== Manage your AuraDB database
 
-You've created your Aura database, imported your data, and are now running your application against it.
+You've created your AuraDB database, imported your data, and are now running your application against it.
 Now you want to know what's happening inside the database.
 The tutorial below explains the available options for monitoring your database.
 
-link:/developer/aura-monitoring/[Monitoring your Aura database]
+link:/developer/aura-monitoring/[Monitoring your AuraDB database]
 
 [#dbaas-resources]
 == Questions?
 
-Additional guides and help are available on the https://aura.support.neo4j.com/hc/en-us[Aura support^] page.
+Additional guides and help are available on the https://aura.support.neo4j.com/hc/en-us[AuraDB support^] page.
 
-https://status.neo4j.io/[Neo4j Aura Status Page^, role="button feature-box_button"]
+https://status.neo4j.io/[Neo4j AuraDB Status Page^, role="button feature-box_button"]
 
-You can also ask questions and connect with other people launching Neo4j Aura at the
+You can also ask questions and connect with other people launching Neo4j AuraDB at the
 https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].

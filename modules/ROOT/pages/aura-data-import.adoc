@@ -1,11 +1,11 @@
-= Data Import with Neo4j Aura
+= Data Import with Neo4j AuraDB
 :level: Beginner
 :page-level: Beginner
 :author: Mark Needham
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, import, etl
-:description: In this guide, we will see how Neo4j Aura imports data differently from other Neo4j instances and how to navigate those differences.
+:description: In this guide, we will see how Neo4j AuraDB imports data differently from other Neo4j instances and how to navigate those differences.
 
 .Goals
 [abstract]
@@ -17,15 +17,15 @@
 [#aura-import]
 == Why is it different?
 
-Because Neo4j Aura is a database instance that is located and maintained in the cloud, we must take care to ensure data integrity is maintained and access is carefully granted to avoid malicious tampering.
+Because Neo4j AuraDB is a database instance that is located and maintained in the cloud, we must take care to ensure data integrity is maintained and access is carefully granted to avoid malicious tampering.
 
-To mediate these risks, Neo4j Aura has increased security and access to database-as-a-service instances.
+To mediate these risks, Neo4j AuraDB has increased security and access to database-as-a-service instances.
 While this means that malicious users cannot harm the data or infiltrate the system, it also means that certain tasks and processes may not work exactly the same as with other local or remote Neo4j databases.
 
 We will cover what those differences are, why they exist, and how to still get the data into the instance.
 
 [#import-differences-aura]
-== Import differences with Neo4j Aura
+== Import differences with Neo4j AuraDB
 
 Let's go through the differences, one at a time.
 
@@ -55,20 +55,20 @@ To find out more, check out the link:https://aura.support.neo4j.com/hc/en-us/art
 
 === APOC cannot import using local files
 
-As discussed in most of the points above, Neo4j Aura will not access local storage for protection reasons.
+As discussed in most of the points above, Neo4j AuraDB will not access local storage for protection reasons.
 We can still use APOC to access publicly accessible files or to load secure files.
 For more information, check out Andrew Jefferson's blog posts on link:https://medium.com/@aejefferson/methods-for-loading-data-into-a-remote-neo4j-instance-part-1-abea3328dedf[loading public data^] and link:https://medium.com/@aejefferson/how-to-use-cloud-storage-to-securely-load-data-into-neo4j-d97b72b2ad8f[loading secure files^] into remote instances.
 
 === Storing API credentials in the config file not available
 
 In other types of installations, users could place API credentials in the `neo4j.conf` file and reference them in Cypher statements like environment variables.
-With Neo4j Aura, however, those internal folders and files have been hidden, so this functionality must be handled in other ways.
+With Neo4j AuraDB, however, those internal folders and files have been hidden, so this functionality must be handled in other ways.
 Whether we store these credentials in a secure file on the cloud or store them as parameters in Neo4j with Cypher, we must use these best practices to avoid non-authorized users accessing private credentials or information.
 
 [#aura-help]
 == Help and Questions
 
-Helpful guides and support are available on the link:https://aura.support.neo4j.com/hc/en-us[Aura support^] pages.
+Helpful guides and support are available on the link:https://aura.support.neo4j.com/hc/en-us[AuraDB support^] pages.
 
-You can also ask questions and connect with other people launching Neo4j Aura at the
+You can also ask questions and connect with other people launching Neo4j AuraDB at the
 https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].

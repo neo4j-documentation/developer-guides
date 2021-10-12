@@ -1,11 +1,11 @@
-= Use Neo4j Bloom with Aura Database
+= Use Neo4j Bloom with AuraDB Database
 :level: Beginner
 :page-level: Beginner
 :author: Jennifer Reif
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, bloom, dbaas, visualization
-:description: We will learn how to connect Neo4j Bloom with a Neo4j cloud Aura instance.
+:description: We will learn how to connect Neo4j Bloom with a Neo4j cloud AuraDB instance.
 
 .Goals
 [abstract]
@@ -13,8 +13,8 @@
 
 .Prerequisites
 [abstract]
-We should have created and started a Neo4j Aura database instance.
-If we have not already, we can follow the instructions in the link:https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-Aura[getting started guide^] to step through the process.
+We should have created and started a Neo4j AuraDB database instance.
+If we have not already, we can follow the instructions in the link:https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-AuraDB[getting started guide^] to step through the process.
 
 [role=expertise {level}]
 {level}
@@ -27,7 +27,7 @@ Throughout this guide, we will also link to relevant sections of that guide for 
 
 ****
 [NOTE, role="strong-bloom"]
-Bloom is now available directly from Aura. *Aura supports Bloom version 1.3 and later*
+Bloom is now available directly from AuraDB. *AuraDB supports Bloom version 1.3 and later*
 ****
 
 ++++
@@ -47,7 +47,7 @@ This graph is a small data set of movie and person entities and the relationship
 Neo4j has already set up a script and guide to help users import this data into Neo4j.
 To access it, we can open a Neo4j Browser window.
 
-In the Neo4j Aura console (console.neo4j.io), choose the blue button at the right of the instance for `Open with` and choose `Neo4j Browser`.
+In the Neo4j AuraDB console (console.neo4j.io), choose the blue button at the right of the instance for `Open with` and choose `Neo4j Browser`.
 
 image::{img}aura_console_browser_1.jpg[role="popup-link"]
 
@@ -85,11 +85,11 @@ image::{img}add_indexes.jpg[role="popup-link"]
 
 Let's explore the movie data with Neo4j Bloom!
 
-First, we launch our Bloom application by clicking again on the `Open with` button on the Neo4j Aura console, selecting `Neo4j Bloom` this time.
+First, we launch our Bloom application by clicking again on the `Open with` button on the Neo4j AuraDB console, selecting `Neo4j Bloom` this time.
 
 image::{img}aura_console_browser_1.jpg[role="popup-link"]
 
-We will need to provide the username and password for our Aura instance before we can continue.
+We will need to provide the username and password for our AuraDB instance before we can continue.
 
 image::{img}aura_bloom_login.jpg[role="popup-link"]
 
@@ -138,9 +138,9 @@ To learn about more of Neo4j Bloom's capabilities, visit the link:/developer/neo
 [#aura-help]
 == Help and Questions
 
-Helpful guides and support are available on the https://aura.support.neo4j.com/hc/en-us[Aura support^] pages.
+Helpful guides and support are available on the https://aura.support.neo4j.com/hc/en-us[AuraDB support^] pages.
 
-You can also ask questions and connect with other people launching Neo4j Aura at the
+You can also ask questions and connect with other people launching Neo4j AuraDB at the
 https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].
 
 If you have questions or problems with Bloom, you can post in the dedicated https://community.neo4j.com/c/neo4j-graph-platform/neo4j-bloom/91[Bloom topic on the Community Site^].

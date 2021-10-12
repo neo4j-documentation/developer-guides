@@ -758,7 +758,7 @@ You will have to create two apps on Heroku: one for the backend and one for the 
 
 Starting with the backend, create a new app on Heroku.
 On your local machine, add the Heroku repo as a remote.
-On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j Aura (or the sandbox if you haven't migrated to Aura).
+On **Heroku > Settings > Config Vars**, add the credentials to connect to the database hosted Neo4j AuraDB (or the sandbox if you haven't migrated to AuraDB).
 
 
 Then, create another Heroku app for the front-end.

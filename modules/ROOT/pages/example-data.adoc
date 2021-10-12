@@ -15,7 +15,7 @@
 
 .Prerequisites
 [abstract]
-You should be comfortable installing Neo4j (Desktop, Docker) or using an instance in the cloud (Aura, Sandbox).
+You should be comfortable installing Neo4j (Desktop, Docker) or using an instance in the cloud (AuraDB, Sandbox).
 
 [role=expertise {level}]
 {level}

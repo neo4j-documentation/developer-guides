@@ -27,7 +27,7 @@ Start by link:/try-neo4j/?ref=developer-lp[using Neo4j Sandbox for free^].
 Alternatively:
 
 * xref:neo4j-desktop.adoc[Install Neo4j Desktop]
-* xref:aura-cloud-dbaas.adoc[Use Neo4j Aura in the Cloud]
+* xref:aura-cloud-dbaas.adoc[Use Neo4j AuraDB in the Cloud]
 * xref:docker.adoc[Run with Docker]
 * xref:graph-platform.adoc[The Neo4j Graph Platform]
 

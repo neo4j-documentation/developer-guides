@@ -13,7 +13,7 @@ We will cover how to run Neo4j in various environments, tune performance, operat
 
 [IMPORTANT]
 ====
-https://neo4j.com/cloud/aura?ref=developer-administration[Relax by running Neo4j in production on Aura.^]
+https://neo4j.com/cloud/aura?ref=developer-administration[Relax by running Neo4j in production on AuraDB.^]
 ====
 
 [#maximize-features]
@@ -52,4 +52,4 @@ Some of these guides cover information on handling different types of deployment
 - link:/docs/operations-manual/current/clustering/[Set up a Neo4j Cluster]
 
 Public and/or private cloud provider deployment options are also possible.
-Cloud-hosted offerings and how to deploy Neo4j to infrastructure or platform providers is documented and referenced in the xref:guide-cloud-deployment.adoc[cloud] and xref:aura-cloud-dbaas.adoc[Neo4j Aura] sections.
+Cloud-hosted offerings and how to deploy Neo4j to infrastructure or platform providers is documented and referenced in the xref:guide-cloud-deployment.adoc[cloud] and xref:aura-cloud-dbaas.adoc[Neo4j AuraDB] sections.

@@ -56,7 +56,7 @@ https://dev.neo4j.com/intro_to_cypher_slides[Get the pack here^]
 
 image::https://github.com/neo4j-documentation/developer-guides/blob/publish/modules/ROOT/images/coming_soon.png?raw=true[Coming Soon Image,width="200px",float="right"]
 
-A copy of our popular hands-on crash course to get people up to speed on what Neo4j is, and a walk-through, hands-on session using either Neo4j Sandbox or Neo4j Aura Free cloud database. If you want to see what this might look like, https://youtu.be/ou2st6FYxR8[check out a video here^]. 
+A copy of our popular hands-on crash course to get people up to speed on what Neo4j is, and a walk-through, hands-on session using either Neo4j Sandbox or Neo4j AuraDB Free cloud database. If you want to see what this might look like, https://youtu.be/ou2st6FYxR8[check out a video here^]. 
 
 == Do you have a talk on...?
 

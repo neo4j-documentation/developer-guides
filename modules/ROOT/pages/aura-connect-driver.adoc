@@ -1,11 +1,11 @@
-= Connect to Neo4j Aura with Neo4j Driver
+= Connect to Neo4j AuraDB with Neo4j Driver
 :level: Beginner
 :page-level: Beginner
 :author: Mark Needham
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, cypher, tools
-:description: In this page, we will learn how to connect to our Neo4j Aura database using the Neo4j Drivers.
+:description: In this page, we will learn how to connect to our Neo4j AuraDB database using the Neo4j Drivers.
 
 
 .Goals
@@ -14,8 +14,8 @@
 
 .Prerequisites
 [abstract]
-We should have created and started a Neo4j Aura database instance.
-If we have not already, we can follow the instructions in the link:https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-Aura[getting started guide^] to step through the process.
+We should have created and started a Neo4j AuraDB database instance.
+If we have not already, we can follow the instructions in the link:https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-AuraDB[getting started guide^] to step through the process.
 
 [role=expertise]
 {level}
@@ -23,13 +23,13 @@ If we have not already, we can follow the instructions in the link:https://aura.
 [#aura-db-credentials]
 == Get database credentials
 
-When using any of the language drivers, before we try to connect to our Neo4j Aura Database, we'll need three pieces of information:
+When using any of the language drivers, before we try to connect to our Neo4j AuraDB Database, we'll need three pieces of information:
 
 * Bolt URL
 * Username
 * Password
 
-If we open our https://console.neo4j.io/#databases[Neo4j Aura Console Dashboard^], we'll see a list of our databases.
+If we open our https://console.neo4j.io/#databases[Neo4j AuraDB Console Dashboard^], we'll see a list of our databases.
 
 image::{img}dbaas_database_created.png[role="popup-link"]
 
@@ -62,7 +62,7 @@ There are also guides for individual language drivers, including officially supp
 [#aura-help]
 == Help and Questions
 
-Helpful guides and support are available on the link:https://aura.support.neo4j.com/hc/en-us[Aura support^] pages.
+Helpful guides and support are available on the link:https://aura.support.neo4j.com/hc/en-us[AuraDB support^] pages.
 
-You can also ask questions and connect with other people launching Neo4j Aura at the
+You can also ask questions and connect with other people launching Neo4j AuraDB at the
 https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].

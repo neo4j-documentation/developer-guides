@@ -191,7 +191,7 @@ Many of the mentioned https://github.com/neo4j-examples?query=movies[GitHub exam
 You can either use that or follow the manual process outlined below.
 
 We want to install our application to the cloud, for instance the http://heroku.com[Heroku^] PaaS.
-You can either use the demo server mentioned above or the Neo4j Sandbox, Neo4j Aura or Cloud Marketplaces shown <<other-setups,below>>
+You can either use the demo server mentioned above or the Neo4j Sandbox, Neo4j AuraDB or Cloud Marketplaces shown <<other-setups,below>>
 
 Install the https://toolbelt.heroku.com/[Heroku Toolbelt^] and git.
 
@@ -243,9 +243,9 @@ If you want to create a new database, do so within a Desktop Project, then start
 
 The connection details will be `bolt://localhost`, username: `neo4j` and your chosen password.
 
-=== Neo4j Aura
+=== Neo4j AuraDB
 
- * Log in to https://console.neo4j.io/[Neo4j Aura].
+ * Log in to https://console.neo4j.io/[Neo4j AuraDB].
  * Proceed to the database creation page
  ** Select a region near you
  ** Pick the smallest size settings (you can always adjust them later)

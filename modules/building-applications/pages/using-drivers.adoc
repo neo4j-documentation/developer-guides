@@ -80,7 +80,7 @@ This token accepts a username (or principal) and password (or credentials).
 If you are using Kerberos, the auth token accepts a single parameter representing the Base 64 encoded token.
 
 [TIP]
-link:https://neo4j.com/aura/[Neo4j Aura] users can find their connection string in the link:https://console.neo4j.io[Neo4j Aura Console].
+link:https://neo4j.com/aura/[Neo4j AuraDB] users can find their connection string in the link:https://console.neo4j.io[Neo4j AuraDB Console].
 
 === Basic Driver Example
 
