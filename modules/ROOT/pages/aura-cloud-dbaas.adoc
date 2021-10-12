@@ -18,7 +18,7 @@ Is it your first time using Neo4j AuraDB?
 You've come to the right place!
 The tutorial below will guide you through signing up, creating a database, and importing your data.
 
-https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-AuraDB[Get started with Neo4j AuraDB^, role="button feature-box_button"]
+https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-Aura[Get started with Neo4j AuraDB^, role="button feature-box_button"]
 
 // link:/developer/create-database[Create database]
 // link:/developer/change-password[Change password]

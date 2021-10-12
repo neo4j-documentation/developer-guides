@@ -146,7 +146,7 @@
 * xref:docker.adoc[Docker &amp; Neo4j]
 ** xref:docker-run-neo4j.adoc[How-To: Run Neo4j in Docker]
 
-* xref:aura-cloud-dbaas.adoc[Neo4j AuraDB DBaaS]
+* xref:aura-cloud-dbaas.adoc[Neo4j AuraDB]
 ** xref:aura-connect-neo4j-desktop.adoc[Connect from Neo4j Desktop]
 ** xref:aura-connect-cypher-shell.adoc[Connect from Cypher Shell]
 ** xref:aura-connect-driver.adoc[Connect from your application]
