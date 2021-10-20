@@ -234,7 +234,7 @@ You might also notice that you used the
 ifndef::env-guide[]
 {cyphermanual}/clauses/merge/[`MERGE` keyword^],
 instead of
-{cyphermanual}clauses/create/[`CREATE`^].
+{cyphermanual}/clauses/create/[`CREATE`^].
 endif::[]
 ifdef::env-guide[]
 https://neo4j.com/docs/cypher-manual/current/clauses/merge/[`MERGE` keyword^],
