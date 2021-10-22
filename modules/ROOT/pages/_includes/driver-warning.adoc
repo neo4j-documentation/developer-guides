@@ -4,7 +4,7 @@
 
 From Neo4j version **4.0** and onwards, the default encryption setting is *off* by default and Neo4j will no longer generate self-signed certificates.
 This applies to default installations, installations through Neo4j Desktop and Docker images.
-You can https://neo4j.com/docs/migration-guide/4.0/upgrade-driver/#_configure_ssl_policy_for_bolt_server_and_https_server[verify the encryption level of your server^] by checking the `dbms.connector.bolt.enabled` key in `neo4j.conf`.
+You can https://neo4j.com/docs/migration-guide/current/upgrade-driver/#_configure_ssl_policy_for_bolt_server_and_https_server[verify the encryption level of your server^] by checking the `dbms.connector.bolt.enabled` key in `neo4j.conf`.
 
 // tag::table[]
 .Table Scheme Usage
@@ -35,6 +35,6 @@ You can https://neo4j.com/docs/migration-guide/4.0/upgrade-driver/#_configure_ss
 |===
 
 
-Please review your https://neo4j.com/docs/operations-manual/4.0/security/ssl-framework/[SSL Framework settings^] when going into production.
+Please review your https://neo4j.com/docs/operations-manual/current/security/ssl-framework/[SSL Framework settings^] when going into production.
 If necessary, you can also https://medium.com/neo4j/getting-certificates-for-neo4j-with-letsencrypt-a8d05c415bbd[generate certificates for Neo4j with Letsencrypt^]
 // end::table[]
