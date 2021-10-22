@@ -12,7 +12,7 @@ image::{img}graph_cluster_distant_wide.jpg[]
 [#bloom]
 [TIP]
 ====
-_Neo4j Bloom is now available for free in https://neo4j.com/download/[Neo4j Desktop^], and is also available in https://neo4j.com/cloud/aura[Neo4j Aura^]. https://neo4j.com/developer/neo4j-bloom/[This guide^] will provide more information on getting started._
+_Neo4j Bloom is now available for free in https://neo4j.com/download/[Neo4j Desktop^], and is also available in https://neo4j.com/cloud/aura[Neo4j AuraDB^]. https://neo4j.com/developer/neo4j-bloom/[This guide^] will provide more information on getting started._
 ====
 
 
@@ -173,7 +173,7 @@ Bloom is available in the following formats:
 * Neo4j Bloom local with users accessing Bloom via Neo4j Desktop (free for local database instances)
 * Neo4j Bloom server with users accessing Bloom via a web browser
 * Neo4j Bloom through the https://sandbox.neo4j.com/?usecase=bloom&ref=developer-vis-tools[sandbox^]
-* Neo4j Bloom through Neo4j Database as a Service, link:/aura/[Aura^]
+* Neo4j Bloom through Neo4j Database as a Service, link:/aura/[AuraDB^]
 * Included in link:/startup-program/[Neo4j Startup Program^]
 
 ===== Bloom Resources

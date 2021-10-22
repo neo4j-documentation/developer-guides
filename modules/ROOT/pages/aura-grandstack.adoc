@@ -1,12 +1,12 @@
 
-= Deploying a GRANDstack application to Aura
+= Deploying a GRANDstack application to AuraDB
 :level: Intermediate
 :page-level: Intermediate
 :author: Mark Needham
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, grandstack, drivers, applications, labs
-:description: In this page, we will learn how to build and deploy a GRANDstack application with Neo4j Aura.
+:description: In this page, we will learn how to build and deploy a GRANDstack application with Neo4j AuraDB.
 
 .Goals
 [abstract]
@@ -14,14 +14,14 @@
 
 .Prerequisites
 [abstract]
-We should have created and started a Neo4j Aura database instance.
+We should have created and started a Neo4j AuraDB database instance.
 If we have not already, we can follow the instructions in the link:https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-Aura[getting started guide] to step through the process.
 We should also be familiar with the https://grandstack.io/[GRANDstack^].
 
 [role=expertise {level}]
 {level}
 
-Now that we've created our Neo4j Aura database, we're going to learn how to deploy a GRANDstack application that queries data stored in that database.
+Now that we've created our Neo4j AuraDB database, we're going to learn how to deploy a GRANDstack application that queries data stored in that database.
 
 [#our-dataset]
 == The Football Transfers Graph
@@ -29,10 +29,10 @@ Now that we've created our Neo4j Aura database, we're going to learn how to depl
 We're going to deploy an application built on top of a graph containing football transfers scraped from https://www.transfermarkt.co.uk/[transfermarkt.co.uk].
 See https://medium.com/neo4j/football-transfers-graph-e8ba7347169e[Football Transfers Graph^] to learn more about the dataset.
 
-== Connect to Neo4j Aura with Neo4j Desktop
+== Connect to Neo4j AuraDB with Neo4j Desktop
 
-The first thing we need to do, in link:/developer/neo4j-desktop/[Neo4j Desktop^], is create a remote connection to our Aura database.
-See the link:/developer/aura-connect-neo4j-desktop/[Connect to Neo4j Aura with Neo4j Desktop^] guide for step by step instructions explaining how to do this.
+The first thing we need to do, in link:/developer/neo4j-desktop/[Neo4j Desktop^], is create a remote connection to our AuraDB database.
+See the link:/developer/aura-connect-neo4j-desktop/[Connect to Neo4j AuraDB with Neo4j Desktop^] guide for step by step instructions explaining how to do this.
 
 [#neo4j-cloud-tool]
 == Neo4j Cloud Tool
@@ -62,7 +62,7 @@ image::{img}grandstack-neo4j-cloud-tool-launched.png[role="popup-link"]
 We're going to use the Neo4j Cloud tool to import this dataset.
 
 Click on the `Check existing database` button.
-This will check whether our Aura database contains existing data.
+This will check whether our AuraDB database contains existing data.
 Assuming an empty database, we'll see the following screen:
 
 image::{img}grandstack-neo4j-cloud-tool-check-existing.png[role="popup-link"]
@@ -159,7 +159,7 @@ We'll need to provide the following details:
 * Username
 * Password
 
-If we open our https://console.neo4j.io/#databases[Neo4j Aura Console Dashboard^], we'll see a list of our databases.
+If we open our https://console.neo4j.io/#databases[Neo4j AuraDB Console Dashboard^], we'll see a list of our databases.
 
 image::{img}grandstack-database.png[role="popup-link"]
 
@@ -181,7 +181,7 @@ We can run the following commands to add these credentials as ZEIT secrets.
 
 [NOTE]
 ====
-Don't forget to change the credentials below to match those of your own Aura database.
+Don't forget to change the credentials below to match those of your own AuraDB database.
 Copy and pasting the credentials below won't work as that database has long since been destroyed!
 ====
 
@@ -235,9 +235,9 @@ If any of the steps don't make sense or didn't work, please let us know in the h
 [#aura-help]
 == Help and Questions
 
-Helpful guides and support are available on the link:https://aura.support.neo4j.com/hc/en-us[Aura support^] pages.
+Helpful guides and support are available on the link:https://aura.support.neo4j.com/hc/en-us[AuraDB support^] pages.
 
-You can also ask questions and connect with other people launching Neo4j Aura at the
+You can also ask questions and connect with other people launching Neo4j AuraDB at the
 https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic^] on the community site.
 
 // The most interesting part of the API is our GraphQL schema, which lives in https://github.com/mneedham/football-transfers-app/blob/master/api/src/schema.graphql[`api/src/schema.graphql`^].

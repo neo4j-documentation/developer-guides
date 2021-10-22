@@ -608,7 +608,7 @@ window.neo4jDesktopApi.requestPermission("backgroundProcess")
 // === Background Processes
 
 // There may be occasions where a Graph App may need to run a Background Process.
-// For example, the https://install.graphapp.io[Neo4j Cloud Tools^] app built by link:/labs[Neo4j Labs^] uses Java commands to run a backup of a local database and upload to the internet before running an install command on an link:/aura[Aura^] instance.
+// For example, the https://install.graphapp.io[Neo4j Cloud Tools^] app built by link:/labs[Neo4j Labs^] uses Java commands to run a backup of a local database and upload to the internet before running an install command on an link:/aura[AuraDB^] instance.
 // Background processes can be written in either Java or Node.js.
 
 // In order to run a background process, the appropriate `.jar` or `.js` file(s) must be

@@ -9,7 +9,7 @@ This section features guides and tutorials to help you understand the available 
 
 Topics include:
 
-* Deploying with Neo4j Aura
+* Deploying with Neo4j AuraDB
 * Deploying on Google Cloud Platform (GCP)
 * Deploying on Amazon EC2
 * Deploying on Microsoft Azure
@@ -17,15 +17,15 @@ Topics include:
 * Deploying on other PaaS offerings
 
 [#neo4j-aura]
-== Neo4j Aura
+== Neo4j AuraDB
 
-link:/cloud/aura/[Neo4j Aura^] is a database-as-a-service hosted by Neo4j that is designed to be flexible and highly reliable in providing graphs for any project.
+link:/cloud/aura/[Neo4j AuraDB^] is a database-as-a-service hosted by Neo4j that is designed to be flexible and highly reliable in providing graphs for any project.
 
-Whether dealing with critical business applications or 24/7 access needs, Neo4j Aura ensures it is always available.
+Whether dealing with critical business applications or 24/7 access needs, Neo4j AuraDB ensures it is always available.
 This means developers can build applications and solutions with Neo4j anytime, anywhere without the maintenance concerns of other databases or implementations.
 
-For more information, check out the link:/cloud/aura/[Aura product page^] or get help on an existing instance with our link:/developer/aura-cloud-dbaas/[Aura guides].
-Helpful guides and support are available on the https://aura.support.neo4j.com/hc/en-us[Aura support^] pages.
+For more information, check out the link:/cloud/aura/[AuraDB product page^] or get help on an existing instance with our link:/developer/aura-cloud-dbaas/[AuraDB guides].
+Helpful guides and support are available on the https://aura.support.neo4j.com/hc/en-us[AuraDB support^] pages.
 
 [#gcp-cloud]
 == Google Cloud Platform (GCP)
@@ -35,7 +35,7 @@ Alongside a set of management tools, it provides a series of modular cloud servi
 
 Running on Google Cloud provides a few options, depending on what you want to do.
 
-* Neo4j Aura is available via the https://console.cloud.google.com/marketplace/product/endpoints/prod.n4gcp.neo4j.io[official GCP Marketplace^] that allows you to subscribe, provision and bill the instances to your GCP account
+* Neo4j AuraDB is available via the https://console.cloud.google.com/marketplace/product/endpoints/prod.n4gcp.neo4j.io[official GCP Marketplace^] that allows you to subscribe, provision and bill the instances to your GCP account
 
 * Single instance - our {opsmanual}/cloud-deployments/neo4j-gcp/single-instance-vm/[Google cloud image documentation^] gives you the steps to launch a single instance from an image with a few commands and interact with the Neo4j instance.
 

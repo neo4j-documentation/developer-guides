@@ -25,7 +25,7 @@ You can perform the steps in this Tutorial in the following environments:
 
 * link:/download[download^] and install link:/developer/neo4j-desktop/[Neo4j Desktop].
 * link:/sandbox/?ref=guide-importing-data-and-etl[Start a Blank Neo4j Sandbox^]
-* link:/aura/[Use an Aura instance^]
+* link:/aura/[Use an AuraDB instance^]
 
 [role=expertise {level}]
 {level}
@@ -157,7 +157,7 @@ ifndef::env-guide[]
 When you use `LOAD CSV` to create nodes and relationships in the database, you have two options for where the CSV files reside:
 
 * In the *import* folder for the Neo4j instance that you can manage.
-* From a publicly-available location such as an S3 bucket or a github location. You must use this option if you are using Neo4j Aura or Neo4j Sandbox.
+* From a publicly-available location such as an S3 bucket or a github location. You must use this option if you are using Neo4j AuraDB or Neo4j Sandbox.
 
 If you want to use the CSV files for your Neo4j instance that you manage, you can copy the CSV files from
 link:{github}/data/northwind//northwind.zip[northwind zip from github]

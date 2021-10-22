@@ -1,10 +1,10 @@
 
-=== Deploying the Recommendations Database with Aura 
+=== Deploying the Recommendations Database with AuraDB 
 
-This section demonstrates how to deploy the Recommendations database to Aura
+This section demonstrates how to deploy the Recommendations database to AuraDB
 
 * Download the link:https://github.com/neo4j-graph-examples/recommendations/tree/main/data[Dump File]
-* Create an account on link:https://neo4j.com/cloud/aura/[Aura]
+* Create an account on link:https://neo4j.com/cloud/aura/[AuraDB]
 * Upload the dump and start the database
 
 ++++

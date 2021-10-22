@@ -146,13 +146,13 @@
 * xref:docker.adoc[Docker &amp; Neo4j]
 ** xref:docker-run-neo4j.adoc[How-To: Run Neo4j in Docker]
 
-* xref:aura-cloud-dbaas.adoc[Neo4j Aura DBaaS]
+* xref:aura-cloud-dbaas.adoc[Neo4j AuraDB]
 ** xref:aura-connect-neo4j-desktop.adoc[Connect from Neo4j Desktop]
 ** xref:aura-connect-cypher-shell.adoc[Connect from Cypher Shell]
 ** xref:aura-connect-driver.adoc[Connect from your application]
-** xref:aura-data-import.adoc[Data Import with Neo4j Aura]
-** xref:aura-grandstack.adoc[Deploying a GRANDstack application to Aura]
-** xref:aura-bloom.adoc[Bloom Visualization with Aura]
+** xref:aura-data-import.adoc[Data Import with Neo4j AuraDB]
+** xref:aura-grandstack.adoc[Deploying a GRANDstack application to AuraDB]
+** xref:aura-bloom.adoc[Bloom Visualization with AuraDB]
 ** xref:aura-monitoring.adoc[Monitoring]
 
 * xref:guide-cloud-deployment.adoc[Neo4j in the Cloud]

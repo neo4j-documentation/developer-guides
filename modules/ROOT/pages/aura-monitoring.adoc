@@ -1,11 +1,11 @@
-= Monitoring a Neo4j Aura Database
+= Monitoring a Neo4j AuraDB Database
 :level: Intermediate
 :page-level: Intermediate
 :author: Mark Needham
 :neo4j-versions: 3.5
 :category: cloud
 :tags: aura, dbaas, monitoring, operations
-:description: In this page, we will learn how to monitor our Neo4j Aura database.
+:description: In this page, we will learn how to monitor our Neo4j AuraDB database.
 
 .Goals
 [abstract]
@@ -13,25 +13,25 @@
 
 .Prerequisites
 [abstract]
-We should have created and started a Neo4j Aura database instance.
+We should have created and started a Neo4j AuraDB database instance.
 If we have not already, we can follow the instructions in the link:https://aura.support.neo4j.com/hc/en-us/articles/360037562253-Working-with-Neo4j-Aura[getting started guide] to step through the process.
 
 [role=expertise {level}]
 {level}
 
-Now that we've created our Neo4j Aura database, we're going to learn how to monitor it.
+Now that we've created our Neo4j AuraDB database, we're going to learn how to monitor it.
 
 [#aura-status]
 == Status Page
 
-Like every proper cloud service, Neo4j Aura also has a status page, that gives you a quick overview on the availability and operability of the overall service.
+Like every proper cloud service, Neo4j AuraDB also has a status page, that gives you a quick overview on the availability and operability of the overall service.
 
-https://status.neo4j.io/[Neo4j Aura Status Page^, role="button feature-box_button"]
+https://status.neo4j.io/[Neo4j AuraDB Status Page^, role="button feature-box_button"]
 
 [#aura-metrics]
 == Built-in metrics
 
-If we open our https://console.neo4j.io/#databases[Neo4j Aura Console Dashboard^], we'll see a list of our databases.
+If we open our https://console.neo4j.io/#databases[Neo4j AuraDB Console Dashboard^], we'll see a list of our databases.
 
 
 image::{img}dbaas_database_created.png[role="popup-link"]
@@ -45,7 +45,7 @@ Once we've clicked this button, we'll see the following screen, which gives us a
 
 image::{img}dbaas_database_overview.png[role="popup-link"]
 
-These metrics should be sufficient for understanding what's happening in the Aura database, but if you think that there's something missing don't hesitate to https://aura.support.neo4j.com/hc/en-us/requests/new[submit a support ticket^] and our team will be happy to help.
+These metrics should be sufficient for understanding what's happening in the AuraDB database, but if you think that there's something missing don't hesitate to https://aura.support.neo4j.com/hc/en-us/requests/new[submit a support ticket^] and our team will be happy to help.
 
 // == Halin
 //
@@ -108,7 +108,7 @@ These metrics should be sufficient for understanding what's happening in the Aur
 [#aura-help]
 == Help and Questions
 
-Helpful guides and support are available on the link:https://aura.support.neo4j.com/hc/en-us[Aura support^] pages.
+Helpful guides and support are available on the link:https://aura.support.neo4j.com/hc/en-us[AuraDB support^] pages.
 
-You can also ask questions and connect with other people launching Neo4j Aura at the
+You can also ask questions and connect with other people launching Neo4j AuraDB at the
 https://community.neo4j.com/c/neo4j-graph-platform/cloud[cloud topic on the Community Site^].

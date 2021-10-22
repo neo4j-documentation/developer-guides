@@ -42,11 +42,11 @@ Alternating weekly between +
 *8am UTC (9am BST, 10am CEST, 1:30pm IST, 4pm SGT)* & +
 *2pm UTC (3pm BST, 4pm CEST, 7:30pm IST, 10pm SGT)*
 
-https://twitter.com/mesirii[Michael Hunger^] and https://twitter.com/alexandererdl[Alexander Erdl^] take requests of online data sets, figure out some questions, define a data model, load the data and query, all against https://dev.neo4j.com/discover-aura[Neo4j Aura Free tier]. Got a data set you want them to explore? Let them know! 
+https://twitter.com/mesirii[Michael Hunger^] and https://twitter.com/alexandererdl[Alexander Erdl^] take requests of online data sets, figure out some questions, define a data model, load the data and query, all against https://dev.neo4j.com/discover-aura[Neo4j AuraDB Free tier]. Got a data set you want them to explore? Let them know! 
 
 Missed a stream? Check out the playlists:
 
-* https://www.youtube.com/playlist?list=PL9Hl4pk2FsvVZaoIpfsfpdzEXxyUJlAYw[Discover Neo4j Aura Free tier^]
+* https://www.youtube.com/playlist?list=PL9Hl4pk2FsvVZaoIpfsfpdzEXxyUJlAYw[Discover Neo4j AuraDB Free tier^]
 * https://github.com/lju-lazarevic/discoveraurafree[Read up the code examples on the repo^]
 
 
@@ -104,13 +104,13 @@ Missed a stream? Check out the playlist:
 |**13 September** +
 _6am PST, 9am EST, 1pm UTC, 3pm CEST, 6:30pm IST_
 |Lju Lazarevic
-a|*Training Series - Hands-on with Neo4j Aura Free tier*
+a|*Training Series - Hands-on with Neo4j AuraDB Free tier*
 
 In this hands-on session, we will cover the following:
 
 * Introduce you to graph databases
 * Cover approaches for identifying graph-shaped problems
-* Get our hands on our very first graph database experience where we will load and query data, using Neo4j Aura Free
+* Get our hands on our very first graph database experience where we will load and query data, using Neo4j AuraDB Free
 
 We'll also cover what resources are available, and how to continue your graph journey.
 
@@ -125,7 +125,7 @@ a|*Training Series - Hands on Neo4j*
 
 In this hands-on session, we will cover the following:
 
-* what Aura is, what's provided with free tier, and how to access it
+* what AuraDB is, what's provided with free tier, and how to access it
 * how to manage and monitor the database from the control board
 * how to import data, run queries, and interact with the database
 * how to connect to the database from other sources (like Desktop, drivers, and more)
