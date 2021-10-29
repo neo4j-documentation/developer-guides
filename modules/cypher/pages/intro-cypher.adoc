@@ -177,7 +177,7 @@ For example, let us look at the relationship types from our example graph.
 
 Just as we did with nodes, if we want to refer to a relationship later in a query, we can give it a variable like `[r]` or `[rel]`.
 We can also use longer, more expressive variable names like `[likes]` or `[knows]`.
-If you do not need to reference the relationship later, you can specify an anonymous relationship using two dashes `+--+, +-->+, +<--+`.
+If you do not need to reference the relationship later, you can specify an anonymous relationship using two dashes `+--+`, `+-->+`, `+<--+`.
 
 As an example, you could use either `+-[rel]->+` or `+-[rel:LIKES]->+` and call the `rel` variable later in your query to reference the relationship and its details.
 
