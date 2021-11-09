@@ -13,10 +13,10 @@ asciidoc:
     spring-boot-version: 2.5.0
     spring-data-neo4j-version: 6.1.1
     java-driver-version: 4.3.5
-    javascript-driver-version: 4.3.4
+    javascript-driver-version: 4.4.0
     dotnet-driver-version: 4.3.2
-    python-driver-version: 4.3.6
     go-driver-version: 4.4.0
+    python-driver-version: 4.4.0
     testcontainers-version: 1.15.3
     maven-sdn: Package
     maven-artifact-info: https://search.maven.org/artifact/org.neo4j.driver/neo4j-java-driver/{java-driver-version}/jar
