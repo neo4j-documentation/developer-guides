@@ -15,8 +15,8 @@ asciidoc:
     java-driver-version: 4.3.5
     javascript-driver-version: 4.4.0
     dotnet-driver-version: 4.3.2
+    go-driver-version: 4.4.0
     python-driver-version: 4.4.0
-    go-driver-version: 4.3.3
     testcontainers-version: 1.15.3
     maven-sdn: Package
     maven-artifact-info: https://search.maven.org/artifact/org.neo4j.driver/neo4j-java-driver/{java-driver-version}/jar
