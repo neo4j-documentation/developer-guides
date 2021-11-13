@@ -25,23 +25,23 @@ If we have not already, we can follow the instructions in the link:https://aura.
 
 When using any of the language drivers, before we try to connect to our Neo4j AuraDB Database, we'll need three pieces of information:
 
-* Bolt URL
+* Neo4j URL
 * Username
 * Password
 
 If we open our https://console.neo4j.io/#databases[Neo4j AuraDB Console Dashboard^], we'll see a list of our databases.
 
-image::{img}dbaas_database_created.png[role="popup-link"]
+image::{img}dbaas_database_created_4.png[role="popup-link"]
 
-We'll need to use the Bolt URL, so let's copy that onto our clipboard:
+We'll need to use the Neo4j connection URL, so let's copy that onto our clipboard:
 
-image::{img}dbaas_database_created_highlight_browser.png[role="popup-link"]
+image::{img}dbaas_database_created_4_highlight_browser.png[role="popup-link"]
 
 The default username is `neo4j` and the default password is generated on database creation.
 
 For the database described above we'd have the following credentials:
 
-* Bolt URL - `bolt+routing://178c6768.databases.neo4j.io`
+* Bolt URL - `neo4j+s://178c6768.databases.neo4j.io`
 * Username - `neo4j`
 * Password - `our-super-secret-password`
 
