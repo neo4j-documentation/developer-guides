@@ -21,10 +21,10 @@ These introductory tutorials and developer guides were written to guide you thro
 Getting started with Neo4j is easy.
 Take your first steps to become an expert Neo4j developer.
 
-1. link:/download/[Install Neo4j^] or link:/sandbox/?ref=developer-start[Start a Sandbox Online^]
-2. link:/developer/cypher/[Learn to Create and Query Data with Cypher^]
+1. link:/sandbox/?ref=developer-start[Start Exploring in an Online Sandbox^]
+2. link:https://graphacademy.neo4j.com[Learn to Create and Query Data with Cypher^]
 3. link:/developer/guide-importing-data-and-etl/[Import Your Data^]
-4. link:/developer/language-guides/[Build an Application^]
+4. link:/developer/language-guides/[Build an Application^] and host it on link:/cloud/aura[Neo4j AuraDB Free^]
 5. Get Help on our https://community.neo4j.com[Neo4j Online Community^]
 
 [#guide-overview]
