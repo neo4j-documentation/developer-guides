@@ -14,6 +14,8 @@ This guides and tutorials below will help you get started:
 [#get-started-aura]
 == Get Started with Neo4j AuraDB
 
+video::1Ee242FDFcc[youtube]
+
 Is it your first time using Neo4j AuraDB?
 You've come to the right place!
 The tutorial below will guide you through signing up, creating a database, and importing your data.
