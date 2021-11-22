@@ -67,7 +67,7 @@ That looks as we expected.
 Now let's add another database to the list.
 
 [#create-new-db]
-== Creating a new database
+== Creating a new database (Enterprise only)
 
 To add a database to our instance, we can use the `CREATE DATABASE` command.
 We are going to use an example called `movieGraph`, but you could choose any name for the database.
