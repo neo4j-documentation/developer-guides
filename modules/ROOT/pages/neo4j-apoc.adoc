@@ -179,7 +179,7 @@ Issues will be prioritized and included in future releases of the APOC library.
 
 [#apoc-resources]
 == Resources
-* https://neo4j.com/docs/labs/apoc/current/[APOC Documentation^]
+* https://neo4j.com/labs/apoc/4.3/[APOC Documentation^]
 * https://medium.com/neo4j/explore-new-worlds-adding-plugins-to-neo4j-26e6a8e5d37e[Installing Plugins: Blog post^]
 * https://www.youtube.com/watch?v=V1DTBjetIfk&list=PL9Hl4pk2FsvXEww23lDX_owoKoqqBQpdq[YouTube: APOC Video Series^]
 * https://www.adamcowley.co.uk/neo4j/temporal-native-dates/[Date/Time Functionality: Adam's blog post^]
