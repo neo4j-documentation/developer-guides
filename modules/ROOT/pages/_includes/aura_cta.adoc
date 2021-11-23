@@ -1,0 +1,10 @@
+[#cta]
+ifdef::cta-header[]
+.{cta-header}
+endif::[]
+ifndef::cta-header[]
+.The Fastest Path to Graph
+endif::[]
+Free forever, no credit card required.
+
+link:https://neo4j.com/cloud/aura/?ref=developer-guides[Start on AuraDB,role=button]
