@@ -1,13 +1,14 @@
-= Neo4j AuraDB Database-as-a-Service
+= Neo4j AuraDB
 :author: Jennifer Reif
-:neo4j-versions: 3.5
+:neo4j-versions: 4.0
 :category: cloud
-:tags: aura, database-as-a-service, dbaas, graph-platform
+:tags: aura, auradb, database-as-a-service, dbaas, graph-platform
 
 [#neo4j-dbaas]
 Neo4j AuraDB is a fully-managed cloud database developed by the same people that built Neo4j.
 
-It is available as a link:/cloud/aura/free[FREE database^], a link:/cloud/aura/[paid professional tier^],and an link:/cloud/aura/pricing/[Enterprise service^].
+:cta-header: The Fastest Way to get Started with Graphs
+include::./_includes/aura_cta.adoc[]
 
 This guides and tutorials below will help you get started:
 
