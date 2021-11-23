@@ -46,6 +46,8 @@ Before you begin to write adhoc functions for your application, be sure check AP
 [#installing-apoc]
 == Installing the APOC Library
 
+If you're using link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB] congratulations, you're already done with this section.  APOC core functions are already built in.  The rest of this section is for users who run Neo4j in a self-managed mode.
+
 If you haven't already, http://neo4j.org/download/[download] Neo4j and use the provided instructions (shown when downloading) to get a project and database ready to run.
 Once you have a project and database to work within, there are two ways you can install APOC.
 
