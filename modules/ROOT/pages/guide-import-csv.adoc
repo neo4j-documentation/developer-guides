@@ -69,7 +69,8 @@ More information is in the manual page on link:/docs/operations-manual/3.5/tools
 `LOAD CSV` can handle local and remote files, and there is some syntax associated with each.
 This can be an easy thing to miss and end up with an access error, so we will try to clarify the rules here.
 
-*Local files* may be loaded using a `file:///` prefix before the file name.  Because link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB] is cloud based, this local file approach will not work with AuraDB and only with Community Edition or Enterprise Edition.
+*Local files* may be loaded using a `file:///` prefix before the file name.  +
+Because link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB] is cloud based, this local file approach will not work with AuraDB and only local installations.
 
 Neo4j security has a default setting that local files can only be read from the Neo4j import directory, which is different based on your operating system.
 File locations for each OS are listed in our {opsmanual}/configuration/file-locations[Neo4j Operations Manual^].
