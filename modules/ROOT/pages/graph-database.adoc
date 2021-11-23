@@ -11,23 +11,23 @@
 {level}
 
 [#what-is-graphdb]
-Very simply, a graph database is a database designed to treat the relationships between data as equally important to the data itself.
-It is intended to hold data without constricting it to a pre-defined model.
-Instead, the data is stored like we first draw it out - showing how each individual entity connects with or is related to others.
+A graph database is a database that stores nodes and relationships instead of tables, or documents.  Graph databases treat the relationships between data as equally important to the data itself.
+They hold data without restricting it to a pre-defined model, and allow a very flexible way of thinking about and using data.
+
+image:{img}graph-example.png[role="popup-link"]
 
 [#why-graphdb]
 == Why Graph Databases?
 
-We live in a connected world!
-There are no isolated pieces of information, but rich, connected domains all around us.
-Only a database that natively embraces relationships is able to store, process, and query connections efficiently.
-While other databases compute relationships at query time through expensive JOIN operations, a graph database stores connections alongside the data in the model.
+We live in a connected world, and understanding most domains requires processing rich sets of connections to understand what's really happening.
 
-Accessing nodes and relationships in a native graph database is an efficient, constant-time operation and allows you to quickly traverse millions of connections per second per core.
+Existing relational and document databases tend to navigate these relationships with expensive JOIN operations or cross-lookups.  In a graph database, there
+are no JOINs or lookups, because relationships are stored natively right along with the data elements (the nodes).  Accessing information in a native graph
+database is fast, and allows you to traverse millions of connections per second, per core.
 
-Independent of the total size of your dataset, graph databases excel at managing highly-connected data and complex queries.
-With only a pattern and a set of starting points, graph databases explore the neighboring data around those initial starting points -- collecting and aggregating information from millions of nodes and relationships -- and leaving any data outside the search perimeter untouched.
-
+This works for both simple and complex datasets, and even those whose structure is evolving.  Many modern data problems involve navigating deep hierarchies,
+finding hidden connections between distant items, and discovering inter-relationships between data items.  All of these kinds of questions are _about the relationships_
+rather than about the individual data elements, and they're a perfect fit for graph databases.
 
 [#property-graph]
 == The Property Graph Model
