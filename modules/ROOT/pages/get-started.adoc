@@ -18,10 +18,10 @@ These introductory tutorials and developer guides were written to guide you thro
 [#first-steps]
 == Your First Steps
 
-Getting started with Neo4j is easy.
-Take your first steps to become an expert Neo4j developer.
+:cta-header: Take your first steps to become an expert Neo4j developer
+include::./_includes/aura_cta.adoc[]
 
-1. link:/sandbox/?ref=developer-start[Start Exploring in an Online Sandbox^]
+1. Create an AuraDB Free instance
 2. link:https://graphacademy.neo4j.com[Learn to Create and Query Data with Cypher^]
 3. link:/developer/guide-importing-data-and-etl/[Import Your Data^]
 4. link:/developer/language-guides/[Build an Application^] and host it on link:/cloud/aura[Neo4j AuraDB Free^]

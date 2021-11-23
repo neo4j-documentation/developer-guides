@@ -28,6 +28,8 @@ Accessing nodes and relationships in a native graph database is an efficient, co
 Independent of the total size of your dataset, graph databases excel at managing highly-connected data and complex queries.
 With only a pattern and a set of starting points, graph databases explore the neighboring data around those initial starting points -- collecting and aggregating information from millions of nodes and relationships -- and leaving any data outside the search perimeter untouched.
 
+:cta-header: Experience Graph Databases
+include::./_includes/aura_cta.adoc[]
 
 [#property-graph]
 == The Property Graph Model

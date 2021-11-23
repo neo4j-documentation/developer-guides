@@ -33,9 +33,9 @@ The option you choose will depend on the data set size, as well as your degree o
 
 Let us see some of the ways Neo4j can read and import CSV files.
 
-1. `LOAD CSV` Cypher command: this command is a great starting point and handles small- to medium-sized data sets (up to 10 million records).
-2. `neo4j-admin` bulk import tool: command line tool useful for straightforward loading of large data sets.
-3. Kettle import tool: maps and executes steps for the data process flow and works well for very large data sets, especially if developers are already familiar with using this tool.
+1. `LOAD CSV` Cypher command: this command is a great starting point and handles small- to medium-sized data sets (up to 10 million records).  _Works with any, including AuraDB._
+2. `neo4j-admin` bulk import tool: command line tool useful for straightforward loading of large data sets.  _Works with Neo4j Community Edition, Enterprise Edition._
+3. Kettle import tool: maps and executes steps for the data process flow and works well for very large data sets, especially if developers are already familiar with using this tool.  _Works with any, including AuraDB._
 
 We will take a brief view of each one of these tools, how they operate, and how to get started with a general use case.
 More documentation and information for each will also be included for help on more complex scenarios.
@@ -55,6 +55,9 @@ It is simple to use and widely applicable.
 * Supports complex computations
 * Creates or merges entities, relationships, and structure
 
+:cta-header: Try it out on AuraDB
+include::./_includes/aura_cta.adoc[]
+
 --
 [NOTE]
 For better control, you can run `LOAD CSV` commands with `cypher-shell` instead of in the browser.
@@ -66,7 +69,8 @@ More information is in the manual page on link:/docs/operations-manual/3.5/tools
 `LOAD CSV` can handle local and remote files, and there is some syntax associated with each.
 This can be an easy thing to miss and end up with an access error, so we will try to clarify the rules here.
 
-*Local files* are referenced with a `file:///` prefix before the file name.
+*Local files* may be loaded using a `file:///` prefix before the file name.  Because link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB] is cloud based, this local file approach will not work with AuraDB and only with Community Edition or Enterprise Edition.
+
 Neo4j security has a default setting that local files can only be read from the Neo4j import directory, which is different based on your operating system.
 File locations for each OS are listed in our {opsmanual}/configuration/file-locations[Neo4j Operations Manual^].
 We recommend putting files in Neo4j's _import_ directory, as it keeps the environment secure.
@@ -101,7 +105,6 @@ LOAD CSV WITH HEADERS FROM 'https://docs.google.com/spreadsheets/d/<yourFilePath
 
 There are a few things to keep in mind with `LOAD CSV` and a few helpful tips for handling the variety of data scenarios you are likely to encounter.
 
-* Newer versions of Neo4j will most likely be faster due to continued optimization.
 * All data from the CSV file is read as a string, so you need to use `toInteger()`, `toFloat()`, `split()` or similar functions to convert values.
 * Check your Cypher import statement for typos. Labels, property names, relationship-types, and variables are *case-sensitive*.
 * The cleaner the data, the easier the load. Try to handle complex cleanup/manipulation before load.

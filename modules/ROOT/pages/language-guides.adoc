@@ -11,11 +11,14 @@ Neo4j *officially supports the drivers for .Net, Java, JavaScript, Go, and Pytho
 Our community contributors provide drivers for all major programming languages for all protocols and APIs.
 In this section, we provide an introduction and a consistent example application for several languages and Neo4j drivers.
 
+:cta-header: Don't Have a Neo4j Instance?  Launch one now.
+include::./_includes/aura_cta.adoc[]
+
 [#connect-neo4j]
 == How to connect to Neo4j?
 
-If you've link:/download/[installed] and started Neo4j as a server on your system,
-you can already work interactively with the database via the built-in Neo4j Browser application on http://localhost:7474[localhost:7474].
+If you've created an AuraDB instance, or link:/download/[installed] and started Neo4j as a server on your system,
+you can already work interactively with the database via the built-in Neo4j Browser, which you will find in the AuraDB console, or if you're running locally, on http://localhost:7474[localhost:7474].
 
 To build an application, you want to connect to Neo4j from your technology stack.
 Fortunately it is very easy using a driver which connects to Neo4j via Bolt or Http.
@@ -69,6 +72,11 @@ link:/developer/example-project/[Read More^]
 
 [#http-api]
 == Using the HTTP API
+
+[NOTE]
+--
+The HTTP API is available in Community Edition and Enterprise Edition, but not in AuraDB
+--
 
 If you want to access Neo4j programmatically, you can also use the HTTP-API, which allow you to:
 
