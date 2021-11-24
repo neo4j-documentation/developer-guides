@@ -25,7 +25,10 @@ Existing relational and document databases tend to navigate these relationships 
 are no JOINs or lookups, because relationships are stored natively right along with the data elements (the nodes).  Accessing information in a native graph
 database is fast, and allows you to traverse millions of connections per second, per core.
 
-This works for both simple and complex datasets, and even those whose structure is evolving.  Many modern data problems involve navigating deep hierarchies,
+:cta-header: Experience Graph Databases
+include::./_includes/aura_cta.adoc[]
+
+Many modern data problems involve navigating deep hierarchies,
 finding hidden connections between distant items, and discovering inter-relationships between data items.  All of these kinds of questions are _about the relationships_
 rather than about the individual data elements, and they're a perfect fit for graph databases.
 

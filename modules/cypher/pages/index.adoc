@@ -25,6 +25,10 @@ It is backed by several companies in the database industry and allows implemento
 
 These developer guides and tutorials show you how to construct queries in Cypher to store and retrieve data from Neo4j.
 There are a variety of ways to learn Cypher.
+
+:cta-header: Learn by Doing
+include::ROOT:page$_includes/aura_cta.adoc[]
+
 Feel free to check out our other Cypher learning tools, as well!
 
 * link:/events/world/training/[Cypher Classroom training^]

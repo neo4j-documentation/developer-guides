@@ -23,18 +23,19 @@ When developing with Neo4j, please use Java 8 or 11 and your favorite IDE.
 
 image::{img}java.jpg[float=right,width=200]
 
-Neo4j offers a rich set of integration possibilities for developers using Java or other JVM-languages.
+:cta-header: The Fastest Way to get Started with Java & Graphs
+include::./_includes/aura_cta.adoc[]
 
-The standalone Neo4j Server can be installed on any machine and then accessed via its *binary "Bolt" protocol* through our official driver or any bolt-enabled drivers.
+Alternatively, Neo4j can be installed on any system and then accessed via its bolt APIs. We recommend the official driver for Java for any JVM language.
 
-You can also extend Neo4j by implementing *user defined procedures for Cypher* in Java or other JVM languages.
+For Community Edition and Enterprise Edition, you can also extend Neo4j by implementing *user defined procedures for Cypher* in Java or other JVM languages.
 
-****
-[NOTE]
-Please note the minimum version compatibilities: +
-Neo4j Server 3.x - Java 8 +
-Neo4j Server 4.x - Java 11
-****
+// ****
+// [NOTE]
+// Please note the minimum version compatibilities: +
+// Neo4j Server 3.x - Java 8 +
+// Neo4j Server 4.x - Java 11
+// ****
 
 include::./_includes/sample_project.adoc[]
 

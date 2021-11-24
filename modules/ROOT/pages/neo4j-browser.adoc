@@ -16,13 +16,11 @@
 
 .Prerequisites
 [abstract]
-Please have link:/download[Neo4j^] downloaded and installed.
+Please launch an link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB Instance] or have link:/download[Neo4j^] downloaded and installed.
 It also helps if you have read the section on xref:graph-database.adoc[graph databases^].
 
 [role=expertise {level}]
 {level}
-
-NOTE: There is now an official https://neo4j.com/docs/browser-manual/current/[Neo4j Browser Manual^] and also the option to https://neo4j-browser.canny.io/feature-requests[send feature requests^] and https://neo4j-browser.canny.io/changelog[read the change-log^].
 
 ++++
 <div class="responsive-embed">
@@ -293,6 +291,7 @@ See the link:/developer/language-guides/[Language Guides] section for more infor
 
 [#browser-resources]
 == Resources
-* link:/sandbox/?ref=developer-browser[Neo4j Sandbox^]
-* http://gist.neo4j.org/[GraphGists: Neo4j Use Case Examples^]
-* https://www.youtube.com/neo4j[Neo4j YouTube Channel^]
+
+* https://neo4j.com/docs/browser-manual/current/[Neo4j Browser Manual^]
+* https://neo4j-browser.canny.io/feature-requests[Send Neo4j Browser feature requests^]
+* https://neo4j-browser.canny.io/changelog[Neo4j Browser change-log^]

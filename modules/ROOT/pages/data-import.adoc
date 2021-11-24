@@ -19,7 +19,7 @@ The `LOAD CSV` command in Cypher allows us to specify a filepath, headers or not
 
 We will walk through the details of how to take any CSV file and import the data into Neo4j easily and quickly.
 
-link:/developer/guide-import-csv/[Import CSV Files] +
+link:/developer/guide-import-csv/[Import CSV from any URL] +
 link:/developer/desktop-csv-import/[Neo4j Desktop: Import CSV Files]
 
 [#import-api]

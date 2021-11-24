@@ -14,7 +14,7 @@ The library provides convenient access to Neo4j including object mapping, Spring
 .Prerequisites
 [abstract]
 * Familiarity with xref:graph-database.adoc[graph database] concepts and the xref:graph-database.adoc#property-graph[property graph model].
-* link:/download/[Installation of Neo4j^] and familiarity with the link:/developer/cypher-query-language[Cypher query language]
+* link:https://neo4j.com/cloud/aura/?ref=developer-guides[Create an AuraDB Free instance] and familiarity with the link:/developer/cypher-query-language[Cypher query language]
 * Some knowledge/experience with Spring.
 Knowing https://projects.spring.io/spring-data/[Spring Data^] and https://projects.spring.io/spring-boot/[Spring Boot^] are both great additions to your toolbox, as well.
 * For this library, please use JDK 11 or later and your favorite IDE.
@@ -141,7 +141,7 @@ We can find the `application.properties` file and configure what we need.
 
 [source,properties]
 ----
-spring.neo4j.uri=neo4j://localhost:7687
+spring.neo4j.uri=neo4j+s://abcd.databases.neo4j.io
 spring.neo4j.authentication.username=neo4j
 spring.neo4j.authentication.password=secret
 ----
