@@ -11,64 +11,59 @@
 {level}
 
 [#what-is-graphdb]
-A graph database is a database that stores nodes and relationships instead of tables, or documents.  Graph databases treat the relationships between data as equally important to the data itself.
-They hold data without restricting it to a pre-defined model, and allow a very flexible way of thinking about and using data.
+A graph database stores nodes and relationships instead of tables, or documents.  Data is stored much as you might sketch a set of ideas on a whiteboard.  This helps store data without restricting it to a pre-defined model, allowing a very flexible way of thinking about and using your data.
 
 image:{img}graph-example.png[role="popup-link"]
 
 [#why-graphdb]
 == Why Graph Databases?
 
-We live in a connected world, and understanding most domains requires processing rich sets of connections to understand what's really happening.
+We live in a connected world, and understanding most domains requires processing rich sets of connections to understand what's really happening. Often, we find that the connections between itms are as important as the items themselves, and graphs are ideally suited. 
 
-Existing relational and document databases tend to navigate these relationships with expensive JOIN operations or cross-lookups.  In a graph database, there
-are no JOINs or lookups, because relationships are stored natively right along with the data elements (the nodes).  Accessing information in a native graph
-database is fast, and allows you to traverse millions of connections per second, per core.
+How else do people do this today?  Existing relational and document databases store these relationships, and navigate them with expensive JOIN operations or cross-lookups.  In a graph database, there simply are no JOINs or lookups. Relationships are stored natively right along with the data elements (the nodes).  Graphs are optimized for travesing through data quickly; millions of connections per second, per core.
 
 :cta-header: Experience Graph Databases
 include::./_includes/aura_cta.adoc[]
 
-Many modern data problems involve navigating deep hierarchies,
-finding hidden connections between distant items, and discovering inter-relationships between data items.  All of these kinds of questions are _about the relationships_
-rather than about the individual data elements, and they're a perfect fit for graph databases.
+// TODO: not ready yet but this point here is where we would introduce the "graph problem problem" of the key technical challenges graphs solve, and link to the main developer page when it's ready.
+And you'll find this is a very common problem.  Many modern data problems involve navigating deep hierarchies,
+finding hidden connections between distant items, and discovering inter-relationships between data items.  Social networks, payment networks, roads...you'll find that everything is an interconnected graph of relationships.  And when we want to ask questions about the real world, many questions are _about the relationships_ rather than about the individual data elements.
 
 [#property-graph]
 == The Property Graph Model
 
-As with most technologies, there are few different approaches to what makes up the key components of a graph database.
-One such approach is the property graph model, where data is organized as nodes, relationships, and properties (data stored on the nodes or relationships).
+In Neo4j, information is organized as nodes, relationships, and properties.
 
-We will cover this model in more detail in the link:/developer/data-modeling/[Data Modeling section] of these guides, but for now, we will briefly define the components that make up the property graph model.
+.Building blocks of the property graph model
+image:{img}sample-cypher.png[role="popup-link"]
 
 *_Nodes_* are the entities in the graph.
-They can hold any number of attributes (key-value pairs) called _properties_.
-Nodes can be tagged with _labels_, representing their different roles in your domain.
+Nodes can be tagged with _labels_, representing their different roles in your domain. (For example, `Person`).
+They can hold any number of key-value pairs, or attributes called _properties_. (For example, `name`)
 Node labels may also serve to attach metadata (such as index or constraint information) to certain nodes.
 
-*_Relationships_* provide directed, named, semantically-relevant connections between two node entities (e.g. Employee _WORKS_FOR_ Company).
-A relationship always has a direction, a type, a start node, and an end node.
-Like nodes, relationships can also have properties.
-In most cases, relationships have quantitative properties, such as weights, costs, distances, ratings, time intervals, or strengths.
-Due to the efficient way relationships are stored, two nodes can share any number or type of relationships without sacrificing performance.
-Although they are stored in a specific direction, relationships can always be navigated efficiently in either direction.
+*_Relationships_* provide directed, named, connections between two node entities (e.g. Person `LOVES` Person).
+Relationships always have a direction, a type, a start node, and an end node, and they can have properties, just like nodes.
+Neo4j is optimized for relationships, so nodes can have any number or type of relationships without sacrificing performance.
+Although relationships are always _directed_, they can be navigated efficiently in any direction.
 
-.Building blocks of the property graph model (click to zoom)
-image:{img}property_graph_elements.jpg[role="popup-link"]
+A deeper treatment of each of these is given in the link:/developer/data-modeling/[Data Modeling section].
 
 [#neo4j-overview]
 == What is Neo4j?
 
 Neo4j is an open-source, NoSQL, native graph database that provides an ACID-compliant transactional backend for your applications.
 Initial development began in 2003, but it has been publicly available since 2007.
-The source code, written in Java and Scala, is available for free on https://github.com/neo4j/neo4j[GitHub^] or as a user-friendly https://neo4j.com/download/[desktop application download^].
-Neo4j has both a Community Edition and Enterprise Edition of the database.
-The Enterprise Edition includes all that Community Edition has to offer, plus extra enterprise requirements such as backups, clustering, and failover abilities.
+The source code, written in Java and Scala, is available for free on https://github.com/neo4j/neo4j[GitHub^] and can be run as a managed service via link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB].
 
-Neo4j is referred to as a native graph database because it efficiently implements the property graph model down to the storage level.
-This means that the data is stored exactly as you whiteboard it, and the database uses pointers to navigate and traverse the graph.
-In contrast to graph processing or in-memory libraries, Neo4j also provides full database characteristics, including ACID transaction compliance, cluster support, and runtime failover - making it suitable to use graphs for data in production scenarios.
+You can run Neo4j yourself with either Community Edition or Enterprise Edition. The Enterprise Edition includes all that Community Edition has to offer, plus extra enterprise requirements such as backups, clustering, and failover abilities.
 
-Some of the following particular features make Neo4j very popular among developers, architects, and DBAs:
+image:{img}colored-tile-graph.png[role="popup-link"]
+
+Neo4j is a native graph database, which means that it implements a true graph model all the way down to the storage level  The data is stored just as you whiteboard it, and the database manages a set of pointers which allows you to traverse the graph.
+Neo4j provides what you'd expect out of a database; ACID transactions, cluster support, and runtime failover - which is why so many people use it in production scenarios for large enterprise workloads.
+
+The following particular features make Neo4j the easiest graph database for developers, architects, and DBAs:
 
 - *Cypher*, a declarative query language similar to SQL, but optimized for graphs.
 Now used by other databases like SAP HANA Graph and Redis graph via the http://www.opencypher.org/[openCypher project^].
@@ -77,15 +72,17 @@ Enables scale-up to billions of nodes on moderate hardware.
 - *Flexible* property graph schema that can adapt over time, making it possible to materialize and add new relationships later to shortcut and speed up the domain data when the business needs change.
 - link:/developer/language-guides[*Drivers*] for popular programming languages, including Java, JavaScript, .NET, Python, and many more.
 
-image::{img}neo4j_overview.jpg[role="popup-link"]
+// OLD IMAGE contains old branding and needs replacement, and is only a visual recap of the bulleted list above.
+// image::{img}neo4j_overview.jpg[role="popup-link"]
 
 [#neo4j-uses]
-== Neo4j Use Cases
+== Where and How is Neo4j Used?
 
-Neo4j is used today by thousands of https://neo4j.com/customers/[companies and organizations^] in almost all industries, including financial services, government, energy, technology, retail, and manufacturing.
-The thriving, active community surrounding the technology continues to help us improve our product and services for developers and businesses alike.
+Neo4j is used today by thousands of https://neo4j.com/customers/[startups, educational institutions, and large enterprises^] including in financial services, government, energy, technology, retail, and manufacturing.  From innovative new technology to driving businesses, users are generating insights with graph, generating new revenue, and improving their overall efficiency.
 
-Learn more about different use cases and companies using them in the video below.
+image::{img}use-case-summary.png[role="popup-link"]
+
+Learn more about different https://neo4j.com/use-cases/[use cases] and companies using them in the video below.
 
 ++++
 <div class="responsive-embed widescreen">
@@ -95,7 +92,7 @@ Learn more about different use cases and companies using them in the video below
 
 [#graphdb-resources]
 == Resources
+* https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals Course on GraphAcademy]
 * https://www.youtube.com/watch?v=5Tl8WcaqZoc&list=PL9Hl4pk2FsvWM9GWaguRhlCQ-pa-ERd4U[Video Series: Intro to Graph Databases^]
 * https://neo4j.com/graph-databases-book/[Free eBook: O'Reilly Graph Databases^]
 * https://dzone.com/articles/graph-databases-for-beginners-native-vs-non-native[DZone: Graph Databases for Beginners^]
-* https://neo4j.com/graphacademy/online-training/online-training/introduction-to-neo4j-40/[Training: Online Intro Course^]
