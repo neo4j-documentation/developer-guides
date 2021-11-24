@@ -46,23 +46,11 @@ Before you begin to write adhoc functions for your application, be sure check AP
 [#installing-apoc]
 == Installing the APOC Library
 
-If you haven't already, http://neo4j.org/download/[download] Neo4j and use the provided instructions (shown when downloading) to get a project and database ready to run.
-Once you have a project and database to work within, there are two ways you can install APOC.
+If you're using link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB] congratulations, you're already done with this section.  
+https://neo4j.com/docs/aura/current/getting-started/apoc/[A subset of APOC core functionality^] is already built in.  The rest of this section is for users who run Neo4j in a self-managed mode.
 
-*1)* At the project level - install the APOC plugin for all databases existing in the chosen project.
-
-*2)* At the database level - install the APOC plugin for a single chosen database.
-
-The images below walk you through both methods.
-For a video demonstration, see our APOC video series episode for https://youtu.be/b1Yr2nHNS4M[downloading and installing APOC^] on the Neo4j YouTube channel.
-
-.At the project level:
-image:{img}apoc_install_from_proj.png[role="popup-link"]
-
-.At the database level:
-image:{img}apoc_install_from_db1.png[role="popup-link"]
-
-image:{img}apoc_install_from_db2.png[role="popup-link"]
+If you haven't already, http://neo4j.org/download/[download] Neo4j Desktop and use the provided instructions (shown when downloading) to get a project and database ready to run.
+Once you have a project and database to work within, you can install APOC for your database using the "Plugins" panel on the right.
 
 [#apoc-intro]
 == Intro to Using the APOC Library
@@ -80,7 +68,7 @@ We will cover more information about this in the sections below.
 [NOTE]
 ====
 If you watched the video above, don't feel intimidated by the Cypher in some of the examples.
-Those topics will be covered in the upcoming guide for the https://neo4j.com/developer/cypher/[Cypher Query Language].
+Those topics are be covered in the guide and training classes for the https://neo4j.com/developer/cypher/[Cypher Query Language].
 ====
 
 [#apoc-tips]

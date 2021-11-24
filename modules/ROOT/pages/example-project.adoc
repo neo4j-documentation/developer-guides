@@ -191,7 +191,7 @@ Many of the mentioned https://github.com/neo4j-examples?query=movies[GitHub exam
 You can either use that or follow the manual process outlined below.
 
 We want to install our application to the cloud, for instance the http://heroku.com[Heroku^] PaaS.
-You can either use the demo server mentioned above or the Neo4j Sandbox, Neo4j AuraDB or Cloud Marketplaces shown <<other-setups,below>>
+You can either use the demo server mentioned above or the Neo4j AuraDB Free, Neo4j Sandbox or Cloud Marketplaces shown <<other-setups,below>>
 
 Install the https://toolbelt.heroku.com/[Heroku Toolbelt^] and git.
 
@@ -229,6 +229,17 @@ Then your app is ready to roll.
 [[other-setups]]
 == Other Neo4j Database Setup Options
 
+=== Neo4j AuraDB Free
+
+ * Log in to https://console.neo4j.io/?ref=developer-pages[Neo4j AuraDB Free].
+ * Proceed to the database creation page
+ * Choose AuraDB Free
+ * Select a region near you
+ * Pick the movies database
+ * Confirm and save the credentials
+ * Wait until the database is started and also save the connection URL
+ * Then use the connection URL and credentials for your backend setup (environment variables)
+
 === Neo4j Desktop
 
 - (http://neo4j.com/download[Download & Install Neo4j Desktop^])
@@ -242,19 +253,6 @@ If you want to create a new database, do so within a Desktop Project, then start
 - Click the large `CREATE` statement and hit the triangular "Run" button to insert the data.
 
 The connection details will be `bolt://localhost`, username: `neo4j` and your chosen password.
-
-=== Neo4j AuraDB
-
- * Log in to https://console.neo4j.io/[Neo4j AuraDB].
- * Proceed to the database creation page
- ** Select a region near you
- ** Pick the smallest size settings (you can always adjust them later)
- ** Confirm and remember the credentials
- * Open the Neo4j Browser
- * Log in
- * Install the Movies dataset with `:play movies`
- * Click the large `CREATE` statement and hit the triangular "Run" button to insert the data.
- * You will need the bolt URL, username: `neo4j` and the password you saved as connection details
 
 === Neo4j Sandbox
 

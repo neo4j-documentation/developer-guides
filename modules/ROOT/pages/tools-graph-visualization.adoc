@@ -10,11 +10,9 @@ image::{img}graph_cluster_distant_wide.jpg[]
 [role=expertise {level}]
 {level}
 [#bloom]
-[TIP]
-====
-_Neo4j Bloom is now available for free in https://neo4j.com/download/[Neo4j Desktop^], and is also available in https://neo4j.com/cloud/aura[Neo4j AuraDB^]. https://neo4j.com/developer/neo4j-bloom/[This guide^] will provide more information on getting started._
-====
 
+:cta-header: Neo4j Bloom is now available for free in AuraDB!
+include::./_includes/aura_cta.adoc[]
 
 [#graph-vis-types]
 == Types of Graph Visualization

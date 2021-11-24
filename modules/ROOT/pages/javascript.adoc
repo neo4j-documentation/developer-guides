@@ -22,9 +22,10 @@ include::./_includes/common-language-prereq.adoc[]
 
 image::{img}nodejs.png[float=right,width=300]
 
-Neo4j can be installed on any system and then accessed via its binary and HTTP APIs.
+:cta-header: The Fastest Way to get Started with JavaScript & Graphs
+include::./_includes/aura_cta.adoc[]
 
-You can use the official driver for JavaScript (neo4j-driver) or connect via HTTP using the `request` module or any of our community drivers.
+Alternatively, Neo4j can be installed on any system and then accessed via its bolt APIs. We recommend the official driver for JS (neo4j-driver).
 
 
 [#javascript-driver]

@@ -10,7 +10,6 @@
 .Goals
 [abstract]
 {description}
-While it is not comprehensive, it aims to introduce the available drivers and links to other relevant resources.
 
 .Prerequisites
 [abstract]
@@ -26,9 +25,10 @@ While it is not comprehensive, it aims to introduce the available drivers and li
 
 image::{img}python-logo.png[width=300,float="right"]
 
-Neo4j can be installed on any system and then accessed via its binary and HTTP APIs.
+:cta-header: The Fastest Way to get Started with Python & Graphs
+include::./_includes/aura_cta.adoc[]
 
-You can use the official binary driver for Python (neo4j-python-driver) or connect via HTTP with any of our community drivers.
+Alternatively, Neo4j can be installed on any system and then accessed via its bolt APIs. We recommend the official driver for Python (neo4j-python-driver) or connect via HTTP with any of our community drivers.
 
 [#python-driver]
 == Neo4j Python Driver

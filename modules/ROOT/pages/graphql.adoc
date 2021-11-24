@@ -112,7 +112,7 @@ Features of the Neo4j GraphQL Library include:
 
 === Using The Neo4j GraphQL Library With Neo4j AuraDB
 
-Let's see how we can create a simple GraphQL API using the Neo4j GraphQL Library and https://dev.neo4j.com/neo4j-aura[Neo4j AuraDB^]. We'll be creating a Node.js GraphQL API application that will use the Neo4j GraphQL Library and Apollo Server to create a GraphQL API for movies data matching our example above.
+Let's see how we can create a simple GraphQL API using the Neo4j GraphQL Library and https://www.neo4j.com/cloud/aura?ref=developer-guides[Neo4j AuraDB^]. We'll be creating a Node.js GraphQL API application that will use the Neo4j GraphQL Library and Apollo Server to create a GraphQL API for movies data matching our example above.
 
 First, in a new directory we'll create a new Node.js project:
 

@@ -21,11 +21,13 @@ This Tutorial uses a specific data set, but the principles in this Tutorial can 
 [abstract]
 You should have a basic understanding of the link:/developer/graph-database/#property-graph[property graph model] and know how to link:/developer/guide-data-modeling[model data as a graph].
 
-You can perform the steps in this Tutorial in the following environments:
+:cta-header: This tutorial can be followed using an AuraDB Instance
+include::./_includes/aura_cta.adoc[]
 
-* link:/download[download^] and install link:/developer/neo4j-desktop/[Neo4j Desktop].
+Alternatively, you can:
+
 * link:/sandbox/?ref=guide-importing-data-and-etl[Start a Blank Neo4j Sandbox^]
-* link:/aura/[Use an AuraDB instance^]
+* link:/download[download^] and install link:/developer/neo4j-desktop/[Neo4j Desktop].
 
 [role=expertise {level}]
 {level}
