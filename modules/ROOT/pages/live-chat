@@ -22,10 +22,29 @@
 
 Join the discussion
 ++++
+
 <widgetbot
   server="787399249741479977"
   channel="816956538512998440"
   width="100%"
   height="600"
 ></widgetbot>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+  new Crate({
+    server: '787399249741479977',
+    channel: '816956538512998440',
+    glyph: ['https://neo4j.com/wp-content/themes/neo4jweb/template-partials/brand/assets/neo4j-icon-color.png', '100%'],
+    color: '#ffffff',
+    indicator: false
+  })
+crate.notify({
+  content: '`Stuck? Ask the Community`',
+  timeout: 10000,
+  avatar: 'https://community.neo4j.com/user_avatar/community.neo4j.com/greta/50/56_2.png'
+})
+</script>
 ++++
