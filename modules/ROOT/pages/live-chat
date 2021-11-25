@@ -1,0 +1,31 @@
+= Twitch, YouTube and Meetup Live Streams
+:slug: online-meetup
+:section: Documentation and Resources
+:category: documentation
+:tags: resources, online-meetup, community, developer, events, training, twitch
+:page-player: https://player.twitch.tv/?channel=neo4j&muted=false&autoplay=true&parent=twitter.com&parent=cards-dev.twitter.com&parent=cards-frame.twitter.com
+
+// image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[width="300px",float="right"]
+++++
+<script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+<div id="twitchembd"></div>
+<script type="text/javascript">
+  var options = {
+    width: "100%",
+    height: 480,
+    channel: "neo4j",
+  };
+  var player = new Twitch.Player("twitchembd", options);
+  player.setVolume(0.5);
+</script>
+++++
+
+Join the discussion
+++++
+<script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
+    new Crate({
+        server: '787399249741479977', // Neo4j
+        channel: '816956538512998440' // #graph-academy
+    })
+</script>
+++++
