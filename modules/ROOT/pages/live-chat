@@ -29,15 +29,4 @@ Join the discussion
     })
 </script>
 
-<widgetbot
-  server="787399249741479977"
-  channel="816956538512998440"
-  width="800"
-  height="600"
-></widgetbot>
-<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-
-
-<iframe src="https://e.widgetbot.io/channels/299881420891881473/355719584830980096" height="600" width="800"></iframe>
-
 ++++
