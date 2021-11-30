@@ -7,18 +7,55 @@
 :page-newsletter: true
 
 [#about-cypher]
-Cypher is Neo4j's graph query language that allows users to store and retrieve data from the graph database.
-Neo4j wanted to make querying graph data easy to learn, understand, and use for everyone, but also incorporate the power and functionality of other standard data access languages.
-This is what Cypher aims to accomplish.
+Cypher is Neo4j's graph query language that lets you retrieve data from the graph.  It is akin to SQL for graphs, and incorporates all of the functionality you'd expect for manipulating graphs.
 
-Cypher's syntax provides a visual and logical way to match patterns of nodes and relationships in the graph.
-It is a declarative, SQL-inspired language for describing visual patterns in graphs using ASCII-Art syntax.
-It allows us to state *what* we want to select, insert, update, or delete from our graph data without a description of exactly *how* to do it.
-Through Cypher, users can construct expressive and efficient queries to handle needed create, read, update, and delete functionality.
+image:{img}sample-cypher.png[role="popup-link"]
 
-Cypher is not only the best way to interact with data and Neo4j - it is also open source!
-The link:http://openCypher.org[openCypher^] project provides an open language specification, technical compatibility kit, and reference implementation of the parser, planner, and runtime for Cypher.
-It is backed by several companies in the database industry and allows implementors of databases and clients to freely benefit from, use, and contribute to the development of the openCypher language.
+Cypher is declarative and SQL-inspired, so it lets you focus on what data you want out of the graph (not how to go get it) and if you're already familiar with other query languages, picking up Cypher is a breeze because of the similarity of constructs like where clauses, skip, limit, and so on.
+
+What's different about Cypher is that it provides a visual way of matching patterns and relationships, using
+an ASCII-art type of syntax where `(nodes)-[:ARE_CONNECTED_TO]->(otherNodes)` using rounded brackets for circular
+`(nodes)`, and `-[:arrows]->` for relationships.
+
+Neo4j users use Cypher to construct expressive and efficient queries to do any kind of create, read, update, or 
+delete of their graph, and Cypher is the primary interface & product surface for Neo4j.
+
+[IMPORTANT]
+Just like Neo4j itself, Cypher is open source!  link:http://openCypher.org[The openCypher project^] provides all of the specs needed, and Cypher is backed by a number of companies all of which benefit from cypher.
+
+[#simple-examples]
+== Simple Examples
+
+To give you a quick feel for what the language looks like and where it's similar and different from SQL, here
+are a couple of examples to get you started.  
+
+=== Find All Users with a Given Surname
+[source,cypher]
+----
+// The MATCH keyword finds a node or relationship, and binds it to a variable u
+MATCH (u:User)
+WHERE u.surname = 'Eifrem'
+RETURN id(u) as id, u.given_name, u.screen_name
+----
+
+=== Create a New Relationships Between Social Media Accounts
+[source,cypher]
+----
+// The MERGE keyword creates a node or relationship, only if it doesn't already exist, (upsert)
+MERGE (a:User { screen_name: 'ladygaga' })
+MERGE (b:User { screen_name: 'dalailama' })
+MERGE (a)-[:FOLLOWS]->(b)
+----
+
+=== Find out How Many People Lady Gaga Follows
+[source,cypher]
+----
+MATCH (u:User)-[:FOLLOWS]->(otherAccount:User)
+WHERE u.screen_name = 'ladygaga'
+RETURN count(otherAccount) as follows
+----
+
+More side-by-side examples can be seen along with SQL in xref:cypher:guide-sql-to-cypher.adoc[Comparing SQL and Cypher].
 
 [#learn-cypher]
 == Ways to Learn Cypher
