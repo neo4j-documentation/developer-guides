@@ -8,20 +8,18 @@
 
 [#about-cypher]
 Cypher is Neo4j's graph query language that lets you retrieve data from the graph.  
-It is akin to SQL for graphs, and incorporates all of the functionality you'd expect for manipulating graphs.
+It is like SQL for graphs, and was inspired by SQL so it lets you focus on what data you want out of the graph (not how to go get it).  It is the easist graph language to learn by far because of its similarity to other languages, and intuitiveness.
 
 image:{img}sample-cypher.png[role="popup-link"]
 
-Cypher is declarative and SQL-inspired, so it lets you focus on what data you want out of the graph (not how to go get it).
-If you're already familiar with other query languages, picking up Cypher is a breeze because of the similarity to other languages.
-
-What's different about Cypher is that it provides a visual way of matching patterns and relationships.  
-Cypher uses an ASCII-art type of syntax where `(nodes)-[:ARE_CONNECTED_TO]->(otherNodes)` using rounded brackets for circular
-`(nodes)`, and `-[:ARROWS]->` for relationships.  
+// Note $$->$$ is used as a special escape to prevent asciidoc from replacing -> with arrow in unicode 
+Cypher is unique because it provides a visual way of matching patterns and relationships.  
+Cypher uses an ASCII-art type of syntax where `$$(nodes)-[:ARE_CONNECTED_TO]->(otherNodes)$$` using rounded brackets for circular
+`(nodes)`, and `$$-[:ARROWS]->$$` for relationships.  
 When you write a query, you draw a graph pattern through your data.
 
 Neo4j users use Cypher to construct expressive and efficient queries to do any kind of create, read, update, or 
-delete of their graph, and Cypher is the primary interface & product surface for Neo4j.
+delete (CRUD) on their graph, and Cypher is the primary interface for Neo4j.
 
 [IMPORTANT]
 Like Neo4j itself, Cypher is open source!  link:http://openCypher.org[The openCypher project^] provides all of the specs needed.
@@ -30,7 +28,7 @@ Cypher is backed by a number of companies all of which benefit from cypher.
 [#cypher-intro]
 == Introduction to Cypher
 
-:cta-header: Jump in and Learn by Doing
+:cta-header: Follow Along and Learn While Doing
 include::ROOT:page$_includes/aura_cta.adoc[]
 
 Once you have an AuraDB database, you can use the `:play cypher` command inside of Neo4j Browser to get started.
@@ -89,9 +87,10 @@ xref:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation E
 
 == Community Help
 
-If you have any questions about any of the content covered in these guides, feel free to create a new topic in the link:https://community.neo4j.com/c/neo4j-graph-platform/cypher/12?ref=guides[Cypher category on the Neo4j Community Site^].
+If you have any questions, the Neo4j Community is the place to go to ask.  
+Join a group of professionals using graphs to solve all kinds of interesting problems!
 
-link:https://community.neo4j.com/?ref=guides[Join the Neo4j Community,role=more information^].
+link:https://community.neo4j.com/?ref=guides[Join the Neo4j Community,role=button^].
 
 [#cypher-resources]
 == Cypher Resources
