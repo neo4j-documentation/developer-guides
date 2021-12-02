@@ -1,8 +1,8 @@
-= Twitch, YouTube and Meetup Live Streams
-:slug: online-meetup
+= Neo4j Live Streams
+:slug: live-stream
 :section: Documentation and Resources
 :category: documentation
-:tags: resources, online-meetup, community, developer, events, training, twitch
+:tags: live-stream, twitch, youtube, discord, community
 :page-player: https://player.twitch.tv/?channel=neo4j&muted=false&autoplay=true&parent=twitter.com&parent=cards-dev.twitter.com&parent=cards-frame.twitter.com
 
 // image::https://blog.twitch.tv/assets/uploads/03-glitch.jpg[width="300px",float="right"]
