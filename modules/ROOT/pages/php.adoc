@@ -1,10 +1,10 @@
-= PHP: Neo4j Community Driver
+= Using Neo4j from PHP
 :level: Intermediate
 :page-level: Intermediate
 :author: Neo4j
 :programming-language: php
 :category: drivers
-:tags: php, ogm, app-development, applications
+:tags: php, ogm, app-development, applications, driver, client, bolt
 :description: If you are a PHP developer, this guide provides an overview of options for connecting to Neo4j.
 
 .Goals
@@ -12,45 +12,110 @@
 {description}
 While this guide is not comprehensive it will introduce the different drivers and link to the relevant resources.
 
-include::./_includes/common-language-prereq.adoc[]
+.Prerequisites
+[abstract]
+You should be familiar with link:/developer/graph-database/[graph database concepts] and the property graph model, have link:/download/[installed Neo4j] and made yourself familiar with our link:/developer/cypher-query-language/[Cypher query language]. You should naturally have PHP installed on your machine and link:https://getcomposer.org/[composer ^]for easy installation of the driver.
+
+If you have any questions, you can always find a community member around on the https://community.neo4j.com[Neo4j Online Community^].
 
 [role=expertise {level}]
 {level}
-
-include::./_includes/community-driver-notice.adoc[]
 
 [#neo4j-php]
 == Neo4j for PHP Developers
 
 image::{img}php_logo.png[float=right,width=300]
 
-You're a PHP developer and want to start with Neo4j?
-Here you go.
+:cta-header: The Fastest Way to get Started with PHP & Graphs
+include::./_includes/aura_cta.adoc[]
 
-If you have any questions, you can always find a community member around on the https://community.neo4j.com[Neo4j Online Community^].
+Alternatively, Neo4j can be installed on any system and then accessed via its bolt and HTTP APIs. We recommend the https://github.com/laudis-technologies/neo4j-php-client#roadmap[PHP Client^] for easiest development over bolt and HTTP APIs. You can also directly access the bolt protocol via the https://github.com/stefanak-michal/Bolt[PHP Bolt] library.
 
-[#bolt]
-== Bolt
 
-Bolt driver for PHP.
-
-[cols="1,4"]
-|===
-| icon:user[] Author | https://www.linkedin.com/in/michalstefanak/[Michal Stefanak^]
-| icon:github[] Source | https://github.com/stefanak-michal/Bolt
-|===
+include::./_includes/community-driver-notice.adoc[]
 
 [#Client]
 == Full client
 
-*Neo4j-php-client* is a client supporting multiple protocols. *Http* and *bolt* are supported, starting from neo4j 2.3 up until the most recent version.
+*Neo4j-php-client* is a client supporting multiple protocols. *Http* and *bolt* are supported, starting from neo4j 3.5 up until the most recent version.
 
-It boasts many features such as multiple connections, transactions, http, bolt and authentication. It also integrates with the psalm static analysis tool for complete type safety.
+It boasts many features such as multiple connections, transactions functions, authentication and auto-routing. It also integrates with the psalm static analysis tool for complete type safety.
 
-It is being actively developed and has an up to date roadmap which is on the https://github.com/laudis-technologies/neo4j-php-client#roadmap[Github page^].
+It is being actively developed and has a big readme file on the https://github.com/laudis-technologies/neo4j-php-client[Github page^].
 
 [cols="1,4"]
 |===
 | icon:user[] Author | https://www.linkedin.com/in/ghlen-nagels-1b6663134/[Ghlen Nagels^]
-| icon:github[] Source | https://github.com/laudis-technologies/neo4j-php-client
+| icon:github[] Source | https://github.com/neo4j-php/neo4j-php-client
+| icon:gift[] Package | https://packagist.org/packages/laudis/neo4j-php-client
+| icon:code-fork[] Php    | 7.4 / 8.0+
+| icon:code-fork[] Neo4j    | 3.5 / 4.0+
+| Protocols | Bolt, HTTP
+| Example App | https://github.com/neo4j-examples/movies-neo4j-php-client
 |===
+
+.Installation
+[source,bash]
+----
+composer install neo4j-php-client
+----
+
+.Example
+[source,php]
+----
+$client = Laudis\Neo4j\ClientBuilder::create()->withDriver('default', 'bolt://neo4j:password@localhost')->build();
+
+$result = $client->run(<<<'CYPHER'
+MERGE (neo4j:Database {name: $dbName}) - [:HasRating] - (rating:Rating {value: 10})
+RETURN neo4j, rating
+CYPHER, ['dbName' => 'neo4j'])->first();
+
+$neo4j = $result->get('neo4j');
+$rating = $result->get('rating');
+
+// Outputs "neo4j is 10 out of 10"
+echo $neo4j->getProperty('name').' is '.$rating->getProperty('value') . ' out of 10!';
+----
+
+
+[#bolt]
+== Bolt
+
+A low level driver for the Bolt protocol in PHP.
+
+[cols="1,4"]
+|===
+| icon:user[] Author | https://www.linkedin.com/in/michalstefanak/[Michal Stefanak^]
+| icon:github[] Source | https://github.com/neo4j-php/Bolt
+| icon:code-fork[] Php    | 7.1+ / 8.0+
+| icon:code-fork[] Neo4j    | 3.0+ / 4.0+
+| Protocols | Bolt
+|===
+
+
+.Installation
+[source,bash]
+----
+composer require stefanak-michal/bolt
+----
+
+.Example
+[source,php]
+----
+$bolt = new \Bolt\Bolt(new \Bolt\connection\StreamSocket());
+$bolt->setProtocolVersions(4.1);
+$bolt->init('MyClient/1.0', 'neo4j', 'password');
+
+$res = $bolt->run(<<<'CYPHER'
+MERGE (neo4j:Database {name: $dbName}) - [:HasRating] - (rating:Rating {value: 10})
+RETURN neo4j, rating
+CYPHER, ['dbName' => 'neo4j']);
+
+$result = $bolt->pull()[0];
+
+$neo4j = $result[0];
+$rating = $result[1];
+
+// Outputs "neo4j is 10 out of 10"
+echo $neo4j->properties()['name'].' is '.$rating->properties()['value'].' out of 10!';
+----
