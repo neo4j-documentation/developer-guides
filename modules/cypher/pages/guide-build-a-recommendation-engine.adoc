@@ -4,7 +4,7 @@
 :author: Neo4j
 :category: cypher
 :tags: cypher, queries, recommendations, tutorial, filtering, paths
-:description: This tutorial shows how to use the relationships in your data to gather insights and recommend new entities that do not currently have a direct relationship based on the other relationships and network in the graph.
+:description: Gather insights and generate recommendations with simple cypher queries, by navigating the graph
 :page-pagination:
 :page-aliases: ROOT:guide-build-a-recommendation-engine.adoc
 :page-type: Tutorial
@@ -16,36 +16,44 @@
 
 .Prerequisites
 [abstract]
-You should have a basic understanding of the xref:ROOT:graph-database.adoc#property-graph[property graph model]. Having Neo4j Desktop link:/download[downloaded^] and installed will allow you code along with the examples.
+You should have a basic understanding of the xref:ROOT:graph-database.adoc#property-graph[property graph model].
 
 [role=expertise {level}]
 {level}
 
 [#cypher-tutorial]
-This tutorial explains how to use a basic dataset of _Actors_ acting in _Movies_ in a graph database to show recommendations for other actors to work with or similar movies to watch.
-
+Graphs are everywhere.  
 By following the meaningful relationships between the people and movies, you can determine occurences of actors working together, the frequency of actors working with one another, and the movies they have in common in the graph.
-This structure forms the basis for many recommendation engines.
+This is one way we can recommend movies to users, based on what they liked before, and their favorite actors.  
+We will step you through everything you need to get started with AuraDB and Cypher, to solve a real-world problem.
 
 [#recommendation-setup]
 == Setting Up
 
-You can follow along by link:/developer/neo4j-desktop/[starting Neo4j Desktop] and opening link:/developer/neo4j-browser/[Neo4j Browser].
-For a complete walkthrough of those steps, you can read this https://medium.com/neo4j/neo4j-get-off-the-ground-in-30min-or-less-3a226a0d48b1[blog post^].
+:cta-header: First, Create an AuraDB Free Instance
+include::ROOT:page$_includes/aura_cta.adoc[]
 
-Once you have a running instance of Neo4j, you populate the movie dataset by typing `:play movie graph` into the Neo4j Browser command line and clicking the play button (image:{img}cypher_run_button.jpg[width=25]).
+When you've created your AuraDB account, click "Create a Database" and select a free database
 
-image::{img}cytutorial_neo4j_browser.jpg[role="popup-link"]
+image::{img}free-database-type.png[role="popup-link"]
 
-Go to the second slide (using the right arrow) of the pane that appears below the command line, click the query, and run it.
+Then, fill out the name, and choose a cloud region for your database and click "Create Database".  Make sure "Learn about graphs with a movie dataset" is selected, so you'll start with a dataset.
 
-image::{img}cytutorial_movie_browser_guide.jpg[role="popup-link"]
+image::{img}recommendation-engine-free-database.png[role="popup-link"]
 
-You should see a result pane in Neo4j like the one below.
+AuraDB will prompt you with the password for your new instance while it being set up.  **Make sure to save the password for later steps**.
 
-image::{img}cytutorial_movie_graph.jpg[role="popup-link"]
+Once your database is running, open browser as shown below.
 
-This data has been created and stored in the database so we can query it.
+image::{img}open-auradb-browser.png[role="popup-link"]
+
+Now you've arrived inside of Neo4j Browser.  Use your username and password (the one you captured above) to log in.  You'll immediately notice a guide on the left-hand side that you can tab through to start out with some experimental queries.  Any of these queries you see can be automatically put into the query execution box and run on the right hand side of the screen by clicking the little "play" button.
+
+image::{img}first-movies-query.png[role="popup-link"]
+
+This first query just shows a few movies in the database to prove there's something there.  
+Congratulations, you've got some data in a new database, and we're ready to get started. 
+
 The next section will show you how to write some queries to explore the data you just created.
 
 [#recommendation-queries]
@@ -60,7 +68,7 @@ MATCH (tom:Person {name: 'Tom Hanks'})
 RETURN tom
 ----
 
-image::{img}cytutorial_match_tomhanks.jpg[role="popup-link"]
+image::{img}cytutorial_match_tomhanks2.png[role="popup-link"]
 
 Now that we found an actor we are interested in, we can retrieve all his movies by starting from the `Tom Hanks` node and following the `ACTED_IN` relationships.
 Your results should look like a graph.
@@ -71,7 +79,7 @@ MATCH (tom:Person {name: 'Tom Hanks'})-[r:ACTED_IN]->(movie:Movie)
 RETURN tom, r, movie
 ----
 
-image::{img}cytutorial_tomhanks_movies.jpg[role="popup-link"]
+image::{img}cytutorial_tomhanks_movies2.png[role="popup-link"]
 
 Of course, Tom has colleagues who acted with him in his movies.
 A statement to find Tom's co-actors looks like this:
@@ -82,7 +90,7 @@ MATCH (tom:Person {name: 'Tom Hanks'})-[:ACTED_IN]->(:Movie)<-[:ACTED_IN]-(coAct
 RETURN coActor.name
 ----
 
-image::{img}cytutorial_tomhanks_coactors.jpg[role="popup-link"]
+image::{img}cytutorial_tomhanks_coactors2.png[role="popup-link"]
 
 [#collaborative-filtering]
 == Recommendations with Collaborative Filtering
@@ -98,7 +106,7 @@ AND NOT (tom)-[:ACTED_IN]->(:Movie)<-[:ACTED_IN]-(coCoActor)
 RETURN coCoActor.name
 ----
 
-image::{img}cytutorial_tomhanks_cocoactors.jpg[role="popup-link"]
+image::{img}cytutorial_tomhanks_cocoactors2.png[role="popup-link"]
 
 You probably noticed that a few names appear multiple times.
 This is because there are multiple paths to follow from _Tom Hanks_ to these actors.
@@ -115,7 +123,7 @@ ORDER BY frequency DESC
 LIMIT 5
 ----
 
-image::{img}cytutorial_tomhanks_cocoactors_freq.jpg[role="popup-link"]
+image::{img}cytutorial_tomhanks_cocoactors_freq2.png[role="popup-link"]
 
 One of those "co-co-actors" is _Tom Cruise_.
 Now let's see which movies and actors are between the two Toms so we can find out who can introduce them.
@@ -129,7 +137,7 @@ WHERE NOT (tom)-[:ACTED_IN]->(:Movie)<-[:ACTED_IN]-(cruise)
 RETURN tom, movie1, coActor, movie2, cruise
 ----
 
-image::{img}cytutorial_tomhanks_tomcruise.jpg[role="popup-link"]
+image::{img}cytutorial_tomhanks_tomcruise2.png[role="popup-link"]
 
 As you can see, this returns multiple paths.
 If you have ever played the https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon[six degrees of Kevin Bacon^] game, this concept of seeing how many hops exist between people is exactly what graphs depict.
