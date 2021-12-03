@@ -15,13 +15,19 @@ A graph database stores nodes and relationships instead of tables, or documents.
 Data is stored just like you might sketch ideas on a whiteboard.  
 Your data is stored without restricting it to a pre-defined model, allowing a very flexible way of thinking about and using it.
 
-image:{img}graph-example.png[role="popup-link"]
+++++
+<div class="responsive-embed widescreen">
+<iframe width="640" height="360" src="https://www.youtube.com/embed/jFdEeJ-Ez1E" title="What is Neo4j?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+++++
 
 [#why-graphdb]
 == Why Graph Databases?
 
 We live in a connected world, and understanding most domains requires processing rich sets of connections to understand what's really happening. 
 Often, we find that the connections between items are as important as the items themselves. 
+
+image:{img}graph-example.png[role="popup-link"]
 
 How else do people do this today?  While existing relational databases can store these relationships, they navigate them with expensive `JOIN` operations or cross-lookups, often tied to a rigid schema.  
 It turns out that "relational" databases handle relationships poorly.
@@ -103,15 +109,15 @@ image::{img}use-case-summary.png[role="popup-link"]
 
 Learn more about different https://neo4j.com/use-cases/[use cases] and companies using them in the video below.
 
-++++
-<div class="responsive-embed widescreen">
-<iframe width="640" height="360" src="https://www.youtube.com/embed/-dCeFEqDkUI" frameborder="0" allowfullscreen></iframe>
-</div>
-++++
+// OLD RYAN VIDEO -- preserved here for context, but old branding, lower production values, older UI, etc.
+// ++++
+// <div class="responsive-embed widescreen">
+// <iframe width="640" height="360" src="https://www.youtube.com/embed/-dCeFEqDkUI" frameborder="0" allowfullscreen></iframe>
+// </div>
+// ++++
 
 [#graphdb-resources]
 == Resources
 * https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals Course on GraphAcademy]
-* https://www.youtube.com/watch?v=5Tl8WcaqZoc&list=PL9Hl4pk2FsvWM9GWaguRhlCQ-pa-ERd4U[Video Series: Intro to Graph Databases^]
 * https://neo4j.com/graph-databases-book/[Free eBook: O'Reilly Graph Databases^]
-* https://dzone.com/articles/graph-databases-for-beginners-native-vs-non-native[DZone: Graph Databases for Beginners^]
+* https://www.youtube.com/watch?v=5Tl8WcaqZoc&list=PL9Hl4pk2FsvWM9GWaguRhlCQ-pa-ERd4U[Video Series: Intro to Graph Databases^]
