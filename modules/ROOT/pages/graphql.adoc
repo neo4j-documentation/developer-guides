@@ -190,7 +190,11 @@ server.listen().then(({ url }) => {
 
 Notice that we added the https://neo4j.com/docs/graphql-manual/current/type-definitions/relationships/[`@relationship` GraphQL schema directive^] to our type definitions. This directive allows us to encode the relationship type and directive into our GraphQL type definitions.
 
-We can start our Node.js GraphQL server by running `node index.js` and then navigate to `http://localhost:4000` in a web browser to access Apollo Studio. Since we started a fresh Neo4j AuraDB database, let's start by creating some data. The Neo4j GraphQL Library generates the https://neo4j.com/docs/graphql-manual/current/mutations/[GraphQL Mutation type^] used for creating data. Here, we'll use the `createMovies` mutation to create a movie node and the actors connected to it in a single nested operation.
+We can start our Node.js GraphQL server by running `node index.js` and then navigate to `http://localhost:4000` in a web browser to access Apollo Studio. 
+
+=== Create a Movie with a Mutation
+
+Since we started a fresh Neo4j AuraDB database, let's start by creating some data. The Neo4j GraphQL Library generates the https://neo4j.com/docs/graphql-manual/current/mutations/[GraphQL Mutation type^] used for creating data. Here, we'll use the `createMovies` mutation to create a movie node and the actors connected to it in a single nested operation.
 
 .GraphQL Mutation to create a movie and actors
 [source,GraphQL]
@@ -225,6 +229,11 @@ mutation {
 
 The response to this GraphQL mutation will match the selection set and shows us the data created by the mutation operation.
 
+
+[%collapsible]
+.Click here to reveal the GraphQL response
+====
+
 .GraphQL response
 [source,JSON]
 ----
@@ -257,11 +266,112 @@ The response to this GraphQL mutation will match the selection set and shows us 
 }
 ----
 
+====
+
 If we check our database using Neo4j Browser we can see the data we've created in Neo4j:
 
 image::https://dist.neo4j.com/wp-content/uploads/20210831112825/matrixgraph.png[]
 
-Learn more about the Neo4j GraphQL Library in the https://neo4j.com/docs/graphql-manual/current/[documentation.^]
+=== Querying Data
+
+The Neo4j GraphQL Library automatically creates three options for querying a type, one for querying the raw data, one for counting the data and one for aggregating the data.  
+These auto-generated types also support advanced filtering, allowing you to control what child data is returned.
+
+The Library will recognise the `@relationship` directives and add an aggregator to allow you to quickly access the count of records.
+For example, we can use the `actorsConnection` field to retrieve a count of the number of `actors` in a given movi.
+
+
+.An advanced GraphQL query
+[source,GraphQL]
+----
+query {
+  movies(
+    where: { imdbRating_GT: 4}  // <1>
+    options: {limit: 2, sort:[ {imdbRating: DESC} ]} // <2>
+  ) {
+    title
+    actors (where: { name_NOT: null }) { // <3>
+      name
+      born
+    }
+    actorsConnection { // <4>
+      totalCount
+    }
+  }
+}
+
+----
+
+<1> Filter for movies with an `imdbRating` greater than 4
+<2> Limit the number of results to 2 and sort by the `imdbRating` property in descending order
+<3> Only return actors where the `name` property is not null
+<4> Use the `actorsConnection` property to return a count 
+
+[%collapsible]
+.Click here to reveal the results
+====
+
+[source,json]
+----
+{
+  "data": {
+    "movies": [
+      {
+        "title": "Band of Brothers",
+        "actors": [
+          {
+            "name": "Scott Grimes",
+            "born": null
+          },
+          {
+            "name": "Shane Taylor",
+            "born": null
+          },
+          {
+            "name": "Ron Livingston",
+            "born": "1967-06-05"
+          },
+          {
+            "name": "Damian Lewis",
+            "born": "1971-02-11"
+          }
+        ],
+        "actorsConnection": {
+          "totalCount": 4
+        }
+      },
+      {
+        "title": "Civil War, The",
+        "actors": [
+          {
+            "name": "Sam Waterston",
+            "born": null
+          },
+          {
+            "name": "Jason Robards",
+            "born": null
+          },
+          {
+            "name": "Julie Harris",
+            "born": null
+          },
+          {
+            "name": "Morgan Freeman",
+            "born": "1937-06-01"
+          }
+        ],
+        "actorsConnection": {
+          "totalCount": 4
+        }
+      }
+    ]
+  }
+}
+----
+====
+
+
+You can learn more about the Neo4j GraphQL Library in the https://neo4j.com/docs/graphql-manual/current/[documentation.^]
 
 [#graphql-resources]
 == Resources
