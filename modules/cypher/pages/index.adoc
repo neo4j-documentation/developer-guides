@@ -8,17 +8,16 @@
 
 [#about-cypher]
 Cypher is Neo4j's graph query language that allows users to store and retrieve data from the graph database.
-Neo4j wanted to make querying graph data easy to learn, understand, and use for everyone, but also incorporate the power and functionality of other standard data access languages.
+Neo4j wanted to make querying graph data easy to learn, understand, and use for everyone, but also incorporate the power and functionalities of other standard data access languages.
 This is what Cypher aims to accomplish.
 
 Cypher's syntax provides a visual and logical way to match patterns of nodes and relationships in the graph.
 It is a declarative, SQL-inspired language for describing visual patterns in graphs using ASCII-Art syntax.
 It allows us to state *what* we want to select, insert, update, or delete from our graph data without a description of exactly *how* to do it.
-Through Cypher, users can construct expressive and efficient queries to handle needed create, read, update, and delete functionality.
+Through Cypher, users can construct expressive and efficient queries to handle needed create, read, update, and delete functionalities.
 
-Cypher is not only the best way to interact with data and Neo4j - it is also open source!
-The link:http://openCypher.org[openCypher^] project provides an open language specification, technical compatibility kit, and reference implementation of the parser, planner, and runtime for Cypher.
-It is backed by several companies in the database industry and allows implementors of databases and clients to freely benefit from, use, and contribute to the development of the openCypher language.
+Cypher is the best open source way to interact with data and Neo4j. The link:http://openCypher.org[openCypher^] project provides an open language specification, technical compatibility kit, and reference implementation of the parser, planner, and runtime for Cypher.
+It is backed by several companies in the database industry and allows implementers of databases and clients to freely benefit from, use, and contribute to the development of the openCypher language.
 
 [#learn-cypher]
 == Ways to Learn Cypher
@@ -40,12 +39,12 @@ image::{img}cypher_learning.jpg[role="popup-link"]
 [#cypher-intro]
 == Introduction to Cypher
 
-Cypher is used to query the graph, as well as update the graph.
+Cypher is a language used to query and update the graph.
 Cypher is based on ASCII art, so the syntax is easily understood and makes queries more self-explanatory.
 It focuses on the clarity of expressing what to retrieve from a graph, not on how to retrieve it.
 
-To support CRUD operations you will learn how to specify nodes, relationships, and properties in the query language.
-Learning how to specify patterns and filter data results will allow you to traverse the graph or add and remove data.
+To support CRUD operations, you will learn how to specify nodes, relationships, and properties in the query language.
+Learning how to specify patterns and filter data results will allow you to traverse, add and remove data from graph.
 
 First, you will learn what Cypher is and some important concepts related to Cypher and a Neo4j graph:
 
@@ -66,7 +65,7 @@ Most types of queries are not simple data entry or retrieval.
 Often, you will need to write queries that retrieve sets of data that fall within certain criteria.
 This is where the capability to filter query results becomes very valuable.
 
-Being able to trim out results that are unwanted and only retrieve certain data is important for application functionality and user experience, but also increases update and read performance because it is only returning results that the user cares about.
+Most of time, Applications need to trim out unwanted results and retrieve only relevant data for the application functionality and user experience. This operation also improves the update and read performances.
 
 In this guide, we will walk through many of the ways you can limit your query results to what you need and control how they are returned to output.
 Much of the syntax and functionality for these clauses is similar to SQL and will probably be familiar to most developers with data querying experience.
@@ -77,7 +76,7 @@ xref:filtering-query-results.adoc[Filtering Cypher Query Results,role=more infor
 == Controlling Query Processing
 
 Just as in most programming languages, some utility capabilities are needed to perform basic functions on data being retrieved from a database.
-Functionality such as counting results, grouping data by values, and finding minimum/maximum values are often bundled into the language itself to provide those capabilities in a standard, out-of-the-box way to all developers.
+Functionalities such as counting results, grouping data by values, and finding minimum/maximum values are often bundled into the language itself to provide those capabilities in a standard, out-of-the-box way to all developers.
 
 Cypher also includes these functions to perform mathematical, aggregation, and other utility operations needed within queries.
 This guide will show you what is possible within Cypher and show you how to structure the syntax.
