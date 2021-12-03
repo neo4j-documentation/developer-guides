@@ -119,6 +119,5 @@ Learn more about different https://neo4j.com/use-cases/[use cases] and companies
 [#graphdb-resources]
 == Resources
 * https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals Course on GraphAcademy]
-* https://www.youtube.com/watch?v=5Tl8WcaqZoc&list=PL9Hl4pk2FsvWM9GWaguRhlCQ-pa-ERd4U[Video Series: Intro to Graph Databases^]
 * https://neo4j.com/graph-databases-book/[Free eBook: O'Reilly Graph Databases^]
-* https://dzone.com/articles/graph-databases-for-beginners-native-vs-non-native[DZone: Graph Databases for Beginners^]
+* https://www.youtube.com/watch?v=5Tl8WcaqZoc&list=PL9Hl4pk2FsvWM9GWaguRhlCQ-pa-ERd4U[Video Series: Intro to Graph Databases^]
