@@ -24,11 +24,10 @@ You should have learned to read and write statements in xref:index.adoc[Cypher] 
 == Extending Cypher
 
 Cypher is a quite powerful and expressive language, with first class graph pattern and collection support.
-
 But sometimes you need to do more than it currently offers, like additional graph algorithms, parallelization or custom conversions.
 
-That's why the ability to extend Cypher with User Defined Procedures and Functions was added to the Neo4j 3.0 and 3.1 releases.
-But not only users, even Neo4j itself provides and utilizes custom procedures.
+That's why Neo4j and Cypher can be extended with User Defined Procedures and Functions.
+Neo4j itself provides and utilizes custom procedures.
 Many of the monitoring, introspection and security features exposed by Neo4j-Browser are implemented using procedures.
 
 image::{img}procedures-functions-bolt.jpg[width=600]
@@ -110,6 +109,10 @@ That's why you should know which procedures you deploy and why.
 Only install procedures from trusted sources.
 If they are open source, check their source-code and best build them yourself.
 
+[IMPORTANT]
+Certain procedures and functions are available for self-managed Neo4j Enterprise Edition and Community Edition.  Custom code
+described in this section is not compatible with link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB]
+
 [#procedure-function-gallery]
 == Procedure and Function Gallery
 
@@ -117,7 +120,6 @@ In our link:/labs/[Neo4j Labs projects], we provide an impressive set of librari
 Check it out to see what's already there.
 Many of your needs will already be covered by those, for example:
 
-* graph algorithms
 * index operations
 * database/api integration
 * graph refactorings
@@ -162,9 +164,8 @@ RETURN apoc.date.format(timestamp()) as time,
 
 // === Writing your first Function
 
-You can find details on writing and testing procedures in the link:/docs/java-reference/current/extending-neo4j/procedures-and-functions/introduction/[Neo4j Manual^].
-
-There is even an https://github.com/neo4j-examples/neo4j-procedure-template[example GitHub repository] with detailed documentation and comments that you can clone directly and use as a starting point.
+You can find details on writing and testing procedures in the link:/docs/java-reference/current/extending-neo4j/procedures-and-functions/introduction/[Neo4j Manual^].  
+The https://github.com/neo4j-examples/neo4j-procedure-template[example GitHub repository] contains detailed documentation and comments that you can clone directly and use as a starting point.
 
 Here are just some initial tips:
 
