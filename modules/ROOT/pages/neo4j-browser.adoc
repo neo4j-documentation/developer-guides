@@ -2,7 +2,7 @@
 :level: Beginner
 :page-level: Beginner
 :experimental:
-:neo4j-version: 3.3.4
+:neo4j-version: 4.4.0
 :author: Jennifer Reif
 :category: browser
 :tags: graph-platform, web, desktop, guides, styling, queries, configuration, visualization
@@ -17,10 +17,15 @@
 .Prerequisites
 [abstract]
 Please launch an link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB Instance] or have link:/download[Neo4j^] downloaded and installed.
-It also helps if you have read the section on xref:graph-database.adoc[graph databases^].
+It also helps if you have read the section on xref:graph-database.adoc[graph databases].
 
 [role=expertise {level}]
 {level}
+
+Neo4j Browser is an interactive cypher command shell that allows you to interact with your graph and visualize the information in it.  
+Neo4j Browser is bundled with Neo4j and is available in all editions and versions of Neo4j.
+
+image::{img}neo4j-browser-oneshot.png[]
 
 ++++
 <div class="responsive-embed">
@@ -28,54 +33,27 @@ It also helps if you have read the section on xref:graph-database.adoc[graph dat
 </div>
 ++++
 
-[#install-neo4j-browser]
-If you haven't already, link:/download/[download^] Neo4j.
-Using the provided instructions (shown when downloading), follow Step 1 to install and start the Neo4j Desktop application.
-Alternatively, after downloading the zipped server-only package, instructions can also be found in the readme (`bin/neo4j start`) after unzipping the downloaded file.
-Step 2 on the download page instructions shows you how to set up your first project and database and how to open the Neo4j Browser.
+[#launch-neo4j-browser]
+== Launch Neo4j Browser
 
+If you using link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB], go to the Aura Console, and find Neo4j Browser in the "Open" button.
 
-[TIP]
-====
-Please remember the password.
-If you forget it, you have to remove the credentials file in `data/dbms/authorization`.
-====
+image::{img}open-auradb-browser.png[]
 
+If you are using Neo4j Desktop, you can use the graph apps tab on the left hand side (which looks like four squares) to find Neo4j Browser, which will
+connect to any running database that you have.
 
-Just to review, so far, we have shown two ways to interact with Neo4j.
+image::{img}open-desktop-browser.png[]
 
-1) From Neo4j Desktop, you can open Neo4j Browser. This is done by clicking `<your project name>` in the Desktop screen, then click `Manage` on your database.
+If you are running Neo4j in another environment, Neo4j Browser is available via HTTP at `http://localhost:7474` and HTTPS at `https://localhost:7473`,
+substituting the right address for your environment.
 
-2) You can also access this from a regular browser window by typing http://localhost:7474 and signing in with Username: neo4j, Password: <your database password (set up in Desktop)>.
+[#using-neo4j-browser]
+== Using Built-In Guides
 
-Now that we can access the graph database, we can start working with data using our query language, link:/developer/cypher[Cypher^].
+Neo4j Browser contains built-in guides which introduce different concepts.  Now that we can access the graph, we can use these guides to start working with data using link:/developer/cypher[Cypher^].
 
-For an introduction to Browser's features and navigation as Neo4j's user interface, you can type `:play intro` into the command-line and press kbd:[Enter] or click the play button (image:{img}cypher_run_button.jpg[width=25]).
-
-[#neo4j-feedback]
-== Feedback & Questions
-
-If you have feedback or questions on how to use Neo4j Browser, there is a small messaging system in the configuration (icon:cog[]) drawer.
-You can provide your name and send us a message.
-
-[#browser-sync]
-== Neo4j Browser Sync
-
-Neo4j Browser Sync is a feature that allows you to synchronize your favorites, styling, and settings to cloud storage, so you can share it across machines and browsers.
-
-image::{img}neo4j-browser-sync.png[width=500]
-
-You just need to click the cloud icon in the left-side menu and log in with your GitHub, Twitter, or Google account and synchronize your workplace to the cloud.
-
-[#browser-guides]
-== Built-in Guides
-
-If you want to learn more about Neo4j, Cypher, or Neo4j Browser before diving in, click on any of the helpful links shown after startup (commands also shown below).
-These are quick guides that introduce the different concepts.
-You can find more helpful links in the left sidebar of Neo4j in the "Documents" tab (icon:book[]).
-
-To pin a particular pane to the top of the window (under command line) so that it stays at the top when you run queries after it, just click the pushpin button (image:{img}pin_button.png[width=25]).
-This is especially helpful for pinning guides to the top so they do not get pushed down to the bottom of the window as you run queries.
+To use one of these guides, just type the command (such as `:play intro`) into the command line on the right of Neo4j Browser and press kbd:[Enter] or click the play button (image:{img}cypher_run_button.jpg[width=25]).
 
 [%autowidth.spread]
 |===
@@ -90,28 +68,29 @@ This is especially helpful for pinning guides to the top so they do not get push
 https://guides.neo4j.com/restaurant_recommendation`
 |===
 
-All you have to do is enter any of the above commands in the Browser command line (at the top of the pane) and follow the accompanying guides to walk through the training or scenarios.
-Guides are presented as slideshows that can be navigated by clicking the forward and back arrows in the pane to progress to the next or previous slide.
-To execute any of the queries provided within a Browser guide, simply click on the query, and it will populate in the command line.
-Then, just press kbd:[Enter] or the Play button to execute the statement!
-Results of the query will populate in a panel right below the command line.
-
-The full list of available browser guides is documented on link:/developer/browser-guide-list/[another guide].
+The full list of available browser guides link:/developer/browser-guide-list/[can be found here].
 You can also link:/developer/guide-create-neo4j-browser-guide/[create your own custom browser guides] to share learning with colleagues, students, and others in the community.
 
+If you'd like to pin guides to the top so they do not get pushed down as you run additional queries, just use the pushpin button (image:{img}pin_button.png[width=25]) in Neo4j Browser.
+
+[#browser-metadata]
+== Graph Metadata
+
+In the left menu, the top icon is the database section (icon:database[]), where you can find the *currently used* node labels, relationship types, and property keys.
+Clicking on any one of those options runs a quick query to show you a sample of the graph with those elements.
+
 [#browser-styling]
-== Styling Neo4j Browser Visualization
+== Change Graph Appearance
 
-As mentioned above, any queries you run in Neo4j Browser will populate your results below the command line.
-Query results are rendered either as a visual graph, a table format, or an ascii-table result.
-You can switch between those with the icons on the left side of the result frame.
-If you cannot see the whole graph or the results display too close together, you can adjust by moving the visual view and dragging nodes to rearrange them.
-To move the view to see more parts of the graph, just click an empty spot within the graph pane and drag it. To rearrange nodes, you can click and drag them around.
+Any query you run in Neo4j Browser will populate your results below the command line.
+You can switch between visual graph, table format, and ascii-table results with the icons on the left side of the result frame.
+You can also adjust by moving the view or dragging nodes to re-arrange them.  To see more of the graph, click any empty spot and drag it.
 
-The nodes will already have sensible captions assigned by the browser, which auto-selects a property from the property list to use as a caption.
-You can see all the properties of that element if you click on any node or relationship.
-Properties will appear below the visualization.
-Larger property sets might be collapsed into a subset, but there is a little triangle on the right to unfold them.
+Nodes are assigned captions by the browser, which selects a property to use.  
+These properties appear below the visualization when a node is selected.
+Larger property sets may be collapsed into a subset, but there is an option to expand them.
+
+image::{img}style_person_node.png[]
 
 For example, if you click on one of the `Movie` nodes in the MovieGraph (`:play movie graph`), then you can see its properties below the graph visual.
 The same applies for `Actor` nodes or the `ACTED_IN` relationships.
@@ -121,12 +100,10 @@ Colors, sizes, and captions are selectable from there.
 To see this for yourself, you can click on the `Person` label above the graph and change the color, size, and captions of all nodes labeled with `Person`.
 The first image below shows changes to nodes labeled `Person`. The second image shows changes to relationships labeled `ACTED_IN`.
 
-image::{img}style_person_node.png[]
-
 image::{img}style_actedin_relationship.png[]
 
 [#browser-commands]
-== Useful Commands and Keyboard Shortcuts
+== Commands and Keyboard Shortcuts
 
 |===
 |Shortcut |Purpose
@@ -179,15 +156,8 @@ You then need to run kbd:[Ctrl+Enter] or kbd:[Cmd+Enter] to run multi-line queri
 kbd:[Ctrl+Up] and kbd:[Ctrl+Down] (Mac users, use the kbd:[Cmd] key) allows you to navigate command history, and you can access all command history with `:history`.
 The command history is persisted across Browser restarts.
 
-You can put several Cypher statements into the command line input (with semicolons to separate statements) and run as a block by enabling the multi-statement query setting.
-To do this, go to the `Settings` tab on your Neo4j Browser window and make sure the box is checked for `Enable multi statement query editor`.
-These steps are shown in the image below.
-
-image::{img}enable_multiline_queries.jpg[width=300,role="popup-link"]
-
 .Output, Export, & Visualization Tips
 You can switch between `Graph`, `Table`, `Text`, and `Code` views to see the results in various formats by clicking the icons on the left of each pane.
-
 
 [TIP]
 ====
@@ -198,23 +168,13 @@ To see the results, just switch the mode to the Table view.
 
 Query time is reported in the `Table` or `Code` views (*don't rely on that exact timing though*), and it includes the latency and deserialization costs, not just the actual query execution time.
 
-You can also download the results as a CSV from the `Table`, `Text`, and `Code` views or download the graph as an SVG or PNG from the `Graph` view, as shown below.
+You can also export the results of queries as a CSV or JSON, and for the graph view, you may also export a PNG or SVG image, as shown below.
 
-.Download graph
-image:{img}download_graph.png[]
-
-.Download CSV
-image:{img}download_csv.png[]
+image::{img}export-graph-browser.png[]
 
 If you enter fullscreen mode of a graph visualization, you can zoom in and out.
 After a node is clicked, it gets a halo, where you can expand and remove nodes from the visualization.
 You can also turn previously dragged nodes loose again.
-
-[#browser-metadata]
-== Graph Metadata
-
-In the left-side menu, the top icon is the database section (icon:database[]), where you can find the *currently used* node labels, relationship types, and property keys.
-Clicking on any one of those options runs a quick query to show you a sample of the graph with those elements.
 
 [#browser-favorites]
 == Setting Favorites
@@ -234,12 +194,8 @@ The Favorites menu uses your comment as the query name.
 
 Creating folders can help organize your favorites, and you can rearrange them by dragging or delete them if they are no longer useful.
 
-[TIP]
-Your favorites, settings, and styles can be saved to the cloud with Neo4j Browser Sync.
-If you clear your Browser cache, your local favorites will be removed.
-
 [#browser-styling-adv]
-=== Advanced Styling
+== Advanced Styling
 
 For more advanced styling, you can bring up the style-viewer with `:style` and copy/paste the graph-style-sheet (GRASS) that is returned.
 You can edit this stylesheet offline, save the file as a .grass file, and drag it back onto the drag-area of the viewer.
@@ -249,8 +205,6 @@ You can reset to the default styles with `:style reset`.
 
 Within the GRASS file, you can change colors, fonts, sizes, outlines, and titles per node label and relationship type.
 It is also possible to combine multiple properties into a caption with `caption: '\{name\}, born in \{born\}';`
-
-image::{img}style_sheet_grass.png[]
 
 [#browser-config]
 == Configuration
@@ -290,7 +244,7 @@ In a later guide, you can create an application to interact with Neo4j and use R
 See the link:/developer/language-guides/[Language Guides] section for more information.
 
 [#browser-resources]
-== Resources
+== Further Information
 
 * https://neo4j.com/docs/browser-manual/current/[Neo4j Browser Manual^]
 * https://neo4j-browser.canny.io/feature-requests[Send Neo4j Browser feature requests^]
