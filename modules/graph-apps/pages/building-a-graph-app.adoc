@@ -794,7 +794,7 @@ If you are interested in using Activation Keys to unlock features in your app, p
 === Files
 
 Neo4j Desktop allows you to drag and drop files into a project for later use.
-For example, you could create a link:/developer/neo4j-browser/#browser-guides[Browser Guide] to explain your project to your coworkers or create set of link:/developer/cypher-query-language/[Cypher scripts] to seed a new database within the project or to hold commonly run queries.
+For example, you could create a link:/developer/neo4j-browser/#using-neo4j-browser[Browser Guide] to explain your project to your coworkers or create set of link:/developer/cypher-query-language/[Cypher scripts] to seed a new database within the project or to hold commonly run queries.
 The Neo4j Desktop UI displays a link to these files so they can be quickly opened in Neo4j Browser.
 
 You can also access these from your Graph App.
