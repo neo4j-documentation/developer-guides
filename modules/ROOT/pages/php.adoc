@@ -57,7 +57,7 @@ It is being actively developed and has a big readme file on the https://github.c
 .Installation
 [source,bash]
 ----
-composer install neo4j-php-client
+composer require laudis/neo4j-php-client
 ----
 
 .Example
