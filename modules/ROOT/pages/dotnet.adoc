@@ -21,11 +21,8 @@ include::./_includes/common-language-prereq.adoc[]
 
 image::{img}dotnet-logo.png[float=right,width=300]
 
-The .NET platform allows developers to create fascinating applications utilizing graph concepts with Neo4j.
-
-Neo4j aims to have a great experience on Windows with an desktop installer and dedicated PowerShell modules.
-
-With the Neo4j 3.0 release we are happy to provide an officially supported driver for .NET.
+Neo4j provides drivers which allow you to make a connection to the database and develop applications
+which create, read, update, and delete information from the graph.
 
 [#dotnet-driver]
 == Neo4jDotNetDriver

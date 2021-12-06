@@ -111,7 +111,7 @@ If they are open source, check their source-code and best build them yourself.
 
 [IMPORTANT]
 Certain procedures and functions are available for self-managed Neo4j Enterprise Edition and Community Edition.  Custom code
-described in this section is not compatible with link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB]
+described in this section is not compatible with link:{aura_signup}[AuraDB]
 
 [#procedure-function-gallery]
 == Procedure and Function Gallery

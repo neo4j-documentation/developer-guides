@@ -22,11 +22,8 @@ include::./_includes/common-language-prereq.adoc[]
 
 image::{img}nodejs.png[float=right,width=300]
 
-:cta-header: The Fastest Way to get Started with JavaScript & Graphs
-include::./_includes/aura_cta.adoc[]
-
-Alternatively, Neo4j can be installed on any system and then accessed via its bolt APIs. We recommend the official driver for JS (neo4j-driver).
-
+Neo4j provides drivers which allow you to make a connection to the database and develop applications
+which create, read, update, and delete information from the graph.
 
 [#javascript-driver]
 == Neo4j Javascript Driver
