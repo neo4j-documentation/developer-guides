@@ -8,6 +8,7 @@ asciidoc:
   attributes:
     page-theme: developer
     img: https://dist.neo4j.com/wp-content/uploads/
+    aura_signup: https://neo4j.com/cloud/aura/?ref=developer-guides
     neo4j-version: 4.2.7
     neo4j-ogm-version: 3.2.23
     spring-boot-version: 2.5.0
