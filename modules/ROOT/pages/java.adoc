@@ -23,10 +23,8 @@ When developing with Neo4j, please use Java 8 or 11 and your favorite IDE.
 
 image::{img}java.jpg[float=right,width=200]
 
-:cta-header: The Fastest Way to get Started with Java & Graphs
-include::./_includes/aura_cta.adoc[]
-
-Alternatively, Neo4j can be installed on any system and then accessed via its bolt APIs. We recommend the official driver for Java for any JVM language.
+Neo4j provides drivers which allow you to make a connection to the database and develop applications
+which create, read, update, and delete information from the graph.
 
 For Community Edition and Enterprise Edition, you can also extend Neo4j by implementing *user defined procedures for Cypher* in Java or other JVM languages.
 
