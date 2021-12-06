@@ -7,4 +7,4 @@ ifndef::cta-header[]
 endif::[]
 Free forever, no credit card required.
 
-link:https://neo4j.com/cloud/aura/?ref=developer-guides[Start on AuraDB,role=button]
+link:{aura_signup}[Start on AuraDB,role=button]

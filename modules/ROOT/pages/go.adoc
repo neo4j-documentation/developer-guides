@@ -21,7 +21,8 @@ include::./_includes/common-language-prereq.adoc[]
 
 image::{img}GO.jpg[width=150,float=right]
 
-You can use the official driver for Go (neo4j-go-driver) or connect via Bolt or HTTP with any of our community drivers.
+Neo4j provides drivers which allow you to make a connection to the database and develop applications
+which create, read, update, and delete information from the graph.
 
 [#go-driver]
 == Neo4j Go Driver

@@ -64,7 +64,7 @@
 ** xref:dotnet.adoc[.NET]
 ** xref:javascript.adoc[JavaScript]
 ** xref:python.adoc[Python]
-** xref:go.adoc[Go,title="Go Programming Language"]
+** xref:go.adoc[Go]
 ** xref:ruby.adoc[Ruby]
 ** xref:php.adoc[PHP]
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
