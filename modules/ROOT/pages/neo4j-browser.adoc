@@ -16,7 +16,7 @@
 
 .Prerequisites
 [abstract]
-Please launch an link:https://neo4j.com/cloud/aura/?ref=developer-guides[AuraDB Instance] or have link:/download[Neo4j^] downloaded and installed.
+Please launch an link:{aura_signup}[AuraDB Instance] or have link:/download[Neo4j^] downloaded and installed.
 It also helps if you have read the section on xref:graph-database.adoc[graph databases].
 
 [role=expertise {level}]
