@@ -121,7 +121,6 @@
 
 * xref:graph-visualization.adoc[Graph Visualization]
 ** xref:tools-graph-visualization.adoc[Visualization Tools]
-** xref:other-graph-visualizations.adoc[Other Visualizations]
 
 * Courses
 ** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1.1 Overview of Neo4j 4.x^]

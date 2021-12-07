@@ -1,38 +1,46 @@
 = Graph Visualization
+:level: Beginner
 :author: Jennifer Reif
 :category: visualization
-:tags: visualization, graph, tools, browser, bloom, introduction
+:tags: visualization, graph, tools, browser, bloom, introduction, tools, charts, maps, heatmaps, 3d
+:description: This guide explains graph visualization tool options, and how to get insights from your data using visualization tools.
+
+.Goals
+[abstract]
+{description}
+
+[role=expertise {level}]
+{level}
 
 [#about-graph-vis]
-Neo4j is designed to be very visual in nature.
-Using nodes and relationships, users can easily model their data into something developers, analysts, and leaders alike can understand.
-The Cypher query language is also structured visually with ASCII-art to make query-building and maintenance easy to read and adapt.
+Neo4j is designed to be very visual in nature.  
+Native graph databases like Neo4j focus on relationships.  Visualizing these relationships can give a unique
+"big picture" to your data that is difficult or impossible to get with traditional tables and business intelligence packages.
+
+image:{img}bloom-movies-view-1.png[role="popup-link"]
 
 Graph visualization takes these capabilities one step further by drawing the graph in various formats so users can interact with the data in a more user-friendly way.
 With visualization tools, a full or partial graph can come to life and allow the user to explore it, setting various rules or views in order to analyze it from different perspectives.
 
-The pages in this section are designed to help you understand how to export your graph data in Neo4j for display as a visualization using a variety of tools provided from open source, Neo4j, or partners.
-Each tool provides certain capabilities, so you can choose which one suits your needs best.
-We will also show how to use the tools to display your data in Neo4j.
+image:{img}bloom-movies-view-2.png[role="popup-link"]
+
+This section is designed to help you understand how to export your graph data in Neo4j for display as a visualization, and list options so you can choose what suits your needs.
 
 [#why-vis-graph]
 == Why Visualize a Graph?
 
-There are a variety of ways to view data in Neo4j without the pictorial representation.
-You can return results as json, xml, tabular formats.
-So why would someone choose to represent the data visually?
+You have many options for working with data; JSON, XML, tabular, and others. 
+Why represent it visually?
 
-A unique capability of graph data is that it is very easily shown in a visual format.
-A graph visualization provides additional value for data analysts and business users, as well as developers.
-Anyone reviewing the graph can see the connections, determine areas of interest, or quickly assess the current state and organization of the data.
+Anyone reviewing a graph can see the connections, determine areas of interest, or quickly assess the current state and organization of the data.
 As you can imagine, this can provide insight where other types of data formats cannot, bringing enormous value.
 Visualizations help make anomalies or relevant patterns stand out to help human eyes and brains detect them, where other types of data formats might not highlight hidden structures as well.
 
-Let us look at a very rudimentary example of this using our movie data from the earlier data modeling section guides.
-In the graph view below, we can easily pick out that `Lana Wachowski` directed both `Cloud Atlas` and `The Matrix` movies, where in the tabular representation, that information is not as clear or easy-to-find.
-
 .Graph
 image:{img}vis_movies_graph_format.jpg[role="popup-link"]
+
+Let us look at a very rudimentary example of this using our movie data from the earlier data modeling section guides.
+In the graph view above, we can easily pick out that `Lana Wachowski` directed both `Cloud Atlas` and `The Matrix` movies, where in the tabular representation, that information is not as clear or easy-to-find.
 
 .Table
 image:{img}vis_movies_tabular_format.jpg[role="popup-link"]
@@ -46,43 +54,157 @@ The connections could easily be lost in a non-visual presentation.
 Neo4j has two main visualization tools that are built and designed to work specifically with data in Neo4j’s graph database: link:/developer/neo4j-browser/[Neo4j Browser] and https://neo4j.com/bloom/[Neo4j Bloom^].
 We will briefly discuss the key details of each here.
 
+=== Neo4j Bloom
+
+Bloom is a standalone product focused on visualization that comes with every link:{aura_signup}[AuraDB Instance], and is available with a Neo4j Desktop.  
+It was designed for business analysts annd nother non-developers to interact with graph data without writing any code.
+
+image:{img}bloom_vis_yelp.jpg[role="popup-link"]
+
+Users can use natural language to query the database and explore patterns, clusters, and traversals in their graph data.
+It is also possible to create different dissections of the graph (called perspectives) that allow users to view different aspects and slices of graph data for further analysis.
+
 === Neo4j Browser
 
-image:{img}browser_vis_yelp.jpg[role="popup-link"]
+Neo4j Browser is an interactive cypher command shell for developers that allows you to interact with your graph and visualize the information in it. Neo4j Browser is bundled with Neo4j and is available in all editions and versions of Neo4j.
 
-Neo4j Browser, a developer-focused tool that allows developers to execute Cypher queries and visualize the results, is the default developer interface for both Enterprise and Community editions of Neo4j database.
-It comes out-of-the-box with all of Neo4j’s graph database offerings, including Neo4j Server (community and enterprise editions) and Neo4j Desktop (all OS versions).
+image:{img}neo4j-browser-oneshot.png[role="popup-link"]
 
 Its visualization functionality is designed to display a node-graph representation of the underlying data stored in the database in response to a given Cypher query, showing circles for nodes and lines for relationships.
 Neo4j Browser also provides some functionality for styling with color and size based on node labels and relationship types, or you can customize your own styles by importing a GRASS (graph-stylesheet) file for Neo4j Browser to reference.
 You can also use the built-in drop-down buttons on query result panes to easily export the data to link:/developer/neo4j-browser#browser-tips[PNG, SVG, or CSV formats].
 
-=== Neo4j Bloom
+[#other-vis]
+== Alternative Visualizations of Graph Data
 
-image:{img}bloom_vis_yelp.jpg[role="popup-link"]
+Not all graph visualizations represent data in circles and lines for nodes and relationships.
+Users may want to view data in various chart-based, map-based, or 3D formats.
 
-Bloom is Neo4j’s standalone product for visualization that is accessible with a commercial license or for free with Neo4j Desktop (single user).
-This tool was designed for business analysts and other non-developers to interact with data stored in the graph database without writing any code.
+[#graph-vis-chart]
+=== Chart-based visualizations
 
-Users can use natural language to query the database and explore patterns, clusters, and traversals in their graph data.
-It is also possible to create different dissections of the graph (called perspectives) that allow users to view different aspects and slices of graph data for further analysis.
+Viewing data in familiar chart formats such as bar charts, histograms, pie charts, dials, meters and other representations might be preferred for various users and business needs.
+There are tools that support these types of charts for metrics and dashboarding.
+
+There are several open source tools available, but we will mention a few with links that we have used before.
+Feel free to explore others!
+
+==== Tableau
+
+image:{img}tableau.png[,width=200]
+
+image::{img}tableau-neo4j.jpg[role="popup-link",float="right",width=350]
+
+Tableau is a data analysis tool that can take data from a variety of sources and blend or split the data based on user specification.
+Using the link:https://neo4j.com/bi-connector/[Neo4j Connector for BI] you can make a connection between
+Neo4j and Tableau as you would any other SQL databases, and visualize data directly.
+
+Once the data is in Tableau, the user can interact with a drag-and-drop Tableau GUI to aggregate, splice, and style various combinations of the data into colorized visualizations in countless formats.
+
+==== *amCharts*
+
+Blog post: https://medium.com/neo4j/showing-charts-for-neo4j-query-results-using-amcharts-and-structr-efae0b7a04f0[Charts for Neo4j query results with amCharts+Structr^]
+
+image::{img}amcharts_structr.jpg[role="popup-link"]
+
+==== *Chart.js*
+
+Blog post: https://neo4j.com/blog/charting-neo4j-3-0/[Charting Neo4j^]
+
+image::{img}chart_js_visualization.jpg[role="popup-link"]
+
+==== *Nivo*
+
+Blog post: https://medium.com/neo4j/working-with-neo4j-date-and-spatial-types-in-a-react-js-app-5475b5042b50[Neo4j Spatial with Nivo charts^]
+
+image::{img}nivo_charts_bar.jpg[role="popup-link"]
+image::{img}nivo_charts_circle.jpg[role="popup-link"]
+
+[#graph-vis-map]
+=== *Map-based visualizations*
+
+image::{img}mapbox_visualization.jpg[role="popup-link",float="right",width=350]
+
+Graph data is an excellent fit for mapping and representing geographic data, as it is laid out by entities and connections (locations/points and routes to get to those locations).
+Neo4j can help plot latitude and longitude, polygon geometries, routes, as well as distances, so a tool to overlay a map visualization on the front-end of this data provides a great deal of value for interacting and exploring an area.
+
+Commercial tools by Tom Sawyer and Keylines both also support this type of visualization.
+
+.*Leaflet.js / Mapbox*
+Leaflet.js is an open source library that allows us to create multiple layers and show/hide various layers.
+It is designed to be interactive and function on mobile phones, as well as traditional devices.
+You can extend functionality with a variety of plugins, including Mapbox.
+With these tools, you can create a base map layer (such as map tiles) and data visualizations live in map layers that are plotted on top of the map tiles.
+Mapbox also gives you the capability to add an interactive map.
+
+=== Leaflet.js Resources
+* Leaflet.js website: https://leafletjs.com/[Leaflet.js^]
+* Blog post: https://www.lyonwj.com/2017/11/28/geocoding-paradise-papers-neo4j-spatial-visualization/[Leaflet.js to visualize Paradise Papers data^]
+* Blog post: https://medium.com/neo4j/working-with-neo4j-date-and-spatial-types-in-a-react-js-app-5475b5042b50[Using Leaflet.js and Mapbox to visualize spatial data in Neo4j^]
+* Example source code: https://github.com/johnymontana/spacetime-reviews[Leaflet/Mapbox spatial Neo4j^]
+* Example source code: https://github.com/johnymontana/osm-routing-app[Leaflet/Mapbox interactive map^]
+* Video: https://neo4j.com/graphconnect-2018/session/neo4j-spatial-mapping[GraphConnect spatial Neo4j with Leaflet/Mapbox^]
+
+[#graph-vis-heatmap]
+=== *Heatmap visualizations*
+
+image::{img}heatmap_visualization.jpg[role="popup-link",float="right",width=350]
+
+A heatmap is a data visualization where colors are used to represent data values.
+It is often imposed on a map, but could also be on a matrix as well.
+When heatmaps are used on a map, pockets of activity may be spread out, so some form of interpolation is often used.
+
+We will list the tool(s) we have encountered so far, but we will add to this as we interact with more.
+
+* *Leaflet.js plugins:*
+** Blog post: https://www.lyonwj.com/2017/11/28/geocoding-paradise-papers-neo4j-spatial-visualization/[Leaflet.js heatcanvas plugin^]
+
+[#graph-vis-3d]
+=== *3D visualizations*
+
+image::{img}graph_vis_3d.jpg[role="popup-link",float="right",width=350]
+
+Adding a third dimension may increase some complexity in the visualization, but also adds value.
+Exploring your data in 3D can help navigate through large amounts of data better and more clearly.
+Clustering should also be more apparent in a 3D visualization because data can be more spread out when using the third dimension, where 2D can cause groups to overlap or display more closely.
+
+Kineviz (commercial tool) also supports this type of visualization.
+
+.*3d-force-graph*
+With this open source library, there are a couple of different components for handling the physics behind three dimensions and for actually rendering the visualization.
+It uses an iterative approach for rendering in 3D and creates stunning, interactive visualizations.
+The tool includes features for customizing styles of nodes and relationships, as well as container layouts, rendering controls, configuring simulation, and user interaction.
+The data structure required is similar to previous tools we have seen, with collections for nodes and relationships.
+3d-force-graph also offers functionality for visualizations to use with virtual reality.
+
+==== 3d-force-graph Resources
+* Source code: https://github.com/vasturiano/3d-force-graph[3d-force-graph Github^]
+* Author post: https://bl.ocks.org/vasturiano/02affe306ce445e423f992faeea13521[Example^]
+* Blog post: https://medium.com/neo4j/visualizing-graphs-in-3d-with-webgl-9adaaff6fe43[Visualizing Graphs in 3D^]
+
+[#graph-vis-other]
+==== *Other categories*
+
+There are still other tools for visualization that may not necessarily fit into the categories we have discussed so far.
+Instead, they expand the current boundaries and find uniquely powerful ways to utilize graph technologies.
+Thinking outside the box increases the possibilities of graph even further!
+
+.*Graphileon*
+image:{img}graphileon-logo.png[width=200]
+
+image::{img}graphileon_visualization.jpg[role="popup-link",float="right",width=350]
+
+Graphileon is a platform for building graphy applications by composing functions and UI elements.
+It can be harnessed by users such as consultants and designers for styling and dashboards.
+Developers can also integrate with other technologies to customize applications, embed views, or extend functionality.
 
 [#vis-tools]
-== More Graph Visualization Tools
+== Partner and Community Visualization Tools
 
 Outside of Neo4j's offerings, partners and community members have built tools and integrations to connect graph data in Neo4j with more graph visualizations.
 Learn more about options and functionality of these tools in the guide linked below.
 
 link:/developer/tools-graph-visualization/[Graph Visualization Tools]
-
-[#other-vis]
-== Other Types of Visualization
-
-Perhaps you are not looking for standard graph (node and relationship) visualizations, but want to look at graph data in other ways.
-Organizing the data as charts, heatmaps, 3D, and more is also possible with Neo4j.
-Find out what is available and where to find them on the next guide.
-
-link:/developer/other-graph-visualizations/[Other Graph Visualizations]
 
 [#graph-vis-resources]
 == Resources
