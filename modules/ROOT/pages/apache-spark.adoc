@@ -7,7 +7,7 @@
 :description: This page is deprecated in favor of the Neo4j Connector for Apache Spark
 
 [NOTE]
-**This approach is deprecated** in favor of the link:/developer/spark[Neo4j Connector for Apache Spark].  This page is being maintained
+**This approach is deprecated** in favor of the link:/docs/spark/current/[Neo4j Connector for Apache Spark].  This page is being maintained
 for reference, but is not current or supported.  Please consult the Neo4j Connector for Apache Spark for the latest supported connector.
 
 .Goals
@@ -48,7 +48,7 @@ The https://github.com/neo4j-contrib/neo4j-spark-connector[Neo4j Spark Connector
 
 [NOTE]
 **The information on this page refers to the old (2.4.5 release) of the spark connector**.   For more up to date information, an easier and more modern API, 
-consult the link:/developer/spark[Neo4j Connector for Apache Spark].  
+consult the link:/docs/spark/current/[Neo4j Connector for Apache Spark].  
 
 It offers Spark-2.0 APIs for *RDD, DataFrame, GraphX and GraphFrames*, so you're free to chose how you want to use and process your Neo4j graph data in Apache Spark.
 

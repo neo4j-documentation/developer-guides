@@ -9,7 +9,7 @@ We want to give an overview about what's available and link to the original sour
 
 Neo4j Connectors are integrations provided by Neo4j and are supported for existing Enterprise customers.
 
-* link:/developer/spark[Neo4j Connector for Apache Spark]
+* link:https://neo4j.com/docs/spark/current/[Neo4j Connector for Apache Spark]
 * link:https://neo4j.com/labs/kafka/4.0/[Neo4j Connector for Apache Kafka] (also known as Neo4j-Streams)
 * link:https://neo4j.com/bi-connector/[Neo4j Connector for Business Intelligence]
 
