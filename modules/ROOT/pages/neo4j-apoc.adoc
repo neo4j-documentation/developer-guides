@@ -49,7 +49,7 @@ Before you begin to write adhoc functions for your application, be sure check AP
 If you're using link:{aura_signup}[AuraDB] congratulations, you're already done with this section.  
 https://neo4j.com/docs/aura/current/getting-started/apoc/[A subset of APOC core functionality^] is already built in.  The rest of this section is for users who run Neo4j in a self-managed mode.
 
-If you haven't already, http://neo4j.org/download/[download] Neo4j Desktop and use the provided instructions (shown when downloading) to get a project and database ready to run.
+If you haven't already, http://neo4j.com/download/[download] Neo4j Desktop and use the provided instructions (shown when downloading) to get a project and database ready to run.
 Once you have a project and database to work within, you can install APOC for your database using the "Plugins" panel on the right.
 
 [#apoc-intro]
