@@ -32,11 +32,13 @@ The library contains implementations for the following types of algorithms:
 
 * link:/docs/graph-data-science/current/algorithms/similarity/[Similarity^] - these algorithms help calculate the similarity of nodes
 
-* link:/docs/graph-data-science/current/algorithms/linkprediction/[Link Prediction^] - these algorithms determine the closeness of pairs of nodes
+* link:/docs/graph-data-science/current/algorithms/linkprediction/[Topological link prediction^] - these algorithms determine the closeness of pairs of nodes
 
 * link:/docs/graph-data-science/current/algorithms/node-embeddings/[Node Embeddings^] - these algorithms compute vector representations of nodes in a graph.
 
-* link:/docs/graph-data-science/current/algorithms/node-classification/[Node Classification^] - this algorithm uses machine learning to predict the classification of nodes.
+* link:/docs/graph-data-science/current/algorithms/ml-models/node-classification/[Node Classification^] - this algorithm uses machine learning to predict the classification of nodes.
+
+* link:/docs/graph-data-science/current/algorithms/ml-models/linkprediction/[Link prediction^] - these algorithms use machine learning to predict new links between pairs of nodes
 
 link:/graph-data-science-library[Learn more about Neo4j GDSL^, role="medium button"]
 
