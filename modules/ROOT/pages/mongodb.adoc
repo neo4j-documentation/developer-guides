@@ -3,8 +3,12 @@
 :page-level: Intermediate
 :author: Neo4j
 :category: integrations
-:tags: integrations, mongodb, document, tools, libraries
+:tags: integrations, mongodb, document, tools, libraries, deprecated
 :description: Taking advantage of the strengths of multiple database technologies is the concept of polyglot persistence.
+
+[NOTE]
+**This approach is deprecated** in favor of link:https://neo4j.com/labs/apoc/4.3/overview/apoc.mongodb/[APOC procedures for working with MongoDB].  This page is being maintained
+for reference, but is not current or supported.  Please consult the APOC documentation for the latest information.
 
 .Goals
 [abstract]
