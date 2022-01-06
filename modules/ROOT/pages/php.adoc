@@ -99,20 +99,20 @@ composer require stefanak-michal/bolt
 .Example
 [source,php]
 ----
-$bolt = new \Bolt\Bolt(new \Bolt\connection\StreamSocket());
-$bolt->setProtocolVersions(4.1);
-$bolt->init('MyClient/1.0', 'neo4j', 'password');
+$bolt = new \Bolt\Bolt( new \Bolt\connection\StreamSocket() );
+$protocol = $bolt->setProtocolVersions(4.1)->build();
+$protocol->hello( \Bolt\helpers\Auth::basic('neo4j', 'neo4j') );
 
-$res = $bolt->run(<<<'CYPHER'
-MERGE (neo4j:Database {name: $dbName}) - [:HasRating] - (rating:Rating {value: 10})
+$protocol->run(<<<'CYPHER'
+MERGE (neo4j:Database {name: $dbName})-[:HasRating]-(rating:Rating {value: 10})
 RETURN neo4j, rating
 CYPHER, ['dbName' => 'neo4j']);
 
-$result = $bolt->pull()[0];
+$result = $protocol->pull()[0];
 
 $neo4j = $result[0];
 $rating = $result[1];
 
 // Outputs "neo4j is 10 out of 10"
-echo $neo4j->properties()['name'].' is '.$rating->properties()['value'].' out of 10!';
+echo $neo4j->properties()['name'] . ' is ' . $rating->properties()['value'] . ' out of 10!';
 ----
