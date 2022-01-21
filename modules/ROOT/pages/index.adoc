@@ -198,13 +198,15 @@ include::https://raw.githubusercontent.com/neo4j-graph-examples/template/main/co
 
 You can learn more in our xref:language-guides.adoc[Drivers & Language Guides] or link:https://github.com/neo4j-examples[view example projects on Github, role=more information]
 
-== Neo4j Community Forum
+== Neo4j Community Forum and Chat
 
 If you're ever stuck and need help, head over to the link:https://community.neo4j.com[Neo4j Community Site^].
 We have an active community of experts who are more than happy to answer your questions.
 
-Why not join our community and link:https://community.neo4j.com/c/general/introduce-yourself/7[introduce yourself]?
+Why not join our community and link:https://community.neo4j.com/c/general/introduce-yourself/7[introduce yourself^]?
 Do you have a side-project or idea and would like to link:https://community.neo4j.com/c/projects-collaboration/9[find collaborators^]?
+
+We also hang out on our https://dev.neo4j.com/chat[Discord Server^] where you can get quick answers, discuss interesting topics or just banter.
 
 [.flex-container.secondary.no-bullets]
 == Resources for Learning Neo4j
@@ -212,14 +214,15 @@ Do you have a side-project or idea and would like to link:https://community.neo4
 [.column]
 === Learn
 
-* link:/graphacademy/online-training[Online Training^]
+* link:https://graphacademy.neo4j.com[Online Training^]
 * link:/graphacademy/neo4j-certification/[Neo4j Certification^]
-* link:https://medium.com/neo4j[Developer Blog^]
+* link:https://neo4j.com/developer-blog/[Developer Blog^]
+* link:https://neo4j.com/tag/twin4j/[TWIN4J: Weekly Dev Newsletter^]
 
 [.column]
 === Watch
 
-* xref:intro-videos.adoc[Intro Video Series]
+* xref:intro-videos.adoc[Intro Video Series^]
 * link:https://youtube.com/neo4j[Neo4j YouTube Channel^]
 * link:https://neo4j.com/developer/online-meetup/[Livestreams on Twitch^]
 
