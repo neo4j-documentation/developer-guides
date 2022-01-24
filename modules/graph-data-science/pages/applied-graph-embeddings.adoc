@@ -78,7 +78,7 @@ We can run the algorithm with the following query:
 
 [source, cypher]
 ----
-CALL gds.alpha.node2vec.stream({
+CALL gds.beta.node2vec.stream({
   nodeProjection: "Place",
   relationshipProjection: {
     eroad: {
@@ -86,7 +86,7 @@ CALL gds.alpha.node2vec.stream({
       orientation: "UNDIRECTED"
     }
   },
-  embeddingSize: 10,
+  embeddingDimension: 10,
   iterations: 10,
   walkLength: 10
 })
@@ -122,7 +122,7 @@ We can store the embeddings by running the following query:
 
 [source, cypher]
 ----
-CALL gds.alpha.node2vec.write({
+CALL gds.beta.node2vec.write({
    nodeProjection: "Place",
    relationshipProjection: {
      eroad: {
@@ -130,7 +130,7 @@ CALL gds.alpha.node2vec.write({
        orientation: "UNDIRECTED"
     }
    },
-   embeddingSize: 10,
+   embeddingDimension: 10,
    iterations: 10,
    walkLength: 10,
    writeProperty: "embeddingNode2vec"
