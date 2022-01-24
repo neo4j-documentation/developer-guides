@@ -87,7 +87,7 @@ MATCH (n:Person)
 WHERE n.name = 'Bob'
 RETURN n;
 
-WITH "1980-01-01" as birthdate
+WITH "1980-01-01" AS birthdate
 MATCH (person:Person)
 WHERE person.birthdate > birthdate
 RETURN person.name;
@@ -104,7 +104,7 @@ MATCH (p:Person)-[:VISITED]-(place:City)
 RETURN collect(DISTINCT place.name);
 
 MATCH (a:Airport)
-RETURN a.airportIdentifier as AirportCode;
+RETURN a.airportIdentifier AS AirportCode;
 
 MATCH (c:Company)
 WHERE c.name CONTAINS 'Inc.' AND c.startYear IN [1990, 1998, 2007, 2010]
