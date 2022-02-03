@@ -37,7 +37,7 @@ Join the discussion
   new Crate({
     server: '787399249741479977',
     channel: '816956538512998440',
-    glyph: ['https://neo4j.com/wp-content/themes/neo4jweb/template-partials/brand/assets/neo4j-icon-color.png', '100%'],
+    glyph: ['https://neo4j.com/wp-content/themes/neo4jweb/v2-templates/brand/assets/neo4j-icon-color.png', '100%'],
     color: '#ffffff',
     indicator: false
   })
