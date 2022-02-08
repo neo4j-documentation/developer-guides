@@ -13,7 +13,8 @@ content:
     - '!**/README.adoc'
 ui:
   bundle:
-    url: https://s3-eu-west-1.amazonaws.com/static-content.neo4j.com/build/ui-bundle-latest.zip
+    # url: https://s3-eu-west-1.amazonaws.com/static-content.neo4j.com/build/ui-bundle-latest.zip
+    url: /Users/adam/neo4j/docs/docs-ui/build/ui-bundle.zip
     snapshot: true
 
 urls:

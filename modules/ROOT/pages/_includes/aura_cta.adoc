@@ -1,9 +1,10 @@
-[#cta]
+[.discrete.ad.right]
+== Neo4j Aura
 ifdef::cta-header[]
-.{cta-header}
+=== {cta-header}
 endif::[]
 ifndef::cta-header[]
-.The Fastest Path to Graph
+=== The Fastest Path to Graph
 endif::[]
 Free forever, no credit card required.
 

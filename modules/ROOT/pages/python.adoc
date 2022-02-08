@@ -24,6 +24,19 @@ image::{img}python-logo.png[width=300,float="right"]
 Neo4j provides drivers which allow you to make a connection to the database and develop applications
 which create, read, update, and delete information from the graph.
 
+[.discrete.ad]
+== link:https://graphacademy.neo4j.com/?ref=guides[Learn with GraphAcademy^]
+
+image::https://graphacademy.neo4j.com/courses/app-python/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/app-python/?ref=guides[Building Neo4j Applications with Python^]
+
+In this free course, we walk through the steps to integrate Neo4j into your Python projects.
+You will learn about the Neo4j Python Driver, how sessions and transactions work and how to query Neo4j from an existing application.
+
+link:https://graphacademy.neo4j.com/courses/app-python/?ref=guides[Learn more^,role=button]
+
 [#python-driver]
 == Neo4j Python Driver
 

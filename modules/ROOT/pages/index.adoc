@@ -198,6 +198,7 @@ include::https://raw.githubusercontent.com/neo4j-graph-examples/template/main/co
 
 You can learn more in our xref:language-guides.adoc[Drivers & Language Guides] or link:https://github.com/neo4j-examples[view example projects on Github, role=more information]
 
+
 == Neo4j Community Forum and Chat
 
 If you're ever stuck and need help, head over to the link:https://community.neo4j.com[Neo4j Community Site^].
@@ -208,21 +209,69 @@ Do you have a side-project or idea and would like to link:https://community.neo4
 
 We also hang out on our https://dev.neo4j.com/chat[Discord Server^] where you can get quick answers, discuss interesting topics or just banter.
 
+[.secondary]
+== Learn with GraphAcademy
+
+Learn everything you need to know with free, hands-on courses from link:https://graphacademy.neo4j.com/[Neo4j GraphAcademy^].
+
+link:https://graphacademy.neo4j.com/?ref=guides[Learn more^,role=button]
+link:https://graphacademy.neo4j.com/categories/?ref=guides[or view courses by category^]
+
+[.flex-container.secondary.no-bullets.no-arrows.discrete]
+== link::https://graphacademy.neo4j.com/courses/beginners/?ref=guides[Courses for Beginners]
+
+[.column]
+=== link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/?ref=guides[Neo4j Fundamentals]
+
+image::https://graphacademy.neo4j.com/courses/neo4j-fundamentals/badge/[Earn the Neo4j Fundamentals Badge, link=https://graphacademy.neo4j.com/courses/neo4j-fundamentals/?ref=guides]
+
+Learn the basics of Neo4j and the property graph model, regardless of your technical knowledge.
+
+link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/?ref=guides[Learn Neo4j Fundamentals]
+
+[.column]
+=== link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/?ref=guides[Cypher Fundamentals]
+
+image::https://graphacademy.neo4j.com/courses/cypher-fundamentals/badge/[Earn the Cypher Fundamentals Badge, link=https://graphacademy.neo4j.com/courses/cypher-fundamentals/?ref=guides]
+
+A 60 minute introduction to Cypher, the query language used to retrieve data from Neo4j.
+
+link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/?ref=guides[Learn more about Cypher]
+
+[.column]
+=== link:https://graphacademy.neo4j.com/courses/modeling-fundamentals?ref=guides/[Graph Data Modeling]
+
+image::https://graphacademy.neo4j.com/courses/modeling-fundamentals/badge/[Earn the Graph Data Modeling Badge, link=https://graphacademy.neo4j.com/courses/modeling-fundamentals/?ref=guides]
+
+Learn how correctly model data in your Neo4j graph using best practices.
+
+link:https://graphacademy.neo4j.com/courses/modeling-fundamentals?ref=guides/[Learn Data Modeling]
+
+
+[.column]
+=== link:https://graphacademy.neo4j.com/courses/importing-data/?ref=guides[Importing CSV Data]
+
+image::https://graphacademy.neo4j.com/courses/importing-data/badge/[Earn the Neo4j Fundamentals Badge, link=https://graphacademy.neo4j.com/courses/importing-data/?ref=guides]
+
+Learn how to import data into Neo4j using the `LOAD CSV` and the Data Importer tool.
+
+link:https://graphacademy.neo4j.com/courses/importing-data/?ref=guides[Import CSVs into Neo4j]
+
+
 [.flex-container.secondary.no-bullets]
 == Resources for Learning Neo4j
 
 [.column]
 === Learn
 
-* link:https://graphacademy.neo4j.com[Online Training^]
+* link:/graphacademy/online-training[Online Training^]
 * link:/graphacademy/neo4j-certification/[Neo4j Certification^]
-* link:https://neo4j.com/developer-blog/[Developer Blog^]
-* link:https://neo4j.com/tag/twin4j/[TWIN4J: Weekly Dev Newsletter^]
+* link:https://medium.com/neo4j[Developer Blog^]
 
 [.column]
 === Watch
 
-* xref:intro-videos.adoc[Intro Video Series^]
+* xref:intro-videos.adoc[Intro Video Series]
 * link:https://youtube.com/neo4j[Neo4j YouTube Channel^]
 * link:https://neo4j.com/developer/online-meetup/[Livestreams on Twitch^]
 
@@ -233,70 +282,3 @@ We also hang out on our https://dev.neo4j.com/chat[Discord Server^] where you ca
 * link:http://stackoverflow.com/questions/tagged/neo4j[Stack Overflow^]
 * link:https://twitter.com/neo4j[Twitter^]
 
-
-// [.flex-container]
-// == Intro to Graph Databases
-
-// [.column]
-// === Episode 1: The Evolution of DBs
-
-// image::https://i.ytimg.com/vi/5Tl8WcaqZoc/mqdefault.jpg[Episode 1: The Evolution of DBs]
-// link:#[Watch Video, role=more information]
-
-
-
-// [.column]
-// === Episode 2: Properties of Graph DB
-
-// image::https://i.ytimg.com/vi/-dCeFEqDkUI/mqdefault.jpg[Episode 2: Properties of Graph DBs]
-// link:#[Watch Video, role=more information]
-
-// [.column]
-// === Episode 3: Property Graph Model
-
-// image::https://i.ytimg.com/vi/NH6WoJHN4UA/mqdefault.jpg[Episode 3: Property Graph Model]
-// link:#[Watch Video, role=more information]
-
-
-// [.discrete]
-// == More Videos
-
-// link:https://youtube.com/neo4j[More content on the Neo4j Youtube Channel, role=button]
-// link:https://medium.com/neo4j[Neo4j Developer Blog, role=button]
-
-
-// [.secondary.flex-container]
-// == Training and Certification
-
-// [.column]
-// === Online Training
-
-// Get started with Neo4j by taking free online training classes.
-
-// link:/graphacademy/[Enrol to the GraphAcademy for free, role=more information]
-
-
-// [.column]
-// === Certification
-
-// Become a Neo4j Certified Professional to validate and promote your skills.
-
-// link:#[Neo4j Certification, role=more information]
-
-// [.column]
-// === Upcoming Events
-
-// Keep an eye on Neo4j events coming up near you.
-
-// link:#[Upcoming Events Near You, role=more information]
-
-
-// [.secondary]
-// == Neo4j Community
-
-// == Upcoming Events
-
-// [.secondary]
-// == Featured Videos
-
-// == Online Meetups

@@ -6,6 +6,12 @@
 :category: drivers
 :tags: javascript, official-driver, app-development, applications
 :description: If you are a JavaScript developer, this guide provides an overview of options for connecting to Neo4j.
+// :page-ad-overline-link: https://graphacademy.neo4j.com/
+// :page-ad-overline: Neo4j GraphAcademy
+// :page-ad-title: Building Neo4j Applications with Node.js
+// :page-ad-description: Learn how to interact with Neo4j from your Node.js app using the Neo4j Python Driver
+// :page-ad-link: https://graphacademy.neo4j.com/courses/app-nodejs/
+// :page-ad-underline: Learn more
 
 .Goals
 [abstract]
@@ -24,6 +30,22 @@ image::{img}nodejs.png[float=right,width=300]
 
 Neo4j provides drivers which allow you to make a connection to the database and develop applications
 which create, read, update, and delete information from the graph.
+
+You can use the official driver for JavaScript (neo4j-driver) or connect via HTTP using the `request` module or any of our community drivers.
+
+[.discrete.ad]
+== link:https://graphacademy.neo4j.com/?ref=guides[Learn with GraphAcademy^]
+
+image::https://graphacademy.neo4j.com/courses/app-nodejs/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/app-nodejs/?ref=guides[Building Neo4j Applications with Node.js^]
+
+In this free course, we walk through the steps to integrate Neo4j into your Node.js projects.
+You will learn about the Neo4j JavaScript Driver, how sessions and transactions work and how to query Neo4j from an existing application.
+
+link:https://graphacademy.neo4j.com/courses/app-nodejs/?ref=guides[Learn more^,role=button]
+
 
 [#javascript-driver]
 == Neo4j Javascript Driver

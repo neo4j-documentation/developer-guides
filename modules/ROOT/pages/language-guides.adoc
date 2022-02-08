@@ -4,8 +4,15 @@
 :author: Jennifer Reif
 :category: drivers
 :tags: programming-languages, applications, bolt, app-development
+// :page-ad-overline-link: https://graphacademy.neo4j.com/
+// :page-ad-overline: Neo4j GraphAcademy
+// :page-ad-title: Free, Self-Paced, Hands-on Online Training
+// :page-ad-description: Learn how to build, optimize and launch your Neo4j project, all from the Neo4j experts.
+// :page-ad-link: https://graphacademy.neo4j.com/?ref=guides
+// :page-ad-underline: Start Learning Now
 
 [#neo4j-app-dev]
+== Neo4j Language Guides
 These guides and tutorials are designed to provide detailed examples of how to integrate Neo4j with your preferred programming language.
 Neo4j *officially supports the drivers for .Net, Java, JavaScript, Go, and Python* for the binary Bolt protocol.
 Our community contributors provide drivers for all major programming languages for all protocols and APIs.
@@ -98,3 +105,11 @@ A simple HTTP Cypher request, executable in the Neo4j Browser would look like th
 ----
 
 Some of the language drivers use the HTTP API under the hood, but make them available in a more convenient way.
+
+
+== link:https://graphacademy.neo4j.com/[Learn with GraphAcademy^]
+
+Learn everything you need to know to build an application on top of Neo4j with free, hands-on courses from link:https://graphacademy.neo4j.com/[Neo4j GraphAcademy^].
+
+link:https://graphacademy.neo4j.com/?ref=guides[Learn more^,role=button]
+link:https://graphacademy.neo4j.com/categories/?ref=guides[or view courses by category^]
