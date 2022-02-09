@@ -6,6 +6,13 @@
 :category: drivers
 :tags: php, ogm, app-development, applications, driver, client, bolt
 :description: If you are a PHP developer, this guide provides an overview of options for connecting to Neo4j.
+:page-ad-overline-link: https://neo4j.com/cloud/aura/?ref=developer-guides
+:page-ad-overline: Neo4j Aura
+:page-ad-title: The Fastest Way to get Started with PHP & Graphs
+:page-ad-description: Free forever, no credit card required.
+:page-ad-link: https://neo4j.com/cloud/aura/?ref=developer-guides
+:page-ad-underline-role: button
+:page-ad-underline: Start on AuraDB
 
 .Goals
 [abstract]
@@ -23,8 +30,6 @@ When developing with Neo4j, please use Java 8 or 11 and your favorite IDE.
 
 image::{img}php_logo.png[float=right,width=300]
 
-:cta-header: The Fastest Way to get Started with PHP & Graphs
-include::./_includes/aura_cta.adoc[]
 
 Alternatively, Neo4j can be installed on any system and then accessed via its bolt and HTTP APIs. We recommend the https://github.com/laudis-technologies/neo4j-php-client#roadmap[PHP Client^] for easiest development over bolt and HTTP APIs. You can also directly access the bolt protocol via the https://github.com/stefanak-michal/Bolt[PHP Bolt] library.
 

@@ -5,20 +5,27 @@
 :page-aliases: ROOT:cypher-query-language.adoc, cypher-query-language.adoc
 :page-pagination:
 :page-newsletter: true
+:page-ad-overline-link: https://neo4j.com/cloud/aura/?ref=developer-guides
+:page-ad-overline: Neo4j Aura
+:page-ad-title: Follow Along and Learn While Doing
+:page-ad-description: Free forever, no credit card required.
+:page-ad-link: https://neo4j.com/cloud/aura/?ref=developer-guides
+:page-ad-underline-role: button
+:page-ad-underline: Start on AuraDB
 
 [#about-cypher]
-Cypher is Neo4j's graph query language that lets you retrieve data from the graph.  
+Cypher is Neo4j's graph query language that lets you retrieve data from the graph.
 It is like SQL for graphs, and was inspired by SQL so it lets you focus on what data you want out of the graph (not how to go get it).  It is the easist graph language to learn by far because of its similarity to other languages, and intuitiveness.
 
 image:{img}sample-cypher.png[role="popup-link"]
 
-// Note $$->$$ is used as a special escape to prevent asciidoc from replacing -> with arrow in unicode 
-Cypher is unique because it provides a visual way of matching patterns and relationships.  
+// Note $$->$$ is used as a special escape to prevent asciidoc from replacing -> with arrow in unicode
+Cypher is unique because it provides a visual way of matching patterns and relationships.
 Cypher uses an ASCII-art type of syntax where `$$(nodes)-[:ARE_CONNECTED_TO]->(otherNodes)$$` using rounded brackets for circular
-`(nodes)`, and `$$-[:ARROWS]->$$` for relationships.  
+`(nodes)`, and `$$-[:ARROWS]->$$` for relationships.
 When you write a query, you draw a graph pattern through your data.
 
-Neo4j users use Cypher to construct expressive and efficient queries to do any kind of create, read, update, or 
+Neo4j users use Cypher to construct expressive and efficient queries to do any kind of create, read, update, or
 delete (CRUD) on their graph, and Cypher is the primary interface for Neo4j.
 
 [IMPORTANT]
@@ -27,9 +34,6 @@ Cypher is backed by a number of companies all of which benefit from cypher.
 
 [#cypher-intro]
 == Introduction to Cypher
-
-:cta-header: Follow Along and Learn While Doing
-include::ROOT:page$_includes/aura_cta.adoc[]
 
 Once you have an AuraDB database, you can use the `:play cypher` command inside of Neo4j Browser to get started.
 
@@ -40,7 +44,7 @@ Neo4j's developer pages cover the basics of the language, which you can explore 
 [cols="1,1"]
 |===
 |xref:intro-cypher.adoc[Getting Started with Cypher]
-|Learn what cypher is, and important concepts for graph 
+|Learn what cypher is, and important concepts for graph
 
 |xref:querying.adoc[Querying with Cypher]
 |How to write Cypher code to query the graph
@@ -69,7 +73,7 @@ Neo4j's developer pages cover the basics of the language, which you can explore 
 |xref:procedures-functions.adoc[User-Defined Procedures and Functions] +
 link:/labs/apoc/[APOC: Neo4j's Standard Utility Library^]
 |Extending Cypher with powerful additional functionality for special scenarios
-|=== 
+|===
 
 image::{img}cypher_learning.jpg[role="popup-link"]
 
@@ -87,7 +91,7 @@ xref:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation E
 
 == Community Help
 
-If you have any questions, the Neo4j Community is the place to go to ask.  
+If you have any questions, the Neo4j Community is the place to go to ask.
 Join a group of professionals using graphs to solve all kinds of interesting problems!
 
 link:https://community.neo4j.com/?ref=guides[Join the Neo4j Community,role=button^].
@@ -99,3 +103,17 @@ Find out where else you can learn Cypher or increase your depth of knowledge fro
 There are a variety of training opportunities, blogs, videos, and more for taking the next steps in your Cypher (and Neo4j) journey!
 
 xref:resources.adoc[Cypher Resources,role=more information]
+
+
+[.discrete.ad]
+== link:https://graphacademy.neo4j.com/?ref=guides[Learn with GraphAcademy^]
+
+image::https://graphacademy.neo4j.com/courses/cypher-fundamentals/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/?ref=guides[Cypher Fundamentals^]
+
+This course teaches you the essentials of using Cypher, Neo4j’s powerful query language, in as little time as possible, with videos, quizzes and hands-on exercises.
+
+
+link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/?ref=guides[Learn Cypher with GraphAcademy^,role=button]

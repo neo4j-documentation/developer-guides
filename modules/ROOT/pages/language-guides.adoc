@@ -4,12 +4,13 @@
 :author: Jennifer Reif
 :category: drivers
 :tags: programming-languages, applications, bolt, app-development
-// :page-ad-overline-link: https://graphacademy.neo4j.com/
-// :page-ad-overline: Neo4j GraphAcademy
-// :page-ad-title: Free, Self-Paced, Hands-on Online Training
-// :page-ad-description: Learn how to build, optimize and launch your Neo4j project, all from the Neo4j experts.
-// :page-ad-link: https://graphacademy.neo4j.com/?ref=guides
-// :page-ad-underline: Start Learning Now
+:page-ad-overline-link: https://neo4j.com/cloud/aura/?ref=developer-guides
+:page-ad-overline: Neo4j Aura
+:page-ad-title: Don't Have a Neo4j Instance? Launch one now.
+:page-ad-description: Free forever, no credit card required.
+:page-ad-link: https://neo4j.com/cloud/aura/?ref=developer-guides
+:page-ad-underline-role: button
+:page-ad-underline: Start on AuraDB
 
 [#neo4j-app-dev]
 == Neo4j Language Guides
@@ -18,13 +19,11 @@ Neo4j *officially supports the drivers for .Net, Java, JavaScript, Go, and Pytho
 Our community contributors provide drivers for all major programming languages for all protocols and APIs.
 In this section, we provide an introduction and a consistent example application for several languages and Neo4j drivers.
 
-:cta-header: Don't Have a Neo4j Instance?  Launch one now.
-include::./_includes/aura_cta.adoc[]
 
 [#connect-neo4j]
 == How to connect to Neo4j?
 
-If you've created an AuraDB instance, or link:/download/[installed] and started Neo4j as a server on your system,
+If you've created an link:{aura_signup}[AuraDB instance^], or link:/download/[installed] and started Neo4j as a server on your system,
 you can already work interactively with the database via the built-in Neo4j Browser, which you will find in the AuraDB console, or if you're running locally, on http://localhost:7474[localhost:7474].
 
 To build an application, you want to connect to Neo4j from your technology stack.
@@ -106,7 +105,7 @@ A simple HTTP Cypher request, executable in the Neo4j Browser would look like th
 
 Some of the language drivers use the HTTP API under the hood, but make them available in a more convenient way.
 
-
+[.ad]
 == link:https://graphacademy.neo4j.com/[Learn with GraphAcademy^]
 
 Learn everything you need to know to build an application on top of Neo4j with free, hands-on courses from link:https://graphacademy.neo4j.com/[Neo4j GraphAcademy^].

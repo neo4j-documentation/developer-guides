@@ -8,7 +8,7 @@
     "start": "npm run build && npm run serve & npm run watch",
     "serve": "node server.js",
     "watch": "nodemon -e adoc --exec \"npm run build\"",
-    "build": "antora --stacktrace preview.yml",
+    "build": "antora --stacktrace --fetch preview.yml",
     "lint": "link-checker build/site --static /static/assets=build/site/_ --skip-file ./ignore-links.txt",
     "publish": "git push origin HEAD:publish",
     "downloadNotebooks": "node scripts/download-lp-notebooks.js"

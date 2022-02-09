@@ -32,3 +32,16 @@ To help you along your path of learning more about Cypher and how to use it, we 
 * https://medium.com/neo4j[Neo4j Medium Blog Channel^]
 
 include::partial$next-steps.adoc[]
+
+[.discrete.ad]
+== link:https://graphacademy.neo4j.com/?ref=guides[Learn with GraphAcademy^]
+
+image::https://graphacademy.neo4j.com/courses/cypher-fundamentals/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/?ref=guides[Cypher Fundamentals^]
+
+This course teaches you the essentials of using Cypher, Neo4j’s powerful query language, in as little time as possible, with videos, quizzes and hands-on exercises.
+
+
+link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/?ref=guides[Learn Cypher with GraphAcademy^,role=button]

@@ -8,6 +8,13 @@
 :page-pagination:
 :page-aliases: ROOT:filtering-query-results.adoc
 :page-newsletter: true
+:page-ad-overline-link: https://graphacademy.neo4j.com/?ref=guides
+:page-ad-overline: Neo4j GraphAcademy
+:page-ad-title: Cypher Fundamentals
+:page-ad-description: Learn Cypher in this free, hands-on course
+:page-ad-link: https://graphacademy.neo4j.com/?ref=guides
+:page-ad-underline-role: button
+:page-ad-underline: Learn more
 
 .Goals
 [abstract]

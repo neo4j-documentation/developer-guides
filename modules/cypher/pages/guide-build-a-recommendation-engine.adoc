@@ -22,16 +22,17 @@ You should have a basic understanding of the xref:ROOT:graph-database.adoc#prope
 {level}
 
 [#cypher-tutorial]
-Graphs are everywhere.  
+Graphs are everywhere.
 By following the meaningful relationships between the people and movies, you can determine occurences of actors working together, the frequency of actors working with one another, and the movies they have in common in the graph.
-This is one way we can recommend movies to users, based on what they liked before, and their favorite actors.  
+This is one way we can recommend movies to users, based on what they liked before, and their favorite actors.
 We will step you through everything you need to get started with AuraDB and Cypher, to solve a real-world problem.
+
+:cta-header: First, Create your AuraDB Free Instance
+include::ROOT:page$_includes/aura_cta.adoc[]
 
 [#recommendation-setup]
 == Setting Up
 
-:cta-header: First, Create an AuraDB Free Instance
-include::ROOT:page$_includes/aura_cta.adoc[]
 
 When you've created your AuraDB account, click "Create a Database" and select a free database
 
@@ -51,8 +52,8 @@ Now you've arrived inside of Neo4j Browser.  Use your username and password (the
 
 image::{img}first-movies-query.png[role="popup-link"]
 
-This first query just shows a few movies in the database to prove there's something there.  
-Congratulations, you've got some data in a new database, and we're ready to get started. 
+This first query just shows a few movies in the database to prove there's something there.
+Congratulations, you've got some data in a new database, and we're ready to get started.
 
 The next section will show you how to write some queries to explore the data you just created.
 

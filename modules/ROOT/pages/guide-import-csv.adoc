@@ -41,6 +41,9 @@ We will take a brief view of each one of these tools, how they operate, and how 
 More documentation and information for each will also be included for help on more complex scenarios.
 Data quality can also be an issue for any type of data import to any system, so we will cover a few of these potential difficulties and how to solve them.
 
+:cta-header: Try it out on AuraDB
+include::./_includes/aura_cta.adoc[]
+
 [#import-load-csv]
 == LOAD CSV command with Cypher
 
@@ -55,8 +58,7 @@ It is simple to use and widely applicable.
 * Supports complex computations
 * Creates or merges entities, relationships, and structure
 
-:cta-header: Try it out on AuraDB
-include::./_includes/aura_cta.adoc[]
+
 
 --
 [NOTE]

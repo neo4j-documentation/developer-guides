@@ -7,6 +7,13 @@
 :description: This tutorial explains the basic concepts of Cypher, Neo4j's query language, including how to create and query graphs.
 :page-aliases: ROOT:guide-cypher-basics.adoc
 :page-newsletter: true
+:page-ad-overline-link: https://graphacademy.neo4j.com/?ref=guides
+:page-ad-overline: Neo4j GraphAcademy
+:page-ad-title: Cypher Fundamentals
+:page-ad-description: Learn Cypher in this free, hands-on course
+:page-ad-link: https://graphacademy.neo4j.com/?ref=guides
+:page-ad-underline-role: button
+:page-ad-underline: Learn more
 
 .Goals
 [abstract]
