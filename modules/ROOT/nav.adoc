@@ -69,6 +69,10 @@
 ** xref:php.adoc[PHP]
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
 ** xref:perl.adoc[Perl]
+** xref:c.adoc[C/C++]
+** xref:clojure.adoc[Clojure]
+** xref:haskell.adoc[Haskell]
+** xref:r.adoc[R]
 
 * Building Applications
 ** xref:example-project.adoc[Example: all Stacks (Movies)]
