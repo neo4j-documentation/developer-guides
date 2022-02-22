@@ -180,11 +180,13 @@
 ** link:https://neo4j.com/videos/[Neo4j Videos^]
 ** link:https://neo4j.com/speaker-program/[Speaker Program: Share your Story^]
 
-* link:https://community.neo4j.com/[Help Forums^]
+* Community Support
+** link:https://community.neo4j.com/[Community Forum^]
 ** link:https://discord.gg/neo4j[Discord Chat^]
 ** link:https://stackoverflow.com/questions/tagged/neo4j[StackOverflow^]
 
-* link:https://neo4j.com/graphacademy/[Learn with GraphAcademy^]
+* Learn with GraphAcademy
+** link:https://neo4j.com/graphacademy/[Online Courses^]
 ** link:https://neo4j.com/graphacademy/neo4j-certification/[Neo4j Certification^]
 
 * xref:resources.adoc[Documentation &amp; Resources]
