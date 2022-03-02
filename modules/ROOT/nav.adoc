@@ -61,10 +61,18 @@
 *** xref:neo4j-ogm.adoc[Neo4j Object Graph Mapper]
 *** xref:java-procedures.adoc[Procedures and Functions]
 *** xref:java-third-party.adoc[Third-party libraries]
+*** Courses:
+**** link:https://graphacademy.neo4j.com/courses/app-java/[Building Neo4j Applications with Java^]
 ** xref:dotnet.adoc[.NET]
 ** xref:javascript.adoc[JavaScript]
+*** Courses:
+**** link:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Neo4j Applications with Node.js^]
 ** xref:python.adoc[Python]
+*** Courses:
+**** link:https://graphacademy.neo4j.com/courses/app-python/[Building Neo4j Applications with Python^]
 ** xref:go.adoc[Go]
+*** Courses:
+**** link:https://graphacademy.neo4j.com/courses/app-go/[Building Neo4j Applications with Go^]
 ** xref:ruby.adoc[Ruby]
 ** xref:php.adoc[PHP]
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
@@ -87,14 +95,19 @@
 ** xref:graph-apps:building-a-graph-app.adoc[Building Graph Apps]
 
 * Courses
-** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1.1 Overview of Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[1.2 Querying with Cypher in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-updating-40/enrollment/[1.3 Creating Nodes and Relationships in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-best-practices-40/enrollment/[1.4 Using Indexes and Query Best Practices in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[1.5 Importing Data with Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/online-training/graph-data-modeling/[2. Graph Data Modeling^]
-** link:https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[3. Implementing Graph Models in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[4. Query Tuning in Neo4j 4.x^]
+** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Graph Data Modeling Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
+
+// ** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1.1 Overview of Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[1.2 Querying with Cypher in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-updating-40/enrollment/[1.3 Creating Nodes and Relationships in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-best-practices-40/enrollment/[1.4 Using Indexes and Query Best Practices in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[1.5 Importing Data with Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/online-training/graph-data-modeling/[2. Graph Data Modeling^]
+// ** link:https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[3. Implementing Graph Models in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[4. Query Tuning in Neo4j 4.x^]
 
 * *For Data Scientists*
 * xref:graph-data-science:index.adoc[Neo4j Graph Data Science]
@@ -123,14 +136,19 @@
 ** xref:tools-graph-visualization.adoc[Visualization Tools]
 
 * Courses
-** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1.1 Overview of Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[1.2 Querying with Cypher in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-updating-40/enrollment/[1.3 Creating Nodes and Relationships in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-best-practices-40/enrollment/[1.4 Using Indexes and Query Best Practices in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[1.5 Importing Data with Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[2. Intro to Graph Algorithms in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-gdsds-40/enrollment/[3. Using a Machine Learning Workflow for Link Prediction^]
-** link:https://neo4j.com/graphacademy/training-gdsaa-40/enrollment/[4. Applied Graph Data Science for Web Applications^]
+** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Graph Data Modeling Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
+
+// ** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1.1 Overview of Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[1.2 Querying with Cypher in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-updating-40/enrollment/[1.3 Creating Nodes and Relationships in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-best-practices-40/enrollment/[1.4 Using Indexes and Query Best Practices in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[1.5 Importing Data with Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[2. Intro to Graph Algorithms in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-gdsds-40/enrollment/[3. Using a Machine Learning Workflow for Link Prediction^]
+// ** link:https://neo4j.com/graphacademy/training-gdsaa-40/enrollment/[4. Applied Graph Data Science for Web Applications^]
 
 * *For Administrators*
 
@@ -159,15 +177,20 @@
 ** xref:neo4j-google-cloud-launcher.adoc[Tutorial: Deploy Neo4j Cluster on GCP]
 
 * Courses
-** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1. Overview of Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[2. Querying with Cypher in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/online-training/basic-neo4j-admin-40/[3. Basic Neo4j 4.x Admin^]
-** link:https://neo4j.com/graphacademy/online-training/graph-data-modeling/[4. Graph Data Modeling^]
-** link:https://neo4j.com/graphacademy/training-updating-40/enrollment/[5. Creating Nodes and Relationships in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-best-practices-40/enrollment/[6. Using Indexes and Query Best Practices in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[7. Importing Data with Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[8. Query Tuning in Neo4j 4.x^]
-** link:https://neo4j.com/graphacademy/online-training/neo4j-administration/[(older installations) Neo4j 3.5 Administration^]
+** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Graph Data Modeling Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
+
+// ** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1. Overview of Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[2. Querying with Cypher in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/online-training/basic-neo4j-admin-40/[3. Basic Neo4j 4.x Admin^]
+// ** link:https://neo4j.com/graphacademy/online-training/graph-data-modeling/[4. Graph Data Modeling^]
+// ** link:https://neo4j.com/graphacademy/training-updating-40/enrollment/[5. Creating Nodes and Relationships in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-best-practices-40/enrollment/[6. Using Indexes and Query Best Practices in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[7. Importing Data with Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[8. Query Tuning in Neo4j 4.x^]
+// ** link:https://neo4j.com/graphacademy/online-training/neo4j-administration/[(older installations) Neo4j 3.5 Administration^]
 
 * *For Everyone*
 
@@ -186,7 +209,7 @@
 ** link:https://stackoverflow.com/questions/tagged/neo4j[StackOverflow^]
 
 * Learn with GraphAcademy
-** link:https://neo4j.com/graphacademy/[Online Courses^]
+** link:https://graphcademy.neo4j.com/[Free Online Courses^]
 ** link:https://neo4j.com/graphacademy/neo4j-certification/[Neo4j Certification^]
 
 * xref:resources.adoc[Documentation &amp; Resources]
