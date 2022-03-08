@@ -24,7 +24,7 @@ We run a variety of live streams and online meetups so that people around the wo
 
 You can keep an eye on what's happening by:
 
-* https://twitch.tv/neo4j[Following us on Twitch^] to get notified when we go live
+* https://twitch.tv/neo4j[Following us on Twitch^] or https://www.youtube.com/neo4j[on YouTube^] to get notified when we go live
 * Keep an eye out for event announcements on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup^] group
 * You can also https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel^]
 
@@ -32,49 +32,88 @@ You can keep an eye on what's happening by:
 [#regular-streamers]
 == Our regular streamers
 
-=== Monday -  Michael & Alexander
+=== Monday -  Discover Neo4j AuraDB Free with Michael & Alexander
 
-image::https://pbs.twimg.com/profile_images/792577726230237184/8ZSDZEvI_400x400.jpg[Micahel Hunger,width="200px",float="right"]
-
-image::https://pbs.twimg.com/profile_images/1269926027050057728/IVMPkcbt_400x400.jpg[Alexander Erdl,width="200px",float="right"]
+image::https://raw.githubusercontent.com/neo4j-documentation/developer-guides/publish/modules/ROOT/images/discoveraura.png[Discover AuraDB Free,width="300px",float="right"]
 
 Alternating weekly between +
-*8am UTC (9am BST, 10am CEST, 1:30pm IST, 4pm SGT)* & +
-*2pm UTC (3pm BST, 4pm CEST, 7:30pm IST, 10pm SGT)*
+*8am UTC (12am PST, 3am EST, 9am BST, 10am CEST, 1:30pm IST, 4pm SGT)* & +
+*2pm UTC (6am PST, 9am EST, 3pm BST, 4pm CEST, 7:30pm IST, 10pm SGT)*
 
 https://twitter.com/mesirii[Michael Hunger^] and https://twitter.com/alexandererdl[Alexander Erdl^] take requests of online data sets, figure out some questions, define a data model, load the data and query, all against https://dev.neo4j.com/discover-aura[Neo4j AuraDB Free tier]. Got a data set you want them to explore? Let them know! 
 
+Missed a stream? Check out the playlist:
+
+* https://www.youtube.com/playlist?list=PL9Hl4pk2FsvVZaoIpfsfpdzEXxyUJlAYw[Discover Neo4j AuraDB Free^]
+* https://github.com/neo4j-examples/discoveraurafree[Read up the code examples on the repo^]
+
+=== Tuesday - Going Meta 
+
+image::https://github.com/neo4j-documentation/developer-guides/raw/publish/modules/ROOT/images/meta.png[Going Meta,width="300px",float="right"]
+
+Every first Tuesday of the month +
+*4pm UTC (8am PST, 11am EST, 3pm BST, 4pm CEST, 9:30pm IST, 12am SGT)*
+
+https://twitter.com/BarrasaDV[Jesús Barrasa^] and https://twitter.com/alexandererdl[Alexander Erdl^] run a series on graphs, semantics and knowledge graphs. 
+
+Missed an episode? Check out the playlist:
+
+* https://www.youtube.com/watch?v=NQqWBnyQlS4&list=PL9Hl4pk2FsvX-5QPvwChB-ni_mFF97rCE[Going Meta^]
+* https://github.com/jbarrasa/goingmeta[Read up the code examples on the repo^]
+
+
+=== Bi-Monthly - Neo4j Live 
+
+image::https://raw.githubusercontent.com/neo4j-documentation/developer-guides/publish/modules/ROOT/images/live.png[Neo4j Live,width="300px",float="right"]
+
+Aiming to take place at least twice a month!
+
+https://twitter.com/alexandererdl[Alexander Erdl^] is happy to host you, if you have an interesting project around Neo4j and Graphs to show. Ping him via Twitter or during the show if you are interested!  
+
 Missed a stream? Check out the playlists:
 
-* https://www.youtube.com/playlist?list=PL9Hl4pk2FsvVZaoIpfsfpdzEXxyUJlAYw[Discover Neo4j AuraDB Free tier^]
-* https://github.com/lju-lazarevic/discoveraurafree[Read up the code examples on the repo^]
+* https://www.youtube.com/watch?v=386eMuIktek&list=PL9Hl4pk2FsvW1NtrhILyptfFnLMjg5Vmc[Neo4j Live^]
 
 
-// === Tuesday - Adam
-// 
-// image::https://pbs.twimg.com/profile_images/852657056968564737/AKqYLHhV_400x400.jpg[Adam Cowley,width="200px",float="right"]
-// 
-// *1pm UTC (8am EST, 2pm CET, 6:30pm IST, 9pm AWST)*
-// 
-// https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
-// 
-// Missed a stream? Check out the playlist:
-// 
-// * https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
+=== Weekly - PHP + Neo4j 
+
+image::https://github.com/neo4j-documentation/developer-guides/raw/publish/modules/ROOT/images/phpneo4j.png[Neo4j + PHP,width="300px",float="right"]
+
+Aiming to take place once a week!
+
+https://twitter.com/fbiville[Florent Biville^] and https://www.linkedin.com/in/ghlen/[Ghlen Nagels^] take a deep dive in the PHP Client for Neo4j
+
+Missed an episode? Check out the playlist:
+
+* https://www.youtube.com/watch?v=qwz5XVtbfSY&list=PL9Hl4pk2FsvViI9wmdDpRS7tZ8V6j4uJs[PHP + Neo4j^]
 
 
-//[.clearfix]
-//=== Wednesday - Florent
+////
+=== Tuesday - Adam
+ 
+image::https://pbs.twimg.com/profile_images/852657056968564737/AKqYLHhV_400x400.jpg[Adam Cowley,width="200px",float="right"]
+ 
+*1pm UTC (8am EST, 2pm CET, 6:30pm IST, 9pm AWST)*
+ 
+https://twitter.com/adamcowley[Adam Cowley^] covers all things web development, showing you how to build web applications based on Nestjs and Typescript. He's currently building out Neoflix, a fictional video streaming service.
+ 
+Missed a stream? Check out the playlist:
+ 
+* https://www.youtube.com/watch?v=Iu5mYkiSk9k&list=PL9Hl4pk2FsvX-Y5-phtnqY4hJaWeocOkq[Building web applications with Neo4j, Nest.js and Typescript^]
 
-//image::https://media-exp1.licdn.com/dms/image/C4D03AQFD0qtWpX0E2Q/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=XkIWRyYlDMGy7VSdvLrCBpVoLianqpNomhefQllMcbw[Michael Hunger,width="200px",float="right"]
 
-//*7:30am PST, 10:30 EST, 3:30pm UTC, 4:30pm CET, 9pm IST*
+[.clearfix]
+=== Wednesday - Florent
 
-//https://twitter.com/fbiville[Florent Biville^] shows how to build applications based on the available drivers (HTTP, Bolt, JDBC) and Object-Graph mappers. He's currently building a https://realworld.io[realworld.io] backend in Golang with the official Neo4j driver.
+image::https://media-exp1.licdn.com/dms/image/C4D03AQFD0qtWpX0E2Q/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=XkIWRyYlDMGy7VSdvLrCBpVoLianqpNomhefQllMcbw[Michael Hunger,width="200px",float="right"]
 
-//Missed a stream? Check out the main Twitch playlist:
+*7:30am PST, 10:30 EST, 3:30pm UTC, 4:30pm CET, 9pm IST*
 
-//* https://www.youtube.com/watch?v=8jqQM3LPyyk&list=PL9Hl4pk2FsvXjk0hrerr78pLN-477pDLo&index=70[Twitch catch-up^]
+https://twitter.com/fbiville[Florent Biville^] shows how to build applications based on the available drivers (HTTP, Bolt, JDBC) and Object-Graph mappers. He's currently building a https://realworld.io[realworld.io] backend in Golang with the official Neo4j driver.
+
+Missed a stream? Check out the main Twitch playlist:
+
+* https://www.youtube.com/watch?v=8jqQM3LPyyk&list=PL9Hl4pk2FsvXjk0hrerr78pLN-477pDLo&index=70[Twitch catch-up^]
 
 
 === Thursday - Will
@@ -91,11 +130,11 @@ Missed a stream? Check out the playlist:
 * https://www.youtube.com/watch?v=Hh_n9Sj692E&list=PL9Hl4pk2FsvV_ojblDzXCg6gxdv437PGg&index=2[GRANDstack - GraphQL React Apollo Neo4j^]
 * https://www.youtube.com/watch?v=XCuknJAIX84&list=PL9Hl4pk2FsvUza4kdPSKQrcl3MGGutOe2[Building A Travel Guide With Gatsby, Neo4j, & GraphQL^]
 * https://www.youtube.com/playlist?list=PL9Hl4pk2FsvWzQCyTzbI-5HIOJNOGmd9C[Fullstack GraphQL Book Club^]
-////
+
 [#upcoming-meetups]
 == Upcoming Online Meetups
 
-//We also host regular online meetups! Check out the schedule below:
+We also host regular online meetups! Check out the schedule below:
 
 [cols="4,2,4,2", options="header"]
 |===
