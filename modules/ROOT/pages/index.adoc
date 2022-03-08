@@ -3,6 +3,13 @@
 :page-theme: developer
 :page-toclevels: -1
 
+// DEPRECATION
+// Effective March 7 2022 this page was deprecated and is no longer visible on neo4j.com
+// The current effective URL https://neo4j.com/developer has been replaced by a page maintained by
+// the Neo4j web team.
+//
+// This file is being kept in the repository for history, but is no longer visible on the website.
+// Changes made will not be reflected on deploy.
 
 [.hero]
 == Neo4j Developer Resources
