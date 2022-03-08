@@ -65,7 +65,7 @@ Missed an episode? Check out the playlist:
 
 image::https://raw.githubusercontent.com/neo4j-documentation/developer-guides/publish/modules/ROOT/images/live.png[Neo4j Live,width="300px",float="right"]
 
-Aiming to take place at least twice a month!
+Aiming to take place at least twice a month and is showcasing exciting graph projects from the Neo4j Community! 
 
 https://twitter.com/alexandererdl[Alexander Erdl^] is happy to host you, if you have an interesting project around Neo4j and Graphs to show. Ping him via Twitter or during the show if you are interested!  
 
