@@ -65,17 +65,6 @@ NLP techniques can help to extract the latent structure in these documents.
 
 link:/developer/nlp[Learn more about NLP, role="medium button"]
 
-[#oreilly-graph-algorithms]
-== O'Reilly Graph Algorithms Book
-
-image:{img}OReilly-Graph-Algorithms_v2_ol1.jpg[Download your free copy,float="right",width="100px", margin-left:"2px"]
-
-In link:/graph-algorithms-book/[O'Reilly's Graph Algorithms Book^], Amy Hodler and Mark Needham take you on a guided tour of the world of graph algorithms.
-
-The book contains detailed sections on each algorithm, explaining both why and how to use them, along with examples based on the Neo4j Graph Data Science Library and Apache Spark GraphFrames.
-
-link:/graph-algorithms-book/[Download your free copy^, role="medium button"]
-
 [#graph-data-science-training]
 == Graph Data Science Training
 
