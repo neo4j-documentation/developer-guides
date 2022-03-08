@@ -24,9 +24,8 @@ We run a variety of live streams and online meetups so that people around the wo
 
 You can keep an eye on what's happening by:
 
-* https://twitch.tv/neo4j[Following us on Twitch^] or https://www.youtube.com/neo4j[YouTube^] to get notified when we go live
+* https://twitch.tv/neo4j[Follow us on Twitch^] or https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel^] and you get notified when we go live
 * Keep an eye out for event announcements on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup^] group
-* You can also https://www.youtube.com/neo4j?sub_confirmation=1[subscribe to our YouTube channel^]
 
 
 [#regular-streamers]
