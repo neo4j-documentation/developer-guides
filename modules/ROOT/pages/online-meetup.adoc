@@ -29,7 +29,7 @@ You can keep an eye on what's happening by:
 * Join our https://www.discord.gg/neo4j/[Neo4j Community Discord Server^] where we talk about the latest events 
 
 [#regular-streamers]
-== Our regular streamers
+== Our regular streamers 
 
 === Monday -  Discover Neo4j AuraDB Free with Michael & Alexander
 
