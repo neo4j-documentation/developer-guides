@@ -28,6 +28,14 @@ You can keep an eye on what's happening by:
 * Keep an eye out for event announcements on our https://www.meetup.com/Neo4j-Online-Meetup/[Online Meetup^] group
 * Join our https://www.discord.gg/neo4j/[Neo4j Community Discord Server^] where we talk about the latest events 
 
+[#calendar]
+== Our regular streamers 
+
+See what is planed for the next days:
+++++
+<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23018bff&ctz=Europe%2FVienna&showDate=0&showCalendars=0&showTabs=0&showPrint=0&showTitle=0&showNav=1&showTz=1&mode=WEEK&src=bmVvdGVjaG5vbG9neS5jb21fN3A3bDdhYmw2ZnNudDBuYWF1OHRob21mZG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%239E69AF" style="border-width:0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+++++
+
 [#regular-streamers]
 == Our regular streamers 
 
