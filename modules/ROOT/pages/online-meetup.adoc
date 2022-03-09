@@ -29,7 +29,7 @@ You can keep an eye on what's happening by:
 * Join our https://www.discord.gg/neo4j/[Neo4j Community Discord Server^] where we talk about the latest events 
 
 [#calendar]
-== Our regular streamers 
+== Neo4j Live Stream Calendar 
 
 See what is planed for the next days:
 ++++
