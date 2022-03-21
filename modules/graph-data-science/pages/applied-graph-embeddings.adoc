@@ -1,10 +1,10 @@
 = Tutorial: Applied Graph Embeddings
 :level: Intermediate
 :page-level: Intermediate
-:author: Mark Needham
+:author: Mark Needham and Clair Sullivan
 :category: graph-data-science
 :tags: graph-data-science, graph-algorithms, graph-embeddings, machine-learning
-:gds-version: 1.3-preview
+:gds-version: 2.0
 :description: This guide provides a hands on walk through of the node2Vec graph embedding algorithm in the Neo4j Data Science Library.
 :page-aliases: ROOT:applied-graph-embeddings.adoc
 :page-type: Tutorial
@@ -22,7 +22,7 @@
 
 .Prerequisites
 [abstract]
-Please have link:/download[Neo4j^] (version 4.0 or later) and link:/download-center/#algorithms[Graph Data Science Library^] (version 1.3 or later) downloaded and installed to use graph embeddings.
+Please have link:/download[Neo4j^] (version 4.0 or later) and link:/download-center/#algorithms[Graph Data Science Library^] (version 2.0 or later) downloaded and installed to use graph embeddings.
 You will also need to have Python installed to follow the second half of this guide.
 
 [role=expertise {level}]
