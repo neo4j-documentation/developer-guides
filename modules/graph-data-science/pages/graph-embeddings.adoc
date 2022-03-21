@@ -64,13 +64,13 @@ The Neo4j link:/graph-data-science-library[Graph Data Science Library^] supports
 All the embedding algorithms work on a monopartite undirected input graph.
 
 [#random-projection]
-Random Projection ::
-The Random Projection embedding uses sparse random projections to generate embeddings.
+Fast Random Projection ::
+The Fast Random Projection embedding uses sparse random projections to generate embeddings.
 It is an implementation of the https://arxiv.org/pdf/1908.11512.pdf[FastRP algorithm^].
 It is the fastest of the embedding algorithms and can therefore be useful for obtaining baseline embeddings.
 The embeddings it generates are often equally performant as more complex algorithms that take longer to run.
 
-link:/docs/graph-data-science/current/algorithms/fastrp/[Read Random Projection reference documentation^, role="medium button"]
+link:/docs/graph-data-science/current/algorithms/fastrp/[Read Fast Random Projection reference documentation^, role="medium button"]
 
 [#node2Vec]
 node2Vec ::
