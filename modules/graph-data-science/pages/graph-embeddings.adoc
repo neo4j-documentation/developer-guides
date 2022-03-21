@@ -56,7 +56,7 @@ The Neo4j link:/graph-data-science-library[Graph Data Science Library^] supports
 [opts=header]
 |===
 | Name | Speed | Supports node properties? | Implementation details
-| link:#random-projection[Fast Random Projection] | Fast |  Yes (in FastRPExtended) | Linear Algebra
+| link:#random-projection[Fast Random Projection] | Fast |  Yes | Linear Algebra
 | link:#node2Vec[node2Vec] |  Intermediate |  No | Neural Network
 | link:#graph-sage[GraphSAGE] | Slow |   Yes | Neural Network
 |===
@@ -68,9 +68,9 @@ Fast Random Projection ::
 The Fast Random Projection embedding uses sparse random projections to generate embeddings.
 It is an implementation of the https://arxiv.org/pdf/1908.11512.pdf[FastRP algorithm^].
 It is the fastest of the embedding algorithms and can therefore be useful for obtaining baseline embeddings.
-The embeddings it generates are often equally performant as more complex algorithms that take longer to run.
+The embeddings it generates are often equally performant as more complex algorithms that take longer to run.  Additionally, the FastRP algorithm supports the use of node properties as features for generating embeddings, as described link:/docs/graph-data-science/current/machine-learning/node-embeddings/fastrp/#algorithms-embeddings-fastrp-examples-properties[here^].
 
-link:/docs/graph-data-science/current/algorithms/fastrp/[Read Fast Random Projection reference documentation^, role="medium button"]
+link:/docs/graph-data-science/current/machine-learning/node-embeddings/fastrp/[Read Fast Random Projection reference documentation^, role="medium button"]
 
 [#node2Vec]
 node2Vec ::
