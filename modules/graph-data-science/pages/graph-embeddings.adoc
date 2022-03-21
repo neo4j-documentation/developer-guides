@@ -87,4 +87,4 @@ This https://arxiv.org/pdf/1706.02216.pdf[algorithm^] is the only one that suppo
 Training embeddings that include node properties can be useful for including information beyond the topology of the graph, like meta data, attributes, or the results of other graph algorithms.
 GraphSAGE differs from the other algorithms in that it learns a function to calculate an embedding rather than training individual embeddings for each node.
 
-link:/docs/graph-data-science/current/algorithms/graph-sage/[Read GraphSAGE reference documentation^, role="medium button"]
+link:/docs/graph-data-science/current/machine-learning/node-embeddings/graph-sage/[Read GraphSAGE reference documentation^, role="medium button"]
