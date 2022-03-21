@@ -13,7 +13,7 @@ In this guide, we will learn about graph embeddings.
 
 .Prerequisites
 [abstract]
-Please have link:/download[Neo4j^] (version 4.0 or later) and link:/download-center/#algorithms[Graph Data Science Library^] (version 1.3 or later) downloaded and installed to use graph embeddings.
+Please have link:/download[Neo4j^] (version 4.0 or later) and link:/download-center/#algorithms[Graph Data Science Library^] (version 2.0 or later) downloaded and installed to use graph embeddings.
 
 [role=expertise {level}]
 {level}
