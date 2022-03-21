@@ -56,7 +56,7 @@ The Neo4j link:/graph-data-science-library[Graph Data Science Library^] supports
 [opts=header]
 |===
 | Name | Speed | Supports node properties? | Implementation details
-| link:#random-projection[Random Projection] | Fast |   No | Linear Algebra
+| link:#random-projection[Fast Random Projection] | Fast |  Yes (in FastRPExtended) | Linear Algebra
 | link:#node2Vec[node2Vec] |  Intermediate |  No | Neural Network
 | link:#graph-sage[GraphSAGE] | Slow |   Yes | Neural Network
 |===
