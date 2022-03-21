@@ -79,7 +79,7 @@ The algorithm trains a single-layer feedforward neural network, which is used to
 node2Vec has parameters that can be tuned to control whether the random walks behave more like breadth first or depth first searches.
 This tuning allows the embedding to either capture homophily (similar embeddings capture network communities) or structural equivalence (similar embeddings capture similar structural roles of nodes).
 
-link:/docs/graph-data-science/current/algorithms/node2vec/[Read node2Vec reference documentation^, role="medium button"]
+link:/docs/graph-data-science/current/machine-learning/node-embeddings/node2vec/[Read node2Vec reference documentation^, role="medium button"]
 
 [#graph-sage]
 GraphSAGE ::
