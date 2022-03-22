@@ -31,4 +31,4 @@ image::https://github.com/neo4j-documentation/developer-guides/blob/14c92ff0b23e
 **The Fastest Path to Graph** +
 Neo4j’s fully managed cloud service: The zero-admin, always-on graph database for cloud developers.
 
-https://neo4j.com/cloud/aura/[Start free^]
+https://dev.neo4j.com/discover-aura[Start free^]
