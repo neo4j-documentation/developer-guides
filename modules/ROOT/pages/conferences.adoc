@@ -15,7 +15,8 @@ Neo4j is attending https://dev.events/conferences/devnexus-atlanta-3-2022[DEVNEX
 
 ### Presentation
 
-Thursday, Apr 14 - 13:20 
+Thursday, Apr 14 - 13:20
+
 https://devnexus.com/presentations/6697/[Jennifer Reif: Divide and Conquer: Send Forth the Microservices^]
 
 **Abstract:**
