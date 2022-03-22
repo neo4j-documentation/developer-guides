@@ -11,8 +11,7 @@ image::https://devnexus.com/assets/img/dev-nexus-logo-large.png[width="300px",fl
 ## DEVNEXUS 
 Neo4j is attending https://dev.events/conferences/devnexus-atlanta-3-2022[DEVNEXUS^]  
 
-&#x1F4C5; April 11-13  
-
+&#x1F4C5; April 11-13 <br>
 &#x1F5FA;&#xFE0F; Atlanta, Georgia - USA  
 
 ### Presentation
