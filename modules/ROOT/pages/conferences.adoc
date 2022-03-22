@@ -4,7 +4,7 @@
 :category: documentation
 :tags: confernce, meetup, talk, events, developer, training
 
-image::https://devnexus.com/assets/img/dev-nexus-logo-large.png[title="DEVNEXUS",width="300px",float="center",link="https://dev.events/conferences/devnexus-atlanta-3-2022"]
+image::https://devnexus.com/assets/img/dev-nexus-logo-large.png[alt="DEVNEXUS",width="300px",float="center",link="https://dev.events/conferences/devnexus-atlanta-3-2022"]
 
 == DEVNEXUS 
 Neo4j is attending https://dev.events/conferences/devnexus-atlanta-3-2022[DEVNEXUS^]  
@@ -25,7 +25,7 @@ Jennifer Reif is an avid developer and problem-solver. She holds a Master’s de
 
 == Neo4j AuraDB
 
-image::https://github.com/neo4j-documentation/developer-guides/blob/14c92ff0b23e3372a15ca104bc877ac2a6581c5f/modules/ROOT/images/Neo4jauraDB.png[width="300px",float="left",title="Neo4j AuraDB",link="https://neo4j.com/cloud/aura/"]
+image::https://github.com/neo4j-documentation/developer-guides/blob/14c92ff0b23e3372a15ca104bc877ac2a6581c5f/modules/ROOT/images/Neo4jauraDB.png[width="300px",float="left",alt="Neo4j AuraDB",link="https://neo4j.com/cloud/aura/"]
 
 **The Fastest Path to Graph** +
 Neo4j’s fully managed cloud service: The zero-admin, always-on graph database for cloud developers.
