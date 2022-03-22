@@ -9,20 +9,27 @@ image::https://devnexus.com/assets/img/dev-nexus-logo-large.png[width="300px",fl
 
 
 == DEVNEXUS 
-Neo4j is attending https://dev.events/conferences/devnexus-atlanta-3-2022[DEVNEXUS^], April 11-13 in Atlanta, USA! 
+Neo4j is attending https://dev.events/conferences/devnexus-atlanta-3-2022[DEVNEXUS^]
+:date: April 11-13 
+:globe_with_meridians: Atlanta, Georgia - USA 
+
 
 === Presentation
 
 Thursday, Apr 14 - 13:20 
 https://devnexus.com/presentations/6697/[Jennifer Reif: Divide and Conquer: Send Forth the Microservices^]
-Abstract:
+
+**Abstract:**
 Most developers have dealt or are dealing with monoliths. What if we could swap the fortress for battle units to improvise, adapt, and overcome their enemies? This session will use live demos to take you from Level 1 Sorcerer to Level 20 with basics of microservice chatter to whole pipeline.
-About https://twitter.com/JMHReif[Jennifer Reif^]:
+
+**About https://twitter.com/JMHReif[Jennifer Reif^]:**
 Jennifer Reif is an avid developer and problem-solver. She holds a Master’s degree in Computer Management and Information Systems and has worked with large enterprises to organize and make sense of widespread data assets and leverage them for maximum business value. She has worked with a variety of commercial and open source tools and enjoys learning new technologies, sometimes on a daily basis! Her passion is finding ways to organize chaos and deliver software more effectively.
 
 === Neo4j AuraDB
+
 image::https://github.com/neo4j-documentation/developer-guides/blob/db9d998bea2ab0fad307cbb6824be5c8cd19b271/modules/ROOT/images/Neo4jauraDB.png[width="300px",float="center"]
-The Fastest Path to Graph
+
+**The Fastest Path to Graph**
 Neo4j’s fully managed cloud service: The zero-admin, always-on graph database for cloud developers.
 
 https://neo4j.com/cloud/aura/[Start free^]
