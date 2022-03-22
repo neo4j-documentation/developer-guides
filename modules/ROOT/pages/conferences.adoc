@@ -25,7 +25,7 @@ Most developers have dealt or are dealing with monoliths. What if we could swap 
 **About https://twitter.com/JMHReif[Jennifer Reif^]:**
 Jennifer Reif is an avid developer and problem-solver. She holds a Master’s degree in Computer Management and Information Systems and has worked with large enterprises to organize and make sense of widespread data assets and leverage them for maximum business value. She has worked with a variety of commercial and open source tools and enjoys learning new technologies, sometimes on a daily basis! Her passion is finding ways to organize chaos and deliver software more effectively.
 
-### Neo4j AuraDB
+## Neo4j AuraDB
 
 image::https://github.com/neo4j-documentation/developer-guides/blob/db9d998bea2ab0fad307cbb6824be5c8cd19b271/modules/ROOT/images/Neo4jauraDB.png[width="300px",float="center"]
 
