@@ -4,7 +4,7 @@
 :category: documentation
 :tags: confernce, meetup, talk, events, developer, training
 
-image::https://devnexus.com/assets/img/devnexus-logo.png[width="300px",float="center"]
+image::https://devnexus.com/assets/img/dev-nexus-logo-large.png[width="300px",float="center"]
 
 
 
