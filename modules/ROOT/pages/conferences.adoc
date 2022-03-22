@@ -15,7 +15,7 @@ Founded in 2008, DevNexus is the largest annual Java conference in the United St
 
 === Presentation
 
-Thursday, Apr 14 - 13:20 +
+Thursday, April 14 - 13:20 +
 https://devnexus.com/presentations/6697/[Divide and Conquer: Send Forth the Microservices^]
 
 **Abstract:** +
