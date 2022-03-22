@@ -1,4 +1,4 @@
-= Meet Neo4j at a Conference
+= Meet Neo4j at DEVNEXUS
 :slug: conference
 :section: Documentation and Resources
 :category: documentation
