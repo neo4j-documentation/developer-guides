@@ -23,7 +23,7 @@ Most developers have dealt or are dealing with monoliths. What if we could swap 
 
 **About https://twitter.com/JMHReif[Jennifer Reif^]:** +
 
-image::https://pbs.twimg.com/profile_images/1466113856040837125/vPdZhNL4_400x400.jpg[alt="Jennifer Reif",width="200px",float="left",link="https://twitter.com/JMHReif"] 
+image::https://pbs.twimg.com/profile_images/1466113856040837125/vPdZhNL4_400x400.jpg[alt="Jennifer Reif",width="200px",align="left",link="https://twitter.com/JMHReif"] 
 Jennifer Reif is an avid developer and problem-solver. She holds a Master’s degree in Computer Management and Information Systems and has worked with large enterprises to organize and make sense of widespread data assets and leverage them for maximum business value. She has worked with a variety of commercial and open source tools and enjoys learning new technologies, sometimes on a daily basis! Her passion is finding ways to organize chaos and deliver software more effectively.
 
 == Neo4j AuraDB
