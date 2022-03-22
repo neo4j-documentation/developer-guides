@@ -27,7 +27,7 @@ Jennifer Reif is an avid developer and problem-solver. She holds a Master’s de
 
 ## Neo4j AuraDB
 
-image::https://github.com/neo4j-documentation/developer-guides/blob/db9d998bea2ab0fad307cbb6824be5c8cd19b271/modules/ROOT/images/Neo4jauraDB.png[width="600px",float="left"]
+image::https://github.com/neo4j-documentation/developer-guides/blob/14c92ff0b23e3372a15ca104bc877ac2a6581c5f/modules/ROOT/images/Neo4jauraDB.png[width="600px",float="left"]
 
 **The Fastest Path to Graph**
 Neo4j’s fully managed cloud service: The zero-admin, always-on graph database for cloud developers.
