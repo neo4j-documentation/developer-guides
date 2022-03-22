@@ -24,7 +24,6 @@ Most developers have dealt or are dealing with monoliths. What if we could swap 
 **About https://twitter.com/JMHReif[Jennifer Reif^]:** +
 
 image::https://pbs.twimg.com/profile_images/1466113856040837125/vPdZhNL4_400x400.jpg[alt="Jennifer Reif",width="150px",float="left",link="https://twitter.com/JMHReif"]
-
 Jennifer Reif is an avid developer and problem-solver. She holds a Master’s degree in Computer Management and Information Systems and has worked with large enterprises to organize and make sense of widespread data assets and leverage them for maximum business value. She has worked with a variety of commercial and open source tools and enjoys learning new technologies, sometimes on a daily basis! Her passion is finding ways to organize chaos and deliver software more effectively.
 
 
@@ -38,10 +37,10 @@ Neo4j’s fully managed cloud service: The zero-admin, always-on graph database 
 
 https://dev.neo4j.com/discover-aura[Start free^]
 
-Built to leverage relationships in data, AuraDB enables lightning-fast queries for real-time analytics and insights. AuraDB is reliable, secure, and fully automated, enabling you to focus on building graph applications without worrying about database administration.
-
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/I4UMh2-EWyk?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
+
+Built to leverage relationships in data, AuraDB enables lightning-fast queries for real-time analytics and insights. AuraDB is reliable, secure, and fully automated, enabling you to focus on building graph applications without worrying about database administration.
 
 https://dev.neo4j.com/discover-aura[Start free^]
