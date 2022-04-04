@@ -44,9 +44,34 @@ For background reading about graph embeddings, see the link:/developer/graph-emb
 == European Roads dataset
 
 We're going to use a dataset of European Roads compiled by Lasse Westh-Nielsen and https://lassewesth.blogspot.com/2018/07/the-international-e-road-network-and.html[described in more detail in his blog post^].
-The dataset contains 894 towns and 1,250 roads connecting them.
-We also have the country to which a town belongs.
-https://github.com/neo4j-examples/graph-embeddings#importing-dataset[Instructions for importing the data^] are in the project repository.
+The dataset contains 894 towns, 39 countries, and 1,250 roads connecting them.
+
+To import the dataset, run the following:
+
+[source,cypher]
+----
+CREATE CONSTRAINT places IF NOT EXISTS ON (p:Place) ASSERT p.name IS UNIQUE;
+CREATE CONSTRAINT countries IF NOT EXISTS ON (c:Country) ASSERT c.code IS UNIQUE;
+
+LOAD CSV WITH HEADERS FROM "https://github.com/neo4j-examples/graph-embeddings/raw/main/data/roads.csv"
+AS row
+
+MERGE (origin:Place {name: row.origin_reference_place})
+SET origin.countryCode = row.origin_country_code
+
+MERGE (destination:Place {name: row.destination_reference_place})
+SET destination.countryCode = row.destination_country_code
+
+MERGE (c_origin:Country {code: row.origin_country_code})
+
+MERGE (c_destination:Country {code: row.destination_country_code})
+
+MERGE (origin)-[eroad:EROAD {number: row.road_number}]->(destination)
+SET eroad.distance = toInteger(row.distance), eroad.watercrossing = row.watercrossing
+
+MERGE (origin)-[:IN_COUNTRY]->(c_origin)
+MERGE (destination)-[:IN_COUNTRY]->(c_destination);
+----
 
 We can see the schema in the diagram below:
 
