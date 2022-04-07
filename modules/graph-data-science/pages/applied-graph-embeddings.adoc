@@ -207,7 +207,7 @@ tsne_df = pd.DataFrame(data = {
 tsne_df.head()
 ----
 
-The content of the data frame is as follows:
+The content of the data frame looks as follows:
 
 .Results
 [opts=header]
@@ -220,11 +220,16 @@ The content of the data frame is as follows:
 |Huelva	|E|	-11.583806|	11.094340
 |===
 
+[NOTE]
+====
+Since this is not a deterministic embedding, your results will vary from the above.
+====
+
 We can run the following code to create a scatterplot of our embeddings:
 
 [source, python]
 ----
-alt.Chart(df).mark_circle(size=60).encode(
+alt.Chart(tsne_df).mark_circle(size=60).encode(
     x='x',
     y='y',
     color='country',
