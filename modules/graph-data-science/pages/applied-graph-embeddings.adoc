@@ -166,31 +166,8 @@ We'll create a scatterplot of the embedding and we want to see whether it's poss
 
 [NOTE]
 ====
-The code examples used in this section are available https://github.com/neo4j-examples/graph-embeddings/tree/main/notebooks[in Jupyter notebook form^] in the project repository.
+The code examples used in this section are available https://github.com/neo4j-examples/applied-graph-embeddings/tree/main/notebooks[in Jupyter notebook form^] in the project repository.  In this notebook you will find the code to import the relevant packages and make the connection to the Neo4j database.  In particular, you will require the Python packages `neo4j`, `sklearn`, and `altair`, which are pip installable.
 ====
-
-The required libraries can be installed by running the following command:
-
-[source,bash]
-----
-pip install neo4j sklearn altair
-----
-
-Let's create a file called `roads.py` and paste the following statements:
-
-[source, python]
-----
-from neo4j import GraphDatabase
-from sklearn.manifold import TSNE
-import numpy as np
-import altair as alt
-import pandas as pd
-
-driver = GraphDatabase.driver("bolt://localhost", auth=("neo4j", "neo"))
-----
-
-The first few lines import the required library and the last line creates a connection to the Neo4j database.
-You'll need to change the Bolt URL and credentials to match that of your own database.
 
 We're going to use the driver to execute a Cypher query that returns the embedding for towns in the most popular countries, which are Spain, Great Britain, France, Turkey, Italy, Germany, and Greece.
 Restricting the number of countries will make it easier to detect any patterns once we start visualizing the data.
