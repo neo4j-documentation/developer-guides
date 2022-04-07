@@ -237,16 +237,18 @@ alt.Chart(tsne_df).mark_circle(size=60).encode(
 ).properties(width=700, height=400)
 ----
 
-++++
-<div id="vis-randomProjection"></div>
+// ++++
+// <div id="vis-randomProjection"></div>
 
-<script type="text/javascript">
-  var spec = "https://raw.githubusercontent.com/neo4j-examples/graph-embeddings/main/notebooks/charts/node2vec-color.json";
-  vegaEmbed('#vis-randomProjection', spec).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
-++++
+// <script type="text/javascript">
+//   var spec = "https://raw.githubusercontent.com/neo4j-examples/applied-graph-embeddings/main/notebooks/charts/node2vec-color.json";
+//   vegaEmbed('#vis-randomProjection', spec).then(function(result) {
+//     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+//   }).catch(console.error);
+// </script>
+// ++++
+
+image::../images/visualization_fastrp.png[]
 
 From a quick visual inspection of this chart we can see that the embeddings seem to have clustered by country.
 
@@ -254,10 +256,7 @@ From a quick visual inspection of this chart we can see that the embeddings seem
 [#next-steps]
 == Next Steps
 
-Visualizing embeddings is often only an intermediate step in our analysis.
-If we're satisfied with the quality of the embeddings, we can use them for other tasks as well.
-The following are examples of other tasks that we can do with our embeddings:
-
+Visualizing embeddings are often only an intermediate step in our analysis.
 * Cluster nodes based on the similarity of their embeddings using a k-means clustering algorithm
 * Predict the country of town by using a nearest neighbors algorithm that takes embeddings as input
 * Use the embeddings as features for a machine learning algorithm
