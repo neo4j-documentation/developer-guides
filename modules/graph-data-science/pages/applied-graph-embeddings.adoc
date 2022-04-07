@@ -166,7 +166,7 @@ We'll create a scatterplot of the embedding and we want to see whether it's poss
 
 [NOTE]
 ====
-The code examples used in this section are available https://github.com/neo4j-examples/applied-graph-embeddings/tree/main/notebooks[in Jupyter notebook form^] in the project repository.  In this notebook you will find the code to import the relevant packages and make the connection to the Neo4j database.  In particular, you will require the Python packages `neo4j`, `sklearn`, and `altair`, which are pip installable.
+The code examples used in this section are available https://github.com/neo4j-examples/applied-graph-embeddings/tree/main/notebooks[in Jupyter notebook form^] in the project repository.  In this notebook you will find the code to import the relevant packages and make the connection to the Neo4j database.  In particular, you will require the Python packages `neo4j`, `pandas`, `sklearn`, and `altair`, which are pip installable.
 ====
 
 We're going to use the driver to execute a Cypher query that returns the embedding for towns in the most popular countries, which are Spain, Great Britain, France, Turkey, Italy, Germany, and Greece.
@@ -176,18 +176,18 @@ Once the query has run, we'll convert the results into a Pandas data frame:
 
 [source, python]
 ----
-with driver.session(database="neo4j") as session:
-    result = session.run("""
-    MATCH (p:Place)-[:IN_COUNTRY]->(country)
-    WHERE country.code IN $countries
-    RETURN p.name AS place, p.embeddingNode2vec AS embedding, country.code AS country
-    """, {"countries": ["E", "GB", "F", "TR", "I", "D", "GR"]})
-    X = pd.DataFrame([dict(record) for record in result])
+query = '''MATCH (p:Place)-[:IN_COUNTRY]->(country)
+           WHERE country.code IN ["E", "GB", "F", "TR", "I", "D", "GR"]
+           RETURN p.name AS place, p.embedding AS embedding, country.code AS country
+'''
+
+df = pd.DataFrame([dict(_) for _ in conn.query(query)])
+df.head()
 ----
 
 Now we're ready to start analyzing the data.
 
-At the moment our embeddings are of size 10, but we need them to be of size 2 so that we can visualize them in 2 dimensions.
+At the moment our embeddings are of size 256, but we need them to be of size 2 so that we can visualize them in 2 dimensions.
 The https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding[t-SNE algorithm^] is a dimensionality reduction technique that reduces high dimensionality objects to 2 or 3 dimensions so that they can be better visualized.
 We're going to use it to create x and y coordinates for each embedding.
 
