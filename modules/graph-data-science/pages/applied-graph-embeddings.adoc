@@ -257,6 +257,7 @@ From a quick visual inspection of this chart we can see that the embeddings seem
 == Next Steps
 
 Visualizing embeddings are often only an intermediate step in our analysis.
+
 * Cluster nodes based on the similarity of their embeddings using a k-means clustering algorithm
 * Predict the country of town by using a nearest neighbors algorithm that takes embeddings as input
 * Use the embeddings as features for a machine learning algorithm
