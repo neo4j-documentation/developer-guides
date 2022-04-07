@@ -87,7 +87,7 @@ In the next section we're going to run graph embeddings over the towns and roads
 
 We're going to use the FastRP algorithm, which is one of 3 embedding algorithms available in the Graph Data Science Library.  FastRP creates embeddings based on random walks of a node's neighborhood.  For more information on the inner workings of FastRP, see link:https://dev.neo4j.com/fastrp_background[this blog post^].
 
-We're going to first run the streaming version of this procedure, which returns a stream of node IDs and embeddings.  The algorithm only requires one mandatory configuration parameter, `embeddingDimension`, which is the size fo the vector/list of numbers to create for each node.  Additionally, there a many optional parameters that can be used to further tune the resulting embeddings, which are described in detail in the link:https://neo4j.com/docs/graph-data-science/current/machine-learning/node-embeddings/fastrp/[API documentation^].
+We're going to first run the streaming version of this procedure, which returns a stream of node IDs and embeddings.  The algorithm only requires one mandatory configuration parameter, `embeddingDimension`, which is the size of the vector/list of numbers to create for each node.  Additionally, there a many optional parameters that can be used to further tune the resulting embeddings, which are described in detail in the link:https://neo4j.com/docs/graph-data-science/current/machine-learning/node-embeddings/fastrp/[API documentation^].
 
 In order to create our embeddings, we must first create a graph projection:
 
@@ -143,7 +143,7 @@ Further exploration will be easier if we store the embeddings in Neo4j, so we're
 CALL gds.fastRP.write(
   'places_undir',
   {
-    embeddingDimension: 512,
+    embeddingDimension: 256,
     writeProperty: 'embedding'
   }
 );
@@ -153,7 +153,7 @@ CALL gds.fastRP.write(
 [opts=header]
 |===
 | nodeCount | nodePropertiesWritten | preProcessingMillis | computeMillis | writeMillis | configuration
-| 894       | 894                   | 0                   | 8             | 99          | {"writeConcurrency":4,"nodeSelfInfluence":0,"relationshipWeightProperty":null,"propertyRatio":0.0,"concurrency":4,"normalizationStrength":0.0,"writeProperty":"embedding","iterationWeights":[0.0,1.0,1.0],"embeddingDimension":512,"nodeLabels":["*"],"sudo":false,"relationshipTypes":["*"],"featureProperties":[],"username":null}
+| 894       | 894                   | 0                   | 8             | 99          | {"writeConcurrency":4,"nodeSelfInfluence":0,"relationshipWeightProperty":null,"propertyRatio":0.0,"concurrency":4,"normalizationStrength":0.0,"writeProperty":"embedding","iterationWeights":[0.0,1.0,1.0],"embeddingDimension":256,"nodeLabels":["*"],"sudo":false,"relationshipTypes":["*"],"featureProperties":[],"username":null}
 |===
 
 In the next section we're going to explore these graph embeddings using visualization techniques.
