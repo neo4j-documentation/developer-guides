@@ -1,10 +1,10 @@
 = Tutorial: Applied Graph Embeddings
 :level: Intermediate
 :page-level: Intermediate
-:author: Mark Needham
+:author: Mark Needham, updated to GDS 2.x by Clair Sullivan
 :category: graph-data-science
 :tags: graph-data-science, graph-algorithms, graph-embeddings, machine-learning
-:gds-version: 1.3-preview
+:gds-version: 2.0
 :description: This guide provides a hands on walk through of the node2Vec graph embedding algorithm in the Neo4j Data Science Library.
 :page-aliases: ROOT:applied-graph-embeddings.adoc
 :page-type: Tutorial
@@ -22,7 +22,7 @@
 
 .Prerequisites
 [abstract]
-Please have link:/download[Neo4j^] (version 4.0 or later) and link:/download-center/#algorithms[Graph Data Science Library^] (version 1.3 or later) downloaded and installed to use graph embeddings.
+Please have link:/download[Neo4j^] (version 4.0 or later) and link:/download-center/#algorithms[Graph Data Science Library^] (version 2.0 or later) downloaded and installed to use graph embeddings.
 You will also need to have Python installed to follow the second half of this guide.
 
 [role=expertise {level}]
@@ -35,7 +35,7 @@ In this guide we'll learn how to use these algorithms to generate embeddings and
 
 [NOTE]
 ====
-The code examples used in this guide can be found in the https://github.com/neo4j-examples/graph-embeddings[neo4j-examples/graph-embeddings^] GitHub repository.
+The code examples used in this guide can be found in the https://github.com/neo4j-examples/graph-embeddings[neo4j-examples/applied-graph-embeddings^] GitHub repository.
 For background reading about graph embeddings, see the link:/developer/graph-embeddings[Graph Embeddings] Developer Guide.
 ====
 
@@ -44,9 +44,34 @@ For background reading about graph embeddings, see the link:/developer/graph-emb
 == European Roads dataset
 
 We're going to use a dataset of European Roads compiled by Lasse Westh-Nielsen and https://lassewesth.blogspot.com/2018/07/the-international-e-road-network-and.html[described in more detail in his blog post^].
-The dataset contains 894 towns and 1,250 roads connecting them.
-We also have the country to which a town belongs.
-https://github.com/neo4j-examples/graph-embeddings#importing-dataset[Instructions for importing the data^] are in the project repository.
+The dataset contains 894 towns, 39 countries, and 1,250 roads connecting them.
+
+To import the dataset, run the following:
+
+[source,cypher]
+----
+CREATE CONSTRAINT places IF NOT EXISTS ON (p:Place) ASSERT p.name IS UNIQUE;
+CREATE CONSTRAINT countries IF NOT EXISTS ON (c:Country) ASSERT c.code IS UNIQUE;
+
+LOAD CSV WITH HEADERS FROM "https://github.com/neo4j-examples/graph-embeddings/raw/main/data/roads.csv"
+AS row
+
+MERGE (origin:Place {name: row.origin_reference_place})
+SET origin.countryCode = row.origin_country_code
+
+MERGE (destination:Place {name: row.destination_reference_place})
+SET destination.countryCode = row.destination_country_code
+
+MERGE (c_origin:Country {code: row.origin_country_code})
+
+MERGE (c_destination:Country {code: row.destination_country_code})
+
+MERGE (origin)-[eroad:EROAD {number: row.road_number}]->(destination)
+SET eroad.distance = toInteger(row.distance), eroad.watercrossing = row.watercrossing
+
+MERGE (origin)-[:IN_COUNTRY]->(c_origin)
+MERGE (destination)-[:IN_COUNTRY]->(c_destination);
+----
 
 We can see the schema in the diagram below:
 
@@ -60,42 +85,36 @@ In the next section we're going to run graph embeddings over the towns and roads
 [#running-graph-embeddings]
 == Running graph embeddings
 
-We're going to use the node2vec algorithm, which is one of 3 embedding algorithms available in the Graph Data Science Library.
-node2vec creates embeddings based on biased random walks of a node's neighborhood.
+We're going to use the FastRP algorithm, which is one of 3 embedding algorithms available in the Graph Data Science Library.  FastRP creates embeddings based on random walks of a node's neighborhood.  For more information on the inner workings of FastRP, see link:https://dev.neo4j.com/fastrp_background[this blog post^].
 
-We're going to first run the streaming version of this procedure, which returns a stream of node ids and embeddings.
-The algorithm has the following mandatory config:
+We're going to first run the streaming version of this procedure, which returns a stream of node IDs and embeddings.  The algorithm only requires one mandatory configuration parameter, `embeddingDimension`, which is the size of the vector/list of numbers to create for each node.  Additionally, there a many optional parameters that can be used to further tune the resulting embeddings, which are described in detail in the link:https://neo4j.com/docs/graph-data-science/current/machine-learning/node-embeddings/fastrp/[API documentation^].
 
-`nodeProjection` :: the node labels to use for our projected graph
-`relationshipProjection` :: the relationship types to use for our projected graph
-`embeddingSize` :: the size of the vector/list of numbers to create for each node
-`iterations` :: the number of iterations to run
+In order to create our embeddings, we must first create a graph projection:
 
-We'll also specify `walkLength`, which defines the number of steps in each random walk.
-The default value is 80, which feels too big for such a small graph.
+[source, cypher]
+----
+CALL gds.graph.project(
+  'places_undir',                    
+  'Place',                             
+  {EROAD: {orientation: 'UNDIRECTED'}}  
+)
+----
+
+In `relationshipProjection`, we specify `orientation: "UNDIRECTED"` so that the direction of the `EROAD` relationship type is ignored on the projected graph that the algorithm runs against.  This is because FastRP uses a random walk approach, so by using an undirected graph we are allowing the random walk to traverse the relationship in both directions.
 
 We can run the algorithm with the following query:
 
 [source, cypher]
 ----
-CALL gds.beta.node2vec.stream({
-  nodeProjection: "Place",
-  relationshipProjection: {
-    eroad: {
-      type: "EROAD",
-      orientation: "UNDIRECTED"
-    }
-  },
-  embeddingDimension: 10,
-  iterations: 10,
-  walkLength: 10
-})
+CALL gds.fastRP.stream('places_undir',
+  {
+    embeddingDimension: 10
+  }
+)
 YIELD nodeId, embedding
 RETURN gds.util.asNode(nodeId).name AS place, embedding
-LIMIT 5;
+LIMIT 5
 ----
-
-In `relationshipProjection`, we specify `orientation: "UNDIRECTED"` so that the direction of the `EROAD` relationship type is ignored on the projected graph that the algorithm runs against.
 
 If we run the query, it will return the following output:
 
@@ -103,11 +122,11 @@ If we run the query, it will return the following output:
 [opts=header, cols="1,5"]
 |===
 | place      | embedding
-| "Larne"    | [2.1327764987945557, 1.0994384288787842, 0.49434158205986023, 2.040088176727295, 1.0031780004501343, 0.873113751411438, -2.413508176803589, -2.3154311180114746, 0.9832170009613037, -2.1525325775146484]
-| "Belfast"  | [2.593827962875366, 0.7630942463874817, 0.7039147019386292, 2.3797214031219482, 0.7776350378990173, 0.5327662825584412, -2.3597097396850586, -1.9403077363967896, 1.2757759094238281, -1.681670904159546]
-| "Dublin"   | [1.9023665189743042, 0.795767068862915, 0.722218930721283, 2.71242094039917, 0.21453168988227844, 0.3935716152191162, -2.1960527896881104, -2.6851491928100586, 1.0708848237991333, -0.6451507806777954]
-| "Wexford"  | [2.0736780166625977, 1.1650514602661133, 0.4161956012248993, 2.8500888347625732, -0.12804043292999268, 0.355782151222229, -2.719728946685791, -2.6983509063720703, 0.5993242859840393, 0.265157550573349]
-| "Rosslare" | [1.8750609159469604, 1.2445515394210815, 0.630532443523407, 2.4588329792022705, 0.1135958656668663, 0.007978626526892185, -2.7186481952667236, -2.418004035949707, 0.3507269024848938, 0.9638977646827698]
+| "Larne"    | [0.5786177515983582,-0.4012638330459595,-0.16752511262893677,-0.7087218761444092, 0.37056204676628113,-0.9627646803855896,-0.17660734057426453, 0.5529423356056213, -0.1881837546825409, 0.20178654789924622]
+| "Belfast"  | [0.5153923034667969, -0.22510990500450134, -0.199273020029068, -0.6573874354362488, 0.2203015387058258, -1.0398733615875244, -0.19496142864227295, 0.49318426847457886, -0.024694180116057396, 0.08109953254461288]
+| "Dublin"   | [0.19724464416503906, -0.21975931525230408, 0.019983142614364624, -0.5070462822914124, 0.13303154706954956, -0.8911266326904297, -0.278847873210907, 0.6584466695785522, -0.21137264370918274, -0.22576412558555603]
+| "Wexford"  | [0.2206020951271057, -0.21055060625076294, 0.24700090289115906, -0.7486459016799927, 0.1806430220603943, -0.47783035039901733, -0.3107770085334778, 0.4667920470237732, -0.27482911944389343, -0.6629651784896851]
+| "Rosslare" | [0.24542507529258728, -0.18245811760425568, 0.33527031540870667, -0.8160518407821655, 0.19655174016952515, -0.33142057061195374, -0.2781609892845154, 0.2243683785200119, -0.3783305585384369, -0.8914577960968018]
 |===
 
 [NOTE]
@@ -117,31 +136,24 @@ This procedure is non deterministic, so we'll get different results each time th
 
 Everything looks fine so far, we've been successful in returning embeddings for each node.
 
-Further exploration will be easier if we store the embeddings in Neo4j, so we're going to do that using the write version of the procedure.
-We can store the embeddings by running the following query:
+Further exploration will be easier if we store the embeddings in Neo4j, so we're going to do that using the write version of the procedure.  We can store the embeddings by running the following query:
 
 [source, cypher]
 ----
-CALL gds.beta.node2vec.write({
-   nodeProjection: "Place",
-   relationshipProjection: {
-     eroad: {
-       type: "EROAD",
-       orientation: "UNDIRECTED"
-    }
-   },
-   embeddingDimension: 10,
-   iterations: 10,
-   walkLength: 10,
-   writeProperty: "embeddingNode2vec"
-});
+CALL gds.fastRP.write(
+  'places_undir',
+  {
+    embeddingDimension: 256,
+    writeProperty: 'embedding'
+  }
+);
 ----
 
 .Results
 [opts=header]
 |===
-| nodeCount | nodePropertiesWritten | createMillis | computeMillis | writeMillis | configuration
-| 894       | 894                   | 54           | 4388          | 57          | {initialLearningRate: 0.025, writeConcurrency: 4, negativeSamplingRate: 5, walksPerNode: 10, centerSamplingFactor: 0.001, iterations: 10, returnFactor: 1.0, concurrency: 4, walkLength: 10, windowSize: 10, writeProperty: "embeddingNode2vec", inOutFactor: 1.0, contextSamplingExponent: 0.75, embeddingSize: 10, nodeLabels: ["*"], sudo: FALSE, minLearningRate: 1.0E-4, relationshipTypes: ["*"], walkBufferSize: 1000}
+| nodeCount | nodePropertiesWritten | preProcessingMillis | computeMillis | writeMillis | configuration
+| 894       | 894                   | 0                   | 8             | 99          | {"writeConcurrency":4,"nodeSelfInfluence":0,"relationshipWeightProperty":null,"propertyRatio":0.0,"concurrency":4,"normalizationStrength":0.0,"writeProperty":"embedding","iterationWeights":[0.0,1.0,1.0],"embeddingDimension":256,"nodeLabels":["*"],"sudo":false,"relationshipTypes":["*"],"featureProperties":[],"username":null}
 |===
 
 In the next section we're going to explore these graph embeddings using visualization techniques.
@@ -154,31 +166,8 @@ We'll create a scatterplot of the embedding and we want to see whether it's poss
 
 [NOTE]
 ====
-The code examples used in this section are available https://github.com/neo4j-examples/graph-embeddings/tree/main/notebooks[in Jupyter notebook form^] in the project repository.
+The code examples used in this section are available https://github.com/neo4j-examples/applied-graph-embeddings/tree/main/notebooks[in Jupyter notebook form^] in the project repository.  In this notebook you will find the code to import the relevant packages and make the connection to the Neo4j database.  In particular, you will require the Python packages `neo4j`, `pandas`, `sklearn`, and `altair`, which are pip installable.
 ====
-
-The required libraries can be installed by running the following command:
-
-[source,bash]
-----
-pip install neo4j sklearn altair
-----
-
-Let's create a file called `roads.py` and paste the following statements:
-
-[source, python]
-----
-from neo4j import GraphDatabase
-from sklearn.manifold import TSNE
-import numpy as np
-import altair as alt
-import pandas as pd
-
-driver = GraphDatabase.driver("bolt://localhost", auth=("neo4j", "neo"))
-----
-
-The first few lines import the required library and the last line creates a connection to the Neo4j database.
-You'll need to change the Bolt URL and credentials to match that of your own database.
 
 We're going to use the driver to execute a Cypher query that returns the embedding for towns in the most popular countries, which are Spain, Great Britain, France, Turkey, Italy, Germany, and Greece.
 Restricting the number of countries will make it easier to detect any patterns once we start visualizing the data.
@@ -187,18 +176,18 @@ Once the query has run, we'll convert the results into a Pandas data frame:
 
 [source, python]
 ----
-with driver.session(database="neo4j") as session:
-    result = session.run("""
-    MATCH (p:Place)-[:IN_COUNTRY]->(country)
-    WHERE country.code IN $countries
-    RETURN p.name AS place, p.embeddingNode2vec AS embedding, country.code AS country
-    """, {"countries": ["E", "GB", "F", "TR", "I", "D", "GR"]})
-    X = pd.DataFrame([dict(record) for record in result])
+query = '''MATCH (p:Place)-[:IN_COUNTRY]->(country)
+           WHERE country.code IN ["E", "GB", "F", "TR", "I", "D", "GR"]
+           RETURN p.name AS place, p.embedding AS embedding, country.code AS country
+'''
+
+df = pd.DataFrame([dict(_) for _ in conn.query(query)])
+df.head()
 ----
 
 Now we're ready to start analyzing the data.
 
-At the moment our embeddings are of size 10, but we need them to be of size 2 so that we can visualize them in 2 dimensions.
+At the moment our embeddings are of size 256, but we need them to be of size 2 so that we can visualize them in 2 dimensions.
 The https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding[t-SNE algorithm^] is a dimensionality reduction technique that reduces high dimensionality objects to 2 or 3 dimensions so that they can be better visualized.
 We're going to use it to create x and y coordinates for each embedding.
 
@@ -206,18 +195,19 @@ The following code snippet applies t-SNE to the embeddings and then creates a da
 
 [source, python]
 ----
-X_embedded = TSNE(n_components=2, random_state=6).fit_transform(list(X.embedding))
+X_embedded = TSNE(n_components=2, random_state=6).fit_transform(list(df.embedding))
 
-places = X.place
-df = pd.DataFrame(data = {
+places = df.place
+tsne_df = pd.DataFrame(data = {
     "place": places,
-    "country": X.country,
+    "country": df.country,
     "x": [value[0] for value in X_embedded],
     "y": [value[1] for value in X_embedded]
 })
+tsne_df.head()
 ----
 
-The content of the data frame is as follows:
+The content of the data frame looks as follows:
 
 .Results
 [opts=header]
@@ -230,11 +220,16 @@ The content of the data frame is as follows:
 |Huelva	|E|	-11.583806|	11.094340
 |===
 
+[NOTE]
+====
+Since this is not a deterministic embedding, your results will vary from the above.
+====
+
 We can run the following code to create a scatterplot of our embeddings:
 
 [source, python]
 ----
-alt.Chart(df).mark_circle(size=60).encode(
+alt.Chart(tsne_df).mark_circle(size=60).encode(
     x='x',
     y='y',
     color='country',
@@ -242,16 +237,18 @@ alt.Chart(df).mark_circle(size=60).encode(
 ).properties(width=700, height=400)
 ----
 
-++++
-<div id="vis-randomProjection"></div>
+// ++++
+// <div id="vis-randomProjection"></div>
 
-<script type="text/javascript">
-  var spec = "https://raw.githubusercontent.com/neo4j-examples/graph-embeddings/main/notebooks/charts/node2vec-color.json";
-  vegaEmbed('#vis-randomProjection', spec).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
-++++
+// <script type="text/javascript">
+//   var spec = "https://raw.githubusercontent.com/neo4j-examples/applied-graph-embeddings/main/notebooks/charts/node2vec-color.json";
+//   vegaEmbed('#vis-randomProjection', spec).then(function(result) {
+//     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+//   }).catch(console.error);
+// </script>
+// ++++
+
+image::../images/visualization_fastrp.png[]
 
 From a quick visual inspection of this chart we can see that the embeddings seem to have clustered by country.
 
@@ -259,9 +256,7 @@ From a quick visual inspection of this chart we can see that the embeddings seem
 [#next-steps]
 == Next Steps
 
-Visualizing embeddings is often only an intermediate step in our analysis.
-If we're satisfied with the quality of the embeddings, we can use them for other tasks as well.
-The following are examples of other tasks that we can do with our embeddings:
+Visualizing embeddings are often only an intermediate step in our analysis.
 
 * Cluster nodes based on the similarity of their embeddings using a k-means clustering algorithm
 * Predict the country of town by using a nearest neighbors algorithm that takes embeddings as input
