@@ -163,12 +163,12 @@ const typeDefs = gql`
     title: String!
     year: Int
     plot: String
-    actors: [Person] @relationship(type: "ACTED_IN", direction: IN)
+    actors: [Person!]! @relationship(type: "ACTED_IN", direction: IN)
   }
 
   type Person {
     name: String!
-    movies: [Movie] @relationship(type: "ACTED_IN", direction: OUT)
+    movies: [Movie!]! @relationship(type: "ACTED_IN", direction: OUT)
   }
 `;
 
@@ -179,12 +179,14 @@ const driver = neo4j.driver(
 
 const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
 
-const server = new ApolloServer({
-  schema: neoSchema.schema,
-});
+neoSchema.getSchema().then((schema) => {
+    const server = new ApolloServer({
+        schema: schema
+    });
 
-server.listen().then(({ url }) => {
-  console.log(`GraphQL server ready on ${url}`);
+    server.listen().then(({ url }) => {
+        console.log(`GraphQL server ready on ${url}`);
+    });
 });
 ----
 
