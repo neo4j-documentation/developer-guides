@@ -100,7 +100,7 @@ CALL gds.graph.project(
 )
 ----
 
-In `relationshipProjection`, we specify `orientation: "UNDIRECTED"` so that the direction of the `EROAD` relationship type is ignored on the projected graph that the algorithm runs against.
+In `relationshipProjection`, we specify `orientation: "UNDIRECTED"` so that the direction of the `EROAD` relationship type is ignored on the projected graph that the algorithm runs against.  This is because FastRP uses a random walk approach, so by using an undirected graph we are allowing the random walk to traverse the relationship in both directions.
 
 We can run the algorithm with the following query:
 
