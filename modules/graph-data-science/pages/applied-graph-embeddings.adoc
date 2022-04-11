@@ -149,11 +149,11 @@ CALL gds.fastRP.write(
 );
 ----
 
-.Results
-[opts=header]
+.Results of gds.fastRP.write()
+[opts=header, cols="1,1"]
 |===
 | nodeCount | nodePropertiesWritten | preProcessingMillis | computeMillis | writeMillis | configuration
-| 894       | 894                   | 0                   | 8             | 99          | {"writeConcurrency":4,"nodeSelfInfluence":0,"relationshipWeightProperty":null,"propertyRatio":0.0,"concurrency":4,"normalizationStrength":0.0,"writeProperty":"embedding","iterationWeights":[0.0,1.0,1.0],"embeddingDimension":256,"nodeLabels":["*"],"sudo":false,"relationshipTypes":["*"],"featureProperties":[],"username":null}
+| 894       | 894                   | 0                   | 8             | 99          | {"writeConcurrency":4,"nodeSelfInfluence":0,"relationshipWeightProperty":null,"propertyRatio":0.0,"concurrency":4,"normalizationStrength":0.0,"writeProperty":"embedding","iterationWeights":[0.0,1.0,1.0],"embeddingDimension":256,"nodeLabels":["\*"],"sudo":false,"relationshipTypes":["*"],"featureProperties":[],"username":null}
 |===
 
 In the next section we're going to explore these graph embeddings using visualization techniques.
