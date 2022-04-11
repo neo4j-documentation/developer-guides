@@ -248,7 +248,7 @@ alt.Chart(tsne_df).mark_circle(size=60).encode(
 // </script>
 // ++++
 
-image::../images/visualization_fastrp.png[]
+image::https://guides.neo4j.com/graph-data-science2/visualization_fastrp.png[]
 
 From a quick visual inspection of this chart we can see that the embeddings seem to have clustered by country.
 
