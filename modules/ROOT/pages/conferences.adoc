@@ -30,6 +30,10 @@ In this talk I want to walk you through building a GraphQL API for a conference 
 image::https://pbs.twimg.com/profile_images/792577726230237184/8ZSDZEvI_400x400.jpg[alt="Michael Hunger",width="150px",float="left",align="text-right",link="https://twitter.com/JMHReif"] 
 Michael Hunger has been passionate about software development for more than 25 years. For the last 10 years, he has been working on the open source Neo4j graph database filling many roles, most recently leading the Neo4j Labs efforts.
 
+As caretaker of the Neo4j community and ecosystem he especially loves to work with graph-related projects, users, and contributors.
+
+As a developer Michael enjoys many aspects of programming languages, learning new things every day, participating in exciting and ambitious open source projects and contributing and writing software related books and articles. Michael spoke at numerous conferences and helped organized several of them. His efforts got him accepted to the JavaChampions program.
+
 &#160; +
 &#160; +
 
