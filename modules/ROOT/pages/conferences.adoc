@@ -1,30 +1,34 @@
-= Meet Neo4j at DEVNEXUS
+= Meet Neo4j at JFokus
 :slug: conference
 :section: Documentation and Resources
 :category: documentation
 :tags: confernce, meetup, talk, events, developer, training
 
-image::https://devnexus.com/assets/img/dev-nexus-logo-large.png[alt="DEVNEXUS",width="500px",float="center",link="https://dev.events/conferences/devnexus-atlanta-3-2022"]
+image::https://pbs.twimg.com/profile_banners/47313251/1633359329/1500x500[alt="jfokus",width="500px",float="center",link="https://www.jfokus.se"]
 
-== DEVNEXUS 
-Neo4j is attending https://dev.events/conferences/devnexus-atlanta-3-2022[DEVNEXUS^] +
-Founded in 2008, DevNexus is the largest annual Java conference in the United States. DevNexus is organized by Java champions Vincent Mayers, Pratik Patel, and other Java evangelists from around the world. 
+== Jfokus 
+Neo4j is attending https://www.jfokus.se[Jfokus^] +
+Founded in 2008, Jfokus is an exciting conference for developers, architects, and IT leaders, featuring a lineup of sessions on Java (front-end and back-end), IoT, DevOps, AI, Cloud, future trends, and more. 
 
-&#x1F4C5; April 12-14 +
-&#x1F5FA;&#xFE0F; Atlanta, Georgia - USA  
+&#x1F4C5; 2-4 May +
+&#x1F5FA;&#xFE0F; Stockholm - Sweden  
 
 === Presentation
 
-Thursday, April 14 - 13:20 +
-https://devnexus.com/presentations/6697/[Divide and Conquer: Send Forth the Microservices^]
+Wedndesday, 4 May - 11:10 +
+https://www.jfokus.se/talks/973[Building secure GraphQL APIs without the Boilerplate^]
 
 **Abstract:** +
-Most developers have dealt or are dealing with monoliths. What if we could swap the fortress for battle units to improvise, adapt, and overcome their enemies? This session will use live demos to take you from Level 1 Sorcerer to Level 20 with basics of microservice chatter to whole pipeline.
+While GraphQL APIs are one of the hottest trends in API development, they are no magic bullet. You still have to write a lot of resolver-code, adjust your API to changing schemas, figure out database performance and handle security properly.
 
-**About https://twitter.com/JMHReif[Jennifer Reif^]:** +
+Backing a GraphQL API with a graph database makes several of these things easier. Queries and mutations can be generated from the schema, GraphQL queries are directly translated into join-free database queries and with built in security directives you can integrate with auth providers and database security.
 
-image::https://pbs.twimg.com/profile_images/1466113856040837125/vPdZhNL4_400x400.jpg[alt="Jennifer Reif",width="150px",float="left",align="text-right",link="https://twitter.com/JMHReif"] 
-Jennifer Reif is an avid developer and problem-solver. She holds a Master’s degree in Computer Management and Information Systems and has worked with large enterprises to organize and make sense of widespread data assets and leverage them for maximum business value. She has worked with a variety of commercial and open source tools and enjoys learning new technologies, sometimes on a daily basis! Her passion is finding ways to organize chaos and deliver software more effectively.
+In this talk I want to walk you through building a GraphQL API for a conference system from scratch, discussing and demonstrating these aspects live.
+
+**About https://twitter.com/mesirii[Michael Hunger^]:** +
+
+image::https://pbs.twimg.com/profile_images/792577726230237184/8ZSDZEvI_400x400.jpg[alt="Michael Hunger",width="150px",float="left",align="text-right",link="https://twitter.com/JMHReif"] 
+Michael Hunger has been passionate about software development for more than 25 years. For the last 10 years, he has been working on the open source Neo4j graph database filling many roles, most recently leading the Neo4j Labs efforts.
 
 &#160; +
 &#160; +
