@@ -44,7 +44,7 @@ Created as an extension library to provide common procedures and functions to de
 This library is especially helpful for complex transformations and data manipulations.
 Useful procedures include apoc.load.jdbc, apoc.load.json, and others.
 
-*3)* https://medium.com/neo4j/neo4j-etl-tool-1-3-1-release-white-winter-2fc3c794d6a5[ETL Tool^]: internally-built UI tool that translates relational to graph from a JDBC connection.
+*3)* https://neo4j.com/developer/neo4j-etl/[ETL Tool^]: Neo4j Labs UI tool that translates relational to graph from a JDBC connection.
 Allows bulk data import for large data sets with a fast performance and simple user experience.
 
 *4)* https://medium.com/neo4j/getting-started-with-kettle-and-neo4j-32ff15b991f9[Kettle^]: open-source tool for enterprise-scale data export and import.
