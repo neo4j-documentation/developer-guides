@@ -1,22 +1,23 @@
 * *For Beginners*
 
-* xref:get-started.adoc[Getting Started]
+* Getting Started
+//* xref:get-started.adoc[Getting Started]
 ** xref:graph-database.adoc[What is a Graph Database?]
-** xref:intro-videos.adoc[Intro to Graph DBs Video Series]
+// ** xref:intro-videos.adoc[Intro to Graph DBs Video Series]
 ** xref:graph-db-vs-rdbms.adoc[Concepts: RDBMS to Graph]
 ** xref:graph-db-vs-nosql.adoc[Concepts: NoSQL to Graph]
 ** xref:getting-started-resources.adoc[Getting Started Resources]
 
 * xref:graph-platform.adoc[Neo4j Graph Platform]
-** xref:neo4j-database.adoc[Neo4j Database]
+// ** xref:neo4j-database.adoc[Neo4j Database]
 ** xref:neo4j-desktop.adoc[Neo4j Desktop]
 ** xref:neo4j-browser.adoc[Neo4j Browser]
 *** xref:browser-guide-list.adoc[Available Neo4j Browser Guides]
 *** xref:guide-create-neo4j-browser-guide.adoc[Tutorial: Create Custom Browser Guide]
-** xref:neo4j-bloom.adoc[Neo4j Bloom]
+// ** xref:neo4j-bloom.adoc[Neo4j Bloom]
 ** xref:neo4j-etl.adoc[How-To: Neo4j ETL Tool]
 ** xref:neo4j-apoc.adoc[Neo4j APOC Library]
-** xref:graphql.adoc[Neo4j &amp; GraphQL]
+// ** xref:graphql.adoc[Neo4j &amp; GraphQL]
 
 * xref:cypher:index.adoc[Cypher Query Language]
 ** xref:cypher:intro-cypher.adoc[Getting Started with Cypher]
@@ -30,9 +31,9 @@
 *** xref:cypher:guide-build-a-recommendation-engine.adoc[Tutorial: Build a Recommendation Engine]
 ** xref:cypher:guide-sql-to-cypher.adoc[Comparing SQL and Cypher]
 ** xref:cypher:procedures-functions.adoc[User Defined Procedures &amp; Functions]
-** xref:cypher:filtering-show.adoc[Filtering SHOW commands]
-** xref:cypher:replanning.adoc[Cypher Runtime and Replanning]
-** xref:cypher-style-guide.adoc[Cypher Style Guide]
+// ** xref:cypher:filtering-show.adoc[Filtering SHOW commands]
+// ** xref:cypher:replanning.adoc[Cypher Runtime and Replanning]
+// ** xref:cypher-style-guide.adoc[Cypher Style Guide]
 ** xref:cypher:resources.adoc[Cypher Resources]
 
 * *For Developers*
@@ -78,12 +79,12 @@
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
 ** xref:perl.adoc[Perl]
 
-* Building Applications
-** xref:example-project.adoc[Example: all Stacks (Movies)]
+// * Building Applications
+// ** xref:example-project.adoc[Example: all Stacks (Movies)]
 // TODO Adam ** xref:building-applications:using-drivers.adoc[Tutorial: Step By Step - Connect and Query Neo4j]
-** xref:python-movie-app.adoc[Tutorial: Python/Flask and React (IMDB)]
-** xref:js-movie-app.adoc[Tutorial: JavaScript/Express and React (IMDB)]
-** xref:ruby-course.adoc[Tutorial: Ruby &amp; Rails (Books)]
+// ** xref:python-movie-app.adoc[Tutorial: Python/Flask and React (IMDB)]
+// ** xref:js-movie-app.adoc[Tutorial: JavaScript/Express and React (IMDB)]
+// ** xref:ruby-course.adoc[Tutorial: Ruby &amp; Rails (Books)]
 
 * xref:integration.adoc[Neo4j Tools &amp; Integrations]
 ** link:https://neo4j.com/docs/spark/current/[Neo4j Connector for Apache Spark]
@@ -110,31 +111,30 @@
 // ** link:https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[4. Query Tuning in Neo4j 4.x^]
 
 * *For Data Scientists*
-* xref:graph-data-science:index.adoc[Neo4j Graph Data Science]
-  ** xref:graph-data-science:graph-algorithms.adoc[Graph Algorithms]
-  ** xref:graph-data-science:neuler-no-code-graph-algorithms.adoc[NEuler: No-code Graph Algorithms]
-  ** xref:graph-data-science:nlp/index.adoc[Natural Language Processing (NLP)]
-  ** Tutorials
-    *** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
-    *** xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph with NLP and Ontologies]
-  ** How-To Guides
-    *** xref:graph-data-science:nlp/entity-extraction.adoc[Entity Extraction with APOC NLP]
-    *** xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn]
-    *** xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[Link Prediction with AutoML]
-    *** xref:graph-data-science:node-classification.adoc[Node Classification with GDSL]
-    *** xref:graph-data-science:link-prediction/graph-data-science-library.adoc[Link Prediction with GDSL]
-  ** Concepts
-    *** xref:graph-data-science:graph-search-algorithms.adoc[Graph Search Algorithms]
-    *** xref:graph-data-science:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
-    *** xref:graph-data-science:centrality-graph-algorithms.adoc[Centrality Algorithms]
-    *** xref:graph-data-science:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
-    *** xref:graph-data-science:graph-embeddings.adoc[Graph Embeddings]
-    *** xref:graph-data-science:link-prediction/index.adoc[Link Prediction]
-    *** xref:graph-data-science:connected-feature-extraction.adoc[Connected Feature Extraction]
-
+* Neo4j Graph Data Science
+// * xref:graph-data-science:index.adoc[Neo4j Graph Data Science]
+// ** xref:graph-data-science:graph-algorithms.adoc[Graph Algorithms]
+** xref:graph-data-science:neuler-no-code-graph-algorithms.adoc[NEuler: No-code Graph Algorithms]
+// * xref:graph-data-science:nlp/index.adoc[Natural Language Processing (NLP)]
+** Tutorials
+*** xref:graph-data-science:applied-graph-embeddings.adoc[Graph Embeddings]
+*** xref:graph-data-science:build-knowledge-graph-nlp-ontologies.adoc[Build a Knowledge Graph with NLP and Ontologies]
+** How-To Guides
+*** xref:graph-data-science:nlp/entity-extraction.adoc[Entity Extraction with APOC NLP]
+*** xref:graph-data-science:link-prediction/scikit-learn.adoc[Link Prediction with scikit-learn]
+*** xref:graph-data-science:link-prediction/aws-sagemaker-autopilot-automl.adoc[Link Prediction with AutoML]
+*** xref:graph-data-science:node-classification.adoc[Node Classification with GDSL]
+*** xref:graph-data-science:link-prediction/graph-data-science-library.adoc[Link Prediction with GDSL]
+** Concepts
+*** xref:graph-data-science:graph-search-algorithms.adoc[Graph Search Algorithms]
+*** xref:graph-data-science:path-finding-graph-algorithms.adoc[Path Finding Algorithms]
+*** xref:graph-data-science:centrality-graph-algorithms.adoc[Centrality Algorithms]
+*** xref:graph-data-science:community-detection-graph-algorithms.adoc[Community Detection Algorithms]
+*** xref:graph-data-science:graph-embeddings.adoc[Graph Embeddings]
+*** xref:graph-data-science:link-prediction/index.adoc[Link Prediction]
+*** xref:graph-data-science:connected-feature-extraction.adoc[Connected Feature Extraction]
 * xref:graph-visualization.adoc[Graph Visualization]
 ** xref:tools-graph-visualization.adoc[Visualization Tools]
-
 * Courses
 ** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
 ** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
@@ -152,16 +152,17 @@
 
 * *For Administrators*
 
-* xref:in-production.adoc[Neo4j Administration]
+* Neo4j Administration
+// * xref:in-production.adoc[Neo4j Administration]
 ** xref:memory-management.adoc[How-To: Memory Management]
 ** Tutorials
 *** xref:manage-multiple-databases.adoc[Managing Multiple Databases]
 *** xref:multi-tenancy-worked-example.adoc[Multi Tenancy Worked Example]
 ** xref:neo4j-fabric-sharding.adoc[Sharding Graphs with Fabric]
-** xref:guide-performance-tuning.adoc[Performance Tuning]
+// ** xref:guide-performance-tuning.adoc[Performance Tuning]
 
-* xref:docker.adoc[Docker &amp; Neo4j]
-** xref:docker-run-neo4j.adoc[How-To: Run Neo4j in Docker]
+// * xref:docker.adoc[Docker &amp; Neo4j]
+// ** xref:docker-run-neo4j.adoc[How-To: Run Neo4j in Docker]
 
 // * xref:aura-cloud-dbaas.adoc[Neo4j AuraDB]
 // ** xref:aura-connect-neo4j-desktop.adoc[Connect from Neo4j Desktop]
@@ -172,9 +173,9 @@
 // ** xref:aura-bloom.adoc[Bloom Visualization with AuraDB]
 // ** xref:aura-monitoring.adoc[Monitoring]
 
-* xref:guide-cloud-deployment.adoc[Neo4j in the Cloud]
-** xref:guide-orchestration.adoc[Orchestration Tools]
-** xref:neo4j-google-cloud-launcher.adoc[Tutorial: Deploy Neo4j Cluster on GCP]
+// * xref:guide-cloud-deployment.adoc[Neo4j in the Cloud]
+// ** xref:guide-orchestration.adoc[Orchestration Tools]
+// ** xref:neo4j-google-cloud-launcher.adoc[Tutorial: Deploy Neo4j Cluster on GCP]
 
 * Courses
 ** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
@@ -193,7 +194,6 @@
 // ** link:https://neo4j.com/graphacademy/online-training/neo4j-administration/[(older installations) Neo4j 3.5 Administration^]
 
 * *For Everyone*
-
 
 * link:https://neo4j.com/tag/twin4j/[Developer Newsletter^]
 
