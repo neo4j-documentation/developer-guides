@@ -257,7 +257,7 @@ RETURN article.title AS title,
        article.readingTime AS readingTime
 ----
 
-However, that query results in the following output:_no changes, no records_.
+However, that query results in the following output: _no changes, no records_.
 
 If we want to compare durations, we need to do that comparison by adding those durations to dates. 
 We don’t really care about dates for our query so we’ll just use the current time to work around this issue.
