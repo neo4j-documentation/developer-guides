@@ -304,7 +304,11 @@ The data guided construction of the exploration tree empowers the users to build
 Its meta level approach is very effective for grasping the overall structure of the graph data, while flexible access to node and relationship details ensures easy inspection and filtering.
 SemSpect furthermore allows to define query-based node labels during exploration to refine the graph data schema.
 
+* Collect data from Neo4j, SQL dbs, CSVs, and Json.
+* Cleanse and enrich with built-in tools as well as API calls.
+
 SemSpect is available as follows:
+
 *	SemSpect as Graph App for Neo4j Desktop (free for local database instances)
 *	SemSpect as Web App for Neo4j database servers
 
