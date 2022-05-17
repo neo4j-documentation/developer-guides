@@ -295,7 +295,7 @@ You can build a custom application that is scalable and easy to use.
 * Product information: https://cambridge-intelligence.com/keylines/[Keylines graph visualization^]
 
 ==== *Semspect* by derivo
-image:https://dist.neo4j.com/wp-content/uploads/20220517002751/semspect-neo4j-viz.png[width=200]
+image::https://dist.neo4j.com/wp-content/uploads/20220517002751/semspect-neo4j-viz.png[width=200]
 
 image::https://dist.neo4j.com/wp-content/uploads/20220517003656/SemSpect-for-Neo4j-Viz.png[role="popup-link",float="right",width=400]
 
