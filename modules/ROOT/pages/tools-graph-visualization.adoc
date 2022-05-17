@@ -295,9 +295,9 @@ You can build a custom application that is scalable and easy to use.
 * Product information: https://cambridge-intelligence.com/keylines/[Keylines graph visualization^]
 
 ==== *Semspect* by derivo
-image:{img}https://dist.neo4j.com/wp-content/uploads/20220517002751/semspect-neo4j-viz.png[width=200]
+image:https://dist.neo4j.com/wp-content/uploads/20220517002751/semspect-neo4j-viz.png[width=200]
 
-image::{img}https://dist.neo4j.com/wp-content/uploads/20220517003656/SemSpect-for-Neo4j-Viz.png[role="popup-link",float="right",width=400]
+image::https://dist.neo4j.com/wp-content/uploads/20220517003656/SemSpect-for-Neo4j-Viz.png[role="popup-link",float="right",width=400]
 
 SemSpect is a highly scalable knowledge graph exploration tool that uses visual aggregation to solve the hairball problem faced by standard graph visualization approaches.
 The data guided construction of the exploration tree empowers the users to build complex requests intuitively without query syntax. 
