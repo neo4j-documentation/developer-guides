@@ -303,8 +303,8 @@ Its meta level approach is very effective for grasping the overall structure of 
 SemSpect furthermore allows to define query-based node labels during exploration to refine the graph data schema.
 
 SemSpect is available as follows:
-•	SemSpect as Graph App for Neo4j Desktop (free for local database instances)
-•	SemSpect as Web App for Neo4j database servers
+*	SemSpect as Graph App for Neo4j Desktop (free for local database instances)
+*	SemSpect as Web App for Neo4j database servers
 
 ===== Semspect Resources
 * Product information: https://doc.semspect.de/docs/neo4j-graph-app[SemSpect for Neo4j^]
