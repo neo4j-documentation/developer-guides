@@ -31,7 +31,7 @@ We will talk about a few tips and tricks in the next paragraphs to help you deci
 
 Knowing the kinds of questions and queries you want to ask of your data is a great way to determining the structure of your data model.
 If you know your queries need to return results within a certain date range, then you probably should ensure that date is not a property on a node, but rather stored as a separate node or relationship.
-In contrast, for a university progam domain, finding similar class offerings to a current course might work well with a high-level category hierarchy that makes searching all classes within a subject topic more efficient.
+In contrast, for a university program domain, finding similar class offerings to a current course might work well with a high-level category hierarchy that makes searching all classes within a subject topic more efficient.
 
 Even if you do not know the exact query syntax just yet, understanding the intention of the system or application you are building and then constructing the model around the business need will help you organize it in a more accurate way.
 
