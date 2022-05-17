@@ -297,6 +297,8 @@ You can build a custom application that is scalable and easy to use.
 ==== *Semspect* by derivo
 image:{img}semspect-neo4j-viz.png[width=200]
 
+image::{img}SemSpect-for-Neo4j-Viz.png[role="popup-link",float="right",width=400]
+
 SemSpect is a highly scalable knowledge graph exploration tool that uses visual aggregation to solve the hairball problem faced by standard graph visualization approaches.
 The data guided construction of the exploration tree empowers the users to build complex requests intuitively without query syntax. 
 Its meta level approach is very effective for grasping the overall structure of the graph data, while flexible access to node and relationship details ensures easy inspection and filtering.
