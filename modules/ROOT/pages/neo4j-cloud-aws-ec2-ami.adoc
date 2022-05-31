@@ -8,10 +8,9 @@
 :label: DEPRECATED
 
 {label}
+
 [WARNING]
-----
-The following guide contains obsolete information and is planned to be archived soon.
-----
+This page is no longer supported. To learn more about deploying a single instance of Neo4j on Amazon EC2 platform, visit link:https://aws.amazon.com/marketplace/seller-profile?id=23ec694a-d2af-4641-b4d3-b7201ab2f5f9[the Neo4j page on AWS].
 
 .Goals
 [abstract]
