@@ -2,7 +2,7 @@
 The Neo4j Python driver is *officially supported* by Neo4j and connects to the database using the binary protocol.
 It aims to be minimal, while being idiomatic to Python.
 
-WARNING: Support for Python 2 was removed in the 2.0 release of the driver.
+NOTE: Support for Python 2 was removed in the 2.0 release of the driver.
 
 [source, shell, subs=attributes,specialcharacters]
 ----
@@ -26,7 +26,7 @@ include::./driver-warning.adoc[]
 
 | neo4j-driver
 | {python-driver-version}
-| The Neo4j Team, https://twitter.com/technige[Nigel Small^]
+| The Neo4j Team
 
 | https://pypi.python.org/pypi/neo4j[icon:gift[] Package]
 |
