@@ -24,7 +24,7 @@ Below is a list of guides with descriptions for what is provided.
 |`:play intro`           |Navigating Neo4j Browser
 |`:play concepts`        |Property graph model concepts
 |`:play cypher`          |Cypher basics - create, match, patterns
-|`:play graph-data-science` |Compute centrality and similarity scores, detect communities.
+|`:play graph-data-science` |Compute centrality and similarity scores, detect communities
 |`:play movie-graph`     |Queries and recommendations with Cypher - movie use case
 |`:play northwind-graph` |Translate and import relational data to graph
 |`:play start`           |Main guide (loads when Browser opens) - concepts, write-code, system info
