@@ -105,7 +105,24 @@ RETURN p, collect(m.title)
 
 While it's possible to get started using Neo4j without learning Cypher, it is a very powerful tool to query a Neo4j database and is worth learning.
 Also, since this project works by making Cypher queries to Neo4j, it is helpful to understand Cypher as your queries get more complex.
-Here is a link:https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Cypher tutorial], if you would like to learn more.
+If you would like to learn more Cypher and Using Python with Neo4j:
+
+
+*Beginner Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+* https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^]
+* https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
+
+*Cypher Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/cypher-intermediate-queries/[Cypher Intermediate Queries^]
+
+*Developer Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/app-python/[Building Neo4j Applications with Python^]
+
 
 
 [#project-setup]

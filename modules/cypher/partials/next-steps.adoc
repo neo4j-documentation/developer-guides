@@ -3,4 +3,12 @@
 If you have any further questions about anything that has been covered in this section, you can ask in the link:https://community.neo4j.com/c/neo4j-graph-platform/cypher/12?ref=guides[Cypher category on the Neo4j Community Site^].
 We pride ourselves on having an open and engaging community and we would love you to be part of it.
 
-You can test your knowledge by taking the link:https://neo4j.com/graphacademy/training-intro-40/enrollment/[free Introduction to Neo4j 4.x Course^] or link:https://neo4j.com/graphacademy/neo4j-certification/[earn your free Neo4j Certification^] provided by the GraphAcademy.
+You can test your knowledge by taking these Beginner Learning Path courses:
+
+* https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+* https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^]
+* https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
+* https://graphacademy.neo4j.com/courses/cypher-intermediate-queries/[Cypher Intermediate Queries^]
+
+Then link:https://neo4j.com/graphacademy/neo4j-certification/[Earn your free Neo4j Certification^] provided by the GraphAcademy.

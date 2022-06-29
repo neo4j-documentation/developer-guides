@@ -56,11 +56,6 @@ link:/developer/graphgist/[Interactive Graph Models]
 [#Online-training]
 == Online training
 
-There are two free online training courses that cover graph data modeling:
+There is a free online training course that covers graph data modeling:
 
-
-* Graph Data Modeling for Neo4j
-* Implementing Graph Data Models in Neo4j 4.0
-
-Each of these courses will take about 4 hours to complete and can be found at
-https://neo4j.com/graphacademy/online-training[Neo4j GraphAcademy]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^]

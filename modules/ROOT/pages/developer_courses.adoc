@@ -10,17 +10,22 @@ Neo4j has a number of courses to teach you how to use Neo4j.
 
 Here is the suggested learning path for Neo4j developers:
 
-image::{img}DeveloperLearningPath.png[role="popup-link"]
+*1. Beginner Learning Path:*
 
+* https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+* https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^]
+* https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
 
-=== GraphAcademy Courses
+*2. Cypher Learning Path:*
 
-As a beginner, we recommend that you first take our introductory course:
+* https://graphacademy.neo4j.com/courses/cypher-intermediate-queries/[Cypher Intermediate Queries^]
 
-https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0^]
+*3. Developer Learning Path:*
 
-Then follow with these courses:
+* https://graphacademy.neo4j.com/courses/app-nodejs/[Building Neo4j Applications with Node.js^]
+* https://graphacademy.neo4j.com/courses/app-python/[Building Neo4j Applications with Python^]
+* https://graphacademy.neo4j.com/courses/app-java/[Building Neo4j Applications with Java^]
+* https://graphacademy.neo4j.com/courses/app-dotnet/[Building Neo4j Applications with .NET^]
+* https://graphacademy.neo4j.com/courses/app-go/[Building Neo4j Applications with Go^]
 
-https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling for Neo4j^]
-https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[Implementing Graph Data Models in Neo4j 4.0^]
-https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[Cypher Query Tuning in Neo4j 4.0^]

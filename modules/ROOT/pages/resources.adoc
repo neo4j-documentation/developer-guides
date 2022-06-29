@@ -74,7 +74,7 @@ More importantly they are visualized in interactive datasets (provided in Cypher
 
 The online course are a great way to get started in a self-paced mode:
 
-link:https://neo4j.com/graphacademy/online-training/[Neo4j Online Training Courses^]
+link:https://graphacademy.neo4j.com/[Neo4j Online Training Courses^]
 
 The instructor-led training classes give you access to Neo4j expert trainers:
 
@@ -84,10 +84,6 @@ As an experienced Neo4j user you can take the Neo4j Certification Exam to become
 The exam is free of charge and can be retaken. It tests you on basic Neo4j knowledge and Cypher.
 
 link:https://neo4j.com/graphacademy/neo4j-certification/[Certified Neo4j Professional Exam^]
-
-We also have a Neo4j 4.x Certified exam that tests you on exclusively Neo4j 4.x features. To take this exam, you must have passed the Certified Neo4j Professional exam.
-
-link:https://neo4j.com/graphacademy/neo4j-certification-40/[Neo4j 4.x Certified Exam^]
 
 [#external-tutorials]
 == External Neo4j Tutorials

@@ -37,29 +37,33 @@ To help you along your path of learning more about Neo4j, we want to provide you
 [#training-resources]
 == Training, Courses, and Webinars
 
-*Free*, self-paced courses at https://neo4j.com/graphacademy/online-training/[GraphAcademy Online Training^].
+*Free*, self-paced courses at https://graphacademy.neo4j.com/[GraphAcademy^].
 
-Here are our latest Neo4j 4.x online, self-paced training courses:
+Here are our latest online, self-paced training courses:
 
-* https://neo4j.com/graphacademy/training-overview-40/enrollment/[1 Overview of Neo4j 4.x^]
-* https://neo4j.com/graphacademy/training-querying-40/enrollment/[2. Querying with Cypher in Neo4j 4.x^]
-* https://neo4j.com/graphacademy/training-updating-40/enrollment/[3. Creating Nodes and Relationships in Neo4j 4.x^]
-* https://neo4j.com/graphacademy/training-best-practices-40/enrollment/[4. Using Indexes and Query Best Practices in Neo4j 4.x^]
-* https://neo4j.com/graphacademy/training-importing-data-40/enrollment/[5. Importing Data with Neo4j 4.x^]
-* https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling for Neo4j^]
-* https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[Implementing Graph Data Models in Neo4j 4.x^]
-* https://neo4j.com/graphacademy/online-training/cypher-query-tuning-40/[Cypher Query Tuning in Neo4j 4.x^]
-* https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Graph Data Modeling for Neo4j^]
-* https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[Introduction to Graph Algorithms in Neo4j 4.x^]
-* https://neo4j.com/graphacademy/online-training/gds-data-science/[Using a Machine Learning Workflow for Link Prediction^]
-* https://neo4j.com/graphacademy/training-gdsaa-40/enrollment/[Applied Graph Data Science for Web Applications^]
+*Beginner Learning Path:*
 
-Here are our Neo4j 3.5 online, self-paced training courses:
+* https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+* https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^]
+* https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
 
-* https://neo4j.com/graphacademy/online-training/introduction-to-neo4j/[Introduction to Neo4j 3.5]
-* https://neo4j.com/graphacademy/online-training/neo4j-administration/[Neo4j 3.5 Administration]
-* https://neo4j.com/graphacademy/online-training/applied-graph-algorithms/[Applied Graph Algorithms with Neo4j 3.5]
-* https://neo4j.com/graphacademy/online-training/data-science/[Data Science with Neo4j 3.5]
+*Cypher Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/cypher-intermediate-queries/[Cypher Intermediate Queries^]
+
+*Developer Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/app-nodejs/[Building Neo4j Applications with Node.js^]
+* https://graphacademy.neo4j.com/courses/app-python/[Building Neo4j Applications with Python^]
+* https://graphacademy.neo4j.com/courses/app-java/[Building Neo4j Applications with Java^]
+* https://graphacademy.neo4j.com/courses/app-dotnet/[Building Neo4j Applications with .NET^]
+* https://graphacademy.neo4j.com/courses/app-go/[Building Neo4j Applications with Go^]
+
+*Data Scientist Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/gds-product-introduction/[Introduction to Neo4j Graph Data Science^]
+* https://graphacademy.neo4j.com/courses/graph-data-science-fundamentals/[Neo4j Graph Data Science Fundamentals^]
 
 Classroom and virtual training classes:
 

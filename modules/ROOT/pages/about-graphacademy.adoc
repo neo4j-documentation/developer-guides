@@ -10,7 +10,7 @@ The Neo4j GraphAcademy is the place for all of our interactive and guided traini
 From self-paced online training courses to in-person events with Neo4j experts, you can learn all of the core functionality that you need to become familiar with Neo4j!
 
 There are a variety of opportunities to learn Neo4j in the way that works best for you.
-You can go straight to our https://neo4j.com/graphacademy/[GraphAcademy^] page to see everything we offer.
+You can go straight to our https://graphacademy.neo4j.com/[GraphAcademy^] page to see everything we offer.
 
 [#neo4j-training]
 == Neo4j Training
@@ -24,22 +24,31 @@ Whether you are new and want to see what graph is all about or experienced and w
 
 Our GraphAcademy includes free, self-paced online training for several areas of the Neo4j graph ecosystem.
 
-Here is our current list of online courses:
+*Beginner Learning Path:*
 
-* Neo4j 4.0:
-** Introduction to Neo4j 4.0
-** Graph Data Modeling
-** Implementing Graph Data Models
-** Cypher Query Tuning in Neo4j
-** Basic Neo4j 4.0 Administration
-* Neo4j 3.5:
-** Graph Data Modeling
-** Introduction to Neo4j 3.5
-** Neo4j 3.5 Administration
-** Applied Graph Algorithms (JavaScript; uses graph algorithms library)
-** Data Science with Neo4j (Python; uses graph algorithms library)
+* https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+* https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^]
+* https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
 
-https://neo4j.com/graphacademy/online-training/[Click here to enroll in a free online training course^]
+*Cypher Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/cypher-intermediate-queries/[Cypher Intermediate Queries^]
+
+*Developer Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/app-nodejs/[Building Neo4j Applications with Node.js^]
+* https://graphacademy.neo4j.com/courses/app-python/[Building Neo4j Applications with Python^]
+* https://graphacademy.neo4j.com/courses/app-java/[Building Neo4j Applications with Java^]
+* https://graphacademy.neo4j.com/courses/app-dotnet/[Building Neo4j Applications with .NET^]
+* https://graphacademy.neo4j.com/courses/app-go/[Building Neo4j Applications with Go^]
+
+*Data Scientist Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/gds-product-introduction/[Introduction to Neo4j Graph Data Science^]
+* https://graphacademy.neo4j.com/courses/graph-data-science-fundamentals/[Neo4j Graph Data Science Fundamentals^]
+
+https://graphacademy.neo4j.com/[Click here to enroll in a free online training course^]
 
 === Online Meetups and Webinars
 
@@ -59,7 +68,7 @@ https://neo4j.com/events/world/training/[Instructor-led public training events^]
 Companies can also mailto:training@neo4j.com[request] private, custom training events for internal staff to solve specific problems or understand concepts and architecture specific to their use case.
 
 [#neo4j-certification]
-== Neo4j Developer Certification
+== Neo4j Certified Professional
 
 image::{img}Neo4j_certified_professional.jpeg[role="popup-link",float="right",width=150]
 

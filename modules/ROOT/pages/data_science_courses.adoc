@@ -15,10 +15,20 @@ image::{img}DataScientistLearningPath.png[role="popup-link"]
 
 === GraphAcademy Courses
 
-We recommend that you first take our introductory Neo4j course:
+We recommend that you  take these courses to get you started with Neo4j Graph Data Science:
 
-https://neo4j.com/graphacademy/online-training/introduction-to-neo4j-40/[Introduction to Neo4j 4.0^]
+*Beginner Learning Path:*
 
-Then follow with this course:
+* https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
+* https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^]
+* https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
 
-https://neo4j.com/graphacademy/online-training/intro-graph-algos-40/[Introduction to Graph Algorithms in Neo4j 4.0^]
+*Cypher Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/cypher-intermediate-queries/[Cypher Intermediate Queries^]
+
+*Data Scientist Learning Path:*
+
+* https://graphacademy.neo4j.com/courses/gds-product-introduction/[Introduction to Neo4j Graph Data Science^]
+* https://graphacademy.neo4j.com/courses/graph-data-science-fundamentals/[Neo4j Graph Data Science Fundamentals^]

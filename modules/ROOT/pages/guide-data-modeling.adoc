@@ -330,4 +330,4 @@ ifndef::env-guide[]
 * link:/graphgists/[GraphGists: Graph Model Examples^]
 * link:/blog/data-modeling-pitfalls/[Blog post: Data Modeling Pitfalls to Avoid^]
 endif::[]
-* https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Free online training course: Graph Data Modeling for Neo4j^]
+*  https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^] course on GraphAcademy

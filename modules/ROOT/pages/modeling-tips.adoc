@@ -88,5 +88,4 @@ This is where the data model and query optimizations become vital to maximizing 
 [#modeling-resources]
 == Resources
 * https://community.neo4j.com/[Ask Questions on the Neo4j Community Site!^]
-* https://neo4j.com/graphacademy/online-training/graph-data-modeling/[Free online training course: Graph Data Modeling for Neo4j]
-* https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[Free online training course: Implementing Graph Data Models in Neo4j 4.0]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals^]

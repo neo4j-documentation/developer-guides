@@ -331,5 +331,5 @@ This guide has shown how to refactor a graph model, with help from procedures in
 Below are some resources for learning more about refactoring in Neo4j:
 
 * link:https://neo4j.com/developer/neo4j-apoc/[APOC Library^]
-** https://neo4j.com/docs/labs/apoc/current/graph-updates/graph-refactoring/[Graph Refactoring Procedures^]
-* https://neo4j.com/graphacademy/online-training/implementing-graph-data-models-40/[Free online training course: Implementing Graph Data Models in Neo4j 4.0]
+* https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Data Modeling Fundamentals course^]
+* https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j course^] which also contains some refactoring examples.
