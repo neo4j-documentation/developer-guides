@@ -64,15 +64,13 @@
 *** Courses:
 **** link:https://graphacademy.neo4j.com/courses/app-java/[Building Neo4j Applications with Java^]
 ** xref:dotnet.adoc[.NET]
+*** link:https://graphacademy.neo4j.com/courses/app-dotnet/[Building Neo4j Applications with .NET^]
 ** xref:javascript.adoc[JavaScript]
-*** Courses:
-**** link:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Neo4j Applications with Node.js^]
+*** link:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Neo4j Applications with Node.js^]
 ** xref:python.adoc[Python]
-*** Courses:
-**** link:https://graphacademy.neo4j.com/courses/app-python/[Building Neo4j Applications with Python^]
+*** link:https://graphacademy.neo4j.com/courses/app-python/[Building Neo4j Applications with Python^]
 ** xref:go.adoc[Go]
-*** Courses:
-**** link:https://graphacademy.neo4j.com/courses/app-go/[Building Neo4j Applications with Go^]
+*** link:https://graphacademy.neo4j.com/courses/app-go/[Building Neo4j Applications with Go^]
 ** xref:ruby.adoc[Ruby]
 ** xref:php.adoc[PHP]
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
