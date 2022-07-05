@@ -78,11 +78,11 @@
 
 * Building Applications
 // ** xref:example-project.adoc[Example: all Stacks (Movies)]
-** xref:https://graphacademy.neo4j.com/courses/app-java/[Building Apps with Java]
-** xref:https://graphacademy.neo4j.com/courses/app-python/[Building Apps with Python]
-** xref:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Apps with Node.js]
-** xref:https://graphacademy.neo4j.com/courses/app-dotnet/[Building Apps with .NET]
-** xref:https://graphacademy.neo4j.com/courses/app-go/[Building Apps with Go]
+** link:https://graphacademy.neo4j.com/courses/app-java/[Building Apps with Java]
+** link:https://graphacademy.neo4j.com/courses/app-python/[Building Apps with Python]
+** link:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Apps with Node.js]
+** link:https://graphacademy.neo4j.com/courses/app-dotnet/[Building Apps with .NET]
+** link:https://graphacademy.neo4j.com/courses/app-go/[Building Apps with Go]
 
 // ** xref:js-movie-app.adoc[Tutorial: JavaScript/Express and React (IMDB)]
 // ** xref:ruby-course.adoc[Tutorial: Ruby &amp; Rails (Books)]
