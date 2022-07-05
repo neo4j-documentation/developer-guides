@@ -77,7 +77,7 @@
 ** xref:perl.adoc[Perl]
 
 * Building Applications
-** xref:example-project.adoc[Example: all Stacks (Movies)]
+// ** xref:example-project.adoc[Example: all Stacks (Movies)]
 ** xref:https://graphacademy.neo4j.com/courses/app-java/[Building Apps with Java]
 ** xref:https://graphacademy.neo4j.com/courses/app-python/[Building Apps with Python]
 ** xref:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Apps with Node.js]
