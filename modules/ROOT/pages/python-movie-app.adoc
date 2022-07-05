@@ -6,6 +6,7 @@
 :tags: flask, python, react
 :description: This course provides an overview on everything that you need to build a Neo4j application with the link:https://www.python.org/[Python programming language^].
 The Flask framework is used as the backend, and React as front-end.
+:redirect: https://graphacademy.neo4j.com/courses/app-python/
 
 
 .Goals
