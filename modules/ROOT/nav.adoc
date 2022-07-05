@@ -80,10 +80,14 @@
 
 * Building Applications
 ** xref:example-project.adoc[Example: all Stacks (Movies)]
-// TODO Adam ** xref:building-applications:using-drivers.adoc[Tutorial: Step By Step - Connect and Query Neo4j]
-** xref:python-movie-app.adoc[Tutorial: Python/Flask and React (IMDB)]
-** xref:js-movie-app.adoc[Tutorial: JavaScript/Express and React (IMDB)]
-** xref:ruby-course.adoc[Tutorial: Ruby &amp; Rails (Books)]
+** xref:https://graphacademy.neo4j.com/courses/app-java/[Building Apps with Java]
+** xref:https://graphacademy.neo4j.com/courses/app-python/[Building Apps with Python]
+** xref:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Apps with Node.js]
+** xref:https://graphacademy.neo4j.com/courses/app-dotnet/[Building Apps with .NET]
+** xref:https://graphacademy.neo4j.com/courses/app-go/[Building Apps with Go]
+
+// ** xref:js-movie-app.adoc[Tutorial: JavaScript/Express and React (IMDB)]
+// ** xref:ruby-course.adoc[Tutorial: Ruby &amp; Rails (Books)]
 
 * xref:integration.adoc[Neo4j Tools &amp; Integrations]
 ** link:https://neo4j.com/docs/spark/current/[Neo4j Connector for Apache Spark]
