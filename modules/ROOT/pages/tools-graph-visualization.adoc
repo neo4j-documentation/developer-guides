@@ -12,7 +12,6 @@ image::{img}graph_cluster_distant_wide.jpg[]
 [#bloom]
 
 :cta-header: Neo4j Bloom is now available for free in AuraDB!
-include::./_includes/aura_ctaGraphXR .adoc[]
 
 [#graph-vis-types]
 == Types of Graph Visualization
@@ -178,6 +177,26 @@ Bloom is available in the following formats:
 * Developer Guide: https://neo4j.com/blog/graphxr-graph-app-neo4j-desktop/[Neo4j Bloom User Interface Guide^]
 * Blog post: https://medium.com/neo4j/bloom-ing-marvellous-a2be0c3702bb[Bloom-ing marvellous! Introducing Bloom 1.3^]
 * Product information: https://neo4j.com/bloom/[Neo4j Bloom landing page^]
+
+==== *NeoDash* by
+image:/developer/_images/labs-logo.jpg[width=200]
+
+image::https://neo4j.com/labs/neodash/_images/neodash.png[role="popup-link",float="right",width=350]
+
+NeoDash is an open-source, low-code Dashboard Builder for Neo4j. As a part of https://neo4j.com/labs[Neo4j Labs], NeoDash is developed and supported via the online https://community.neo4j.com[Community]. 
+
+NeoDash lets you build an interactive dashboard with tables, graphs, bar charts, line charts, maps and more.
+Dashboards can be saved and shared directly from your Neo4j database.
+
+* A low-code dashboard builder with a drag-and-drop interface
+* Create visualizations directly from Cypher
+* The ability to add customization and interactivity to dashboards
+* Build and publish dashboards for read-only access
+
+===== NeoDash Resources
+* User Guide: https://neo4j.com/labs/neodash/2.1/user-guide/[NeoDash User Guide^]
+* Blog Post: https://neo4j.com/developer-blog/neodash-2-0-a-brand-new-way-to-visualize-neo4j/[NeoDash 2.0 – A Brand New Way to Visualize Neo4j^]
+* Try NeoDash: http://neodash.graphapp.io/[NeoDash Online Demo^]
 
 ==== *GraphXR* by
 image:{img}kineviz-logo.png[width=200]
