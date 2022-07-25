@@ -6,6 +6,7 @@
 :tags: node, express, javascript, react
 :description: This course provides an overview on everything that you need to build a Neo4j application with the link:https://en.wikipedia.org/wiki/JavaScript[JavaScript programming language^].
 The Express framework is used as the backend, and the React framework as front-end.
+:redirect: https://graphacademy.neo4j.com/courses/app-nodejs/
 
 
 .Goals
