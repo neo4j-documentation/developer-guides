@@ -257,16 +257,9 @@ RETURN article.title AS title,
        article.readingTime AS readingTime
 ----
 
-If we execute that query we'll see the following output:
+However, that query results in the following output: _no changes, no records_.
 
-[source,text]
-----
-Neo.ClientError.Statement.SyntaxError: Type mismatch: expected Float, Integer, Point, String, Date, Time, LocalTime, LocalDateTime or DateTime but was Duration (line 2, column 29 (offset: 52))
-"WHERE article.readingTime < duration("PT3M")"
-                             ^
-----
-
-If we want to compare durations we need to do that comparison by adding those durations to dates.
+If we want to compare durations, we need to do that comparison by adding those durations to dates. 
 We don’t really care about dates for our query so we’ll just use the current time to work around this issue.
 We can get the current time by calling the datetime() function.
 
