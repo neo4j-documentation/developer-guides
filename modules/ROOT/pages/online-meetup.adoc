@@ -82,19 +82,6 @@ Missed a stream? Check out the playlist:
 * https://www.youtube.com/watch?v=386eMuIktek&list=PL9Hl4pk2FsvW1NtrhILyptfFnLMjg5Vmc[Neo4j Live^]
 
 
-=== Weekly - PHP + Neo4j 
-
-image::https://github.com/neo4j-documentation/developer-guides/raw/publish/modules/ROOT/images/phpneo4j.png[Neo4j + PHP,width="300px",float="right"]
-
-Aiming to take place once a week!
-
-https://twitter.com/fbiville[Florent Biville^] and https://www.linkedin.com/in/ghlen/[Ghlen Nagels^] take a deep dive in the PHP Client for Neo4j
-
-Missed an episode? Check out the playlist:
-
-* https://www.youtube.com/watch?v=qwz5XVtbfSY&list=PL9Hl4pk2FsvViI9wmdDpRS7tZ8V6j4uJs[PHP + Neo4j^]
-
-
 [#stream-catchup]
 == Stream catch-up and previous meetup sessions
 
