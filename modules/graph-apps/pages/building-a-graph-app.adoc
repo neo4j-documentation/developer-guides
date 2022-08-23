@@ -21,6 +21,19 @@ It will also discuss some concepts of Single Page Applications.
 . Knowledge of the link:/developer/javascript[offical JavaScript Drivers]
 . If you haven't already, http://neo4j.org/download[download and install Neo4j Desktop^]
 
+[.discrete.ad]
+== link:https://graphacademy.neo4j.com/?ref=guides[Learn with GraphAcademy^]
+
+image::https://graphacademy.neo4j.com/courses/app-nodejs/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/app-nodejs/?ref=guides[Building Neo4j Applications with Node.js^]
+
+In this free course, we walk through the steps to integrate Neo4j into your Node.js projects.
+You will learn about the Neo4j JavaScript Driver, how sessions and transactions work and how to query Neo4j from an existing application.
+
+link:https://graphacademy.neo4j.com/courses/app-nodejs/?ref=guides[Learn more^,role=button]
+
 [#graphapp-dev-intro]
 == Introduction
 
