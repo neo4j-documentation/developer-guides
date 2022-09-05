@@ -56,11 +56,6 @@ include::./_includes/sample_project.adoc[]
 
 include::./_includes/community-driver-notice.adoc[]
 
-[#js2neo-lib]
-=== js2neo
-
-As a demonstration of a minimal JavaScript based bolt driver, Nigel Small put together https://js2neo.org/[js2neo^].
-
 [#js-http-endpoint]
 == Using the HTTP-Endpoint directly
 
@@ -74,7 +69,7 @@ Here is a very simple example:
 [source, javascript]
 ----
 var r=require("request");
-var txUrl = "http://localhost:7474/db/data/transaction/commit";
+var txUrl = "http://localhost:7474/db/neo4j/tx/commit"; // neo4j is the database name
 function cypher(query,params,cb) {
   r.post({uri:txUrl,
           json:{statements:[{statement:query,parameters:params}]}},
