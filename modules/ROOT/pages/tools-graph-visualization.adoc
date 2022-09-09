@@ -179,7 +179,7 @@ Bloom is available in the following formats:
 * Product information: https://neo4j.com/bloom/[Neo4j Bloom landing page^]
 
 ==== *NeoDash* by
-image:/developer/_images/labs-logo.jpg[width=200]
+image:labs-logo.jpg[width=200]
 
 image::https://neo4j.com/labs/neodash/_images/neodash.png[role="popup-link",float="right",width=350]
 
