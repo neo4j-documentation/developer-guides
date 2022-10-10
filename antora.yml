@@ -15,7 +15,7 @@ asciidoc:
     spring-data-neo4j-version: 6.1.1
     java-driver-version: 4.4.9
     javascript-driver-version: 5.0.0
-    dotnet-driver-version: 5.0.0
+    dotnet-driver-version: 5.1.0
     go-driver-version: 5.0.0
     python-driver-version: 5.0.0
     testcontainers-version: 1.15.3
