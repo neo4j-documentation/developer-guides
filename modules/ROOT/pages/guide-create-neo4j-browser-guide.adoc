@@ -64,7 +64,7 @@ There are some special CSS classes that interact actions within Neo4j Browser, e
 image::{img}browser-guide-form-fields.jpg[link="{play}northwind%20graph"]
 
 We can also use form fields within the guides to automatically populate the input in the text on slides and in statements.
-This is similar to the built-in {play}query%20template[`:play query template`^].
+This is similar to the built-in {play}query%20template[`:play query-template`^].
 
 [#host-guide]
 == Hosting the Browser Guide
