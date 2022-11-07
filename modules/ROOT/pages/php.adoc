@@ -89,8 +89,8 @@ A low level driver for the Bolt protocol in PHP.
 |===
 | icon:user[] Author | https://www.linkedin.com/in/michalstefanak/[Michal Stefanak^]
 | icon:github[] Source | https://github.com/neo4j-php/Bolt
-| icon:code-fork[] Php    | 7.1+ / 8.0+
-| icon:code-fork[] Neo4j    | 3.0+ / 4.0+
+| icon:code-fork[] Php    | 7.4+ / 8.0+
+| icon:code-fork[] Neo4j    | 3.0+ / 4.0+ / 5.0+
 | Protocols | Bolt
 |===
 
@@ -104,20 +104,24 @@ composer require stefanak-michal/bolt
 .Example
 [source,php]
 ----
-$bolt = new \Bolt\Bolt( new \Bolt\connection\StreamSocket() );
-$protocol = $bolt->setProtocolVersions(4.1)->build();
-$protocol->hello( \Bolt\helpers\Auth::basic('neo4j', 'neo4j') );
+$bolt = new \Bolt\Bolt(new \Bolt\connection\Socket());
+$protocol = $bolt->setProtocolVersions(5.1)->build();
+$protocol->hello(\Bolt\helpers\Auth::basic('neo4j', 'neo4j'));
 
-$protocol->run(<<<'CYPHER'
-MERGE (neo4j:Database {name: $dbName})-[:HasRating]-(rating:Rating {value: 10})
-RETURN neo4j, rating
-CYPHER, ['dbName' => 'neo4j']);
+$protocol
+  ->run(
+    'MERGE (neo4j:Database {name: $dbName})-[:HasRating]-(rating:Rating {value: 10}) RETURN neo4j, rating', 
+    ['dbName' => 'neo4j']
+  )
+  ->pull();
 
-$result = $protocol->pull()[0];
-
-$neo4j = $result[0];
-$rating = $result[1];
-
-// Outputs "neo4j is 10 out of 10"
-echo $neo4j->properties()['name'] . ' is ' . $rating->properties()['value'] . ' out of 10!';
+foreach ($protocol->getResponses() as $response) {
+  if ($response->getSignature() == \Bolt\protocol\Response::SIGNATURE_RECORD) {
+    $neo4j = $response->getContent()[0];
+    $rating = $response->getContent()[1];
+    
+    // Outputs "neo4j is 10 out of 10"
+    echo $neo4j->properties()['name'] . ' is ' . $rating->properties()['value'] . ' out of 10!';
+  }
+}
 ----
