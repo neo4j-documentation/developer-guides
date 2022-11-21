@@ -7,15 +7,15 @@ Make sure your application has been set up to use go modules (there should be a 
 
 [source, shell, subs="attributes, specialcharacters"]
 ----
-go get github.com/neo4j/neo4j-go-driver/v4
+go get github.com/neo4j/neo4j-go-driver/v5
 ----
 
-If you need to pin a specific https://github.com/neo4j/neo4j-go-driver/tags[*4.x* version], you can run this instead:
+If you need to pin a specific https://github.com/neo4j/neo4j-go-driver/tags[*5.x* version], you can run this instead:
 ----
-go get github.com/neo4j/neo4j-go-driver/v4@<4.x tag>
+go get github.com/neo4j/neo4j-go-driver/v5@<5.x tag>
 ----
 
-where `<4.x tag>` is one of the available tag (e.g.: `v4.2.4`).
+where `<5.x tag>` is one of the available tag (e.g.: `v5.2.0`).
 
 [source, go, subs="attributes"]
 ----
