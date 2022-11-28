@@ -16,7 +16,7 @@ asciidoc:
     java-driver-version: 5.2.0
     javascript-driver-version: 5.2.0
     dotnet-driver-version: 5.2.0
-    go-driver-version: 5.2.0
+    go-driver-version: 5.3.0
     python-driver-version: 5.3.0
     testcontainers-version: 1.15.3
     maven-sdn: Package
