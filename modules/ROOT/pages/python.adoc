@@ -96,6 +96,9 @@ alice, bob, carol = [result.one for result in tx.commit()]
 
 image::{img}neomodel.200x80.png[float="right",width=100]
 
+Warning: The project is currently not actively maintained and should not be used in production. It has last been released in 2021. Newer neo4j versions are not supported. Critical bugs might exist.  
+
+
 An Object Graph Mapper built on top of the Neo4j python driver.
 Familiar Django style node definitions with a powerful query API, thread safe and full transaction support.
 A Django plugin https://github.com/neo4j-contrib/django-neomodel[django_neomodel^] is also available.
