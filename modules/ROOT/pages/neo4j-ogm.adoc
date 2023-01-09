@@ -5,14 +5,13 @@
 :programming-language: java
 :category: drivers
 :tags: ogm, object-graph-map, app-development, applications
-:description: For Java developers that require a simple mechanism to manage their domain objects with Neo4j, this guide introduces the Neo4j Object Graph Mapping (OGM) library.   This is the same library that powers Spring Data Neo4j but can also be used independently of Spring as well.
+:description: For Java developers that require a mechanism to manage their domain objects with Neo4j, this guide introduces the Neo4j Object Graph Mapping (OGM) library.
 
 .Goals
 [abstract]
 {description}
 
 include::./_includes/common-language-prereq.adoc[]
-When developing with Neo4j, please use JDK 8 and your favorite IDE.
 
 [role=expertise {level}]
 {level}
@@ -20,17 +19,7 @@ When developing with Neo4j, please use JDK 8 and your favorite IDE.
 [#neo4j-ogm]
 == Neo4j-OGM
 
-While using the Cypher query language alongside the Java driver works well for small projects and more advanced queries, the boilerplate of CRUD operations often gets tedious.
-
-That's where object graph mappers come in; they take your existing domain objects (POJOs) and map them to Neo4j.
-The great benefit with this approach is that with graph databases, there is no data-model impedence mismatch like there is with relational databases.
-
-Besides the Neo4j-OGM, there is also xref:java-third-party.adoc#ogm-hibernate[Hibernate-OGM] and others.
-If you want more abstraction xref:spring-data-neo4j.adoc[Spring Data Neo4j] can give you a Domain Driver Design (DDD) approach.
-
-We created the Neo4j-OGM as a standalone, simple object graph mapper for Java which also acts as the base for Spring Data Neo4j.
-
-The Neo4j-OGM uses Cypher in a consistent manner under the hood and can communicate via several transport protocols - bolt, http and embedded.
+include::https://raw.githubusercontent.com/neo4j/neo4j-ogm/master/neo4j-ogm-docs/src/main/asciidoc/introduction/index.adoc[lines=25..32,leveloffset=+1]
 
 [#ogm-features]
 == Features
@@ -38,10 +27,8 @@ The Neo4j-OGM uses Cypher in a consistent manner under the hood and can communic
 The Neo4j-OGM supports the features you would expect:
 
 * Object graph mapping of annotated node- and relationship-entities
-* Neo4jSession for direct interaction with Neo4j
 * Fast class metadata scanning
 * Optimized management of data loading and change tracking for minimal data transfers
-* Multiple transports: binary (bolt), HTTP and embedded
 * Persistence lifecycle events
 * Query result projection to DTOs
 
@@ -52,17 +39,18 @@ This code example is taken from the Example Project (see below).
 
 [source,java]
 ----
-@NodeEntity(label="Film")
+@NodeEntity
 public class Movie {
 
-   @GraphId Long id;
+   @Id @GeneratedValue
+   Long id;
 
    @Property(name="title")
    private String name;
 }
 
 @NodeEntity
-public class Actor extends DomainObject {
+public class Actor {
 
    @Id @GeneratedValue
    private Long id;
@@ -77,10 +65,17 @@ public class Actor extends DomainObject {
 
 @RelationshipEntity(type="ACTED_IN")
 public class Role {
-    @Id @GeneratedValue  private Long relationshipId;
-    @Property            private String title;
-    @StartNode           private Actor actor;
-    @EndNode             private Movie movie;
+    @Id @GeneratedValue
+    private Long relationshipId;
+
+	@Property
+    private String title;
+
+	@StartNode
+    private Actor actor;
+
+	@EndNode
+    private Movie movie;
 }
 ----
 
@@ -102,9 +97,6 @@ include::https://raw.githubusercontent.com/neo4j/neo4j-ogm/master/neo4j-ogm-docs
 | icon:gift[] Package | link:{maven-ogm}[http://maven.org]
 | icon:github[] Source | https://github.com/neo4j/neo4j-ogm
 | icon:book[] Docs | https://neo4j.com/docs/ogm-manual/current/
-| icon:book[] Article | http://neo4j.com/blog/neo4j-java-object-graph-mapper-released/
-// | icon:play-circle[] Example-Movies | https://github.com/neo4j-examples/neo4j-ogm-movies
-| icon:play-circle[] Example-University | https://github.com/neo4j-examples/neo4j-ogm-university
 |===
 
 :ogm-version: {neo4j-ogm-version}

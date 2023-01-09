@@ -10,7 +10,7 @@ asciidoc:
     img: https://dist.neo4j.com/wp-content/uploads/
     aura_signup: https://neo4j.com/cloud/aura/?ref=developer-guides
     neo4j-version: 4.2.7
-    neo4j-ogm-version: 3.2.23
+    neo4j-ogm-version: 4.0.0
     spring-boot-version: 2.5.0
     spring-data-neo4j-version: 6.1.1
     java-driver-version: 5.3.0
@@ -18,7 +18,7 @@ asciidoc:
     dotnet-driver-version: 5.3.0
     go-driver-version: 5.4.0
     python-driver-version: 5.3.0
-    testcontainers-version: 1.15.3
+    testcontainers-version: 1.17.6
     maven-sdn: Package
     maven-artifact-info: https://search.maven.org/artifact/org.neo4j.driver/neo4j-java-driver/{java-driver-version}/jar
 
