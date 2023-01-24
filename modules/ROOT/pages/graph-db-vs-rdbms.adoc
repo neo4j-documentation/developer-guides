@@ -1,4 +1,4 @@
-= Concepts: Relational to Graph
+= Transition from Relational to Graph Database - Neo4j
 :level: Beginner
 :page-level: Beginner
 :author: Jennifer Reif
