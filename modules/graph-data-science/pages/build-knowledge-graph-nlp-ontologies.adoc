@@ -115,7 +115,7 @@ The screenshot below shows an example of a SPARQL query along with the results f
 image::wikidata-api.png[Querying a Software Taxonomy in the Wikidata SPARQL API]
 
 This query starts from the entity https://www.wikidata.org/wiki/Q2429814[Q2429814^] (Software System) and then transitively finds children of that entity as far as it can.
-If we run the query we get a stream of triples (subject, predicate, subject).
+If we run the query we get a stream of triples (subject, predicate, object).
 
 https://query.wikidata.org/#prefix%20neo%3A%20%3Cneo4j%3A%2F%2Fvoc%23%3E%20%0A%23Cats%0A%23SELECT%20%3Fitem%20%3Flabel%20%0ACONSTRUCT%20%7B%0A%3Fitem%20a%20neo%3ACategory%20%3B%20neo%3AsubCatOf%20%3FparentItem%20.%20%20%0A%20%20%3Fitem%20neo%3Aname%20%3Flabel%20.%0A%20%20%3FparentItem%20a%20neo%3ACategory%3B%20neo%3Aname%20%3FparentLabel%20.%0A%20%20%3Farticle%20a%20neo%3AWikipediaPage%3B%20neo%3Aabout%20%3Fitem%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%0A%7D%0AWHERE%20%0A%7B%0A%20%20%3Fitem%20%28wdt%3AP31%7Cwdt%3AP279%29%2a%20wd%3AQ2429814%20.%0A%20%20%3Fitem%20wdt%3AP31%7Cwdt%3AP279%20%3FparentItem%20.%0A%20%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20.%0A%20%20filter%28lang%28%3Flabel%29%20%3D%20%22en%22%29%0A%20%20%3FparentItem%20rdfs%3Alabel%20%3FparentLabel%20.%0A%20%20filter%28lang%28%3FparentLabel%29%20%3D%20%22en%22%29%0A%20%20%0A%20%20OPTIONAL%20%7B%0A%20%20%20%20%20%20%3Farticle%20schema%3Aabout%20%3Fitem%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20schema%3AinLanguage%20%22en%22%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20schema%3AisPartOf%20%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E%20.%0A%20%20%20%20%7D%0A%20%20%0A%7D[Try out the SPARQL query^,role=more information]
 
