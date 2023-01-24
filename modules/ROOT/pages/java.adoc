@@ -37,6 +37,20 @@ For Community Edition and Enterprise Edition, you can also extend Neo4j by imple
 
 include::./_includes/sample_project.adoc[]
 
+[.discrete.ad]
+== link:https://graphacademy.neo4j.com/?ref=guides[Learn with GraphAcademy^]
+
+image::https://graphacademy.neo4j.com/courses/app-java/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/app-java/?ref=guides[Building Neo4j Applications with Java^]
+
+In this free course, we walk through the steps to integrate Neo4j into your Java projects.
+You will learn about the Neo4j Java Driver, how sessions and transactions work, how to query Neo4j and process results.
+
+link:https://graphacademy.neo4j.com/courses/app-java/?ref=guides[Learn more^,role=button]
+
+
 
 [#java-driver]
 == Neo4j Java Driver

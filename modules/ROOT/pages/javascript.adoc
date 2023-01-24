@@ -47,6 +47,16 @@ You will learn about the Neo4j JavaScript Driver, how sessions and transactions 
 link:https://graphacademy.neo4j.com/courses/app-nodejs/?ref=guides[Learn more^,role=button]
 
 
+image::https://graphacademy.neo4j.com/courses/app-typescript/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/app-typescript/?ref=guides[Building Neo4j Applications with TypeScript^]
+
+link:https://graphacademy.neo4j.com/courses/app-typescript/?ref=guides[Building Neo4j Applications with TypeScript^] course is a shorter course, with an estimated duration of two hours, aimed at TypeScript developers that are interested in learning the TypeScript specific features which add type-checking to any interactions you have with a Neo4j instance.
+
+link:https://graphacademy.neo4j.com/courses/app-typescript/?ref=guides[Learn Neo4j & TypeScript^,role=button]
+
+
 [#javascript-driver]
 == Neo4j Javascript Driver
 

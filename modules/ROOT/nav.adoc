@@ -62,15 +62,16 @@
 *** xref:java-procedures.adoc[Procedures and Functions]
 *** xref:java-third-party.adoc[Third-party libraries]
 *** Courses:
-**** link:https://graphacademy.neo4j.com/courses/app-java/[Building Neo4j Applications with Java^]
+**** link:https://graphacademy.neo4j.com/courses/app-java/?ref=guides[Building Neo4j Applications with Java^]
 ** xref:dotnet.adoc[.NET]
-*** link:https://graphacademy.neo4j.com/courses/app-dotnet/[Building Neo4j Applications with .NET^]
+*** link:https://graphacademy.neo4j.com/courses/app-dotnet/?ref=guides[Building Neo4j Applications with .NET^]
 ** xref:javascript.adoc[JavaScript]
-*** link:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Neo4j Applications with Node.js^]
+*** link:https://graphacademy.neo4j.com/courses/app-nodejs/?ref=guides[Building Neo4j Applications with Node.js^]
+*** link:https://graphacademy.neo4j.com/courses/app-typescript/?ref=guides[Building Neo4j Applications with TypeScript^]
 ** xref:python.adoc[Python]
-*** link:https://graphacademy.neo4j.com/courses/app-python/[Building Neo4j Applications with Python^]
+*** link:https://graphacademy.neo4j.com/courses/app-python/?ref=guides[Building Neo4j Applications with Python^]
 ** xref:go.adoc[Go]
-*** link:https://graphacademy.neo4j.com/courses/app-go/[Building Neo4j Applications with Go^]
+*** link:https://graphacademy.neo4j.com/courses/app-go/?ref=guides[Building Neo4j Applications with Go^]
 ** xref:ruby.adoc[Ruby]
 ** xref:php.adoc[PHP]
 ** xref:erlang-elixir.adoc[Erlang &amp; Elixir]
@@ -78,11 +79,12 @@
 
 * Building Applications
 // ** xref:example-project.adoc[Example: all Stacks (Movies)]
-** link:https://graphacademy.neo4j.com/courses/app-java/[Building Apps with Java]
-** link:https://graphacademy.neo4j.com/courses/app-python/[Building Apps with Python]
-** link:https://graphacademy.neo4j.com/courses/app-nodejs/[Building Apps with Node.js]
-** link:https://graphacademy.neo4j.com/courses/app-dotnet/[Building Apps with .NET]
-** link:https://graphacademy.neo4j.com/courses/app-go/[Building Apps with Go]
+** link:https://graphacademy.neo4j.com/courses/app-java/?ref=guides[Building Apps with Java]
+** link:https://graphacademy.neo4j.com/courses/app-python/?ref=guides[Building Apps with Python]
+** link:https://graphacademy.neo4j.com/courses/app-nodejs/?ref=guides[Building Apps with Node.js]
+** link:https://graphacademy.neo4j.com/courses/app-dotnet/?ref=guides[Building Apps with .NET]
+** link:https://graphacademy.neo4j.com/courses/app-go/?ref=guides[Building Apps with Go]
+** link:https://graphacademy.neo4j.com/courses/app-typescript/?ref=guides[Building Apps with TypeScript]
 
 // ** xref:js-movie-app.adoc[Tutorial: JavaScript/Express and React (IMDB)]
 // ** xref:ruby-course.adoc[Tutorial: Ruby &amp; Rails (Books)]
@@ -97,10 +99,12 @@
 ** xref:graph-apps:building-a-graph-app.adoc[Building Graph Apps]
 
 * Courses
-** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Graph Data Modeling Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
+** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/?ref=guides[Neo4j Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/?ref=guides[Cypher Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/?ref=guides[Graph Data Modeling Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/importing-data/?ref=guides[Importing CSV Data into Neo4j^]
+** link:https://graphacademy.neo4j.com/categories/developer/?ref=guides[Courses for Neo4j Developers^]
+** link:https://graphacademy.neo4j.com/categories/data-scientist/?ref=guides[Courses for Data Scientists^]
 
 // ** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1.1 Overview of Neo4j 4.x^]
 // ** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[1.2 Querying with Cypher in Neo4j 4.x^]
@@ -133,15 +137,22 @@
     *** xref:graph-data-science:graph-embeddings.adoc[Graph Embeddings]
     *** xref:graph-data-science:link-prediction/index.adoc[Link Prediction]
     *** xref:graph-data-science:connected-feature-extraction.adoc[Connected Feature Extraction]
+  ** Courses
+    *** link:https://graphacademy.neo4j.com/courses/gds-product-introduction/?ref=guides[Introduction to Neo4j Graph Data Science^]
+    *** link:https://graphacademy.neo4j.com/courses/graph-data-science-fundamentals/?ref=guides[Neo4j Graph Data Science Fundamentals^]
+    *** link:https://graphacademy.neo4j.com/courses/gds-shortest-paths/?ref=guides[Path Finding with GDS^]
+    *** link:https://graphacademy.neo4j.com/categories/data-scientist/?ref=guides[All Courses for Data Scientists^]
 
 * xref:graph-visualization.adoc[Graph Visualization]
 ** xref:tools-graph-visualization.adoc[Visualization Tools]
 
 * Courses
-** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Graph Data Modeling Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
+** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/?ref=guides[Neo4j Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/?ref=guides[Cypher Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/?ref=guides[Graph Data Modeling Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/importing-data/?ref=guides[Importing CSV Data into Neo4j^]
+** link:https://graphacademy.neo4j.com/categories/developer/?ref=guides[Courses for Neo4j Developers^]
+** link:https://graphacademy.neo4j.com/categories/data-scientist/?ref=guides[Courses for Data Scientists^]
 
 // ** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1.1 Overview of Neo4j 4.x^]
 // ** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[1.2 Querying with Cypher in Neo4j 4.x^]
@@ -179,10 +190,12 @@
 ** xref:neo4j-google-cloud-launcher.adoc[Tutorial: Deploy Neo4j Cluster on GCP]
 
 * Courses
-** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/[Neo4j Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/[Cypher Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/[Graph Data Modeling Fundamentals^]
-** link:https://graphacademy.neo4j.com/courses/importing-data/[Importing CSV Data into Neo4j^]
+** link:https://graphacademy.neo4j.com/courses/neo4j-fundamentals/?ref=guides[Neo4j Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/cypher-fundamentals/?ref=guides[Cypher Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/modeling-fundamentals/?ref=guides[Graph Data Modeling Fundamentals^]
+** link:https://graphacademy.neo4j.com/courses/importing-data/?ref=guides[Importing CSV Data into Neo4j^]
+** link:https://graphacademy.neo4j.com/categories/developer/?ref=guides[Courses for Neo4j Developers^]
+** link:https://graphacademy.neo4j.com/categories/data-scientist/?ref=guides[Courses for Data Scientists^]
 
 // ** link:https://neo4j.com/graphacademy/training-overview-40/enrollment/[1. Overview of Neo4j 4.x^]
 // ** link:https://neo4j.com/graphacademy/training-querying-40/enrollment/[2. Querying with Cypher in Neo4j 4.x^]
@@ -211,8 +224,8 @@
 ** link:https://stackoverflow.com/questions/tagged/neo4j[StackOverflow^]
 
 * Learn with GraphAcademy
-** link:https://graphcademy.neo4j.com/[Free Online Courses^]
-** link:https://neo4j.com/graphacademy/neo4j-certification/[Neo4j Certification^]
+** link:https://graphcademy.neo4j.com/?ref=guides[Free Online Courses^]
+** link:https://graphacademy.neo4j.com/certification/[Neo4j Certification^]
 
 * xref:resources.adoc[Documentation &amp; Resources]
 ** link:https://neo4j.com/docs/[Neo4j Documentation^]

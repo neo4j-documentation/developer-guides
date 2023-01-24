@@ -29,6 +29,20 @@ A full list of published graph apps for Neo4j is provided on our https://install
 You can also open the Graph App Gallery within Neo4j Desktop by navigating to the **Graph Apps Pane** using the four square icon on the left hand menu.
 
 
+[.discrete.ad]
+== link:https://graphacademy.neo4j.com/?ref=guides[Learn with GraphAcademy^]
+
+image::https://graphacademy.neo4j.com/courses/app-typescript/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/app-typescript/?ref=guides[Building Neo4j Applications with TypeScript^]
+
+In this free course, we walk through the steps to integrate Neo4j into your Node.js projects.
+You will learn about the Neo4j JavaScript Driver, how sessions and transactions work and how to query Neo4j in a TypeScript application.
+
+link:https://graphacademy.neo4j.com/courses/app-typescript/?ref=guides[Learn more^,role=button]
+
+
 
 === Installation
 

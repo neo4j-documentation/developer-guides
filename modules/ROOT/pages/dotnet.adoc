@@ -24,6 +24,20 @@ image::{img}dotnet-logo.png[float=right,width=300]
 Neo4j provides drivers which allow you to make a connection to the database and develop applications
 which create, read, update, and delete information from the graph.
 
+
+[.discrete.ad]
+== link:https://graphacademy.neo4j.com/?ref=guides[Learn with GraphAcademy^]
+
+image::https://graphacademy.neo4j.com/courses/app-dotnet/badge/[float=left]
+
+[.discrete]
+=== link:https://graphacademy.neo4j.com/courses/app-dotnet/?ref=guides[Building Neo4j Applications with .NET^]
+
+In this free course, we walk through the steps to integrate Neo4j into your .NET projects.
+You will learn about the Neo4j .NET Driver, how sessions and transactions work, how to query Neo4j and process results.
+
+link:https://graphacademy.neo4j.com/courses/app-dotnet/?ref=guides[Learn more^,role=button]
+
 [#dotnet-driver]
 == Neo4jDotNetDriver
 
