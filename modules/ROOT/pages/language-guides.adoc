@@ -20,6 +20,20 @@ Our community contributors provide drivers for all major programming languages f
 In this section, we provide an introduction and a consistent example application for several languages and Neo4j drivers.
 
 
+
+[#graphacademy]
+== Learn with GraphAcademy
+
+We have a range of link:https://graphacademy.neo4j.com/categories/developer/?ref=guides[Neo4j Developer courses^] that teach you to build connect to Neo4j using each of our officially supported Drivers.
+
+link:https://graphacademy.neo4j.com/courses/app-java/?ref=guides[image:https://graphacademy.neo4j.com/courses/app-java/badge/[Building Neo4j Applications with Java, width=120]^]
+link:https://graphacademy.neo4j.com/courses/app-nodejs/?ref=guides[image:https://graphacademy.neo4j.com/courses/app-nodejs/badge/[Building Neo4j Applications with Node.js, width=120]^]
+link:https://graphacademy.neo4j.com/courses/app-python/?ref=guides[image:https://graphacademy.neo4j.com/courses/app-python/badge/[Building Neo4j Applications with Python, width=120]^]
+link:https://graphacademy.neo4j.com/courses/app-dotnet/?ref=guides[image:https://graphacademy.neo4j.com/courses/app-dotnet/badge/[Building Neo4j Applications with .NET, width=120]^]
+link:https://graphacademy.neo4j.com/courses/app-go/?ref=guides[image:https://graphacademy.neo4j.com/courses/app-go/badge/[Building Neo4j Applications with Go, width=120]^]
+
+
+
 [#connect-neo4j]
 == How to connect to Neo4j?
 
@@ -28,6 +42,7 @@ you can already work interactively with the database via the built-in Neo4j Brow
 
 To build an application, you want to connect to Neo4j from your technology stack.
 Fortunately it is very easy using a driver which connects to Neo4j via Bolt or Http.
+
 
 [#bolt-protocol]
 == The binary Bolt Protocol
