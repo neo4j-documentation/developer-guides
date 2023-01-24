@@ -86,7 +86,7 @@ Let us take a look at a few options available with the `docker run` command.
 |`-p` |Specify container ports to expose |`docker run -p7687:7687 neo4j`
 |`-d` |Detach container to run in background |`docker run -d neo4j`
 |`-v` |Bind mount a volume |`docker run -v $HOME/neo4j/data:/data neo4j`
-|`--env` |Set config as environment variables for Neo4j database |`docker run --env NEO4J_AUTH=neo4j/test`
+|`--env` |Set config as environment variables for Neo4j database |`docker run --env NEO4J_AUTH=neo4j/password`
 |`--help` |Output full list of _docker run_ options |`docker run --help`
 |===
 
@@ -109,7 +109,7 @@ docker run \
     -v $HOME/neo4j/logs:/logs \
     -v $HOME/neo4j/import:/var/lib/neo4j/import \
     -v $HOME/neo4j/plugins:/plugins \
-    --env NEO4J_AUTH=neo4j/test \
+    --env NEO4J_AUTH=neo4j/password \
     neo4j:latest
 ----
 
@@ -170,7 +170,7 @@ jenniferreif@Jennifer-Reif-MBP docker % docker run \
     -v $HOME/neo4j/logs:/logs \
     -v $HOME/neo4j/import:/var/lib/neo4j/import \
     -v $HOME/neo4j/plugins:/plugins \
-    --env NEO4J_AUTH=neo4j/test \
+    --env NEO4J_AUTH=neo4j/password \
     neo4j:latest
 b5213186fe621962d0df798ad1e8397ff02f5e70a9a8e1cd8575f7706b7c7e77
 ----
@@ -230,7 +230,7 @@ jenniferreif@Jennifer-Reif-MBP docker % docker run \
     -v $HOME/neo4j/logs:/logs \
     -v $HOME/neo4j/import:/var/lib/neo4j/import \
     -v $HOME/neo4j/plugins:/plugins \
-    --env NEO4J_AUTH=neo4j/test \
+    --env NEO4J_AUTH=neo4j/password \
     neo4j:latest
 docker: Error response from daemon: Conflict. The container name "/testneo4j" is already in use by container "b5213186fe621962d0df798ad1e8397ff02f5e70a9a8e1cd8575f7706b7c7e77". You have to remove (or rename) that container to be able to reuse that name.
 See 'docker run --help'.
@@ -253,7 +253,7 @@ jenniferreif@Jennifer-Reif-MBP docker % docker run \
     -v $HOME/neo4j/logs:/logs \
     -v $HOME/neo4j/import:/var/lib/neo4j/import \
     -v $HOME/neo4j/plugins:/plugins \
-    --env NEO4J_AUTH=neo4j/test \
+    --env NEO4J_AUTH=neo4j/password \
     neo4j:latest
 c851156b2d84ab523d5f233eab717a938c10e09b4cb57ffa1611b402ea09c074
 jenniferreif@Jennifer-Reif-MBP docker % docker ps
@@ -285,11 +285,11 @@ docker exec -it testneo4j bash
 ----
 
 After the above command is run, we can now access Cypher shell by running the `cypher-shell` command, which is shown below.
-Notice that we also need to specify the username (`-u neo4j`) and password (`-p test`) in order to access the database, using the authentication values we set up when we created the container.
+Notice that we also need to specify the username (`-u neo4j`) and password (`-p password`) in order to access the database, using the authentication values we set up when we created the container.
 
 [source,bash]
 ----
-cypher-shell -u neo4j -p test
+cypher-shell -u neo4j -p password
 ----
 
 We can use the returning prompt to write and run various Cypher statements against our data.
