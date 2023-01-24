@@ -11,7 +11,13 @@
 [abstract]
 {description}
 The library provides convenient access to Neo4j including object mapping, Spring Data repositories, conversion, transaction handling, reactive support, and more.
-.Prerequisites
+
+[role=expertise {level}]
+{level}
+
+[#prerequisites]
+== Prerequisites
+
 [abstract]
 * Familiarity with xref:graph-database.adoc[graph database] concepts and the xref:graph-database.adoc#property-graph[property graph model].
 * link:{aura_signup}[Create an AuraDB Free instance] and familiarity with the link:/developer/cypher-query-language[Cypher query language]
@@ -19,8 +25,6 @@ The library provides convenient access to Neo4j including object mapping, Spring
 Knowing https://spring.io/projects/spring-data/[Spring Data^] and https://spring.io/projects/spring-boot/[Spring Boot^] are both great additions to your toolbox, as well.
 * For this library, please use JDK 11 or later and your favorite IDE.
 
-[role=expertise {level}]
-{level}
 
 [#reactive-development]
 == Reactive Development
