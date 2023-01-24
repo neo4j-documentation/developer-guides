@@ -137,6 +137,11 @@
     *** xref:graph-data-science:graph-embeddings.adoc[Graph Embeddings]
     *** xref:graph-data-science:link-prediction/index.adoc[Link Prediction]
     *** xref:graph-data-science:connected-feature-extraction.adoc[Connected Feature Extraction]
+  ** Courses
+    *** link:https://graphacademy.neo4j.com/courses/gds-product-introduction/?ref=guides[Introduction to Neo4j Graph Data Science^]
+    *** link:https://graphacademy.neo4j.com/courses/graph-data-science-fundamentals/?ref=guides[Neo4j Graph Data Science Fundamentals^]
+    *** link:https://graphacademy.neo4j.com/courses/gds-shortest-paths/?ref=guides[Path Finding with GDS^]
+    *** link:https://graphacademy.neo4j.com/categories/data-scientist/?ref=guides[All Courses for Data Scientists^]
 
 * xref:graph-visualization.adoc[Graph Visualization]
 ** xref:tools-graph-visualization.adoc[Visualization Tools]
