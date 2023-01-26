@@ -89,7 +89,7 @@ A low level driver for the Bolt protocol in PHP.
 |===
 | icon:user[] Author | https://www.linkedin.com/in/michalstefanak/[Michal Stefanak^]
 | icon:github[] Source | https://github.com/neo4j-php/Bolt
-| icon:code-fork[] Php    | 7.4+ / 8.0+
+| icon:code-fork[] Php    | 8.0+
 | icon:code-fork[] Neo4j    | 3.0+ / 4.0+ / 5.0+
 | Protocols | Bolt
 |===
