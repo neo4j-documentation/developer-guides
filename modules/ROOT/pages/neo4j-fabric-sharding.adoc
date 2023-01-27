@@ -182,8 +182,6 @@ The same complexity exists around physically hosting in-house or remotely hostin
 These two designs can also be combined where certain ones are hosted in-house, others in the cloud and some are clustered and replicated while others are not.
 As mentioned above, the fabric database can also be replicated (as a single instance) to provide more proxies for handling request load.
 
-More examples on Fabric deployments can be found in the link:/docs/operations-manual/current/fabric/introduction/#fabric-deployment-examples[documentation section^].
-
 [#fabric-considerations]
 == Implementation considerations
 
