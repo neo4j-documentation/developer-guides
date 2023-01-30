@@ -392,5 +392,6 @@ In the next section, we will learn how to maintain data integrity by using const
 * link:/docs/cypher-manual/current/clauses/[Neo4j Cypher Manual: WITH, UNWIND, & More^]
 * link:/docs/cypher-manual/current/functions/aggregating/[Neo4j Cypher Manual: Aggregation^]
 * link:/docs/cypher-manual/current/functions/scalar/#functions-size[Neo4j Cypher Manual: Size()^]
+* link:https://graphacademy.neo4j.com/courses/cypher-aggregation/[GraphAcademy Cypher Aggregations Course^]
 
 include::partial$help.adoc[]
