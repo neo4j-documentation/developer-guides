@@ -5,7 +5,7 @@
 :description: Become an expert Neo4j developer with these introductory tutorials and guidelines that cover the entire development lifecycle, from download to deployment.
 :page-pagination: next
 :page-newsletter: true
-:page-deprecated-title: Getting Started Manual
+:page-deprecated-title: the Getting Started Manual
 :page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/
 
 // This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
