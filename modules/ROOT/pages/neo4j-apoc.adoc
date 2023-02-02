@@ -9,6 +9,10 @@
 :description: Through this guide, you will learn about one of Neo4j's extension libraries - APOC.
 :page-pagination:
 :page-newsletter: true
+:page-deprecated-title: the APOC user guide
+:page-deprecated-redirect: https://neo4j.com/docs/apoc/current/
+
+// This page has been deprecated in favour of the APOC user guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 [TIP]
 ====
