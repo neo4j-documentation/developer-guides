@@ -4,6 +4,10 @@
 :tags: graph-platform, graph, database, desktop, browser, bloom, labs, integrations
 :page-pagination:
 :page-newsletter: true
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/#_the_neo4j_graph_data_platform
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 [#neo4j-platform]
 There are a variety of ways to interact with and use graph data in Neo4j.

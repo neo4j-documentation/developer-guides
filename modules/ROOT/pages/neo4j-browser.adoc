@@ -9,6 +9,10 @@
 :description: This article demonstrates how to use the Neo4j Browser for querying, visualization, and data interaction.
 :page-pagination:
 :page-newsletter: true
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/#neo4j-tools
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

@@ -3,6 +3,10 @@
 :category: documentation
 :tags: get-started, introduction, resources, neo4j-help, cypher, graph, nosql-graph, neo4j-training
 :page-pagination:
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/appendix/getting-started-resources/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 [#getting-started-resources]
 To help you along your path of learning more about Neo4j, we want to provide you with the resources we used throughout this section, as well as a few additional resources for further information and development.
