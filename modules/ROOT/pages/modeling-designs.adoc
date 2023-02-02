@@ -5,6 +5,10 @@
 :category: modeling
 :tags: graph-modeling, data-model, schema, model-design, modeling-decisions
 :description: In this section, you will learn how to represent graph data using a variety of modeling decisions. How you construct your data model can impact your queries and performance.
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/data-modeling/modeling-designs/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]
