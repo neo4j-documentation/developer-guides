@@ -6,6 +6,10 @@
 :tags: nlp, knowledge-graph, neosemantics, apoc
 :description: This guide shows how to build and query a Knowledge Graph of entities extracted using APOC NLP procedures and Ontologies extracted using neosemantics.
 :page-type: Tutorial
+:page-deprecated-title: the Neo4j Graph Data Science Library
+:page-deprecated-redirect: https://neo4j.com/docs/graph-data-science/current/introduction/
+
+// This page has been deprecated in favour of the Neo4j Graph Data Science Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

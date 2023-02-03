@@ -7,6 +7,10 @@
 :description: This guide explains how to develop a Graph App for Neo4j Desktop.
 :page-pagination: previous
 :page-aliases: ROOT:graph-app-development.adoc
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

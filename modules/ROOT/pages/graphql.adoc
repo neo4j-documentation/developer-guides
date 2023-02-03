@@ -7,7 +7,7 @@
 :tags: labs, graphql, queries, grandstack, react, apollo, javascript, java
 :page-pagination:
 :page-newsletter: true
-:page-deprecated-title: the ANeo4j GraphQL Library
+:page-deprecated-title: the Neo4j GraphQL Library
 :page-deprecated-redirect: https://neo4j.com/docs/graphql-manual/current/
 
 // This page has been deprecated in favour of the Neo4j GraphQL Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.

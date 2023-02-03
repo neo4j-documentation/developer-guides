@@ -2,6 +2,10 @@
 :author: Neo4j
 :category: integrations
 :tags: integrations, tools, libraries
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/integration-tools/integration/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 [#neo4j-integration]
 Neo4j is supported by a rich ecosystem of libraries, tools, drivers, and guides provided by partners, users, and community contributors.
@@ -10,6 +14,6 @@ We want to give an overview about what's available and link to the original sour
 Neo4j Connectors are integrations provided by Neo4j and are supported for existing Enterprise customers.
 
 * link:https://neo4j.com/docs/spark/current/[Neo4j Connector for Apache Spark]
-* link:https://neo4j.com/labs/kafka/4.0/[Neo4j Connector for Apache Kafka] (also known as Neo4j-Streams)
+* link:https://neo4j.com/docs/kafka/[Kafka Connect Neo4j Connector] (also known as Neo4j-Streams)
 * link:https://neo4j.com/bi-connector/[Neo4j Connector for Business Intelligence]
 

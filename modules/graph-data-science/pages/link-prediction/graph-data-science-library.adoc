@@ -6,6 +6,10 @@
 :tags: graph-data-science, machine-learning, link-prediction
 :description: This guide explains how to solve a link prediction problem using Neo4j's Graph Data Science Library.
 :page-type: How-To Guide
+:page-deprecated-title: the Neo4j Graph Data Science Library
+:page-deprecated-redirect: https://neo4j.com/docs/graph-data-science/current/introduction/
+
+// This page has been deprecated in favour of the Neo4j Graph Data Science Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]
