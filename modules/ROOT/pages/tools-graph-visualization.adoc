@@ -4,8 +4,13 @@
 :author: Jennifer Reif
 :category: visualization
 :tags: visualization, tools, neovis-js, d3-js, graphxr, yfiles, linkurious
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/graph-visualization/graph-visualization/#neo4j-vis-tools
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 image::{img}graph_cluster_distant_wide.jpg[]
+
 
 [role=expertise {level}]
 {level}
