@@ -12,6 +12,10 @@
 // :page-ad-description: Learn how to interact with Neo4j from your Node.js app using the Neo4j Python Driver
 // :page-ad-link: https://graphacademy.neo4j.com/courses/app-nodejs/
 // :page-ad-underline: Learn more
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/languages-guides/neo4j-javascript/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

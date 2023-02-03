@@ -8,6 +8,10 @@
 :programming-language: java
 :category: drivers
 :tags: java, spring, spring-boot, app-development, applications
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/languages-guides/java/spring-data-neo4j/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 [NOTE]
 ====
