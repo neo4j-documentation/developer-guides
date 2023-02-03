@@ -5,6 +5,10 @@
 :category: performance
 :tags: administration, tuning, memory, page-cache, heap, transaction, log
 :description: This guide gives an overview on memory configuration, logical log configuration and Linux open files configuration.
+:page-deprecated-title: the Neo4j Operations Manual
+:page-deprecated-redirect: https://neo4j.com/docs/operations-manual/current/performance/
+
+// This page has been deprecated in favour of the Neo4j Operations Manual, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

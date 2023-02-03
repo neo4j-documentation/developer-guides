@@ -6,6 +6,10 @@
 :category: environment
 :tags: administration, docker, docker-image, documentation, container, configuration, cypher-shell
 :description: You will learn how to create and run a Neo4j graph database in a Docker container. This tutorial is designed for you to follow along and step through the process.
+:page-deprecated-title: the Neo4j Operations Manual
+:page-deprecated-redirect: https://neo4j.com/docs/operations-manual/current/docker/
+
+// This page has been deprecated in favour of the Neo4j Operations Manual, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 image::{img}neo4j-docker-image-now-in-beta-235x300.jpg[float="right"]
 
