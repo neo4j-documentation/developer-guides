@@ -6,6 +6,10 @@
 :tags: data-import, graph-import, import-json, pagination, api
 :description: This article demonstrates some techniques for loading data from JSON-based REST APIs into Neo4j.
 :page-pagination:
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/data-import/json-rest-api-import/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]
