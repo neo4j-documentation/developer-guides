@@ -8,6 +8,10 @@
 :description: This guide provides a hands on walk through of the node2Vec graph embedding algorithm in the Neo4j Data Science Library.
 :page-aliases: ROOT:applied-graph-embeddings.adoc
 :page-type: Tutorial
+:page-deprecated-title: the Neo4j Graph Data Science Library
+:page-deprecated-redirect: https://neo4j.com/docs/graph-data-science/current/machine-learning/node-embeddings/
+
+// This page has been deprecated in favour of the Neo4j Graph Data Science Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 ++++
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>

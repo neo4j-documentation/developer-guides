@@ -5,6 +5,10 @@
 :category: modeling
 :tags: graph-modeling, data-model, schema, refactoring, apoc
 :description: Building on the Cypher Basics guides, this guide provides a worked example of changing a graph model. Upon finishing this guide, you should be able to evolve your graph model based on changing requirements.
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/data-modeling/graph-model-refactoring/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

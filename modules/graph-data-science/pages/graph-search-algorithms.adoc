@@ -6,6 +6,10 @@
 :tags: graph-data-science, graph-algorithms, graph-search, bfs, dfs
 :description: This guide covers the graph search algorithms in the Neo4j Data Science Library, Breadth First Search (BFS) and Depth First Search (DFS).
 :page-aliases: ROOT:graph-search-algorithms.adoc
+:page-deprecated-title: the Neo4j Graph Data Science Library
+:page-deprecated-redirect: https://neo4j.com/docs/graph-data-science/current/algorithms/
+
+// This page has been deprecated in favour of the Neo4j Graph Data Science Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

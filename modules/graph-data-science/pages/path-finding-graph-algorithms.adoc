@@ -6,6 +6,10 @@
 :tags: graph-data-science, graph-algorithms, graph-search, path-finding, shortest-path
 :description: This guide covers path finding algorithms in the Neo4j Data Science Library, like Shortest Path, A*, All-Pairs Shortest Path, and more.
 :page-aliases: ROOT:path-finding-graph-algorithms.adoc
+:page-deprecated-title: the Neo4j Graph Data Science Library
+:page-deprecated-redirect: https://neo4j.com/docs/graph-data-science/current/algorithms/pathfinding/
+
+// This page has been deprecated in favour of the Neo4j Graph Data Science Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

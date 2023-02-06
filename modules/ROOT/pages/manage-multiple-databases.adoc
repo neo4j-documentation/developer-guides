@@ -7,6 +7,10 @@
 :tags: administration, multi-database, commands, cypher, system-database, manage-databases
 :description: In this guide, we will walk through how to manage multiple database within the Neo4j DBMS.
 :page-type: Tutorial
+:page-deprecated-title: the Neo4j Operations Manual
+:page-deprecated-redirect: https://neo4j.com/docs/operations-manual/current/manage-databases/
+
+// This page has been deprecated in favour of the Neo4j Operations Manual, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

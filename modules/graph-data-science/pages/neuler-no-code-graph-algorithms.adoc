@@ -7,6 +7,10 @@
 :description: NEuler is the Graph Data Science Playground, a no-code way of learning how to use Neo4j's graph algorithms.
 :page-ogimage: https://neo4j.com/developer/graph-data-science/_images/youtube-neuler.png
 :page-aliases: ROOT:neuler-no-code-graph-algorithms.adoc
+:page-deprecated-title: the Neo4j Graph Data Science Library
+:page-deprecated-redirect: https://neo4j.com/docs/graph-data-science/current/introduction/
+
+// This page has been deprecated in favour of the Neo4j Graph Data Science Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

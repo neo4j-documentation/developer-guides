@@ -2,6 +2,10 @@
 :author: Mark Needham
 :category: graph-data-science
 :tags: graph-data-science, nlp, graph-algorithms
+:page-deprecated-title: the Neo4j Graph Data Science Library
+:page-deprecated-redirect: https://neo4j.com/docs/graph-data-science/current/introduction/
+
+// This page has been deprecated in favour of the Neo4j Graph Data Science Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 [#neo4j-graph-data-science]
 Although Neo4j has traditionally been used for transaction workloads, in recent years it is increasingly being used at the heart of graph analytics platforms.

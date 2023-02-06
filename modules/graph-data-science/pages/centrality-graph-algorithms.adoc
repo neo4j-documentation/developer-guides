@@ -6,6 +6,10 @@
 :tags: graph-data-science, graph-algorithms, centrality
 :description: In this guide, we will learn about centrality graph algorithms.
 :page-aliases: ROOT:centrality-graph-algorithms.adoc
+:page-deprecated-title: the Neo4j Graph Data Science Library
+:page-deprecated-redirect: https://neo4j.com/docs/graph-data-science/current/algorithms/centrality/
+
+// This page has been deprecated in favour of the Neo4j Graph Data Science Library, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

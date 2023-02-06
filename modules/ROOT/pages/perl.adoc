@@ -6,6 +6,10 @@
 :category: drivers
 :tags: perl, project, app-development, applications
 :description: This guide provides an overview of options for connecting to Neo4j using the Perl programming language.
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/languages-guides/neo4j-perl/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

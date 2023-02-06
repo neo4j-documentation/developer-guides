@@ -8,6 +8,10 @@
 :tags: graph-data, data-sets, import-data, graph-examples, sandboxes, graph-gallery
 :description: This Guide introduces different example datasets for Neo4j and demonstrates how to import and explore them.
 :page-pagination: previous
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/appendix/example-data/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

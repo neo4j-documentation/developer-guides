@@ -4,6 +4,10 @@
 :category: visualization
 :tags: visualization, graph, tools, browser, bloom, introduction, tools, charts, maps, heatmaps, 3d
 :description: This guide explains graph visualization tool options, and how to get insights from your data using visualization tools.
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/graph-visualization/graph-visualization/
+
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

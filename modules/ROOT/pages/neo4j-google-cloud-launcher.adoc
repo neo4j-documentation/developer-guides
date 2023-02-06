@@ -6,6 +6,10 @@
 :tags: cloud, gcp, setup, gcp-cluster, virtual-machine, deployment
 :description: This guide explains how to deploy a Neo4j Enterprise Causal Cluster via GCP Marketplace.
 :page-type: Tutorial
+:page-deprecated-title: the Neo4j Operations Manual
+:page-deprecated-redirect: https://neo4j.com/docs/operations-manual/current/cloud-deployments/neo4j-gcp/cluster-vm/
+
+// This page has been deprecated in favour of the Neo4j Operations Manual, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

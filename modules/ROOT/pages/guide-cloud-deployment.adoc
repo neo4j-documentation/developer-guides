@@ -2,6 +2,10 @@
 :author: Jennifer Reif
 :category: cloud
 :tags: cloud, hosting, aura, aws, google, azure, kubernetes, docker, paas
+:page-deprecated-title: the Neo4j Operations Manual
+:page-deprecated-redirect: https://neo4j.com/docs/operations-manual/current/cloud-deployments/
+
+// This page has been deprecated in favour of the Neo4j Operations Manual, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 [#neo4j-cloud]
 Do you want to deploy Neo4j to the cloud?

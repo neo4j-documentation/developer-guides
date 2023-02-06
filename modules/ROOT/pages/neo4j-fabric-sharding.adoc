@@ -6,6 +6,10 @@
 :category: cluster
 :tags: administration, fabric, sharding, graph-sharding, architecture, examples
 :description: This guide will discuss the concept of sharding graph data using Neo4j Fabric.
+:page-deprecated-title: the Neo4j Operations Manual
+:page-deprecated-redirect: https://neo4j.com/docs/operations-manual/current/composite-databases/
+
+// This page has been deprecated in favour of the Neo4j Operations Manual, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Goals
 [abstract]

@@ -5,7 +5,10 @@
 :category: modeling
 :tags: graph-modeling, data-model, schema, model-process, model-domain
 :description: This guide is designed to walk you through the graph data modeling lifecycle of Neo4j. You will be introduced to the basic process of designing a graph data model that can answer a wide range of business questions across a variety of domains.
+:page-deprecated-title: the Getting Started Manual
+:page-deprecated-redirect: https://neo4j.com/docs/getting-started/current/data-modeling/relational-to-graph-modeling/
 
+// This page has been deprecated in favour of the Getting Started Guide, maintained by the Neo4j Documentation team. This page will be removed and redirected in the future.
 
 .Prerequisites
 [abstract]
