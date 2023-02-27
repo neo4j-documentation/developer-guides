@@ -14,7 +14,7 @@ asciidoc:
     spring-boot-version: 2.5.0
     spring-data-neo4j-version: 6.1.1
     java-driver-version: 5.4.0
-    javascript-driver-version: 5.5.0
+    javascript-driver-version: 5.6.0
     dotnet-driver-version: 5.5.0
     go-driver-version: 5.6.0
     python-driver-version: 5.5.0
