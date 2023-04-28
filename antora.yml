@@ -15,9 +15,9 @@ asciidoc:
     spring-data-neo4j-version: 6.1.1
     java-driver-version: 5.7.0
     javascript-driver-version: 5.7.0
-    dotnet-driver-version: 5.7.0
-    go-driver-version: 5.8.0
-    python-driver-version: 5.7.0
+    dotnet-driver-version: 5.8.0
+    go-driver-version: 5.7.0
+    python-driver-version: 5.8.0
     testcontainers-version: 1.17.6
     maven-sdn: Package
     maven-artifact-info: https://search.maven.org/artifact/org.neo4j.driver/neo4j-java-driver/{java-driver-version}/jar
