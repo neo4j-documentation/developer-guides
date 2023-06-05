@@ -27,7 +27,7 @@ Extracting structure from text documents and storing it in a graph enables sever
 [#nlp-tools]
 == Neo4j NLP Tools and Products
 
-There are severall approaches for doing NLP analysis in Neo4j.
+There are several approaches for doing NLP analysis in Neo4j.
 We'll learn about them in this section.
 
 === APOC NLP
