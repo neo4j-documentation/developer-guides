@@ -57,6 +57,7 @@ While Python 3 is preferred, some drivers still support Python 2, please check w
 
 While we do not provide a specific web framework recommendation, both the lightweight http://flask.pocoo.org/[Flask^] and the more comprehensive https://www.djangoproject.com/[Django^] frameworks are known to work well.
 
+////
 [#py2neo-lib]
 === Py2neo
 
@@ -94,6 +95,7 @@ for name in ["Alice", "Bob", "Carol"]:
     tx.append("CREATE (person:Person name: $name) RETURN person", name=name)
 alice, bob, carol = [result.one for result in tx.commit()]
 ----
+////
 
 [#neomodel-lib]
 === Neomodel
