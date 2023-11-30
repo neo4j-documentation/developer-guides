@@ -14,6 +14,8 @@ This kind of contributor agreement is common amongst free software and open sour
 
 Please see the below or send an email to cla@neo4j.com if you have any other questions about the intent of the CLA. If you have a legal question, please ask a lawyer.
 
+If you work at *IBM*, please use this https://dev.assets.neo4j.com/wp-content/uploads/neo4j-cla_IBM_20231101_v2.1.pdf[CLA].
+
 [#common-questions]
 == Common questions
 
