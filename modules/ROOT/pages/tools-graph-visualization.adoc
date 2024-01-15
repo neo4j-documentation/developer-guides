@@ -48,8 +48,7 @@ Neovis.js can be used without writing Cypher and with minimal JavaScript for int
 
 ====
 [TIP]
-icon:flask[size=2x] The Neovis library is one of our Neo4j Labs projects.
-To learn more about Neo4j Labs, visit our https://neo4j.com/labs/[Labs page^].
+icon:flask[size=2x] The Neovis library is a community project.
 ====
 
 To maximize functionality and data analysis capabilities through visualization, you can also combine this library with the graph algorithms library in Neo4j to style the visualization to align with results of algorithms such as page rank, centrality, communities, and more.
