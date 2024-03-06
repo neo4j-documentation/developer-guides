@@ -26,3 +26,10 @@ asciidoc:
     drivermanual: 'https://neo4j.com/docs/driver-manual/current'
     opsmanual: 'https://neo4j.com/docs/operations-manual/current'
     github: 'https://github.com/neo4j-contrib/developer-resources/tree/gh-pages'
+    page-ad-overline-link: https://graphacademy.neo4j.com?ref=developer-guides
+    page-ad-overline: Free Courses
+    page-ad-title: Neo4j GraphAcademy
+    page-ad-description: Free courses for developers and data scientists from Neo4j
+    page-ad-link: https://graphacademy.neo4j.com?ref=developer-guides
+    page-ad-underline-role: button
+    page-ad-underline: Learn Neo4j
