@@ -7,18 +7,16 @@ include::_graphacademy_llm.adoc[]
 :neo4j-versions: 5.x
 :page-pagination:
 :page-product: graphrag-customer-experience
-//:imagesdir: https://dev.assets.neo4j.com/wp-content/uploads/2024/
 
-//image::https://dist.neo4j.com/wp-content/uploads/20240618104511/build-kg-genai-e1718732751482.png[width=800, align=center,link="https://llm-graph-builder.neo4jlabs.com/",window="_blank"]
 
-Use GenAI + GraphRAG to improve customer experiences throughout multiple touch-points in the journey:
+Use Graph-powered RAG (GraphRAG) to improve customer experiences throughout multiple touch-points in their journey:
 
 * *Discovery:* Generate personalized marketing and email content
 * *Search:* Offer tailored results based on semantic similarity
 * *Recommendations:* Provide targeted product suggestions
 * *Support:* Deliver compliant AI scripts for customer assistance
 
-This short guide walks through setting up a full-stack GraphRAG application demonstrating all the above using Neo4j, LangChain (with LangServ), and OpenAI. The app focuses on a retail example using the https://github.com/neo4j-product-examples/graphrag-customer-experience#:~:text=H%26M%20Personalized%20Fashion%20Recommendations%20Dataset[H&M Personalized Fashion Recommendations Dataset^], a sample of real customer purchase data that includes rich information around products including names, types, descriptions, department sections, etc. All code can be found in the https://github.com/neo4j-product-examples/graphrag-customer-experience[GitHub repository^].
+This short guide walks through setting up a full-stack GraphRAG application demonstrating all the above using Neo4j, LangChain (with LangServe), and OpenAI. The app focuses on a retail example using the https://github.com/neo4j-product-examples/graphrag-customer-experience#:~:text=H%26M%20Personalized%20Fashion%20Recommendations%20Dataset[H&M Personalized Fashion Recommendations Dataset^], a sample of real customer purchase data that includes rich information around products including names, types, descriptions, department sections, etc. All code can be found in the https://github.com/neo4j-product-examples/graphrag-customer-experience[GitHub repository^].
 
 image::ai-cust-exp-architecture.png[align=center]
 
@@ -36,8 +34,8 @@ Clone the repository
 git clone https://github.com/neo4j-product-examples/graphrag-customer-experience.git
 ----
 
-create a `.env` file with the below. Fill in your OpenAI key. You can use our pre-loaded retail demo database to start.
-The git repository has directions for creating the database from source data if you are interested.
+create a `.env` file with the below. Fill in your OpenAI key. You can use our pre-loaded demo database to start, just copy the Neo4j uri, password, username, and database credentials below.
+Alternatively, the https://github.com/neo4j-product-examples/graphrag-customer-experience[GitHub repository^] has directions for creating your own database from source data if you are interested.
 
 [source, bash]
 ----

@@ -4,4 +4,6 @@
 /developer/spark
 /developer/neo4j-ogm/#reference:native-property-types:supported-drivers
 # cannot fix, source is located at: https://raw.githubusercontent.com/neo4j/neo4j-java-driver-spring-boot-starter/master/
-/developer/java-driver-spring-boot-starter/#Configuration%20options 
+/developer/java-driver-spring-boot-starter/#Configuration%20options
+/developer/
+/developer/resources/
