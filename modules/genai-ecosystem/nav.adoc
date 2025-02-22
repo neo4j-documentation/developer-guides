@@ -1,31 +1,21 @@
-** xref:index.adoc[GenAI Ecosystem]
-*** Example Projects
-**** xref:llm-graph-builder.adoc[LLM Graph Builder]
-***** xref:llm-graph-builder-features.adoc[Features]
-***** xref:llm-graph-builder-deployment.adoc[Deployment]
+** xref:index.adoc[GraphRAG Dev Guide]
+
+*** GraphRAG Examples
 **** xref:ai-for-customer-experiences.adoc[GraphRAG for Customer Experience]
-**** xref:rag-demo.adoc[GraphRAG Demo]
-**** xref:neoconverse.adoc[NeoConverse]
-**** xref:genai-stack.adoc[GenAI Stack]
-*** Neo4j GenAI Features
+**** https://neo4j.com/blog/developer/graphrag-in-action/[Agentic GraphRAG for Commercial Contract Q&A^]
+**** https://neo4j.com/labs/genai-ecosystem/aws-demo[GraphRAG with AWS Bedrock - Getting Started^]
+**** https://github.com/neo4j-product-examples/neo4j-aws-ai-examples[GraphRAG on AWS with Unstructured/Structured/Mixed Data^]
+**** https://neo4j.com/labs/genai-ecosystem/microsoft-azure-demo[GraphRAG with Microsoft Azure OpenAI^]
+**** https://neo4j.com/labs/genai-ecosystem/google-cloud-demo[GraphRAG with Google Vertex AI^]
+
+*** Neo4j GenAI Product Integrations
+**** xref:graphrag-python.adoc[GraphRAG Python Package]
+**** https://python.langchain.com/docs/integrations/providers/neo4j[LangChain Neo4j (Vendor Supported Package)^]
 **** xref:vector-search.adoc[Vector Index and Search]
-**** xref:apoc-genai.adoc[APOC GenAI]
-*** Cloud Examples
-**** xref:aws-demo.adoc[AWS Bedrock]
-**** xref:microsoft-azure-demo.adoc[Microsoft Azure OpenAI]
-**** xref:google-cloud-demo.adoc[Google Cloud Vertex AI]
-*** xref:genai-frameworks.adoc[GenAI Frameworks]
-**** xref:langchain.adoc[LangChain]
-**** xref:langchain-js.adoc[LangChainJS]
-**** xref:llamaindex.adoc[LlamaIndex]
-// **** link:xxx[Documentation]
-**** xref:spring-ai.adoc[SpringAI]
-// **** link:xxx[Documentation]
-**** xref:langchain4j.adoc[LangChain4j]
-// **** link:xxx[Documentation]
-**** xref:haystack.adoc[Haystack]
-// **** link:xxx[Documentation]
-**** xref:semantic-kernel.adoc[Semantic Kernel]
-// **** link:xxx[Documentation]
-**** xref:dspy.adoc[DSPy]
-// **** link:xxx[Documentation]
+
+*** GraphRAG Ecosystem Tools
+**** https://neo4j.com/labs/genai-ecosystem/llm-graph-builder[LLM Graph Builder^]
+**** https://neo4j.com/labs/genai-ecosystem/neoconverse[NeoConverse^]
+**** https://neo4j.com/labs/genai-ecosystem/apoc-genai[APOC Extended for GenAI^]
+
+*** https://neo4j.com/labs/genai-ecosystem/genai-frameworks[GenAI Frameworks^]
