@@ -1,4 +1,4 @@
-= GenAI Ecosystem
+= GraphRAG Developer Guide
 include::_graphacademy_llm.adoc[]
 :imagesdir: https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads
 :slug: genai-ecosystem
@@ -9,20 +9,17 @@ include::_graphacademy_llm.adoc[]
 :page-pagination:
 :page-product: GenAI Ecosystem
 
-image::https://dist.neo4j.com/wp-content/uploads/20231030151119/genai-art-diagram-1.svg[width=800]
+image::graphrag-image-simple.png[width=800, align=center]
 
+Graph databases provide unmatched data organization, flexibility, and standardization, making it easy to write diverse queries and answer more questions.
+https://neo4j.com/blog/genai/what-is-graphrag[GraphRAG (retrieval-augmented generation with graphs)^] extends these benefits to AI, enabling developers to build more accurate, agile, and extensible GenAI apps and agentic systems. Use these resources to get started today!
 
-Knowledge graphs bring more accurate responses, rich context, and explainability to each generative AI model interaction. 
-By combining knowledge graphs with native vector search, you get the best of both worlds with Graph RAG (Retrieval Augmented Generation). 
+== How to Get Started
 
-Language models also can be used to extract entities and their relationships from unstructured text to build up and enrich knowledge graphs.
-
-== How to get started
-
-1. For an high level overview, have a look at https://neo4j.com/generativeai/[neo4j.com/genai^]  
-2. Use the xref:llm-graph-builder.adoc[LLM-Knowledge Graph Builder] to turn your own documents into a knowledge graph
+1. For a high level overview, have a look at https://neo4j.com/generativeai/[neo4j.com/genai^]
+2. Use the https://neo4j.com/labs/genai-ecosystem/llm-graph-builder[LLM-Knowledge Graph Builder^] to turn your own documents into a knowledge graph or see the example projects below for building graphs from mixed structured & unstructured data.
 3. If you want to learn more take one of the https://graphacademy.neo4j.com/categories/llms/?ref=genai-docs[GenAI GraphAcademy courses^]
-4. Pick your xref:genai-frameworks.adoc[GenAI framework of choice] and start building your own GenAI applications with Neo4j
+4. Pick your https://neo4j.com/labs/genai-ecosystem/genai-frameworks[GenAI framework of choice^] and start building your own GenAI applications with Neo4j
 
 == GraphAcademy Courses
 
@@ -30,70 +27,57 @@ If you want to learn how LLMs and Knowledge Graphs combine to improve GenAI appl
 
 image::https://cdn.graphacademy.neo4j.com/assets/img/courses/banners/llm-fundamentals.png[link=https://graphacademy.neo4j.com/categories/llms/?ref=genai-docs]
 
-== GenAI Ecosystem
+== Example Projects & Use Case Applications
+Explore these projects to see how GraphRAG is applied in GenAI & agent workflows, various use cases, and integrations with specific cloud service providers.
 
-The Neo4j GenAI Ecosystem is a collection of tools and integrations that make it easy to use LLMs with Neo4j.
+* xref:ai-for-customer-experiences.adoc[GraphRAG for Customer Experience]
+* https://neo4j.com/blog/developer/graphrag-in-action/[Agentic GraphRAG for Commercial Contract Q&A]
+* https://neo4j.com/labs/genai-ecosystem/aws-demo[GraphRAG with AWS Bedrock - Getting Started^]
+* https://github.com/neo4j-product-examples/neo4j-aws-ai-examples[GraphRAG on AWS with Unstructured/Structured/Mixed Data^]
+* https://neo4j.com/labs/genai-ecosystem/microsoft-azure-demo[GraphRAG with Microsoft Azure OpenAI^]
+* https://neo4j.com/labs/genai-ecosystem/google-cloud-demo[GraphRAG with Google Vertex AI^]
 
-=== GraphRAG
 
-GraphRAG combines an ingestion process that extracts entities and relationships from unstructured text and further uses graph algorithms for enrichment and summarization. 
-The retrieval step then uses the knowledge graph in combination with vector search to navigate to more relevant information than just the initial text chunks.
+== Neo4j GenAI Product Features
 
-* https://neo4j.com/blog/graphrag-manifesto/[The GraphRAG Manifesto]
+Neo4j has a number of features & product supported tools to make it easier to build GenAI applications and integrate LLMs with knowledge graphs.
+
+* xref:graphrag-python.adoc[GraphRAG Python Package]
+* https://python.langchain.com/docs/integrations/providers/neo4j[`langchain-neo4j` (vendor supported package)]
+* xref:vector-search.adoc[Vector Index & Search in Neo4j]
+
+
+== GraphRAG Ecosystem Tools
+
+In Neo4j Labs we built a number of tools to demonstrate the power of combining graphs with LLMs. These tools are open source, you can use and contribute to them or learn and build your own.
+
+* https://neo4j.com/labs/genai-ecosystem/llm-graph-builder[LLM Knowledge Graph Builder^]
+* https://neo4j.com/labs/genai-ecosystem/neoconverse[NeoConverse multi-dataset query, chat, visualization^]
+* https://neo4j.com/labs/genai-ecosystem/apoc-genai[APOC GenAI Procedures^]
+
+
+== GenAI Frameworks
+
+Neo4j and our community have contributed integrations to many GenAI development frameworks.
+You can find overviews of these integrations https://neo4j.com/labs/genai-ecosystem/genai-frameworks[here^], as well as code examples, tutorials and more. Popular frameworks include:
+
+* https://neo4j.com/labs/genai-ecosystem/langchain[LangChain (Python)^]
+* https://neo4j.com/labs/genai-ecosystem/langchain-js[LangChainJS^]
+* https://neo4j.com/labs/genai-ecosystem/langchain4j[LangChain4j^]
+* https://neo4j.com/labs/genai-ecosystem/llamaindex[LLamaIndex^]
+* https://neo4j.com/labs/genai-ecosystem/spring-ai[Spring AI^]
+* https://neo4j.com/labs/genai-ecosystem/semantic-kernel[Semantic Kernel^]
+* https://neo4j.com/labs/genai-ecosystem/haystack[Haystack^]
+* https://neo4j.com/labs/genai-ecosystem/dspy[DSPy^]
+
+== Additional Resources
+
+* https://neo4j.com/blog/graphrag-manifesto[The GraphRAG Manifesto^]
+* https://neo4j.com/blog/genai/what-is-graphrag[What is GraphRAG?^]
 * https://dev.neo4j.com/dlai-kg[DeepLearning AI Knowledge Graph Course^]
 * http://discord.gg/graphrag[GraphRAG Discord^]
-// * https://huggingface.co/graphrag[GraphRAG HuggingFace Paper Collection^]
 * https://dev.neo4j.com/free-kg-book[(free) Knowledge Graph Book^]
-* https://neo4j.com/developer-blog/global-graphrag-neo4j-langchain/[Implementing GraphRAG with Neo4j, GDS and LangChain]
-* https://microsoft.github.io/graphrag/[Microsoft's GraphRAG project]
 
-=== GraphRAG Ecosystem Tools
-
-In Neo4j Labs we built a number of tools, to demonstrate the power of combining graphs with LLMs. All these tools are open source, you can use and contribute to them or learn and build your own.
-
-* xref:llm-graph-builder.adoc[LLM Knowledge Graph Builder]
-* xref:neoconverse.adoc[NeoConverse multi-dataset query, chat, visualization]
-* xref:rag-demo.adoc[GraphRAG (Retrieval Augmented Generation) Demo]
-* xref:genai-stack.adoc[GenAI Stack (with Docker, Ollama, Neo4j, and LangChain)]
-
-=== Cloud Examples
-
-Neo4j has worked with the main cloud providers to create GenAI integrations and examples on their platforms.
-
-* xref:aws-demo.adoc[AWS Demo]
-* xref:microsoft-azure-demo.adoc[Microsoft Azure Demo]
-* xref:google-cloud-demo.adoc[Google Cloud Demo]
-
-=== Neo4j GenAI Features
-
-Neo4j added a number of features to make it easier to build GenAI applications and integrate LLMs with knowledge graphs.
-
-* xref:vector-search.adoc[Vector Index & Search]
-* xref:apoc-genai.adoc[APOC GenAI Procedures]
-
-=== GenAI Frameworks
-
-Neo4j and our community have contributed integrations to many of these frameworks. 
-You can find overviews of these integrations in the pages of this section, as well as code examples, tutorials and more.
-
-* xref:langchain.adoc[LangChain (Python)]
-* xref:langchain-js.adoc[LangChainJS]
-* xref:llamaindex.adoc[LLamaIndex]
-* xref:spring-ai.adoc[Spring AI]
-* xref:langchain4j.adoc[LangChain4j]
-* xref:haystack.adoc[Haystack]
-* xref:semantic-kernel.adoc[Semantic Kernel]
-* xref:dspy.adoc[DSPy]
-
-== Highlighted Articles
-
-* https://neo4j.com/developer-blog/tagged/llm/[Neo4j Developer Blog: Large Language Models^]
-* https://bratanic-tomaz.medium.com/[Tomaz Bratanic's Medium Blog^]
-* https://medium.com/@yu-joshua[Joshua Yu's Medium Blog^]
-
-== Videos & Tutorials
-
-- https://neo4j.com/blog/unifying-llm-knowledge-graph/[Unifying Large Language Models and Knowledge Graphs Use-Case and Integrations]
 
 ++++
 ++++
