@@ -1,4 +1,4 @@
-= GraphRAG Agent for \Customer & Retail Analytics
+= GraphRAG Agent for Customer & Retail Analytics
 include::_graphacademy_llm.adoc[]
 :slug: customer-graph-agent
 :author: Zach Blumenfeld
@@ -11,10 +11,10 @@ include::_graphacademy_llm.adoc[]
 
 This is an *end-to-end worked example for building a GraphRAG agent to accelerate customer and retail analytics*. It covers the entire process from:
 
-1. *Quickly constructing a graph from mixed unstructured and structured data sources*.
-2. *Resolving and linking entities* in the graph along the way.
-3. *Creating diverse graph retrieval tools*, including query templates, vector search, dynamic text2Cypher, and graph community detection to answer a boarder range of questions.
-4. *Building an agent* with Semantic Kernel for conducting analytics and responding to complex user questions.
+1. *Quickly constructing a graph from mixed unstructured and structured data sources*
+2. *Resolving and linking entities* in the graph along the way
+3. *Creating diverse graph retrieval tools*, including query templates, vector search, dynamic text2Cypher, and graph community detection to answer a boarder range of questions
+4. *Building an agent* with Semantic Kernel for conducting analytics and responding to complex user questions
 
 All of this using a central *source-of-truth graph schema* to govern the process and AI-interactions, ensuring higher data & retrieval quality.
 
@@ -27,7 +27,7 @@ This workflow can be adapted for *analytics, reporting, and Q&A* across various 
 
 Follow the instructions below to try it yourself! 🚀
 
-image::ai-customer-graph-query-sample.png[align=center]
+image::ai-customer-graph-query-sample.png[align="center"]
 
 
 == Prerequisites
@@ -84,7 +84,7 @@ This script perform entity extraction on the `credit-notes.pdf` file and write e
 
 Once complete, you can check the database to see the generated graph. Go to the https://console.neo4j.io/[Aura Console^] and navigate to the Query tab.
 
-image::ai-customer-graph-unstruct-ingest-1-goto-query.png[align=left]
+image::ai-customer-graph-unstruct-ingest-1-goto-query.png[align="left"]
 
 Select the "Connect instance" button
 
