@@ -169,13 +169,14 @@ To run, navigate to the graphrag folder and run the file:
 cd graphrag
 python cli_agent.py
 ----
-Some sample questions to try
-- What are some good sweaters for spring?  Nothing too warm please!
-- Which suppliers have the highest number of returns (i.,e, credit notes)?
-- What are the top 3 most returned products for supplier 1616? Get those product codes and find other suppliers who have less returns for each product I can use instead.
-- Can you run a customer segmentation analysis?
-- What are the most common product types purchased for each segment?
-- Can you run a customer segmentation analysis? For the largest group make a creative spring promotional campaign for them highlighting recommended products.  Draft it as an email.
+Some sample questions to try:
+
+* What are some good sweaters for spring?  Nothing too warm please!
+* Which suppliers have the highest number of returns (i.,e, credit notes)?
+* What are the top 3 most returned products for supplier 1616? Get those product codes and find other suppliers who have less returns for each product I can use instead.
+* Can you run a customer segmentation analysis?
+* What are the most common product types purchased for each segment?
+* Can you run a customer segmentation analysis? For the largest group make a creative spring promotional campaign for them highlighting recommended products.  Draft it as an email.
 
 
 > ⚠️ Note: Agentic AI is still an evolving technology and may not always behave as expected out-of-the-box. For example, agents might choose different tools than intended, resulting in errors or bad responses.
