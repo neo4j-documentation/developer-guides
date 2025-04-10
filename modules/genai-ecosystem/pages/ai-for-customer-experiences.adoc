@@ -102,7 +102,7 @@ This methodology is particularly useful in instances where vector search produce
 +*In[1]:*+
 [source, python]
 ----
-from langchain.vectorstores.neo4j_vector import Neo4jVector
+from langchain_neo4j import Neo4jVector
 from langchain_openai import OpenAIEmbeddings
 import pandas as pd
 
