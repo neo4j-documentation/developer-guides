@@ -1,0 +1,256 @@
+= Model Context Protocol (MCP) Integrations for Neo4j
+// include::_graphacademy_llm.adoc[]
+:slug: model-context-protocol-mcp
+:author: Michael Hunger
+:category: genai-ecosystem
+:tags: graphrag, agent, python, mcp, model-context-protocol, tools, mcp-server, aura
+:neo4j-versions: 2025-01+
+:page-pagination:
+:page-product: neo4j
+
+== What is the Model Context Protocol
+
+The https://modelcontextprotocol.io/introduction[Model Context Protocol] was introduced by Anthropic in Nov 2024 to ease the integration of LLM Assistants with tools providing access to data, services, APIs and local systems.
+
+It comes with a https://modelcontextprotocol.io/specification/2025-03-26[open source specification^], and a number of https://github.com/modelcontextprotocol#getting-started[SDKs^] (Python, TypeScript, Java, etc.) to implement MCP Servers and clients.
+
+The MCP architecture consists of the *MCP Host* program which can be configured with a number of *MCP Servers* that provide capabilities like tools, resources, and prompts.
+
+If you want to dive deeper, here is a https://neo4j.com/blog/developer/model-context-protocol/[comprehensive overview with explanations and examples with Neo4j^].
+
+Whenever a user (or agent) requests in an interaction some task that could be executed by or through using a MCP Server capability, the LLM will select the tool, extract parameters and invoke the tool through an *MCP Client* connected to the MCP Server.
+
+image::https://dist.neo4j.com/wp-content/uploads/20250401141320/mcp-architecture-neo4j-e1743543257487.png[]
+
+
+Large Cloud, Infrastructure and LLM Providers announced support for MCP in their offerings.
+
+* https://x.com/demishassabis/status/1910107859041271977[Google^]
+* https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/introducing-model-context-protocol-mcp-in-copilot-studio-simplified-integration-with-ai-apps-and-agents/[Microsoft^]
+* https://awslabs.github.io/mcp/[AWS]
+* https://x.com/sama/status/1904957253456941061[OpenAI^]
+* https://hub.docker.com/u/mcp?page=1&search=[Docker^]
+
+Also Agent Frameworks like LangChain, CrewAI, Pydantic.AI and Agent Development Kit (ADK) and others are supporting MCP as tools.
+
+There are still a number of open issues, especially around security, discovery, trusted deployment, permission control in the MCP protocol.
+
+But Antropic and the larger community are determined to address them quickly.
+Especially with the large providers joining the ecosystem, many of the enterprise related requirements will be addressed soon.
+
+The MCP protocol saw a lot of adoption since the beginning of 2025 with thousands of servers for all kinds of APIs having been built by the community.
+
+
+=== MCP Servers
+
+MCP Servers are providing an implementation of the MCP protocol (JSON-RPC) over different transports - standard-I/O or HTTP(S).
+Most servers today are local servers, with http based servers growing in relevance, esp. with the recent addition of OAuth 2.1 to the MCP specification.
+
+The offer these capabilities:
+
+* *tools* - tools can retrieve data or take action, they take parameters and return results or errors to the client
+* *resources* - read only static or dynamic resources, like files, pages, schemas
+* *prompts* - multi-step prompts with placeholders to guide user interactions with this service
+
+Some example servers (Neo4j servers explained below)
+
+// * https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking[Sequential Thinking Server^]
+* https://supabase.com/docs/guides/getting-started/mcp[Supabase Database Management^]
+* https://github.com/grafana/mcp-grafana[Grafana Management^]
+* https://github.com/microsoft/playwright-mcp[Microsoft Playwright^]
+* https://github.com/stripe/agent-toolkit/tree/main/modelcontextprotocol[Stripe Customer & Payment Management^]
+// * https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem[Filesystem^]
+* https://github.com/github/github-mcp-server[GitHub^]
+* https://github.com/modelcontextprotocol/servers/tree/main/src/slack[Slack^]
+// * https://github.com/modelcontextprotocol/servers/blob/main/src/brave-search[Brave Search^]
+* <<#neo4j,Neo4j Servers>>
+
+=== MCP Clients/Hosts
+
+An MCP Host (LLM-Application like Claude, Cursor or CoPilot) can be configured with a number of MCP Servers. 
+When an MCP Server is activated, it creates an MCP client for opening a persistent, bi-directional connection to the MCP Server (using JSON RPC).
+
+Then whenever a user requests a task for which a server's capability can be used, the MCP host LLM:
+
+. extracts the parameter and information from the instruction and the conversational context, 
+. selects the best tool based on description and past usage and 
+. sends a request. 
+. the response is then integrated into the current context, 
+. will be used in the conversation and 
+. can be used as input to other MCP calls or 
+. generating artifacts like documents, images, code.
+
+==== Developer Tools and IDEs
+
+All the AI powered IDEs support MCP now, so that during your development process you can access services from the AI powered chat. 
+The built-in agents can use these MCP servers to fetch information relevant for your project (e.g. database definitions), spin up services or databases or open pull requests or create JIRA tickets.
+
+* https://docs.cursor.com/context/model-context-protocol[Cursor^]
+* https://docs.windsurf.com/windsurf/mcp[Windsurf^]
+* https://code.visualstudio.com/docs/copilot/chat/mcp-servers[VS Code^]
+* https://github.com/modelcontextprotocol/inspector[MCP Inspector^]
+* https://cline.bot/mcp-marketplace[Cline^]
+// * Jetbrains?
+
+image::https://dist.neo4j.com/wp-content/uploads/20250415081900/mcp-inspector-toolbox.png[]
+
+
+==== End User Tools
+
+End user tools will be able to use MCP servers to also securely access SaaS services, Document storage (Drive, Sharepoint, OneDrive, Box), generative tools and corporate databases.
+
+* https://modelcontextprotocol.io/quickstart/user[Claude Desktop^] (by Anthropic, only supports STDIO servers)
+* https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/introducing-model-context-protocol-mcp-in-copilot-studio-simplified-integration-with-ai-apps-and-agents/[MSFT Copilot^] (Studio)
+* https://cloud.google.com/products/agentspace?hl=en[Google Agent Space^] (coming via ADK)
+* OpenAI ChatGPT Desktop (coming soon)
+
+image::https://dist.neo4j.com/wp-content/uploads/20250415081825/copilot-studio-mcp-demo.png[]
+
+
+[[neo4j]]
+== Neo4j MCP Servers
+
+The first Neo4j MCP server to interact with a Neo4j Database via Cypher was created in December 2024, shortly after MCP was launched.
+
+Since then we have added https://github.com/neo4j-contrib/mcp-neo4j[several more MCP servers^], to control the Neo4j Aura API and to store memories as a knowledge graph in Neo4j.
+
+Neo4j also integrated with Google's MCP Toolbox to provide optimized tool integration for graph databases.
+
+=== MCP-Neo4j-Cypher
+
+The https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-cypher[mcp-neo4j-cypher Server^] allows to extract the graph database schema so give the agent-LLM to generate Cypher queries to query and update the database.
+
+Tools:
+
+* `get-neo4j-schema`
+* `read-neo4j-cypher`
+* `write-neo4j-cypher`
+
+image::https://cdn-images-1.medium.com/max/1024/1*UnC-f-LmG5RB-wk3G16TgQ.png[]
+image::https://dist.neo4j.com/wp-content/uploads/20250415082244/mcp-neo4j-cypher-movies-pie.png[]
+
+Here is a blog post showing the https://neo4j.com/blog/developer/claude-converses-neo4j-via-mcp/[server in action, to extract information progressively from a database^] and use it both to drill down more but also render interactive charts and visualizations.
+
+=== MCP-Neo4j-Memory
+
+MCP came with an example knowledge graph implementation for storing memories, we upgraded that to use Neo4j as a real graph database.
+
+The https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-memory[mcp-neo4j-memory Server^] stores and updates entities with observations and relationships between them in Neo4j and can search and retrieve subgraphs of relevance.
+
+It also works for long conversations or plans that turn into more comprehensive eknowledge graphs.
+
+It offers these tools and operations:
+
+Querying
+
+* `read_graph` load whole graph
+* `search_nodes` by search string
+* `find_nodes` by name
+
+Updating
+
+* `create_entities`, `delete_entities` - create memory entities
+* `create_relations`, `delete_relations` - manage relationships
+* `add_observations`, `delete_observations` - add observation statements to entities
+
+image::https://dist.neo4j.com/wp-content/uploads/20250415121327/mpc-neo4j-memory-colleagues.png[]
+
+image::https://dist.neo4j.com/wp-content/uploads/20250415120121/mcp-memory-instructions.png[]
+image::https://dist.neo4j.com/wp-content/uploads/20250415120117/mcp-memory-graph.png[]
+
+=== MCP Neo4j Aura Manager
+
+One interesting area for developers of using MCP servers is actually not the data side but infrastructure.
+While developing applications, it is useful to spin up or manage database instances, or pause/resume from the comfort of your IDE.
+Other infrastructure aspects could be migrations, cost overviews, inviting team members etc.
+
+
+The https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-cloud-aura-api[mcp-neo4j-aura-manager^] provides access to the https://neo4j.com/docs/aura/platform/api/specification/[Neo4j Aura API^] for managing databases, tenants, projects.
+
+When configured with client-id and client-secret the MCP server can access the Aura API on your behalf and offers the following tools as operations:
+
+Instance Management
+
+* `list_instances`
+* `get_instance_details`, `get_instance_by_name`
+
+* `create_instance`, `delete_instance`
+* `update_instance_name`, `update_instance_memory`, `update_instance_vector_optimization`
+* `pause_instance`, `resume_instance`
+
+Tenant/Project Management
+
+* `list_tenants`
+* `get_tenant_details`
+
+image::https://dist.neo4j.com/wp-content/uploads/20250415082358/cursor-aura-mcp.png[width=400]
+image::https://dist.neo4j.com/wp-content/uploads/20250415082130/mcp-neo4j-aura-create-instance.png[]
+
+== Google MCP Toolbox 
+
+https://googleapis.github.io/genai-toolbox/getting-started/mcp_quickstart/[Google's MCP Toolbox for Database^] is an https://github.com/googleapis/genai-toolbox[open source tool^] to integrate a variety of databases as sources for agentic systems. 
+
+Individual parameterized queries can be defined as tools and made available to agent frameworks.
+Toolbox takes care of database connection management, authentication, result processing and error handling.
+
+image::https://googleapis.github.io/genai-toolbox/getting-started/introduction/architecture.png[]
+
+Toolbox integrates as an MCP Server but also directly with LangChain and LlamaIndex.
+
+You can deploy MCP toolbox to Cloud Run or Kubernetes or run it locally on your system.
+
+The Neo4j Integration was added early in Dec 2024, and provides
+
+* https://googleapis.github.io/genai-toolbox/resources/sources/neo4j/[Neo4j Source^]
+* https://googleapis.github.io/genai-toolbox/resources/tools/neo4j-cypher/[Neo4j Cypher Tools^]
+
+image::https://dist.neo4j.com/wp-content/uploads/20250415081953/mcp-toolbox-tools.png[]
+image::https://dist.neo4j.com/wp-content/uploads/20250415082753/mcp-server-toolkit-inspector.png[]
+
+Learn more in this article: [Build AI Agents With Google's MCP Toolbox and Neo4j Knowledge Graphs - Graph Database & Analytics](https://neo4j.com/blog/developer/ai-agents-gen-ai-toolbox/)
+
+== MCP with Agent Frameworks
+
+Most Agent Frameworks support MCP servers as tools, and so also the Neo4j MCP servers.
+
+
+=== Using MCP Toolbox and Neo4j with the Google Agent Development Kit (ADK)
+
+Google's new Agent Development Kit (ADK) also supports integrating https://google.github.io/adk-docs/tools/mcp-tools/[MCP Servers as tools for agents^].
+
+It also https://google.github.io/adk-docs/tools/google-cloud-tools/#toolbox-tools-for-databases[natively supports the MCP Toolbox^] so that tools defined there can be used directly.
+
+This notebook demonstrates examples of using https://colab.research.google.com/drive/1f0GYXrO8pZsoJnyKDDxzFZVaYgXhx3ME[Agent Development Kit with Neo4j^].
+
+=== Using MCP Servers with LangChain / LangGraph
+
+MCP is available in the LangChain ecosystem through https://changelog.langchain.com/announcements/mcp-adapters-for-langchain-and-langgraph[MCP Adapters^].
+
+LangChain shared also a very interesting https://blog.langchain.dev/mcp-fad-or-fixture/[discusion on MCP^].
+
+=== Using MCP Servers with LlamaIndex Workflows
+
+MCP Servers are integrated via an https://docs.llamaindex.ai/en/stable/api_reference/tools/mcp/[MCP Tool Spec into LlamaIndex^].
+Agents can be connected to tools via the integration https://llamahub.ai/l/tools/llama-index-tools-mcp[installed via LlamaHub^], as demonstrated in this https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/tools/llama-index-tools-mcp/examples/mcp.ipynb[LlamaIndex MCP Example Notebook^]
+
+// Original Idea:https://psiace.me/posts/integrate-mcp-tools-into-llamaindex/
+
+=== Using MCP Servers with CrewAI
+
+CrewAI provides bi-directional integration, https://github.com/crewAIInc/enterprise-mcp-server[published CrewAI workflows can be exposed as MCP servers^].
+
+With work currently ongoing for using MCP servers as crew tools
+// https://community.crewai.com/t/agents-can-discover-use-tools-hosted-on-model-context-protocol-mcp-server/5254
+
+=== Using MCP Servers with Pydantic.AI
+
+https://ai.pydantic.dev/mcp/[PydanticAI supports Model Context Protocol (MCP)^] in three ways:
+
+* Agents act as an MCP Client, connecting to MCP servers to use their tools
+* Agents can be used within MCP servers
+* As part of PydanticAI, we're building a number of MCP servers
+
+=== Using MCP Servers with Semantik Kernel
+
+MCP tools can be https://devblogs.microsoft.com/semantic-kernel/integrating-model-context-protocol-tools-with-semantic-kernel-a-step-by-step-guide/[converted to to Semantic Kernel^] functions so they can be added to a Kernel instance.
+
