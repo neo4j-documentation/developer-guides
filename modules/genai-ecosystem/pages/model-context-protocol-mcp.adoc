@@ -184,7 +184,7 @@ Tenant/Project Management
 * `get_tenant_details`
 
 image::https://dist.neo4j.com/wp-content/uploads/20250415082358/cursor-aura-mcp.png[width=400]
-image::https://dist.neo4j.com/wp-content/uploads/20250415082130/mcp-neo4j-aura-create-instance.png[]
+image::https://dist.neo4j.com/wp-content/uploads/20250415082130/mcp-neo4j-aura-create-instance.png[width=400]
 
 == Google MCP Toolbox 
 
@@ -193,7 +193,7 @@ https://googleapis.github.io/genai-toolbox/getting-started/mcp_quickstart/[Googl
 Individual parameterized queries can be defined as tools and made available to agent frameworks.
 Toolbox takes care of database connection management, authentication, result processing and error handling.
 
-image::https://googleapis.github.io/genai-toolbox/getting-started/introduction/architecture.png[]
+image::https://googleapis.github.io/genai-toolbox/getting-started/introduction/architecture.png[width=400]
 
 Toolbox integrates as an MCP Server but also directly with LangChain and LlamaIndex.
 

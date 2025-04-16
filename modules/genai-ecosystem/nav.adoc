@@ -14,8 +14,9 @@
 **** https://python.langchain.com/docs/integrations/providers/neo4j[LangChain Neo4j (Vendor Supported Package)^]
 **** xref:vector-search.adoc[Vector Index and Search]
 
+*** xref:model-context-protocol-mcp.adoc[Model Context Protocol]
+
 *** GraphRAG Ecosystem Tools
-**** xref:model-context-protocol-mcp.adoc[Model Context Protocol]
 **** https://neo4j.com/labs/genai-ecosystem/llm-graph-builder[LLM Graph Builder^]
 **** https://neo4j.com/labs/genai-ecosystem/neoconverse[NeoConverse^]
 **** https://neo4j.com/labs/genai-ecosystem/apoc-genai[APOC Extended for GenAI^]
