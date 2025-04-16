@@ -207,7 +207,7 @@ The Neo4j Integration was added early in Dec 2024, and provides
 image::https://dist.neo4j.com/wp-content/uploads/20250415081953/mcp-toolbox-tools.png[]
 image::https://dist.neo4j.com/wp-content/uploads/20250415082753/mcp-server-toolkit-inspector.png[]
 
-Learn more in this article: [Build AI Agents With Google's MCP Toolbox and Neo4j Knowledge Graphs - Graph Database & Analytics](https://neo4j.com/blog/developer/ai-agents-gen-ai-toolbox/)
+Learn more in this article: https://neo4j.com/blog/developer/ai-agents-gen-ai-toolbox/[Build AI Agents With Google's MCP Toolbox and Neo4j Knowledge Graphs - Graph Database & Analytics^]
 
 == MCP with Agent Frameworks
 
