@@ -92,8 +92,15 @@ The built-in agents can use these MCP servers to fetch information relevant for 
 * https://cline.bot/mcp-marketplace[Cline^]
 // * Jetbrains?
 
-image::https://dist.neo4j.com/wp-content/uploads/20250415081900/mcp-inspector-toolbox.png[]
+++++
+<iframe width="280" height="160" src="https://www.youtube.com/embed/UilGH0j73rI?si=zPPDYc4P63KcrVAr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
 
+++++
+<iframe width="280" height="160" src="https://www.youtube.com/embed/8YCyM9q0YX0?si=IEUzn8wMTg4LstAN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
+
+image::https://dist.neo4j.com/wp-content/uploads/20250415081900/mcp-inspector-toolbox.png[]
 
 ==== End User Tools
 
@@ -106,6 +113,9 @@ End user tools will be able to use MCP servers to also securely access SaaS serv
 
 image::https://dist.neo4j.com/wp-content/uploads/20250415081825/copilot-studio-mcp-demo.png[]
 
+++++
+<iframe width="280" height="160" src="https://www.youtube.com/embed/JNqePt5USf0?si=X5PYgYSrYAbYDQKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
++++
 
 [[neo4j]]
 == Neo4j MCP Servers
@@ -115,6 +125,10 @@ The first Neo4j MCP server to interact with a Neo4j Database via Cypher was crea
 Since then we have added https://github.com/neo4j-contrib/mcp-neo4j[several more MCP servers^], to control the Neo4j Aura API and to store memories as a knowledge graph in Neo4j.
 
 Neo4j also integrated with Google's MCP Toolbox to provide optimized tool integration for graph databases.
+
+++++
+<iframe width="280" height="160" src="https://www.youtube.com/embed/I4aI0spk4M0?si=yTszf2aZ0q82AQ8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
 
 === MCP-Neo4j-Cypher
 
