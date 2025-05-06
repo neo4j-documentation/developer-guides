@@ -1,1 +1,9 @@
-{}
+{
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "latex",
+        "asciidoc"
+    ]
+}

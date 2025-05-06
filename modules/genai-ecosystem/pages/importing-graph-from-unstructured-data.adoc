@@ -1,10 +1,10 @@
 = Creating Knowledge Graphs from Unstructured Data
 
 Creating graph structures from unstructured text using https://neo4j.com/blog/machine-learning/accelerating-towards-natural-language-search-graphs/[NLP techniques like Spacy, Stanford NLP, OpenNLTK^] etc. has been a long-standing possibility.
-Those usually required fine-tuning of the NLP models on the specific domain and language of the text to be processed and substaintial NLP skills to get the best results.
+Those usually required fine-tuning of the NLP models on the specific domain and language of the text to be processed and substantial NLP skills to get the best results.
 
-The rise of promptable modern day Large Language Models (LLMs) with strong language skills across many languages and domains, extended the capabilities massively.
-The LLMs can be instructured with detailed prompts (instructions, examples, schema, existing entities, output formatting) to extract, and de-duplicate entities and relationships from unstructured text, images and audio fragments.
+The rise of prompt-able modern day Large Language Models (LLMs) with strong language skills across many languages and domains, extended the capabilities massively.
+The LLMs can be instructed with detailed prompts (instructions, examples, schema, existing entities, output formatting) to extract, and de-duplicate entities and relationships from unstructured text, images and audio fragments.
 The extracted information is returned in a structured JSON format and can be stored in a graph database like Neo4j and linked back to the source documents and additional metadata.
 
 This allows to build Knowledge Graphs (KGs) from unstructured data and integrate them with existing structured data in Neo4j.
@@ -77,9 +77,9 @@ Those generated Knowledge Graphs can then be used with the https://neo4j.com/doc
 
 The https://neo4j.com/labs/genai-ecosystem/llm-graph-builder/[LLM Knowledge Graph Builder^] is an easy to use tool for building Knowledge Graphs from unstructured text.
 
-It uses the LangChain LLMGraphTransformer under the hood, but provides a simple UI to extract entities and relations from uploaded PDFs, Office Documents, Web pages or Youtube video transccripts.
+It uses the LangChain LLMGraphTransformer under the hood, but provides a simple UI to extract entities and relations from uploaded PDFs, Office Documents, Web pages or YouTube video transcripts.
 It extracts first a lexical graph (Document, Chunk and their relationships) and then uses the chosen LLM to extract entities and relations. Optionally it enriches the graph community summaries and embeddings.
-You can specifiy a graph schema to guide the extraction process and visualize the extracted graphs.
+You can specify a graph schema to guide the extraction process and visualize the extracted graphs.
 
 image::https://dist.neo4j.com/wp-content/uploads/20240618104511/build-kg-genai-e1718732751482.png[width=600]
 
