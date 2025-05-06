@@ -1,0 +1,246 @@
+= Creating Knowledge Graphs from Unstructured Data
+
+Creating graph structures from unstructured text using https://neo4j.com/blog/machine-learning/accelerating-towards-natural-language-search-graphs/[NLP techniques like Spacy, Stanford NLP, OpenNLTK^] etc. has been a long-standing possibility.
+Those usually required fine-tuning of the NLP models on the specific domain and language of the text to be processed and substaintial NLP skills to get the best results.
+
+The rise of promptable modern day Large Language Models (LLMs) with strong language skills across many languages and domains, extended the capabilities massively.
+The LLMs can be instructured with detailed prompts (instructions, examples, schema, existing entities, output formatting) to extract, and de-duplicate entities and relationships from unstructured text, images and audio fragments.
+The extracted information is returned in a structured JSON format and can be stored in a graph database like Neo4j and linked back to the source documents and additional metadata.
+
+This allows to build Knowledge Graphs (KGs) from unstructured data and integrate them with existing structured data in Neo4j.
+Those Knowledge Graphs can then be used for a variety of applications, including https://graphrag.com[GraphRAG^] (Retrieval Augmented Generation) applications, where the Knowledge Graph is used to retrieve relevant contextual information to augment the LLM's responses.
+
+image::https://miro.medium.com/v2/resize:fit:1400/format:webp/0*qgT2hBiA3DA1Y3qu.png[width=600]
+
+== Neo4j Product Capabilities
+
+=== GraphRAG Python Package
+
+The Neo4j Python GraphRAG package offers a comprehensive Pipeline for unstructured document processing, graph schema based entity extraction, resolution and storage.
+
+The `SimpleKGBuilder` provides an easy way to get started, for full configurability, please use 
+
+[source,python]
+----
+from neo4j_graphrag.experimental.pipeline.kg_builder import SimpleKGPipeline
+
+ENTITIES = [
+    "Person",
+    {"label": "Company", "description": "Company or organization"},    
+    {"label": "Location", "properties": [{"name": "city", "type": "STRING"}]},
+]
+RELATIONS = [
+    "LOCATED_AT",
+    {
+        "label": "COMPETES_WITH",
+        "description": "Used for competitor relationships between companies",
+    },
+    {"label": "WORKS_AT", "properties": [{"name": "fromYear", "type": "INTEGER"}]},
+]
+
+kg_builder = SimpleKGPipeline(
+    llm=llm, # an LLMInterface for Entity and Relation extraction
+    driver=neo4j_driver,  # a neo4j driver to write results to graph
+    embedder=embedder,  # an Embedder for chunks
+    from_pdf=True,   # set to False if parsing an already extracted text
+    entities=ENTITIES,
+    relations=RELATIONS,
+    potential_schema=POTENTIAL_SCHEMA, # a optional list of node-relationship-node schema entries
+)
+await kg_builder.run_async(file_path=str(file_path))
+----
+
+image::https://neo4j.com/docs/neo4j-graphrag-python/current/_images/kg_builder_pipeline.png[]
+
+A full Knowledge Graph (KG) construction pipeline requires a few more components:
+
+* *Data loader:* extract text from files (PDFs, …).
+* *Text splitter:* split the text into smaller pieces of text (chunks), manageable by the LLM * context window (token limit).
+* *Chunk embedder (optional):* compute the chunk embeddings.
+* *Schema builder:* provide a schema to ground the LLM extracted entities and relations and obtain * an easily navigable KG.
+* *Lexical graph builder:* build the lexical graph (Document, Chunk and their relationships) * (optional).
+* *Entity and relation extractor:* extract relevant entities and relations from the text.
+* *Knowledge Graph writer:* save the identified entities and relations.
+* *Entity resolver:* merge similar entities into a single node.
+
+Learn more in the documentation:
+
+* https://neo4j.com/developer/genai-ecosystem/graphrag-python/[Neo4j GraphRAG Python Package Overview^]
+* https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_kg_builder.html[User Guide: Knowledge Graph Builder^]
+* https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_pipeline.html[User Guide: Pipeline]
+
+Those generated Knowledge Graphs can then be used with the https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html[same Python package, for building GraphRAG powered^] GenAI applications.
+
+== Prototyping and Demonstrations
+
+=== LLM Knowledge Graph Builder
+
+The https://neo4j.com/labs/genai-ecosystem/llm-graph-builder/[LLM Knowledge Graph Builder^] is an easy to use tool for building Knowledge Graphs from unstructured text.
+
+It uses the LangChain LLMGraphTransformer under the hood, but provides a simple UI to extract entities and relations from uploaded PDFs, Office Documents, Web pages or Youtube video transccripts.
+It extracts first a lexical graph (Document, Chunk and their relationships) and then uses the chosen LLM to extract entities and relations. Optionally it enriches the graph community summaries and embeddings.
+You can specifiy a graph schema to guide the extraction process and visualize the extracted graphs.
+
+image::https://dist.neo4j.com/wp-content/uploads/20240618104511/build-kg-genai-e1718732751482.png[width=600]
+
+To interact with the extracted information, you can compare a number of different retrievers including GraphRAG, Vector, Hybrid and Text2Cypher.
+For each answer you can inspect the source of the information and the retrieved context that was used to generate the answer.
+It also allows to run an RAGAs evaluation across the retrieval results.
+
+Some of the internal details are documented in https://neo4j.com/blog/developer/knowledge-graph-extraction-challenges/[LLM Graph Builder - Knowledge Graph Extraction Challenges^].
+
+=== AI Assistant with Neo4j MCP Server
+
+A quick way of experimenting interactively with Knowledge Graph extraction is to use a AI assistant like Claude, ChatGPT or an MCP enabled IDE like VS Code, Cursor, Windsurf to process text or discussions interactively and prompt the LLM to extract Entities and Relationships.
+
+Previously those extracted graph entities would have to be imported through an intermediate format like JSON or CSV (e.g. via the Data Importer) or via Cypher.
+
+Now they can be automatically saved to a connected graph using the https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-cypher[mcp-neo4j-cypher^] or https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-memory[mcp-neo4j-memory^] MCP servers.
+
+image::https://github.com/neo4j-contrib/mcp-neo4j/raw/main/servers/mcp-neo4j-memory/docs/images/employee_create_entities_and_relations.png[width=400]
+
+== Ecosystem Integrations
+
+Neo4j integrates with a number of other tools and frameworks to provide solutions for Knowledge Graph extraction and usage.
+
+=== Unstructured.io
+
+https://unstructured.io[Unstructured.io^] is a platform and python package for extracting structured data from unstructured documents. 
+It provides a set of tools for parsing, cleaning, and transforming unstructured data into structured formats.
+
+The Neo4j Integration allows you to extract lexical graphs from any supported source.
+
+image::https://dist.neo4j.com/wp-content/uploads/20250506043320/unstructured-ui-neo4j.png[]
+
+Both in the https://docs.unstructured.io/ui/destinations/neo4j[Platform^] and the https://docs.unstructured.io/ingestion/destination-connectors/neo4j[open source package^], you can use the `Neo4jConnectionConfig`, `Neo4jUploaderConfig` to write the extracted lexical data to a Neo4j graph.
+
+[source,python]
+----
+Pipeline.from_configs(
+    context=ProcessorConfig(),
+    indexer_config=LocalIndexerConfig(input_path=os.getenv("LOCAL_FILE_INPUT_DIR")),
+    downloader_config=LocalDownloaderConfig(),
+    source_connection_config=LocalConnectionConfig(),
+...
+    chunker_config=ChunkerConfig(chunking_strategy="by_title"),
+    embedder_config=EmbedderConfig(embedding_provider="huggingface"),
+    destination_connection_config=Neo4jConnectionConfig(
+        access_config=Neo4jAccessConfig(password=os.getenv("NEO4J_PASSWORD")),
+        username=os.getenv("NEO4J_USERNAME"),
+        uri=os.getenv("NEO4J_URI"),
+        database=os.getenv("NEO4J_DATABASE"),
+    ),
+    stager_config=Neo4jUploadStagerConfig(),
+    uploader_config=Neo4jUploaderConfig(batch_size=100)
+).run()
+----
+
+=== LangChain
+
+The https://medium.com/data-science/building-knowledge-graphs-with-llm-graph-transformer-a91045c49b59[first implementation for Knowledge Graph extraction^] was the https://python.langchain.com/api_reference/experimental/graph_transformers/langchain_experimental.graph_transformers.llm.LLMGraphTransformer.html[LangChain LLMGraphTransformer^].
+
+image::https://miro.medium.com/v2/resize:fit:2000/format:webp/1*aCSCXuvrOB90jRQ0mNZtSA.png[width=500]
+
+The usage is pretty straightforward, as documented in https://python.langchain.com/docs/how_to/graph_constructing/[Constructing Knowledge Graphs^]. 
+You can use the `convert_to_graph_documents` method to convert a list of LangChain documents into graph documents (nodes and relationships).
+To guide the extraction process, you can specify a schema with allowed nodes and relationships, as well as properties and additional extraction instructions.
+
+[source,python]
+----
+from langchain_experimental.graph_transformers import LLMGraphTransformer
+
+llm_transformer = LLMGraphTransformer(
+    llm=llm,
+    allowed_nodes=["Person", "Country", "Organization"],
+    allowed_relationships=["NATIONALITY", "LOCATED_IN", "WORKED_AT", "SPOUSE"],
+    node_properties=["born_year"],
+)
+graph_documents = llm_transformer.convert_to_graph_documents(documents)[0]
+
+print(f"Nodes: {graph_documents.nodes} Rels: {graph_documents.relationships}")
+
+graph.add_graph_documents(graph_documents, include_source=True)
+----
+
+image::https://python.langchain.com/assets/images/graph_construction4-e41087302ef4c331c2c95b57467f4c62.png[width=400]
+
+=== LlamaIndex
+
+In https://www.llamaindex.ai/blog/introducing-the-property-graph-index-a-powerful-new-way-to-build-knowledge-graphs-with-llms[LlamaIndex the PropertyGraphIndex^] is the main component for managing Knowledge Graphs including building them from unstructured data.
+For extracting entities and relations, different extractors can be used, for instance the `SchemaLLMPathExtractor`.
+
+
+
+[source,python]
+----
+from typing import Literal
+from llama_index.core.indices.property_graph import SchemaLLMPathExtractor
+
+entities = Literal["Person", "Place", "Thing"]
+relations = Literal["PART_OF", "HAS", "IS_A"]
+schema = {
+    "Person": ["PART_OF", "HAS", "IS_A"],
+    "Place": ["PART_OF", "HAS"],
+    "Thing": ["IS_A"],
+}
+
+kg_extractor = SchemaLLMPathExtractor(
+    llm=llm,
+    possible_entities=entities,
+    possible_relations=relations,
+    kg_validation_schema=schema,
+    strict=True,  # if false, will allow triplets outside of the schema
+    num_workers=4,
+    max_triplets_per_chunk=10,
+)
+
+graph_store = Neo4jPropertyGraphStore(
+    username="neo4j",
+    password="<password>",
+    url="neo4j+s://xxx.databases.neo4j.io",
+)
+
+# creates an index
+index = PropertyGraphIndex.from_documents(
+    documents,
+    property_graph_store=graph_store,
+    # optional, neo4j also supports vectors directly
+    vector_store=vector_store,
+    embed_kg_nodes=True,
+)
+----
+
+The Neo4j-PropertyGraphIndex can be used for GraphRAG as a retriever, e.g. via VectorContextRetriever, LLMSynonymRetriever, TextToCypherRetriever, CypherTemplateRetriever. 
+
+* https://docs.llamaindex.ai/en/stable/module_guides/indexing/lpg_index_guide/[Property Graph Index Documentation^]
+* https://docs.llamaindex.ai/en/stable/examples/property_graph/property_graph_neo4j/[Neo4j Property Graph Index^]
+* https://docs.llamaindex.ai/en/stable/examples/property_graph/property_graph_advanced/[Property Graph Construction in Neo4j^]
+
+////
+=== LangChain4j
+
+In LangChain4j, 
+LangChain4j 
+
+https://medium.com/neo4j/integrating-neo4j-with-langchain4j-for-graphrag-based-vector-stores-and-retrievers-de3ef3e08fa8[Integrating Neo4j with LangChain4j for GraphRAG-Based Vector stores and retrievers^]
+
+=== Spring AI
+////
+
+== Research
+
+* https://graphrag.com/appendices/research/2311.08526/[GLiNER^], https://bluetickconsultants.medium.com/dual-approaches-to-building-knowledge-graphs-traditional-techniques-or-llms-400fee0f5ac9[GLiNER Neo4j^], https://python.langchain.com/api_reference/experimental/graph_transformers/langchain_experimental.graph_transformers.gliner.GlinerGraphTransformer.html[LangChain GlinerGraphTransformer^]
+* https://neo4j.com/blog/developer/entity-linking-relationship-extraction-relik-llamaindex/[Entity Linking and Relationship Extraction With Relik]
+* https://www.sciphi.ai/blog/triplex[SciPhi Triplex^], https://www.sciphi.ai/blog/graphrag[Triplex Neo4j^]
+* https://arxiv.org/abs/2502.09956[KGGen: Extracting Knowledge Graphs from Plain Text with Language Models^]
+
+== Blog Posts
+
+* https://robert-mcdermott.medium.com/from-unstructured-text-to-interactive-knowledge-graphs-using-llms-dd02a1f71cd6[From Unstructured Text to Interactive Knowledge Graphs using LLMs (2025)^]
+* https://neo4j.com/blog/developer/graphrag-in-action/[GraphRAG in Action: From Commercial Contracts to a Dynamic Q&A Agent (2024)^]
+* https://medium.com/neo4j/using-llamaparse-for-knowledge-graph-creation-from-documents-3bd1e1849754[Using LlamaParse for Knowledge Graph Creation from Documents (2024)^]
+* https://blog.gopenai.com/automate-building-knowledge-graphs-from-scientific-abstracts-with-llms-and-neo4j-2-ways-b9d5152a12da[Automate Building Knowledge Graphs from Scientific Abstracts with LLMs and Neo4j (2024)^]
+* https://medium.com/neo4j/enhancing-the-accuracy-of-rag-applications-with-knowledge-graphs-ad5e2ffab663[Enhancing the Accuracy of RAG Applications with Knowledge Graphs (2024)^]
+* https://neo4j.com/blog/developer/document-knowledge-graph-unstructuredio/[Document Knowledge Graph with Unstructured.io (2024)^]
+* https://bratanic-tomaz.medium.com/constructing-knowledge-graphs-from-text-using-openai-functions-096a6d010c17[Constructing Knowledge Graphs from Text using OpenAI Functions (2023)^]
+* https://neo4j.com/blog/genai/text-to-knowledge-graph-information-extraction-pipeline/[Text to Knowledge Graph Information Extraction Pipeline (2022)^]
