@@ -32,6 +32,7 @@ Explore these projects to see how GraphRAG is applied in GenAI & agent workflows
 
 * xref:ai-for-customer-experiences.adoc[GraphRAG for Customer Experience]
 * https://neo4j.com/blog/developer/graphrag-in-action/[Agentic GraphRAG for Commercial Contract Q&A]
+* xref:customer-graph-agent.adoc[GraphRAG Agent for Customer Analytics]
 * https://neo4j.com/labs/genai-ecosystem/aws-demo[GraphRAG with AWS Bedrock - Getting Started^]
 * https://github.com/neo4j-product-examples/neo4j-aws-ai-examples[GraphRAG on AWS with Unstructured/Structured/Mixed Data^]
 * https://neo4j.com/labs/genai-ecosystem/microsoft-azure-demo[GraphRAG with Microsoft Azure OpenAI^]
