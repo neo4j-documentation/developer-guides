@@ -4,6 +4,7 @@ title: Developer Guides
 nav:
 - modules/ROOT/nav.adoc
 - modules/genai-ecosystem/nav.adoc
+- modules/demos/nav.adoc
 
 asciidoc:
   attributes:
