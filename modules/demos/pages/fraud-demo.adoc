@@ -1,0 +1,327 @@
+= Neo4j Fraud Demo
+include::_graphacademy_llm.adoc[]
+:slug: transaction-graph-fraud
+:author: John Stegeman
+:category: demos
+:tags:
+:neo4j-versions: 5.x
+:page-pagination:
+:page-product: transaction-graph-fraud
+
+== Introduction
+
+Fraud is a burgeoning problem that costs businesses billions of dollars in lost money and time annually. Detecting and investigating fraud with traditional methods is hard; fraudsters use increasingly complex techniques to hide their activities, and their patterns of activity are difficult or impossible to uncover with relational models. Even in cases where the patterns can be specified in SQL, the resulting queries are complex to write and perform poorly because of the large number of joins needed.
+
+With Neo4j, you can use a flexible, native graph database plus algorithms to build applications for uncovering and investigating complex fraud, helping identify suspicious activity quickly and accurately to increase uplift in scoringTmodels. Rapidly match complex patterns in data and relationships, expose paths and intermediaries to fraudulent actors using advanced algorithms, and find duplicate and suspicious profiles using entity resolution.
+
+This demonstration shows how to use Neo4j graph database to find suspicious patterns of activity; in it, you will learn:
+
+* How to set up a Neo4j AuraDB instance with sample data
+* Understanding a starter graph data model for finding potentially fraud-indicating patterns in the data
+* Sample queries for finding suspicious patterns, including fraud rings, shared identifiers that potentially indicate fraudulent accounts, and structured transactions to high-risk accounts
+
+== Prerequisites
+
+To run these examples, you will need the following:
+
+1. Web browser and Internet access.
+2. A Neo4j https://neo4j.com/product/auradb/[AuraDB] database instance. These examples will run on any tier, including the Free and Professional tiers (including the free trial). You can sign up for AuraDB https://console.neo4j.io/?action=signup&product=aura-db[here]. Following the instructions in this demo will replace the data in your database instance, so be sure to back up any data you do not want to lose; alternatively, you can create a fresh instance to use.
+3. (Optional, but recommended) git client software to download the demo assets.
+4. Optional: a local setup of https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], if you want to experiment with tools for editing the data model.
+
+== Setting Up
+1. Ensure you have a Neo4j AuraDB instance running. If you are new to AuraDB, create an account https://console.neo4j.io/?action=signup&product=aura-db[here], then click Create Instance. You can select any of the instance types:
+image::create_aura_instance.png[align="center"]
+Be sure to save the credentials to log in to your database instance. Wait for the instance status to reach “RUNNING” before proceeding to the next step.
+
+2. Clone the git repository from https://github.com/neo4j-product-examples/demo-fraud[https://github.com/neo4j-product-examples/demo-fraud]
+[source, bash]
+----
+git clone https://github.com/neo4j-product-examples/demo-fraud.gi
+----
+Alternatively, you can use the “download ZIP” option on GitHub to download a copy.
+
+3. Using the “3 dots” menu in the Aura console, select Backup & Restore
+
+image::restore_database.png[align="center"]
+
+4. Use either the Browse button or drag-and-drop to find the dump file in the dump directory of the git repository you cloned in step 2.
+
+image::backup_file.png[align="center"]
+
+
+5. Review the warning about replacing your instance data and proceed when you are ready:
+
+image::confirmation.png[align="center"]
+
+6. You are ready to run the examples when your database instance reaches the “RUNNING” state.
+
+== The Graph Data Model
+
+The figure below shows the data model used to illustrate the fraud concepts:
+
+image::Transactions-Model.png[align="center"]
+
+The key types of entities (also called _labels_) in this graph include:
+
+* *Customer* - an entity such as a person or business that holds one or more accounts at the financial institution
+* *Account* - an account at a financial institution. If the account is at “our” institution (the one that is building the fraud detection graph), then we can call it an “internal” account. Accounts at other institutions can be called “external” accounts. If an external account is an institution located in a designated high-risk jurisdiction, the Account node will also have a *HighRiskJurisdiction* label.
+* *Transaction*s are between two accounts, at least one of which must be internal (after all, we have no visibility into transactions between accounts at other institutions unless one side of the transaction is at our institution).
+* *Email, PhoneNumber, Address* - these nodes store demographic information for Customers
+
+If you would like to experiment with the data model in https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], you can find a copy of the data model export in model/Neo4j_cypher_workbench_model.json in the copy of the repository
+
+== Fraud Patterns
+
+This demonstration uses https://neo4j.com/labs/neodash/[NeoDash] to show fraud patterns in the sample dataset. The patterns we will investigate include:
+
+* Fraud Rings
+* Customers with shared PII
+* Tracking the source of funds sent to high-risk jurisdictions
+
+The dashboard is saved in the database backup that you restored in the previous step, so to run the dashboard, simply visit https://neodash.graphapp.io/[https://neodash.graphapp.io/],  click Existing Dashboard, and provide the credentials and connection details for your database:
+
+image::open_dashboard.png[align="center"]
+
+The dashboard is saved in the database backup that you restored in the previous step, so to run the dashboard, simply visit https://neodash.graphapp.io/[https://neodash.graphapp.io/],  click _Existing Dashboard_, and provide the credentials and connection details for your database:
+
+image::connect.png[align="center"]
+
+
+=== Navigating the Dashboard
+
+The dashboard has three pages, one for each of the patterns. Each page also has two panes called _Reports_; each report displays the results from a Cypher query. You can see the underlying query by clicking the settings button (3 dots) in the upper right corner of the report. +
+The first report on each page displays a list of the occurrences of that pattern with a clickable button for each example. If you click on a button, the other report on that page will update to show the detailed graph for that occurrence.
+
+=== Fraud Rings
+
+
+A transaction fraud ring refers to a group of people collaborating to engage in fraudulent activities, like transferring funds through multiple accounts. These rings work across different locations and employ diverse strategies to evade detection. For this part of the demonstration, we will use the pattern-matching capabilities of Cypher to find suspicious rings with these characteristics:
+
+. The ring starts and ends with the same account
+. The transactions that form the ring occur sequentially in time
+. The accounts in the ring are unique (the same account doesn’t appear more than once)
+. Each account in the ring retains up to 20% of the money being moved
+. The ring is comprised of between 3 and 16 accounts
+
+The Cypher query for finding this pattern looks like this:
+
+[source,cypher]
+----
+MATCH (a:Account)-[f:SENT]->(first_tx:Transaction)
+MATCH path=(a)-[f]->(first_tx)
+	(
+	(tx_i:Transaction)-[:RECEIVED]->(a_i:Account)-[:SENT]->(tx_j:Transaction)
+     WHERE tx_i.date < tx_j.date
+     AND tx_i.amount >= tx_j.amount >= 0.80 * tx_i.amount
+  	){2,15}
+  (last_tx:Transaction)-[:RECEIVED]->(a)
+WHERE COUNT {WITH a, a_i UNWIND [a] + a_i AS b RETURN DISTINCT b} =
+	size([a] + a_i)
+RETURN COUNT {WITH a, a_i UNWIND [a] + a_i AS b RETURN DISTINCT b} as ringSize, a.accountNumber as EntryAccount, path as ring
+
+----
+This query uses the Cypher capability  https://neo4j.com/docs/cypher-manual/current/patterns/reference/#quantified-path-patterns[_quantified path patterns]_ (QPP) to ensure that the rings found have all of the stated characteristics. It is concise and easy to keep up-to-date if the rules change. You can read more about how the QPP query works https://neo4j.com/blog/developer/neo4j-5-cypher-bullet-train/[here]. If we try to create the same query using SQL and a relational database, we end up with something like this:
+
+[source,sql]
+----
+select a1.account_id, a1.account_number,
+       t1.*,
+       a2.account_id, a2.account_number,
+       t2.*,
+       a3.account_id, a3.account_number,
+       t3.*,
+       3 as ring_size
+from account a1, account a2, account a3,
+     transfer_transaction t1, transfer_transaction t2, transfer_transaction t3
+where a1.account_id = t1.source_account_id
+and   t1.recipient_account_id = a2.account_id
+and   a2.account_id = t2.source_account_id
+and   t2.recipient_account_id = a3.account_id
+and   a3.account_id = t3.source_account_id
+and   t3.recipient_account_id = a1.account_id
+and   a1.account_id <> a2.account_id
+and   a1.account_id <> a3.account_id
+and   a2.account_id <> a3.account_id
+and   t2.transaction_date > t1.transaction_date
+and   t3.transaction_date > t2.transaction_date
+and   t2.transaction_amount >= .8 * t1.transaction_amount
+and   t3.transaction_amount >= .8 * t2.transaction_amount
+FOR JSON
+UNION ALL
+select a1.account_id, a1.account_number,
+       t1.*,
+       a2.account_id, a2.account_number,
+       t2.*,
+       a3.account_id, a3.account_number,
+       t3.*
+       a4.account_id, a4.account_number,,
+       t4.*,
+       4 as ring_size
+from account a1, account a2, account a3,
+     account a4,
+     transfer_transaction t1, transfer_transaction t2, transfer_transaction t3,
+     transfer_transaction t4
+where a1.account_id = t1.source_account_id
+and   t1.recipient_account_id = a2.account_id
+and   a2.account_id = t2.source_account_id
+and   t2.recipient_account_id = a3.account_id
+and   a3.account_id = t3.source_account_id
+and   t3.recipient_account_id = a4.account_id
+and   a4.account_id = t4.source_account_id
+and   t4.recipient_account_id = a1.account_id
+and   a1.account_id <> a2.account_id
+and   a1.account_id <> a3.account_id
+and   a1.account_id <> a4.account_id
+and   a2.account_id <> a3.account_id
+and   a2.account_id <> a4.account_id
+and   a3.account_id <> a4.account_id
+and   t2.transaction_date > t1.transaction_date
+and   t3.transaction_date > t2.transaction_date
+and   t4.transaction_date > t3.transaction_date
+and   t2.transaction_amount >= .8 * t1.transaction_amount
+and   t3.transaction_amount >= .8 * t2.transaction_amount
+and   t4.transaction_amount >= .8 * t3.transaction_amount
+FOR JSON
+UNION ALL
+select a1.account_id, a1.account_number,
+       t1.*,
+       a2.account_id, a2.account_number,
+       t2.*,
+       a3.account_id, a3.account_number,
+       t3.*
+       a4.account_id, a4.account_number,
+       t4.*,
+       a5.account_id, a5.account_number,
+       t5.*,
+       5 as ring_size
+from account a1, account a2, account a3,
+     account a4, account a5,
+     transfer_transaction t1, transfer_transaction t2, transfer_transaction t3,
+     transfer_transaction t4, transfer_transaction t5
+where a1.account_id = t1.source_account_id
+and   t1.recipient_account_id = a2.account_id
+and   a2.account_id = t2.source_account_id
+and   t2.recipient_account_id = a3.account_id
+and   a3.account_id = t3.source_account_id
+and   t3.recipient_account_id = a4.account_id
+and   a4.account_id = t4.source_account_id
+and   t4.recipient_account_id = a5.account_id
+and   a5.account_id = t5.source_account_id
+and   t5.recipient_account_id = a1.account_id
+and   a1.account_id <> a2.account_id
+and   a1.account_id <> a3.account_id
+and   a1.account_id <> a4.account_id
+and   a1.account_id <> a5.account_id
+and   a2.account_id <> a3.account_id
+and   a2.account_id <> a4.account_id
+and   a2.account_id <> a5.account_id
+and   a3.account_id <> a4.account_id
+and   a3.account_id <> a5.account_id
+and   a4.account_id <> a5.account_id
+and   t2.transaction_date > t1.transaction_date
+and   t3.transaction_date > t2.transaction_date
+and   t4.transaction_date > t3.transaction_date
+and   t5.transaction_date > t4.transaction_date
+and   t2.transaction_amount >= .8 * t1.transaction_amount
+and   t3.transaction_amount >= .8 * t2.transaction_amount
+and   t4.transaction_amount >= .8 * t3.transaction_amount
+and   t5.transaction_amount >= .8 * t4.transaction_amount
+FOR JSON
+----
+
+This example is already over 100 lines of code, 24 equijoins, and 37 filter conditions. The eagle-eyed among you will have also noticed that it only covers rings containing between 3 and 5 accounts. Using legacy technologies like relational databases takes longer to code/debug/maintain and runs much slower (because of all of the joins) than the graph example.
+
+You can view the fraud rings in your dashboard’s Transaction Ring page. The _Rings_ report lists all of the rings found - including the size of the ring and the account number of the first account in the ring:
+
+image::rings.png[align="center"]
+
+You can click on any of the Entry Account numbers to display the details of the selected ring:
+
+image::ring_detail.png[align="center"]
+
+=== Shared PII
+
+A second pattern that could indicate suspicious activity is to look for multiple customers that share the same PII (such as phone numbers, email accounts, addresses, device identifiers, etc.). This could indicate a bad actor creating synthetic identities to hide their fraudulent activities. The Cypher query looks like this:
+
+[source, cypher]
+----
+MATCH (c1:Customer)-[r1:USES_PHONE|USES_EMAIL|RESIDES_AT]->(item:PhoneNumber|Email|Address)<-[r2:USES_PHONE|USES_EMAIL|RESIDES_AT]-(c2:Customer)
+WHERE elementId(c1) < elementId(c2)
+WITH item, count(distinct c1)+1 AS nbSharedIdentifierRelationships
+RETURN elementId(item) AS itemId, case labels(item)[0]
+when "Address" then item.street
+when "PhoneNumber" then item.number
+when "Email" then item.emailAddress
+else "u" end as identity, labels(item)[0] AS itemType, nbSharedIdentifierRelationships
+----
+ORDER BY nbSharedIdentifierRelationships DESC LIMIT 10
+
+It finds PII that is shared by more than one customer, the number of customers sharing the PII, and the type and details of the shared PII. The results of the query are shown in the _Customers Sharing PII_ report:
+
+image::shared_pii.png[align="center"]
+
+
+Clicking on any of the item IDs will display the details of the PII and the associated customers:
+
+image::pii_detail.png[align="center"]
+
+
+=== Payments to High-Risk Jurisdiction
+
+
+The final pattern we will investigate is one in which one of our customers transfers money to an account in a high-risk jurisdiction. When we detect this pattern, we would like to see the transfer in question as well as other transactions in which money was transferred into this customer account and the transfers into the account were approximately (defined as “between 90% and 110% of the total transfer to the high risk jurisdiction”). This will enable us to see the potentially illegal transaction as well as other accounts that may be involved. We will also use a specific date range in our demonstration - normally, a financial institution would look for this pattern around the current date:
+
+[source, cypher]
+----
+WITH datetime('2024-08-22') as dt
+MATCH (l:Account)-[:SENT]->(last_t:Transaction)-[:RECEIVED]->(hrj:HighRiskJurisdiction)
+WHERE last_t.date >= dt
+WITH l, hrj, SUM(last_t.amount) AS total_hrj_transctions, dt
+MATCH path=(first)((a1)-[:SENT]->(t)-[:RECEIVED]->(a2)
+WHERE COLLECT {
+       WITH a1, a2
+       MATCH (a1)-[:SENT]->(some_t)-[:RECEIVED]->(a2)
+       WHERE some_t.date >= dt
+       WITH SUM(some_t.amount) AS s
+       RETURN 0.9 * total_hrj_transctions <= s <= 1.1 * total_hrj_transctions
+   } = [TRUE]
+)*(l)-[:SENT]->(tx:Transaction)-[:RECEIVED]->(hrj)
+   WHERE NOT EXISTS {
+       WITH first
+       MATCH (before)-[:SENT]->(tx)-[:RECEIVED]->(first)
+       WHERE tx.date >= dt
+       WITH SUM(tx.amount) AS sx, before
+       WHERE 0.9 * total_hrj_transctions <= sx <= 1.1 * total_hrj_transctions
+       RETURN before
+   } AND
+   tx.date >= dt
+RETURN path
+----
+
+The dashboard displays a list of the accounts that sent the money directly to the external, high-risk jurisdiction account:
+
+image::hrj.png[align="center"]
+
+Clicking on an account number will display the transfer in question as well as the other accounts and transactions that may be involved:
+
+image::hrj_detail.png[align="center"]
+
+== Next Steps
+
+Now that you have seen how you can use Neo4j Graph Database to find suspicious patterns in banking activity, you might want to explore further. Some ideas include:
+
+* Load your own data into the same graph data model and run the same queries from this demo. An easy way to do this is to create relational tables or CSV files that match the format of the files in the data directory of the repository and use model/Neo4j_importer_model.json to load the data using AuraDB’s data import service:
+
+image::import.png[align="center"]
+
+The Neo4j_importer_model.json file can be loaded by creating a new data model in the import service and then opening the file from the “3 dots” menu:
+
+image::open_model.png[align="center"]
+
+* Explore some other suspicious patterns that might indicate fraud:
+** Transfers to Account Holders on a watch list
+** Transfers to and from cash-intensive businesses (which are commonly used by money launderers due to the difficulty of tracing physical cash)
+* https://neo4j.com/use-cases/fraud-detection/[Read more] about why Neo4j is a great database on which to build Fraud Detection and Investigation apps
+
+
