@@ -40,20 +40,20 @@ Be sure to save the credentials to log in to your database instance. Wait for th
 git clone https://github.com/neo4j-product-examples/demo-fraud.gi
 ----
 Alternatively, you can use the “download ZIP” option on GitHub to download a copy.
-
+[start=3]
 3. Using the “3 dots” menu in the Aura console, select Backup & Restore
 
 image::restore_database.png[align="center"]
-
+[start=4]
 4. Use either the Browse button or drag-and-drop to find the dump file in the dump directory of the git repository you cloned in step 2.
 
 image::backup_file.png[align="center"]
 
-
+[start=5]
 5. Review the warning about replacing your instance data and proceed when you are ready:
 
 image::confirmation.png[align="center"]
-
+[start=6]
 6. You are ready to run the examples when your database instance reaches the “RUNNING” state.
 
 == The Graph Data Model

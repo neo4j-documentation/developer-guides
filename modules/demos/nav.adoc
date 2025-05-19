@@ -1,4 +1,2 @@
-** xref:index.adoc[GraphRAG Dev Guide]
-
-*** Graph Examples
-**** xref:fraud-demo.adoc[Transaction Graph (Fraud) Demo]
+** Graph Examples
+*** xref:fraud-demo.adoc[Transaction Graph (Fraud) Demo]
