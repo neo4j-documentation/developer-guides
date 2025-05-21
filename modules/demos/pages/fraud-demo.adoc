@@ -254,8 +254,8 @@ when "Address" then item.street
 when "PhoneNumber" then item.number
 when "Email" then item.emailAddress
 else "u" end as identity, labels(item)[0] AS itemType, nbSharedIdentifierRelationships
-----
 ORDER BY nbSharedIdentifierRelationships DESC LIMIT 10
+----
 
 It finds PII that is shared by more than one customer, the number of customers sharing the PII, and the type and details of the shared PII. The results of the query are shown in the _Customers Sharing PII_ report:
 
