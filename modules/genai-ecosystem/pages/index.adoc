@@ -17,9 +17,9 @@ https://neo4j.com/blog/genai/what-is-graphrag[GraphRAG (retrieval-augmented gene
 == How to Get Started
 
 1. For a high level overview, have a look at https://neo4j.com/generativeai/[neo4j.com/genai^]
-2. Use the https://neo4j.com/labs/genai-ecosystem/llm-graph-builder[LLM-Knowledge Graph Builder^] to turn your own documents into a knowledge graph or see the example projects below for building graphs from mixed structured & unstructured data.
-3. If you want to learn more take one of the https://graphacademy.neo4j.com/categories/llms/?ref=genai-docs[GenAI GraphAcademy courses^]
-4. Pick your https://neo4j.com/labs/genai-ecosystem/genai-frameworks[GenAI framework of choice^] and start building your own GenAI applications with Neo4j
+2. To build a knowledge graph from unstructured data, such as text documents, see xref:importing-graph-from-unstructured-data.adoc[Creating Graphs From Unstructured Data]. You can also experiment with the  https://neo4j.com/labs/genai-ecosystem/llm-graph-builder[LLM-Knowledge Graph Builder^], a reference UI implementation built on top of Neo4j and LangChain integrations.
+3. If you want to learn more, take one of the https://graphacademy.neo4j.com/categories/llms/?ref=genai-docs[GenAI GraphAcademy courses^] or have a look at the below <<example-projects>>
+4. Pick your https://neo4j.com/labs/genai-ecosystem/genai-frameworks[GenAI framework of choice^] and start building your own GenAI applications with Neo4j.
 
 == GraphAcademy Courses
 
@@ -27,6 +27,7 @@ If you want to learn how LLMs and Knowledge Graphs combine to improve GenAI appl
 
 image::https://cdn.graphacademy.neo4j.com/assets/img/courses/banners/llm-fundamentals.png[link=https://graphacademy.neo4j.com/categories/llms/?ref=genai-docs]
 
+[[example-projects]]
 == Example Projects & Use Case Applications
 Explore these projects to see how GraphRAG is applied in GenAI & agent workflows, various use cases, and integrations with specific cloud service providers.
 
