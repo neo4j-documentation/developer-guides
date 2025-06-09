@@ -37,7 +37,7 @@ Be sure to save the credentials to log in to your database instance. Wait for th
 2. Clone the git repository from https://github.com/neo4j-product-examples/demo-fraud[https://github.com/neo4j-product-examples/demo-fraud]
 [source, bash]
 ----
-git clone https://github.com/neo4j-product-examples/demo-fraud.gi
+git clone https://github.com/neo4j-product-examples/demo-fraud.git
 ----
 Alternatively, you can use the “download ZIP” option on GitHub to download a copy.
 [start=3]
@@ -311,11 +311,11 @@ image::hrj_detail.png[align="center"]
 
 Now that you have seen how you can use Neo4j Graph Database to find suspicious patterns in banking activity, you might want to explore further. Some ideas include:
 
-* Load your own data into the same graph data model and run the same queries from this demo. An easy way to do this is to create relational tables or CSV files that match the format of the files in the data directory of the repository and use model/Neo4j_importer_model.json to load the data using AuraDB’s data import service:
+* Load your own data into the same graph data model and run the same queries from this demo. An easy way to do this is to create relational tables or CSV files that match the format of the files in the data directory of the repository and use model/neo4j_importer_model.json to load the data using AuraDB’s data import service:
 
 image::import.png[align="center"]
 
-The Neo4j_importer_model.json file can be loaded by creating a new data model in the import service and then opening the file from the “3 dots” menu:
+The neo4j_importer_model.json file can be loaded by creating a new data model in the import service and then opening the file from the “3 dots” menu:
 
 image::open_model.png[align="center"]
 
