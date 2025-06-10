@@ -1,0 +1,64 @@
+= GraphRAG Energy Agent Example Using NeoConverse
+include::_graphacademy_llm.adoc[]
+:slug: energy-agent
+:author: Zach Blumenfeld
+:category: genai-tutorials
+:tags:
+:neo4j-versions: 5.x
+:page-pagination:
+:page-product: energy-agent
+
+image::energy-agent-header.png[align=center]
+This is an example of constructing tools with https://neo4j.com/labs/genai-ecosystem/neoconverse/[NeoConverse] to leverage Agentic GraphRAG for energy grid risk assessment and maintenance scheduling use cases.
+
+The data for this demo comes from a combination of publicly available https://www.entsoe.eu/[ENTSO-E] data and synthetic generated data using AI tools to help augment text and other fields.
+
+The below walks through creating a graph, configuring NeoConverse with the appropriate tools, and sample questions you can ask to test the resulting agent.
+
+== Create the Graph
+
+I am still working on cleaning up a full ingestion workflow from source data.  For now, you can load the data using the following backup file. Simply
+
+1. Download https://drive.google.com/file/d/1d9UCR_Clg5KBVaKEqLpoRhtyFSQiVjoU/view?usp=sharing[this Neo4j DB backup file]
+2. Create a Neo4j AuraDB instance at https://console.neo4j.io/ with at least 2GB RAM.  You can use the Aura Pro trial for free.
+3. Import the backup by selecting the instance you just created in the Aura console then select "Backup & Restore" -> "Restore from backup file" and drag and drop the backup
+
+image::energy-agent-aura-import.png[align=center]
+
+To see a similar  end-to-end structured + unstructured graph construction workflow, take a look at https://github.com/neo4j-product-examples/neo4j-supplier-graph[this supplier and bill of materials (BOM) example] or https://github.com/neo4j-product-examples/neo4j-employee-graph[this example for an employee/HR knowledge graph].
+
+== Configure NeoConverse
+We will use https://neo4j.com/labs/genai-ecosystem/neoconverse/[NeoConverse] to prototype a graphRAG agent.  To set it up with all the right tools:
+
+1. Download the json file https://drive.google.com/file/d/1XTx2glK4i9u-39lmKVboV-JKDZP22LBV/view?usp=sharing[here] and substitute
+    - `<YOUR OPENAI API KEY>` with a valid openai api key.
+    - the connection string `"connection":{"port":"7687","database":"<NEO4J_DATABASE>","host":"<NEO4J_URI>","password":"<NEO4J_PASSWORD>","protocol":"neo4j+s","username":"<NEO4J_USERNAME>"}` with your neo4j credentials from above.
+2. Go to Neoconverse and open the developer console. In Chrome this is generally
+    - `Cmd + Option + J` or `Option + ⌘ + I` on a Mac and
+    - `Ctrl + Shift + J` or `F12` on Windows.
+3. in the developer console go to application -> local storage and replace the `AgentDataDict` value with the content of that json file (just copy past in), and reload the page.  If you do not see an `AgentDataDict` go ahead and create one by pressing the "Add Agent" button in the left side-panel, this should make an `AgentDataDict` key-value pair appear.
+4. After this reload the page and you should get an agent to appear in the left side-panel called "ACME Energy Service Assets Analyst".
+
+image::energy-agent-neoconverse.png[align=center]
+
+You should be able to open up the agent details in the left side-panel and look at the "TOOLS FOR LLM" page to explore relevant tools.  The relevant tools fror us will be:
+
+1. `search_equipment_maintenance_records`
+2. `get_risky_equipment`
+3. `get_installation_equipments_dependency`
+
+image::energy-agent-tools.png[align=center]
+
+== Sample Questions
+
+Below are some sample questions you can ask:
+
+1. Search equipment that presented vibration issues and list and summarize the description. Provide the maintenance history and calculate the average number of days between maintenance. Structure the information in topics. Also, suggest a possible relationship between maintenance and alerts.
+2. Can you develop a maintenance schedule over the next two weeks to address high-risk equipment while minimizing installation disturbance?  Please provide specific dates & times.  It is Feb 18th 2025 today.
+
+This should produce responses using the tools configured.  Below is a video with outputs from a previous run:
+++++
+<iframe src="https://drive.google.com/file/d/1TbqMBmnUVj9TP6Wp_z3ST2tmlnABYnEU/preview" width="100%" height="100%" allow="autoplay"></iframe>
+++++
+
+Note that these responses can be further improved with more agent instructions, tools, and tuning. You can customize this even further with agent frameworks like LangChain and Google Agent Development Kit (ADK). See the https://github.com/neo4j-product-examples/neo4j-supplier-graph[supplier] and https://github.com/neo4j-product-examples/neo4j-employee-graph[employee] examples for use with ADK.
