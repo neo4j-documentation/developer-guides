@@ -1,2 +1,3 @@
 ** Graph Examples
 *** xref:fraud-demo.adoc[Transaction Graph (Fraud) Demo]
+*** xref:customer-demo.adoc[Customer Graph (CX) Demo]
