@@ -89,7 +89,7 @@ image::confirmation_cx.png[align="center"]
 .. python-dotenv
 .. neo4j
 .. neo4j-tools
-.. Neo4j-vis
+.. neo4j-viz
 
 [start=8]
 8. In the *src* directory of your git working copy, make a copy of the *cx.env.template* file, name it “cx.env” and edit the file to include the URI and password for your AuraDB instance. 
