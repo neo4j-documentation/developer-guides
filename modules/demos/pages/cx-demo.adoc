@@ -60,10 +60,9 @@ Be sure to save the credentials to log in to your database instance. Wait for th
 [start=2]
 2. Clone the git repository from  https://github.com/neo4j-product-examples/demo-cx[https://github.com/neo4j-product-examples/demo-cx] You can do this with the following command:
 
-|===
-|+git clone https://github.com/neo4j-product-examples/demo-cx.git+
-
-|===
+----
+git clone https://github.com/neo4j-product-examples/demo-cx.git+
+----
 
 Alternatively, you can use the “download ZIP” option on GitHub to download a copy.
 
