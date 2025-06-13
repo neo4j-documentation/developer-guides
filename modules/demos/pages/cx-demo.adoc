@@ -33,7 +33,6 @@ With Neo4j Graph Database and Algorithms, you can uncover insights at unpreceden
 This demonstration shows how to use Neo4j graph database and algorithms to enrich your customers’ experience; in it, you will learn:
 
 * How to set up a Neo4j AuraDB instance with sample data
-* Understanding a starter graph data model for finding potentially fraud-indicating patterns in the data
 * How to use graphs for entity resolution, finding duplicated representations of customers
 * How to use a graph of purchase behavior to segment customers, enabling you to offer recommendations based on common behaviors in the segment
 * How to use a graph to identify customers at risk of churning
