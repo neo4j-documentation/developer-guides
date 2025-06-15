@@ -95,7 +95,9 @@ image::download-sc.png[align="center", width=400]
 - `neo4j`
 - `neo4j-tools`
 - `neo4j-viz`
+
 You can install them using one of the following options:
+
 [source, bash]
 ----
 pip install python-dotenv neo4j neo4j-tools neo4j-viz
