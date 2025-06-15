@@ -114,6 +114,12 @@ image::graphmodel-sc.png[align="center"]
 
 This graph model maps the full lifecycle of a pharmaceutical product by connecting key entities and their relationships. It captures the structure and flow of data needed to analyze production, traceability, and distribution in a connected, end-to-end view.
 
+[source,cypher]
+----
+/* Run this query to view the schema or graph model of the dataset */
+CALL db.schema.visualization();
+----
+
 ===== Key Entities
 
 - **Suppliers**: Provide raw materials and active ingredients.
@@ -473,7 +479,7 @@ Each tab focuses on a key dimension:
 It traces supply chain paths and aggregates quantities instantly—making complex demand propagation simple and scalable.
 * The *SC Optimization* tab helps identify costly shipping patterns and delays in processing.  
 It surfaces cross-border inefficiencies and highlights stages that exceed target durations—so teams can quickly pinpoint and address bottlenecks.
-* The *Batch Genealogy* tab helps trace defective batches back through the supply chain—revealing shared equipment, operators, and potential contamination points.  
+* The *Batch Traceability* tab helps trace defective batches back through the supply chain—revealing shared equipment, operators, and potential contamination points.  
 It combines Neo4j’s rich relationship modeling with GenAI to highlight commonalities and root causes for fast, explainable investigation.
 * The *Equipment Utilization* tab highlights underused equipment across production.  
 It helps identify rescheduling opportunities to boost usage, avoid unnecessary procurement, and plan maintenance—thanks to Neo4j’s flexible schema for modeling process and equipment sequences.
@@ -481,7 +487,8 @@ It helps identify rescheduling opportunities to boost usage, avoid unnecessary p
 [[resources]]
 == Resources
 
-Now that you have seen how you can use Neo4j Graph Database to enrich your customers’ experience, here are some resources and ideas for your projects in Supply Chain
+Now that you've seen how Neo4j can help analyze and optimize complex supply chain networks, 
+here are some helpful resources and ideas to guide your next steps:
 
 * link:https://neo4j.com/blog/supply-chain-and-logistics/what-is-supply-chain-management/[What Is Supply Chain Management? – Neo4j Blog]
 * link:https://neo4j.com/blog/supply-chain-and-logistics/supply-chain-intelligence/[Supply Chain Intelligence – Neo4j Blog]
