@@ -1,130 +1,454 @@
-= Neo4j CX Demo
+= Supply Chain (Pharma) Demo
 include::_graphacademy_llm.adoc[]
-:slug: customer-graph
-:author: John Stegeman
+:slug: supplier-graph
+:author: Pramod Borkar
 :category: demos
 :tags:
 :neo4j-versions: 5.x
 :page-pagination:
-:page-product: customer-graph
+:page-product: supplier-graph
 
 == Introduction
 
-Customer Experience (CX) is everything that an organization does to deliver the best experience and value to their customers and is often thought of as a series of customer journeys, beginning from the first touchpoint a prospective customer has with the organization. CX has become a key way for organizations to differentiate themselves from their competitors, especially in an era where consumers have high expectations beyond just the capabilities of a particular product or service
+Supply chains are among the most complex and highly regulated in the world -- spanning raw material suppliers, manufacturers, contract partners, logistics providers, and global distributors. Ensuring transparency, resilience, and compliance across this web of relationships is critical, yet difficult to achieve with traditional data systems. Supply chain disruptions, quality issues, and counterfeit risks are often hard to detect when using siloed relational models and linear reporting.
 
-In order for organizations to offer an excellent experience, a key requirement is to understand everything about their prospects and customers; this means that organizations need to combine and connect data from many different sources such as:
+With Neo4j, you can leverage a flexible, native graph database to map the full lifecycle of products -- from raw ingredients to finished pharmaceuticals reaching patients. By modeling these relationships as a connected graph, teams can trace product genealogy, optimize supply paths, identify potential bottlenecks or vulnerabilities, and strengthen overall resilience.
 
-* CRM and sales management applications
-* Marketing systems
-* Web interactions (including online purchases and browsing)
-* Service and Support systems
-* Inbound and outbound communications
-* Data enrichment providers
+This demonstration shows how to use Neo4j to analyze and visualize complex *pharmaceutical supply chains*; in it, you will learn:
 
-Legacy approaches to CX face significant technical challenges; these approaches usually revolve around creating a data mart/data warehouse of Customer data in a relational database. This leads to issues such as:
+* How to set up a Neo4j AuraDB instance with a sample pharma supply chain dataset
+* How to model suppliers, manufacturers, ingredients, production batches, and distributors in a graph
+* How to perform supply chain optimization, batch traceability, equipment utilization analysis, and more
+* Sample queries for tracing product flow, identifying bottlenecks, analyzing supplier dependencies, and detecting potential quality risks
 
-* Rigid, inflexible schemas make it difficult to combine data from multiple sources and to adapt as data changes and new sources of information become available
-* Common patterns of customer behavior are hidden because of how the data is stored in rows and columns - without key connections and relationships
-* It is difficult to get a complete understanding of a customer because their data is scattered across multiple systems, each with their own identifiers (some data can even be considered anonymous - such as unauthenticated web browsing)
-* Organizations cannot operate at “web speed” (for example, to recommend products in real-time) because of the complex queries with lots of joins that are needed are slow and resource-intensive
-* Key algorithms (such as community detection, node centrality, similarity detection, etc.) need data and relationships to be prepared and organized in graphs - not rows and columns. This requires tedious data engineering work when data is stored in tables
-With Neo4j Graph Database and Algorithms, you can uncover insights at unprecedented speeds and increase customer lifetime value by enhancing the value of your existing solutions. Neo4j Graph Database helps you create a comprehensive view of all your customer touchpoints and interactions. It combines structured and unstructured data in an intuitive graph that makes it easy to resolve entities across channels, enhance customer segmentation models, and identify key patterns that move the needle in your business.
+[TIP]
+====
+* <<prerequisites,Prerequisites>>
+* <<setup,Setting Up the Database>>
+* <<themodel,The Graph Data Model>>
+* <<thechain,Dependency Chain>>
+* <<rm_demand,Understanding Raw Materials Demand>>
+* <<scoptimize,Supply Chain Optimization>>
+* <<dashboards,Dashboards>>
 
-This demonstration shows how to use Neo4j graph database and algorithms to enrich your customers’ experience; in it, you will learn:
+====
 
-* How to set up a Neo4j AuraDB instance with sample data
-* How to use graphs for entity resolution, finding duplicated representations of customers
-* How to use a graph of purchase behavior to segment customers, enabling you to offer recommendations based on common behaviors in the segment
-* How to use a graph to identify customers at risk of churning
- 
+[[prerequisites]]
 == Prerequisites
 
 To run these examples, you will need the following:
 
-1. Web browser and Internet access.
-2. A Neo4j https://neo4j.com/product/auradb/[AuraDB] database instance. These examples will run on any tier, including the Free and Professional tiers (including the free trial). You can sign up for AuraDB https://console.neo4j.io/?action=signup&product=aura-db[here]. Following the instructions in this demo will replace the data in your database instance, so be sure to back up any data you do not want to lose; alternatively, you can create a fresh instance to use.
-3. (Optional, but strongly recommended) a Python installation in which you can run Jupyter Notebooks. The queries for this demonstration are all provided in Notebooks; you can also copy-and-paste the queries into the *Query* or *Explore* tools in the Aura console.
-4. (Optional, but recommended) git client software to download the demo assets.
-5. Optional: a local setup of https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], if you want to experiment with tools for editing the data model.
+1. A Neo4j https://neo4j.com/product/auradb/[AuraDB] database instance. These examples will run on any tier, Trial and paid tiers like Pro, Business Critical and VDC. 
+You can sign up for AuraDB https://console.neo4j.io/?action=signup&product=aura-db[here]. 
 
-== Setting Up
+[IMPORTANT]
+====
 
+*_Following the instructions in this demo will replace the data in your instance, so be sure to back up any data you do not want to lose_*; alternatively, you can create a fresh instance to use (recommended).
+====
 
-1. Ensure you have a Neo4j AuraDB instance running. If you are new to AuraDB, create an account here, then click Create Instance. This demo uses graph algorithms, so you will not be able to use a Free instance. You can, however, use a free Pro trial. When you create the instance, be sure to enable the graph analytics libraries in your instance:
+2. (Optional, but strongly recommended) a Python installation in which you can run Jupyter Notebooks. The queries for this demonstration are all provided in Notebooks; you can also copy-and-paste the queries into the *Query* or *Explore* tools in the Aura console.
+3. (Optional, but recommended) git client software to download the demo assets.
+4. Optional: a local setup of https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], if you want to experiment with tools for editing the data model.
 
-image::graph_analytics.png[align="center"]
+[[setup]]
+== Setting Up the Database
+*1.* Make sure you have a **Neo4j AuraDB instance** running.
+If you're new to AuraDB, create an account at https://concole.neo4j.io and click *Create Instance*.
+[TIP]
+====
+**Be sure to save your credentials** — you'll need them to connect to your database later.
+Wait until the instance status shows **_“RUNNING”_** before moving to the next step.
+====
 
-Be sure to save the credentials to log in to your database instance. Wait for the instance status to reach “RUNNING” before proceeding to the next step.
-
-[start=2]
-2. Clone the git repository from  https://github.com/neo4j-product-examples/demo-cx[https://github.com/neo4j-product-examples/demo-cx] You can do this with the following command:
-
+*2.* Clone the git repository from  https://github.com/neo4j-product-examples/demo-supply_chain[https://github.com/neo4j-product-examples/demo-supply_chain] You can do this with the following command:
+[source,console]
 ----
-git clone https://github.com/neo4j-product-examples/demo-cx.git
+git clone https://github.com/neo4j-product-examples/demo-supply_chain.git
 ----
-
 Alternatively, you can use the “download ZIP” option on GitHub to download a copy.
 
-[start=3]
-3. Using the “3 dots” menu in the Aura console, select Backup & Restore. 
+*3.* Use .backup file to load data to the database.
+Using the “...3 dots” menu in the Aura console, select Backup & Restore. 
 
-image::restore_database.png[align="center"]
+image::dump-sc.png[align="center"]
 
-[start=4]
-4.
-Use either the Browse button or drag-and-drop to find the dump file in the dump directory of the git repository you cloned in step 2.
+[NOTE]
+====
+Use either the *Browse* button or drag-and-drop to locate the `.backup` file.
+You can find it in the `dump` directory of the repo you cloned in step 2,  
+or link:https://drive.google.com/file/d/1MdlQWlnWxFe_lDCYLu5uCUY-MYj9jUn-/view?usp=sharing[download it here].
+====
 
-image::backup_file_cx.png[align="center"]
+*4.* Review the warning about replacing your instance data and proceed when you are ready:
 
-[start=5]
-5. Review the warning about replacing your instance data and proceed when you are ready:
-
-image::confirmation_cx.png[align="center"]
-
-[start=6]
-6. You are ready to run the examples when your database instance reaches the “RUNNING” state.
-
-[start=7]
-7. Ensure you have the following python libraries installed:
-.. python-dotenv
-.. neo4j
-.. neo4j-tools
-.. neo4j-viz
-
-[start=8]
-8. In the *src* directory of your git working copy, make a copy of the *cx.env.template* file, name it “cx.env” and edit the file to include the URI and password for your AuraDB instance. 
-
-== The Graph Data Model
+image::download-sc.png[align="left", width=400]
 
 
-The figure below shows the data model used to illustrate the CX concepts: 
+*5.* You are ready to run the examples when your database instance reaches the “RUNNING” state.
 
-image::Customer-Model.png[align="center"]
 
-The key types of entities (also called _labels_) in this graph include:
+*6.* Ensure you have the following Python libraries installed:
 
-* *Customer* - Customers who purchase from us
-* *Order, OrderLineItem* - Customer orders and the line items in the order
-* *Product - *Products we sell to our customers
-* *Country* - Countries where our customers are located
-* *Phone, Identifier, EmailAddress* - Identifiers associated with our customers
+- `python-dotenv`
+- `neo4j`
+- `neo4j-tools`
+- `neo4j-viz`
+You can install them using one of the following options:
+[source, bash]
+----
+pip install python-dotenv neo4j neo4j-tools neo4j-viz
+pip install -r requirements.txt
+python -m venv env
+source env/bin/activate  # On Windows: env\Scripts\activate
+pip install -r requirements.txt
+----
 
-If you would like to experiment with the data model in https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], you can find a copy of the data model export in model/Customers_model.json in the copy of the repository
+*7.* In the *src* directory of your git working copy, make a copy of the *sc_p.env.template* file, name it “sc_p.env” and edit the file to include the URI and password for your AuraDB instance. 
 
-== Graphs for CX
+[[themodel]]
+== Understanding the Graph Data Model
 
-This demonstration consists of three scenarios, each of which has its own Jupyter notebook that walks through the scenario. The three scenarios are:
+image::graphmodel-sc.png[align="center"]
 
-. *Entity Resolution* (src/entity_resolution.ipynb) - in this scenario, you will see how a graph database plus graph algorithms can help you identify customers that are represented multiple times in the data. Resolving the duplicate entries will help you by giving you a complete and accurate view of your customers, instead of the activity being fragmented across multiple customer records.
-. *Churn Analysis* (src/churn.ipynb) - in this scenario, you will look for patterns that indicate customers who are at risk for churning.
-. *Segmentation / Recommendations* (src/segmentation.ipynb) - in this scenario, you will divide the customer base into segments based on their behavior. This will help you identify common customer journeys and, for example, recommend products and services to a customer based on what other successful customers in the segment have purchased.
+This graph model maps the full lifecycle of a pharmaceutical product by connecting key entities and their relationships. It captures the structure and flow of data needed to analyze production, traceability, and distribution in a connected, end-to-end view.
 
-To run any of these scenarios, open the corresponding Jupyter Notebook and walk through the instructions and queries therein. If you would like to explore the query results more interactively, you can also run the queries in the *Explore* tool of the Aura console - you will be able to expand and hide relationships interactively, helping you explore the data and refine your analysis.
+===== Key Entities
 
+- **Suppliers**: Provide raw materials and active ingredients.
+- **Raw Materials (RM)**: The base substances required for initial formulation.
+- **Active Pharmaceutical Ingredients (APIs)**: Core biologically active components.
+- **Product Stages**: BULK → DP (Drug Product) → Finished Drug Product.
+- **Batches**: Tracked units of materials or products used throughout manufacturing.
+- **Equipment**: Machines and lines involved in each production step.
+- **Distributors**: Entities responsible for delivering finished drugs to pharmacies or healthcare providers.
+
+===== Key Relationships
+
+- `SUPPLIES_RM`: Shows how suppliers provide raw materials to the manufacturing process.
+- `PRODUCT_FLOW`: Tracks how ingredients and intermediates move across production stages.
+- `DISTRIBUTED_BY`: Captures how finished products are handed off to downstream distributors.
+
+===== What You Can Analyze
+
+- **Dependency analysis**: Trace upstream and downstream connections across suppliers, products, and materials.
+- **Bottleneck detection**: Surface slow points, single-source risks, and underutilized equipment.
+- **Traceability and compliance**: Map batch lineage for audit or quality control.
+- **Supply chain visibility**: Understand the complete path from raw inputs to distributed pharmaceuticals.
+
+[TIP]
+====
+Use this model as the foundation for queries to explore:
+
+* Which suppliers support critical APIs?
+* What happens if a batch is recalled?
+* Where are single points of failure?
+* How much raw material is needed to fulfill distributor demand?
+* Which APIs are used across multiple drug products?
+* Do any high-impact APIs rely on a single supplier?
+* Are there redundant or cross-border shipment paths?
+* Can we trace a product’s full lineage from distributor to supplier? .. more
+====
+
+[[thechain]]
+== Dependency Chain 
+image::dependency-chain.png[align="center"]
+
+This view illustrates the *full dependency chain* for a given pharmaceutical product SKU. The query traces how a product flows through each stage of the supply chain — starting from *Suppliers* of raw materials, through *Raw Materials (RM)* and *Active Pharmaceutical Ingredients (APIs)*, into various stages of *Drug Product* manufacturing (bulk → DP → finished goods), and finally to *Distributors*.
+
+By visualizing the supply chain as a graph, you can:
+
+- *_Trace lineage_* of any product: Identify every input — suppliers, materials, intermediates — that contributes to a finished drug.
+- *Reveal interdependencies*: Understand which raw materials or suppliers are used across multiple product lines.
+- *Detect vulnerabilities*: Spot single points of failure, such as over-reliance on a specific supplier or bottlenecks in production.
+- *Explore both upstream and downstream*: View impact in either direction — e.g., how a supplier delay affects downstream distribution, or which suppliers are involved in a batch that failed quality control.
+
+This graph-based approach enables real-time, intuitive exploration that would be difficult or impossible to replicate using traditional relational joins.
+
+By focusing on a specific `productSKU`, this query helps supply chain teams *pinpoint the exact flow of materials and relationships* involved in that product's manufacturing and distribution lifecycle.
+
+[source,cypher]
+----
+/*
+  Finds the full supply chain path for a specific product SKU —
+  from supplier to distributor, across all production stages.
+*/
+MATCH path = 
+  (sup:Suppliers)            // Supplier
+    -[:SUPPLIES_RM]-> 
+  (rm:RM)                    // Raw Material
+    -[:PRODUCT_FLOW*]-> 
+  (prod:Product)             // Product stages (API, DP, FG)
+    -[:DISTRIBUTED_BY]-> 
+  (dist:Distributor)         // Distributor
+WHERE prod.productSKU = '7e882292-ae98-45eb-8119-596b5d8b73e1'  // Filter by SKU
+RETURN 
+  nodes(path) AS nodes, 
+  relationships(path) AS relationships
+----
+
+[[rm_demand]]
+== Understanding Raw Materials Demand
+=== Identify Raw Materials with Limited Supplier Redundancy
+
+This query surfaces *Raw Materials (RMs) that are supplied by only one supplier*, highlighting potential bottlenecks or risks due to lack of supplier redundancy.
+
+It works by:
+- Counting how many suppliers are connected to each RM  
+- Filtering to include only RMs where `supplierCount = 1`
+
+This pattern helps stakeholders proactively detect *single points of failure* in the procurement pipeline — especially important in pharmaceutical manufacturing, where delays or shortages in a single raw material can disrupt the entire product flow.
+[NOTE]
+====
+Showcases a `dependency pattern` focused on `Supplier → RM` relationships, enabling smarter sourcing strategies and improved supply chain resilience.
+====
+
+[source,cypher]
+----
+/*
+  Finds Raw Materials (RMs) with only one supplier —
+  potential risk points due to lack of redundancy.
+*/
+MATCH (rm:RM)<-[:SUPPLIES_RM]-(sup:Suppliers)  // Match each RM to its suppliers
+WITH rm, COUNT(sup) AS supplierCount            // Count number of suppliers per RM
+WHERE supplierCount = 1                         // Keep only RMs with a single supplier
+
+RETURN 
+  rm.productSKU AS rawMaterialSKU,
+  rm.globalBrand AS rawMaterialName,
+  supplierCount                                 // Should always be 1 in this case
+ORDER BY supplierCount
+----
+
+[[scoptimize]]
+== Supply Chain Optimization
+=== Find APIs Used in Multiple Drug Products with Potential Supply Risk
+
+This query identifies *Active Pharmaceutical Ingredients (APIs)* that are used across multiple Drug Products.
+APIs with broader usage may pose a *supply risk* — disruptions can affect several products at once, especially when demand overlaps across product lines.
+To highlight more critical cases, the query filters for APIs linked to *more than 4* distinct Drug Products.
+
+[NOTE]
+====
+This pattern highlights a `Drug Product ↔ API` dependency, helping teams identify shared-resource risks and prioritize mitigation strategies.
+====
+
+[source,cypher]
+----
+/*
+  Finds APIs used in more than 4 different Drug Products (DP),
+  indicating potential supply risk due to shared dependency.
+*/
+MATCH (api:API)-[:PRODUCT_FLOW]->(dp:DP)     // Match API to its connected Drug Products
+WITH api, COUNT(dp) AS productCount           // Count how many DPs each API is used in
+WHERE productCount > 4                        // Focus on APIs used in multiple products
+
+RETURN 
+  api.productSKU AS apiSKU, 
+  api.globalBrand AS apiName, 
+  productCount                                // Number of associated Drug Products
+
+ORDER BY productCount DESC
+----
+
+=== Flag APIs with High Impact and Low Redundancy
+
+This query identifies *critical supply chain vulnerabilities* by focusing on Active Pharmaceutical Ingredients (APIs) that meet two high-risk conditions:
+
+- They are used in multiple Drug Products, signaling high reliance across the portfolio.
+- They are supplied by only one supplier, creating a potential single point of failure.
+
+By combining these criteria, the query surfaces APIs with both *broad product impact* and *low sourcing redundancy* — a key risk indicator in pharmaceutical manufacturing.
+
+This insight helps stakeholders proactively flag bottlenecks, strengthen sourcing strategies, and reduce the risk of production disruptions.
+
+[NOTE]
+====
+Showcases a `dependency pattern` centered on `API ↔ Drug Product` and `Supplier ↔ API` relationships.
+====
+
+[source,cypher]
+----
+/*
+  Identifies APIs used in more than 4 Drug Products.
+  Flags those that are supplied by only one supplier — potential bottlenecks.
+*/
+MATCH (sup:Suppliers)-[:SUPPLIES_RM]->(rm:RM)
+      -[:PRODUCT_FLOW]->(api:API)
+      -[:PRODUCT_FLOW]->(dp:DP)                // Trace path: Supplier → RM → API → Drug Product
+
+WITH 
+  api,
+  COUNT(dp) AS productCount,                   // How many DPs use this API
+  COLLECT(DISTINCT dp) AS dpList,              // Optional: full list of DPs
+  COUNT(DISTINCT sup) AS supplierCount,        // How many unique suppliers supply this API
+  COLLECT(DISTINCT sup.companyName) AS supplierList
+
+WHERE productCount > 4                         // Filter: API must be used in 4+ products
+
+RETURN 
+  api.productSKU AS apiSKU, api.globalBrand AS apiName,
+  productCount, supplierCount,supplierList,
+  CASE 
+    WHEN supplierCount = 1 
+    THEN 'Single Supplier Bottleneck!!'     // Flag risky APIs
+    ELSE 'Multiple Suppliers Available'
+  END AS SupplierRisk
+
+ORDER BY supplierCount ASC                     // Show most constrained APIs first
+----
+
+=== How does Distributor Demand Flow Back to Raw Material requirements?
+
+This query answers a key supply chain question:  
+*"What quantity of raw materials is needed to fulfill demand at the distributor level?"*
+
+It works by tracing demand *backward* through the supply chain — from the distributor, all the way to the raw materials and their suppliers.
+
+==== Step-by-step breakdown
+
+- Start with a specific product being requested by a distributor (`productSKU`)
+- Capture the demand quantity from that distributor
+- Find the raw materials (RMs) used in making that product based on shared product attributes  
+  (e.g., brand, strength, form, generation)
+- Trace the shortest path from raw materials back to the product  
+  (through stages like API, BULK, DP, etc.)
+- Identify suppliers responsible for each raw material
+- Calculate how much raw material is required, factoring in conversion ratios at each step
+
+[NOTE]
+====
+Uses a `shortestPath` pattern to model reverse flow and material requirements based on end-point demand.
+====
+
+[source,cypher]
+----
+/*
+  Trace demand from a distributor back to raw material quantity requirements.
+*/
+MATCH (d:Distributor)<-[db:DISTRIBUTED_BY]-(prod:Product)
+WHERE prod.productSKU = '9a6b431f-3a38-4b45-9451-fbf39b2e2fd0'  // Start with a specific product
+
+MATCH (api)<-[pf2:PRODUCT_FLOW]-(rm:RM)
+WHERE pf2.globalBrand = prod.globalBrand
+  AND pf2.strength = prod.strength
+  AND pf2.form = prod.form
+  AND pf2.generation = prod.generation                 // Match equivalent raw materials by product attributes
+
+WITH d, db.demandQty AS demandQty, db, prod, COLLECT(DISTINCT rm) AS RMList
+UNWIND RMList AS curRM                                 // Process each matching raw material
+
+MATCH p = shortestPath((prod)<-[pf1:PRODUCT_FLOW*]-(curRM))  // Trace shortest path from RM to product
+
+MATCH p3 = (myProd:Product)<-[pf:PRODUCT_FLOW]-(curRM)<-[:SUPPLIES_RM]-(sup:Suppliers)
+WHERE pf.globalBrand = prod.globalBrand
+  AND pf.strength = prod.strength
+  AND pf.form = prod.form
+  AND pf.generation = prod.generation
+  AND pf.market = d.market                              // Match supplier relationships in the same market
+
+RETURN 
+  sup.companyName AS supplierName,
+  curRM.productSKU AS rawMaterialSKU,
+  apoc.coll.disjunction(["Product"], labels(myProd))[0] AS usedBy, // Identify final product stage (API, DP, etc.)
+  demandQty,
+  REDUCE(rmQty = demandQty, rel IN relationships(p) |
+    TOINTEGER(ROUND(rmQty / (COALESCE(rel.conversionRatio, 1.0)), 0))
+  ) AS rawMaterialQty
+
+ORDER BY usedBy, supplierName, rawMaterialSKU
+----
+
+=== Detect Cross-Border or Cyclic Shipments in FG → DIST Flows
+
+This query analyzes the movement of *Finished Goods (FG)* across the supply chain to detect potential shipment inefficiencies or logistical anomalies.
+It traces product flow from *Finished Drug Products (FG)* to *Distribution (DIST)* and highlights two key patterns:
+
+==== Cross-Border Shipment
+- The shipment starts and ends in the same country
+- But passes through one or more different countries in between  
+- Suggests unnecessary border crossings or inefficient routing ⚠️ 
+
+==== Cyclic Movement
+- The shipment path forms a loop  
+- It returns to the original location after multiple hops  
+- Potential loop detected in product flow — indicates circular or redundant logistics ⚠️ 
+
+==== Why It Matters
+Identifying these patterns helps supply chain teams:
+- Reduce unnecessary shipping costs  
+- Improve route efficiency  
+- Mitigate risks tied to overly complex or non-optimal logistics networks
+
+[source,cypher]
+----
+/*
+  Detects either Cross-Border or Cyclic shipment patterns 
+  in Finished Goods (FG) to Distributor (DIST) product flows.
+*/
+MATCH (fg:FG:Product WHERE fg.globalBrand = "Calciiarottecarin")   // Start with FG products for a specific brand
+WHERE NOT EXISTS {
+  MATCH (fg)-[pf:PRODUCT_FLOW WHERE pf.globalBrand = "Calciiarottecarin"
+    AND pf.generation = "g2"
+    AND pf.form = "Caplet"                                // Filter: generation, form and strength of the drug
+    AND pf.strength = "50mg"
+  ]->(:FG)                                                // Ensure it's not part of a chained FG → FG flow
+}
+
+WITH fg, count(*) AS num
+
+MATCH p = (fg)-[pf:PRODUCT_FLOW WHERE pf.globalBrand = "Calciiarottecarin"
+  AND pf.generation = "g2"
+  AND pf.form = "Caplet"
+  AND pf.strength = "50mg"
+]->+ (dist:DIST:Product WHERE dist.globalBrand = fg.globalBrand
+  AND dist.generation = fg.generation
+  AND dist.strength = fg.strength
+  AND dist.form = fg.form)
+WHERE EXISTS {
+  MATCH (dist)-[:DISTRIBUTED_BY]->(:Distributor)                // Confirm product ends with a Distributor
+}
+
+WITH fg, 
+  REDUCE(loc = [], x IN nodes(p)[0..-1] | loc + [split(x.location, "/")[1]]) AS countryList,
+  REDUCE(loc = [], x IN nodes(p)[0..-1] | loc + [x.location]) AS locationList,
+  REDUCE(loc = [], x IN nodes(p) | loc + [x.location]) AS fullLocList
+
+WITH fg, countryList, locationList, fullLocList, 
+  apoc.coll.dropDuplicateNeighbors(apoc.coll.sort(countryList)) AS dedupCountryList, 
+  apoc.coll.dropDuplicateNeighbors(apoc.coll.sort(locationList)) AS dedupLocationList
+
+WHERE 
+  (countryList[0] = countryList[-1] AND size(dedupCountryList) > 1)   // Cross-Border condition
+  OR 
+  (locationList[0] = locationList[-1] AND size(dedupLocationList) > 1) // Cyclic condition
+
+WITH fg, fullLocList, 
+  CASE 
+    WHEN countryList[0] = countryList[-1] AND size(dedupCountryList) > 1
+      THEN "Cross Border Shipment"
+    WHEN locationList[0] = locationList[-1] AND size(dedupLocationList) > 1
+      THEN "Cyclic Movement"
+    ELSE null
+  END AS costType
+
+RETURN DISTINCT 
+  costType, 
+  fg.form AS form, 
+  fg.generation AS gen, 
+  fg.strength AS strength, 
+  fullLocList AS LocationPath
+
+ORDER BY fg.generation, fg.strength
+----
+[[dashboards]]
+== Dashboards (_using NeoDash_)
+image::neodash-sc.png[align="center"]
+
+[[nextsteps]]
 == Next Steps
 
 Now that you have seen how you can use Neo4j Graph Database to enrich your customers’ experience, here are some ideas for your next steps:
 
 * Load your own data into the same graph data model and run the same queries from this demo. An easy way to do this is to create relational tables or CSV files that match the format of the files in the data directory of the repository and use +model/Neo4j_importer_model.json+ to load the data using AuraDB’s data import service
 * Explore another https://neo4j.com/developer/genai-ecosystem/ai-for-customer-experiences/[Customer Experience demo] that uses Generative AI
-
