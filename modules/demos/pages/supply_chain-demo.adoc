@@ -110,7 +110,7 @@ pip install -r requirements.txt
 [[themodel]]
 == Understanding the Graph Data Model
 
-image::graphmodel-sc.png[align="center"]
+image::supply-chain-model.png[align="center"]
 
 This graph model maps the full lifecycle of a pharmaceutical product by connecting key entities and their relationships. It captures the structure and flow of data needed to analyze production, traceability, and distribution in a connected, end-to-end view.
 
