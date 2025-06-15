@@ -29,7 +29,8 @@ This demonstration shows how to use Neo4j to analyze and visualize complex *phar
 * <<thechain,Dependency Chain>>
 * <<rm_demand,Understanding Raw Materials Demand>>
 * <<scoptimize,Supply Chain Optimization>>
-* <<dashboards,Dashboards>>
+* <<dashboards,Dashboards _(NeoDash)_>>
+* <<resources,Resources>>
 
 ====
 
@@ -61,12 +62,12 @@ If you're new to AuraDB, create an account at https://concole.neo4j.io and click
 Wait until the instance status shows **_“RUNNING”_** before moving to the next step.
 ====
 
-*2.* Clone the git repository from  https://github.com/neo4j-product-examples/demo-supply_chain[https://github.com/neo4j-product-examples/demo-supply_chain] You can do this with the following command:
+*2.* Clone the git repository from  link:https://github.com/neo4j-product-examples/demo-supply_chain[the GitHub repo] You can do this with the following command:
 [source,console]
 ----
 git clone https://github.com/neo4j-product-examples/demo-supply_chain.git
 ----
-Alternatively, you can use the “download ZIP” option on GitHub to download a copy.
+Alternatively, you can use the "Download ZIP" option on link:https://github.com/neo4j-product-examples/demo-supply_chain[the GitHub repo] to download a copy.
 
 *3.* Use .backup file to load data to the database.
 Using the “...3 dots” menu in the Aura console, select Backup & Restore. 
@@ -82,7 +83,7 @@ or link:https://drive.google.com/file/d/1MdlQWlnWxFe_lDCYLu5uCUY-MYj9jUn-/view?u
 
 *4.* Review the warning about replacing your instance data and proceed when you are ready:
 
-image::download-sc.png[align="left", width=400]
+image::download-sc.png[align="center", width=400]
 
 
 *5.* You are ready to run the examples when your database instance reaches the “RUNNING” state.
@@ -94,7 +95,9 @@ image::download-sc.png[align="left", width=400]
 - `neo4j`
 - `neo4j-tools`
 - `neo4j-viz`
+
 You can install them using one of the following options:
+
 [source, bash]
 ----
 pip install python-dotenv neo4j neo4j-tools neo4j-viz
@@ -109,9 +112,15 @@ pip install -r requirements.txt
 [[themodel]]
 == Understanding the Graph Data Model
 
-image::graphmodel-sc.png[align="center"]
+image::supply-chain-model.png[align="center"]
 
 This graph model maps the full lifecycle of a pharmaceutical product by connecting key entities and their relationships. It captures the structure and flow of data needed to analyze production, traceability, and distribution in a connected, end-to-end view.
+
+[source,cypher]
+----
+/* Run this query to view the schema or graph model of the dataset */
+CALL db.schema.visualization();
+----
 
 ===== Key Entities
 
@@ -443,12 +452,47 @@ ORDER BY fg.generation, fg.strength
 ----
 [[dashboards]]
 == Dashboards (_using NeoDash_)
+Neo4j Dashboards provide an interactive view of pharmaceutical supply chains, helping leaders explore critical areas like demand, bottlenecks, traceability, and equipment usage—all in one place.
+
+=== Prep work 
+* Go to https://neodash.graphapp.io/ and click on New Dashboard 
+* Create the New Dashboard. 
+* Connect to the database created in Step 1 <<setup,Database setup>>
+* Click on left arrow at the bottom to expand the left pane
+* Click on the **+** button and import the JSON file located in the `src` folder of the link:https://github.com/neo4j-product-examples/demo-supply_chain[GitHub repository].
+
+** Direct link to the file: link:https://github.com/neo4j-product-examples/demo-supply_chain/blob/main/src/dashboard-supplychain.json[dashboard-supplychain.json]
+
+image::neodash_1.png[align="center", width=800]
+
+* You should see the Dashboard
+
 image::neodash-sc.png[align="center"]
 
-[[nextsteps]]
-== Next Steps
+=== Dashboard Tabs
 
-Now that you have seen how you can use Neo4j Graph Database to enrich your customers’ experience, here are some ideas for your next steps:
+The *Supply Chain* tab offers a high-level view of global brands, markets, and distribution.  
+For example, selecting the drug *Calciiarottecarin* (50mg caplet) shows enriched demand in the EU market, with *West Europe* as the top distributor.  
+From here, you can drill down into its full product flow to assess upstream dependencies and potential risks.
 
-* Load your own data into the same graph data model and run the same queries from this demo. An easy way to do this is to create relational tables or CSV files that match the format of the files in the data directory of the repository and use +model/Neo4j_importer_model.json+ to load the data using AuraDB’s data import service
-* Explore another https://neo4j.com/developer/genai-ecosystem/ai-for-customer-experiences/[Customer Experience demo] that uses Generative AI
+Each tab focuses on a key dimension:
+
+* The *RM Demand* tab calculates how much raw material is needed to fulfill demand for a selected product.  
+It traces supply chain paths and aggregates quantities instantly—making complex demand propagation simple and scalable.
+* The *SC Optimization* tab helps identify costly shipping patterns and delays in processing.  
+It surfaces cross-border inefficiencies and highlights stages that exceed target durations—so teams can quickly pinpoint and address bottlenecks.
+* The *Batch Traceability* tab helps trace defective batches back through the supply chain—revealing shared equipment, operators, and potential contamination points.  
+It combines Neo4j’s rich relationship modeling with GenAI to highlight commonalities and root causes for fast, explainable investigation.
+* The *Equipment Utilization* tab highlights underused equipment across production.  
+It helps identify rescheduling opportunities to boost usage, avoid unnecessary procurement, and plan maintenance—thanks to Neo4j’s flexible schema for modeling process and equipment sequences.
+
+[[resources]]
+== Resources
+
+Now that you've seen how Neo4j can help analyze and optimize complex supply chain networks, 
+here are some helpful resources and ideas to guide your next steps:
+
+* link:https://neo4j.com/blog/supply-chain-and-logistics/what-is-supply-chain-management/[What Is Supply Chain Management? – Neo4j Blog]
+* link:https://neo4j.com/blog/supply-chain-and-logistics/supply-chain-intelligence/[Supply Chain Intelligence – Neo4j Blog]
+* link:https://neo4j.com/docs/cypher-manual/current/patterns/[Cypher Query Patterns – Neo4j Docs]
+* link:https://neo4j.com/docs/cypher-manual/current/patterns/variable-length-patterns/[Variable-Length Patterns – Neo4j Docs]
