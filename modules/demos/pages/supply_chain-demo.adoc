@@ -10,16 +10,20 @@ include::_graphacademy_llm.adoc[]
 
 == Introduction
 
-Supply chains are among the most complex and highly regulated in the world -- spanning raw material suppliers, manufacturers, contract partners, logistics providers, and global distributors. Ensuring transparency, resilience, and compliance across this web of relationships is critical, yet difficult to achieve with traditional data systems. Supply chain disruptions, quality issues, and counterfeit risks are often hard to detect when using siloed relational models and linear reporting.
+*Supply chains* are among the most complex and regulated systems in the world. They span raw material suppliers, manufacturers, logistics providers, and distributors — all tightly interwoven and dependent on reliable, traceable flows.
+Traditional systems often struggle to provide the visibility needed to manage disruptions, quality issues, or counterfeit risks. Linear reporting and siloed data make it difficult to trace product lineage or respond in real time.
 
-With Neo4j, you can leverage a flexible, native graph database to map the full lifecycle of products -- from raw ingredients to finished pharmaceuticals reaching patients. By modeling these relationships as a connected graph, teams can trace product genealogy, optimize supply paths, identify potential bottlenecks or vulnerabilities, and strengthen overall resilience.
+With Neo4j, you can leverage a **flexible**, **native graph database** with **schema-optional modeling** to map the full lifecycle of products — from raw materials to finished goods — and gain actionable insights into supply paths, dependencies, and vulnerabilities.
 
-This demonstration shows how to use Neo4j to analyze and visualize complex *pharmaceutical supply chains*; in it, you will learn:
+This setup guide shows how Neo4j can model and analyze *pharmaceutical supply chains* using a graph-native approach. You’ll explore key supply chain dimensions such as:
 
-* How to set up a Neo4j AuraDB instance with a sample pharma supply chain dataset
-* How to model suppliers, manufacturers, ingredients, production batches, and distributors in a graph
-* How to perform supply chain optimization, batch traceability, equipment utilization analysis, and more
-* Sample queries for tracing product flow, identifying bottlenecks, analyzing supplier dependencies, and detecting potential quality risks
+* Supplier and distributor relationships  
+* Batch traceability and genealogy  
+* Demand back-propagation  
+* Bottleneck and risk identification  
+* Equipment utilization and optimization  
+
+You’ll also learn how to set up a Neo4j AuraDB instance, import a sample dataset, explore a supply chain graph model, and run queries to uncover structure, flow, and risk in your supply network.
 
 [TIP]
 ====
@@ -231,6 +235,8 @@ ORDER BY supplierCount
 
 [[scoptimize]]
 == Supply Chain Optimization
+Identifies critical risks and inefficiencies across the supply chain—such as shared-resource APIs, single-supplier bottlenecks, material requirements from distributor demand, and redundant or circular logistics paths.
+
 === Find APIs Used in Multiple Drug Products with Potential Supply Risk
 
 This query identifies *Active Pharmaceutical Ingredients (APIs)* that are used across multiple Drug Products.
@@ -450,6 +456,18 @@ RETURN DISTINCT
 
 ORDER BY fg.generation, fg.strength
 ----
+
+
+[NOTE]
+====
+You can load a full set of pre-saved Cypher queries into the Neo4j Aura Query workspace.
+
+Download the file `cypher_queries-saved.csv` from the `src/` directory of the GitHub repository,  
+then upload it in the **Saved Cypher** section of Aura to access and run any of the demo queries.
+
+image::aura-console-sc.png[alt="Neo4j Aura Saved Queries", align="center"]
+====
+
 [[dashboards]]
 == Dashboards (_using NeoDash_)
 Neo4j Dashboards provide an interactive view of pharmaceutical supply chains, helping leaders explore critical areas like demand, bottlenecks, traceability, and equipment usage—all in one place.
@@ -457,7 +475,7 @@ Neo4j Dashboards provide an interactive view of pharmaceutical supply chains, he
 === Prep work 
 * Go to https://neodash.graphapp.io/ and click on New Dashboard 
 * Create the New Dashboard. 
-* Connect to the database created in Step 1 <<setup,Database setup>>
+* Connect to the database created in Step 1: <<setup,Database setup>>
 * Click on left arrow at the bottom to expand the left pane
 * Click on the **+** button and import the JSON file located in the `src` folder of the link:https://github.com/neo4j-product-examples/demo-supply_chain[GitHub repository].
 
