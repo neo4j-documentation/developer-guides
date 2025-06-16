@@ -10,12 +10,12 @@ include::_graphacademy_llm.adoc[]
 
 == Introduction
 
-*Pharmaceutical supply chains* are among the most complex and regulated systems in the world. They span raw material suppliers, manufacturers, logistics providers, and distributors — all tightly interwoven and dependent on reliable, traceable flows.
+*Supply chains* are among the most complex and regulated systems in the world. They span raw material suppliers, manufacturers, logistics providers, and distributors — all tightly interwoven and dependent on reliable, traceable flows.
 Traditional systems often struggle to provide the visibility needed to manage disruptions, quality issues, or counterfeit risks. Linear reporting and siloed data make it difficult to trace product lineage or respond in real time.
 
 With Neo4j, you can leverage a **flexible**, **native graph database** with **schema-optional modeling** to map the full lifecycle of products — from raw materials to finished goods — and gain actionable insights into supply paths, dependencies, and vulnerabilities.
 
-This setup guide shows how Neo4j can model and analyze *__pharmaceutical supply chains__* using a graph-native approach. You’ll explore key supply chain dimensions such as:
+This setup guide shows how Neo4j can model and analyze *pharmaceutical supply chains* using a graph-native approach. You’ll explore key supply chain dimensions such as:
 
 * Supplier and distributor relationships  
 * Batch traceability and genealogy  
