@@ -13,9 +13,9 @@ include::_graphacademy_llm.adoc[]
 *Supply chains* are among the most complex and regulated systems in the world. They span raw material suppliers, manufacturers, logistics providers, and distributors — all tightly interwoven and dependent on reliable, traceable flows.
 Traditional systems often struggle to provide the visibility needed to manage disruptions, quality issues, or counterfeit risks. Linear reporting and siloed data make it difficult to trace product lineage or respond in real time.
 
-With Neo4j, you can leverage a **flexible**, **native graph database** with **schema-optional modeling** to map the full lifecycle of products — from raw materials to finished goods — and gain actionable insights into supply paths, dependencies, and vulnerabilities.
+With Neo4j, you can leverage a **native graph database** with **flexible graph model** to map the full lifecycle of products — from raw materials to finished goods — and gain actionable insights into supply paths, dependencies, and vulnerabilities.
 
-This setup guide shows how Neo4j can model and analyze *pharmaceutical supply chains* using a graph-native approach. You’ll explore key supply chain dimensions such as:
+This setup guide shows how Neo4j can model and analyze **pharmaceutical supply chains** using a graph-native approach. You’ll explore key supply chain dimensions such as:
 
 * Supplier and distributor relationships  
 * Batch traceability and genealogy  
@@ -231,6 +231,39 @@ RETURN
   rm.globalBrand AS rawMaterialName,
   supplierCount                                 // Should always be 1 in this case
 ORDER BY supplierCount
+----
+
+
+
+=== Map End-Point Demand to Drive Raw Material Planning
+
+This query maps downstream distributor demand to specific product configurations and serves as the starting point for reverse-engineering raw material requirements.
+By analyzing demand from a target market (e.g., EU) for a specific drug like Calciiarottecarin (50mg Caplet, g2),
+teams can trace upstream dependencies — including APIs and raw materials — to inform accurate sourcing and production planning.
+
+[source,cypher]
+----
+MATCH p = (dist:Distributor WHERE dist.market = "EU")
+          <-[db:DISTRIBUTED_BY]-
+          (prod:Product 
+            WHERE prod.globalBrand = "Calciiarottecarin"
+              AND prod.strength = "50mg"
+              AND prod.form = "Caplet"
+              AND prod.generation = "g2")
+          <-[pf:PRODUCT_FLOW]-(:Product)
+// Trace demand for a specific drug from a specific market
+
+RETURN prod.globalBrand AS globalBrand,
+       dist.market AS market,
+       dist.location AS distributor,
+       prod.form AS form,
+       prod.strength AS strength,
+       prod.package AS package,
+       db.demandQty AS demandQty,
+       prod.productSKU AS productSKU
+// Output key demand attributes used to drive raw material planning
+
+ORDER BY demandQty DESC
 ----
 
 [[scoptimize]]
@@ -462,8 +495,8 @@ ORDER BY fg.generation, fg.strength
 ====
 You can load a full set of pre-saved Cypher queries into the Neo4j Aura Query workspace.
 
-Download the file `cypher_queries-saved.csv` from the `src/` directory of the GitHub repository,  
-then upload it in the **Saved Cypher** section of Aura to access and run any of the demo queries.
+Download the `cypher_queries-saved.csv` file from the `src/` folder of the GitHub repository:  
+link:https://github.com/neo4j-product-examples/demo-supply_chain[demo-supply_chain GitHub Repo]. Then upload it to the *Saved Cypher* section in Aura to access and run the demo queries.
 
 image::aura-console-sc.png[alt="Neo4j Aura Saved Queries", align="center"]
 ====
