@@ -507,7 +507,7 @@ Neo4j Dashboards provide an interactive view of pharmaceutical supply chains, he
 
 === Prep work 
 * Go to https://neodash.graphapp.io/ and click on New Dashboard 
-* Create the New Dashboard. 
+* Click on Existing Dashboard as the dashboard is saved in the database backup.
 * Connect to the database created in Step 1: <<setup,Database setup>>
 * Click on left arrow at the bottom to expand the left pane
 * Click on the **+** button and import the JSON file located in the `src` folder of the link:https://github.com/neo4j-product-examples/demo-supply_chain[GitHub repository].
