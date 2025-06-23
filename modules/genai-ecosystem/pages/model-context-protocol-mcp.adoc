@@ -200,6 +200,38 @@ Tenant/Project Management
 image::https://dist.neo4j.com/wp-content/uploads/20250415082358/cursor-aura-mcp.png[width=400]
 image::https://dist.neo4j.com/wp-content/uploads/20250415082130/mcp-neo4j-aura-create-instance.png[width=400]
 
+=== MCP-Neo4j-Data-Modeling
+
+The https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-data-modeling[mcp-neo4j-data-modeling^] provides tools for creating, visualizing, and managing Neo4j graph data models. 
+
+This server enables you to define nodes, relationships, and properties to design graph database schemas that can be visualized interactively.
+
+It offers these tools and operations:
+
+Validation
+
+* `validate_node` - validate a single node
+* `validate_relationship` - validate a single relationship
+* `validate_data_model` - validate a whole data model
+
+Visualization
+
+* `get_mermaid_config_str` - generate a configuration for Mermaid diagram visualization
+
+Import / Export
+
+* `load_from_arrows_json` - import a data model created in the https://arrows.app[Arrows web application^]
+* `export_to_arrows_json` - export a data model to Arrows format
+
+Cypher Ingest
+
+* `get_constraints_cypher_queries` - get the Cypher to create all necesary contraints
+* `get_node_cypher_ingest_query` - get the Cypher query to ingest the provided node label
+* `get_relationship_cypher_ingest_query` - get the Cypher query to ingest the provided relationship type
+
+image::modules/genai-ecosystem/images/mcp-data-modeling-claude-data-discovery.png[width=400]
+image::modules/genai-ecosystem/images/mcp-data-modeling-claude-data-model-1-viz.png[width=400]
+
 == Google MCP Toolbox 
 
 https://googleapis.github.io/genai-toolbox/getting-started/mcp_quickstart/[Google's MCP Toolbox for Database^] is an https://github.com/googleapis/genai-toolbox[open source tool^] to integrate a variety of databases as sources for agentic systems. 
