@@ -229,6 +229,9 @@ Cypher Ingest
 * `get_node_cypher_ingest_query` - get the Cypher query to ingest the provided node label
 * `get_relationship_cypher_ingest_query` - get the Cypher query to ingest the provided relationship type
 
+image::modules/genai-ecosystem/images/mcp-data-modeling-claude-data-discovery.png[width=400]
+image::modules/genai-ecosystem/images/mcp-data-modeling-claude-data-model-1-viz.png[width=400]
+
 == Google MCP Toolbox 
 
 https://googleapis.github.io/genai-toolbox/getting-started/mcp_quickstart/[Google's MCP Toolbox for Database^] is an https://github.com/googleapis/genai-toolbox[open source tool^] to integrate a variety of databases as sources for agentic systems. 
