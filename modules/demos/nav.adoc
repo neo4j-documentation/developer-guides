@@ -1,4 +1,4 @@
-** Graph Examples
+** xref:index.adoc[Graph Examples]
 *** xref:fraud-demo.adoc[Transaction Graph (Fraud) Demo]
 *** xref:cx-demo.adoc[Customer Graph (CX) Demo]
 *** xref:supply_chain-demo.adoc[Supply Chain (Pharma) Demo]
