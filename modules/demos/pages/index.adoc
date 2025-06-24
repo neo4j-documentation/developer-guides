@@ -1,0 +1,20 @@
+= Graph Examples (Demos)
+include::_graphacademy_llm.adoc[]
+:slug: transaction-graph-fraud
+:author: John Stegeman, Zach, Pramod Borkar
+:category: demos
+:tags:
+:neo4j-versions: 5.x
+:page-pagination:
+:page-product: transaction-graph-fraud
+
+
+Showcases interactive graph data demos built with Neo4j. Each example highlights a real-world use case—from fraud detection to customer journey analysis to pharmaceutical supply chain resilience.
+
+Explore the demos below to understand how connected data can drive insights, automate reasoning, and power AI-driven decisions.
+
+=== Choose a graph demo to explore:
+
+* xref:fraud-demo.adoc[Transaction Graph (Fraud)]
+* xref:cx-demo.adoc[Customer Graph (CX)]
+* xref:supply_chain-demo.adoc[Supply Chain (Pharma)]
