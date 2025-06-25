@@ -1,0 +1,122 @@
+= AI-Driven Supply Chain Insights with Knowledge Graphs
+include::_graphacademy_llm.adoc[]
+:slug: supplier-graph
+:author: Pramod Borkar
+:category: demos
+:tags:
+:neo4j-versions: 5.x
+:page-pagination:
+:page-product: supplier-graph
+
+== Why This Matters for Analysts
+
+Modern supply chains are dynamic, global, and deeply interconnected. Traditional analytics often require manual data wrangling or deep technical skills—and struggle to keep pace with business questions.
+
+Generative AI agents transform this by enabling *natural language queries* that return *real-time, contextual answers* — even across highly complex graph data.
+
+=== Key Benefits
+
+* *Faster Decision-Making*: Get answers in seconds, not days.
+* *Natural Language Queries*: No need to write Cypher or SQL—just ask your question.
+* *Deeper Insights*: Uncover hidden relationships and risks in your supply chain graph.
+* *Scalable & Secure*: The toolset runs as a secure, scalable service (on Google Cloud Run), accessible from anywhere.
+
+
+[NOTE]
+====
+*Knowledge graphs* naturally represent real-world supply chain relationships — making it easy to trace product flows, analyze risks, and identify vulnerabilities. 
+
+When combined with *AI agents*, they enable *question-to-query translation*, so analysts can simply ask questions — and receive *precise answers without writing any code*.
+====
+
+== Solution Overview
+
+This solution combines:
+
+* A Generative AI Agent (e.g., Google Gemini or OpenAI)
+* A Remote Toolset Service (powered by the Model Context Protocol, or MCP)
+* A Neo4j Graph Database (containing your supply chain data)
+
+The AI agent interprets questions, discovers the relevant remote tool, and routes the query to the appropriate service.
+ Each tool encapsulates a specific Cypher query(s), returning clean, business-friendly insights — without needing a data engineer.
+
+=== Query Flow: Architecture
+
+
+image::mcptoolset-neo4j.png[align="center", width=800]
+
+
+=== How It Works
+
+. *Tool Discovery*:
+  The agent queries the `/tools` endpoint to discover available supply chain analysis tools (e.g., trace product flow, find top suppliers).
+
+. *Natural Language Query*:
+  The analyst asks a question in plain English (e.g., "Check for cyclic movements in the shipping of Nabitegrpultide?").
+
+. *Tool Invocation*:
+  The agent selects the right tool, calls the remote API, and passes any required parameters.
+
+. *Insight Delivery*:
+  The agent returns a clear, actionable answer—no technical expertise required.
+
+
+====  Example Use Cases
+
+* *Trace full product lineage* — From supplier to distributor, track how a raw material flows through multiple manufacturing and packaging stages.
+* *Identify single points of failure* — Detect raw materials or APIs that rely on only one supplier, increasing operational risk.
+* *Rank supplier criticality* — Find which suppliers support the widest range of products, making them most critical to business continuity.
+* *Simulate disruption scenarios* — Explore the downstream impact if a specific supplier, location, or material becomes unavailable.
+* *Analyze regional risk exposure* — Understand how supplier or distributor concentration varies by country or market.
+* *Detect circular logistics* — Spot unintended cycles or inefficiencies in your supply chain graph.
+
+
+== Getting Started: Build and Deploy Your Own AI Toolset
+
+=== 1. Prerequisites
+
+* Python 3.8+
+* Access to a Neo4j database with supply chain data
+* Cloud account (or any container platform, e.g., Google Cloud Run) for deployment
+* Generative AI API key (e.g., Google Gemini or OpenAI)
+
+=== 2. Clone the Repository
+
+[source, bash]
+----
+git clone https://github.com/neo4j-product-examples/demo-supply_chain.git
+cd demo-supply_chain
+----
+
+Set environment variables for Neo4j connection in Cloud Run.
+
+=== 3. Explore the Notebook
+
+[source, bash]
+----
+cd walkthrough
+# Open the notebooks in Jupyter or Colab
+----
+
+link:https://github.com/neo4j-product-examples/demo-supply_chain/blob/main/walkthrough/02_Walkthrough_with_AI_Agent.ipynb[02_Walkthrough_with_AI_Agent.ipynb] — Interact with the AI agent and watch it translate natural questions into graph queries.
+
+=== 4. Customize and deploy your own Toolset Service
+
+* Add new tools to `supply_chain_toolset.py` for custom queries.
+* Update the agent prompt or tool descriptions to match your business language.
+
+
+[source, bash]
+----
+cd supply_chain_toolset
+# Build and push the container (edit push.sh for your GCP project)
+./push.sh
+----
+
+
+== Resources
+ 
+Here are some helpful resources and ideas to guide your next steps:
+
+* link:https://neo4j.com/blog/developer/model-context-protocol/[About the Model Context Protocol (MCP)]
+* link:https://neo4j.com/blog/developer/knowledge-graphs-claude-neo4j-mcp[Building Knowledge Graphs With Claude and Neo4j]
