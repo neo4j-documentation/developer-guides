@@ -2,3 +2,5 @@
 *** xref:fraud-demo.adoc[Transaction Graph (Fraud) Demo]
 *** xref:cx-demo.adoc[Customer Graph (CX) Demo]
 *** xref:supply_chain-demo.adoc[Supply Chain (Pharma) Demo]
+**** xref:supply_chain-ai.adoc[Supply Chain Analysis using Genarative AI]
+
