@@ -68,7 +68,7 @@ The key types of entities (also called _labels_) in this graph include:
 
 * *Customer* - an entity such as a person or business that holds one or more accounts at the financial institution
 * *Account* - an account at a financial institution. If the account is at “our” institution (the one that is building the fraud detection graph), then we can call it an “internal” account. Accounts at other institutions can be called “external” accounts. If an external account is an institution located in a designated high-risk jurisdiction, the Account node will also have a *HighRiskJurisdiction* label.
-* *Transaction*s are between two accounts, at least one of which must be internal (after all, we have no visibility into transactions between accounts at other institutions unless one side of the transaction is at our institution).
+* *Transaction* - are between two accounts, at least one of which must be internal (after all, we have no visibility into transactions between accounts at other institutions unless one side of the transaction is at our institution).
 * *Email, PhoneNumber, Address* - these nodes store demographic information for Customers
 
 If you would like to experiment with the data model in https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], you can find a copy of the data model export in model/Neo4j_cypher_workbench_model.json in the copy of the repository
