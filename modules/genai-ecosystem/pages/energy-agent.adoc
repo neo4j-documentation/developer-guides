@@ -15,29 +15,58 @@ The data for this demo comes from a combination of publicly available https://ww
 
 The below walks through creating a graph, configuring NeoConverse with the appropriate tools, and sample questions you can ask to test the resulting agent.
 
+[NOTE]
+====
+**Note: Other Agentic GraphRAG Examples**
+
+This energy example is relatively simple with a very minimal agent.  To see richer end-to-end graph construction and multi-agent workflows, take a look at these examples:
+
+* https://github.com/neo4j-product-examples/neo4j-supplier-graph[Supplier and bill of materials (BOM)]
+* https://github.com/neo4j-product-examples/neo4j-employee-graph[Employee/HR knowledge graph].
+
+Both examples provide deeper insights into building high-quality agents and comprehensive graph construction workflows.  They are a bit more technical, opting for Google's Agent Development Kit (ADK) framework.
+====
+
 == Create the Graph
 
-I am still working on cleaning up a full ingestion workflow from source data.  For now, you can load the data using the following backup file. Simply
+**Prerequisites:**
 
-1. Download https://drive.google.com/file/d/1d9UCR_Clg5KBVaKEqLpoRhtyFSQiVjoU/view?usp=sharing[this Neo4j DB backup file]
-2. Create a Neo4j AuraDB instance at https://console.neo4j.io/ with at least 2GB RAM.  You can use the Aura Pro trial for free.
-3. Import the backup by selecting the instance you just created in the Aura console then select "Backup & Restore" -> "Restore from backup file" and drag and drop the backup
+1. Neo4j Instance: You can create a Neo4j AuraDB instance at https://console.neo4j.io/. You can use the Aura Pro trial for free. During setup, you'll download a credentials file needed for later configuration.
+
+2. https://platform.openai.com/api-keys[OpenAI API key]
+
+**Graph Creation:**
+
+You can create the graph in the above Neo4j DB in a couple of ways:
+
+1. Create the graph from source data files by running the `create-graph.ipynb` notebook in https://github.com/neo4j-product-examples/neo4j-energy-graph[this GitHub repository]. Simply clone the repo, `pip install -r requirements.txt`, and create a `nb.env` file with the appropriate credentials using `nb.env.template` as a reference. Then you can run the entire notebook.
+
+2. Download https://github.com/neo4j-product-examples/neo4j-energy-graph/blob/main/neo4j-energy-graph.backup[this Neo4j DB backup file] and import it into your AuraDB instance by selecting the instance in the Aura console, then select "Backup & Restore" -> "Restore from backup file" and drag and drop the backup. You will see the loading screen below while the database updates.
 
 image::energy-agent-aura-import.png[align=center]
 
-To see a similar  end-to-end structured + unstructured graph construction workflow, take a look at https://github.com/neo4j-product-examples/neo4j-supplier-graph[this supplier and bill of materials (BOM) example] or https://github.com/neo4j-product-examples/neo4j-employee-graph[this example for an employee/HR knowledge graph].
+Both ways will produce the same graph.  The first way will just let you see the ETL & data mapping process from tables and text files.
+
 
 == Configure NeoConverse
 We will use https://neo4j.com/labs/genai-ecosystem/neoconverse/[NeoConverse] to prototype a graphRAG agent.  To set it up with all the right tools:
 
-1. Download the json file https://drive.google.com/file/d/1XTx2glK4i9u-39lmKVboV-JKDZP22LBV/view?usp=sharing[here] and substitute
-    - `<YOUR OPENAI API KEY>` with a valid openai api key.
-    - the connection string `"connection":{"port":"7687","database":"<NEO4J_DATABASE>","host":"<NEO4J_URI>","password":"<NEO4J_PASSWORD>","protocol":"neo4j+s","username":"<NEO4J_USERNAME>"}` with your neo4j credentials from above.
+1. Download the json file https://github.com/neo4j-product-examples/neo4j-energy-graph/blob/main/energy-agent-neoconverse.json[here] and substitute
+    - `<YOUR OPENAI API KEY>` with a valid openai api key (it appears in two places).
+    - the connection json
+            `"connection": {
+            "port": "7687",
+            "database": "neo4j",
+            "host": "xxxxxx.databases.neo4j.io",
+            "password": "<password>",
+            "protocol": "neo4j+s",
+            "username": "neo4j"
+            },` with your neo4j credentials from above.
 2. Go to Neoconverse and open the developer console. In Chrome this is generally
     - `Cmd + Option + J` or `Option + ⌘ + I` on a Mac and
     - `Ctrl + Shift + J` or `F12` on Windows.
 3. in the developer console go to application -> local storage and replace the `AgentDataDict` value with the content of that json file (just copy past in), and reload the page.  If you do not see an `AgentDataDict` go ahead and create one by pressing the "Add Agent" button in the left side-panel, this should make an `AgentDataDict` key-value pair appear.
-4. After this reload the page and you should get an agent to appear in the left side-panel called "ACME Energy Service Assets Analyst".
+4. After this reload the page and you should get an agent to appear in the left side-panel called "Energy Service Analyst".
 
 image::energy-agent-neoconverse.png[align=center]
 
@@ -45,7 +74,7 @@ You should be able to open up the agent details in the left side-panel and look 
 
 1. `search_equipment_maintenance_records`
 2. `get_risky_equipment`
-3. `get_installation_equipments_dependency`
+3. `get_installation_equipment_dependency`
 
 image::energy-agent-tools.png[align=center]
 
@@ -54,7 +83,8 @@ image::energy-agent-tools.png[align=center]
 Below are some sample questions you can ask:
 
 1. Search equipment that presented vibration issues and list and summarize the description. Provide the maintenance history and calculate the average number of days between maintenance. Structure the information in topics. Also, suggest a possible relationship between maintenance and alerts.
-2. Can you develop a maintenance schedule over the next two weeks to address high-risk equipment while minimizing installation disturbance?  Please provide specific dates & times.  It is Feb 18th 2025 today.
+
+2. Can you develop a maintenance schedule over the next two weeks to address high-risk equipment while minimizing installation disturbance? Please provide specific dates, times, and maintenance activities. It is Feb 18th 2025 today.
 
 This should produce responses using the tools configured.  Below is a video with outputs from a previous run:
 ++++
