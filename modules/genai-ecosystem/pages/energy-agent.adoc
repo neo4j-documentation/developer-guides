@@ -35,7 +35,7 @@ Both examples provide deeper insights into building high-quality agents and comp
 
 2. https://platform.openai.com/api-keys[OpenAI API key]
 
-**Graph Creation**
+**Graph Creation:**
 
 You can create the graph in the above Neo4j DB in a couple of ways:
 
