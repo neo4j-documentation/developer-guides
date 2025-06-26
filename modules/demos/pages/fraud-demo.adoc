@@ -85,11 +85,6 @@ The dashboard is saved in the database backup that you restored in the previous 
 
 image::open_dashboard.png[align="center"]
 
-The dashboard is saved in the database backup that you restored in the previous step, so to run the dashboard, simply visit https://neodash.graphapp.io/[https://neodash.graphapp.io/],  click _Existing Dashboard_, and provide the credentials and connection details for your database:
-
-image::connect.png[align="center"]
-
-
 === Navigating the Dashboard
 
 The dashboard has three pages, one for each of the patterns. Each page also has two panes called _Reports_; each report displays the results from a Cypher query. You can see the underlying query by clicking the settings button (3 dots) in the upper right corner of the report. +
