@@ -31,7 +31,9 @@ To run these examples, you will need the following:
 
 == Setting Up
 1. Ensure you have a Neo4j AuraDB instance running. If you are new to AuraDB, create an account https://console.neo4j.io/?action=signup&product=aura-db[here], then click Create Instance. You can select any of the instance types:
+ 
 image::create_aura_instance.png[align="center"]
+
 Be sure to save the credentials to log in to your database instance. Wait for the instance status to reach “RUNNING” before proceeding to the next step.
 
 2. Clone the git repository from https://github.com/neo4j-product-examples/demo-fraud[https://github.com/neo4j-product-examples/demo-fraud]
