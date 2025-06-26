@@ -71,6 +71,16 @@ image::mcptoolset-neo4j.png[align="center", width=800]
 * *Detect circular logistics* — Spot unintended cycles or inefficiencies in your supply chain graph.
 
 
+=== See It in Action
+
+An analyst asks: *_“Are there cyclic movements in the shipping of Nabitegrpultide?”_* The AI agent:
+
+. *Understands the intent* behind the natural language question.  
+. *Discovers the appropriate tool* via MCPService (in this case _/logistics_optimization_ tool) designed to detect cycles in supply chain flows.  
+. *Invokes the tool’s API*, passing key parameters (such as the product name) to execute the underlying graph query.
+
+image::logistics-question.png[align="center", width=800]
+
 == Getting Started: Build and Deploy Your Own AI Toolset
 
 === 1. Prerequisites
