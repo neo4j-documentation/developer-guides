@@ -8,6 +8,12 @@ include::_graphacademy_llm.adoc[]
 :page-pagination:
 :page-product: supplier-graph
 
+[.right]
+link:https://github.com/neo4j-product-examples/demo-supply_chain[icon:github[] GitHub Repo^]
+
+[.right]
+link:https://console.neo4j.io[icon:database[] Launch AuraDB^]
+
 == Why This Matters for Analysts
 
 Modern supply chains are dynamic, global, and deeply interconnected. Traditional analytics often require manual data wrangling or deep technical skills—and struggle to keep pace with business questions.
