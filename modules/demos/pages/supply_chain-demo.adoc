@@ -8,6 +8,12 @@ include::_graphacademy_llm.adoc[]
 :page-pagination:
 :page-product: supplier-graph
 
+[.right]
+link:https://github.com/neo4j-product-examples/demo-supply_chain[icon:github[] GitHub Repo^]
+
+[.right]
+link:https://console.neo4j.io[icon:database[] Launch AuraDB^]
+
 == Introduction
 
 *Supply chains* are among the most complex and regulated systems in the world. They span raw material suppliers, manufacturers, logistics providers, and distributors — all tightly interwoven and dependent on reliable, traceable flows.
