@@ -105,7 +105,7 @@ The key types of entities (also called _labels_) in this graph include:
 
 * *Customer* - Customers who purchase from us
 * *Order, OrderLineItem* - Customer orders and the line items in the order
-* *Product - *Products we sell to our customers
+* *Product* - Products we sell to our customers
 * *Country* - Countries where our customers are located
 * *Phone, Identifier, EmailAddress* - Identifiers associated with our customers
 
