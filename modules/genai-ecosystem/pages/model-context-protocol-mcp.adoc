@@ -266,7 +266,7 @@ Backup & Aura Upload:
 image::https://dist.neo4j.com/wp-content/uploads/mcp-neo4j-sandbox-list-create.png[width=400]
 image::https://dist.neo4j.com/wp-content/uploads/mcp-neo4j-sandbox-get-schema.png[width=400]
 
-== Google MCP Toolbox 
+== Google MCP Toolbox
 
 https://googleapis.github.io/genai-toolbox/getting-started/mcp_quickstart/[Google's MCP Toolbox for Database^] is an https://github.com/googleapis/genai-toolbox[open source tool^] to integrate a variety of databases as sources for agentic systems. 
 
