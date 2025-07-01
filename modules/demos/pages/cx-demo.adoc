@@ -111,6 +111,14 @@ The key types of entities (also called _labels_) in this graph include:
 
 If you would like to experiment with the data model in https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], you can find a copy of the data model export in model/Customers_model.json in the copy of the repository
 
+== How to Use This Demo
+
+Neo4j provides tools to work with data in its graph database; these tools include a query tool for running queries and algorithms, an explore tool for interactively visualizing data, as well as drivers and connectors that enable you to work with graph data using various programming languages and third party tools.
+
+For this demonstration, we will be using Jupyter Notebooks as our query and visualization tool. Jupyter Notebooks give us a way to intersperse documentation blocks that provide explanations and instructions for the steps of the demo with code blocks containing Python code that interacts with the Neo4j database (including executing graph analytics algorithms). This approach will enable you to read the step-by-step instructions and execute the code examples without switching back-and forth between different windows or copy/pasting code snippets.
+
+You can also use the Query/Explore tools in the AuraDB console to execute the queries and algorithms by manually copying/pasting the queries or Graph Analytics procedure calls from the notebooks into the Aura console tools.
+ 
 == Graphs for CX
 
 This demonstration consists of three scenarios, each of which has its own Jupyter notebook that walks through the scenario. The three scenarios are:
