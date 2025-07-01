@@ -234,7 +234,7 @@ image::https://dist.neo4j.com/wp-content/uploads/mcp-data-modeling-claude-data-m
 
 === MCP-Sandbox
 
-The https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-sandbox-api[mcp-neo4j-sandbox-api^] server provides tools for managing https://sandbox.neo4j.com[Neo4j Sandboxes^] instances directly from your development environment. This server simplifies the development workflow by allowing you to programmatically control your sandboxes.
+The https://github.com/neo4j-contrib/sandbox-mcp-server[sandbox-mcp-server^] server provides tools for managing https://sandbox.neo4j.com[Neo4j Sandboxes^] instances directly from your development environment. This server simplifies the development workflow by allowing you to programmatically control your sandboxes.
 
 A key feature of this MCP server is the ability to not only manage the lifecycle of sandboxes (creating, terminating, extending) but also to directly interact with the data inside them. You can retrieve the database schema and execute both read and write Cypher queries on any of your running sandbox instances. This is particularly useful for rapid prototyping, testing, and data exploration without leaving your IDE.
 
