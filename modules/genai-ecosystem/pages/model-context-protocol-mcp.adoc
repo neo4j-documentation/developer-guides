@@ -239,31 +239,34 @@ The https://github.com/neo4j-contrib/sandbox-mcp-server[sandbox-mcp-server^] ser
 A key feature of this MCP server is the ability to not only manage the lifecycle of sandboxes (creating, terminating, extending) but also to directly interact with the data inside them. You can retrieve the database schema and execute both read and write Cypher queries on any of your running sandbox instances. This is particularly useful for rapid prototyping, testing, and data exploration without leaving your IDE.
 
 Instance & User Management:
-* `start_new_sandbox`: Creates a new sandbox instance for a specific use case.
-* `list_sandboxes_for_user`: Lists all active sandboxes for the user.
-* `terminate_sandbox`: Deletes a sandbox instance.
-* `get_sandbox_connection_details`: Retrieves connection details for a sandbox.
-* `extend_sandbox_lifetime`: Extends the lifetime of a sandbox.
-* `invite_sandbox_collaborator`: Invites a collaborator to a sandbox.
-* `get_user_information`: Retrieves information for the authenticated user.
+
+* `start_new_sandbox` - Creates a new sandbox instance for a specific use case.
+* `list_sandboxes_for_user` - Lists all active sandboxes for the user.
+* `terminate_sandbox` - Deletes a sandbox instance.
+* `get_sandbox_connection_details` - Retrieves connection details for a sandbox.
+* `extend_sandbox_lifetime` - Extends the lifetime of a sandbox.
+* `invite_sandbox_collaborator` - Invites a collaborator to a sandbox.
+* `get_user_information` - Retrieves information for the authenticated user.
 
 Data Interaction:
-* `get_schema`: Fetches the graph schema from a sandbox.
-* `read_query`: Executes a read-only Cypher query.
-* `write_query`: Executes a write Cypher query.
+
+* `get_schema` - Fetches the graph schema from a sandbox.
+* `read_query` - Executes a read-only Cypher query.
+* `write_query` - Executes a write Cypher query.
 
 Backup & Aura Upload:
-* `request_sandbox_backup`: Requests a backup for a sandbox.
-* `list_sandbox_backups`: Lists available backups for a sandbox.
-* `get_backup_result`: Retrieves the result of a backup task.
-* `get_sandbox_backup_download_url`: Gets a download URL for a backup file.
-* `upload_sandbox_to_aura`: Uploads a sandbox backup to an Aura instance.
-* `get_aura_upload_result`: Retrieves the result of an Aura upload task.
+
+* `request_sandbox_backup` - Requests a backup for a sandbox.
+* `list_sandbox_backups` - Lists available backups for a sandbox.
+* `get_backup_result` - Retrieves the result of a backup task.
+* `get_sandbox_backup_download_url` - Gets a download URL for a backup file.
+* `upload_sandbox_to_aura` - Uploads a sandbox backup to an Aura instance.
+* `get_aura_upload_result` - Retrieves the result of an Aura upload task.
 
 image::https://dist.neo4j.com/wp-content/uploads/mcp-neo4j-sandbox-list-create.png[width=400]
 image::https://dist.neo4j.com/wp-content/uploads/mcp-neo4j-sandbox-get-schema.png[width=400]
 
-== Google MCP Toolbox 
+== Google MCP Toolbox
 
 https://googleapis.github.io/genai-toolbox/getting-started/mcp_quickstart/[Google's MCP Toolbox for Database^] is an https://github.com/googleapis/genai-toolbox[open source tool^] to integrate a variety of databases as sources for agentic systems. 
 
