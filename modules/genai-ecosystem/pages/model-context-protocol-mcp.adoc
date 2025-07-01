@@ -245,8 +245,6 @@ Instance & User Management:
 * `terminate_sandbox` - Deletes a sandbox instance.
 * `get_sandbox_connection_details` - Retrieves connection details for a sandbox.
 * `extend_sandbox_lifetime` - Extends the lifetime of a sandbox.
-* `invite_sandbox_collaborator` - Invites a collaborator to a sandbox.
-* `get_user_information` - Retrieves information for the authenticated user.
 
 Data Interaction:
 
