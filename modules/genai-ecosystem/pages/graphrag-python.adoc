@@ -219,6 +219,13 @@ image::https://dist.neo4j.com/wp-content/uploads/20241128072906/Bildschirmfoto-2
 | icon:github[] Issues | https://github.com/neo4j/neo4j-graphrag-python/issues
 |===
 
+== Highlighted Articles
+
+* https://neo4j.com/blog/graphrag-python-package/[GraphRAG Python Package: Accelerating GenAI With Knowledge Graphs^]
+* https://neo4j.com/blog/developer/get-started-graphrag-python-package/[Getting Started With the Neo4j GraphRAG Python Package^]
+* https://neo4j.com/blog/developer/graph-traversal-graphrag-python-package/[Vector Search With Graph Traversal the Using Neo4j GraphRAG Package^]
+* https://neo4j.com/blog/developer/hybrid-retrieval-graphrag-python-package/[Hybrid Retrieval Using the Neo4j GraphRAG Package for Python^]
+* https://neo4j.com/blog/developer/enhancing-hybrid-retrieval-graphrag-python-package/[Enhancing Hybrid Retrieval With Graph Traversal: Neo4j GraphRAG Python^]
 
 == Videos & Tutorials
 
@@ -230,10 +237,7 @@ image::https://dist.neo4j.com/wp-content/uploads/20241128072906/Bildschirmfoto-2
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OALrsghrP_I?si=Yw08z6fiCp3y_L0j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ++++
 
-== Highlighted Articles
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UmP0pFFsMsE?si=u8_8QSi5q-PohNx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
 
-* https://neo4j.com/blog/graphrag-python-package/[GraphRAG Python Package: Accelerating GenAI With Knowledge Graphs^]
-* https://neo4j.com/developer-blog/get-started-graphrag-python-package/[Getting Started With the Neo4j GraphRAG Python Package^]
-* https://neo4j.com/developer-blog/graph-traversal-graphrag-python-package/[Vector Search With Graph Traversal the Using Neo4j GraphRAG Package^]
-* https://neo4j.com/developer-blog/hybrid-retrieval-graphrag-python-package/[Hybrid Retrieval Using the Neo4j GraphRAG Package for Python^]
-* https://neo4j.com/developer-blog/enhancing-hybrid-retrieval-graphrag-python-package/[Enhancing Hybrid Retrieval With Graph Traversal: Neo4j GraphRAG Python^]
