@@ -18,6 +18,8 @@ The MCP architecture consists of the *MCP Host* program which can be configured 
 
 If you want to dive deeper, here is a https://neo4j.com/blog/developer/model-context-protocol/[comprehensive overview with explanations and examples with Neo4j^].
 
+image::https://cdn.graphacademy.neo4j.com/assets/img/courses/banners/genai-mcp-neo4j-tools.png[width=800,link="https://graphacademy.neo4j.com/courses/genai-mcp-neo4j-tools/"]
+
 Whenever a user (or agent) requests in an interaction some task that could be executed by or through using a MCP Server capability, the LLM will select the tool, extract parameters and invoke the tool through an *MCP Client* connected to the MCP Server.
 
 image::https://dist.neo4j.com/wp-content/uploads/20250401141320/mcp-architecture-neo4j-e1743543257487.png[]
