@@ -234,6 +234,29 @@ Cypher Ingest
 image::https://dist.neo4j.com/wp-content/uploads/mcp-data-modeling-claude-data-discovery.png[width=400]
 image::https://dist.neo4j.com/wp-content/uploads/mcp-data-modeling-claude-data-model-1-viz.png[width=400]
 
+=== MCP-Neo4j-GDS
+
+The Neo4j Graph Data Science Server (https://github.com/neo4j-contrib/gds-agent[GDS-Agent]) provides GDS algorithms as tools.
+
+This allows users to ask questions that require nontrivial reasoning with graph algorithms.
+An LLM equipped with the GDS agent will find and execute the correct algorithms with appropriate parameters.
+
+An example where an LLM with GDS Agent is able to pick shortest path and Yen's algorithm (and with small k=3) to answer a question about travel planning for a map in the Neo4j database:
+
+image::gds-agent-london-underground-example.png[]
+
+It currently support a large set of GDS algorithms, including:
+
+* `Centrality algorithms`: Article Rank, Articulation Points, Betweenness Centrality, Bridges, CELF, Closeness Centrality,
+Degree Centrality, Eigenvector Centrality, PageRank, Harmonic Centrality, HITS
+* `Path algorithms`: Dijkstra's Shortest Path, Delta Stepping Shortest Path, Dijsktra's Single Source Shortest Path,
+A-Star, Yen's, Minimum Weight Spanning Tree, Minimum Weight k-Spanning Tree, Minimum Directed Steiner Tree, Prize Collecting Steiner Tree, All Pairs Shortest Path, Random Walk, BFS, DFS, Bellman-Ford Single Source Shortest Path, Longest Path
+* `Community detection algorithms`: Conductance, HDBSCAN, K-Core Decomposition, K-1 Coloring, K-Means Clustering,
+Label Propagation, Leiden, Local Clustering Coefficient, Louvain, Modularity Metric, Modularity Optimization, Strongly Connected Component, Triangle Count, Weakly Connected Component, Approximate Maximum K-Cut, Speaker-Listener Label Propagation
+* `Similarity algorithms`: Node similarity, Filtered Node Similarity, K-Nearest Neighbors, Filtered K-Nearest Neighbors
+
+For full documentation and instructions, please refer to the repository: https://github.com/neo4j-contrib/gds-agent
+
 === MCP-Sandbox
 
 The Sandbox MCP Server (https://mcp.sandbox.neo4j.com/sse) server provides tools for managing https://sandbox.neo4j.com[Neo4j Sandboxes^] instances directly from your development environment. This server simplifies the development workflow by allowing you to programmatically control your sandboxes.
