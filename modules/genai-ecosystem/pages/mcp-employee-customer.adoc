@@ -9,101 +9,103 @@ include::_graphacademy_llm.adoc[]
 :page-product: mcp-employee-customer
 
 image::mcp-customer-employee.png[align=center]
-This is a context engineering example demonstrating how to create intelligent agents across multiple business domains with graph databases and model context protocol (MCP).  Graph Databases represent context & associated metadata in an optimal matter, enabling agents to better decompose tasks and use mcp servers to execute intelligent workflows across multiple data sources.
-GraphRAG is involved in this process - as tools focus on graph retrieval, but think of graph context as a sort of meta-GraphRAG process. We aren't just telling agents how to retrieve data, we are guiding them over how to reason about what context to use.
+This is a context engineering example demonstrating how to create intelligent agents across multiple business domains with graph databases and model context protocol (MCP).  Graph Databases represent context & associated metadata in an optimal manner, enabling agents to better decompose tasks and use MCP servers to execute intelligent workflows across multiple data sources.
+GraphRAG is involved in this process, as tools focus on graph retrieval, but think of graph context as a sort of meta-GraphRAG process. We aren't just telling agents how to retrieve data; we are guiding them on how to reason about what tools, metadata, and queries (a.k.a context) to use.
 
 In this specific example, we work with a knowledge assistant that can help with
 
 1. **Employees & talent:** Skills analysis, talent search, and team formation
 2. **Customer experience:** Analyze & understand customer purchasing behavior & journeys. Specifically for a retail store in this example.
-3. **Identifying risks & making recommendations:** Putting the above together to understanding opportunities, costs, and make project and resourcing recommendations to improve ROI, reduce churn, etc.
+3. **Identifying risks & making recommendations:** Putting the above together to understand opportunities, costs, and make project and resourcing recommendations to improve ROI, reduce churn, etc.
 
-== Graph & MCP Server Setup
+== Setup
 
-The Setup for this example is split into 2 steps:
+The setup for this example is split into 2 steps:
 
 1. Graph & MCP Server Setup
 2. MCP Client Configuration
 
 === Graph & MCP Server Setup
-For this example, you will need to setup 2 knowledge graphs, and we will use the below two separate projects for the respective graphs:
-
+For this example, you will need to set up 2 knowledge graphs using the two separate projects below:
 
 1. https://github.com/neo4j-product-examples/neo4j-employee-graph/tree/mcp-toolbox[Employee Graph]
 2. https://github.com/neo4j-product-examples/demo-cx/tree/mcp-example/mcp-tools-subgraph[Customer Graph]
 
+While these demos were built separately, not under the assumption they come from the same company, we will treat them as if they do here to demonstrate how this works over multiple domains.
 
-For each graph you will need a respective Neo4j database.  You can create Neo4j AuraDB instances at https://console.neo4j.io/. You can use the Aura Pro free trial for the customer graph and Aura free for the employee graph. During setup, you'll download a credentials file needed for later configuration. **Remember to make 2 databases**.
+For each graph, you will need a respective Neo4j database.  You can create Neo4j AuraDB instances at https://console.neo4j.io/. You can use the Aura Pro Free Trial for the customer graph and Aura Free for the employee graph. During setup, you'll download a credentials file needed for later configuration. **Remember to make 2 databases**.
 
-After this you can do  the following:
+After this, you can do the following:
 
 1. For the Employee graph, run the 4 module notebooks in order (modules 1, 2, 3 & 4) from https://github.com/neo4j-product-examples/neo4j-employee-graph/tree/mcp-toolbox[this GitHub repo branch]. See the directions for deploying MCP Toolbox at the end of the module 4 notebook as well.
 
-2. For the Customer graph, see the readme in https://github.com/neo4j-product-examples/demo-cx/tree/mcp-example/mcp-tools-subgraph[this GitHub repo branch] for instructions.  You will run a notebook and some similar scripts to get MCP Toolbox servers deployed.
-
+2. For the Customer graph, see the readme in https://github.com/neo4j-product-examples/demo-cx/tree/mcp-example/mcp-tools-subgraph[this GitHub repo branch] for instructions.  You will run a notebook and some similar scripts to deploy MCP Toolbox servers.
 
 === MCP Client Configuration
-You will leverage 4 MCP servers for this example. You can use any https://modelcontextprotocol.io/clients[MCP client], but here we will assume [https://claude.ai/downloadClaude Desktop] for which you would use the below configuration. See https://modelcontextprotocol.io/quickstart/user#installing-the-filesystem-server[MCP Desktop instructions] for more details on how to set this up. Other client configurations will vary, please see their associated docs.
+You will leverage 4 MCP servers for this example, which were configured above in the respective repos. You can use any https://modelcontextprotocol.io/clients[MCP client], but here we will assume [https://claude.ai/downloadClaude Desktop] for which you would use the below configuration. See https://modelcontextprotocol.io/quickstart/user#installing-the-filesystem-server[MCP Desktop instructions] for more details on how to set this up. Other client configurations may vary; please refer to their associated documentation.
 [source,json]
 ----
 {
-  "mcpServers": {
-    "employee-cypher": {  <1>
-      "command": "uvx",
-      "args": [
-        "mcp-neo4j-cypher"
-      ],
-      "env": {
-        "NEO4J_URI":"neo4j+s://xxxxxxxx.databases.neo4j.io",
-        "NEO4J_USERNAME":"neo4j",
-        "NEO4J_PASSWORD": "xxxxxxxxxxxx"
-      }
-    },
-    "employee-tools": {  <2>
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://employee-toolbox-xxxxxxxxxxxx.us-central1.run.app/mcp"
-      ]
-    },
-    "customer-cypher": { <3>
-      "command": "uvx",
-      "args": [
-        "mcp-neo4j-cypher"
-      ],
-      "env": {
-        "NEO4J_URI":"neo4j+s://xxxxxxxx.databases.neo4j.io",
-        "NEO4J_USERNAME":"neo4j",
-        "NEO4J_PASSWORD": "xxxxxxxxxxxx"
-      }
-    },
-    "customer-tools": { <4>
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://customer-toolbox-xxxxxxxxxxxx.us-central1.run.app/mcp"
-      ]
-    }
-  }
+ "mcpServers": {
+   "employee-cypher": {  <1>
+     "command": "uvx",
+     "args": [
+       "mcp-neo4j-cypher"
+     ],
+     "env": {
+       "NEO4J_URI":"neo4j+s://xxxxxxxx.databases.neo4j.io",
+       "NEO4J_USERNAME":"neo4j",
+       "NEO4J_PASSWORD": "xxxxxxxxxxxx"
+     }
+   },
+   "employee-tools": {  <2>
+     "command": "npx",
+     "args": [
+       "mcp-remote",
+       "https://employee-toolbox-xxxxxxxxxxxx.us-central1.run.app/mcp"
+     ]
+   },
+   "customer-cypher": { <3>
+     "command": "uvx",
+     "args": [
+       "mcp-neo4j-cypher"
+     ],
+     "env": {
+       "NEO4J_URI":"neo4j+s://xxxxxxxx.databases.neo4j.io",
+       "NEO4J_USERNAME":"neo4j",
+       "NEO4J_PASSWORD": "xxxxxxxxxxxx"
+     }
+   },
+   "customer-tools": { <4>
+     "command": "npx",
+     "args": [
+       "mcp-remote",
+       "https://customer-toolbox-xxxxxxxxxxxx.us-central1.run.app/mcp"
+     ]
+   }
+ }
 }
 ----
 <1> `employee-cypher`: Enables the client (AI agent) to get the schema and execute its own Cypher (graph queries) against the employee graph
-<2> `employee-tools`: Provides specific Cypher templates to the AI agent. Think of these as expert crafted tools for finding similarities and summaries of employees and talent which can accept arguments/parameters from the agent (such as employee names, skill types, domains, etc. )
+<2> `employee-tools`: Provides specific Cypher templates to the AI agent. Think of these as expert-crafted tools for finding similarities and summaries of employees and talent, which can accept arguments/parameters from the agent (such as employee names, skill types, domains, etc. )
 <3> `customer-cypher`: Like `employee-cypher` enables the client (AI agent) to get the schema and execute its own Cypher (graph queries) against the customer graph.
-<4> `customer-tools`: Similar to `employee-tools` provides specific Cypher templates to the AI agent but to access the customer graph.
+<4> `customer-tools`: Similar to `employee-tools`, provides specific Cypher templates to the AI agent but to access the customer graph.
 
 
 the `*-cypher` servers use the already available https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-cypher[`mcp-neo4j-cypher`].
 
-The `*-tool` servers use Google MCP Toolbox to create servers with parameterized Cypher templates. The code for doing so is located in the respective repositories below
-
+The `*-tool` servers come from https://neo4j.com/blog/developer/ai-agents-gen-ai-toolbox/[Google MCP Toolbox] to create servers with parameterized Cypher templates. These were covered and created in the above sections in each respective repository.
 
 == Sample Questions
 
-Below are some sample questions you can ask via Claude Desktop or your chosen client
+Below are some sample questions you can ask via Claude Desktop or your chosen client:
 
-1. Can you summarize my technical talent and skills distribution?  Feel free to include simple graphics.
+1. How many of our employees are familiar with Python?
 
-2. Let's switch focus to our customers.  Can you tell me about my customer purchase patterns and segments? What does my churn risk look like? Feel free to include simple graphics.
+2. Who is most similar to Lucas Martinez and why?
 
-3. Who from our team can I put on this to figure out the right type of outreach? Can you write a brief project proposal?
+3. Can you summarize my technical talent and skills distribution?  Feel free to include simple graphics.
+
+4. Let's switch focus to our customers.  Can you tell me about my customer purchase patterns and segments? What does my churn risk look like? Feel free to include simple graphics.
+
+5. Who from our team can I put on this to figure out the right type of outreach? Can you write a brief project proposal?
