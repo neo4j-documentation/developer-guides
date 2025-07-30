@@ -310,6 +310,8 @@ The Neo4j Integration was added early in Dec 2024, and provides
 
 * https://googleapis.github.io/genai-toolbox/resources/sources/neo4j/[Neo4j Source^]
 * https://googleapis.github.io/genai-toolbox/resources/tools/neo4j-cypher/[Neo4j Cypher Tools^]
+* https://googleapis.github.io/genai-toolbox/resources/tools/neo4j/neo4j-execute-cypher/[Neo4j Execute Cypher^]
+* https://googleapis.github.io/genai-toolbox/resources/tools/neo4j/neo4j-schema/[Neo4j Schema^]
 
 image::https://dist.neo4j.com/wp-content/uploads/20250415081953/mcp-toolbox-tools.png[]
 image::https://dist.neo4j.com/wp-content/uploads/20250415082753/mcp-server-toolkit-inspector.png[]
