@@ -1,4 +1,4 @@
-= Model Context Protocol (MCP) Integrations for Neo4j
+= Model Context Protocol (MCP) Integrations for the Neo4j Graph Database
 // include::_graphacademy_llm.adoc[]
 :slug: model-context-protocol-mcp
 :author: Michael Hunger
