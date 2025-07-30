@@ -235,6 +235,8 @@ Cypher Ingest
 image::https://dist.neo4j.com/wp-content/uploads/mcp-data-modeling-claude-data-discovery.png[width=400]
 image::https://dist.neo4j.com/wp-content/uploads/mcp-data-modeling-claude-data-model-1-viz.png[width=400]
 
+You can learn more about the Data Modeling MCP Server and how it can be integrated with the Cypher MCP Server in https://neo4j.com/blog/developer/neo4j-data-modeling-mcp-server/[this article^].
+
 === MCP-Neo4j-GDS
 
 The Neo4j Graph Data Science Server (https://github.com/neo4j-contrib/gds-agent[GDS-Agent]) provides GDS algorithms as tools.
