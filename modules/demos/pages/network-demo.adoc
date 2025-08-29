@@ -1,0 +1,88 @@
+= Neo4j Network and Security Demo
+include::_graphacademy_llm.adoc[]
+:slug: network-graph
+:author: John Stegeman
+:category: demos
+:tags:
+:neo4j-versions: 5.x
+:page-pagination:
+:page-product: network-graph
+
+== Introduction
+
+Security breaches are rarely caused by a single vulnerability. More often, attackers exploit the complexity of modern environments, where users, systems, and data are deeply interconnected. Permissions overlap, roles evolve, and infrastructure spreads across multiple clouds. This interconnected sprawl creates gaps that are difficult to detect and easy to exploit.
+
+IT infrastructure today operates as a dynamic, layered system where changes in one area can quickly impact others. Users, devices, services, and policies constantly evolve and intersect, creating environments that are harder to trace and secure. A single user might have access to dozens of systems through different identity providers, roles, and permissions. A vulnerability in a shared library might affect multiple apps across departments. A misconfigured network setting could expose critical data without anyone realizing it.
+
+Storing networy and security information in an interconnected graph captures the important relationships between components, enabling use cases such as:
+
+* Identity and access 360
+* Identity resolution
+* Reputation scoring
+* Threat detection
+* Zero trust
+* Blast radius analysis and containment
+* Adaptive access control
+* Dependency modeling and management
+* Hierarchy management and policy propagation
+* Incident investigation and response
+
+=== The Challenges of Legacy Approaches
+
+Relational databases and traditional security tools were designed for structured records, not relationships. They struggle to model complex connections between users, devices, software, and policies. Answering even simple security questions often means writing long JOIN-heavy queries, building brittle scripts, or exporting data for manual analysis.
+
+This becomes a problem when time is critical. During an incident, teams need to know what’s at risk, not spend hours parsing logs or correlating spreadsheets. And when infrastructure changes, static models fail to keep up, leaving gaps in visibility and delaying response.
+
+Legacy tools were not built to track how systems are interconnected or how access is inherited across layers of identity and permissions. Attempts to model this using traditional structures become unwieldy, especially when dealing with nested groups, shared components, or third-party dependencies.
+
+Multi-level queries often underperform at scale, making it difficult to analyze environments with thousands of assets, identities, and connections. This leads teams to rely on partial views or offline analysis, increasing the risk of blind spots during high-stakes scenarios. Teams need a model that mirrors how infrastructure actually operates: flexible, relational, and constantly changing. Without it, they’re left reacting to incidents instead of anticipating them.
+
+=== What You Will Learn
+
+This demonstration shows how to use Neo4j graph database to trace the impact of network vulnerabilities; in it, you will learn:  
+
+* How to set up a Neo4j AuraDB instance with sample data
+
+* Understanding a starter graph data model for modeling a network and identifying the impact of vulnerabilities
+
+* Sample queries for analyzing network vulnerabilities and clusters of suspicious devices. You will see how to use the queries to create a comprehensive interactive dashboard
+
+== Prerequisites
+
+To run these examples, you will need the following:
+
+1. Web browser and Internet access.
+2. A Neo4j https://neo4j.com/product/auradb/[AuraDB] database instance. These examples will run on any tier, including the Free and Professional tiers (including the free trial). You can sign up for AuraDB https://console.neo4j.io/?action=signup&product=aura-db[here]. Following the instructions in this demo will replace the data in your database instance, so be sure to back up any data you do not want to lose; alternatively, you can create a fresh instance to use.
+3. (Optional, but recommended) git client software to download the demo assets.
+4. Optional: a local setup of https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], if you want to experiment with tools for editing the data model.
+
+== Setting Up
+1. Ensure you have a Neo4j AuraDB instance running. If you are new to AuraDB, create an account https://console.neo4j.io/?action=signup&product=aura-db[here], then click Create Instance. You can select any of the instance types:
+ 
+image::create_aura_instance.png[align="center"]
+
+Be sure to save the credentials to log in to your database instance. Wait for the instance status to reach “RUNNING” before proceeding to the next step.
+
+2. Clone the git repository from https://github.com/neo4j-product-examples/demo-fraud[https://github.com/neo4j-product-examples/demo-network]
+[source, bash]
+----
+git clone https://github.com/neo4j-product-examples/demo-network.git
+----
+Alternatively, you can use the “download ZIP” option on GitHub to download a copy.
+[start=3]
+3. Using the “3 dots” menu in the Aura console, select Backup & Restore
+
+image::restore_database.png[align="center"]
+[start=4]
+4. Use either the Browse button or drag-and-drop to find the dump file in the dump directory of the git repository you cloned in step 2.
+
+image::backup_file_network.png[align="center"]
+
+[start=5]
+5. Review the warning about replacing your instance data and proceed when you are ready:
+
+image::confirmation_network.png[align="center"]
+[start=6]
+6. You are ready to run the examples when your database instance reaches the “RUNNING” state.
+
+== The Graph Data Model

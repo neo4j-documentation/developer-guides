@@ -3,4 +3,4 @@
 *** xref:cx-demo.adoc[Customer Graph (CX) Demo]
 *** xref:supply_chain-demo.adoc[Supply Chain (Pharma) Demo]
 **** xref:supply_chain-ai.adoc[Supply Chain Analysis using Generative AI]
-
+*** xref:network-demo.adoc[Network Demo]
