@@ -86,3 +86,108 @@ image::confirmation_network.png[align="center"]
 6. You are ready to run the examples when your database instance reaches the “RUNNING” state.
 
 == The Graph Data Model
+
+The figure below shows the data model used to illustrate the CX concepts: 
+
+image::network_model.svg[align="center"]
+
+The key types of entities (also called _labels_) in this graph include:
+
+* *Device* - Different devices that are on the WiFi Network. These devices can be access points, wifi clients (e.g. laptops, tablets, and phones), wifi bridges, etc.
+* *Snapshot* - A snapshot of a particular Device captured at a point in time.
+* *SSID* - A service set identifier for a WiFi network
+* *SSID_Snapshot* - A snapshot of a particular SSID captured at a point in time
+* *Security_Posture, Signal, Mobility, Performance* - Additional information captured as part of the snapshots
+
+This data represents information captured by scanning wifi information at a company location that suffered a cyberattack that was initiated through the company's visitor WiFi network. In this demo, you will see how you can use the graph to:
+
+* Understand connections between wifi devices and access points
+* Investigate anomalous behaviors, such as rogue devices
+* Uncover patterns that signal potential security threats
+
+If you would like to experiment with the data model in https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], you can find a copy of the data model export in model/network_model.json in the copy of the repository
+
+== Investigating the Network
+
+This demonstration uses https://neo4j.com/labs/neodash/[NeoDash] to show various scenarios using the sample dataset. The scenarios we will walk through include:
+
+* Investigating the WiFi clients and the history of their snapshots to see their activity trends and look for suspicious behavior
+* Using Graph Data Science to uncover clusters of suspicous devices
+
+The dashboard is saved in the database backup that you restored in the previous step, so to run the dashboard, simply visit https://neodash.graphapp.io/[https://neodash.graphapp.io/],  click Existing Dashboard, and provide the credentials and connection details for your database:
+
+image::open_dashboard.png[align="center"]
+
+=== Navigating the Dashboard
+
+The dashboard has eight pages - we will look at three of them in detail for this demo. When you first open the dashboard, you will see a summary of the database - including the data mode and metrics such as the total number of nodes, relationships, and properties:
+
+image::dash_network_overview.png[align="center"]
+
+Each dashboard page is composed of rectangular sections called "reports." You can view the details (such as the underlying query) by clicking the 3-dots "kebab" menu in the upper-right corner of the report.
+
+==== Investigating WiFi clients
+
+Click the "Client Overview" tab to select that report. This report displays 4 reports, showing the total number of WiFi clients, a breakdown by manufacturer, a selectable list of clients with snapshots, and a visual representation of the selected client together with its snapshots and associated signal information:
+
+image::dash_network_clients.png[align="center"]
+
+Try exploring different WiFi clients by clicking a ClientCanonicalName in the Details report; when you click, the Client Journey report will update to show you the snapshots their signal information for the selected client. To see how the reports are built. let's look at the queries behind the Details and Client Journey reports. You can see the queries by clicking the 3-dots at the upper-right corner of the report.
+
+The Details report uses this Cypher query to return tabular information:
+
+[source,cypher]
+----
+MATCH (cli:Client)-[:LAST]->(snap:Snapshot)-[:SIGNAL]->(cs:Signal)
+WITH cli.cname as ClientCanonicalName, cli.key as ClientKey, cli.manufac as Manufacturer, snap.lbssid as LastBSSID, 
+    cs.max as SignalStrength, snap.timestamp as LastSnapshotTimeStamp, cli as cli
+MATCH(cli)-[:FIRST]->(:Snapshot)-[r:NEXT*]->()
+RETURN ClientCanonicalName ,ClientKey,Manufacturer,LastBSSID,SignalStrength, count(r)+1 as TotalSnapshots,LastSnapshotTimeStamp
+----
+
+There are two main parts to the query. The first part finds clients and their last snapshot together with its associated signal information. This ensures that we only return clients for which we have snapshots. The second part matches the client together with all of its snapshots (found by traversing the FIRST and NEXT relationships between snapshots). Finally, the query returns the detail information from the client, a count of the snapshots for the client, the time of the last snapshot. and the last SSID the client connected to. When you click on one of the clients in this report, NeoDash sets a parameter to the client name of the selected client so that the Client Journey report can show the details.
+
+The Client Details report uses a simple Cypher query and displays the results as a graph:
+
+[source,cypher]
+----
+MATCH path = (:Client {cname:$neodash_clientName})-[:FIRST]->
+    (c1:Snapshot)-[r:NEXT*]->()-[:SIGNAL]-(),
+    path2= (c1)-[:SIGNAL]-() 
+return *
+----
+
+This query displays the selected client (filtering on the parameter $neodash_clientName which is set when you click on a client) and traversing all of the snapshots and signal information for that client. This graph enables the user to investigate the behavior of a particular client over time - this is where the power of Graph shines; imagine trying to do this analysis in a relational database. A SQL query would need to use 2 or 3 joins (depending on the data model) per snapshot and a recursive join to connect all of the snapshots in order. As the number of snapshots grows, performance in a relational database would rapidly degrade. On the other hand, a native graph database such as Neo4j can traverse the relationships rapidly by walking pointers in memory - giving the end user a responsive application.
+
+==== Investigating Connected Groups
+
+Neo4j Graph Analytics provides over 70 data science algorithms that you can run to uncover insights from your data. One such algorithm, https://neo4j.com/docs/graph-data-science/current/algorithms/wcc/[Weakly Connected Components], can be used to detect communities of nodes that are interconnected with one another. In the case of our demo, the communities can expose groups of devices that are connected together (possibly acting together in a cyberattack). To make things easy for the demonstration, we have already run the Weakly Connected Components algorithm against our data and stored the community ID on each node as a property wccFullvalue. In this way, nodes that share the same wccFullvalue property belong to the same connected community of devices. 
+
+Click on the CG Groups tab to begin exploring these connected communities:
+
+image::dash_network_cg.png[align="center"]
+
+You can use this page by picking one of the Values from the All CGs report and typing it in to the wccFullvalue field on the Search CG Value report. When you do that, the table will update to show you all of the nodes in that community, and the graph will update to show you the nodes and relationships making up the community. 
+
+The query behind the graph is an interesting one to look at:
+
+[source,cypher]
+----
+MATCH (n)
+WHERE n.wccFullvalue = $neodash_wccfullvalue
+OPTIONAL MATCH (n)-[r]-(m)
+WHERE m.wccFullvalue = $neodash_wccfullvalue AND type(r) <> 'HAS_SAME_ISOLATED_SUB_NET'
+RETURN n, r, m
+----
+
+The interesting thing about this query is that none of the match statements use a label to indicate a type of node or relationship. This type of query is very powerful and practically impossible to recreate in a relational database. It uses MATCH (and OPTIIONAL MATCH) statements to retrieve nodes and relationships in the community regardless of the type (label) of the node or relationship. The equivalent in SQL would be to select some data from any number of tables and possibly join the data to other tables without knowing any of the table names. Querying data in this way lets us analyze very complex sets in a flexible way, without having to change our query code when our data model evolves over time
+
+==== Other Pages in the Dashboard
+
+You can explore the dashboard on your own to see other types of analyses using the data. Use the three-dots in the upper right corner of a report to see how the query is built for the report.
+
+== Next Steps
+
+Now that you have seen how you can use Neo4j Graph Database to investigate WiFi networks and understand potentiol security problems, here are some ideas for your next steps:
+
+* Load your own data into the same graph data model and run the same queries from this demo. An easy way to do this is to create relational tables or CSV files that match the format of the files in the data directory of the repository and use +model/Neo4j_importer_model.json+ to load the data using AuraDB’s data import service
