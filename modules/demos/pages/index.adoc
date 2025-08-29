@@ -18,3 +18,4 @@ Explore the demos below to understand how connected data can drive insights, aut
 * xref:fraud-demo.adoc[Transaction Graph (Fraud)]
 * xref:cx-demo.adoc[Customer Graph (CX)]
 * xref:supply_chain-demo.adoc[Supply Chain (Pharma)]
+* xref:network-demo.adoc[Network]
