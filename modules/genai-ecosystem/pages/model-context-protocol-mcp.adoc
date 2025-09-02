@@ -215,7 +215,7 @@ This server enables you to define nodes, relationships, and properties to design
 
 Below is the common data modeling workflow performed by agents with the Data Modeling MCP Server.
 
-DATA MODEL WORKFLOW IMAGE
+image::https://dev.assets.neo4j.com/wp-content/uploads/data-modeling-process-v2.png[width=400]
 
 It offers these tools and operations:
 
