@@ -213,6 +213,10 @@ The https://github.com/neo4j-contrib/mcp-neo4j/tree/main/servers/mcp-neo4j-data-
 
 This server enables you to define nodes, relationships, and properties to design graph database schemas that can be visualized interactively.
 
+Below is the common data modeling workflow performed by agents with the Data Modeling MCP Server.
+
+DATA MODEL WORKFLOW IMAGE
+
 It offers these tools and operations:
 
 Validation
@@ -236,10 +240,29 @@ Cypher Ingest
 * `get_node_cypher_ingest_query` - get the Cypher query to ingest the provided node label
 * `get_relationship_cypher_ingest_query` - get the Cypher query to ingest the provided relationship type
 
+Example 7 Graphs Data Models
+
+* `list_example_data_models` - list all available example data models with descriptions
+* `get_example_data_model` - get an example graph data model from the available templates
+
+* `patient_journey_model` - Data Model for tracking patient encounters, conditions, medications, and care plans
+* `supply_chain_model` - Data Model for tracking products, orders, inventory, and locations
+* `software_dependency_model` - Data Model for software dependency tracking with security vulnerabilities, commits, and contributor analysis
+* `oil_gas_monitoring_model` - Data Model for industrial monitoring of oil and gas equipment, sensors, alerts, and maintenance
+* `customer_360_model` - Data Model for customer relationship management with accounts, contacts, orders, tickets, and surveys
+* `fraud_aml_model` - Data Model for financial fraud detection and anti-money laundering with customers, transactions, alerts, and compliance
+* `health_insurance_fraud_model` - Data Model for healthcare fraud detection tracking investigations, prescriptions, executions, and beneficiary relationships
+
+Create New Data Model Prompt 
+
+* `create_new_data_model` - provide a structured parameterized prompt for generating a new graph data model
+
 image::https://dist.neo4j.com/wp-content/uploads/mcp-data-modeling-claude-data-discovery.png[width=400]
 image::https://dist.neo4j.com/wp-content/uploads/mcp-data-modeling-claude-data-model-1-viz.png[width=400]
 
 You can learn more about the Data Modeling MCP Server and how it can be integrated with the Cypher MCP Server in https://neo4j.com/blog/developer/neo4j-data-modeling-mcp-server/[this article^].
+
+This https://github.com/neo4j-field/data-modeling-assistant-demo[Github repo^] walks through the process of generating a new graph data model from mock Salesforce data and ingesting it into Neo4j using the Data Modeling and Cypher MCP servers.
 
 === MCP-Neo4j-GDS
 
