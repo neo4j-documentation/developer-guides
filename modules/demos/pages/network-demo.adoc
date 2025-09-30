@@ -63,7 +63,7 @@ image::create_aura_instance.png[align="center"]
 
 Be sure to save the credentials to log in to your database instance. Wait for the instance status to reach “RUNNING” before proceeding to the next step.
 
-2. Clone the git repository from https://github.com/neo4j-product-examples/demo-fraud[https://github.com/neo4j-product-examples/demo-network]
+2. Clone the git repository from https://github.com/neo4j-product-examples/demo-network[https://github.com/neo4j-product-examples/demo-network]
 [source, bash]
 ----
 git clone https://github.com/neo4j-product-examples/demo-network.git
