@@ -153,9 +153,10 @@ The example repository contains example code for https://github.com/neo4j-produc
 * https://graphacademy.neo4j.com/courses/workshop-genai/[GraphAcademy Workshop^]
 
 // * https://www.youtube.com/watch?v=edYZ8AZXsKQ[Aura Agent Livestream^]
-
+////
 === Aura Agent Livestream
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/edYZ8AZXsKQ?si=Xmroq0kZfhpNbwii" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ++++
+////
