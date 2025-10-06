@@ -10,6 +10,7 @@
 **** https://neo4j.com/labs/genai-ecosystem/google-cloud-demo[GraphRAG with Google Vertex AI^]
 
 *** Neo4j GenAI Product Integrations
+**** xref:aura-agent.adoc[Aura GraphRAG Agents]
 **** xref:graphrag-python.adoc[GraphRAG Python Package]
 **** https://python.langchain.com/docs/integrations/providers/neo4j[LangChain Neo4j (Vendor Supported Package)^]
 **** xref:vector-search.adoc[Vector Index and Search]

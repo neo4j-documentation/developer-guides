@@ -1,0 +1,161 @@
+= Aura GraphRAG Agents
+include::_graphacademy_llm.adoc[]
+:slug: aura-agent
+:author: 
+:category: genai-ecosystem
+:tags: graphrag, agent, vector search, text2cypher
+:neo4j-versions: aura
+:page-pagination:
+:page-product: aura
+
+Aura Agent, in early access from Oct 2025, is an agent-creation platform that enables users to rapidly build, test, and deploy AI agents grounded by their own enterprise data in AuraDB. 
+It provides end-to-end automated orchestration and AIOps for graph-based knowledge retrieval. 
+The platform abstracts away the complexity of integrating diverse LLM and agentic frameworks, GraphRAG retrieval patterns, text-to-query generation (via specialized Text2Cypher models), and secure agent-serving infrastructure. 
+
+image::https://dist.neo4j.com/wp-content/uploads/20250929164049/aura-agent-tools-e1759250930497.png[]
+
+Among the key capabilities of Aura Agent:
+
+* Agent creation in the Aura console with a no-/low-code agent builder
+* Agent retrieval tools for pre-defined graph query templates, vector similarity search, and text to query
+* Agent testing via a playground chat UI 
+* Secure agent deployment for consumption by downstream apps via an authenticated endpoint, with MCP support coming soon
+
+== Prerequisites
+
+You can use Aura Agent with the following Aura offerings
+
+* AuraDB Free
+* AuraDB Pro (incl. Pro Trial)
+* AuraDB Business Critical
+
+The database must not be paused to use it in an agent.
+
+You need to have *"GenAI Asisstance" enabled* in your Aura Organization, then Aura Agents should be visible in the sidebar.
+
+== Getting Started
+
+Navigate to the Agents entry in the sidebar, select "Create Agent" and provide
+
+* Title
+* Description
+* Instructions
+
+And most critically your Aura database to run on (requirements see above).
+
+You can test your agent continually in the chat on the right hand side.
+
+Then start adding *specific tools* to your agent to give it the capabilities to retrieve certain subsets of data or convert user questions into Cypher queries.
+Currently the agent only supports _read only_ queries against the database.
+
+Don't forget to save your agent, when you're satisfied with the current state.
+
+image::https://dist.neo4j.com/wp-content/uploads/20250930120034/test-agent-aura-console.png[]
+
+You can choose to share your agent internally with other project members, or make it available *externally* through an API (currentl REST, soon MCP and A2A).
+
+== Available Tools
+
+=== Cypher Template Tool
+
+The *Cypher Template Tool*, executes a parameterized, read-only Cypher statement against the database and returns the results directly to the agent.
+
+You need to provide a _name_ and _description_ of the tool for the agent to use and _cypher_ query and an optional set of parameters.
+
+Some notes:
+
+* make sure to return only relevant information from the query
+* best return only select node and relationship attributes (text, numbers)
+* don't return embeddings or graph elements like node / relationship / paths 
+* try to de-duplicate the results
+* limit the results to 10 to 50 rows so that the agent/LLM is not overwhelmed with too much irrelevant information
+* test the Cypher statements of your tools beforehand to ensure that they work correctly
+
+image::https://dist.neo4j.com/wp-content/uploads/20250930112819/get-contract-details-tool.png[]
+
+=== Text2Cypher Tool
+
+The "Text2Cypher" allows the agent to retrieve data dynamically that is either not covered by other tools or more structural in nature (like aggregations).
+
+The infrastructure will pass the _text from the tool invocation_, together with the retrieved database _schema_ and the _text2cypher system prompt_ to a fine-tuned model to generate a suitable Cypher statement to execute.
+
+For this tool you only need to provide a _description_ and _instructions_.
+
+The instructions should cover:
+
+* When to use the Text2Cypher tool (and when not)
+* Specific aspects about your database, domain
+* Relevant entities and especially information about searchable categorical properties, e.g. shape of identifiers
+* Which attributes are suitable for aggregation
+
+=== Vector Similarity Tool
+
+The *Vector Similarity Tool* allows to find nodes in your graph by vector similarity.
+
+Besides a description you provide
+
+* Embedding Model Provider (Vertex AI, OpenAI)
+* Embedding Model
+* Vector Index Name
+* Top-K results
+
+And the tool will then embed the input text from the agent, perform the vector search and return the top-k results to the agent for processing.
+
+== API Usage
+
+To integrate the Aura Agent into yours system, you can make it available externally, so it is callable via a REST API.
+
+Besides the `ENDPOINT_URL` you also need `CLIENT_ID` and `CLIENT_SECRET` as https://neo4j.com/docs/aura/aura-cli/initial-configuration/[API keys from your User Profile^], to create short lived session tokens.
+
+The example code below uses https://jqlang.org/[`jq`] for command line JSON processing.
+
+[source,shell]
+----
+export CLIENT_ID="..."
+export CLIENT_SECRET="..."
+export ENDPOINT_URL="https://api.neo4j.io/v2beta1/projects/.../agents/.../invoke"
+
+# assign bearer token to environment variable
+export BEARER_TOKEN=$(curl -s --request POST 'https://api.neo4j.io/oauth/token' \
+     --user "$CLIENT_ID:$CLIENT_SECRET" \
+     --header 'Content-Type: application/x-www-form-urlencoded' \
+     --data-urlencode 'grant_type=client_credentials' | \
+     jq -r .access_token)
+
+#invoke endpoint
+curl --request POST \
+  "$ENDPOINT_URL" \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -d '{"input": "<YOUR AGENT QUESTION>"}' \
+  --max-time 60 | jq .
+----
+
+////
+# get bearer token
+curl --request POST 'https://api.neo4j.io/oauth/token' \
+     --user "$CLIENT_ID:$CLIENT_SECRET" \
+     --header 'Content-Type: application/x-www-form-urlencoded' \
+     --data-urlencode 'grant_type=client_credentials'
+
+{"access_token":"eyJh....","expires_in":3600,"token_type":"Bearer"}
+////
+
+The example repository contains example code for https://github.com/neo4j-product-examples/knowledge-graph-agent/tree/main/code/contract-review-mcp[wrapping the REST API into an MCP server].
+
+== Resources
+
+* https://neo4j-aura.canny.io/changelog/aura-agent-preview[Aura Agent Feedback^]
+* https://github.com/neo4j-product-examples/knowledge-graph-agent/blob/main/contract-review.md[Example Agents Repository^] - Contract Review, Know Your Customer (KYC)
+* https://neo4j.com/blog/genai/build-context-aware-graphrag-agent/[Neo4j Aura Agent: Create Your Own GraphRAG Agent in Minutes^]
+* https://docs.google.com/document/d/1c2w3JM7IoDMOjBY50twMtNgY2Q3VrNtM7dQQPGolxw0/edit?tab=t.0#heading=h.ygp8gdk80zp5[Aura Agent FAQ^]
+* https://graphacademy.neo4j.com/courses/workshop-genai/[GraphAcademy Workshop^]
+
+// * https://www.youtube.com/watch?v=edYZ8AZXsKQ[Aura Agent Livestream^]
+
+=== Aura Agent Livestream
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/edYZ8AZXsKQ?si=Xmroq0kZfhpNbwii" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
