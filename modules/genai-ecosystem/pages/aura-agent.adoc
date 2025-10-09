@@ -31,7 +31,7 @@ You can use Aura Agent with the following Aura offerings
 
 The database must not be paused to use it in an agent.
 
-You need to have *"GenAI Asisstance" enabled* in your Aura Organization, then Aura Agents should be visible in the sidebar.
+You need to have *"Generative AI assistance" enabled* in your Aura Organization, then Aura Agents should be visible in the sidebar.
 
 == Getting Started
 
