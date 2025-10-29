@@ -42,7 +42,7 @@ This demonstration shows how to use Neo4j graph database and algorithms to enric
 To run these examples, you will need the following:
 
 1. Web browser and Internet access.
-2. A Neo4j https://neo4j.com/product/auradb/[AuraDB] database instance. These examples will run on any tier, including the Free and Professional tiers (including the free trial). You can sign up for AuraDB https://console.neo4j.io/?action=signup&product=aura-db[here]. Following the instructions in this demo will replace the data in your database instance, so be sure to back up any data you do not want to lose; alternatively, you can create a fresh instance to use.
+2. A Neo4j https://neo4j.com/product/auradb/[AuraDB] database instance. These examples will run on a Professional or higher tier (including the Professional Free Trial). You can sign up for AuraDB https://console.neo4j.io/?action=signup&product=aura-db[here]. Following the instructions in this demo will replace the data in your database instance, so be sure to back up any data you do not want to lose; alternatively, you can create a fresh instance to use.
 3. (Optional, but strongly recommended) a Python installation in which you can run Jupyter Notebooks. The queries for this demonstration are all provided in Notebooks; you can also copy-and-paste the queries into the *Query* or *Explore* tools in the Aura console.
 4. (Optional, but recommended) git client software to download the demo assets.
 5. Optional: a local setup of https://neo4j.com/labs/cypher-workbench/[Cypher Workbench], if you want to experiment with tools for editing the data model.
