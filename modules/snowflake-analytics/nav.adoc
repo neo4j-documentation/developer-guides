@@ -1,0 +1,5 @@
+** xref:index.adoc[Graph Analytics for Snowflake]
+*** xref:neo4j-fraud.adoc[Discover Fraudulent Communities]
+*** xref:neo4j-manufacturing.adoc[Manage Risk with a Digital Twin]
+*** xref:neo4j-patient-journey.adoc[Identify Similar Patient Journeys]
+*** xref:neo4j-subways.adoc[Identify Bottlenecks and Model Disruptions]

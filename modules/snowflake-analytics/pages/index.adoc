@@ -1,0 +1,35 @@
+= Graph Analytics for Snowflake
+:page-role: landing
+
+== Discover Deeper Insights in Your Snowflake Data — Start Free Today
+
+Neo4j Graph Analytics for Snowflake empowers you to go beyond traditional analytics to identify complex patterns—such as fraud networks, product affinities, patient journeys, and duplicate entities—using the hidden relationships already in your Snowflake data.
+
+This native Snowflake application makes it easy to build and explore connected data models, apply graph algorithms, and write results back into Snowflake tables.
+
+No ETL.  
+No new infrastructure.  
+Just deeper insight using familiar SQL.
+
+=== Native Experience. Familiar SQL. Fully in Snowflake.
+
+* *Zero-ETL*  
+No data movement—runs entirely inside your Snowflake account via Snowpark Container Services.
+
+* *Easy to Use*  
+Use SQL to build projections, run graph algorithms, and write results directly back to Snowflake tables.
+
+* *Fast & Scalable*  
+Runs in parallel using in-memory processing for high performance and lower compute cost.
+
+* *Advanced Analytics*  
+Choose from a growing library of 65+ Algorithms
+
+==== What You Will Need
+* The Native App
+https://app.snowflake.com/marketplace/listing/GZTDZH40CN[Neo4j Graph
+Analytics] for Snowflake
+* A https://signup.snowflake.com/?utm_cta=quickstarts[Snowflake account]
+with appropriate access to databases and schemas.
+* Neo4j Graph Analytics application installed from the Snowflake
+marketplace. Access the marketplace via the menu bar on the left hand
