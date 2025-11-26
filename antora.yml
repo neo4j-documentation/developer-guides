@@ -5,6 +5,7 @@ nav:
 - modules/ROOT/nav.adoc
 - modules/genai-ecosystem/nav.adoc
 - modules/demos/nav.adoc
+- modules/snowflake-analytics/nav.adoc
 
 asciidoc:
   attributes:
