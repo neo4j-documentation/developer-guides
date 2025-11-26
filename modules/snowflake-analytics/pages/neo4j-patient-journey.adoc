@@ -39,8 +39,6 @@ image:marketplace.png[]
 
 === Load The Data
 
-Duration: 5
-
 Dataset overview : This dataset is modelled to design and analyze
 patients and different procedures that they undergo using graph
 analytics.
@@ -57,8 +55,6 @@ https://docs.snowflake.com/en/user-guide/data-load-web-ui[here] to load
 in your data.
 
 === Set Up
-
-Duration: 5
 
 ==== Import The Notebook
 
@@ -129,8 +125,6 @@ USE ROLE gds_user_role;
 ----
 
 === Clean Our Data
-
-Duration: 5
 
 We need our data to be in a particular format in order to work with
 Graph Analytics. In general it should be like so:
@@ -325,8 +319,6 @@ image::graph.png[]
 
 === Find Similar Patients
 
-Duration: 10
-
 Now we are finally at the step where we create a projection, run our
 algorithms, and write back to snowflake. We will run louvain to
 determine communities within our data. Louvain identifies communities by
@@ -480,8 +472,6 @@ select * from neo4j_patient_db.public.patient_community
 |===
 
 === Conclusions And Resources
-
-Duration: 2
 
 In this quickstart, you learned how to bring the power of graph insights
 into Snowflake using Neo4j Graph Analytics.

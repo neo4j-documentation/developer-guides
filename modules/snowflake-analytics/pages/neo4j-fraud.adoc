@@ -36,7 +36,9 @@ Analytics] for Snowflake
 with appropriate access to databases and schemas.
 * Neo4j Graph Analytics application installed from the Snowflake
 marketplace. Access the marketplace via the menu bar on the left hand
-side of your screen, as seen below: image:marketplace.png[]
+side of your screen, as seen below: 
+
+image:marketplace.png[]
 
 ==== What You Will Build
 
@@ -53,7 +55,7 @@ networks
 
 Dataset overview : This dataset is modelled to design and analyze a peer
 to peer transaction network to identify fraudulent activity using graph
-analytics. image:datamodel.png[]
+analytics. 
 
 Let’s name our database `P2P++_++DEMO`. Using the CSVs found
 https://drive.google.com/drive/u/1/folders/1BnAnRSEfuwDvc4eQH8IRvy3tUkwOeaNf[here],
