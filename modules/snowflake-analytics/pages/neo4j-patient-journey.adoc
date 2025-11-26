@@ -480,7 +480,6 @@ into Snowflake using Neo4j Graph Analytics.
 
 By working with a patient transaction dataset, you were able to:
 
-[arabic]
 . Set up the
 https://app.snowflake.com/marketplace/listing/GZTDZH40CN/neo4j-neo4j-graph-analytics[Neo4j
 Graph Analytics] application within Snowflake.

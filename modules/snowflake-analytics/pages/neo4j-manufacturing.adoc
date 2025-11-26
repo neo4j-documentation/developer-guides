@@ -59,8 +59,6 @@ mock database
 
 === Create Our Database
 
-Duration: 7
-
 We are going to create a simple database with synthetic data. Let’s
 first create the databse:
 
@@ -158,8 +156,6 @@ INSERT INTO rels (SRC_MACHINE_ID, DST_MACHINE_ID, THROUGHPUT_RATE) VALUES
 ----
 
 === Set Up
-
-Duration: 5
 
 Now that we have our data, we just need to create a notebook and grant
 the necessary permissions.
@@ -269,8 +265,6 @@ GROUP BY SRC_MACHINE_ID, DST_MACHINE_ID;
 
 === Visualize Our Graph
 
-Duration: 5
-
 At this point, you may want to visuze your graph to get a better
 understanding of how everything fits together. We can do this in two
 easy steps. First we are going to create a simplified view that we will
@@ -326,8 +320,6 @@ components.html(html_object.data, height=600)
 image::viz.png[]
 
 === Structural Connectivity Analysis
-
-Duration: 5
 
 Structural connectivity helps verify whether your production line is
 truly integrated or split into isolated sections. We use Weakly
@@ -394,8 +386,6 @@ LIMIT 5;
 |===
 
 === Criticality Analysis
-
-Duration: 10
 
 Identifying the most critical machines in your workflow can help avoid
 shutdowns. If these machines slow down or fail, downstream operations
@@ -542,8 +532,6 @@ the workflow. Their high scores suggest they connect otherwise separate
 paths, making them key points of potential disruption if taken offline.
 
 ===  Structural Embeddings & Similarity
-
-Duration: 10
 
 Getting an even deeper understanding of each machine’s workflow requires
 more than looking at direct connections, as we have done so far.
@@ -722,8 +710,6 @@ Structural similarity gives you a way to surface these patterns
 automatically—even across machines that don’t look related on paper.
 
 === Conclusions And Resources
-
-Duration: 2
 
 In this quickstart, you learned how to bring the power of graph insights
 into Snowflake using Neo4j Graph Analytics.
