@@ -103,7 +103,7 @@ And the tool will then embed the input text from the agent, perform the vector s
 
 == API Usage
 
-To integrate the Aura Agent into yours system, you can make it available externally, so it is callable via a REST API.
+To integrate the Aura Agent into your system, you can make it available externally, so it is callable via a REST API.
 
 Besides the `ENDPOINT_URL` you also need `CLIENT_ID` and `CLIENT_SECRET` as https://neo4j.com/docs/aura/aura-cli/initial-configuration/[API keys from your User Profile^], to create short lived session tokens.
 
