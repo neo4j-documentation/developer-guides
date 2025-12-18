@@ -1,0 +1,359 @@
+
+
+= Better Recommendations Using Graph Analytics
+
+Recommendations are big business. Amazon reports that 35% of its revenue
+comes from recommendations. Even more surprisingly, Netflix and YouTube
+report that 75% and 70% of what people watch on their platforms comes
+from recommendations. That means the majority of what we buy, watch, or
+even listen to is shaped by algorithms working quietly in the
+background.
+
+We will be using Neo4j Graph Analytics for Snowflake to build our
+recommendations. Graph powered recommendations go deeper than
+traditional methods because they intuitively model user behavior.
+
+In our example, we will be looking at co-purchasing behavior built off
+of data sampled from Instakart. We will discover how simply looking at
+items that are most frequently purchased together isn’t enough to build
+a good recommendation, and interestingly might cause us to recommend
+products that customers were already planning on buying without our
+intervention.
+
+So how do we build a good recommendation engine? What techniques power
+these systems, and how can you start applying them yourself? Well,
+follow along to find out!
+
+== Overview
+
+=== What Is Neo4j Graph Analytics For Snowflake?
+
+Neo4j helps organizations find hidden relationships and patterns across
+billions of data connections deeply, easily, and quickly. *Neo4j Graph
+Analytics for Snowflake* brings to the power of graph directly to
+Snowflake, allowing users to run 65{plus} ready-to-use algorithms on
+their data, all without leaving Snowflake!
+
+=== Prerequisites
+
+* The Native App
+https://app.snowflake.com/marketplace/listing/GZTDZH40CN[Neo4j Graph
+Analytics] for Snowflake
+
+=== What You Will Need
+
+* A https://signup.snowflake.com/?utm_cta=quickstarts[Snowflake account]
+with appropriate access to databases and schemas.
+* Neo4j Graph Analytics application installed from the Snowflake
+marketplace. Access the marketplace via the menu bar on the left hand
+side of your screen, as seen below:
+image:/Users/corydonbaylor/Documents/md2adoc/md/assets/marketplace.png[image]
+
+=== What You Will Build
+
+* A method to identify communities that are at high risk of fraud in P2P
+networks
+
+=== What You Will Learn
+
+* How to prepare and project your data for graph analytics
+* How to use community detection to identify fraud
+* How to read and write directly from and to your snowflake tables
+
+== Loading The Data
+
+Dataset overview : This dataset is a subset of instakart data and can be
+found
+https://github.com/neo4j-product-examples/aura-graph-analytics/tree/main/better_recommendations/data[here].
+
+Let’s name our database `RETAIL++_++RECS`. We are going to add five new
+tables:
+
+* One called `aisles` based on the aisles.csv
+* One called `baskets` based on baskets.csv
+* One called `departments` based on departments.csv
+* One called `order++_++history` based on order++_++history.csv
+* One called `products` based on products.csv
+
+Follow the steps found
+https://docs.snowflake.com/en/user-guide/data-load-web-ui[here] to load
+in your data.
+
+== Simple Similarity using Co-purchase Patterns
+
+We need our data to be in a particular format in order to work with
+Graph Analytics. Let’s start by switching to our new database:
+
+....
+USE DATABASE RETAIL_RECS;
+USE SCHEMA PUBLIC;
+USE ROLE ACCOUNTADMIN;
+....
+
+First, let’s create a co-purchase table to understand what items are
+currently co-purchased together.
+
+....
+-- One row per unordered product pair that appeared in the same order
+CREATE OR REPLACE TABLE COPURCHASE AS
+WITH DISTINCT_LINES AS (
+  SELECT DISTINCT order_id, product_id
+  FROM BASKETS
+),
+PAIRS AS (
+  SELECT
+    LEAST(b1.product_id, b2.product_id)   AS product_id_a,
+    GREATEST(b1.product_id, b2.product_id) AS product_id_b
+  FROM DISTINCT_LINES b1
+  JOIN DISTINCT_LINES b2
+    ON b1.order_id = b2.order_id
+   AND b1.product_id < b2.product_id   -- avoid self & duplicates
+)
+SELECT
+  p.product_id_a,
+  pa.product_name AS product_name_a,
+  p.product_id_b,
+  pb.product_name AS product_name_b,
+  COUNT(*)::FLOAT AS co_count
+FROM PAIRS p
+JOIN PRODUCTS pa
+  ON p.product_id_a = pa.product_id
+JOIN PRODUCTS pb
+  ON p.product_id_b = pb.product_id
+GROUP BY
+  p.product_id_a,
+  pa.product_name,
+  p.product_id_b,
+  pb.product_name;
+....
+
+....
+select * from copurchase order by co_count desc;
+....
+
+[width="100%",cols="18%,29%,16%,27%,10%",options="header",]
+|===
+|PRODUCT++_++ID++_++A |PRODUCT++_++NAME++_++A |PRODUCT++_++ID++_++B
+|PRODUCT++_++NAME++_++B |CO++_++COUNT
+|21903 |Organic Baby Spinach |24852 |Banana |24
+
+|13176 |Bag of Organic Bananas |47209 |Organic Hass Avocado |22
+
+|13176 |Bag of Organic Bananas |21137 |Organic Strawberries |19
+
+|24852 |Banana |47766 |Organic Avocado |16
+
+|21137 |Organic Strawberries |47209 |Organic Hass Avocado |15
+|===
+
+You’ll notice that four out of five of the top co-purchased pairs
+include bananas. Logically, I suppose this means that grocery stores
+should nearly always recommend bananas to customers – but should they
+really?
+
+== Cleaning our Data
+
+Next, we are going to put our data into two tables: one for nodes and
+one for relationships. We will use these tables later to run a graph
+algorithm!
+
+....
+-- products as nodes; add numeric properties if useful
+CREATE OR REPLACE VIEW PRODUCTS_NODES AS
+SELECT
+  product_id            AS nodeId
+FROM PRODUCTS;
+....
+
+And for relationships:
+
+....
+CREATE OR REPLACE TABLE COPURCHASE_EDGES AS
+SELECT
+  a AS SOURCENODEID,
+  b AS TARGETNODEID,
+  co_count / NULLIF(pa.cnt + pb.cnt - co_count, 0) AS WEIGHT
+FROM (
+  SELECT
+    LEAST(b1.product_id, b2.product_id)  AS a,
+    GREATEST(b1.product_id, b2.product_id) AS b,
+    COUNT(*)::FLOAT AS co_count
+  FROM (
+    SELECT DISTINCT order_id, product_id FROM BASKETS
+  ) b1
+  JOIN (
+    SELECT DISTINCT order_id, product_id FROM BASKETS
+  ) b2
+    ON b1.order_id = b2.order_id
+   AND b1.product_id < b2.product_id
+  GROUP BY 1,2
+) pc
+JOIN (
+  SELECT product_id, COUNT(*)::FLOAT AS cnt
+  FROM (SELECT DISTINCT order_id, product_id FROM BASKETS)
+  GROUP BY 1
+) pa ON pa.product_id = pc.a
+JOIN (
+  SELECT product_id, COUNT(*)::FLOAT AS cnt
+  FROM (SELECT DISTINCT order_id, product_id FROM BASKETS)
+  GROUP BY 1
+) pb ON pb.product_id = pc.b;
+....
+
+== Granting Permissions
+
+Next, we will grant the necessary permissions for our app to run. Make
+sure you are account admin before running this block:
+
+....
+-- Create a consumer role for users and admins of the GDS application
+CREATE ROLE IF NOT EXISTS gds_user_role;
+CREATE ROLE IF NOT EXISTS gds_admin_role;
+GRANT APPLICATION ROLE neo4j_graph_analytics.app_user TO ROLE gds_user_role;
+GRANT APPLICATION ROLE neo4j_graph_analytics.app_admin TO ROLE gds_admin_role;
+
+CREATE DATABASE ROLE IF NOT EXISTS gds_db_role;
+GRANT DATABASE ROLE gds_db_role TO ROLE gds_user_role;
+GRANT DATABASE ROLE gds_db_role TO APPLICATION neo4j_graph_analytics;
+
+-- Grant access to consumer data
+GRANT USAGE ON DATABASE RETAIL_RECS TO ROLE gds_user_role;
+GRANT USAGE ON SCHEMA RETAIL_RECS.PUBLIC TO ROLE gds_user_role;
+
+-- Required to read tabular data into a graph
+GRANT SELECT ON ALL TABLES IN DATABASE RETAIL_RECS TO DATABASE ROLE gds_db_role;
+
+-- Ensure the consumer role has access to created tables/views
+GRANT ALL PRIVILEGES ON FUTURE TABLES IN SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
+GRANT CREATE TABLE ON SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
+GRANT CREATE VIEW ON SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
+GRANT ALL PRIVILEGES ON FUTURE VIEWS IN SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
+GRANT ALL PRIVILEGES ON ALL VIEWS IN SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
+
+-- Compute and warehouse access
+GRANT USAGE ON WAREHOUSE NEO4J_GRAPH_ANALYTICS_APP_WAREHOUSE TO APPLICATION neo4j_graph_analytics;
+....
+
+Then switch to the role we just created:
+
+....
+use role gds_role;
+....
+
+== Running Node Similiarity
+
+When we recommend items, we should consider some items like hinges to
+others. If baby spinach and bananas are bought together and bananas and
+avocados are bought together, then perhaps someone who buys avocados
+also would want spinach.
+
+But here’s the rub. If every grocery basket has bananas in it, then it
+isn’t a very good hinge. It doesn’t provide a personalized
+recommendation about what else someone might want to buy. When bananas
+are in every basket, their presence is not a good predictor of what
+other items will be in the basket. It’s just noise.
+
+....
+CALL Neo4j_Graph_Analytics.graph.node_similarity('CPU_X64_XS', {
+  'defaultTablePrefix': 'RETAIL_RECS.PUBLIC',
+  'project': {
+    'nodeTables': ['PRODUCTS_NODES'],
+    'relationshipTables': {
+      'COPURCHASE_EDGES': {
+        'sourceTable': 'PRODUCTS_NODES',
+        'targetTable': 'PRODUCTS_NODES'
+      }
+    }
+  },
+  'compute': {
+    'mutateProperty': 'score',
+    'mutateRelationshipType': 'SIMILAR',
+    'topK': 10,
+    'similarityMetric': 'JACCARD'
+  },
+  'write': [{
+    'outputTable': 'PRODUCT_SIMILARITY_JACCARD',
+    'sourceLabel': 'PRODUCTS_NODES',
+    'targetLabel': 'PRODUCTS_NODES',
+    'relationshipType': 'SIMILAR',
+    'relationshipProperty': 'score'
+  }]
+});
+....
+
+Next, let’s look at the least similar items in our table:
+
+....
+SELECT
+  p1.product_name         AS source_product_name,
+  p2.product_name         AS target_product_name,
+  s.SCORE                 AS similarity_score
+FROM PRODUCT_SIMILARITY_JACCARD AS s
+JOIN PRODUCTS AS p1
+  ON p1.product_id = s.SOURCENODEID
+JOIN PRODUCTS AS p2
+  ON p2.product_id = s.TARGETNODEID
+ORDER BY s.SCORE ASC
+LIMIT 5;
+....
+
+[width="99%",cols="56%,23%,21%",options="header",]
+|===
+|SOURCE++_++PRODUCT++_++NAME |TARGET++_++PRODUCT++_++NAME
+|SIMILARITY++_++SCORE
+|Chocolate Bar Milk Stevia Sweetened Salted Almond |Bag of Organic
+Bananas |0.001303780964797914
+
+|DairyFree Cheddar Style Wedges |Bag of Organic Bananas
+|0.001303780964797914
+
+|Grapes Certified Organic California Black Seedless |Bag of Organic
+Bananas |0.001303780964797914
+
+|Baking Chopped Pecans |Banana |0.001388888888888889
+
+|Vegan Crunchy Peanut Butter |Banana |0.001388888888888889
+|===
+
+Notice how bananas top the list least similar items. Why? Because their
+presence in a basket doesn’t really signal that the customer wants any
+other specific item — they’re just a frequent, general-purpose purchase.
+
+So while bananas are everywhere, they tell us almost nothing about
+co-purchase patterns — and *`nodeSimilarity`* correctly learns to
+downweight them. Plus, since bananas are in nearly every shopping cart,
+our theoretical customer was likely to buy them regardless of whether or
+not we recommended them, which is why using `nodeSimilarity` provides
+some value over simply looking at what items are co-purchased together
+the most.
+
+== A Better Recommendation
+
+At this point, we’ve seen what makes a bad recommendation — but what
+makes a good one? Let’s look at what coupons our system would suggest if
+a customer bought Peanut Butter Cereal (34), Organic Bananas (13176),
+and Cauliflower (5618).
+
+[width="99%",cols="27%,51%,22%",options="header",]
+|===
+|BASKET++_++PRODUCT |SIMILAR++_++PRODUCT |SIMILARITY++_++SCORE
+|Cauliflower |Organic Pepper Jack Cheese |0.9736842105263158
+|Cauliflower |White Cheddar Snack Crackers Cheddar Bunnies |0.925
+|Peanut Butter Cereal |Nectarines |0.4166666666666667
+|Peanut Butter Cereal |Bread Double Fiber |0.34210526315789475
+|Bag of Organic Bananas |Organic Strawberries |0.22397476340694006
+|Bag of Organic Bananas |Organic Baby Spinach |0.1772679874869656
+|===
+
+A weaker model might recommend something like Organic Strawberries,
+simply because they frequently appear alongside bananas. But a
+graph-based approach looks deeper. It recognizes that the similarity
+score for strawberries is driven by a universally popular item — bananas
+— which doesn’t tell us much about this specific shopper.
+
+Instead, the algorithm surfaces Organic Pepper Jack Cheese — a
+connection rooted in Cauliflower, an item that’s more distinctive to our
+customers’ preferences. In other words, node similarity filters out
+noisy, generic associations (like “bananas go with everything”) and
+highlights patterns that are more meaningful and personalized.
