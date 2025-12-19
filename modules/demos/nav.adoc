@@ -1,5 +1,5 @@
 ** xref:index.adoc[Quick Starts]
-*** xref:fraud-demo.adoc[Nordtrell]
+*** xref:nordtrell.adoc[Nordtrell]
 *** xref:fraud-demo.adoc[Transaction Graph (Fraud)]
 *** xref:cx-demo.adoc[Customer Graph (CX)]
 *** xref:supply_chain-demo.adoc[Supply Chain (Pharma)]
