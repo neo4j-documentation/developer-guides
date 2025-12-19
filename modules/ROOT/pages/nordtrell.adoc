@@ -1,0 +1,59 @@
+:slug: nordtrell
+:author: John Stegeman
+:category: demos
+:tags:
+:neo4j-versions: 5.x
+:page-pagination:
+:page-product: transaction-graph-fraud
+
+== Nordtrell: A Global Multi-Industry Enterprise
+
+
+image::nordrtell-new.png[Nordtrell Logo, 300, align="center"]
+
+[IMPORTANT]
+.About This Document
+Nordtrell is a **fictitious company** used to demonstrate the capabilities of the **Neo4j Graph Intelligence platform**. It serves as a comprehensive model for a modern, data-driven conglomerate navigating the complexities of the 21st-century economy.
+
+== Company Profile
+
+Nordtrell is a diversified global leader with a presence in over 120 countries. Founded on the principle of "Interconnected Excellence," Nordtrell operates a vast ecosystem of businesses that touch every aspect of modern life—from life-saving medicines to secure financial systems and the global supply chain.
+
+The company is structured into four primary divisions, each leveraging a shared "Enterprise Intelligence" core to drive innovation and operational efficiency.
+
+== Business Divisions
+
+Nordtrell’s strength lies in its diversity. By operating across distinct sectors, the company maintains a resilient portfolio and a unique perspective on global market trends.
+
+[cols="1,3", options="header"]
+|===
+| Division | Mission & Scope
+| **Nordtrell Pharmaceuticals** | Focused on life sciences and drug discovery. This division manages complex R&D pipelines, genomic data, and global clinical trials to bring breakthrough therapies to market.
+| **Nordtrell Banking** | A premier financial institution providing retail banking, institutional investment, and wealth management. It prioritizes security, regulatory compliance, and seamless digital experiences.
+| **Nordtrell Retail** | A global omnichannel retailer specializing in luxury goods and high-tech consumer electronics. Known for its highly personalized loyalty programs and "Customer 360" initiatives.
+| **Nordtrell CPG** | The Consumer Packaged Goods arm manages the manufacturing and distribution of household essentials. It operates one of the world's most complex logistics and supply chain networks.
+|===
+
+
+
+== The "Nordtrell Connect" Strategy
+
+In recent years, Nordtrell has moved away from traditional departmental silos toward a **Unified Data Strategy**. The company recognizes that a breakthrough in its Pharmaceutical research (Pharma) can influence its consumer health products (CPG), which in turn impacts its loyalty programs (Retail).
+
+### Key Strategic Pillars:
+* **Interconnected Intelligence:** Mapping the relationships between products, customers, and global events to predict market shifts before they occur.
+* **Operational Transparency:** Maintaining a real-time view of the "Bill of Materials" across all manufacturing plants to mitigate supply chain risks.
+* **Ethics & Security:** Utilizing advanced network analysis to protect customer data in Banking and ensure the integrity of clinical data in Pharma.
+
+== Modernizing the Enterprise with Graph
+
+Nordtrell’s massive scale produces highly interconnected data that exceeds the capabilities of traditional row-and-column databases. To manage this "Graph of the Enterprise," Nordtrell utilizes the **Neo4j Graph Intelligence platform**.
+
+By representing its business as a network of nodes (People, Products, Locations) and relationships (Purchased, Manufactures, Investigates), Nordtrell gains a competitive advantage in:
+* **Identifying Fraud** across banking and retail channels.
+* **Accelerating Research** by connecting disparate scientific data points.
+* **Optimizing Logistics** through real-time pathfinding and dependency mapping.
+
+---
+
+// Your custom demo links section will go here.
