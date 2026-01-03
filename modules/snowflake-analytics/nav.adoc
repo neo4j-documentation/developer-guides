@@ -1,5 +1,6 @@
 ** xref:index.adoc[Graph Analytics for Snowflake]
 *** xref:neo4j-retail-recs.adoc[Create Better Recommendations with Node Similarity]
+*** xref:neo4j-marketing-segmentation.adoc[Segment Based on Behavior with Louvain]
 *** xref:neo4j-fraud.adoc[Discover Fraudulent Communities]
 *** xref:neo4j-insurance-fraud.adoc[Discover Fraudulent Insurance Claims with Embeddings]
 *** xref:neo4j-manufacturing.adoc[Manage Risk with a Digital Twin]
