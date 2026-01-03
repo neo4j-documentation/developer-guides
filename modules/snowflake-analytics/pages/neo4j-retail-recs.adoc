@@ -47,7 +47,7 @@ with appropriate access to databases and schemas.
 * Neo4j Graph Analytics application installed from the Snowflake
 marketplace. Access the marketplace via the menu bar on the left hand
 side of your screen, as seen below:
-image:/Users/corydonbaylor/Documents/md2adoc/md/assets/marketplace.png[image]
+image:marketplace.png[image]
 
 === What You Will Build
 
