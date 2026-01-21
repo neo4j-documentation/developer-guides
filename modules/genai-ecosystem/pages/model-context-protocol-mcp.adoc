@@ -123,15 +123,23 @@ image::https://dist.neo4j.com/wp-content/uploads/20250415081825/copilot-studio-m
 [[neo4j]]
 == Official MCP Server for Neo4j
 
-The early release of the https://github.com/neo4j/mcp[official MCP server for Neo4j is available from GitHub^].
-This is a local server that is downloadable as a binary and works with all types of Neo4j Deployments - Neo4j Aura, Self Managed, Docker, Neo4j Desktop, and Neo4j Sandbox.
-The repository README has installation instructions for the necessary environment variables for common MCP Hosts like Claude Desktop, VS Code and others, please report issues there.
+The official MCP Server for Neo4j, is a local MCP server that is downloadable as a binary and works with all types of Neo4j Deployments - Neo4j Aura, Self Managed, Docker, Neo4j Desktop, and Neo4j Sandbox.
+The repository README has installation instructions including the necessary environment variables for common MCP Hosts like Claude Desktop, VS Code and others.
 
 The current version supports:
 
 - get graph schema
 - execute read and write Cypher statements
 - execute graph algorithms (incl. projections) for the GDS plugin
+- stdio and http transport (incl. custom SSL certificates)
+
+Links:
+
+- https://github.com/neo4j/mcp[GitHub Repository^]
+- https://github.com/neo4j/mcp/issues[GitHub Issues^]
+- https://github.com/neo4j/mcp/releases[Download^]
+- https://neo4j.com/docs/mcp/current/[Neo4j MCP Documentation^]
+- https://medium.com/neo4j/how-to-deploy-the-neo4j-mcp-server-to-gcp-cloud-run-c2736fdee6ac[Deploying Neo4j MCP on GCP Cloud Run^]
 
 == Neo4j Labs MCP Servers
 
