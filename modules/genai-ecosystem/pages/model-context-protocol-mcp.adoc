@@ -32,7 +32,7 @@ Large Cloud, Infrastructure and LLM Providers announced support for MCP in their
 * https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/introducing-model-context-protocol-mcp-in-copilot-studio-simplified-integration-with-ai-apps-and-agents/[Microsoft^]
 * https://awslabs.github.io/mcp/[AWS]
 * https://x.com/sama/status/1904957253456941061[OpenAI^]
-* https://hub.docker.com/u/mcp?page=1&search=[Docker^]
+* https://hub.docker.com/mcp/server/neo4j/overview[Docker MCP Catalog^]
 
 Also Agent Frameworks like LangChain, CrewAI, Pydantic.AI and Agent Development Kit (ADK) and others are supporting MCP as tools.
 
