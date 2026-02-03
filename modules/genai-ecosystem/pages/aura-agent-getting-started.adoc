@@ -515,7 +515,7 @@ You've successfully built and deployed a knowledge graph agent using Neo4j Aura 
 
 == Resources
 
-* See the http://neo4j.com/docs/aura/aura-agent/[documentation^] for a more in-depth details on Neo4j Aura Agent
+* See the https://neo4j.com/docs/aura/aura-agent/[documentation^] for a more in-depth details on Neo4j Aura Agent
 * Additional worked examples are continually added to the https://github.com/neo4j-product-examples/knowledge-graph-agent[GitHub Repository^]
 * The https://neo4j.com/product/aura-agent/[Neo4j Aura Agent webpage^] and https://neo4j.com/developer/genai-ecosystem/aura-agent/[developer guide^] contains a general overview with links to additional videos and learning resources
 
