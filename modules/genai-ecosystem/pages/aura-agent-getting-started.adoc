@@ -1,0 +1,522 @@
+= Neo4j Aura Agent: Getting Started Tutorial
+include::_graphacademy_llm.adoc[]
+:slug: aura-agent-getting-started
+:author: Zach Blumenfeld
+:category: genai-ecosystem
+:tags: graphrag, agent, vector search, text2cypher, aura
+:neo4j-versions: aura
+:page-pagination:
+:page-product: aura
+
+image::aura-agent-getting-started/getting-started-thumbnail.png[align=center]
+
+Build and deploy knowledge graph agents in minutes using Neo4j Aura Agent. This tutorial guides you through creating an employee knowledge graph agent from scratch, demonstrating automated agent construction with ontology-driven AI and secure deployment via REST API and Model Context Protocol (MCP).
+
+== Video Walkthrough
+
+This getting started tutorial replicates the demo shown in the video below. Watch for a visual walkthrough of the entire process, or follow the step-by-step instructions in this guide.
+
+video::rdtP73IT6tc[youtube, width=800, height=450]
+
+TIP: The video provides a complete visual demonstration of building and deploying an Aura Agent. Follow along with this written tutorial for detailed instructions and code examples.
+
+
+== Overview
+
+In this tutorial, you will:
+
+* Set up a Neo4j AuraDB database with an employee knowledge graph
+* Generate an AI agent using automated agent construction
+* Configure GraphRAG tools (Cypher templates, text2Cypher, similarity search)
+* Test your agent with complex queries
+* Deploy to production with authenticated REST and MCP endpoints
+* [Optional] Integrate with Claude using MCP
+
+*Time to complete:* 30-45 minutes
+
+== Prerequisites
+
+Before you begin, ensure you have:
+
+* A Neo4j Aura account (free tier available at https://console.neo4j.io)
+* Basic familiarity with knowledge graphs and Neo4j
+* A modern web browser
+
+== Architecture
+
+The Neo4j Aura Agent platform provides:
+
+*Graph RAG Tools*
+
+* *Cypher Templates:* Pre-configured queries with optional parameters for domain-specific retrieval
+* *Text2Cypher:* Dynamic query generation for flexible data access
+* *Similarity Search:* Vector-powered semantic search on node properties
+
+*Deployment Options*
+
+* *REST API:* Token-based authentication for programmatic access
+* *MCP Server:* OAuth-secured integration with AI clients (Claude, Cursor, ChatGPT, etc.)
+
+*AI Agent Features*
+
+* Chain-of-thought reasoning with full explanability exposed in reasoning tab & response
+* Multiple tool calls for complex queries
+
+== Part 1: Database Setup
+
+=== Step 1: Access Aura Console
+
+. Navigate to the *Aura Console*: https://console.neo4j.io/
+. Log in with your Aura credentials
+. Enable *Generative AI assistance* for your Aura Organization:
+** Click on your Organization settings
+** Toggle on *Enable GenAI assistance*
+
+image::aura-agent-getting-started/enable-ai.png[Enable GenAI assistance]
+
+=== Step 2: Create and Restore Database
+
+==== Create AuraDB Instance
+
+If you don't already have an instance:
+
+. In the Aura Console, click *Create Instance*
+. Select your preferred tier (Free tier is sufficient for this tutorial)
+. Name your instance: `employee-graph`
+. Wait until the instance status shows *RUNNING*
+. Save your credentials when prompted:
+** Connection URI
+** Username (typically `neo4j`)
+** Password
+
+==== Download the Database Backup
+
+. Download the employee data backup file: link:https://github.com/neo4j-product-examples/knowledge-graph-agent/raw/refs/heads/main/dump/employee-data.backup[employee-data.backup]
+. Save it to a location you can easily access
+
+==== Restore from Backup
+
+. In the Aura Console, locate your `employee-graph` instance
+. Click the *three dots (⋮)* menu next to your instance
+. Select *Backup & Restore*
+
+image::aura-agent-getting-started/employee-backup-restore.png[Restore the Employee DB from backup]
+
+[start=4]
+. Click *Restore from backup*
+. Upload the `employee-data.backup` file you downloaded
+. Wait for the restore process to complete
+. Your instance will return to *RUNNING* status when ready
+
+To understand how this data was created from source resume pdfs and csv files see https://github.com/neo4j-product-examples/neo4j-employee-graph[this repository (modules 1 & 2)^]
+
+==== Enable Tools Authentication
+
+To allow the agent to connect to your database:
+
+. Navigate to your *Organization* → *Security Settings*
+. Activate *Allow tools to connect with permissions from the user's project role*
+. Make sure to select your `employee-graph` database instance
+
+image::aura-agent-getting-started/employee-tool-auth.png[Allow Tools Authentication]
+
+IMPORTANT: This step is required for your agent to access the database. Without it, Neo4j Aura Agent will fail.
+
+=== Step 3: Understand the Employee Knowledge Graph
+
+The restored database contains an employee knowledge graph with:
+
+*Node Types:*
+
+* *Person* - Employees with metadata, resume text and corresponding text embeddings
+* *Skill* - competencies (Python, Java, Machine Learning, etc.)
+* *Thing* - a.k.a. Project - Completed and active projects
+* *Domain* - Business domains (AI, Web, DevOps)
+* *WorkType* - Types of work (Code, Research)
+
+*Relationship Types:*
+
+* `(:Person)-[:KNOWS]->(:Skill)` - Employee skills with proficiency and years of experience
+* `(:Person)-[:BUILT|LED|MANAGED|OPTIMIZED|PUBLISHED|SHIPPED|WON]->(:Thing)` - Things worked on with roles and duration
+* `(:Thing)-[:IN]->(:Domain)` - Project categorization by business domain
+* `(:Thing)-[:OF]->(:WorkType)` - Project categorization by work type
+
+image::aura-agent-getting-started/employee-graph-schema.png[Enable GenAI assistance]
+
+==== Verify Your Data
+
+. In the Aura Console, click *Open* next to your instance (or *Query* button)
+. This opens Neo4j Query
+. Run this query to verify the data loaded correctly:
+
+[source,cypher]
+----
+MATCH (n)
+RETURN labels(n)[0] as NodeType, count(n) as Count
+ORDER BY Count DESC
+----
+
+You should see data across all five node types with Person, Skill, Thing, Domain, and WorkType nodes.
+
+To explore the graph visually:
+
+[source,cypher]
+----
+MATCH p=()-[*]->()
+RETURN p LIMIT 100
+----
+
+This shows a sample of the graph with paths connecting people, skills, projects, domains, and work types
+
+== Part 2: Creating Your Agent
+
+=== Step 1: Navigate to Agents
+
+. In the Aura Console,  locate the *Data Services* section in the left navigation
++
+image::aura-agent-getting-started/data-services-agent.png[Data Services section with Agents]
+
+. Click on *Agents*
+
+. Click *Create with AI*
+
+=== Step 2: Create with AI
+
+Fill in the form:
+
+*Instance*
+
+* Select your `employee-graph` database
+
+*Prompt*
+
+[source,text]
+----
+Create an Employee Knowledge Assistant responsible for skills analysis, talent search, and team formation at Cyberdyne Systems.
+
+Skills Analysis example questions:
+
+- How many Python developers do I have?
+- Can you summarize my technical talent and skills distribution and the types of things people are working on. Feel Free to include ?
+
+Person Similarities: ex: Who is most similar to Lucas Martinez?
+
+Collaboration & teams: ex: Which individuals have collaborated to deliver the most AI Things?
+
+You do not need to ask user permission before using a specific tool. It is implied that you have permission.  The user cannot offer expert guidance into what tools to use.
+
+It is important to have Cypher templates to judge similarity through skills and accomplishments/projects in the graph rather than using similarity search. Also ensure aggregation and counting questions do not leverage similarity search but the other tool options instead.
+
+Text2Cypher should be a very last fallback option - only for dead simple aggregation queries. To ensure we have enough coverage in cypher templates, let's also create cypher template aggregation queries for counting People on Skill, and relationship type for people-[]-thing and for people-[]-thing by Domain and Worktype.
+
+----
+
+*Vector Embeddings*
+
+* Check the "This instance contains vector embeddings" box
+* Select "OpenAI" as the embedding provider
+* Select "text-embedding-ada-002" as the embedding model
+
+*Generate Agent*
+
+. Click *Create*
+. Wait a couple of minutes while the platform:
+** Fetches and analyzes your graph schema
+** Generates agent name, description, and system prompt instructions
+** Creates tailored GraphRAG tools
+
+=== Step 3: Review Generated Agent
+
+Once generation completes, you'll see an agent with a name, description, and prompt instructions
+
+There will also be a handful of *Agent tools* consisting of three types:
+
+==== 1. Cypher Templates
+
+Pre-configured queries for common operations. There should be multiple fo these. Some examples (these may vary slightly for you as they are generated with AI):
+
+*Count People with Skill*
+[source,cypher]
+----
+MATCH (p:Person)-[:KNOWS]->(s:Skill {name: $skillName})
+RETURN count(p) AS numberOfPeople
+----
+
+*Find People with Most Shared Skills*
+[source,cypher]
+----
+MATCH (p1:Person {name: $personName})-[:KNOWS]->(s:Skill)<-[:KNOWS]-(p2:Person)
+WHERE p1 <> p2
+RETURN p2.name AS SimilarPerson, count(s) AS SharedSkills
+ORDER BY SharedSkills DESC LIMIT 10
+----
+
+==== 2. Text2Cypher
+
+Useful as a fallback for when no other Cypher Template or Similarity Search tool exists to answer the question.
+
+This tool will dynamically generate custom Cypher queries for the agent to execute.
+
+==== 3. Similarity Search
+
+Uses vector embeddings for semantic matching. For example: "Find developers with resumes/text descriptions matching Computer vision experience".
+
+== Part 3: Testing Your Agent
+
+=== Step 1: Simple Query
+
+Test with a straightforward question:
+
+[source,text]
+----
+How many Python developers do we have?
+----
+
+*Expected Behavior:*
+
+. Agent selects the `Count People with Skill` Cypher template or equivalent
+. Executes with parameter `skill_name: "Python"`
+. Returns: "28 Python developers"
+
+
+=== Step 2: Complex Query
+
+Test multi-tool query execution:
+
+[source,text]
+----
+Can you summarize my technical talent and skills distribution and the types of things people are working on?
+
+----
+
+*Expected Behavior:*
+
+. Agent makes multiple tool calls involving Text2Cypher and possibly some Query Templates
+
+*Sample Response:*
+
+[source, markdown]
+----
+Cyberdyne Systems has a diverse technical talent pool with a strong distribution across various skills and project types.
+
+**Technical Talent and Skills Distribution:**
+
+The most prevalent skills within the company are:
+
+* **Python:** 28 individuals
+* **SQL:** 16 individuals
+* **AWS:** 15 individuals
+* **Team Management:** 14 individuals
+* **Machine Learning:** 11 individuals
+* **Project Management:** 11 individuals
+* **Docker:** 10 individuals
+* **Kubernetes:** 9 individuals
+* **Data Engineering:** 8 individuals
+
+Other notable skills include Computer Vision (7), Deep Learning (6), Natural Language Processing (6), TensorFlow (6), Data Analysis (6), Java (6), JavaScript (6), Leadership (6), PyTorch (5), React (5), Statistics (4), Google Cloud Platform (4), and Go (4). There are also individuals with expertise in Business Intelligence (3), Product Strategy (3), R Programming Language (2), Product Management (2), Swift (2), Kotlin (2), Cloud Architecture (2), Node.js (2), Data Science (1), Scikit-learn (1), Scala (1), Azure (1), TypeScript (1), Django (1), and Flask (1).
+
+**Types of Things People are Working On (Projects):**
+
+**By Work Type:**
+
+* **SYSTEM:** 28 individuals
+* **PRODUCT:** 23 individuals
+* **TEAM:** 21 individuals
+* **CODE:** 13 individuals
+* **PROCESS:** 13 individuals
+* **PROJECT:** 12 individuals
+* **RESEARCH:** 12 individuals
+* **INFRASTRUCTURE:** 9 individuals
+* **AWARD:** 7 individuals
+
+**By Project Domain:**
+
+* **AI:** 18 individuals
+* **ANALYTICS:** 8 individuals
+* **CLOUD:** 8 individuals
+* **DATA\_ENGINEERING:** 8 individuals
+* **WEB:** 8 individuals
+* **DATABASE:** 5 individuals
+* **MICROSERVICES:** 5 individuals
+* **DEVOPS:** 4 individuals
+* **PLATFORM:** 4 individuals
+* **SECURITY:** 4 individuals
+* **MOBILE:** 2 individuals
+
+**By Project Engagement Type:**
+
+* **BUILT:** 30 individuals
+* **LED:** 28 individuals
+* **SHIPPED:** 23 individuals
+* **OPTIMIZED:** 13 individuals
+* **PUBLISHED:** 12 individuals
+* **MANAGED:** 10 individuals
+* **WON:** 7 individuals
+----
+
+=== Step 3: View Reasoning Chain
+
+Click the *Reasoning* tab to see:
+
+* Complete chain-of-thought process
+* Each tool call with parameters
+* Query execution details
+* How results were synthesized
+
+Example reasoning chain:
+
+image::aura-agent-getting-started/employee-reasoning-tab.png[Reasoning Tab]
+
+Each tool call can be expanded to see inputs and outputs
+
+image::aura-agent-getting-started/employee-reasoning-tab-tool.png[Reasoning Tab Tool Expansion]
+
+The reasoning steps can be expanded as well to show agent thinking
+
+image::aura-agent-getting-started/employee-reasoning-tab-reasoning.png[Reasoning Tab Reasoning Expansion]
+
+
+=== Step 4: [Optional] Update, Test, and Iterate Agent
+You can optionally add, remove and edit tools.  Be sure to save the agent with the "Update agent" button in the top-right corner to preserve your work.
+See the https://github.com/neo4j-product-examples/knowledge-graph-agent/blob/main/employee-agent.md[GitHub Readme^] for additional Cypher Template tools and Text2Query prompts you can try, along with additional questions to ask the agent.
+
+== Part 4: Deploying the Agent to REST & MCP
+
+=== Step 1: Enable External Access
+
+. In the Aura Agent configuration, click *External Access*
+. Toggle on *Enable MCP server*
+
+Click "Update Agent".
+
+Within a couple of minutes you should have authenticated public endpoints to a REST API and MCP server to programmatically call the agent.
+
+==== Step 2: Test MCP Server
+
+You can test the MCP server with https://modelcontextprotocol.io/docs/tools/inspector[MCP Inspector^] or any AI client that supports OAuth. In this case we will use Claude[https://claude.ai/new^] as the example.
+
+Note that if you are not a Claude Administrator you need permission to add connectors.
+
+Copy your MCP Server endpoint in the Aura Console.
+
+image::aura-agent-getting-started/employee-mcp-endpoint.png[Copy MCP Endpoint]
+
+In Claude, from *Settings/Connectors* use *Add custom connector*. Give the connector an appropriate name, i.e. "Expert Agent" and add the copied endpoint in the Remote MCP server URL field and hit *Add*.
+
+Log in with Aura credentials. Claude opens a pop-up asking you to log in to aura-mcp, *Continue*, and *Accept* to get to the login page. Use the same credentials you use to log into the Aura console.
+
+Verify your MCP server. Create a new chat in Claude and verify that your agent is enabled. Try the Questions:
+
+* "How many Python developers do I have?"
+* "Can you summarize my technical talent and skills distribution and the types of things people are working on?  Feel free to include simple graphics."
+
+=== Step 3: Test REST API
+
+To access via REST API you must first generate Aura API Keys.
+
+** Go to your account settings page and locate `API Keys`
+** Click `Generate API Key`, give it a name and make a note of your new `Client ID` and `Client Secret`
+** Keep `Client ID` and Secret secure. Do not share.
+
+Copy your API External endpoint from the Agents tab
+
+image::aura-agent-getting-started/employee-rest-copy.png[Copy REST API Endpoint]
+
+With this you can now test the API.  To test quickly from terminal run the following commands
+
+[source,bash]
+----
+export CLIENT_ID=<enter your Client ID here>
+export CLIENT_SECRET=<enter your Client Secret here>
+export ENDPOINT_URL=<enter your agent endpoint URL>
+----
+
+Get an Aura API token
+[source,bash]
+----
+export BEARER_TOKEN=$(curl -s --request POST 'https://api.neo4j.io/oauth/token' \
+     --user "$CLIENT_ID:$CLIENT_SECRET" \
+     --header 'Content-Type: application/x-www-form-urlencoded' \
+     --data-urlencode 'grant_type=client_credentials' | jq -r .access_token)
+----
+
+
+Ask your Agent a question via the agent API endpoint
+[source,bash]
+----
+curl --request POST "$ENDPOINT_URL" \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer $BEARER_TOKEN" \
+  -d '{"input": "how many Python developers do I have?"}' --max-time 60 \
+  | jq .
+----
+Your agent reply should look like this:
+[source, bash]
+----
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1116  100  1066  100    50    274     12  0:00:04  0:00:03  0:00:01   286
+{
+  "content": [
+    {
+      "thinking": "Okay, here's what I'm thinking. I need to figure out how many Python developers there are. My initial understanding is that this means counting all the people who list \"Python\" as a skill. Therefore, the core of this task seems straightforward. The `Count_People_with_Skill` tool appears to be exactly the right instrument for this. I'll need to use the `skillName` argument, and in this case, the value will clearly be 'Python'. Simple as that, I'm off to get my count.\n",
+      "type": "thinking"
+    },
+    {
+      "id": "pyd_ai_853912b80104475e916e85b92d6ee591",
+      "input": {
+        "skillName": "Python"
+      },
+      "name": "Count_People_with_Skill",
+      "type": "cypher_template_tool_use"
+    },
+    {
+      "output": {
+        "keys": [
+          "numberOfPeople"
+        ],
+        "records": [
+          {
+            "numberOfPeople": 28
+          }
+        ],
+        "summary": {}
+      },
+      "tool_use_id": "pyd_ai_853912b80104475e916e85b92d6ee591",
+      "type": "cypher_template_tool_result"
+    },
+    {
+      "text": "You have 28 Python developers.",
+      "type": "text"
+    }
+  ],
+  "end_reason": "FINAL_ANSWER_PROVIDED",
+  "role": "assistant",
+  "status": "SUCCESS",
+  "type": "message",
+  "usage": {
+    "request_tokens": 919,
+    "response_tokens": 77,
+    "total_tokens": 996
+  }
+}
+
+----
+
+== Conclusion
+
+You've successfully built and deployed a knowledge graph agent using Neo4j Aura Agent! You can now:
+
+* ✓ Create agents from graph ontologies in minutes
+* ✓ Leverage multiple GraphRAG tools
+* ✓ Deploy with secure REST and MCP endpoints
+* ✓ Integrate with Claude and other AI clients
+
+== Resources
+
+* See the http://neo4j.com/docs/aura/aura-agent/[documentation^] for a more in-depth details on Neo4j Aura Agent
+* Additional worked examples are continually added to the https://github.com/neo4j-product-examples/knowledge-graph-agent[GitHub Repository^]
+* The https://neo4j.com/product/aura-agent/[Neo4j Aura Agent webpage^] and https://neo4j.com/developer/genai-ecosystem/aura-agent/[developer guide^] contains a general overview with links to additional videos and learning resources
+
+---
