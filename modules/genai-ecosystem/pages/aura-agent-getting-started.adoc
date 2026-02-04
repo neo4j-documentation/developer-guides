@@ -391,7 +391,7 @@ Click "Update Agent".
 
 Within a couple of minutes you should have authenticated public endpoints to a REST API and MCP server to programmatically call the agent.
 
-==== Step 2: Test MCP Server
+=== Step 2: Test MCP Server
 
 You can test the MCP server with https://modelcontextprotocol.io/docs/tools/inspector[MCP Inspector^] or any AI client that supports OAuth. In this case we will use Claude[https://claude.ai/new^] as the example.
 
