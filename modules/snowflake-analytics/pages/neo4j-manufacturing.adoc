@@ -179,61 +179,48 @@ now:
 
 [source,sql]
 ----
--- you must be accountadmin to create role and grant permissions
-use role accountadmin;
+-- Use a role with the required privileges
+USE ROLE ACCOUNTADMIN;
+
+-- Create a consumer role for users of the Graph Analytics application
+CREATE ROLE IF NOT EXISTS MY_CONSUMER_ROLE;
+GRANT APPLICATION ROLE Neo4j_Graph_Analytics.app_user TO ROLE MY_CONSUMER_ROLE;
+SET MY_USER = (SELECT CURRENT_USER());
+GRANT ROLE MY_CONSUMER_ROLE TO USER IDENTIFIER($MY_USER);
+
+USE SCHEMA m_demo.PUBLIC;
+CREATE TABLE NODES (nodeId Number);
+INSERT INTO NODES VALUES (1), (2), (3), (4), (5), (6);
+CREATE TABLE RELATIONSHIPS (sourceNodeId Number, targetNodeId Number);
+INSERT INTO RELATIONSHIPS VALUES (1, 2), (2, 3), (4, 5), (5, 6);
+
+-- Grants needed for the app to read consumer data stored in tables and views, using a database role
+USE DATABASE m_demo;
+CREATE DATABASE ROLE IF NOT EXISTS MY_DB_ROLE;
+GRANT USAGE ON DATABASE m_demo TO DATABASE ROLE MY_DB_ROLE;
+GRANT USAGE ON SCHEMA m_demo.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT SELECT ON ALL TABLES IN SCHEMA m_demo.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT SELECT ON ALL VIEWS IN SCHEMA m_demo.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+-- Future tables also include tables that are created by the application itself.
+-- This is useful as many use-cases require running algorithms in a sequence and using the output of a prior algorithm as input.
+GRANT SELECT ON FUTURE TABLES IN SCHEMA m_demo.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT SELECT ON FUTURE VIEWS IN SCHEMA m_demo.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT CREATE TABLE ON SCHEMA m_demo.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT DATABASE ROLE MY_DB_ROLE TO APPLICATION Neo4j_Graph_Analytics;
+
+-- Ensure the consumer role has access to tables created by the application
+GRANT USAGE ON DATABASE m_demo TO ROLE MY_CONSUMER_ROLE;
+GRANT USAGE ON SCHEMA m_demo.PUBLIC TO ROLE MY_CONSUMER_ROLE;
+GRANT SELECT ON FUTURE TABLES IN SCHEMA m_demo.PUBLIC TO ROLE MY_CONSUMER_ROLE;
+
+-- Use the consumer role to run the algorithm and inspect the output
+USE ROLE MY_CONSUMER_ROLE;
 ----
 
-Next we can set up the necessary roles, permissions, and resource access
-to enable Graph Analytics to operate on data within the
-`M++_++DEMO.public schema`. It creates a consumer role (gds++_++role)
-for users and administrators, grants the Graph Analytics application
-access to read from and write to tables and views, and ensures that
-future tables are accessible.
-
-It also provides the application with access to the required compute
-pool and warehouse resources needed to run graph algorithms at scale.
+Then we need to switch the database we created:
 
 [source,sql]
 ----
--- Create an account role to manage the GDS application
-CREATE ROLE IF NOT EXISTS gds_role;
-GRANT APPLICATION ROLE neo4j_graph_analytics.app_user TO ROLE gds_role;
-GRANT APPLICATION ROLE neo4j_graph_analytics.app_admin TO ROLE gds_role;
-
---Grant permissions for the application to use the database
-GRANT USAGE ON DATABASE m_demo TO APPLICATION neo4j_graph_analytics;
-GRANT USAGE ON SCHEMA m_demo.public TO APPLICATION neo4j_graph_analytics;
-
---Create a database role to manage table and view access
-CREATE DATABASE ROLE IF NOT EXISTS gds_db_role;
-
-GRANT ALL PRIVILEGES ON FUTURE TABLES IN SCHEMA m_demo.public TO DATABASE ROLE gds_db_role;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA m_demo.public TO DATABASE ROLE gds_db_role;
-
-GRANT ALL PRIVILEGES ON FUTURE VIEWS IN SCHEMA m_demo.public TO DATABASE ROLE gds_db_role;
-GRANT ALL PRIVILEGES ON ALL VIEWS IN SCHEMA m_demo.public TO DATABASE ROLE gds_db_role;
-
-GRANT CREATE TABLE ON SCHEMA m_demo.public TO DATABASE ROLE gds_db_role;
-
-
---Grant the DB role to the application and admin user
-GRANT DATABASE ROLE gds_db_role TO APPLICATION neo4j_graph_analytics;
-GRANT DATABASE ROLE gds_db_role TO ROLE gds_role;
-
-GRANT USAGE ON DATABASE M_DEMO TO ROLE GDS_ROLE;
-GRANT USAGE ON SCHEMA M_DEMO.PUBLIC TO ROLE GDS_ROLE;
-
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA M_DEMO.PUBLIC TO ROLE GDS_ROLE;
-GRANT CREATE TABLE ON SCHEMA M_DEMO.PUBLIC TO ROLE GDS_ROLE;
-GRANT SELECT, INSERT, UPDATE, DELETE ON FUTURE TABLES IN SCHEMA M_DEMO.PUBLIC TO ROLE GDS_ROLE;
-----
-
-Then we need to switch the role we created:
-
-[source,sql]
-----
-use warehouse neo4j_graph_analytics_APP_WAREHOUSE;
-use role gds_role;
 use database m_demo;
 use schema public;
 ----
