@@ -265,43 +265,42 @@ Next we grant the necessary permissions:
 
 [source,sql]
 ----
+-- Use a role with the required privileges
 USE ROLE ACCOUNTADMIN;
-----
 
-[source,sql]
-----
--- Create a consumer role for users and admins of the GDS application
-CREATE ROLE IF NOT EXISTS gds_user_role;
-CREATE ROLE IF NOT EXISTS gds_admin_role;
-GRANT APPLICATION ROLE neo4j_graph_analytics.app_user TO ROLE gds_user_role;
-GRANT APPLICATION ROLE neo4j_graph_analytics.app_admin TO ROLE gds_admin_role;
+-- Create a consumer role for users of the Graph Analytics application
+CREATE ROLE IF NOT EXISTS MY_CONSUMER_ROLE;
+GRANT APPLICATION ROLE Neo4j_Graph_Analytics.app_user TO ROLE MY_CONSUMER_ROLE;
+SET MY_USER = (SELECT CURRENT_USER());
+GRANT ROLE MY_CONSUMER_ROLE TO USER IDENTIFIER($MY_USER);
 
-CREATE DATABASE ROLE IF NOT EXISTS gds_db_role;
-GRANT DATABASE ROLE gds_db_role TO ROLE gds_user_role;
-GRANT DATABASE ROLE gds_db_role TO APPLICATION neo4j_graph_analytics;
+USE SCHEMA retail_recs.PUBLIC;
+CREATE TABLE NODES (nodeId Number);
+INSERT INTO NODES VALUES (1), (2), (3), (4), (5), (6);
+CREATE TABLE RELATIONSHIPS (sourceNodeId Number, targetNodeId Number);
+INSERT INTO RELATIONSHIPS VALUES (1, 2), (2, 3), (4, 5), (5, 6);
 
--- Grant access to consumer data
-GRANT USAGE ON DATABASE RETAIL_RECS TO ROLE gds_user_role;
-GRANT USAGE ON SCHEMA RETAIL_RECS.PUBLIC TO ROLE gds_user_role;
+-- Grants needed for the app to read consumer data stored in tables and views, using a database role
+USE DATABASE retail_recs;
+CREATE DATABASE ROLE IF NOT EXISTS MY_DB_ROLE;
+GRANT USAGE ON DATABASE retail_recs TO DATABASE ROLE MY_DB_ROLE;
+GRANT USAGE ON SCHEMA retail_recs.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT SELECT ON ALL TABLES IN SCHEMA retail_recs.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT SELECT ON ALL VIEWS IN SCHEMA retail_recs.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+-- Future tables also include tables that are created by the application itself.
+-- This is useful as many use-cases require running algorithms in a sequence and using the output of a prior algorithm as input.
+GRANT SELECT ON FUTURE TABLES IN SCHEMA retail_recs.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT SELECT ON FUTURE VIEWS IN SCHEMA retail_recs.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT CREATE TABLE ON SCHEMA retail_recs.PUBLIC TO DATABASE ROLE MY_DB_ROLE;
+GRANT DATABASE ROLE MY_DB_ROLE TO APPLICATION Neo4j_Graph_Analytics;
 
--- Required to read tabular data into a graph
-GRANT SELECT ON ALL TABLES IN DATABASE RETAIL_RECS TO DATABASE ROLE gds_db_role;
+-- Ensure the consumer role has access to tables created by the application
+GRANT USAGE ON DATABASE retail_recs TO ROLE MY_CONSUMER_ROLE;
+GRANT USAGE ON SCHEMA retail_recs.PUBLIC TO ROLE MY_CONSUMER_ROLE;
+GRANT SELECT ON FUTURE TABLES IN SCHEMA retail_recs.PUBLIC TO ROLE MY_CONSUMER_ROLE;
 
--- Ensure the consumer role has access to created tables/views
-GRANT ALL PRIVILEGES ON FUTURE TABLES IN SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
-GRANT CREATE TABLE ON SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
-GRANT CREATE VIEW ON SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
-GRANT ALL PRIVILEGES ON FUTURE VIEWS IN SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
-GRANT ALL PRIVILEGES ON ALL VIEWS IN SCHEMA RETAIL_RECS.PUBLIC TO DATABASE ROLE gds_db_role;
-
--- Compute and warehouse access
-GRANT USAGE ON WAREHOUSE NEO4J_GRAPH_ANALYTICS_APP_WAREHOUSE TO APPLICATION neo4j_graph_analytics;
-----
-
-[source,sql]
-----
-use role gds_role;
+-- Use the consumer role to run the algorithm and inspect the output
+USE ROLE MY_CONSUMER_ROLE;
 ----
 
 == Running our Algorithms
