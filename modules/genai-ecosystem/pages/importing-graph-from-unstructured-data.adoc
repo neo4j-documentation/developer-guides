@@ -70,7 +70,7 @@ Learn more in the documentation:
 * https://neo4j.com/developer/genai-ecosystem/graphrag-python/[Neo4j GraphRAG Python Package Overview^]
 * https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_kg_builder.html[User Guide: Knowledge Graph Builder^]
 * https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_pipeline.html[User Guide: Pipeline]
-* https://neo4j.com/developer/genai-ecosystem/importing-graph-from-unstructured-data/[GraphAcademy Course^]
+* https://graphacademy.neo4j.com/courses/llm-vectors-unstructured/?category=generative-ai[GraphAcademy Course^]
 
 Those generated Knowledge Graphs can then be used with the https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html[same Python package, for building GraphRAG powered^] GenAI applications.
 
