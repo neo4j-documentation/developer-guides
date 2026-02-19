@@ -12,6 +12,8 @@ Those Knowledge Graphs can then be used for a variety of applications, including
 
 image::https://miro.medium.com/v2/resize:fit:1400/format:webp/0*qgT2hBiA3DA1Y3qu.png[width=600]
 
+image::https://cdn.graphacademy.neo4j.com/assets/img/courses/banners/llm-vectors-unstructured.png[width=800,link="https://graphacademy.neo4j.com/courses/llm-vectors-unstructured/?category=generative-ai"]
+
 == Neo4j Product Capabilities
 
 === GraphRAG Python Package
@@ -68,6 +70,7 @@ Learn more in the documentation:
 * https://neo4j.com/developer/genai-ecosystem/graphrag-python/[Neo4j GraphRAG Python Package Overview^]
 * https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_kg_builder.html[User Guide: Knowledge Graph Builder^]
 * https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_pipeline.html[User Guide: Pipeline]
+* https://neo4j.com/developer/genai-ecosystem/importing-graph-from-unstructured-data/[GraphAcademy Course^]
 
 Those generated Knowledge Graphs can then be used with the https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html[same Python package, for building GraphRAG powered^] GenAI applications.
 
