@@ -71,6 +71,8 @@ The Neo4j Aura Agent platform provides:
 . Enable *Generative AI assistance* for your Aura Organization:
 ** Click on your Organization settings
 ** Toggle on *Enable GenAI assistance*
+. Enable *Security->Tool authentication* in your  Organization for your database(s)
+
 
 image::aura-agent-getting-started/enable-ai.png[Enable GenAI assistance]
 
