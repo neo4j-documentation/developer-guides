@@ -27,12 +27,12 @@ image::https://cdn.graphacademy.neo4j.com/assets/img/courses/banners/llm-vectors
 == Usage
 
 This page covers Neo4j `5.11+`.
-For current Neo4j releases, prefer the https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^] for vector search and https://neo4j.com/docs/genai/plugin/current/embeddings/[`ai.text.embed()` and `ai.text.embedBatch()`^] for generating embeddings.
-For earlier Neo4j `5.x` releases, use `db.index.vector.queryNodes()` and `genai.vector.encode()`.
+The tabs below separate the current recommended approach using Cypher 25 from the compatibility approach for earlier Neo4j `5.x` releases using Cypher 5.
+For current Neo4j releases, prefer the Cypher 25 approach, using the https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^] for vector search and https://neo4j.com/docs/genai/plugin/current/embeddings/[`ai.text.embed()` and `ai.text.embedBatch()`^] for generating embeddings.
 
 [.tabbed-example]
 ====
-[.include-with-Current-approach]
+[.include-with-Current-Cypher-25-approach]
 =====
 [source,cypher]
 ----
@@ -136,6 +136,14 @@ ORDER BY score DESC LIMIT 10;
 ====
 
 == Documentation
+[cols="1,4"]
+|===
+
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/indexes/semantic-indexes/vector-indexes/[Vector indexes^]
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^]
+| icon:book[] Documentation | https://neo4j.com/docs/genai/plugin/current/embeddings/[Create and store embeddings^]
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/functions/vector/[Vector Similarity Functions^]
+|===
 
 == Relevant Links
 [cols="1,4"]
@@ -144,10 +152,6 @@ ORDER BY score DESC LIMIT 10;
 | icon:comments[] Community Support | https://community.neo4j.com/[Neo4j Online Community^]
 | icon:github[] Repository | https://github.com/neo4j/neo4j[GitHub]
 | icon:github[] Issues | https://github.com/neo4j/neo4j/issues
-| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/indexes/semantic-indexes/vector-indexes/[Vector indexes^]
-| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^]
-| icon:book[] Documentation | https://neo4j.com/docs/genai/plugin/current/embeddings/[Create and store embeddings^]
-| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/functions/vector/[Vector Similarity Functions^]
 |===
 
 
