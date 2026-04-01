@@ -26,11 +26,68 @@ image::https://cdn.graphacademy.neo4j.com/assets/img/courses/banners/llm-vectors
 
 == Usage
 
-The examples below use `db.index.vector.queryNodes()` because it works across the full Neo4j `5.11+` version range covered by this page.
-On Neo4j `2026.01` and later, prefer the https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^] for vector search in Cypher.
-For embeddings, Neo4j `2025.11` and later prefer https://neo4j.com/docs/genai/plugin/current/embeddings/[`ai.text.embed()` and `ai.text.embedBatch()`^].
-The example below keeps `genai.vector.encode()` for compatibility with earlier Neo4j `5.x` releases.
+This page covers Neo4j `5.11+`.
+For current Neo4j releases, prefer the https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^] for vector search and https://neo4j.com/docs/genai/plugin/current/embeddings/[`ai.text.embed()` and `ai.text.embedBatch()`^] for generating embeddings.
+For earlier Neo4j `5.x` releases, use `db.index.vector.queryNodes()` and `genai.vector.encode()`.
 
+[.tabbed-example]
+====
+[.include-with-Current-approach]
+=====
+[source,cypher]
+----
+// create vector index
+CREATE VECTOR INDEX `abstract-embeddings`
+FOR (n:Abstract) ON (n.embedding)
+OPTIONS {indexConfig: {
+ `vector.dimensions`: 1536,
+ `vector.similarity_function`: 'cosine'
+}};
+
+
+// set embedding as parameter
+MATCH (a:Abstract {id: $id})
+CALL db.create.setNodeVectorProperty(a, 'embedding', $embedding);
+
+
+// generate an embedding with the GenAI plugin
+MATCH (a:Abstract {id: $id})
+WITH a, ai.text.embed(a.text, "OpenAI", { token: $token, model: 'text-embedding-3-small' }) AS embedding
+CALL db.create.setNodeVectorProperty(a, 'embedding', toFloatList(embedding));
+
+
+// query the vector index in Cypher 25
+CYPHER 25
+MATCH (title:Title)<--(:Paper)-->(abstract:Abstract)
+WHERE title.text CONTAINS 'hierarchical navigable small world graph'
+WITH abstract.embedding AS queryVector
+MATCH (similarAbstract:Abstract)
+  SEARCH similarAbstract IN (
+    VECTOR INDEX `abstract-embeddings`
+    FOR queryVector
+    LIMIT 10
+  )
+  SCORE score
+MATCH (similarAbstract)<--(:Paper)-->(similarTitle:Title)
+RETURN similarTitle.text AS title, score;
+
+
+// use cosine similarity for exact nearest neighbor search
+// pre-filter vector search
+MATCH (venue:Venue)<--(paper:Paper)-->(abstract:Abstract)
+WHERE venue.name CONTAINS 'NETWORK'
+
+WITH abstract, paper,
+     vector.similarity.cosine(abstract.embedding, $embedding) AS score
+WHERE score > 0.9
+
+RETURN paper.title AS title, abstract.text, score
+ORDER BY score DESC LIMIT 10;
+----
+=====
+
+[.include-with-Earlier-5x-compatibility]
+=====
 [source,cypher]
 ----
 // create vector index
@@ -75,6 +132,8 @@ WHERE score > 0.9
 RETURN paper.title AS title, abstract.text, score
 ORDER BY score DESC LIMIT 10;
 ----
+=====
+====
 
 == Documentation
 
