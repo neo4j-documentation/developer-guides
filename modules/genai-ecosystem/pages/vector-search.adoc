@@ -29,6 +29,8 @@ image::https://cdn.graphacademy.neo4j.com/assets/img/courses/banners/llm-vectors
 This page covers Neo4j `5.11+`.
 The tabs below separate the current recommended approach using Cypher 25 from the compatibility approach for earlier Neo4j `5.x` releases using Cypher 5.
 For current Neo4j releases, prefer the Cypher 25 approach, using the https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^] for vector search and https://neo4j.com/docs/genai/plugin/current/embeddings/[`ai.text.embed()` and `ai.text.embedBatch()`^] for generating embeddings.
+In both approaches, explicitly set `vector.dimensions` to match the embedding model you use. 
+This is recommended because it ensures only embeddings of the expected size are indexed and causes mismatched-dimension queries to fail clearly.
 
 [.tabbed-example]
 ====
