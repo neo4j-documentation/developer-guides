@@ -14,6 +14,7 @@
 **** xref:graphrag-python.adoc[GraphRAG Python Package]
 **** https://python.langchain.com/docs/integrations/providers/neo4j[LangChain Neo4j (Vendor Supported Package)^]
 **** xref:vector-search.adoc[Vector Index and Search]
+**** xref:hybrid-search.adoc[Hybrid Search]
 
 *** xref:importing-graph-from-unstructured-data.adoc[Unstructured Data Import]
 *** xref:model-context-protocol-mcp.adoc[Model Context Protocol]

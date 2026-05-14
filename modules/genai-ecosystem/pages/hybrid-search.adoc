@@ -1,0 +1,656 @@
+= Hybrid search
+include::_graphacademy_llm.adoc[]
+include::_developer_survey.adoc[]
+:slug: hybrid-search
+:author:
+:category: genai-ecosystem
+:tags: hybrid search, vector search, full-text search, embeddings, graph data science, neo4j
+:neo4j-versions: 5.11+
+:page-pagination:
+:page-product: neo4j
+
+
+Hybrid search is useful when one retrieval signal is not enough.
+It can combine signals such as:
+
+* *lexical (full-text) search* - which finds exact names, acronyms, codes, and domain-specific terms
+* *semantic (vector) search* - which finds conceptually similar content and paraphrases
+* *structural (graph topology similarity) search* - which finds graph entities with similar topology, neighborhoods, communities, or graph-derived features
+
+Combining search signals can improve the quality of search results.
+A result that appears in more than one ranked list gets support from multiple signals, while a result that ranks strongly in one source can still be returned even if another source misses it.
+This is useful for search and retrieval-augmented generation (RAG) applications where users expect both conceptual matches and exact terminology to work.
+
+Structural search is a graph-native benefit of Neo4j.
+With Neo4j Graph Data Science (GDS), algorithms such as https://neo4j.com/docs/graph-data-science/current/machine-learning/node-embeddings/fastrp/[FastRP node embeddings^] can turn graph topology into vectors that can be searched alongside lexical and semantic results.
+This lets applications retrieve entities that are structurally similar even when their text is different.
+
+Hybrid search is often used for lexical + semantic search, such as full-text search plus vector search.
+The same approach can combine any two or more ranked or scored sources, including several vector indexes, title and body full-text indexes, graph traversal scores, structural similarity from graph embeddings, community membership, business rules, or external retrieval scores.
+
+This page shows two patterns:
+
+* *lexical + semantic search* - using full-text search and vector search
+* *lexical + semantic + structural search* - using full-text search and two vector indexes
+
+Both examples use weighted reciprocal rank fusion (WRRF) to combine results.
+WRRF scores each result from its rank in each source list rather than comparing raw scores from different search methods directly.
+Use a larger `sourceK` than `finalK` so each source can contribute enough candidates before fusion.
+The `rrfConstant` dampens the effect of rank position, and `sourceWeights` lets you favor one retrieval signal over another.
+
+== Full-text and vector search
+
+The example below combines:
+
+* a full-text index on `Abstract.text`
+* stored embedding vectors on `Abstract.embedding`, queried with a vector index using `SEARCH` in current Neo4j releases or `db.index.vector.queryNodes()` for Neo4j 5.11 compatibility
+* WRRF scoring over both ranked lists
+
+Create indexes for your Neo4j version.
+Current Neo4j releases should use `CREATE VECTOR INDEX`.
+Neo4j 5.11 uses the legacy vector-index creation procedure.
+The 5.11 example drops the vector index first so the setup can be rerun; skip the `DROP INDEX` statement if you already have an index you want to keep.
+
+[.tabbed-example]
+====
+[.include-with-Current-Cypher-25-approach]
+=====
+
+[source,cypher]
+----
+CREATE FULLTEXT INDEX `abstract-fulltext` IF NOT EXISTS
+FOR (abstract:Abstract)
+ON EACH [abstract.text];
+
+CREATE VECTOR INDEX `abstract-embeddings` IF NOT EXISTS
+FOR (abstract:Abstract)
+ON abstract.embedding
+OPTIONS {indexConfig: {
+  `vector.dimensions`: 1536,
+  `vector.similarity_function`: 'cosine'
+}};
+
+CALL db.awaitIndexes(30);
+----
+=====
+
+[.include-with-Neo4j-5-11-compatibility]
+=====
+[source,cypher]
+----
+CREATE FULLTEXT INDEX `abstract-fulltext` IF NOT EXISTS
+FOR (abstract:Abstract)
+ON EACH [abstract.text];
+
+DROP INDEX `abstract-embeddings` IF EXISTS;
+
+CALL db.index.vector.createNodeIndex(
+  'abstract-embeddings',
+  'Abstract',
+  'embedding',
+  1536,
+  'cosine'
+);
+
+CALL db.awaitIndexes(30);
+----
+=====
+====
+
+The query uses `abstract.id` as a deterministic tie breaker; replace it with a stable unique property from your own data model.
+
+Choose the query form for your Neo4j version:
+
+[.tabbed-example]
+====
+[.include-with-Current-Cypher-25-approach]
+=====
+[source,cypher]
+----
+CYPHER 25
+LET
+  query = $query,
+  queryVector = $queryVector,
+  sourceK = $sourceK,
+  finalK = $finalK,
+  rrfConstant = $rrfConstant,
+  sourceWeights = $sourceWeights
+
+CALL (query, queryVector, sourceK, rrfConstant, sourceWeights) {
+  CALL db.index.fulltext.queryNodes('abstract-fulltext', query, {limit: sourceK})
+  YIELD node AS abstract, score
+  ORDER BY score DESC, abstract.id ASC
+  WITH collect(abstract) AS abstracts, rrfConstant, sourceWeights
+  LET weight = coalesce(sourceWeights['fulltext'], 1.0)
+  UNWIND CASE WHEN size(abstracts) = 0 THEN [] ELSE range(0, size(abstracts) - 1) END AS rankIndex
+  RETURN
+    abstracts[rankIndex] AS abstract,
+    weight / (rrfConstant + rankIndex + 1) AS contribution
+
+  UNION ALL
+
+  MATCH (abstract:Abstract)
+    SEARCH abstract IN (
+      VECTOR INDEX `abstract-embeddings`
+      FOR queryVector
+      LIMIT $sourceK
+    ) SCORE AS score
+  ORDER BY score DESC, abstract.id ASC
+  WITH collect(abstract) AS abstracts, rrfConstant, sourceWeights
+  LET weight = coalesce(sourceWeights['vector'], 1.0)
+  UNWIND CASE WHEN size(abstracts) = 0 THEN [] ELSE range(0, size(abstracts) - 1) END AS rankIndex
+  RETURN
+    abstracts[rankIndex] AS abstract,
+    weight / (rrfConstant + rankIndex + 1) AS contribution
+}
+WITH abstract, finalK, sum(contribution) AS wrrf
+ORDER BY wrrf DESC, abstract.id ASC
+WITH collect({abstract: abstract, wrrf: wrrf}) AS orderedRows, finalK
+LET limitedRows = orderedRows[..finalK]
+UNWIND limitedRows AS row
+WITH row.abstract AS abstract, row.wrrf AS wrrf
+MATCH (abstract)<--(:Paper)-->(title:Title)
+RETURN title.text AS title, abstract.text AS text, wrrf
+ORDER BY wrrf DESC, abstract.id ASC;
+----
+=====
+
+[.include-with-Neo4j-5-11-compatibility]
+=====
+[source,cypher]
+----
+WITH
+  $query AS query,
+  $queryVector AS queryVector,
+  $sourceK AS sourceK,
+  $finalK AS finalK,
+  $rrfConstant AS rrfConstant,
+  $sourceWeights AS sourceWeights
+
+CALL {
+  WITH query, sourceK, rrfConstant, sourceWeights
+  CALL db.index.fulltext.queryNodes('abstract-fulltext', query, {limit: sourceK})
+  YIELD node AS abstract, score
+  WITH abstract, score, rrfConstant, sourceWeights
+  ORDER BY score DESC, abstract.id ASC
+  WITH collect(abstract) AS abstracts, rrfConstant, sourceWeights
+  WITH abstracts, rrfConstant, coalesce(sourceWeights['fulltext'], 1.0) AS weight
+  UNWIND CASE WHEN size(abstracts) = 0 THEN [] ELSE range(0, size(abstracts) - 1) END AS rankIndex
+  RETURN
+    abstracts[rankIndex] AS abstract,
+    weight / (rrfConstant + rankIndex + 1) AS contribution
+
+  UNION ALL
+
+  WITH queryVector, sourceK, rrfConstant, sourceWeights
+  CALL db.index.vector.queryNodes('abstract-embeddings', sourceK, queryVector)
+  YIELD node AS abstract, score
+  WITH abstract, score, sourceK, rrfConstant, sourceWeights
+  ORDER BY score DESC, abstract.id ASC
+  WITH collect(abstract) AS abstracts, sourceK, rrfConstant, sourceWeights
+  WITH abstracts, rrfConstant, coalesce(sourceWeights['vector'], 1.0) AS weight
+  UNWIND CASE WHEN size(abstracts) = 0 THEN [] ELSE range(0, size(abstracts) - 1) END AS rankIndex
+  RETURN
+    abstracts[rankIndex] AS abstract,
+    weight / (rrfConstant + rankIndex + 1) AS contribution
+}
+WITH abstract, finalK, sum(contribution) AS wrrf
+ORDER BY wrrf DESC, abstract.id ASC
+WITH collect({abstract: abstract, wrrf: wrrf}) AS orderedRows, finalK
+UNWIND orderedRows[..finalK] AS row
+WITH row.abstract AS abstract, row.wrrf AS wrrf
+MATCH (abstract)<--(:Paper)-->(title:Title)
+RETURN title.text AS title, abstract.text AS text, wrrf
+ORDER BY wrrf DESC, abstract.id ASC;
+----
+=====
+====
+
+For example, pass parameters like these from an application:
+The `queryVector` below is shortened for readability.
+In a real query, pass an embedding with the same dimensions as the stored embeddings and the vector index, for example 1536 dimensions when using `text-embedding-3-small`.
+
+[source,json]
+----
+{
+  "query": "hierarchical navigable small world graph",
+  "queryVector": [0.12, -0.03, 0.45],
+  "sourceK": 20,
+  "finalK": 10,
+  "rrfConstant": 60.0,
+  "sourceWeights": {
+    "fulltext": 1.0,
+    "vector": 1.0
+  }
+}
+----
+
+Each source contributes `weight / (rrfConstant + sourceRank)` for every matching abstract.
+If an abstract appears in both result sets, the query sums both contributions.
+This rewards results that rank highly in either source, and gives an additional boost to results that rank well in both.
+
+Increase the full-text weight when exact terminology is critical, such as product names, codes, or domain-specific vocabulary.
+Increase the vector weight when conceptual similarity should dominate.
+
+== Add structural search
+
+Structural search adds another ranked source for graph topology.
+For example, two decisions may be structurally similar because they involve similar accounts, policies, escalation paths, or fraud patterns, even if their text descriptions use different words.
+
+The sample below uses precomputed vectors so that the Cypher is self-contained.
+In production, structural embeddings can be generated from graph topology, for example with the Neo4j Graph Data Science FastRP node embedding algorithm, then stored on the nodes and queried with a vector index.
+
+The sample data creates six `Decision` nodes:
+
+* one decision that matches lexical, semantic, and structural signals
+* one mostly lexical match
+* one mostly semantic match
+* one mostly structural match
+* one partial multi-source match
+* one tie-breaker row
+
+[source,cypher]
+----
+MATCH (decision:Decision)
+WHERE decision.id STARTS WITH 'hybrid-example-'
+DETACH DELETE decision;
+
+UNWIND [
+  {
+    id: 'hybrid-example-all-signals',
+    title: 'Credit limit escalation after fraud alert',
+    text: 'Credit limit increase review with fraud alert and senior risk escalation.',
+    semanticEmbedding: [1.0, 0.0, 0.0],
+    structuralEmbedding: [0.0, 0.0, 1.0]
+  },
+  {
+    id: 'hybrid-example-lexical-only',
+    title: 'Credit limit policy wording match',
+    text: 'Credit limit fraud review terminology appears in this policy note.',
+    semanticEmbedding: [0.0, 1.0, 0.0],
+    structuralEmbedding: [0.0, 1.0, 0.0]
+  },
+  {
+    id: 'hybrid-example-semantic-only',
+    title: 'Risky customer request',
+    text: 'Customer request needs a careful decision because exposure may increase.',
+    semanticEmbedding: [0.98, 0.02, 0.0],
+    structuralEmbedding: [0.0, 1.0, 0.0]
+  },
+  {
+    id: 'hybrid-example-structural-only',
+    title: 'Similar account topology',
+    text: 'Operational case with unrelated vocabulary but matching graph context.',
+    semanticEmbedding: [0.01, 0.99, 0.0],
+    structuralEmbedding: [0.0, 0.01, 0.99]
+  },
+  {
+    id: 'hybrid-example-weak-mixed',
+    title: 'Risk review with related topology',
+    text: 'Credit risk review for a customer account.',
+    semanticEmbedding: [0.7, 0.3, 0.0],
+    structuralEmbedding: [0.0, 0.4, 0.6]
+  },
+  {
+    id: 'hybrid-example-tie-breaker',
+    title: 'Tie breaker',
+    text: 'Tie breaker record for deterministic ordering.',
+    semanticEmbedding: [0.0, 1.0, 0.0],
+    structuralEmbedding: [0.0, 1.0, 0.0]
+  }
+] AS row
+CREATE (decision:Decision)
+SET decision = row;
+----
+
+Create indexes for your Neo4j version.
+Current Neo4j releases should use `CREATE VECTOR INDEX`.
+Neo4j 5.11 uses the legacy vector-index creation procedure.
+The 5.11 example drops the vector indexes first so the setup can be rerun; skip the `DROP INDEX` statements if you already have indexes you want to keep.
+
+[.tabbed-example]
+====
+[.include-with-Current-Cypher-25-approach]
+=====
+
+[source,cypher]
+----
+CREATE FULLTEXT INDEX `decision-text` IF NOT EXISTS
+FOR (decision:Decision)
+ON EACH [decision.text];
+
+CREATE VECTOR INDEX `decision-semantic` IF NOT EXISTS
+FOR (decision:Decision)
+ON decision.semanticEmbedding
+OPTIONS {indexConfig: {
+  `vector.dimensions`: 3,
+  `vector.similarity_function`: 'cosine'
+}};
+
+CREATE VECTOR INDEX `decision-structural` IF NOT EXISTS
+FOR (decision:Decision)
+ON decision.structuralEmbedding
+OPTIONS {indexConfig: {
+  `vector.dimensions`: 3,
+  `vector.similarity_function`: 'cosine'
+}};
+
+CALL db.awaitIndexes(30);
+----
+=====
+
+[.include-with-Neo4j-5-11-compatibility]
+=====
+[source,cypher]
+----
+CREATE FULLTEXT INDEX `decision-text` IF NOT EXISTS
+FOR (decision:Decision)
+ON EACH [decision.text];
+
+DROP INDEX `decision-semantic` IF EXISTS;
+DROP INDEX `decision-structural` IF EXISTS;
+
+CALL db.index.vector.createNodeIndex(
+  'decision-semantic',
+  'Decision',
+  'semanticEmbedding',
+  3,
+  'cosine'
+);
+
+CALL db.index.vector.createNodeIndex(
+  'decision-structural',
+  'Decision',
+  'structuralEmbedding',
+  3,
+  'cosine'
+);
+
+CALL db.awaitIndexes(30);
+----
+=====
+====
+
+The query adds one `UNION ALL` branch per source.
+Each branch returns the same columns: the matched node, the source name, the rank in that source, and the raw score for diagnostics.
+The WRRF score uses the rank and source weight, not the raw source score.
+
+Choose the query form for your Neo4j version:
+
+[.tabbed-example]
+====
+[.include-with-Current-Cypher-25-approach]
+=====
+[source,cypher]
+----
+CYPHER 25
+LET
+  query = $query,
+  queryVector = $queryVector,
+  structuralQueryVector = $structuralQueryVector,
+  finalK = $finalK,
+  rrfConstant = $rrfConstant,
+  sourceWeights = $sourceWeights
+
+CALL (query, queryVector, structuralQueryVector) {
+  CALL db.index.fulltext.queryNodes('decision-text', query, {limit: $sourceK})
+  YIELD node AS decision, score
+  WITH decision, score
+  ORDER BY score DESC, decision.id ASC
+  WITH collect({node: decision, rawScore: score}) AS rows
+  UNWIND CASE WHEN size(rows) = 0 THEN [] ELSE range(0, size(rows) - 1) END AS rankIndex
+  RETURN
+    rows[rankIndex].node AS decision,
+    'fulltext' AS source,
+    rankIndex + 1 AS sourceRank,
+    rows[rankIndex].rawScore AS rawScore
+
+  UNION ALL
+
+  MATCH (decision:Decision)
+    SEARCH decision IN (
+      VECTOR INDEX `decision-semantic`
+      FOR queryVector
+      LIMIT $sourceK
+    ) SCORE AS score
+  WITH decision, score
+  ORDER BY score DESC, decision.id ASC
+  WITH collect({node: decision, rawScore: score}) AS rows
+  UNWIND CASE WHEN size(rows) = 0 THEN [] ELSE range(0, size(rows) - 1) END AS rankIndex
+  RETURN
+    rows[rankIndex].node AS decision,
+    'semantic' AS source,
+    rankIndex + 1 AS sourceRank,
+    rows[rankIndex].rawScore AS rawScore
+
+  UNION ALL
+
+  MATCH (decision:Decision)
+    SEARCH decision IN (
+      VECTOR INDEX `decision-structural`
+      FOR structuralQueryVector
+      LIMIT $sourceK
+    ) SCORE AS score
+  WITH decision, score
+  ORDER BY score DESC, decision.id ASC
+  WITH collect({node: decision, rawScore: score}) AS rows
+  UNWIND CASE WHEN size(rows) = 0 THEN [] ELSE range(0, size(rows) - 1) END AS rankIndex
+  RETURN
+    rows[rankIndex].node AS decision,
+    'structural' AS source,
+    rankIndex + 1 AS sourceRank,
+    rows[rankIndex].rawScore AS rawScore
+}
+
+LET weight = coalesce(sourceWeights[source], 1.0)
+LET contribution = weight / (rrfConstant + sourceRank)
+
+WITH decision, finalK, source, sourceRank, rawScore, weight, contribution
+ORDER BY decision.id ASC, source ASC, sourceRank ASC
+
+WITH
+  decision,
+  finalK,
+  collect({
+    source: source,
+    sourceRank: sourceRank,
+    weight: weight,
+    rawScore: rawScore,
+    contribution: contribution
+  }) AS contributions
+
+LET wrrf = reduce(wrrf = 0.0, contribution IN contributions |
+  wrrf + contribution.contribution
+)
+
+ORDER BY wrrf DESC, decision.id ASC
+
+WITH collect({
+  decision: decision,
+  sources: [contribution IN contributions | contribution.source],
+  wrrf: wrrf
+}) AS orderedRows, finalK
+LET limitedRows = orderedRows[..finalK]
+
+UNWIND limitedRows AS row
+RETURN
+  row.decision.title AS title,
+  row.sources AS sources,
+  row.wrrf AS wrrf
+ORDER BY row.wrrf DESC, row.decision.id ASC;
+----
+=====
+
+[.include-with-Neo4j-5-11-compatibility]
+=====
+[source,cypher]
+----
+WITH
+  $query AS query,
+  $queryVector AS queryVector,
+  $structuralQueryVector AS structuralQueryVector,
+  $sourceK AS sourceK,
+  $finalK AS finalK,
+  $rrfConstant AS rrfConstant,
+  $sourceWeights AS sourceWeights
+
+CALL {
+  WITH query, sourceK
+  CALL db.index.fulltext.queryNodes('decision-text', query, {limit: sourceK})
+  YIELD node AS decision, score
+  WITH decision, score
+  ORDER BY score DESC, decision.id ASC
+  WITH collect({node: decision, rawScore: score}) AS rows
+  UNWIND CASE WHEN size(rows) = 0 THEN [] ELSE range(0, size(rows) - 1) END AS rankIndex
+  RETURN
+    rows[rankIndex].node AS decision,
+    'fulltext' AS source,
+    rankIndex + 1 AS sourceRank,
+    rows[rankIndex].rawScore AS rawScore
+
+  UNION ALL
+
+  WITH queryVector, sourceK
+  CALL db.index.vector.queryNodes('decision-semantic', sourceK, queryVector)
+  YIELD node AS decision, score
+  WITH decision, score
+  ORDER BY score DESC, decision.id ASC
+  WITH collect({node: decision, rawScore: score}) AS rows
+  UNWIND CASE WHEN size(rows) = 0 THEN [] ELSE range(0, size(rows) - 1) END AS rankIndex
+  RETURN
+    rows[rankIndex].node AS decision,
+    'semantic' AS source,
+    rankIndex + 1 AS sourceRank,
+    rows[rankIndex].rawScore AS rawScore
+
+  UNION ALL
+
+  WITH structuralQueryVector, sourceK
+  CALL db.index.vector.queryNodes('decision-structural', sourceK, structuralQueryVector)
+  YIELD node AS decision, score
+  WITH decision, score
+  ORDER BY score DESC, decision.id ASC
+  WITH collect({node: decision, rawScore: score}) AS rows
+  UNWIND CASE WHEN size(rows) = 0 THEN [] ELSE range(0, size(rows) - 1) END AS rankIndex
+  RETURN
+    rows[rankIndex].node AS decision,
+    'structural' AS source,
+    rankIndex + 1 AS sourceRank,
+    rows[rankIndex].rawScore AS rawScore
+}
+
+WITH decision, finalK, source, sourceRank, rawScore,
+  coalesce(sourceWeights[source], 1.0) AS weight,
+  rrfConstant
+WITH decision, finalK, source, sourceRank, rawScore, weight,
+  weight / (rrfConstant + sourceRank) AS contribution
+ORDER BY decision.id ASC, source ASC, sourceRank ASC
+
+WITH
+  decision,
+  finalK,
+  collect({
+    source: source,
+    sourceRank: sourceRank,
+    weight: weight,
+    rawScore: rawScore,
+    contribution: contribution
+  }) AS contributions
+
+WITH decision, finalK, contributions,
+  reduce(wrrf = 0.0, contribution IN contributions |
+    wrrf + contribution.contribution
+  ) AS wrrf
+
+ORDER BY wrrf DESC, decision.id ASC
+
+WITH collect({
+  decision: decision,
+  sources: [contribution IN contributions | contribution.source],
+  wrrf: wrrf
+}) AS orderedRows, finalK
+WITH orderedRows[..finalK] AS limitedRows
+
+UNWIND limitedRows AS row
+RETURN
+  row.decision.title AS title,
+  row.sources AS sources,
+  row.wrrf AS wrrf
+ORDER BY row.wrrf DESC, row.decision.id ASC;
+----
+=====
+====
+
+For example, pass parameters like these from an application:
+
+[source,json]
+----
+{
+  "query": "credit limit fraud review",
+  "queryVector": [1.0, 0.0, 0.001],
+  "structuralQueryVector": [0.001, 0.0, 1.0],
+  "sourceK": 3,
+  "finalK": 5,
+  "rrfConstant": 60.0,
+  "sourceWeights": {
+    "fulltext": 1.0,
+    "semantic": 1.0,
+    "structural": 1.0
+  }
+}
+----
+
+.Result
+[role="queryresult", cols="2,2,1", options="header"]
+|===
+| title | sources | wrrf
+
+| "Credit limit escalation after fraud alert"
+| ["fulltext", "semantic", "structural"]
+| 0.048915917503966164
+
+| "Risk review with related topology"
+| ["fulltext", "semantic", "structural"]
+| 0.047619047619047616
+
+| "Credit limit policy wording match"
+| ["fulltext"]
+| 0.01639344262295082
+
+| "Risky customer request"
+| ["semantic"]
+| 0.016129032258064516
+
+| "Similar account topology"
+| ["structural"]
+| 0.016129032258064516
+
+|===
+
+The first result wins because it appears in all three ranked lists.
+The structural-only result still appears because it is highly ranked by the structural source, even though it is not lexically or semantically close.
+This is useful when text alone does not capture graph context, for example when two decisions involve similar account structures, policy chains, or escalation paths.
+
+== Production notes
+
+Hybrid search is a retrieval pattern, not a separate index type.
+To add another signal, add another source branch that returns the same shape and include a matching source weight.
+The source can be another vector index, a full-text index, an exact graph traversal score, a graph algorithm output, or an external ranker.
+
+Structural embeddings should be refreshed when the graph topology changes enough that old embeddings no longer represent current context.
+If you use GDS FastRP, see the https://neo4j.com/docs/graph-data-science/current/machine-learning/node-embeddings/fastrp/[FastRP documentation^] for graph projection, algorithm configuration, and write or mutate modes.
+
+For retrieval-augmented generation (RAG), a common pattern is to retrieve a larger candidate set with hybrid search, then pass the fused results to graph expansion or a reranker.
+
+== Documentation
+[cols="1,4"]
+|===
+
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/indexes/semantic-indexes/vector-indexes/[Vector indexes^]
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/indexes/semantic-indexes/full-text-indexes/[Full-text indexes^]
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^]
+| icon:book[] Documentation | https://neo4j.com/docs/genai/plugin/current/embeddings/[Create and store embeddings^]
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/functions/vector/[Vector similarity functions^]
+| icon:book[] Documentation | https://neo4j.com/docs/graph-data-science/current/machine-learning/node-embeddings/fastrp/[GDS FastRP node embeddings^]
+| icon:book[] Paper | https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf[Reciprocal Rank Fusion^]
+|===
