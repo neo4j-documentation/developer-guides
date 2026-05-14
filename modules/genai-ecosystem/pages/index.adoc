@@ -47,6 +47,7 @@ Neo4j has a number of features & product supported tools to make it easier to bu
 * xref:graphrag-python.adoc[GraphRAG Python Package]
 * https://python.langchain.com/docs/integrations/providers/neo4j[`langchain-neo4j` (vendor supported package)]
 * xref:vector-search.adoc[Vector Index & Search in Neo4j]
+* xref:hybrid-search.adoc[Hybrid Search]
 
 
 == GraphRAG Ecosystem Tools

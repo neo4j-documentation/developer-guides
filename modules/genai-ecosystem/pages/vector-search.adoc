@@ -137,105 +137,12 @@ ORDER BY score DESC LIMIT 10;
 =====
 ====
 
-== Hybrid full-text and vector search
+== Hybrid search
 
-Vector search is useful for finding text with similar meaning, but some searches also need exact terms, names, acronyms, identifiers, or recently added vocabulary.
-Hybrid search often combines semantic vector search with keyword search, then fuses both ranked result sets into one list.
-The same rank-fusion technique can combine any number of ranked or scored result sources, for example several vector indexes, or a vector index and a graph traversal score.
+Vector search is useful for finding text with similar meaning, but some searches also need exact terms, names, acronyms, identifiers, recently added vocabulary, or graph structure.
+Hybrid search combines ranked results from more than one retrieval signal, then fuses them into one result list.
 
-The example below combines:
-
-* a full-text index on `Abstract.text`
-* the vector index on `Abstract.embedding`
-* weighted reciprocal rank fusion (WRRF), which scores each result from its rank in each source list rather than comparing raw scores from different search methods directly
-
-Create a full-text index for the same text that was embedded:
-
-[source,cypher]
-----
-CREATE FULLTEXT INDEX `abstract-fulltext` IF NOT EXISTS
-FOR (abstract:Abstract)
-ON EACH [abstract.text];
-----
-
-Use a larger `sourceK` than `finalK` so each source can contribute enough candidates before fusion.
-The `rrfConstant` dampens the effect of rank position, and `sourceWeights` lets you favor keyword or semantic matches for your application.
-The query uses `abstract.id` as a deterministic tie breaker; replace it with a stable unique property from your own data model.
-
-[source,cypher]
-----
-CYPHER 25
-LET
-  query = $query,
-  queryVector = $queryVector,
-  sourceK = $sourceK,
-  finalK = $finalK,
-  rrfConstant = $rrfConstant,
-  sourceWeights = $sourceWeights
-
-CALL (query, queryVector, sourceK, rrfConstant, sourceWeights) {
-  CALL db.index.fulltext.queryNodes('abstract-fulltext', query, {limit: sourceK})
-  YIELD node AS abstract, score
-  ORDER BY score DESC, abstract.id ASC
-  WITH collect(abstract) AS abstracts, rrfConstant, sourceWeights
-  LET weight = coalesce(sourceWeights['fulltext'], 1.0)
-  UNWIND CASE WHEN size(abstracts) = 0 THEN [] ELSE range(0, size(abstracts) - 1) END AS rankIndex
-  RETURN
-    abstracts[rankIndex] AS abstract,
-    weight / (rrfConstant + rankIndex + 1) AS contribution
-
-  UNION ALL
-
-  MATCH (abstract:Abstract)
-    SEARCH abstract IN (
-      VECTOR INDEX `abstract-embeddings`
-      FOR queryVector
-      LIMIT $sourceK
-    ) SCORE AS score
-  ORDER BY score DESC, abstract.id ASC
-  WITH collect(abstract) AS abstracts, rrfConstant, sourceWeights
-  LET weight = coalesce(sourceWeights['vector'], 1.0)
-  UNWIND CASE WHEN size(abstracts) = 0 THEN [] ELSE range(0, size(abstracts) - 1) END AS rankIndex
-  RETURN
-    abstracts[rankIndex] AS abstract,
-    weight / (rrfConstant + rankIndex + 1) AS contribution
-}
-WITH abstract, finalK, sum(contribution) AS wrrf
-ORDER BY wrrf DESC, abstract.id ASC
-WITH collect({abstract: abstract, wrrf: wrrf}) AS orderedRows, finalK
-LET limitedRows = orderedRows[..finalK]
-UNWIND limitedRows AS row
-WITH row.abstract AS abstract, row.wrrf AS wrrf
-MATCH (abstract)<--(:Paper)-->(title:Title)
-RETURN title.text AS title, abstract.text AS text, wrrf
-ORDER BY wrrf DESC, abstract.id ASC;
-----
-
-For example, pass parameters like these from an application:
-
-[source,json]
-----
-{
-  "query": "hierarchical navigable small world graph",
-  "queryVector": [0.12, -0.03, 0.45],
-  "sourceK": 20,
-  "finalK": 10,
-  "rrfConstant": 60.0,
-  "sourceWeights": {
-    "fulltext": 1.0,
-    "vector": 1.0
-  }
-}
-----
-
-Each source contributes `weight / (rrfConstant + sourceRank)` for every matching abstract.
-If an abstract appears in both result sets, the query sums both contributions.
-This rewards results that rank highly in either source, and gives an additional boost to results that rank well in both.
-To add more sources, add another `UNION ALL` branch that returns the same columns, `abstract` and `contribution`, using a different weight key such as `sourceWeights['metadata']` or `sourceWeights['graph']`.
-
-Increase the full-text weight when exact terminology is critical, such as product names, codes, or domain-specific vocabulary.
-Increase the vector weight when conceptual similarity should dominate.
-For retrieval-augmented generation (RAG), a common pattern is to retrieve a larger candidate set with hybrid search, then pass the fused results to graph expansion or a reranker.
+For worked examples, including full-text + vector search and lexical + semantic + structural search, see xref:hybrid-search.adoc[Hybrid search].
 
 == Documentation
 [cols="1,4"]
