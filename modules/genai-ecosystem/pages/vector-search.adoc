@@ -212,6 +212,8 @@ ORDER BY wrrf DESC, abstract.id ASC;
 ----
 
 For example, pass parameters like these from an application:
+The `queryVector` below is shortened for readability.
+In a real query, pass an embedding with the same dimensions as the vector index, for example 1536 dimensions when using `text-embedding-3-small`.
 
 [source,json]
 ----
