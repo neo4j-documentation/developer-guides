@@ -30,7 +30,7 @@
     "@neo4j-documentation/macros": "^1.0.0",
     "@neo4j-documentation/remote-include": "^1.0.0",
     "antora": "^3.1.9",
-    "express": "^4.17.3",
+    "express": "^4.20.0",
     "npm-watch": "^0.6.0"
   },
   "watch": {
