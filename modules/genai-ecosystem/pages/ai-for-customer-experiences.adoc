@@ -7,6 +7,7 @@ include::_graphacademy_llm.adoc[]
 :neo4j-versions: 5.x
 :page-pagination:
 :page-product: graphrag-customer-experience
+include::_nodes_2026.adoc[]
 
 
 Use Graph-powered RAG (GraphRAG) to improve customer experiences throughout multiple touch-points in their journey:

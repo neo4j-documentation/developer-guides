@@ -8,6 +8,7 @@ include::_graphacademy_llm.adoc[]
 :neo4j-versions: 5.X
 :page-pagination:
 :page-product: GenAI Ecosystem
+include::_nodes_2026.adoc[]
 
 image::graphrag-image-simple.png[width=800, align=center]
 

@@ -8,6 +8,7 @@
 :page-pagination:
 :page-product: neo4j
 include::https://raw.githubusercontent.com/neo4j-graphacademy/courses/refs/heads/main/asciidoc/courses/genai-mcp-neo4j-tools/ad.adoc[]
+include::_nodes_2026.adoc[]
 
 == What is the Model Context Protocol
 

@@ -7,6 +7,7 @@ include::_graphacademy_llm.adoc[]
 :neo4j-versions: 5.x
 :page-pagination:
 :page-product: mcp-employee-customer
+include::_nodes_2026.adoc[]
 
 image::mcp-customer-employee.png[align=center]
 This is a context engineering example demonstrating how to create intelligent agents across multiple business domains with graph databases and model context protocol (MCP).  Graph Databases represent context & associated metadata in an optimal manner, enabling agents to better decompose tasks and use MCP servers to execute intelligent workflows across multiple data sources.

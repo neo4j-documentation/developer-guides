@@ -7,6 +7,7 @@ include::_graphacademy_llm.adoc[]
 :neo4j-versions: 5.x
 :page-pagination:
 :page-product: energy-agent
+include::_nodes_2026.adoc[]
 
 image::energy-agent-header.png[align=center]
 This is an example of constructing tools with https://neo4j.com/labs/genai-ecosystem/neoconverse/[NeoConverse] to leverage Agentic GraphRAG for energy grid risk assessment and maintenance scheduling use cases.

@@ -7,6 +7,7 @@ include::_graphacademy_llm.adoc[]
 :neo4j-versions: aura
 :page-pagination:
 :page-product: aura
+include::_nodes_2026.adoc[]
 
 image::https://dist.neo4j.com/wp-content/uploads/20250929164049/aura-agent-tools-e1759250930497.png[]
 

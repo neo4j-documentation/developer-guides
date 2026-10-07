@@ -1,4 +1,5 @@
 = Creating Knowledge Graphs from Unstructured Data
+include::_nodes_2026.adoc[]
 
 Creating graph structures from unstructured text using https://neo4j.com/blog/machine-learning/accelerating-towards-natural-language-search-graphs/[NLP techniques like Spacy, Stanford NLP, OpenNLTK^] etc. has been a long-standing possibility.
 Those usually required fine-tuning of the NLP models on the specific domain and language of the text to be processed and substantial NLP skills to get the best results.

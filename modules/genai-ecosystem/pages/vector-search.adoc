@@ -8,6 +8,7 @@ include::_developer_survey.adoc[]
 :neo4j-versions: 5.11+
 :page-pagination:
 :page-product: neo4j
+include::_nodes_2026.adoc[]
 
 
 image::https://dist.neo4j.com/wp-content/uploads/20230821135317/Grounding-LLM-Responses-with-Implicit-and-Explicit-Search-Through-Neo4js-Knowledge-Graph-2048x1152.png[width=800]

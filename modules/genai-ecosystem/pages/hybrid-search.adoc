@@ -8,6 +8,7 @@ include::_developer_survey.adoc[]
 :neo4j-versions: 5.11+
 :page-pagination:
 :page-product: neo4j
+include::_nodes_2026.adoc[]
 
 
 Hybrid search is useful when one retrieval signal is not enough.

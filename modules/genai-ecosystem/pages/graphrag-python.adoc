@@ -7,6 +7,7 @@ include::_graphacademy_llm.adoc[]
 :neo4j-versions: 5.23+
 :page-pagination:
 :page-product: neo4j
+include::_nodes_2026.adoc[]
 
 
 The Neo4j GraphRAG package is a comprehensive Python library that allows building GenAI applications.
