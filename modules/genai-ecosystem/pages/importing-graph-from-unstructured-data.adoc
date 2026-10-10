@@ -13,15 +13,45 @@ Those Knowledge Graphs can then be used for a variety of applications, including
 
 image::https://miro.medium.com/v2/resize:fit:1400/format:webp/0*qgT2hBiA3DA1Y3qu.png[width=600]
 
-image::https://cdn.graphacademy.neo4j.com/assets/img/courses/banners/llm-vectors-unstructured.png[width=800,link="https://graphacademy.neo4j.com/courses/llm-vectors-unstructured/?category=generative-ai"]
+image::https://graphacademy.neo4j.com/courses/aura-document-intelligence/banner[width=800,link="https://graphacademy.neo4j.com/courses/aura-document-intelligence"]
 
 == Neo4j Product Capabilities
 
+[#neo4j-document-intelligence-aura]
+=== Neo4j Document Intelligence (Aura)
+
+https://neo4j.com/docs/aura/document-intelligence/introduction/[Document Intelligence^] is the quickest way to turn your existing documents into a Knowledge Graph in Neo4j Aura, without writing any code.
+It is available in AuraDB Free, Professional and Business Critical.
+
+Point it at your documents, and it will:
+
+* Read PDF, Markdown, DOCX, TXT and EPUB files, from local uploads or from AWS S3, Azure Blob Storage / Data Lake Storage and Google Cloud Storage.
+* Automatically generate a graph model (node labels, relationship types, properties, constraints and indexes) from the content, or build on a model you already have.
+* Let you review and refine the model on a canvas or by chatting with the built-in AI assistant.
+* Run the import as a background job that extracts entities and relationships, links them to a lexical graph of Document and Chunk nodes, and matches them with data already in your database.
+* Let you explore and question the resulting graph conversationally, without writing Cypher.
+
+image::https://neo4j.com/docs/aura/_images/docintel.png[title="Graph model generated from your documents, with data sources, model canvas and details panel",width=800,link="https://neo4j.com/docs/aura/document-intelligence/visual-tour/"]
+
+Cloud storage buckets are added as reusable data sources, and every import runs as a tracked job, so you can follow the progress of large document sets.
+
+image::https://neo4j.com/docs/aura/_images/cloud-data-sources.jpg[title="Cloud data sources",width=400]
+
+image::https://neo4j.com/docs/aura/_images/progress.jpg[title="Import jobs",width=800]
+
+Learn more:
+
+* https://neo4j.com/docs/aura/document-intelligence/introduction/[Document Intelligence Documentation^]
+* https://neo4j.com/docs/aura/document-intelligence/visual-tour/[Visual Tour^]
+* https://neo4j.com/blog/graph-database/easily-build-a-kg-from-your-existing-documents-with-document-intelligence/[Blog: Easily build a knowledge graph from your existing documents with Document Intelligence^]
+
+[#graphrag-python-package]
 === GraphRAG Python Package
 
-The Neo4j Python GraphRAG package offers a comprehensive Pipeline for unstructured document processing, graph schema based entity extraction, resolution and storage.
+When you need to build Knowledge Graphs in code, as part of your own application or data pipeline, use the https://neo4j.com/docs/neo4j-graphrag-python/current/[Neo4j GraphRAG Python package^].
+It offers a comprehensive, fully configurable pipeline for unstructured document processing, graph schema based entity extraction, resolution and storage.
 
-The `SimpleKGBuilder` provides an easy way to get started, for full configurability, please use 
+The `SimpleKGPipeline` provides an easy way to get started, for full configurability, you can assemble your own pipeline from its components.
 
 [source,python]
 ----
@@ -58,10 +88,10 @@ image::https://neo4j.com/docs/neo4j-graphrag-python/current/_images/kg_builder_p
 A full Knowledge Graph (KG) construction pipeline requires a few more components:
 
 * *Data loader:* extract text from files (PDFs, …).
-* *Text splitter:* split the text into smaller pieces of text (chunks), manageable by the LLM * context window (token limit).
+* *Text splitter:* split the text into smaller pieces of text (chunks), manageable by the LLM context window (token limit).
 * *Chunk embedder (optional):* compute the chunk embeddings.
-* *Schema builder:* provide a schema to ground the LLM extracted entities and relations and obtain * an easily navigable KG.
-* *Lexical graph builder:* build the lexical graph (Document, Chunk and their relationships) * (optional).
+* *Schema builder:* provide a schema to ground the LLM extracted entities and relations and obtain an easily navigable KG.
+* *Lexical graph builder:* build the lexical graph (Document, Chunk and their relationships) (optional).
 * *Entity and relation extractor:* extract relevant entities and relations from the text.
 * *Knowledge Graph writer:* save the identified entities and relations.
 * *Entity resolver:* merge similar entities into a single node.
@@ -71,13 +101,18 @@ Learn more in the documentation:
 * https://neo4j.com/developer/genai-ecosystem/graphrag-python/[Neo4j GraphRAG Python Package Overview^]
 * https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_kg_builder.html[User Guide: Knowledge Graph Builder^]
 * https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_pipeline.html[User Guide: Pipeline]
-* https://graphacademy.neo4j.com/courses/llm-vectors-unstructured/?category=generative-ai[GraphAcademy Course^]
+* https://graphacademy.neo4j.com/courses/aura-document-intelligence[GraphAcademy Course^]
 
 Those generated Knowledge Graphs can then be used with the https://neo4j.com/docs/neo4j-graphrag-python/current/user_guide_rag.html[same Python package, for building GraphRAG powered^] GenAI applications.
 
-== Prototyping and Demonstrations
+== Other Approaches
 
-=== LLM Knowledge Graph Builder
+The following options are experimental, community or third-party approaches.
+For most use cases, we recommend <<neo4j-document-intelligence-aura,Document Intelligence>> or the <<graphrag-python-package,GraphRAG Python package>> above.
+
+=== Neo4j Labs: LLM Knowledge Graph Builder
+
+NOTE: The LLM Knowledge Graph Builder is a Neo4j Labs project, which is not officially supported. For a supported, managed experience use Document Intelligence in Aura.
 
 The https://neo4j.com/labs/genai-ecosystem/llm-graph-builder/[LLM Knowledge Graph Builder^] is an easy to use tool for building Knowledge Graphs from unstructured text.
 
@@ -103,11 +138,11 @@ Now they can be automatically saved to a connected graph using the https://githu
 
 image::https://github.com/neo4j-contrib/mcp-neo4j/raw/main/servers/mcp-neo4j-memory/docs/images/employee_create_entities_and_relations.png[width=400]
 
-== Ecosystem Integrations
+=== Ecosystem Integrations
 
 Neo4j integrates with a number of other tools and frameworks to provide solutions for Knowledge Graph extraction and usage.
 
-=== Unstructured.io
+==== Unstructured.io
 
 https://unstructured.io[Unstructured.io^] is a platform and python package for extracting structured data from unstructured documents. 
 It provides a set of tools for parsing, cleaning, and transforming unstructured data into structured formats.
@@ -139,7 +174,7 @@ Pipeline.from_configs(
 ).run()
 ----
 
-=== LangChain
+==== LangChain
 
 The https://medium.com/data-science/building-knowledge-graphs-with-llm-graph-transformer-a91045c49b59[first implementation for Knowledge Graph extraction^] was the https://python.langchain.com/api_reference/experimental/graph_transformers/langchain_experimental.graph_transformers.llm.LLMGraphTransformer.html[LangChain LLMGraphTransformer^].
 
@@ -168,7 +203,7 @@ graph.add_graph_documents(graph_documents, include_source=True)
 
 image::https://python.langchain.com/assets/images/graph_construction4-e41087302ef4c331c2c95b57467f4c62.png[width=400]
 
-=== LlamaIndex
+==== LlamaIndex
 
 In https://www.llamaindex.ai/blog/introducing-the-property-graph-index-a-powerful-new-way-to-build-knowledge-graphs-with-llms[LlamaIndex the PropertyGraphIndex^] is the main component for managing Knowledge Graphs including building them from unstructured data.
 For extracting entities and relations, different extractors can be used, for instance the `SchemaLLMPathExtractor`.
@@ -240,6 +275,7 @@ https://medium.com/neo4j/integrating-neo4j-with-langchain4j-for-graphrag-based-v
 
 == Blog Posts
 
+* https://neo4j.com/blog/graph-database/easily-build-a-kg-from-your-existing-documents-with-document-intelligence/[Easily build a knowledge graph from your existing documents with Document Intelligence (2026)^]
 * https://robert-mcdermott.medium.com/from-unstructured-text-to-interactive-knowledge-graphs-using-llms-dd02a1f71cd6[From Unstructured Text to Interactive Knowledge Graphs using LLMs (2025)^]
 * https://neo4j.com/blog/developer/graphrag-in-action/[GraphRAG in Action: From Commercial Contracts to a Dynamic Q&A Agent (2024)^]
 * https://medium.com/neo4j/using-llamaparse-for-knowledge-graph-creation-from-documents-3bd1e1849754[Using LlamaParse for Knowledge Graph Creation from Documents (2024)^]
