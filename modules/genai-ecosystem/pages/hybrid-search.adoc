@@ -39,12 +39,16 @@ WRRF scores each result from its rank in each source list rather than comparing 
 Use a larger `sourceK` than `finalK` so each source can contribute enough candidates before fusion.
 The `rrfConstant` dampens the effect of rank position, and `sourceWeights` lets you favor one retrieval signal over another.
 
+The current examples require Neo4j 2026.09 or later and Cypher 25 to query both full-text and vector indexes with `SEARCH`.
+The Neo4j 5.11 compatibility examples retain the full-text and vector query procedures.
+In Cypher 25, the full-text query procedures are deprecated as of Neo4j 2026.10.
+
 == Full-text and vector search
 
 The example below combines:
 
-* a full-text index on `Abstract.text`
-* stored embedding vectors on `Abstract.embedding`, queried with a vector index using `SEARCH` in current Neo4j releases or `db.index.vector.queryNodes()` for Neo4j 5.11 compatibility
+* a full-text index on `Abstract.text`, queried with `SEARCH` in the current example or `db.index.fulltext.queryNodes()` in the Neo4j 5.11 compatibility example
+* stored embedding vectors on `Abstract.embedding`, queried with a vector index using `SEARCH` in the current example or `db.index.vector.queryNodes()` in the Neo4j 5.11 compatibility example
 * WRRF scoring over both ranked lists
 
 Create indexes for your Neo4j version.
@@ -112,14 +116,17 @@ CYPHER 25
 LET
   query = $query,
   queryVector = $queryVector,
-  sourceK = $sourceK,
   finalK = $finalK,
   rrfConstant = $rrfConstant,
   sourceWeights = $sourceWeights
 
-CALL (query, queryVector, sourceK, rrfConstant, sourceWeights) {
-  CALL db.index.fulltext.queryNodes('abstract-fulltext', query, {limit: sourceK})
-  YIELD node AS abstract, score
+CALL (query, queryVector, rrfConstant, sourceWeights) {
+  MATCH (abstract)
+    SEARCH abstract IN (
+      FULLTEXT INDEX `abstract-fulltext`
+      FOR query
+      LIMIT $sourceK
+    ) SCORE AS score
   ORDER BY score DESC, abstract.id ASC
   WITH collect(abstract) AS abstracts, rrfConstant, sourceWeights
   LET weight = coalesce(sourceWeights['fulltext'], 1.0)
@@ -394,8 +401,12 @@ LET
   sourceWeights = $sourceWeights
 
 CALL (query, queryVector, structuralQueryVector) {
-  CALL db.index.fulltext.queryNodes('decision-text', query, {limit: $sourceK})
-  YIELD node AS decision, score
+  MATCH (decision)
+    SEARCH decision IN (
+      FULLTEXT INDEX `decision-text`
+      FOR query
+      LIMIT $sourceK
+    ) SCORE AS score
   WITH decision, score
   ORDER BY score DESC, decision.id ASC
   WITH collect({node: decision, rawScore: score}) AS rows
@@ -647,8 +658,8 @@ For retrieval-augmented generation (RAG), a common pattern is to retrieve a larg
 [cols="1,4"]
 |===
 
-| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/indexes/semantic-indexes/vector-indexes/[Vector indexes^]
-| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/indexes/semantic-indexes/full-text-indexes/[Full-text indexes^]
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/indexes/search-indexes/vector-indexes/[Vector indexes^]
+| icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/indexes/search-indexes/full-text-indexes/[Full-text indexes^]
 | icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/clauses/search/[`SEARCH` clause^]
 | icon:book[] Documentation | https://neo4j.com/docs/genai/plugin/current/embeddings/[Create and store embeddings^]
 | icon:book[] Documentation | https://neo4j.com/docs/cypher-manual/current/functions/vector/[Vector similarity functions^]
